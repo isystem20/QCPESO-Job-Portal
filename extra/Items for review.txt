@@ -1,0 +1,93 @@
+
+1. Nature of Web applocation and Website. Compare and Contrast the two.
+A website a general term for any site in the web and a web application is an
+example of website.
+Web applications are the types of website that are interactive and performing
+business functions.
+
+2. What are the components of Web application and Website?
+Like how defined web applications and website, web applications performs sets
+of business functions and enables users to have interaction with its pages.
+
+3. Research about progressive and responsive website/web app.
+Responsive websites are the websites that are compatible to any device,
+particularly to the interface components such as layouts, text, and images.
+Progressive websites are the websites with responsive capability and also
+take advantage to the features enabled in the website such as Clipboard access, 
+Accessing the filesystem and Hardware-accelerated 2D/3D graphics via HTML5 
+Canvas or WebGL
+
+4. BG of the study (About PESO)
+
+-Existence
+The Public Employment Service Office or PESO is a non-fee charging 
+multi-employment service facility or entity established or accredited pursuant 
+to Republic Act No. 8759 otherwise known as the PESO Act of 1999.
+Created by Executive Order No. 4 on February 9, 1989, the Industrial 
+Relations Office (IRO) is mandated "to develop and enhance the cooperation 
+and understanding between management and labor towards industrial peace 
+in Quezon City."
+This original mandate was broadened to include the promotion and sustenance 
+of the City's Employment Program when, in September 3, 1992, the City 
+Government signed a pertinent Memorandum of Agreement with the 
+Department of Labor and Employment (DOLE). Thus, the City's Public 
+Employment Service Office (PESO) was born.
+
+-Services offered
+* Referrals for Local and Overseas Employment
+- Tulong Alalay sa Taong May Kapansanan (TULAY 2000)
+- Rural Works Program
+* Recruitment Assistance for Employers
+- Processing, recruitment and matching of the skills and qualifications of persons with disabilities (PWDs) with the manpower requirements of prospective employers
+* Employment Information and Guidance Services
+- Work Appreciation Program
+- Special Program for Employment of Students
+- Vocational and Career Guidance Program
+* Job Fairs
+
+5. Existing System
+Manual transactions with macro-based program within MS Access.
+
+6. Difficulties of the current system
+No user level in the program they are using
+Data record redundancy
+Prone to data corruption and loss
+Inconsistency in records
+Prone to data breach
+Too much time consuming transactions
+No monitoring of successful hires
+No web portal for available jobs and other important news and events
+No Interaction with applicants after referral
+No audit trail in the program
+No central record for PESO and Establishments for job applications
+
+
+7. Proponents solutions to the said problems.
+Create Web portal for PESO that will show job vacancies and updates.
+Create Web application for back office transactions
+Use secured database management software
+
+
+
+8. Specific Objectives.
+
+9. Scope and Delimitation (Optional?)
+
+
+10. Others
+
+-Wear Smart Casual (or Anything that would look the student smart)
+-In QnA, consider attitude and use polite words.
+-Be willing to accept suggestions
+-Food for panel
+-Research about other org similar to PESO
+
+
+
+
+
+
+
+
+White Tshirt + Suit / Jacket
+
