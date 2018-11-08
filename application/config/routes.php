@@ -135,9 +135,17 @@ $route['403'] = 'admin/SiteErrorController/Error403';
 $route['admin/login/auth'] = 'admin/AuthenticationController/AuthenticateAdmin';
 $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
+//CATEGORIES
+$route['admin/categories/add'] = 'admin/CategoriesController/Create'; //POST to create
+$route['admin/categories/edit'] = 'admin/CategoriesController/Update'; // POST to edit
+$route['admin/categories/del'] = 'admin/CategoriesController/Delete'; // POST to delete
+$route['admin/categories/read'] = 'admin/CategoriesController/Read'; // POST to view
 
-$route['admin/register/categories'] = 'admin/CategoriesController/Create';
-
+//LANGUAGES
+$route['admin/languages/add'] = 'admin/CategoriesController/Create';
+$route['admin/languages/edit'] = 'admin/CategoriesController/Update';
+$route['admin/languages/del'] = 'admin/CategoriesController/Delete';
+$route['admin/languages/read'] = 'admin/CategoriesController/Read';
 
 
 

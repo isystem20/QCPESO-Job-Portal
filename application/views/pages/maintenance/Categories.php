@@ -178,7 +178,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <form id="add-form" action="<?php echo base_url(); ?>admin/register/categories" method="POST">
+                <form id="add-form" action="<?php echo base_url(); ?>admin/categories/add" method="POST">
                     <div class="form-group">
                         <label for="recipient-name" class="control-label">Name: </label>
                         <input type="text" name="name" class="form-control" placeholder="A unique name for this category">
