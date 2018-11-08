@@ -84,7 +84,7 @@ $route['translate_uri_dashes'] = FALSE;
             
             /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/PreferredLocationController/PreferredLocations';
             /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/EmployeeController/JobTitles';
-            /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/EmployeeController/Categories';
+            /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/CategoriesController/Categories';
         /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
         /* Surveys */                       $route['manage/surveys'] = 'admin/SurveyController/Survey';
 
@@ -134,3 +134,10 @@ $route['web/logout'] = 'WebController/logout';
 $route['403'] = 'admin/SiteErrorController/Error403';
 $route['admin/login/auth'] = 'admin/AuthenticationController/AuthenticateAdmin';
 $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
+
+
+$route['admin/register/categories'] = 'admin/CategoriesController/Create';
+
+
+
+
