@@ -45,4 +45,10 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/datatables/media/css/dataTables.bootstrap4.css">
 
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            font-size:14px !important; 
+        }
+    </style>
 </head>
