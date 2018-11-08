@@ -1,6 +1,33 @@
 
     </div>
 
+<script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/popper.min.js"></script>
+<script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!--Custom JavaScript -->
+<script type="text/javascript">
+$(function() {
+    $(".preloader").fadeOut();
+});
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+});
+// ============================================================== 
+// Login and Recover Password 
+// ============================================================== 
+$('#to-recover').on("click", function() {
+    $("#loginform").slideUp();
+    $("#recoverform").fadeIn();
+});
+</script>
+
+
+<script type="text/javascript" src="<?php echo base_url();?>themes/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>themes/bower_components/jquery-ui/jquery-ui.min.js"></script>
+
+
+
     <?php
     if (!empty($charts)) { ?>
 
@@ -116,7 +143,11 @@
 
 
 
+    
+<script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/js/jquery.toast.js"></script>
 
+
+<script src="<?php echo base_url(); ?>themes/ajax/office.js"></script>
 
 
 </body>
