@@ -1,5 +1,4 @@
-    
- <div class="page-wrapper">
+<div class="page-wrapper">
             
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -10,13 +9,13 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Language List</h3>
+                    <h3 class="text-themecolor">Language</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">pages</li>
-                        <li class="breadcrumb-item active">Language List</li>
+                        <li class="breadcrumb-item">Maintenenace</li>
+                        <li class="breadcrumb-item active">Languages</li>
                     </ol>
                 </div>
                 <div>
@@ -30,37 +29,79 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-         
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-12">
 
                         <div class="card">
-
-                            
-                            <div class="card-block">
-                                <div class="dt-responsive table-responsive">
-                                    <table id="simpletable" class="table table-striped table-bordered nowrap">
+                            <div class="card-body">
+                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Description</th>
-                                                <th>Modified By ID</th>
-                                                <th>Modified At</th>  
-                                                <th>Status</th>    
+                                                <th>Modified By</th>
+                                                <th>Last Modified</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
-                                        </thead>                                    
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Modified By</th>
+                                                <th>Last Modified</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        <?php
+                                        if ($language->num_rows() > 0) {
+                                            foreach ($language->result() as $row) { ?>
+                                            <tr>
+                                                <td><?php echo $row->name; ?></td>
+                                                <td><?php echo $row->description; ?></td>
+                                                <td><?php echo $row->modifiedById?></td>
+                                                <td><?php echo $row->modifiedAt?></td>
+                                                <td>
+                                                    <?php 
+                                                    if ($row->isActive == '1') {
+                                                        echo '<label class="label label-success">Active</label>';
+                                                    }
+                                                    else {
+                                                        echo '<label class="label label-warning">Inactive</label>';
+                                                    }
+                                                    ?>
+                                                </td>
+                                                <td>
+                                                    <!-- <button type="button" class="btn waves-effect waves-light btn-outline-info btn-xs"><i class="fas fa-info"></i></button> -->
+                                                    <button class="btn btn-info waves-effect waves-light btn-sm" type="button"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="btn btn-success waves-effect waves-light btn-sm" type="button"> <i class="far fa-edit" ></i> </button>
+                                                     <button class="btn btn-danger waves-effect waves-light btn-sm" type="button"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+                                            </tr>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
-    </div>
-
-
-     <div class="right-sidebar">
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <div class="right-sidebar">
                     <div class="slimscrollright">
                         <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
                         <div class="r-panel-body">
@@ -125,3 +166,44 @@
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
+
+
+
+
+<!-- sample modal content -->
+<div id="add-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add New Category</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="add-form" action="<?php echo base_url(); ?>admin/register/categories" method="POST">
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Name: </label>
+                        <input type="text" name="name" class="form-control" placeholder="A unique name for this category">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Description:</label>
+                        <textarea name="description" class="form-control" placeholder="Short description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select name="status" class="form-control">
+                            <option value="1">Active (Activate now)</option>
+                            <option value="0">Inactive (Register but activate later)</option>
+                        </select>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                <button type="submit" id="add-submit" class="btn btn-info waves-effect waves-light">Save changes</button>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- /.modal -->

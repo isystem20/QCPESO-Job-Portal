@@ -59,7 +59,7 @@
                                                 <td>    
                                                     <?php 
                                                     if ($row->isActive == '1') {
-                                                        echo '<label class="label label-primary">Active</label>';
+                                                        echo '<label class="label label-success">Active</label>';
                                                     }
                                                     else {
                                                         echo '<label class="label label-danger">Inactive</label>';
