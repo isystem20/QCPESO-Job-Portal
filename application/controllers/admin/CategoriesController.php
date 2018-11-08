@@ -11,9 +11,9 @@
  	public function Categories()
  	{
  
- 		$layout = array('tables'=>TRUE);
+ 		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
  		
- 		$data['categories'] = $this->categmod->Load_CategoriesModel_Masterlist();
+ 		$data['categories'] = $this->categmod->LoadCategoryMasterlist();
  		$this->load->view('layout/admin/1_css');
  		$this->load->view('layout/admin/2_preloader');
  		$this->load->view('layout/admin/3_topbar');
@@ -37,7 +37,7 @@
         else {
         	$postdata = $this->input->post();
         	$inserted = $this->categmod->Add($postdata);
-        	echo json_encode(['success'=>TRUE]);
+        	// echo json_encode(['success'=>TRUE]);
          	if ($inserted != FALSE) {
 	        	$json = json_encode($inserted);       		
         		echo $json;

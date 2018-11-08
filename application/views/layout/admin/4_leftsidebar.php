@@ -23,7 +23,7 @@
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
                         <li class="nav-small-cap">MANAGE</li>
-                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/users-masterlist" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Users</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/users-masterlist/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Users</span></a>
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/user-groups/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Groups</span></a>
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Maintenance</span></a>
