@@ -111,15 +111,9 @@ $(document).ready(function() {
                       stack: 6
                     });
 
-
-
-
-                     
-
                     window.setTimeout(function(){
                       window.location.href = data.url;  
                     }, 1000);
-
 
                   }
                   else{

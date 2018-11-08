@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2018 at 10:43 AM
+-- Generation Time: Nov 08, 2018 at 10:50 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -87,6 +87,34 @@ CREATE TABLE `tbl_applicants` (
 
 INSERT INTO `tbl_applicants` (`Id`, `lastName`, `firstName`, `middleName`, `suffix`, `houseNum`, `streetName`, `subdivisionName`, `barangayId`, `cityId`, `provinceId`, `birthDate`, `birthPlace`, `age`, `gender`, `civilStatus`, `landlineNum`, `mobileNum`, `emailAddress`, `employmentStatus`, `preferredJobs`, `preferredWorkLocations`, `disability`, `disabilityOthers`, `languageSpoken`, `languageRead`, `languageWritten`, `dialect`, `isCurrentlyStudying`, `lastSchoolLevel`, `nonStudentReason`, `preferredTrainingCourse`, `isOFW`, `isKasambahay`, `versionNum`, `photoPath`, `tagline`, `TIN`, `SSS`, `PHILHEALTH`, `PAGIBIG`, `isMigrated`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `remarks`, `isActive`) VALUES
 ('95a1b048-c8b2-4425-9dd5-e0fab21942cd', 'CARPIO', 'JOHN', '', '', '', '', '', 0, 0, 0, '0000-00-00', '', 0, '', '', '', '', 'isystem20@gmail.com', '', '', '', '', '', '', '', '', '', 0, '', '', '', 0, 0, 0, '', '', '', '', '', '', 0, '95a1b048-c8b2-4425-9dd5-e0fab21942cd', '2018-11-03 13:13:23', '95a1b048-c8b2-4425-9dd5-e0fab21942cd', '2018-11-03 13:13:23', '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_applicants_categories`
+--
+
+CREATE TABLE `tbl_applicants_categories` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_applicants_categories`
+--
+
+INSERT INTO `tbl_applicants_categories` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `isActive`) VALUES
+(1, 'OFW', 'desc', 'ADMIN', '2018-11-04 17:37:16', 'ADMIN', '2018-11-04 17:37:16', 1),
+(2, '23123', '', 'DEV STAGE', '2018-11-05 17:21:23', 'DEV STAGE', '2018-11-05 17:21:23', 0),
+(3, '123123', '123123123', 'DEV STAGE', '2018-11-05 17:22:37', 'DEV STAGE', '2018-11-05 17:22:37', 0),
+(4, 'KASAMBAHAY', 'Housemain typed applicants', 'DEV STAGE', '2018-11-06 17:14:09', 'DEV STAGE', '2018-11-06 17:14:09', 1),
+(5, 'KASAM', '', 'DEV STAGE', '2018-11-06 17:17:29', 'DEV STAGE', '2018-11-06 17:17:29', 1);
 
 -- --------------------------------------------------------
 
@@ -442,6 +470,27 @@ CREATE TABLE `tbl_certificate_list` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_employees`
+--
+
+CREATE TABLE `tbl_employees` (
+  `Id` varchar(50) NOT NULL,
+  `firstName` varchar(100) NOT NULL,
+  `lastName` varchar(100) NOT NULL,
+  `userId` varchar(50) NOT NULL,
+  `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_employees`
+--
+
+INSERT INTO `tbl_employees` (`Id`, `firstName`, `lastName`, `userId`, `isActive`) VALUES
+('ADMIN', 'Administrator', '', 'ADMIN', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_establishments`
 --
 
@@ -606,11 +655,19 @@ CREATE TABLE `tbl_security_users` (
 --
 
 INSERT INTO `tbl_security_users` (`id`, `LoginName`, `PasswordHash`, `Active`, `Remarks`, `SecurityUserLevelId`, `PasswordNeverExpires`, `UserCantChangePassword`, `UserChangePasswordNextLogon`, `PasswordDate`, `CreatedById`, `ModifiedById`, `CreatedAt`, `ModifiedAt`, `VersionNo`, `UserType`, `PeopleId`, `Email`, `ActivationCode`, `remember_token`) VALUES
-('8a79df19-e698-4f3f-9121-ba657e190fc2', 'isystem20@gmail.com', 'c8fcb5fff5b493581ad15cef3d9a9c171e02d92d8d5a3adec233f54f03bfd8847445417fcbe156ce2b930df46a71bb1ee679daefcd2da59858bd7d42b597ffef', 1, '', 0, 0, 0, 0, '0000-00-00', '95a1b048-c8b2-4425-9dd5-e0fab21942cd', '95a1b048-c8b2-4425-9dd5-e0fab21942cd', '2018-11-03 05:13:23', '2018-11-03 05:13:23', 1, 'APPLICANT', '95a1b048-c8b2-4425-9dd5-e0fab21942cd', 'isystem20@gmail.com', '730509', NULL);
+('', '', '', 1, '', 0, 0, 0, 0, '0000-00-00', '943', '', '2018-11-05 09:52:27', '2018-11-05 09:52:27', 1, '', '', '', '', NULL),
+('8a79df19-e698-4f3f-9121-ba657e190fc2', 'isystem20@gmail.com', 'c8fcb5fff5b493581ad15cef3d9a9c171e02d92d8d5a3adec233f54f03bfd8847445417fcbe156ce2b930df46a71bb1ee679daefcd2da59858bd7d42b597ffef', 1, '', 0, 0, 0, 0, '0000-00-00', '95a1b048-c8b2-4425-9dd5-e0fab21942cd', '95a1b048-c8b2-4425-9dd5-e0fab21942cd', '2018-11-03 05:13:23', '2018-11-03 05:13:23', 1, 'APPLICANT', '95a1b048-c8b2-4425-9dd5-e0fab21942cd', 'isystem20@gmail.com', '730509', NULL),
+('ADMIN', 'admin@peso.gov', 'c8fcb5fff5b493581ad15cef3d9a9c171e02d92d8d5a3adec233f54f03bfd8847445417fcbe156ce2b930df46a71bb1ee679daefcd2da59858bd7d42b597ffef', 1, '', 5, 1, 0, 0, '0000-00-00', 'ADMIN', 'ADMIN', '2018-11-05 09:52:27', '2018-11-05 09:52:27', 1, 'ADMIN', 'ADMIN', 'isystem20@gmail.com', '', NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tbl_applicants_categories`
+--
+ALTER TABLE `tbl_applicants_categories`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_applicants_disabilities`
@@ -766,6 +823,12 @@ ALTER TABLE `tbl_security_users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tbl_applicants_categories`
+--
+ALTER TABLE `tbl_applicants_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_applicants_disabilities`
