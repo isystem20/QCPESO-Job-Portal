@@ -1,27 +1,27 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class LanguageController extends CI_Controller {
+class CertificateController extends CI_Controller {
 
 
     function __construct() {
         parent::__construct();
-        $this->load->model('admin/LanguageModel','langmod');
+        $this->load->model('admin/CertificateModel','certmod');
     }
 
 
-	public function Languages()
+	public function Certificates()
 	{
         
         $layout = array('tables' => TRUE, );  
-        $data['language'] = $this->langmod->Load_LanguageModel_Masterlist();
+        $data['certificates'] = $this->certmod->Load_CertificateModel_Masterlist();
        
 
 		$this->load->view('layout/admin/1_css',$layout);
 		$this->load->view('layout/admin/2_preloader');
 		$this->load->view('layout/admin/3_topbar');
 		$this->load->view('layout/admin/4_leftsidebar');
-		$this->load->view('pages/maintenance/languages',$data);
+		$this->load->view('pages/maintenance/certificates',$data);
 		$this->load->view('layout/admin/6_js',$layout);	
 		
 	}

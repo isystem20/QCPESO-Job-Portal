@@ -1,4 +1,6 @@
 
+        
+        
         <div class="page-wrapper">
             
             <!-- ============================================================== -->
@@ -10,7 +12,8 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Job Titles Maintenance</h3>
+                    <h3 class="text-themecolor">Job Titles</h3>
+                    <h6 class="text-muted">Masterlist of All Job Title Available for Applicants</h6>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
@@ -36,56 +39,59 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Job Titles</h4>
-                                <h6 class="card-subtitle">Masterlist of All Available Jobs</h6>
+                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
-                                        <thead>
+                                    <thead>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Description</th>
                                                 <th>Modified By</th>
-                                                <th>Modified At</th>
+                                                <th>Last Modified</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                         <tfoot>
+                                        <tfoot>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Description</th>
                                                 <th>Modified By</th>
-                                                <th>Modified At</th>
+                                                <th>Last Modified</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
-
-
                                         <?php
-                                        if ($joblist->num_rows() > 0) {
-                                            foreach ($joblist->result() as $row) { ?>
+                                        if ($jobtitles->num_rows() > 0) {
+                                            foreach ($jobtitles->result() as $row) { ?>
                                             <tr>
                                                 <td><?php echo $row->name; ?></td>
-                                                <td><?php echo $row->description; ?></td>
-                                                <td><?php echo $row->modifiedById?></td>
-                                                <td><?php echo $row->modifiedAt?></td>
+                                                <td><?php echo character_limiter($row->description, 30); ?></td>
+                                                <td><?php echo $row->modifiedById; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->modifiedAt)); ?></td>
                                                 <td>
                                                     <?php 
                                                     if ($row->isActive == '1') {
-                                                        echo '<label class="label label-primary">Active</label>';
+                                                        echo '<label class="label label-success">Active</label>';
                                                     }
                                                     else {
-                                                        echo '<label class="label label-danger">Inactive</label>';
+                                                        echo '<span class="label label-light-inverse">Inactive</span>';
                                                     }
                                                     ?>
+                                                </td>
+                                                <td class="actions">
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button"> <i class="far fa-edit" ></i> </button>
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php
                                             }
                                         }
                                         ?>
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -148,3 +154,5 @@
             </div>
  
         </div>
+
+

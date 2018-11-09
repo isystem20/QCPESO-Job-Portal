@@ -20,7 +20,7 @@ class LicenseController extends CI_Controller {
 */
 
 
-    public function LicenseList()
+    public function Licenses()
     {
 
         $layout = array('tables' => TRUE, );	
@@ -33,7 +33,23 @@ class LicenseController extends CI_Controller {
 		$this->load->view('layout/admin/2_preloader');
 		$this->load->view('layout/admin/3_topbar');
 		$this->load->view('layout/admin/4_leftsidebar');
-		$this->load->view('pages/maintenance/LicenseList',$data);
+		$this->load->view('pages/maintenance/Licenses',$data);
 		$this->load->view('layout/admin/6_js',$layout);		
+	}
+
+	public function Create() {
+	
+	}
+
+	public function Update() {
+ 
+	}
+
+	public function Delete() {
+
+	}
+
+	public function Read() {
+
 	}
 }

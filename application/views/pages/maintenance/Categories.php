@@ -10,6 +10,8 @@
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor">Applicant Categories</h3>
+                    <h6 class="text-muted">Masterlist of All Applicant Categories</h6>
+                
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
@@ -77,9 +79,9 @@
                                                     ?>
                                                 </td>
                                                 <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm" type="button"> <i class="fas fa-info-circle"></i> </button>
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" type="button"> <i class="far fa-edit" ></i> </button>
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" type="button"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button"> <i class="far fa-edit" ></i> </button>
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php

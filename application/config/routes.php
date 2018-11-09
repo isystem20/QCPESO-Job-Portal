@@ -77,13 +77,13 @@ $route['translate_uri_dashes'] = FALSE;
         /* User Masterlist */               $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';
         /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/GroupMasterlist';
         /* Maintenance */
-            /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/LanguageList';
-            /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/LicenseList';
-            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificateController/CertificatesMasterlist';
-            /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/ApplicantController/DisabilitiesMasterlist';
+            /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
+            /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
+            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificateController/Certificates';
+            /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
             
             /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/PreferredLocationController/PreferredLocations';
-            /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/EmployeeController/JobTitles';
+            /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobTitlesController/JobTitles';
             /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/CategoriesController/Categories';
         /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
         /* Surveys */                       $route['manage/surveys'] = 'admin/SurveyController/Survey';
@@ -135,17 +135,51 @@ $route['403'] = 'admin/SiteErrorController/Error403';
 $route['admin/login/auth'] = 'admin/AuthenticationController/AuthenticateAdmin';
 $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
-//CATEGORIES
-$route['admin/categories/add'] = 'admin/CategoriesController/Create'; //POST to create
-$route['admin/categories/edit'] = 'admin/CategoriesController/Update'; // POST to edit
-$route['admin/categories/del'] = 'admin/CategoriesController/Delete'; // POST to delete
-$route['admin/categories/read'] = 'admin/CategoriesController/Read'; // POST to view
 
-//LANGUAGES
-$route['admin/languages/add'] = 'admin/CategoriesController/Create';
-$route['admin/languages/edit'] = 'admin/CategoriesController/Update';
-$route['admin/languages/del'] = 'admin/CategoriesController/Delete';
-$route['admin/languages/read'] = 'admin/CategoriesController/Read';
+
+// MAINTENANCE (CREATE, READ, UPDATE, DELETE)
+
+        //Languages
+        $route['admin/languages/add'] = 'admin/LanguageController/Create';
+        $route['admin/languages/edit'] = 'admin/LanguageController/Update';
+        $route['admin/languages/del'] = 'admin/LanguageController/Delete';
+        $route['admin/languages/read'] = 'admin/LanguageController/Read';
+
+        //Licences
+        $route['admin/licences/add'] = 'admin/LicenseController/Create';
+        $route['admin/licences/edit'] = 'admin/LicenseController/Update';
+        $route['admin/licences/del'] = 'admin/LicenseController/Delete';
+        $route['admin/licences/read'] = 'admin/LicenseController/Read';
+
+        //Certificates
+        $route['admin/certificates/add'] = 'admin/CertificateController/Create';
+        $route['admin/certificates/edit'] = 'admin/CertificateController/Update';
+        $route['admin/certificates/del'] = 'admin/CertificateController/Delete';
+        $route['admin/certificates/read'] = 'admin/CertificateController/Read';
+
+        //Disabilities
+        $route['admin/disabilities/add'] = 'admin/DisabilitiesController/Create';
+        $route['admin/disabilities/edit'] = 'admin/DisabilitiesController/Update';
+        $route['admin/disabilities/del'] = 'admin/DisabilitiesController/Delete';
+        $route['admin/disabilities/read'] = 'admin/DisabilitiesController/Read';
+ 
+        //Preferred Locations
+        $route['admin/preferred-locations/add'] = 'admin/PreferredLocationController/Create';
+        $route['admin/preferred-locations/edit'] = 'admin/PreferredLocationController/Update';
+        $route['admin/preferred-locations/del'] = 'admin/PreferredLocationController/Delete';
+        $route['admin/preferred-locations/read'] = 'admin/PreferredLocationController/Read';
+          
+        //Job Titles
+        $route['admin/job-titles/add'] = 'admin/JobTiltlesController/Create';
+        $route['admin/job-titles/edit'] = 'admin/JobTiltlesController/Update';
+        $route['admin/job-titles/del'] = 'admin/JobTiltlesController/Delete';
+        $route['admin/job-titles/read'] = 'admin/JobTiltlesController/Read';
+
+        //Categories
+        $route['admin/categories/add'] = 'admin/CategoriesController/Create'; //POST to create
+        $route['admin/categories/edit'] = 'admin/CategoriesController/Update'; // POST to edit
+        $route['admin/categories/del'] = 'admin/CategoriesController/Delete'; // POST to delete
+        $route['admin/categories/read'] = 'admin/CategoriesController/Read'; // POST to view
 
 
 

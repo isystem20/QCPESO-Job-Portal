@@ -30,11 +30,24 @@ public function PreferredLocations()
 		$this->load->view('layout/admin/4_leftsidebar');
 		$this->load->view('pages/maintenance/PreferredLocations',$data);
 		$this->load->view('layout/admin/6_js',$layout);
-		
+						
+	}
 
+	public function Create() {
 	
-				
-}
+	}
+
+	public function Update() {
+ 
+	}
+
+	public function Delete() {
+
+	}
+
+	public function Read() {
+
+	}
 
 
 }

@@ -9,15 +9,13 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Prefered Location</h3>
-                    <h6 class="text-muted">Preferred Locations Available for Applicants</h6>
-                
+                    <h3 class="text-themecolor">Certificates</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item">Maintenenace</li>
-                        <li class="breadcrumb-item active">Preferred Locations</li>
+                        <li class="breadcrumb-item active">Certificates</li>
                     </ol>
                 </div>
                 <div>
@@ -26,7 +24,7 @@
             </div>
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+            <!-- ============================================ ================== -->
             
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
@@ -39,44 +37,52 @@
                                 <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
-                                        <thead>
+                                    <thead>
                                             <tr>
                                                 <th>Name</th>
+                                                <th>Eligibility Title</th>
                                                 <th>Description</th>
-                                                <th>Modified By</th>
-                                                <th>Modified At</th>
+                                                <th>Modified By </th>
+                                                <th>Modified At </th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
-                                            <tr>
+                                             <tr>    
                                                 <th>Name</th>
+                                                <th>Eligibility Title</th>
                                                 <th>Description</th>
-                                                <th>Modified By</th>
-                                                <th>Modified At</th>
+                                                <th>Modified By </th>
+                                                <th>Modified At </th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
-                                        </tfoot>
+                                        </tfoot>   
                                         <tbody>
                                          <?php
-                                        if ($preferredlocation->num_rows() > 0) {
-                                            foreach ($preferredlocation->result() as $row) { ?>
+                                        if ($certificates->num_rows() > 0) {
+                                            foreach ($certificates->result() as $row) { ?>
                                             <tr>
-                                               
-                                                
                                                 <td><?php echo $row->name; ?></td>
+                                                <td><?php echo $row->eligibilityTitle; ?></td>
                                                 <td><?php echo $row->description; ?></td>
-                                                <td><?php echo $row->modifiedById?></td>
-                                                <td><?php echo $row->modifiedAt?></td>
-                                                <td>    
+                                                <td><?php echo $row->modifiedById; ?></td>
+                                                <td><?php echo $row->modifiedAt; ?></td>
+                                                <td>
                                                     <?php 
                                                     if ($row->isActive == '1') {
-                                                        echo '<label class="label label-success">Active</label>';
+                                                        echo '<label class="label label-primary">Active</label>';
                                                     }
                                                     else {
                                                         echo '<label class="label label-danger">Inactive</label>';
                                                     }
                                                     ?>
+                                                </td>
+                                                <td class="actions">
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button"> <i class="far fa-edit" ></i> </button>
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php
@@ -175,7 +181,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <form id="add-form" action="<?php echo base_url(); ?>admin/categories/add" method="POST">
+                <form id="add-form" action="<?php echo base_url(); ?>admin/register/categories" method="POST">
                     <div class="form-group">
                         <label for="recipient-name" class="control-label">Name: </label>
                         <input type="text" name="name" class="form-control" placeholder="A unique name for this category">
@@ -202,40 +208,8 @@
         </div>
     </div>
 </div>
-
-
-
-<div class="modal fade" id="del-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <?php
-            $hidden = array(
-              'company' => $this->session->userdata('companyid'), 
-              'id' => '',
-            );
-            ?>
-            <?php echo form_open('hr/positions/add','class="cmxform form-horizontal tasi-form" id="generic-del-form"',$hidden); ?>
-            <div class="modal-header" style="background-color: #ff6c60;">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Warning</h4>
-            </div>
-            <div class="modal-body">
-                <center>
-                You are about to delete this record. <br><b>Are you sure?</b>                  
-                </center>
-            </div>
-            <div class="modal-footer">
-                  <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
-                  <button class="btn btn-danger" id="del-submit-btn" type="submit"> Confirm</button>
-            </div>
-            <?php echo form_close(); ?>
-        </div>
-    </div>
-</div>
-
-
-
 <!-- /.modal -->
 
 
 
+        

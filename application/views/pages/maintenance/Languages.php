@@ -10,6 +10,8 @@
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor">Language</h3>
+                    <h6 class="text-muted">Sub Title</h6>
+
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
@@ -24,7 +26,7 @@
             </div>
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+            <!-- ============================================ ================== -->
             
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
@@ -82,6 +84,7 @@
                                                     <button class="btn btn-success waves-effect waves-light btn-sm" type="button"> <i class="far fa-edit" ></i> </button>
                                                      <button class="btn btn-danger waves-effect waves-light btn-sm" type="button"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
+                        
                                             </tr>
                                         <?php
                                             }
