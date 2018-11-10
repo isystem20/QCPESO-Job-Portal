@@ -162,6 +162,7 @@ $(document).ready(function() {
   $('#myTable').delegate(".del-item-btn", "click", function() {
     $('input[name=id]').val($(this).data('id'));
     $('input[name=exname]').val($(this).data('name'));
+    $('#del-form').attr('action',$('#myTable').data('action')+'del');
     $('#del-modal').modal();
   });
 
