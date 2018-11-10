@@ -77,11 +77,12 @@ $(document).ready(function() {
 
                   }
                   else{
-                       new PNotify({             //This is to activate the PNotify API when the post has failed
-                            title: 'Error!',
-                            text: data.error,
+                       new PNotify({  //This is to activate the PNotify API when the post has failed
+                            title: 'Success!',
+                            text: 'data.error',
                             icon: 'icofont icofont-info-circle',
                             type: 'error'
+                                  
                         });
                   }
                 $("#login-btn").prop("disabled", false);     //Reenable the submit button after the action           

@@ -194,7 +194,6 @@
                             <option value="0">Inactive (Register but activate later)</option>
                         </select>
                     </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>

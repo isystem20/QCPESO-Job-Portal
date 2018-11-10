@@ -147,5 +147,6 @@ $route['admin/languages/edit'] = 'admin/CategoriesController/Update';
 $route['admin/languages/del'] = 'admin/CategoriesController/Delete';
 $route['admin/languages/read'] = 'admin/CategoriesController/Read';
 
-
+//
+$route['admin/license/add'] = 'admin/LicenseController/Create'; 
 
