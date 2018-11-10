@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2018 at 10:50 AM
+-- Generation Time: Nov 10, 2018 at 10:20 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -102,6 +102,7 @@ CREATE TABLE `tbl_applicants_categories` (
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modifiedById` varchar(50) NOT NULL,
   `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `VersionNo` int(11) NOT NULL DEFAULT '1',
   `isActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -109,12 +110,28 @@ CREATE TABLE `tbl_applicants_categories` (
 -- Dumping data for table `tbl_applicants_categories`
 --
 
-INSERT INTO `tbl_applicants_categories` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `isActive`) VALUES
-(1, 'OFW', 'desc', 'ADMIN', '2018-11-04 17:37:16', 'ADMIN', '2018-11-04 17:37:16', 1),
-(2, '23123', '', 'DEV STAGE', '2018-11-05 17:21:23', 'DEV STAGE', '2018-11-05 17:21:23', 0),
-(3, '123123', '123123123', 'DEV STAGE', '2018-11-05 17:22:37', 'DEV STAGE', '2018-11-05 17:22:37', 0),
-(4, 'KASAMBAHAY', 'Housemain typed applicants', 'DEV STAGE', '2018-11-06 17:14:09', 'DEV STAGE', '2018-11-06 17:14:09', 1),
-(5, 'KASAM', '', 'DEV STAGE', '2018-11-06 17:17:29', 'DEV STAGE', '2018-11-06 17:17:29', 1);
+INSERT INTO `tbl_applicants_categories` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `VersionNo`, `isActive`) VALUES
+(55, '1', '1', 'ADMIN', '2018-11-10 14:02:42', 'ADMIN', '2018-11-10 14:02:42', 0, 0),
+(56, '2', '2', 'ADMIN', '2018-11-10 14:04:05', 'ADMIN', '2018-11-10 14:04:05', 0, 0),
+(57, '3', '3', 'ADMIN', '2018-11-10 14:05:25', 'ADMIN', '2018-11-10 14:05:25', 0, 0),
+(58, '4', '4', 'ADMIN', '2018-11-10 14:05:56', 'ADMIN', '2018-11-10 14:05:56', 0, 0),
+(59, '5', '5', 'ADMIN', '2018-11-10 14:07:27', 'ADMIN', '2018-11-10 14:07:27', 0, 0),
+(60, '[Del-]+name', '6', 'ADMIN', '2018-11-10 14:07:47', 'ADMIN', '2018-11-10 14:07:47', 0, 0),
+(61, '[Del-]+name', '7', 'ADMIN', '2018-11-10 14:12:31', 'ADMIN', '2018-11-10 14:12:31', 0, 0),
+(62, '[Del-]+name', '8', 'ADMIN', '2018-11-10 14:13:03', 'ADMIN', '2018-11-10 14:13:03', 0, 0),
+(63, '9', '9', 'ADMIN', '2018-11-10 14:15:17', 'ADMIN', '2018-11-10 14:15:17', 0, 0),
+(64, '99', '9', 'ADMIN', '2018-11-10 14:16:31', 'ADMIN', '2018-11-10 14:16:31', 0, 0),
+(65, '10', '10', 'ADMIN', '2018-11-10 14:17:02', 'ADMIN', '2018-11-10 14:17:02', 0, 0),
+(66, '[Del-1541832405]+name', '11', 'ADMIN', '2018-11-10 14:22:42', 'ADMIN', '2018-11-10 14:22:42', 0, 0),
+(67, '[Del-1541832852]~13', '13', 'ADMIN', '2018-11-10 14:51:08', 'ADMIN', '2018-11-10 14:51:08', 0, 0),
+(68, '[Del-1541832894]~14', '14', 'ADMIN', '2018-11-10 14:54:42', 'ADMIN', '2018-11-10 14:54:42', 0, 0),
+(69, '[Del-1541832924]~15', '15', 'ADMIN', '2018-11-10 14:55:17', 'ADMIN', '2018-11-10 14:55:17', 0, 0),
+(70, '[Del-1541832958]~16', '16', 'ADMIN', '2018-11-10 14:55:53', 'ADMIN', '2018-11-10 14:55:53', 0, 0),
+(71, '[Del-1541832985]~16', '16', 'ADMIN', '2018-11-10 14:56:18', 'ADMIN', '2018-11-10 14:56:18', 0, 0),
+(72, 'OFW', 'Overseas Filipino Workers', 'ADMIN', '2018-11-10 14:56:31', 'ADMIN', '2018-11-10 15:56:17', 4, 1),
+(73, '17', '17', 'ADMIN', '2018-11-10 15:09:34', 'ADMIN', '2018-11-10 16:43:46', 4, 2),
+(74, '18', '18', 'ADMIN', '2018-11-10 15:33:27', 'ADMIN', '2018-11-10 15:33:27', 0, 1),
+(75, '19', '19', 'ADMIN', '2018-11-10 16:32:18', 'ADMIN', '2018-11-10 16:32:18', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -130,8 +147,16 @@ CREATE TABLE `tbl_applicants_disabilities` (
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modifiedById` varchar(50) NOT NULL,
   `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `VersionNo` int(11) NOT NULL DEFAULT '1',
   `isActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_applicants_disabilities`
+--
+
+INSERT INTO `tbl_applicants_disabilities` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `VersionNo`, `isActive`) VALUES
+(1, 'Blind', 'Blind', 'ADMIN', '2018-11-10 17:18:20', 'ADMIN', '2018-11-10 17:18:20', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -209,10 +234,10 @@ CREATE TABLE `tbl_applicants_kasambahay_history` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_applicants_lang_read`
+-- Table structure for table `tbl_applicants_languages`
 --
 
-CREATE TABLE `tbl_applicants_lang_read` (
+CREATE TABLE `tbl_applicants_languages` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` varchar(300) NOT NULL,
@@ -220,8 +245,16 @@ CREATE TABLE `tbl_applicants_lang_read` (
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modifiedById` varchar(50) NOT NULL,
   `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `VersionNo` int(11) NOT NULL DEFAULT '1',
   `isActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_applicants_languages`
+--
+
+INSERT INTO `tbl_applicants_languages` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `VersionNo`, `isActive`) VALUES
+(1, 'English', 'English', 'ADMIN', '2018-11-10 17:13:01', 'ADMIN', '2018-11-10 17:13:01', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -700,9 +733,9 @@ ALTER TABLE `tbl_applicants_kasambahay_history`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_applicants_lang_read`
+-- Indexes for table `tbl_applicants_languages`
 --
-ALTER TABLE `tbl_applicants_lang_read`
+ALTER TABLE `tbl_applicants_languages`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -828,13 +861,13 @@ ALTER TABLE `tbl_security_users`
 -- AUTO_INCREMENT for table `tbl_applicants_categories`
 --
 ALTER TABLE `tbl_applicants_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `tbl_applicants_disabilities`
 --
 ALTER TABLE `tbl_applicants_disabilities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_applicants_employment_status`
@@ -861,10 +894,10 @@ ALTER TABLE `tbl_applicants_kasambahay_history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_applicants_lang_read`
+-- AUTO_INCREMENT for table `tbl_applicants_languages`
 --
-ALTER TABLE `tbl_applicants_lang_read`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tbl_applicants_languages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_applicants_lang_spoken`
