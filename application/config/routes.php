@@ -75,7 +75,7 @@ $route['translate_uri_dashes'] = FALSE;
     /* Dashboard */                         $route['manage'] = 'admin/HomeController/Dashboard';
     /* MANAGE */                        
         /* User Masterlist */               $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';
-        /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/GroupMasterlist';
+        /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
             /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
@@ -181,5 +181,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/categories/del'] = 'admin/CategoriesController/Delete'; // POST to delete
         $route['admin/categories/read'] = 'admin/CategoriesController/Read'; // POST to view
 
+         //Group
+        $route['admin/group/add'] = 'admin/GroupController/Create'; //POST to create
+        $route['admin/group/edit'] = 'admin/GroupController/Update'; // POST to edit
+        $route['admin/group/del'] = 'admin/GroupController/Delete'; // POST to delete
+        $route['admin/group/read'] = 'admin/GroupController/Read'; // POST to view
 
 
