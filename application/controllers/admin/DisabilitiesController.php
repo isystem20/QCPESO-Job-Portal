@@ -1,30 +1,30 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class CategoriesController extends CI_Controller {
+ class DisabilitiesController extends CI_Controller {
  
  	function __construct() {
          parent::__construct();
-         $this->load->model('admin/CategoriesModel','categmod');
+         $this->load->model('admin/DisabilityModel','dismod');
      }
  
- 	public function Categories()
+ 	public function Disabilities()
  	{
  
  		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
- 		$data['categories'] = $this->categmod->LoadCategoryMasterlist();
-        $data['class'] = 'categories';
+ 		$data['masterlist'] = $this->dismod->LoadMasterlist();
+        $data['class'] = 'disabilities';
  		$this->load->view('layout/admin/1_css');
  		$this->load->view('layout/admin/2_preloader');
  		$this->load->view('layout/admin/3_topbar');
  		$this->load->view('layout/admin/4_leftsidebar');
- 		$this->load->view('pages/maintenance/Categories',$data);
+ 		$this->load->view('pages/maintenance/Disabilities',$data);
  		$this->load->view('layout/admin/6_js',$layout);		
         $this->load->view('layout/admin/7_modals'); 
 
  	}
  	public function Create() {
-		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_categories.name]',
+		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_disabilities.name]',
 		        array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
@@ -37,7 +37,7 @@
          }
         else {
         	$postdata = $this->input->post();
-        	$inserted = $this->categmod->Add($postdata);
+        	$inserted = $this->dismod->Add($postdata);
         	// echo json_encode(['success'=>TRUE]);
          	if ($inserted != FALSE) {
 	        	$json = json_encode($inserted);       		
@@ -66,7 +66,7 @@
             unset($postdata['itemid']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->categmod->Update($id,$postdata);
+            $result = $this->dismod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                 echo $json;
@@ -94,7 +94,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->categmod->Delete($postdata);
+            $result = $this->dismod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
                 echo $json;

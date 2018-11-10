@@ -1,11 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class CategoriesModel extends CI_Model {
+	class DisabilityModel extends CI_Model {
 
-		public function LoadCategoryMasterlist($id = null) {
+
+		public $tbl = 'tbl_applicants_disabilities';
+
+		public function LoadMasterlist($id = null) {
 			$this->db->select('*');
-			$this->db->from('tbl_applicants_categories');
+			$this->db->from($this->tbl);
 			if (!empty($id)) {
 				$this->db->where('id',$id);
 				return $this->db->get()->result();
@@ -25,12 +28,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->set('modifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
 			$this->db->set('isActive',"'".$data['status']."'",FALSE);
 
-			$this->db->insert('tbl_applicants_categories');
+			$this->db->insert($this->tbl);
 
 			$id = $this->db->insert_id();
 
 			if ($id > 0) {
-				$inserted = $this->LoadCategoryMasterlist($id);
+				$inserted = $this->LoadMasterlist($id);
 				return $inserted;
 			}
 			else {
@@ -45,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->set('name','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
 			$this->db->set('isActive','"0"',FALSE);
 			$this->db->where('id', $data['id']);
-			$this->db->update('tbl_applicants_categories');
+			$this->db->update($this->tbl);
 			$deleted = $this->db->affected_rows();
 			if ($deleted > 0) {
 				return $data;
@@ -65,10 +68,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    $this->db->set('description', '"'.$data['description'].'"', FALSE); 
 		    $this->db->set('isActive', '"'.$data['status'].'"', FALSE);
 		    $this->db->where('id', $id);
-		    $query = $this->db->update('tbl_applicants_categories');
+		    $query = $this->db->update($this->tbl);
 			$update = $this->db->affected_rows();
 			if ($update > 0) {
-				$result = $this->LoadCategoryMasterlist($id);
+				$result = $this->LoadMasterlist($id);
 				return $result;
 			}
 			else {
