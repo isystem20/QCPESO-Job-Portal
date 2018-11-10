@@ -82,7 +82,7 @@ $route['translate_uri_dashes'] = FALSE;
             /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificateController/Certificates';
             /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
             
-            /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/PreferredLocationController/PreferredLocations';
+            /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/LocationController/Location';
             /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobTitlesController/JobTitles';
             /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/CategoriesController/Categories';
         /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
@@ -164,10 +164,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/disabilities/read'] = 'admin/DisabilitiesController/Read';
  
         //Preferred Locations
-        $route['admin/preferred-locations/add'] = 'admin/PreferredLocationController/Create';
-        $route['admin/preferred-locations/edit'] = 'admin/PreferredLocationController/Update';
-        $route['admin/preferred-locations/del'] = 'admin/PreferredLocationController/Delete';
-        $route['admin/preferred-locations/read'] = 'admin/PreferredLocationController/Read';
+        $route['admin/preferred-locations/add'] = 'admin/LocationController/Create';
+        $route['admin/preferred-locations/edit'] = 'admin/LocationController/Update';
+        $route['admin/preferred-locations/del'] = 'admin/LocationController/Delete';
+        $route['admin/preferred-locations/read'] = 'admin/LocationController/Read';
           
         //Job Titles
         $route['admin/job-titles/add'] = 'admin/JobTiltlesController/Create';
