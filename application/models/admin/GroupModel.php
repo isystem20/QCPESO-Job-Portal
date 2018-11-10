@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     class GroupModel extends CI_Model {
 
 
-        public $tbl = 'tbl_applicants_categories';
+        public $tbl = 'tbl_group_masterlist';
 
         public function LoadMasterlist($id = null) {
             $this->db->select('*');

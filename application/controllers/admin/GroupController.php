@@ -24,7 +24,7 @@
 
  	}
  	public function Create() {
-		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_categories.name]',
+		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_group_masterlist.name]',
 		        array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
