@@ -75,14 +75,14 @@ $route['translate_uri_dashes'] = FALSE;
     /* Dashboard */                         $route['manage'] = 'admin/HomeController/Dashboard';
     /* MANAGE */                        
         /* User Masterlist */               $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';
-        /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/GroupMasterlist';
+        /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
             /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
             /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificateController/Certificates';
             /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
             
-            /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/PreferredLocationController/PreferredLocations';
+            /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/LocationController/Location';
             /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobTitlesController/JobTitles';
             /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/CategoriesController/Categories';
         /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
@@ -164,10 +164,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/disabilities/read'] = 'admin/DisabilitiesController/Read';
  
         //Preferred Locations
-        $route['admin/preferred-locations/add'] = 'admin/PreferredLocationController/Create';
-        $route['admin/preferred-locations/edit'] = 'admin/PreferredLocationController/Update';
-        $route['admin/preferred-locations/del'] = 'admin/PreferredLocationController/Delete';
-        $route['admin/preferred-locations/read'] = 'admin/PreferredLocationController/Read';
+        $route['admin/preferred-locations/add'] = 'admin/LocationController/Create';
+        $route['admin/preferred-locations/edit'] = 'admin/LocationController/Update';
+        $route['admin/preferred-locations/del'] = 'admin/LocationController/Delete';
+        $route['admin/preferred-locations/read'] = 'admin/LocationController/Read';
           
         //Job Titles
         $route['admin/job-titles/add'] = 'admin/JobTiltlesController/Create';
@@ -181,5 +181,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/categories/del'] = 'admin/CategoriesController/Delete'; // POST to delete
         $route['admin/categories/read'] = 'admin/CategoriesController/Read'; // POST to view
 
+         //Group
+        $route['admin/group/add'] = 'admin/GroupController/Create'; //POST to create
+        $route['admin/group/edit'] = 'admin/GroupController/Update'; // POST to edit
+        $route['admin/group/del'] = 'admin/GroupController/Delete'; // POST to delete
+        $route['admin/group/read'] = 'admin/GroupController/Read'; // POST to view
 
 
