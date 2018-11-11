@@ -83,7 +83,7 @@ $route['translate_uri_dashes'] = FALSE;
             /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
             
             /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/PreferredLocationController/PreferredLocations';
-            /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobTitlesController/JobTitles';
+            /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobtitlesController/Jobtitles';
             /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/CategoriesController/Categories';
         /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
         /* Surveys */                       $route['manage/surveys'] = 'admin/SurveyController/Survey';
@@ -170,10 +170,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/preferred-locations/read'] = 'admin/PreferredLocationController/Read';
           
         //Job Titles
-        $route['admin/job-titles/add'] = 'admin/JobTiltlesController/Create';
-        $route['admin/job-titles/edit'] = 'admin/JobTiltlesController/Update';
-        $route['admin/job-titles/del'] = 'admin/JobTiltlesController/Delete';
-        $route['admin/job-titles/read'] = 'admin/JobTiltlesController/Read';
+        $route['admin/job-titles/add'] = 'admin/JobtitlesController/Create';
+        $route['admin/job-titles/edit'] = 'admin/JobtitlesController/Update';
+        $route['admin/job-titles/del'] = 'admin/JobtitlesController/Delete';
+        $route['admin/job-titles/read'] = 'admin/JobtitlesController/Read';
 
         //Categories
         $route['admin/categories/add'] = 'admin/CategoriesController/Create'; //POST to create
