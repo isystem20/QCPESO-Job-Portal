@@ -35,7 +35,7 @@
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/preferred-locations"> Preferred Locations </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/job-titles"> Job Titles </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-categories"> Categories </a></li>
-                              
+                                <li><a href="<?php echo base_url(); ?>manage/maintenance/industries"> Industries </a></li>
                             </ul>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Review and Ratings</span></a>

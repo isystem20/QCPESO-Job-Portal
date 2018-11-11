@@ -85,6 +85,7 @@ $route['translate_uri_dashes'] = FALSE;
             /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/LocationController/Location';
             /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobTitlesController/JobTitles';
             /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/CategoriesController/Categories';
+             /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
         /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
         /* Surveys */                       $route['manage/surveys'] = 'admin/SurveyController/Survey';
 
@@ -187,4 +188,9 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/group/del'] = 'admin/GroupController/Delete'; // POST to delete
         $route['admin/group/read'] = 'admin/GroupController/Read'; // POST to view
 
+         //industries
+        $route['admin/industries/add'] = 'admin/IndustriesController/Create'; //POST to create
+        $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
+        $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
+        $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
 
