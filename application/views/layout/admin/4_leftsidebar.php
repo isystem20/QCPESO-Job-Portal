@@ -32,6 +32,7 @@
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/licenses"> Licenses </a> </li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/certificates"> Certificates </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/disabilities"> Disabilities </a></li>
+                                <li><a href="<?php echo base_url(); ?>manage/maintenance/dresscode"> Dress Code </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/preferred-locations"> Preferred Locations </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/job-titles"> Job Titles </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-categories"> Categories </a></li>

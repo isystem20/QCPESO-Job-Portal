@@ -81,6 +81,7 @@ $route['translate_uri_dashes'] = FALSE;
             /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
             /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificateController/Certificates';
             /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
+            /* Dress Code */                $route['manage/maintenance/dresscode'] = 'admin/DresscodeController/Dresscode';
             
             /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/PreferredLocationController/PreferredLocations';
             /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobTitlesController/JobTitles';
@@ -162,6 +163,12 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/disabilities/edit'] = 'admin/DisabilitiesController/Update';
         $route['admin/disabilities/del'] = 'admin/DisabilitiesController/Delete';
         $route['admin/disabilities/read'] = 'admin/DisabilitiesController/Read';
+
+        //Disabilities
+        $route['admin/dresscode/add'] = 'admin/DresscodeController/Create';
+        $route['admin/dresscode/edit'] = 'admin/DresscodeController/Update';
+        $route['admin/dresscode/del'] = 'admin/DresscodeController/Delete';
+        $route['admin/dresscode/read'] = 'admin/DresscodeController/Read';
  
         //Preferred Locations
         $route['admin/preferred-locations/add'] = 'admin/PreferredLocationController/Create';
