@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2018 at 09:33 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Nov 13, 2018 at 02:13 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `qcpesodb`
 --
+CREATE DATABASE IF NOT EXISTS `qcpesodb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `qcpesodb`;
 
 -- --------------------------------------------------------
 
@@ -133,6 +137,46 @@ INSERT INTO `tbl_applicants_categories` (`id`, `name`, `description`, `createdBy
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_applicants_certificates`
+--
+
+CREATE TABLE `tbl_applicants_certificates` (
+  `id` int(11) NOT NULL,
+  `certificateId` int(8) NOT NULL,
+  `certificateDateIssued` date NOT NULL,
+  `certificateNoExpiration` tinyint(1) NOT NULL,
+  `certificateExpiration` date NOT NULL,
+  `skillsAcquired` varchar(50) NOT NULL,
+  `rating` varchar(50) NOT NULL,
+  `trainingPeriod` varchar(50) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_applicants_certificate_list`
+--
+
+CREATE TABLE `tbl_applicants_certificate_list` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `eligibilityTitle` varchar(10) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_applicants_disabilities`
 --
 
@@ -175,6 +219,21 @@ CREATE TABLE `tbl_applicants_employment_status` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_applicants_job_applications`
+--
+
+CREATE TABLE `tbl_applicants_job_applications` (
+  `id` int(11) NOT NULL,
+  `ApplicantId` varchar(50) NOT NULL,
+  `JobPostId` int(11) NOT NULL,
+  `ApplicationLetter` text NOT NULL,
+  `ApplicationDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `IsActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_applicants_kasambahay`
 --
 
@@ -187,40 +246,6 @@ CREATE TABLE `tbl_applicants_kasambahay` (
   `salary` varchar(100) NOT NULL,
   `stayInOut` varchar(100) NOT NULL,
   `yearOfService` decimal(8,2) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_applicants_kasambahay_desc`
---
-
-CREATE TABLE `tbl_applicants_kasambahay_desc` (
-  `id` int(11) NOT NULL,
-  `jobDesc` varchar(100) NOT NULL,
-  `employerName` varchar(200) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_applicants_kasambahay_history`
---
-
-CREATE TABLE `tbl_applicants_kasambahay_history` (
-  `id` int(11) NOT NULL,
-  `employerName` varchar(100) NOT NULL,
-  `employerAddress` varchar(200) NOT NULL,
   `createdById` varchar(50) NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modifiedById` varchar(50) NOT NULL,
@@ -251,41 +276,8 @@ CREATE TABLE `tbl_applicants_languages` (
 --
 
 INSERT INTO `tbl_applicants_languages` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `VersionNo`, `isActive`) VALUES
-(1, '[Del-1541924182]~English', 'English', 'ADMIN', '2018-11-10 17:13:01', 'ADMIN', '2018-11-10 17:13:01', 1, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_applicants_lang_spoken`
---
-
-CREATE TABLE `tbl_applicants_lang_spoken` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_applicants_lang_written`
---
-
-CREATE TABLE `tbl_applicants_lang_written` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(1, '[Del-1541924182]~English', 'English', 'ADMIN', '2018-11-10 17:13:01', 'ADMIN', '2018-11-10 17:13:01', 1, 0),
+(2, 'xcv', 'xcv', 'ADMIN', '2018-11-12 09:55:58', 'ADMIN', '2018-11-12 09:55:58', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -295,13 +287,9 @@ CREATE TABLE `tbl_applicants_lang_written` (
 
 CREATE TABLE `tbl_applicants_licenses` (
   `id` int(11) NOT NULL,
-  `certificateId` int(8) NOT NULL,
-  `certificateDateIssued` date NOT NULL,
-  `certificateNoExpiration` tinyint(1) NOT NULL,
-  `certificateExpiration` date NOT NULL,
-  `skillsAcquired` varchar(50) NOT NULL,
-  `rating` varchar(50) NOT NULL,
-  `trainingPeriod` varchar(50) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `eligibilityTitle` varchar(10) NOT NULL,
+  `description` varchar(300) NOT NULL,
   `createdById` varchar(50) NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modifiedById` varchar(50) NOT NULL,
@@ -317,6 +305,7 @@ CREATE TABLE `tbl_applicants_licenses` (
 
 CREATE TABLE `tbl_applicants_ofw` (
   `id` int(11) NOT NULL,
+  `ApplicantId` varchar(50) NOT NULL,
   `dependentsIds` varchar(100) NOT NULL,
   `locationOF` varchar(100) NOT NULL,
   `statusOF` varchar(100) NOT NULL,
@@ -388,21 +377,27 @@ CREATE TABLE `tbl_applicants_ofw_locations` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_applicants_ofw_work_history`
+-- Table structure for table `tbl_applicants_positions`
 --
 
-CREATE TABLE `tbl_applicants_ofw_work_history` (
+CREATE TABLE `tbl_applicants_positions` (
   `id` int(11) NOT NULL,
-  `countryName` varchar(100) NOT NULL,
-  `agencyName` varchar(200) NOT NULL,
-  `jobTitle` varchar(100) NOT NULL,
-  `duration` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
   `createdById` varchar(50) NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modifiedById` varchar(50) NOT NULL,
   `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_applicants_positions`
+--
+
+INSERT INTO `tbl_applicants_positions` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `isActive`) VALUES
+(1, 'Software Engineer', '', 'ADMIN', '2018-10-22 17:21:21', 'ADMIN', '2018-10-22 17:21:21', 1),
+(2, 'Network Engineer', 'Sample Desc', 'ADMIN', '2018-10-22 17:21:21', 'ADMIN', '2018-10-22 17:21:21', 0);
 
 -- --------------------------------------------------------
 
@@ -482,24 +477,6 @@ CREATE TABLE `tbl_applicants_work_history` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_certificate_list`
---
-
-CREATE TABLE `tbl_certificate_list` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `eligibilityTitle` varchar(10) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_employees`
 --
 
@@ -526,34 +503,62 @@ INSERT INTO `tbl_employees` (`Id`, `firstName`, `lastName`, `userId`, `isActive`
 
 CREATE TABLE `tbl_establishments` (
   `Id` varchar(50) NOT NULL,
-  `companyName` varchar(100) NOT NULL,
-  `companyNameAcronym` varchar(10) NOT NULL,
+  `CompanyName` varchar(100) NOT NULL,
+  `CompanyNameAcronym` varchar(10) NOT NULL,
   `TIN` varchar(50) NOT NULL,
-  `permitIssuedDate` date NOT NULL,
-  `establismentType` varchar(50) NOT NULL,
-  `industryType` int(8) NOT NULL,
-  `companyAddress` text NOT NULL,
-  `landlineNum` varchar(50) NOT NULL,
-  `faxNum` varchar(50) NOT NULL,
-  `companyEmail` varchar(50) NOT NULL,
-  `website` varchar(50) NOT NULL,
-  `ownerName` varchar(200) NOT NULL,
-  `designation` varchar(50) NOT NULL,
-  `contactPerson` varchar(200) NOT NULL,
-  `contactPersonDesignation` varchar(50) NOT NULL,
-  `contactPersonLandline` varchar(50) NOT NULL,
-  `contactPersonMobile` varchar(50) NOT NULL,
-  `doleRegistration` varchar(50) NOT NULL,
-  `doleRegistrationDateIssued` date NOT NULL,
-  `doleRegistrationExpiration` date NOT NULL,
-  `poeaLicenseDateIssued` date NOT NULL,
-  `poeaLicenseExpiration` date NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` date NOT NULL,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` date NOT NULL,
-  `remarks` text NOT NULL,
+  `PermitIssuedDate` date NOT NULL,
+  `EstablismentType` varchar(50) NOT NULL,
+  `IndustryType` int(8) NOT NULL,
+  `CompanyAddress` text NOT NULL,
+  `LandlineNum` varchar(50) NOT NULL,
+  `FaxNum` varchar(50) NOT NULL,
+  `CompanyEmail` varchar(50) NOT NULL,
+  `Website` varchar(50) NOT NULL,
+  `OwnerName` varchar(200) NOT NULL,
+  `Designation` varchar(50) NOT NULL,
+  `ContactPerson` varchar(200) NOT NULL,
+  `ContactPersonDesignation` varchar(50) NOT NULL,
+  `ContactPersonLandline` varchar(50) NOT NULL,
+  `ContactPersonMobile` varchar(50) NOT NULL,
+  `DoleRegistration` varchar(50) NOT NULL,
+  `DoleRegistrationDateIssued` date NOT NULL,
+  `DoleRegistrationExpiration` date NOT NULL,
+  `PoeaLicenseDateIssued` date NOT NULL,
+  `PoeaLicenseExpiration` date NOT NULL,
+  `WorkingHours` varchar(200) NOT NULL,
+  `Benefits` varchar(200) NOT NULL,
+  `DressCode` int(11) NOT NULL,
+  `SpokenLanguage` int(11) NOT NULL,
+  `CreatedById` varchar(50) NOT NULL,
+  `CreatedAt` date NOT NULL,
+  `ModifiedById` varchar(50) NOT NULL,
+  `ModifiedAt` date NOT NULL,
+  `Remarks` text NOT NULL,
   `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_establishments_jobposts`
+--
+
+CREATE TABLE `tbl_establishments_jobposts` (
+  `Id` int(11) NOT NULL,
+  `EstablishmentId` int(11) NOT NULL,
+  `JobTitle` varchar(100) NOT NULL,
+  `EmpTypeId` int(11) NOT NULL,
+  `PositionLevelId` int(11) NOT NULL,
+  `Specialization` int(11) NOT NULL,
+  `JobDescription` text NOT NULL,
+  `Salary` decimal(8,2) NOT NULL,
+  `JobImage` varchar(100) NOT NULL,
+  `CreatedById` varchar(50) NOT NULL,
+  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifiedById` varchar(50) NOT NULL,
+  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `VersionNo` int(11) NOT NULL,
+  `isActive` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -642,49 +647,6 @@ CREATE TABLE `tbl_establistments_categories` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_jobs_list`
---
-
-CREATE TABLE `tbl_jobs_list` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_jobs_list`
---
-
-INSERT INTO `tbl_jobs_list` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `isActive`) VALUES
-(1, 'Software Engineer', '', 'ADMIN', '2018-10-22 17:21:21', 'ADMIN', '2018-10-22 17:21:21', 1),
-(2, 'Network Engineer', 'Sample Desc', 'ADMIN', '2018-10-22 17:21:21', 'ADMIN', '2018-10-22 17:21:21', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_license_list`
---
-
-CREATE TABLE `tbl_license_list` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `eligibilityTitle` varchar(10) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_school_course_list`
 --
 
@@ -737,6 +699,96 @@ INSERT INTO `tbl_security_users` (`id`, `LoginName`, `PasswordHash`, `Active`, `
 ('8a79df19-e698-4f3f-9121-ba657e190fc2', 'isystem20@gmail.com', 'c8fcb5fff5b493581ad15cef3d9a9c171e02d92d8d5a3adec233f54f03bfd8847445417fcbe156ce2b930df46a71bb1ee679daefcd2da59858bd7d42b597ffef', 1, '', 0, 0, 0, 0, '0000-00-00', '95a1b048-c8b2-4425-9dd5-e0fab21942cd', '95a1b048-c8b2-4425-9dd5-e0fab21942cd', '2018-11-03 05:13:23', '2018-11-03 05:13:23', 1, 'APPLICANT', '95a1b048-c8b2-4425-9dd5-e0fab21942cd', 'isystem20@gmail.com', '730509', NULL),
 ('ADMIN', 'admin@peso.gov', 'c8fcb5fff5b493581ad15cef3d9a9c171e02d92d8d5a3adec233f54f03bfd8847445417fcbe156ce2b930df46a71bb1ee679daefcd2da59858bd7d42b597ffef', 1, '', 5, 1, 0, 0, '0000-00-00', 'ADMIN', 'ADMIN', '2018-11-05 09:52:27', '2018-11-05 09:52:27', 1, 'ADMIN', 'ADMIN', 'isystem20@gmail.com', '', NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_web_posts`
+--
+
+CREATE TABLE `tbl_web_posts` (
+  `Id` int(11) NOT NULL,
+  `PostTitle` varchar(200) NOT NULL,
+  `PostDescription` text NOT NULL,
+  `PostContent` text NOT NULL,
+  `PostTypeId` int(11) NOT NULL,
+  `Tags` varchar(200) NOT NULL,
+  `CreatedById` varchar(50) NOT NULL,
+  `CreatedAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  `ModifiedById` varchar(50) NOT NULL,
+  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `VersionNo` int(11) NOT NULL DEFAULT '1',
+  `IsActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_web_post_tags`
+--
+
+CREATE TABLE `tbl_web_post_tags` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Description` varchar(300) NOT NULL,
+  `CreatedById` varchar(50) NOT NULL,
+  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifiedById` varchar(50) NOT NULL,
+  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `VersionNo` int(11) NOT NULL DEFAULT '1',
+  `IsActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_web_post_types`
+--
+
+CREATE TABLE `tbl_web_post_types` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Description` varchar(300) NOT NULL,
+  `CreatedById` varchar(50) NOT NULL,
+  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifiedById` varchar(50) NOT NULL,
+  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `VersionNo` int(11) NOT NULL DEFAULT '1',
+  `IsActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_web_services`
+--
+
+CREATE TABLE `tbl_web_services` (
+  `Id` int(11) NOT NULL,
+  `Slug` varchar(100) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Description` text NOT NULL,
+  `Content` text NOT NULL,
+  `Image` varchar(200) NOT NULL,
+  `CreatedById` varchar(50) NOT NULL,
+  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifiedById` varchar(50) NOT NULL,
+  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `VersionNo` int(11) NOT NULL DEFAULT '1',
+  `IsActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_web_settings`
+--
+
+CREATE TABLE `tbl_web_settings` (
+  `Id` int(11) NOT NULL,
+  `SiteTitle` varchar(100) NOT NULL,
+  `UnderConstruction` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -745,6 +797,18 @@ INSERT INTO `tbl_security_users` (`id`, `LoginName`, `PasswordHash`, `Active`, `
 -- Indexes for table `tbl_applicants_categories`
 --
 ALTER TABLE `tbl_applicants_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_applicants_certificates`
+--
+ALTER TABLE `tbl_applicants_certificates`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_applicants_certificate_list`
+--
+ALTER TABLE `tbl_applicants_certificate_list`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -760,39 +824,21 @@ ALTER TABLE `tbl_applicants_employment_status`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_applicants_job_applications`
+--
+ALTER TABLE `tbl_applicants_job_applications`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_applicants_kasambahay`
 --
 ALTER TABLE `tbl_applicants_kasambahay`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_applicants_kasambahay_desc`
---
-ALTER TABLE `tbl_applicants_kasambahay_desc`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tbl_applicants_kasambahay_history`
---
-ALTER TABLE `tbl_applicants_kasambahay_history`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tbl_applicants_languages`
 --
 ALTER TABLE `tbl_applicants_languages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tbl_applicants_lang_spoken`
---
-ALTER TABLE `tbl_applicants_lang_spoken`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tbl_applicants_lang_written`
---
-ALTER TABLE `tbl_applicants_lang_written`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -826,9 +872,9 @@ ALTER TABLE `tbl_applicants_ofw_locations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_applicants_ofw_work_history`
+-- Indexes for table `tbl_applicants_positions`
 --
-ALTER TABLE `tbl_applicants_ofw_work_history`
+ALTER TABLE `tbl_applicants_positions`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -856,10 +902,10 @@ ALTER TABLE `tbl_applicants_work_history`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_certificate_list`
+-- Indexes for table `tbl_establishments_jobposts`
 --
-ALTER TABLE `tbl_certificate_list`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `tbl_establishments_jobposts`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `tbl_establishments_rep`
@@ -880,18 +926,6 @@ ALTER TABLE `tbl_establistments_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_jobs_list`
---
-ALTER TABLE `tbl_jobs_list`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tbl_license_list`
---
-ALTER TABLE `tbl_license_list`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tbl_school_course_list`
 --
 ALTER TABLE `tbl_school_course_list`
@@ -905,6 +939,36 @@ ALTER TABLE `tbl_security_users`
   ADD UNIQUE KEY `tbl_sys_securityusers_loginname_unique` (`LoginName`);
 
 --
+-- Indexes for table `tbl_web_posts`
+--
+ALTER TABLE `tbl_web_posts`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `tbl_web_post_tags`
+--
+ALTER TABLE `tbl_web_post_tags`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `tbl_web_post_types`
+--
+ALTER TABLE `tbl_web_post_types`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `tbl_web_services`
+--
+ALTER TABLE `tbl_web_services`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `tbl_web_settings`
+--
+ALTER TABLE `tbl_web_settings`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -913,131 +977,170 @@ ALTER TABLE `tbl_security_users`
 --
 ALTER TABLE `tbl_applicants_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT for table `tbl_applicants_certificates`
+--
+ALTER TABLE `tbl_applicants_certificates`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_applicants_certificate_list`
+--
+ALTER TABLE `tbl_applicants_certificate_list`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_disabilities`
 --
 ALTER TABLE `tbl_applicants_disabilities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_employment_status`
 --
 ALTER TABLE `tbl_applicants_employment_status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_applicants_job_applications`
+--
+ALTER TABLE `tbl_applicants_job_applications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_kasambahay`
 --
 ALTER TABLE `tbl_applicants_kasambahay`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `tbl_applicants_kasambahay_desc`
---
-ALTER TABLE `tbl_applicants_kasambahay_desc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `tbl_applicants_kasambahay_history`
---
-ALTER TABLE `tbl_applicants_kasambahay_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_languages`
 --
 ALTER TABLE `tbl_applicants_languages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `tbl_applicants_lang_spoken`
---
-ALTER TABLE `tbl_applicants_lang_spoken`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `tbl_applicants_lang_written`
---
-ALTER TABLE `tbl_applicants_lang_written`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_licenses`
 --
 ALTER TABLE `tbl_applicants_licenses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_ofw`
 --
 ALTER TABLE `tbl_applicants_ofw`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_ofw_conditions`
 --
 ALTER TABLE `tbl_applicants_ofw_conditions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_ofw_dependents`
 --
 ALTER TABLE `tbl_applicants_ofw_dependents`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_ofw_locations`
 --
 ALTER TABLE `tbl_applicants_ofw_locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `tbl_applicants_ofw_work_history`
+-- AUTO_INCREMENT for table `tbl_applicants_positions`
 --
-ALTER TABLE `tbl_applicants_ofw_work_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tbl_applicants_positions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_prefer_locations`
 --
 ALTER TABLE `tbl_applicants_prefer_locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_schools_attended`
 --
 ALTER TABLE `tbl_applicants_schools_attended`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_sydp`
 --
 ALTER TABLE `tbl_applicants_sydp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_work_history`
 --
 ALTER TABLE `tbl_applicants_work_history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `tbl_certificate_list`
+-- AUTO_INCREMENT for table `tbl_establishments_jobposts`
 --
-ALTER TABLE `tbl_certificate_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tbl_establishments_jobposts`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_establishments_rep`
 --
 ALTER TABLE `tbl_establishments_rep`
   MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_establishment_industries`
 --
 ALTER TABLE `tbl_establishment_industries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+
 --
 -- AUTO_INCREMENT for table `tbl_establistments_categories`
 --
 ALTER TABLE `tbl_establistments_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `tbl_jobs_list`
---
-ALTER TABLE `tbl_jobs_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `tbl_license_list`
---
-ALTER TABLE `tbl_license_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tbl_school_course_list`
 --
 ALTER TABLE `tbl_school_course_list`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_web_posts`
+--
+ALTER TABLE `tbl_web_posts`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_web_post_tags`
+--
+ALTER TABLE `tbl_web_post_tags`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_web_post_types`
+--
+ALTER TABLE `tbl_web_post_types`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_web_services`
+--
+ALTER TABLE `tbl_web_services`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_web_settings`
+--
+ALTER TABLE `tbl_web_settings`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
