@@ -74,7 +74,7 @@ $route['translate_uri_dashes'] = FALSE;
 /* Log in */                                $route['manage/login'] = 'admin/HomeController/AdminEmployeeLogin';
     /* Dashboard */                         $route['manage'] = 'admin/HomeController/Dashboard';
     /* MANAGE */                        
-        /* User Masterlist */               $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';
+$route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';        /* User Masterlist */               
         /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
