@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2018 at 02:13 PM
+-- Generation Time: Nov 15, 2018 at 11:58 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -570,13 +570,15 @@ CREATE TABLE `tbl_establishments_jobposts` (
 CREATE TABLE `tbl_establishments_rep` (
   `id` int(8) NOT NULL,
   `establishmentId` varchar(50) NOT NULL,
+  `UserId` varchar(50) NOT NULL,
   `repFirstName` varchar(100) NOT NULL,
   `repLastName` varchar(100) NOT NULL,
   `repDesignation` varchar(100) NOT NULL,
   `createdById` varchar(50) NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `IsActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
