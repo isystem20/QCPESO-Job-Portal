@@ -9,7 +9,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="user-profile">
-                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/profile.png" alt="user" /><span class="hide-menu">Steave Jobs </span></a>
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/profile.png" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="javascript:void()">My Profile </a></li>
                                 <li><a href="javascript:void()">My Balance</a></li>
@@ -23,8 +23,13 @@
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
                         <li class="nav-small-cap">MANAGE</li>
-                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/users-masterlist/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Users</span></a>
-                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/user-groups/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Groups</span></a>
+
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Accounts and Access</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="<?php echo base_url(); ?>manage/users-masterlist"> Users </a></li> 
+                                <li><a href="<?php echo base_url(); ?>manage/user-groups/"> Groups </a> </li>
+                            </ul>
+                        </li>
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Maintenance</span></a>
                             <ul aria-expanded="false" class="collapse">
