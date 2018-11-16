@@ -88,6 +88,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
 
             /* Applicant Level */           $route['manage/maintenance/applicant-level'] = 'admin/ApplicantLevelController/ApplicantLevel';
 
+            /* Employment Types */           $route['manage/maintenance/employment-types'] = 'admin/EmploymentTypesController/EmploymentTypes';
 
 
              /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
@@ -193,6 +194,12 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/applicantlevel/edit'] = 'admin/ApplicantLevelController/Update';
         $route['admin/applicantlevel/del'] = 'admin/ApplicantLevelController/Delete';
         $route['admin/applicantlevel/read'] = 'admin/ApplicantLevelController/Read';
+
+        //Employment Types
+        $route['admin/employmenttypes/add'] = 'admin/EmploymentTypesController/Create';
+        $route['admin/employmenttypes/edit'] = 'admin/EmploymentTypesController/Update';
+        $route['admin/employmenttypes/del'] = 'admin/EmploymentTypesController/Delete';
+        $route['admin/employmenttypes/read'] = 'admin/EmploymentTypesController/Read';
 
 
          //Group
