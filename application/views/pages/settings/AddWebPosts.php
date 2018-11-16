@@ -1,7 +1,5 @@
 <div class="page-wrapper">
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
+
     <div class="container-fluid">
  
         <div class="row page-titles">
@@ -18,13 +16,7 @@
                 <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Start Page Content -->
-        <!-- ============================================================== -->
-        <!-- Row -->
+      
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -43,7 +35,7 @@
                                             <input type="text" id="firstName" class="form-control">
                                          </div>
                                     </div>
-                                    <!--/span-->
+                             
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Post Description</label>
@@ -51,9 +43,9 @@
                                          </div>
                                     </div>
                                     </div>
-                                    <!--/span-->
+                                  
                                 </div>
-                                <!--/row-->
+                               
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group has-success">
@@ -75,13 +67,14 @@
                                             </select>
                                             
                                     </div>
-                                    <!--/span-->
+                                   
                                    </div>
                                 </div>
-                                <!--/row-->
-                      
+                              
+
+
           
-            <div class="row page-titles">
+            <div class="row1 page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor">Post Description</h3>
                 </div>
@@ -108,7 +101,7 @@
                 </div>
                
         </div>
-                                <!--/row-->
+                               
                                
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
