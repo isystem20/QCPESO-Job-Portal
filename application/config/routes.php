@@ -120,6 +120,8 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Establishment Ratings */         $route['manage/reports/establishment-ratings'] = 'admin/ReportController/EstablishmentRatings'; 
         /* Survey Summary */                $route['manage/reports/survey-summary'] = 'admin/ReportController/SurverSummary'; 
         /* Add Posts */                     $route['manage/settings/add-new-post'] = 'admin/WebPostsController/AddWebPosts'; 
+
+        /* Post Types */                    $route['manage/settings/add-post-types'] = 'admin/WebPostsTypesController/PostTypes'; 
         
 // $route['manage/do/jobs/view-list'] = 'PostController/JobPost';
 
@@ -215,3 +217,8 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
         $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
 
+        //industries
+        $route['admin/posttypes/add'] = 'admin/WebPostsTypesController/Create'; //POST to create
+        $route['admin/posttypes/edit'] = 'admin/WebPostsTypesController/Update'; // POST to edit
+        $route['admin/posttypes/del'] = 'admin/WebPostsTypesController/Delete'; // POST to delete
+        $route['admin/posttypes/read'] = 'admin/WebPostsTypesController/Read'; // POST to view
