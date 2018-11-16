@@ -3,12 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class ApplicantLevelModel extends CI_Model {
 
-
-		public $tbl = 'tbl_applicants_applicantlevel';
-
 		public function LoadMasterlist($id = null) {
 			$this->db->select('*');
-			$this->db->from($this->tbl);
+			$this->db->from('tbl_applicants_levels');
 			if (!empty($id)) {
 				$this->db->where('id',$id);
 				return $this->db->get()->result();
@@ -28,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->set('modifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
 			$this->db->set('isActive',"'".$data['status']."'",FALSE);
 
-			$this->db->insert($this->tbl);
+			$this->db->insert('tbl_applicants_levels');
 
 			$id = $this->db->insert_id();
 
@@ -48,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->set('name','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
 			$this->db->set('isActive','"0"',FALSE);
 			$this->db->where('id', $data['id']);
-			$this->db->update($this->tbl);
+			$this->db->update('tbl_applicants_levels');
 			$deleted = $this->db->affected_rows();
 			if ($deleted > 0) {
 				return $data;
@@ -68,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    $this->db->set('description', '"'.$data['description'].'"', FALSE); 
 		    $this->db->set('isActive', '"'.$data['status'].'"', FALSE);
 		    $this->db->where('id', $id);
-		    $query = $this->db->update($this->tbl);
+		    $query = $this->db->update('tbl_applicants_levels');
 			$update = $this->db->affected_rows();
 			if ($update > 0) {
 				$result = $this->LoadMasterlist($id);

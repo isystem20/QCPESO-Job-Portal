@@ -5,14 +5,14 @@
  
  	function __construct() {
          parent::__construct();
-         $this->load->model('admin/ApplicantLevelModel','levmod');
+         $this->load->model('admin/ApplicantLevelModel','levelmod');
      }
  
  	public function ApplicantLevel()
  	{
  
  		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
- 		$data['masterlist'] = $this->levmod->LoadMasterlist();
+ 		$data['masterlist'] = $this->levelmod->LoadMasterlist();
         $data['class'] = 'applicantlevel';
  		$this->load->view('layout/admin/1_css');
  		$this->load->view('layout/admin/2_preloader');
@@ -24,7 +24,7 @@
 
  	}
  	public function Create() {
-		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_applicantlevel.name]',
+		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_levels.name]',
 		        array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
@@ -37,7 +37,7 @@
          }
         else {
         	$postdata = $this->input->post();
-        	$inserted = $this->levmod->Add($postdata);
+        	$inserted = $this->levelmod->Add($postdata);
         	// echo json_encode(['success'=>TRUE]);
          	if ($inserted != FALSE) {
 	        	$json = json_encode($inserted);       		
@@ -66,7 +66,7 @@
             unset($postdata['itemid']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->levmod->Update($id,$postdata);
+            $result = $this->levelmod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                 echo $json;
@@ -94,7 +94,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->levmod->Delete($postdata);
+            $result = $this->levelmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
                 echo $json;

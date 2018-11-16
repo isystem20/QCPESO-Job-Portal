@@ -85,13 +85,13 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/LocationController/Location';
             /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobTitlesController/JobTitles';
             /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/CategoriesController/Categories';
-<<<<<<< HEAD
-            /* Categories */                $route['manage/maintenance/applicant-level'] = 'admin/ApplicantLevelController/ApplicantLevel';
+
+            /* Applicant Level */           $route['manage/maintenance/applicant-level'] = 'admin/ApplicantLevelController/ApplicantLevel';
 
 
-=======
+
              /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
->>>>>>> f721819afd2800f1a462235e856994c9d99d44ac
+
         /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
         /* Surveys */                       $route['manage/surveys'] = 'admin/SurveyController/Survey';
 
@@ -187,6 +187,13 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/categories/edit'] = 'admin/CategoriesController/Update'; // POST to edit
         $route['admin/categories/del'] = 'admin/CategoriesController/Delete'; // POST to delete
         $route['admin/categories/read'] = 'admin/CategoriesController/Read'; // POST to view
+
+        //Applicant Level
+        $route['admin/applicantlevel/add'] = 'admin/ApplicantLevelController/Create';
+        $route['admin/applicantlevel/edit'] = 'admin/ApplicantLevelController/Update';
+        $route['admin/applicantlevel/del'] = 'admin/ApplicantLevelController/Delete';
+        $route['admin/applicantlevel/read'] = 'admin/ApplicantLevelController/Read';
+
 
          //Group
         $route['admin/group/add'] = 'admin/GroupController/Create'; //POST to create

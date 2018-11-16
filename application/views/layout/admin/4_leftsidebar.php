@@ -40,14 +40,14 @@
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/preferred-locations"> Preferred Locations </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/job-titles"> Job Titles </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-categories"> Categories </a></li>
-<<<<<<< HEAD
+
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-level"> Applicant Level </a></li>
-=======
+
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/industries"> Industries </a></li>
                                 <li><a href="<?php echo base_url(); ?>"> Course List </a></li>
                                 <li><a href="<?php echo base_url(); ?>"> Employment Types</a></li>
                                 <li><a href="<?php echo base_url(); ?>"> Country List</a></li>
->>>>>>> f721819afd2800f1a462235e856994c9d99d44ac
+
                             </ul>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Review and Ratings</span></a></li>
