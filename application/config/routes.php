@@ -85,13 +85,12 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/LocationController/Location';
             /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobTitlesController/JobTitles';
             /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/CategoriesController/Categories';
-<<<<<<< HEAD
-            /* Categories */                $route['manage/maintenance/applicant-level'] = 'admin/ApplicantLevelController/ApplicantLevel';
 
+$route['manage/maintenance/applicant-level'] = 'admin/ApplicantLevelController/ApplicantLevel';/* Categories */                
+$route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries'; /* Industries */
 
-=======
-             /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
->>>>>>> f721819afd2800f1a462235e856994c9d99d44ac
+                            
+
         /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
         /* Surveys */                       $route['manage/surveys'] = 'admin/SurveyController/Survey';
 
