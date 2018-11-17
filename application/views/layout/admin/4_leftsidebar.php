@@ -53,6 +53,8 @@
 
                                 <li><a href="<?php echo base_url(); ?>"> Country List</a></li>
 
+                                <li><a href="<?php echo base_url(); ?>manage/maintenance/manage/user-status"> Employment Status</a></li>
+
                             </ul>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Survey and Ratings</span></a></li>
