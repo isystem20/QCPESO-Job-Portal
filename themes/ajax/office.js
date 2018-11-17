@@ -257,7 +257,7 @@ $(document).ready(function() {
   });
 
 
-$('webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+$('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
     e.preventDefault();       //This prevents the action to move to other page.
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
         var newURL = $(this).attr('action');      //Get the form action attribute value.
@@ -265,11 +265,12 @@ $('webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for I
                 'id' : $('input[name=id]').val(),     //List of data you want to post
                 'title' : $('input[name=title]').val(),
                 'description' : $('input[name=description]').val(),
-                'type' : $('input[name=type]').val(),
-                'tags' : $('input[name=tags]').val(),
-                'status' : $('input[name=status]').val(),
+                'type' : $('select[name=type]').val(),
+                'tags' : $('select[name=tags]').val(),
+                'status' : $('select[name=status]').val(),
                 'textarea' : $('input[name=textarea]').html(),
             }
+            console.log(newData);
           $.ajax({
               url: newURL,
               type:'POST',
@@ -278,7 +279,7 @@ $('webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for I
               success: function(data) {
                 console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
                 if($.isEmptyObject(data.error)){      //Checking if the data.error has value
-                    $('#del-modal').modal('hide');
+                    
 
                      $.toast({
                       heading: 'Success!',
@@ -289,7 +290,10 @@ $('webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for I
                       hideAfter: 3500, 
                       stack: 6
                     });
-}
+                      window.setTimeout(function(){
+                      window.location.href = data.url;  
+                    }, 1000);
+              }
                   else{
                     $.toast({
                       heading: 'Error',

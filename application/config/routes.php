@@ -123,7 +123,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Feedbacks */                     $route['manage/reports/feedbacks'] = 'admin/ReportController/Feedbacks'; 
         /* Establishment Ratings */         $route['manage/reports/establishment-ratings'] = 'admin/ReportController/EstablishmentRatings'; 
         /* Survey Summary */                $route['manage/reports/survey-summary'] = 'admin/ReportController/SurverSummary'; 
-        /* Add Posts */                     $route['manage/settings/add-new-post'] = 'admin/WebPostsController/AddWebPosts'; 
+        /* Add Posts */                     $route['manage/settings/add-web-post'] = 'admin/WebPostsController/AddWebPosts'; 
         /* Post Types */                    $route['manage/settings/add-post-types'] = 'admin/WebPostsTypesController/PostTypes'; 
         
 // $route['manage/do/jobs/view-list'] = 'PostController/JobPost';
@@ -256,7 +256,7 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/applicantmasterlist/del'] = 'admin/ApplicantMasterlistController/Delete'; // POST to delete
         $route['admin/applicantmasterlist/read'] = 'admin/ApplicantMasterlistController/Read'; // POST to view
 
-        //establishment Masterlist
+        $route['manage/settings/all-web-post'] = 'admin/WebPostsController/AllWebPosts';
         $route['admin/EstablishmentMasterlist/add'] = 'admin/EstablishmentlistController/Create'; //POST to create
         $route['admin/EstablishmentMasterlist/edit'] = 'admin/EstablishmentlistController/Update'; // POST to edit
         $route['admin/EstablishmentMasterlist/del'] = 'admin/EstablishmentlistController/Delete'; // POST to delete
