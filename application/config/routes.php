@@ -275,3 +275,5 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/webposts/edit'] = 'admin/WebPostsController/Update'; // POST to edit
         $route['admin/webposts/del'] = 'admin/WebPostsController/Delete'; // POST to delete
         $route['admin/webposts/read'] = 'admin/WebPostsController/Read'; // POST to view
+
+         $route['manage/settings/all-new-post'] = 'admin/WebPostsController/AllWebPosts'; 
