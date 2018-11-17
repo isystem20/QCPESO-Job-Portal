@@ -1,5 +1,4 @@
 
-
         <div class="page-wrapper">
             
             <!-- ============================================================== -->
@@ -11,15 +10,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor"> License List </h3>
-                    <h6 class="text-muted">License Masterlist</h6>
-                
+                    <h3 class="text-themecolor">License list Maintenance</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Maintenenace</li>
-                        <li class="breadcrumb-item active">Categories</li>
+                        <li class="breadcrumb-item">Manage</li>
+                        <li class="breadcrumb-item active">Maintenance</li>
+                        <li class="breadcrumb-item active">License list</li>
+
                     </ol>
                 </div>
                 <div>
@@ -38,58 +37,85 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+
+                            
+                                  
+                                <h4 class="card-title">License list</h4>
+                                <h6 class="card-subtitle">Masterlist of All License list</h6>
+                                  <div class="card-body">
+                                <button type="button" id="add-btn1" class="btn waves-effect waves-light btn-success">Add</button>
                                 <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
+                                    <table id="myTable1" class="table table-bordered table-striped">
+
+
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
+                                                <th>Eligibility Title</th>
                                                 <th>Description</th>
-                                                <th>Modified By</th>
-                                                <th>Last Modified</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                 <th>Modified By </th>
+                                                 <th>Modified At </th>
+                                                 <th>Status</th>
+                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <?php
+                                        <tfoot>
+                                             <tr>    
+                                                <th>Name</th>
+                                                <th>Eligibility Title</th>
+                                                <th>Description</th>
+                                                 <th>Modified By </th>
+                                                 <th>Modified At </th>
+                                                 <th>Status</th>
+                                                 <th>Action</th>
+                                            </tr>
+                                        </tfoot>   
+                                        <tbody>
+                                         <?php
                                         if ($license->num_rows() > 0) {
                                             foreach ($license->result() as $row) { ?>
-                                            <tr id="row<?=$row->id; ?>">
+                                            <tr>
                                                 <td><?php echo $row->name; ?></td>
-                                                <td><?php echo character_limiter($row->description, 30); ?></td>
-                                                <td><?php echo $row->modifiedById; ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->modifiedAt)); ?></td>
+                                                <td><?php echo $row->eligibilityTitle; ?></td>
+                                                 <td><?php echo character_limiter($row->description, 30); ?></td>
+                                                    <td><?php echo $row->modifiedById; ?></td>
+                                                      <td><?php echo date('Y-m-d',strtotime($row->modifiedAt)); ?></td>
                                                 <td>
                                                     <?php 
                                                     if ($row->isActive == '1') {
-                                                        echo '<label class="label label-success">Active</label>';
+                                                        echo '<label class="label label-primary">Active</label>';
                                                     }
                                                     else {
-                                                        echo '<span class="label label-light-inverse">Inactive</span>';
+                                                        echo '<label class="label label-light-inverse">Inactive</label>';
                                                     }
+
                                                     ?>
                                                 </td>
                                                 <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-name="<?=$row->name; ?>" data-desc="<?=$row->description; ?>" data-createdby="<?=$row->createdById; ?>" data-createdat="<?=$row->createdAt; ?>" data-modifiedby="<?=$row->modifiedById; ?>" data-modifiedat="<?=$row->modifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->isActive; ?>"> <i class="fas fa-info-circle"></i> </button>
-
-
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-name="<?=$row->name; ?>" data-desc="<?=$row->description; ?>" data-status="<?=$row->isActive; ?>"> <i class="far fa-edit" ></i> </button>
-
-
-
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-name="<?=$row->name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm" type="button"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" type="button"> <i class="far fa-edit" ></i> </button>
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" type="button"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php
                                             }
                                         }
                                         ?>
+                                        </tbody>
+                                        <tfoot>
+                                           
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
+            </div>
+
+        </div>
+    </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -97,56 +123,7 @@
                 <!-- Right sidebar -->
                 <!-- ============================================================== -->
                 <!-- .right-sidebar -->
-                <div class="right-sidebar">
-                    <div class="slimscrollright">
-                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
-                        <div class="r-panel-body">
-                            <ul id="themecolors" class="m-t-20">
-                                <li><b>With Light sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default" class="default-theme working">1</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme">4</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
-                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                            </ul>
-                            <ul class="m-t-20 chatonline">
-                                <li><b>Chat option</b></li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- ============================================================== -->
                 <!-- End Right sidebar -->
                 <!-- ============================================================== -->
@@ -163,3 +140,41 @@
             <!-- ============================================================== -->
         </div>
 
+<div id="add-modal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add New Category</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="add-form1" action="<?php echo base_url(); ?>admin/license/add" method="POST">
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Name: </label>
+                        <input type="text" name="name" class="form-control" placeholder="A unique name for this category">
+                    </div>
+                     <div class="form-group">
+                        <label for="recipient-name" class="control-label">Eligibility Title: </label>
+                        <input type="text" name="eligibiltytitle" class="form-control" placeholder="A unique title for this Eligibility Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Description:</label>
+                        <textarea name="description" class="form-control" placeholder="Short description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select name="status" class="form-control">
+                            <option value="1">Active (Activate now)</option>
+                            <option value="0">Inactive (Register but activate later)</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                <button type="submit" id="add-submit1" class="btn btn-info waves-effect waves-light">Save changes</button>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
