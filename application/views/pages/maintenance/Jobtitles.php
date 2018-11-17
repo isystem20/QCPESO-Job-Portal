@@ -11,15 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Group Masterlist</h3>
-                    <h6 class="text-muted">Masterlist</h6>
+                    <h3 class="text-themecolor">Jobtitles</h3>
+                    <h6 class="text-muted">Masterlist of All Jobtitles</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item">Maintenenace</li>
-                        <li class="breadcrumb-item active">Group Masterlist</li>
+                        <li class="breadcrumb-item active">Languages</li>
                     </ol>
                 </div>
                 <div>

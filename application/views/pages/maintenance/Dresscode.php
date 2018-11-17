@@ -11,15 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Group Masterlist</h3>
-                    <h6 class="text-muted">Masterlist</h6>
+                    <h3 class="text-themecolor">Dress Code</h3>
+                    <h6 class="text-muted">Masterlist of All Applicant Dress Code</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item">Maintenenace</li>
-                        <li class="breadcrumb-item active">Group Masterlist</li>
+                        <li class="breadcrumb-item active">Dress Code</li>
                     </ol>
                 </div>
                 <div>
@@ -52,8 +52,8 @@
                                             </tr>
                                         </thead>
                                         <?php
-                                        if ($masterlist->num_rows() > 0) {
-                                            foreach ($masterlist->result() as $row) { ?>
+                                        if ($dresscode->num_rows() > 0) {
+                                            foreach ($dresscode->result() as $row) { ?>
                                             <tr id="row<?=$row->id; ?>">
                                                 <td><?php echo $row->name; ?></td>
                                                 <td><?php echo character_limiter($row->description, 30); ?></td>
