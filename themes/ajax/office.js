@@ -162,6 +162,7 @@ $(document).ready(function() {
   $('#myTable').delegate(".del-item-btn", "click", function() {
     $('input[name=id]').val($(this).data('id'));
     $('input[name=exname]').val($(this).data('name'));
+    $('#del-form').attr('action',$('#myTable').data('action')+'del');
     $('#del-modal').modal();
   });
 
@@ -169,7 +170,7 @@ $(document).ready(function() {
   $('#del-form').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
     e.preventDefault();       //This prevents the action to move to other page.
         $("#del-submit").prop("disabled", true);   //Disables the submit button after click 
-        var newURL = $(this).attr('action')+'del';      //Get the form action attribute value.
+        var newURL = $(this).attr('action');      //Get the form action attribute value.
         var newData  = {
                 'id' : $('input[name=id]').val(),     //List of data you want to post
                 'name' : $('input[name=exname]').val(),
