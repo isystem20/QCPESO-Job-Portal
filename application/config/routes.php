@@ -76,6 +76,9 @@ $route['manage'] = 'admin/HomeController/Dashboard';    /* Dashboard */
     /* MANAGE */                        
 $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';        /* User Masterlist */               
         /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
+        /* Manage Courses */                 $route['manage/user-courses'] = 'admin/CourselistController/Courselist';
+        /* Manage Employment Status */                 $route['manage/user-status'] = 'admin/EmploymentStatusController/EmploymentStatus';
+         /* Manage Account Release */                 $route['manage/account-release'] = 'admin/AccountReleaseController/AccountRelease';
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
             /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
@@ -211,11 +214,23 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/group/del'] = 'admin/GroupController/Delete'; // POST to delete
         $route['admin/group/read'] = 'admin/GroupController/Read'; // POST to view
 
-         //industries
-        $route['admin/industries/add'] = 'admin/IndustriesController/Create'; //POST to create
-        $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
-        $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
-        $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
+         //Courselist
+        $route['admin/course/add'] = 'admin/CourselistController/Create'; //POST to create
+        $route['admin/course/edit'] = 'admin/CourselistController/Update'; // POST to edit
+        $route['admin/course/del'] = 'admin/CourselistController/Delete'; // POST to delete
+        $route['admin/course/read'] = 'admin/CourselistController/Read'; // POST to view
+
+         //EmploymentStatuss
+        $route['admin/employmentstat/add'] = 'admin/EmploymentStatusController/Create'; //POST to create
+        $route['admin/employmentstat/edit'] = 'admin/EmploymentStatusController/Update'; // POST to edit
+        $route['admin/employmentstat/del'] = 'admin/EmploymentStatusController/Delete'; // POST to delete
+        $route['admin/employmentstat/read'] = 'admin/EmploymentStatusController/Read'; // POST to view
+
+         //AccountRelease
+        $route['admin/accountrelease/add'] = 'admin/AccountReleaseController/Create'; //POST to create
+        $route['admin/accountrelease/edit'] = 'admin/AccountReleaseController/Update'; // POST to edit
+        $route['admin/accountrelease/del'] = 'admin/AccountReleaseController/Delete'; // POST to delete
+        $route['admin/accountrelease/read'] = 'admin/AccountReleaseController/Read'; // POST to view
 
         //industries
         $route['admin/posttypes/add'] = 'admin/WebPostsTypesController/Create'; //POST to create
