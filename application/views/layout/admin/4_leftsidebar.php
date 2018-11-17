@@ -114,9 +114,8 @@
                                 <li><a href="#">Basic Settings</a></li>
                                 <li> <a class="has-arrow" href="#" aria-expanded="false">Posts</a>
                                     <ul aria-expanded="false" class="collapse">
-                                        <li><a href="<?php echo base_url();?>manage/settings/add-new-post">Add Posts</a></li>
                                         <li><a href="#">All Posts</a></li>
-                                        <li><a href="<?php echo base_url();?>manage/settings/add-post-types">Post Types</a></li>
+                                        <li><a href="#">Post Types</a></li>
                                         <li><a href="#">Post Tags</a></li>
                                     </ul>
                                 </li>
