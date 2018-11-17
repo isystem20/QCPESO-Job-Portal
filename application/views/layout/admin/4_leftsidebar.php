@@ -54,6 +54,7 @@
                                 <li><a href="<?php echo base_url(); ?>"> Country List</a></li>
 
 
+
                             </ul>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Survey and Ratings</span></a></li>
@@ -115,6 +116,7 @@
                                 <li><a href="#">Basic Settings</a></li>
                                 <li> <a class="has-arrow" href="#" aria-expanded="false">Posts</a>
                                     <ul aria-expanded="false" class="collapse">
+                                        <li><a href="<?php echo base_url();?>manage/settings/add-web-post">Add Posts</a></li>
                                         <li><a href="<?php echo base_url();?>manage/settings/all-web-post">All Posts</a></li>
                                         <li><a href="#">Post Types</a></li>
                                         <li><a href="#">Post Tags</a></li>
