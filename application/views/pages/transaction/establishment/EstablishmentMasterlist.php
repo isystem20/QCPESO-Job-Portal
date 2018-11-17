@@ -49,7 +49,6 @@
                                                 <th>Company Address</th>
                                                 <th>Contact No.</th>
                                                 <th>Email</th>
-                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -62,23 +61,14 @@
                                                 <td><?php echo character_limiter($row->CompanyAddress, 30); ?></td>
                                                 <td><?php echo $row->LandlineNum; ?></td>
                                                 <td><?php echo $row->CompanyEmail; ?></td>
-                                                <td>
-                                                    <?php 
-                                                    if ($row->isActive == '1') {
-                                                        echo '<label class="label label-success">Active</label>';
-                                                    }
-                                                    else {
-                                                        echo '<span class="label label-light-inverse">Inactive</span>';
-                                                    }
-                                                    ?>
-                                                </td>
+                                                
                                                 <td class="actions">
                                                     <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button"data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->CompanyName; ?>" data-type="<?=$row->EstablismentType;?>"
-                                                    data-address="<?=$row->CompanyAddress; ?>" data-contact="<?=$row->LandlineNum; ?>" data-email="<?=$row->CompanyEmail; ?>"data-createdby="<?=$row->CreatedById; ?>"data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>"data-Modifiedat="<?=$row->ModifiedAt; ?>"data-status="<?=$row->isActive; ?>"><i class="fas fa-info-circle"></i> </button>
+                                                    data-address="<?=$row->CompanyAddress; ?>" data-contact="<?=$row->LandlineNum; ?>" data-email="<?=$row->CompanyEmail; ?>"data-createdby="<?=$row->CreatedById; ?>"data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>"data-Modifiedat="<?=$row->ModifiedAt; ?>"><i class="fas fa-info-circle"></i> </button>
 
 
                                                     <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->CompanyName; ?>" data-type="<?=$row->EstablismentType; ?>"
-                                                    data-address="<?=$row->CompanyAddress; ?>" data-contact="<?=$row->LandlineNum; ?>" data-email="<?=$row->CompanyEmail; ?>"data-status="<?=$row->isActive; ?>"> <i class="far fa-edit" ></i> </button>
+                                                    data-address="<?=$row->CompanyAddress; ?>" data-contact="<?=$row->LandlineNum; ?>" data-email="<?=$row->CompanyEmail; ?>"> <i class="far fa-edit" ></i> </button>
 
 
 
