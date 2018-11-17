@@ -11,15 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor"> License List </h3>
-                    <h6 class="text-muted">License Masterlist</h6>
+                    <h3 class="text-themecolor">Jobtitles</h3>
+                    <h6 class="text-muted">Masterlist of All Jobtitles</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item">Maintenenace</li>
-                        <li class="breadcrumb-item active">Categories</li>
+                        <li class="breadcrumb-item active">Languages</li>
                     </ol>
                 </div>
                 <div>
@@ -52,8 +52,8 @@
                                             </tr>
                                         </thead>
                                         <?php
-                                        if ($license->num_rows() > 0) {
-                                            foreach ($license->result() as $row) { ?>
+                                        if ($masterlist->num_rows() > 0) {
+                                            foreach ($masterlist->result() as $row) { ?>
                                             <tr id="row<?=$row->id; ?>">
                                                 <td><?php echo $row->name; ?></td>
                                                 <td><?php echo character_limiter($row->description, 30); ?></td>
