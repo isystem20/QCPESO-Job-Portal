@@ -11,15 +11,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->from($this->tbl);
 			if (!empty($id)) {
 				$this->db->where('id',$id);
+				$this->db->where('isActive','1');
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('isActive','1');
+				// $this->db->where('isActive','1');
 				$this->db->or_where('isActive','2');
 				return $this->db->get();
 			}
 			
 		}
 
+
+		public function LoadMasterlistInactive($id = null) {
+			$this->db->select('*');
+			$this->db->from($this->tbl);
+			if (!empty($id)) {
+				$this->db->where('id',$id);
+				$this->db->where('isActive','2');
+				return $this->db->get()->result();
+			}else {
+				$this->db->where('isActive','1');
+				// $this->db->or_where('isActive','2');
+				return $this->db->get();
+			}
+			
+		}
 
 		// public function Add($data) {
 		// 	$this->db->set('CompanyName',"'".$data['CompanyName']."'",FALSE);
@@ -48,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function Delete($data) {
 			//filerecord = [Del-1234567890]filerecord
-			$this->db->set('CompanyName','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['CompanyName'].'"',FALSE);
+			$this->db->set('CompanyName','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
 			$this->db->set('isActive','"0"',FALSE);
 			$this->db->where('Id', $data['Id']);
 			$this->db->update('tbl_establishments');
