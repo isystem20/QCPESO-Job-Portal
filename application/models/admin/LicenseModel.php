@@ -5,32 +5,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function Load_LicenseModel_Masterlist($id = null) {
 			$this->db->select('*');
-			$this->db->from('tbl_license_list');
+			$this->db->from('tbl_applicants_licenses');
 			if (!empty($id)) {
 				$this->db->where('id',$id);
 				return $this->db->get()->result();
-
 			}else {
+				$this->db->where('isActive','1');
+				$this->db->or_where('isActive','2');
 				return $this->db->get();
 			}
+			
 		}
 
 
-	public function Add($data) {
-			if (empty($this->session->userdata('userid'))) {
-				$user = 'DEV STAGE';
-			}
-			else {
-				$user = $this->session->userdata('userid');
-			}
+		public function Add($data) {
 			$this->db->set('name',"'".$data['name']."'",FALSE);
-			$this->db->set('eligibilityTitle',"'".$data['eligibiltytitle']."'",FALSE);
 			$this->db->set('description',"'".$data['description']."'",FALSE);
-			$this->db->set('createdById',"'".$user."'",FALSE);
-			$this->db->set('modifiedById',"'".$user."'",FALSE);	
+			$this->db->set('createdById',"'".$this->session->userdata('userid')."'",FALSE);
+			$this->db->set('modifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
 			$this->db->set('isActive',"'".$data['status']."'",FALSE);
 
-			$this->db->insert('tbl_license_list');
+			$this->db->insert('tbl_applicants_licenses');
 
 			$id = $this->db->insert_id();
 
@@ -45,7 +40,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 
+		public function Delete($data) {
+			//filerecord = [Del-1234567890]filerecord
+			$this->db->set('name','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
+			$this->db->set('isActive','"0"',FALSE);
+			$this->db->where('id', $data['id']);
+			$this->db->update('tbl_applicants_licenses');
+			$deleted = $this->db->affected_rows();
+			if ($deleted > 0) {
+				return $data;
+			}else {
+				FALSE;
+			}
 
+		}
+
+
+
+		public function Update($id, $data) {
+		    $this->db->set('modifiedById',"'".$this->session->userdata('userid')."'",FALSE);
+		    $this->db->set('modifiedAt','CURRENT_TIMESTAMP',FALSE);
+		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
+		    $this->db->set('name', '"'.$data['name'].'"', FALSE); 
+		    $this->db->set('description', '"'.$data['description'].'"', FALSE); 
+		    $this->db->set('isActive', '"'.$data['status'].'"', FALSE);
+		    $this->db->where('id', $id);
+		    $query = $this->db->update('tbl_applicants_licenses');
+			$update = $this->db->affected_rows();
+			if ($update > 0) {
+				$result = $this->Load_LicenseModel_Masterlist($id);
+				return $result;
+			}
+			else {
+				return FALSE;
+			}
+		}
 
 
 

@@ -160,10 +160,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/languages/read'] = 'admin/LanguageController/Read';
 
         //Licences
-        $route['admin/licences/add'] = 'admin/LicenseController/Create';
-        $route['admin/licences/edit'] = 'admin/LicenseController/Update';
-        $route['admin/licences/del'] = 'admin/LicenseController/Delete';
-        $route['admin/licences/read'] = 'admin/LicenseController/Read';
+        $route['admin/licenses/add'] = 'admin/LicenseController/Create';
+        $route['admin/licenses/edit'] = 'admin/LicenseController/Update';
+        $route['admin/licenses/del'] = 'admin/LicenseController/Delete';
+        $route['admin/licenses/read'] = 'admin/LicenseController/Read';
 
         //Certificates
         $route['admin/certificates/add'] = 'admin/CertificateController/Create';
