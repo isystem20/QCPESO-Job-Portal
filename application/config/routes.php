@@ -120,7 +120,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Establishment Ratings */         $route['manage/reports/establishment-ratings'] = 'admin/ReportController/EstablishmentRatings'; 
         /* Survey Summary */                $route['manage/reports/survey-summary'] = 'admin/ReportController/SurverSummary'; 
         /* Add Posts */                     $route['manage/settings/add-new-post'] = 'admin/WebPostsController/AddWebPosts'; 
-
+          /* All Web Posts */               $route['manage/settings/all-web-post'] = 'admin/WebPostsController/AllWebPosts';                                    
         /* Post Types */                    $route['manage/settings/add-post-types'] = 'admin/WebPostsTypesController/PostTypes'; 
         
 // $route['manage/do/jobs/view-list'] = 'PostController/JobPost';
@@ -222,3 +222,9 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/posttypes/edit'] = 'admin/WebPostsTypesController/Update'; // POST to edit
         $route['admin/posttypes/del'] = 'admin/WebPostsTypesController/Delete'; // POST to delete
         $route['admin/posttypes/read'] = 'admin/WebPostsTypesController/Read'; // POST to view
+
+         //webpost
+        $route['admin/webposts/add'] = 'admin/WebPostsController/Create'; //POST to create
+        $route['admin/webposts/edit'] = 'admin/WebPostsController/Update'; // POST to edit
+        $route['admin/webposts/del'] = 'admin/WebPostsController/Delete'; // POST to delete
+        $route['admin/webposts/read'] = 'admin/WebPostsController/Read'; // POST to view
