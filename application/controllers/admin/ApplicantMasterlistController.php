@@ -5,14 +5,14 @@
  
     function __construct() {
          parent::__construct();
-         $this->load->model('admin/ApplicantMasterlistModel','courmod');
+         $this->load->model('admin/ApplicantMasterlistModel','appmamod');
      }
  
     public function ApplicantMasterlist()
     {
  
         $layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
-        $data['masterlist'] = $this->courmod->LoadMasterlist();
+        $data['masterlist'] = $this->appmamod->LoadMasterlist();
         $data['class'] = 'applicantmasterlist';
         $this->load->view('layout/admin/1_css');
         $this->load->view('layout/admin/2_preloader');
@@ -37,7 +37,7 @@
          }
         else {
             $postdata = $this->input->post();
-            $inserted = $this->courmod->Add($postdata);
+            $inserted = $this->appmamod->Add($postdata);
             // echo json_encode(['success'=>TRUE]);
             if ($inserted != FALSE) {
                 $json = json_encode($inserted);             
@@ -66,7 +66,7 @@
             unset($postdata['itemid']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->courmod->Update($id,$postdata);
+            $result = $this->appmamod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                 echo $json;
@@ -94,7 +94,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->courmod->Delete($postdata);
+            $result = $this->appmamod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
                 echo $json;
