@@ -195,7 +195,7 @@ $(document).ready(function() {
                       stack: 6
                     });
 
-                  var Id = data.Id;
+                  var Id = data.id;
                   var table = $('#myTable').DataTable();
                   table.row($('#row'+data.Id))
                   .remove()
