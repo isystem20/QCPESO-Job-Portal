@@ -30,7 +30,7 @@
                                 <li><a href="<?php echo base_url(); ?>manage/user-groups/"> Groups </a> </li>
                             </ul>
                         </li>
-
+ 
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Maintenance</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/languages"> Language </a></li> 
