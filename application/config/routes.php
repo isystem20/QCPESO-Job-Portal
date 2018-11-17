@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'WebController';
-$route['404_override'] = 'admin/SiteErrorController/Error404';
+$route['404_override'] = 'errors/cli/error_404';
 $route['translate_uri_dashes'] = FALSE;
 
 
@@ -71,8 +71,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 /* Management View */
 
-/* Log in */                                $route['manage/login'] = 'admin/HomeController/AdminEmployeeLogin';
-    /* Dashboard */                         $route['manage'] = 'admin/HomeController/Dashboard';
+$route['manage/login'] = 'admin/HomeController/AdminEmployeeLogin';/* Log in */                                
+$route['manage'] = 'admin/HomeController/Dashboard';    /* Dashboard */                         
     /* MANAGE */                        
 $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';        /* User Masterlist */               
         /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
@@ -84,6 +84,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
             /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificateController/Certificates';
             /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
+            /* Dress Code */                $route['manage/maintenance/dresscode'] = 'admin/DresscodeController/Dresscode';
             
             /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/LocationController/Location';
             /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobTitlesController/JobTitles';
@@ -176,6 +177,12 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/disabilities/edit'] = 'admin/DisabilitiesController/Update';
         $route['admin/disabilities/del'] = 'admin/DisabilitiesController/Delete';
         $route['admin/disabilities/read'] = 'admin/DisabilitiesController/Read';
+
+        //Disabilities
+        $route['admin/dresscode/add'] = 'admin/DresscodeController/Create';
+        $route['admin/dresscode/edit'] = 'admin/DresscodeController/Update';
+        $route['admin/dresscode/del'] = 'admin/DresscodeController/Delete';
+        $route['admin/dresscode/read'] = 'admin/DresscodeController/Read';
  
         //Preferred Locations
         $route['admin/preferred-locations/add'] = 'admin/LocationController/Create';
@@ -213,6 +220,13 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/group/edit'] = 'admin/GroupController/Update'; // POST to edit
         $route['admin/group/del'] = 'admin/GroupController/Delete'; // POST to delete
         $route['admin/group/read'] = 'admin/GroupController/Read'; // POST to view
+
+        //industries
+        $route['admin/industries/add'] = 'admin/IndustriesController/Create'; //POST to create
+        $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
+        $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
+        $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
+
 
          //Courselist
         $route['admin/course/add'] = 'admin/CourselistController/Create'; //POST to create

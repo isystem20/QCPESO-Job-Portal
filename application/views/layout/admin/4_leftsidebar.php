@@ -30,13 +30,14 @@
                                 <li><a href="<?php echo base_url(); ?>manage/user-groups/"> Groups </a> </li>
                             </ul>
                         </li>
-
+ 
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Maintenance</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/languages"> Language </a></li> 
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/licenses"> Licenses </a> </li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/certificates"> Certificates </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/disabilities"> Disabilities </a></li>
+                                <li><a href="<?php echo base_url(); ?>manage/maintenance/dresscode"> Dress Code </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/preferred-locations"> Preferred Locations </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/job-titles"> Job Titles </a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-categories"> Categories </a></li>
@@ -51,7 +52,7 @@
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li>
 
                                 <li><a href="<?php echo base_url(); ?>"> Country List</a></li>
-
+                                <li><a href="<?php echo base_url(); ?>"> Dresscodes</a></li>
 
                             </ul>
                         </li>
@@ -114,9 +115,8 @@
                                 <li><a href="#">Basic Settings</a></li>
                                 <li> <a class="has-arrow" href="#" aria-expanded="false">Posts</a>
                                     <ul aria-expanded="false" class="collapse">
-                                        <li><a href="<?php echo base_url();?>manage/settings/add-new-post">Add Posts</a></li>
                                         <li><a href="#">All Posts</a></li>
-                                        <li><a href="<?php echo base_url();?>manage/settings/add-post-types">Post Types</a></li>
+                                        <li><a href="#">Post Types</a></li>
                                         <li><a href="#">Post Tags</a></li>
                                     </ul>
                                 </li>
