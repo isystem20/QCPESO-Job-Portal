@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'WebController';
-$route['404_override'] = 'admin/SiteErrorController/Error404';
+$route['404_override'] = 'errors/cli/error_404';
 $route['translate_uri_dashes'] = FALSE;
 
 
@@ -71,8 +71,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 /* Management View */
 
-/* Log in */                                $route['manage/login'] = 'admin/HomeController/AdminEmployeeLogin';
-    /* Dashboard */                         $route['manage'] = 'admin/HomeController/Dashboard';
+$route['manage/login'] = 'admin/HomeController/AdminEmployeeLogin';/* Log in */                                
+$route['manage'] = 'admin/HomeController/Dashboard';    /* Dashboard */                         
     /* MANAGE */                        
 $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';        /* User Masterlist */               
         /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
