@@ -125,14 +125,14 @@ The goal is to contribute to the construction and maintenance of strong and long
                                 <!-- Categories widget-->
                                 <aside class="widget widget-categories">
                                     <div class="widget-title">
-                                        <h6>Categories</h6>
+                                        <h6>Companies</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">All Specialization<span class="float-right">112</span></a></li>
-                                        <li><a href="#">Services <span class="float-right">86</span></a></li>
-                                        <li><a href="#">Sport <span class="float-right">10</span></a></li>
-                                        <li><a href="#">Photography <span class="float-right">144</span></a></li>
-                                        <li><a href="#">Symphony <span class="float-right">18</span></a></li>
+                                        <li><a href="#">Jolibee<span class="float-right">100</span></a></li>
+                                        <li><a href="#">McDO <span class="float-right">50</span></a></li>
+                                        <li><a href="#">Mang Inasal <span class="float-right">40</span></a></li>
+                                        <li><a href="#">Healthy Shabu <span class="float-right">30</span></a></li>
+                                        <li><a href="#">Kuya J <span class="float-right">18</span></a></li>
                                     </ul>
                                 </aside>
 
