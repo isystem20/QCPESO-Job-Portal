@@ -255,3 +255,9 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/applicantmasterlist/edit'] = 'admin/ApplicantMasterlistController/Update'; // POST to edit
         $route['admin/applicantmasterlist/del'] = 'admin/ApplicantMasterlistController/Delete'; // POST to delete
         $route['admin/applicantmasterlist/read'] = 'admin/ApplicantMasterlistController/Read'; // POST to view
+
+        //establishment Masterlist
+        $route['admin/EstablishmentMasterlist/add'] = 'admin/EstablishmentlistController/Create'; //POST to create
+        $route['admin/EstablishmentMasterlist/edit'] = 'admin/EstablishmentlistController/Update'; // POST to edit
+        $route['admin/EstablishmentMasterlist/del'] = 'admin/EstablishmentlistController/Delete'; // POST to delete
+        $route['admin/EstablishmentMasterlist/read'] = 'admin/EstablishmentlistController/Read'; // POST to view
