@@ -51,7 +51,7 @@
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li>
 
                                 <li><a href="<?php echo base_url(); ?>"> Country List</a></li>
-
+                                <li><a href="<?php echo base_url(); ?>"> Dresscodes</a></li>
 
                             </ul>
                         </li>

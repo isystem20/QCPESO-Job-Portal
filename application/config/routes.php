@@ -214,6 +214,13 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/group/del'] = 'admin/GroupController/Delete'; // POST to delete
         $route['admin/group/read'] = 'admin/GroupController/Read'; // POST to view
 
+        //industries
+        $route['admin/industries/add'] = 'admin/IndustriesController/Create'; //POST to create
+        $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
+        $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
+        $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
+
+
          //Courselist
         $route['admin/course/add'] = 'admin/CourselistController/Create'; //POST to create
         $route['admin/course/edit'] = 'admin/CourselistController/Update'; // POST to edit
