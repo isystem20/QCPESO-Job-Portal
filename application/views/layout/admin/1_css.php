@@ -44,7 +44,7 @@
         }
     ?>
    
-    
+     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
   <link rel="stylesheet" href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/html5-editor/bootstrap-wysihtml5.css" />
    
   

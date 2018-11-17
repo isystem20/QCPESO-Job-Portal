@@ -131,7 +131,6 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Add Posts */                     $route['manage/settings/add-new-post'] = 'admin/WebPostsController/AddWebPosts'; 
         /* Types */                         $route['manage/settings/types'] = 'admin/TypesController/Types';
         /* Tags */                          $route['manage/settings/tags'] = 'admin/TagsController/Tags';
-
         /* Post Types */                    $route['manage/settings/add-post-types'] = 'admin/WebPostsTypesController/PostTypes'; 
         
 // $route['manage/do/jobs/view-list'] = 'PostController/JobPost';
@@ -271,4 +270,8 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/posttypes/del'] = 'admin/WebPostsTypesController/Delete'; // POST to delete
         $route['admin/posttypes/read'] = 'admin/WebPostsTypesController/Read'; // POST to view
 
-        
+         //webpost
+        $route['admin/webposts/add'] = 'admin/WebPostsController/Create'; //POST to create
+        $route['admin/webposts/edit'] = 'admin/WebPostsController/Update'; // POST to edit
+        $route['admin/webposts/del'] = 'admin/WebPostsController/Delete'; // POST to delete
+        $route['admin/webposts/read'] = 'admin/WebPostsController/Read'; // POST to view
