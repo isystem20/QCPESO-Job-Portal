@@ -128,7 +128,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Feedbacks */                     $route['manage/reports/feedbacks'] = 'admin/ReportController/Feedbacks'; 
         /* Establishment Ratings */         $route['manage/reports/establishment-ratings'] = 'admin/ReportController/EstablishmentRatings'; 
         /* Survey Summary */                $route['manage/reports/survey-summary'] = 'admin/ReportController/SurverSummary'; 
-        /* Add Posts */                     $route['manage/settings/add-new-post'] = 'admin/WebPostsController/AddWebPosts'; 
+        /* Add Posts */                     $route['manage/settings/add-web-post'] = 'admin/WebPostsController/AddWebPosts'; 
         /* Types */                         $route['manage/settings/types'] = 'admin/TypesController/Types';
         /* Tags */                          $route['manage/settings/tags'] = 'admin/TagsController/Tags';
         /* Post Types */                    $route['manage/settings/add-post-types'] = 'admin/WebPostsTypesController/PostTypes'; 
@@ -276,4 +276,4 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/webposts/del'] = 'admin/WebPostsController/Delete'; // POST to delete
         $route['admin/webposts/read'] = 'admin/WebPostsController/Read'; // POST to view
 
-         $route['manage/settings/all-new-post'] = 'admin/WebPostsController/AllWebPosts'; 
+         $route['manage/settings/all-web-post'] = 'admin/WebPostsController/AllWebPosts'; 

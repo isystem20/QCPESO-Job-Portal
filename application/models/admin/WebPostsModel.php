@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 			$this->db->set('PostTitle',"'".$data['title']."'",FALSE);
 			$this->db->set('PostDescription',"'".$data['description']."'",FALSE);
-			$this->db->set('PosttypeId',"'".$data['type']."'",FALSE);
+			$this->db->set('PostTypeId',"'".$data['type']."'",FALSE);
 			$this->db->set('Tags',"'".$data['tags']."'",FALSE);
 			$this->db->set('PostContent',"'".$data['textarea']."'",FALSE);	
 			$this->db->set('IsActive',"'".$data['status']."'",FALSE);
