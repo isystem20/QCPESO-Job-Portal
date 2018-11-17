@@ -108,7 +108,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
             /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
-            /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EmployerController/EmployerMasterlist';
+            /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EstablishmentController/EstablishmentMasterlist';
             /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/AccreditationController/AccreditationRequest';   
         /* Jobs */ 
             /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';       
@@ -244,3 +244,9 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/posttypes/edit'] = 'admin/WebPostsTypesController/Update'; // POST to edit
         $route['admin/posttypes/del'] = 'admin/WebPostsTypesController/Delete'; // POST to delete
         $route['admin/posttypes/read'] = 'admin/WebPostsTypesController/Read'; // POST to view
+
+        //establishment
+        // $route['admin/posttypes/add'] = 'admin/WebPostsTypesController/Create'; //POST to create
+        // $route['admin/posttypes/edit'] = 'admin/WebPostsTypesController/Update'; // POST to edit
+        $route['admin/establishment/del'] = 'admin/EstablishmentController/Delete'; // POST to delete
+        $route['admin/establishment/read'] = 'admin/EstablishmentController/Read'; // POST to view
