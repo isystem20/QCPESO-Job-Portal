@@ -1,30 +1,52 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class EmploymentTypesController extends CI_Controller {
+ class WebPostsController extends CI_Controller {
  
- 	function __construct() {
+    function __construct() {
          parent::__construct();
-         $this->load->model('admin/EmploymentTypesModel','typesmod');
+         $this->load->model('admin/WebPostsModel','webpostmod');
+         $this->load->model('admin/PostTypesModel','postymod');
      }
  
- 	public function EmploymentTypes()
- 	{
+      public function AllWebPosts()
+    {
  
- 		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
- 		$data['masterlist'] = $this->typesmod->LoadMasterlist();
-        $data['class'] = 'employmenttypes';
- 		$this->load->view('layout/admin/1_css');
- 		$this->load->view('layout/admin/2_preloader');
- 		$this->load->view('layout/admin/3_topbar');
- 		$this->load->view('layout/admin/4_leftsidebar');
- 		$this->load->view('pages/maintenance/EmploymentTypes',$data);
- 		$this->load->view('layout/admin/6_js',$layout);		
+        $layout = array('tables'=>TRUE);
+        $data['webposts'] = $this->webpostmod->LoadMasterlist();
+        $data['class'] = 'webposts';
+
+        $this->load->view('layout/admin/1_css');
+        $this->load->view('layout/admin/2_preloader');
+        $this->load->view('layout/admin/3_topbar');
+        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('pages/settings/AllWebPosts',$data);
+        $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals'); 
 
- 	}
+
+    }
+
+    public function AddWebPosts()
+    {
+ 
+        $layout = array('editor'=>TRUE, 'tags'=>TRUE);
+        $data['webposts'] = $this->webpostmod->LoadMasterlist();
+        $data['posttypes'] = $this->postymod->LoadMasterlist();
+        $data['class'] = 'web-posts';
+
+        $this->load->view('layout/admin/1_css');
+        $this->load->view('layout/admin/2_preloader');
+        $this->load->view('layout/admin/3_topbar');
+        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('pages/settings/AddWebPosts',$data);
+        $this->load->view('layout/admin/6_js',$layout);     
+       
+
+    }
+ 
  	public function Create() {
-		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_employment_types.name]',
+		$this->form_validation->set_rules('title','title','required|is_unique[tbl_web_posts.PostTitle]',
 		        array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
@@ -37,11 +59,11 @@
          }
         else {
         	$postdata = $this->input->post();
-        	$inserted = $this->typesmod->Add($postdata);
+        	$inserted = $this->webpostmod->Add($postdata);
         	// echo json_encode(['success'=>TRUE]);
-         	if ($inserted != FALSE) {
-	        	$json = json_encode($inserted);       		
-        		echo $json;
+         	if ($inserted != FALSE) {      		
+        		
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/settings/all-web-post']);
         	}
         	else {
         		echo json_encode(['error'=>'Update Unsuccessful.']);
@@ -66,7 +88,7 @@
             unset($postdata['itemid']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->typesmod->Update($id,$postdata);
+            $result = $this->webpostmod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                 echo $json;
@@ -83,7 +105,7 @@
  
  	public function Delete() {
  
-         $this->form_validation->set_rules('id', 'Item Record', 'required',
+         $this->form_validation->set_rules('Id', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
                 ));
@@ -94,7 +116,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->typesmod->Delete($postdata);
+            $result = $this->webpostmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
                 echo $json;

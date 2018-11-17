@@ -1,30 +1,30 @@
- <?php
+<?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class EmploymentTypesController extends CI_Controller {
+ class TypesController extends CI_Controller {
  
  	function __construct() {
          parent::__construct();
-         $this->load->model('admin/EmploymentTypesModel','typesmod');
+         $this->load->model('admin/TypesModel','typesmod');
      }
  
- 	public function EmploymentTypes()
+ 	public function Types()
  	{
  
  		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
- 		$data['masterlist'] = $this->typesmod->LoadMasterlist();
-        $data['class'] = 'employmenttypes';
+ 		$data['types'] = $this->typesmod->LoadTypeslist();
+        $data['class'] = 'types';
  		$this->load->view('layout/admin/1_css');
  		$this->load->view('layout/admin/2_preloader');
  		$this->load->view('layout/admin/3_topbar');
  		$this->load->view('layout/admin/4_leftsidebar');
- 		$this->load->view('pages/maintenance/EmploymentTypes',$data);
+ 		$this->load->view('pages/settings/Types',$data);
  		$this->load->view('layout/admin/6_js',$layout);		
         $this->load->view('layout/admin/7_modals'); 
 
  	}
  	public function Create() {
-		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_employment_types.name]',
+		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_web_post_types.name]',
 		        array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'

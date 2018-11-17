@@ -1,4 +1,5 @@
-
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
         <div class="page-wrapper">
             
             <!-- ============================================================== -->
@@ -10,18 +11,16 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Course List</h3>
-                    <h6 class="text-muted">This is the Masterlist of all school courses</h6>
-                
+                    <h3 class="text-themecolor">Bootsrap wysihtml</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Maintenenace</li>
-                        <li class="breadcrumb-item active">Course List</li>
+                        <li class="breadcrumb-item">Forms</li>
+                        <li class="breadcrumb-item active">Bootsrap wysihtml</li>
                     </ol>
                 </div>
-                <div>
+                <div class="">
                     <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
                 </div>
             </div>
@@ -34,56 +33,15 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-12">
-
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
-                                <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
-                                        <thead>
-                                            <tr>
-                                                <th>Lastname</th>
-                                                <th>Firstname</th>
-                                                <th>Email Address</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <?php
-                                        if ($masterlist->num_rows() > 0) {
-                                            foreach ($masterlist->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo $row->lastName; ?></td>
-                                                <td><?php echo $row->firstName; ?></td>
-                                                <td><?php echo $row->emailAddress; ?></td>
-                                               
-                                                <td>
-                                                    <?php 
-                                                    if ($row->isActive == '1') {
-                                                        echo '<label class="label label-success">Active</label>';
-                                                    }
-                                                    else {
-                                                        echo '<span class="label label-light-inverse">Inactive</span>';
-                                                    }
-                                                    ?>
-                                                </td>
-                                                <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-lastname="<?=$row->lastName; ?>" data-firstname="<?=$row->firstName; ?>" data-emailaddress="<?=$row->emailAddress; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->isActive; ?>"> <i class="fas fa-info-circle"></i> </button>
-
-
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-lastname="<?=$row->lastName; ?>" data-firstname="<?=$row->firstName; ?>" data-emailaddress="<?=$row->emailAddress; ?>"data-status="<?=$row->isActive; ?>"> <i class="far fa-edit" ></i> </button>
-
-
-
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->lastName; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
-                                                </td>
-                                            </tr>
-                                        <?php
-                                            }
-                                        }
-                                        ?>
-                                    </table>
-                                </div>
+                                <h4 class="card-title">Bootstrap wysihtml5</h4>
+                                <h6 class="card-subtitle">Bootstrap html5 editor</h6>
+                                <form method="post">
+                                    <div class="form-group">
+                                        <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..."></textarea>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -155,9 +113,13 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2018 Admin Pro by wrappixel.com </footer>
+            <footer class="footer">
+                © 2018 Admin Pro by wrappixel.com
+            </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
-
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->

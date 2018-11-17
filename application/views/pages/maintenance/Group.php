@@ -19,7 +19,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item">Maintenenace</li>
-                        <li class="breadcrumb-item active">Group Masterlist/li>
+                        <li class="breadcrumb-item active">Group Masterlist</li>
                     </ol>
                 </div>
                 <div>

@@ -1,4 +1,5 @@
 
+
         <div class="page-wrapper">
             
             <!-- ============================================================== -->
@@ -10,15 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Course List</h3>
-                    <h6 class="text-muted">This is the Masterlist of all school courses</h6>
+                    <h3 class="text-themecolor">Post Types</h3>
+                    <h6 class="text-muted">For Easily Search</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Maintenenace</li>
-                        <li class="breadcrumb-item active">Course List</li>
+                        <li class="breadcrumb-item">Settings</li>
+                        <li class="breadcrumb-item active">Post Types</li>
                     </ol>
                 </div>
                 <div>
@@ -42,21 +43,22 @@
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-                                                <th>Lastname</th>
-                                                <th>Firstname</th>
-                                                <th>Email Address</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Modified By</th>
+                                                <th>Last Modified</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <?php
-                                        if ($masterlist->num_rows() > 0) {
-                                            foreach ($masterlist->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo $row->lastName; ?></td>
-                                                <td><?php echo $row->firstName; ?></td>
-                                                <td><?php echo $row->emailAddress; ?></td>
-                                               
+                                        if ($types->num_rows() > 0) {
+                                            foreach ($types->result() as $row) { ?>
+                                            <tr id="row<?=$row->id; ?>">
+                                                <td><?php echo $row->name; ?></td>
+                                                <td><?php echo character_limiter($row->description, 30); ?></td>
+                                                <td><?php echo $row->modifiedById; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->modifiedAt)); ?></td>
                                                 <td>
                                                     <?php 
                                                     if ($row->isActive == '1') {
@@ -68,14 +70,14 @@
                                                     ?>
                                                 </td>
                                                 <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-lastname="<?=$row->lastName; ?>" data-firstname="<?=$row->firstName; ?>" data-emailaddress="<?=$row->emailAddress; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->isActive; ?>"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-name="<?=$row->name; ?>" data-desc="<?=$row->description; ?>" data-createdby="<?=$row->createdById; ?>" data-createdat="<?=$row->createdAt; ?>" data-modifiedby="<?=$row->modifiedById; ?>" data-modifiedat="<?=$row->modifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->isActive; ?>"> <i class="fas fa-info-circle"></i> </button>
 
 
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-lastname="<?=$row->lastName; ?>" data-firstname="<?=$row->firstName; ?>" data-emailaddress="<?=$row->emailAddress; ?>"data-status="<?=$row->isActive; ?>"> <i class="far fa-edit" ></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-name="<?=$row->name; ?>" data-desc="<?=$row->description; ?>" data-status="<?=$row->isActive; ?>"> <i class="far fa-edit" ></i> </button>
 
 
 
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->lastName; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-name="<?=$row->name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php
