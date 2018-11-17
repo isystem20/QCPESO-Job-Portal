@@ -30,7 +30,7 @@
     public function AddWebPosts()
     {
  
-        $layout = array('tables'=>TRUE, 'editor'=>TRUE, 'tags'=>TRUE);
+        $layout = array('editor'=>TRUE, 'tags'=>TRUE);
         $data['webposts'] = $this->webpostmod->LoadMasterlist();
         $data['posttypes'] = $this->postymod->LoadMasterlist();
         $data['class'] = 'web-posts';
@@ -61,9 +61,9 @@
         	$postdata = $this->input->post();
         	$inserted = $this->webpostmod->Add($postdata);
         	// echo json_encode(['success'=>TRUE]);
-         	if ($inserted != FALSE) {
-	        	$json = json_encode($inserted);       		
-        		echo $json;
+         	if ($inserted != FALSE) {      		
+        		
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/settings/all-web-post']);
         	}
         	else {
         		echo json_encode(['error'=>'Update Unsuccessful.']);
