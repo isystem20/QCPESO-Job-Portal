@@ -95,15 +95,10 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Employment Types */           $route['manage/maintenance/employment-types'] = 'admin/EmploymentTypesController/EmploymentTypes';
 
 
-
-            /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
-
-
+             /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
 
         /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
         /* Surveys */                       $route['manage/surveys'] = 'admin/SurveyController/Survey';
-
-      
 
 
     /* TRANSACTIONS */
@@ -129,8 +124,6 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Establishment Ratings */         $route['manage/reports/establishment-ratings'] = 'admin/ReportController/EstablishmentRatings'; 
         /* Survey Summary */                $route['manage/reports/survey-summary'] = 'admin/ReportController/SurverSummary'; 
         /* Add Posts */                     $route['manage/settings/add-new-post'] = 'admin/WebPostsController/AddWebPosts'; 
-        /* Types */                         $route['manage/settings/types'] = 'admin/TypesController/Types';
-        /* Tags */                          $route['manage/settings/tags'] = 'admin/TagsController/Tags';
 
         /* Post Types */                    $route['manage/settings/add-post-types'] = 'admin/WebPostsTypesController/PostTypes'; 
         
@@ -145,6 +138,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
 
 $route['web/register/applicant'] = 'web/RegisterController/CreateApplicant';
 $route['web/login/applicant'] = 'web/LoginController/authenticate';
+
 
 $route['web/logout'] = 'WebController/logout';
 
@@ -232,19 +226,6 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
         $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
         $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
-
-        //tags
-        $route['admin/tags/add'] = 'admin/TagsController/Create'; //POST to create
-        $route['admin/tags/edit'] = 'admin/TagsController/Update'; // POST to edit
-        $route['admin/tags/del'] = 'admin/TagsController/Delete'; // POST to delete
-        $route['admin/tags/read'] = 'admin/TagsController/Read'; // POST to view
-
-
-        //types
-        $route['admin/types/add'] = 'admin/TypesController/Create'; //POST to create
-        $route['admin/types/edit'] = 'admin/TypesController/Update'; // POST to edit
-        $route['admin/types/del'] = 'admin/TypesController/Delete'; // POST to delete
-        $route['admin/types/read'] = 'admin/TypesController/Read'; // POST to view
 
 
          //Courselist

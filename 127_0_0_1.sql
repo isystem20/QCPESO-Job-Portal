@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2018 at 07:11 AM
+-- Generation Time: Nov 16, 2018 at 06:14 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -243,13 +243,63 @@ INSERT INTO `tbl_applicants_employment_status` (`id`, `name`, `description`, `cr
 (71, '[Del-1541832985]~16', '16', 'ADMIN', '2018-11-10 14:56:18', 'ADMIN', '2018-11-10 14:56:18', 0, 0),
 (72, 'OFW', 'Overseas Filipino Workers', 'ADMIN', '2018-11-10 14:56:31', 'ADMIN', '2018-11-10 15:56:17', 4, 1),
 (73, '[Del-1542336088]~17', '17', 'ADMIN', '2018-11-10 15:09:34', 'ADMIN', '2018-11-10 16:43:46', 4, 0),
-(74, '18', '18', 'ADMIN', '2018-11-10 15:33:27', 'ADMIN', '2018-11-10 15:33:27', 0, 1),
+(74, '[Del-1542349003]~18', '18', 'ADMIN', '2018-11-10 15:33:27', 'ADMIN', '2018-11-10 15:33:27', 0, 0),
 (75, '[Del-1542348639]~19', 'ewqewqewq', 'ADMIN', '2018-11-10 16:32:18', 'ADMIN', '2018-11-16 10:41:51', 2, 0),
 (76, '[Del-1542336116]~55', '55', 'ADMIN', '2018-11-10 17:32:04', 'ADMIN', '2018-11-10 17:32:12', 2, 0),
 (77, '[Del-1542336849]~dsa', 'dsa', 'ADMIN', '2018-11-16 10:40:18', 'ADMIN', '2018-11-16 10:40:18', 1, 0),
 (78, 'qwe', 'ewqdsadsa', 'ADMIN', '2018-11-16 10:41:40', 'ADMIN', '2018-11-16 10:42:26', 2, 1),
-(79, 'refdsfd', 'fdsfs', 'ADMIN', '2018-11-16 12:37:41', 'ADMIN', '2018-11-16 12:37:41', 1, 1),
-(80, 'dsa', 'dsadsa', 'ADMIN', '2018-11-16 14:08:53', 'ADMIN', '2018-11-16 14:08:53', 1, 1);
+(79, '[Del-1542349145]~refdsfd', 'fdsfs', 'ADMIN', '2018-11-16 12:37:41', 'ADMIN', '2018-11-16 12:37:41', 1, 0),
+(80, 'dsa', 'dsadsa', 'ADMIN', '2018-11-16 14:08:53', 'ADMIN', '2018-11-16 14:08:53', 1, 1),
+(81, 'gfdgf', 'marvin', 'ADMIN', '2018-11-16 14:16:39', 'ADMIN', '2018-11-16 14:23:09', 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_applicants_employment_types`
+--
+
+CREATE TABLE `tbl_applicants_employment_types` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `VersionNo` int(11) NOT NULL DEFAULT '1',
+  `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_applicants_employment_types`
+--
+
+INSERT INTO `tbl_applicants_employment_types` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `VersionNo`, `isActive`) VALUES
+(55, '1', '1', 'ADMIN', '2018-11-10 14:02:42', 'ADMIN', '2018-11-10 14:02:42', 0, 0),
+(56, '2', '2', 'ADMIN', '2018-11-10 14:04:05', 'ADMIN', '2018-11-10 14:04:05', 0, 0),
+(57, '3', '3', 'ADMIN', '2018-11-10 14:05:25', 'ADMIN', '2018-11-10 14:05:25', 0, 0),
+(58, '4', '4', 'ADMIN', '2018-11-10 14:05:56', 'ADMIN', '2018-11-10 14:05:56', 0, 0),
+(59, '5', '5', 'ADMIN', '2018-11-10 14:07:27', 'ADMIN', '2018-11-10 14:07:27', 0, 0),
+(60, '[Del-]+name', '6', 'ADMIN', '2018-11-10 14:07:47', 'ADMIN', '2018-11-10 14:07:47', 0, 0),
+(61, '[Del-]+name', '7', 'ADMIN', '2018-11-10 14:12:31', 'ADMIN', '2018-11-10 14:12:31', 0, 0),
+(62, '[Del-]+name', '8', 'ADMIN', '2018-11-10 14:13:03', 'ADMIN', '2018-11-10 14:13:03', 0, 0),
+(63, '9', '9', 'ADMIN', '2018-11-10 14:15:17', 'ADMIN', '2018-11-10 14:15:17', 0, 0),
+(64, '99', '9', 'ADMIN', '2018-11-10 14:16:31', 'ADMIN', '2018-11-10 14:16:31', 0, 0),
+(65, '10', '10', 'ADMIN', '2018-11-10 14:17:02', 'ADMIN', '2018-11-10 14:17:02', 0, 0),
+(66, '[Del-1541832405]+name', '11', 'ADMIN', '2018-11-10 14:22:42', 'ADMIN', '2018-11-10 14:22:42', 0, 0),
+(67, '[Del-1541832852]~13', '13', 'ADMIN', '2018-11-10 14:51:08', 'ADMIN', '2018-11-10 14:51:08', 0, 0),
+(68, '[Del-1541832894]~14', '14', 'ADMIN', '2018-11-10 14:54:42', 'ADMIN', '2018-11-10 14:54:42', 0, 0),
+(69, '[Del-1541832924]~15', '15', 'ADMIN', '2018-11-10 14:55:17', 'ADMIN', '2018-11-10 14:55:17', 0, 0),
+(70, '[Del-1541832958]~16', '16', 'ADMIN', '2018-11-10 14:55:53', 'ADMIN', '2018-11-10 14:55:53', 0, 0),
+(71, '[Del-1541832985]~16', '16', 'ADMIN', '2018-11-10 14:56:18', 'ADMIN', '2018-11-10 14:56:18', 0, 0),
+(72, 'OFW', 'Overseas Filipino Workers', 'ADMIN', '2018-11-10 14:56:31', 'ADMIN', '2018-11-10 15:56:17', 4, 1),
+(73, '17', '17', 'ADMIN', '2018-11-10 15:09:34', 'ADMIN', '2018-11-10 16:43:46', 4, 2),
+(74, '18', '18', 'ADMIN', '2018-11-10 15:33:27', 'ADMIN', '2018-11-10 15:33:27', 0, 1),
+(75, '19', '19', 'ADMIN', '2018-11-10 16:32:18', 'ADMIN', '2018-11-10 16:32:18', 1, 1),
+(76, '55', '55', 'ADMIN', '2018-11-10 17:32:04', 'ADMIN', '2018-11-10 17:32:12', 2, 1),
+(77, '[Del-1542335111]~denz', 'dsa', '', '2018-11-16 09:35:07', '', '2018-11-16 09:35:07', 1, 0),
+(78, '[Del-1542335105]~dsa', 'dsad', 'ADMIN', '2018-11-16 10:24:57', 'ADMIN', '2018-11-16 10:24:57', 1, 0),
+(79, 'dsadas', 'dsadsadsadsa', '', '2018-11-16 23:44:24', '', '2018-11-16 23:44:24', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -811,16 +861,26 @@ CREATE TABLE `tbl_web_post_tags` (
 --
 
 CREATE TABLE `tbl_web_post_types` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(100) NOT NULL,
-  `Description` varchar(300) NOT NULL,
-  `CreatedById` varchar(50) NOT NULL,
-  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ModifiedById` varchar(50) NOT NULL,
-  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `VersionNo` int(11) NOT NULL DEFAULT '1',
-  `IsActive` tinyint(1) NOT NULL
+  `isActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_web_post_types`
+--
+
+INSERT INTO `tbl_web_post_types` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `VersionNo`, `isActive`) VALUES
+(1, '[Del-1542388013]~Blind', 'Blind', 'ADMIN', '2018-11-10 17:18:20', 'ADMIN', '2018-11-10 17:39:07', 3, 0),
+(2, 'dsadafds', 'dsadsaf', '', '2018-11-17 01:06:48', '', '2018-11-17 01:06:48', 1, 1),
+(3, 'kurt', 'khalifa', '', '2018-11-17 01:09:05', '', '2018-11-17 01:09:05', 1, 1),
+(4, 'christian', 'burgos', '', '2018-11-17 01:10:43', '', '2018-11-17 01:10:43', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -908,6 +968,12 @@ ALTER TABLE `tbl_applicants_disabilities`
 -- Indexes for table `tbl_applicants_employment_status`
 --
 ALTER TABLE `tbl_applicants_employment_status`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_applicants_employment_types`
+--
+ALTER TABLE `tbl_applicants_employment_types`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1041,7 +1107,7 @@ ALTER TABLE `tbl_web_post_tags`
 -- Indexes for table `tbl_web_post_types`
 --
 ALTER TABLE `tbl_web_post_types`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_web_posts`
@@ -1089,7 +1155,12 @@ ALTER TABLE `tbl_applicants_disabilities`
 -- AUTO_INCREMENT for table `tbl_applicants_employment_status`
 --
 ALTER TABLE `tbl_applicants_employment_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+--
+-- AUTO_INCREMENT for table `tbl_applicants_employment_types`
+--
+ALTER TABLE `tbl_applicants_employment_types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 --
 -- AUTO_INCREMENT for table `tbl_applicants_job_applications`
 --
@@ -1194,7 +1265,7 @@ ALTER TABLE `tbl_web_post_tags`
 -- AUTO_INCREMENT for table `tbl_web_post_types`
 --
 ALTER TABLE `tbl_web_post_types`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_web_posts`
 --
