@@ -104,7 +104,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
     /* TRANSACTIONS */
         /* Applicants */ 
             /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantRegistration';
-            /* View List */                 $route['manage/do/applicants/view-list'] = 'admin/ApplicantController/ApplicantMasterlist';
+            /* View List */                 $route['manage/do/applicants/view-list'] = 'admin/ApplicantMasterlistController/ApplicantMasterlist';
             /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
             /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
@@ -124,7 +124,6 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Establishment Ratings */         $route['manage/reports/establishment-ratings'] = 'admin/ReportController/EstablishmentRatings'; 
         /* Survey Summary */                $route['manage/reports/survey-summary'] = 'admin/ReportController/SurverSummary'; 
         /* Add Posts */                     $route['manage/settings/add-new-post'] = 'admin/WebPostsController/AddWebPosts'; 
-
         /* Post Types */                    $route['manage/settings/add-post-types'] = 'admin/WebPostsTypesController/PostTypes'; 
         
 // $route['manage/do/jobs/view-list'] = 'PostController/JobPost';
@@ -245,8 +244,8 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/posttypes/del'] = 'admin/WebPostsTypesController/Delete'; // POST to delete
         $route['admin/posttypes/read'] = 'admin/WebPostsTypesController/Read'; // POST to view
 
-        //establishment
-        // $route['admin/posttypes/add'] = 'admin/WebPostsTypesController/Create'; //POST to create
-        // $route['admin/posttypes/edit'] = 'admin/WebPostsTypesController/Update'; // POST to edit
-        $route['admin/establishment/del'] = 'admin/EstablishmentController/Delete'; // POST to delete
-        $route['admin/establishment/read'] = 'admin/EstablishmentController/Read'; // POST to view
+         //webpost
+        $route['admin/webposts/add'] = 'admin/WebPostsController/Create'; //POST to create
+        $route['admin/webposts/edit'] = 'admin/WebPostsController/Update'; // POST to edit
+        $route['admin/webposts/del'] = 'admin/WebPostsController/Delete'; // POST to delete
+        $route['admin/webposts/read'] = 'admin/WebPostsController/Read'; // POST to view

@@ -1,78 +1,56 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class WebPostsController extends CI_Controller {
+ class ApplicantMasterlistController extends CI_Controller {
  
     function __construct() {
          parent::__construct();
-         $this->load->model('admin/WebPostsModel','webpostmod');
-         $this->load->model('admin/PostTypesModel','postymod');
+         $this->load->model('admin/ApplicantMasterlistModel','courmod');
      }
  
-      public function AllWebPosts()
+    public function ApplicantMasterlist()
     {
  
-        $layout = array('tables'=>TRUE);
-        $data['webposts'] = $this->webpostmod->LoadMasterlist();
-        $data['class'] = 'webposts';
-
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
+        $data['masterlist'] = $this->courmod->LoadMasterlist();
+        $data['class'] = 'applicantmasterlist';
         $this->load->view('layout/admin/1_css');
         $this->load->view('layout/admin/2_preloader');
         $this->load->view('layout/admin/3_topbar');
         $this->load->view('layout/admin/4_leftsidebar');
-        $this->load->view('pages/settings/AllWebPosts',$data);
+        $this->load->view('pages/transaction/applicants/ApplicantMasterlist',$data);
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals'); 
 
-
     }
-
-    public function AddWebPosts()
-    {
- 
-        $layout = array('tables'=>TRUE, 'editor'=>TRUE, 'tags'=>TRUE);
-        $data['webposts'] = $this->webpostmod->LoadMasterlist();
-        $data['posttypes'] = $this->postymod->LoadMasterlist();
-        $data['class'] = 'web-posts';
-
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
-        $this->load->view('pages/settings/AddWebPosts',$data);
-        $this->load->view('layout/admin/6_js',$layout);     
-       
-
-    }
- 
- 	public function Create() {
-		$this->form_validation->set_rules('title','title','required|is_unique[tbl_web_posts.PostTitle]',
-		        array(
+    public function Create() {
+        $this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants.name]',
+                array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
-        		)
-		    );
+                )
+            );
 
-		    if ($this->form_validation->run() == FALSE){
+            if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
          }
         else {
-        	$postdata = $this->input->post();
-        	$inserted = $this->webpostmod->Add($postdata);
-        	// echo json_encode(['success'=>TRUE]);
-         	if ($inserted != FALSE) {
-	        	$json = json_encode($inserted);       		
-        		echo $json;
-        	}
-        	else {
-        		echo json_encode(['error'=>'Update Unsuccessful.']);
-        	}
+            $postdata = $this->input->post();
+            $inserted = $this->courmod->Add($postdata);
+            // echo json_encode(['success'=>TRUE]);
+            if ($inserted != FALSE) {
+                $json = json_encode($inserted);             
+                echo $json;
+            }
+            else {
+                echo json_encode(['error'=>'Update Unsuccessful.']);
+            }
          }
  
- 	}
+    }
  
- 	public function Update() {
+    public function Update() {
          $this->form_validation->set_rules('itemid', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
@@ -88,7 +66,7 @@
             unset($postdata['itemid']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->webpostmod->Update($id,$postdata);
+            $result = $this->courmod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                 echo $json;
@@ -101,11 +79,11 @@
 
 
 
- 	}
+    }
  
- 	public function Delete() {
+    public function Delete() {
  
-         $this->form_validation->set_rules('Id', 'Item Record', 'required',
+         $this->form_validation->set_rules('id', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
                 ));
@@ -116,7 +94,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->webpostmod->Delete($postdata);
+            $result = $this->courmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
                 echo $json;
@@ -129,11 +107,11 @@
 
 
 
- 	}
+    }
  
- 	public function Read() {
+    public function Read() {
  
- 	}
+    }
  
  
  
