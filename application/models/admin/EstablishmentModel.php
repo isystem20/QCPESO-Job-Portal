@@ -11,11 +11,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->from($this->tbl);
 			if (!empty($id)) {
 				$this->db->where('id',$id);
-				$this->db->where('isActive','1');
+				$this->db->where('isActive','2');
 				return $this->db->get()->result();
 			}else {
 				// $this->db->where('isActive','1');
-				$this->db->or_where('isActive','2');
+				$this->db->or_where('isActive','1');
 				return $this->db->get();
 			}
 			
@@ -27,10 +27,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->from($this->tbl);
 			if (!empty($id)) {
 				$this->db->where('id',$id);
-				$this->db->where('isActive','2');
+				$this->db->where('isActive','1');
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('isActive','1');
+				$this->db->where('isActive','2');
 				// $this->db->or_where('isActive','2');
 				return $this->db->get();
 			}
