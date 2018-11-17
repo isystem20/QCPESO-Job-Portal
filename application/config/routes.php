@@ -76,6 +76,8 @@ $route['translate_uri_dashes'] = FALSE;
     /* MANAGE */                        
         /* User Masterlist */               $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';
         /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
+        /* Manage Courses */                 $route['manage/user-courses'] = 'admin/CourselistController/Courselist';
+        /* Manage Employment Status */                 $route['manage/user-status'] = 'admin/EmploymentStatusController/EmploymentStatus';
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
             /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
@@ -187,4 +189,15 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/group/del'] = 'admin/GroupController/Delete'; // POST to delete
         $route['admin/group/read'] = 'admin/GroupController/Read'; // POST to view
 
+         //Courselist
+        $route['admin/course/add'] = 'admin/CourselistController/Create'; //POST to create
+        $route['admin/course/edit'] = 'admin/CourselistController/Update'; // POST to edit
+        $route['admin/course/del'] = 'admin/CourselistController/Delete'; // POST to delete
+        $route['admin/course/read'] = 'admin/CourselistController/Read'; // POST to view
+
+         //EmploymentStatuss
+        $route['admin/employmentstat/add'] = 'admin/EmploymentStatusController/Create'; //POST to create
+        $route['admin/employmentstat/edit'] = 'admin/EmploymentStatusController/Update'; // POST to edit
+        $route['admin/employmentstat/del'] = 'admin/EmploymentStatusController/Delete'; // POST to delete
+        $route['admin/employmentstat/read'] = 'admin/EmploymentStatusController/Read'; // POST to view
 
