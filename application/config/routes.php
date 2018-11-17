@@ -276,4 +276,8 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/webposts/del'] = 'admin/WebPostsController/Delete'; // POST to delete
         $route['admin/webposts/read'] = 'admin/WebPostsController/Read'; // POST to view
 
-         $route['manage/settings/all-web-post'] = 'admin/WebPostsController/AllWebPosts'; 
+        //Applicant Masterlist
+        $route['admin/applicantmasterlist/add'] = 'admin/ApplicantMasterlistController/Create'; //POST to create
+        $route['admin/applicantmasterlist/edit'] = 'admin/ApplicantMasterlistController/Update'; // POST to edit
+        $route['admin/applicantmasterlist/del'] = 'admin/ApplicantMasterlistController/Delete'; // POST to delete
+        $route['admin/applicantmasterlist/read'] = 'admin/ApplicantMasterlistController/Read'; // POST to view
