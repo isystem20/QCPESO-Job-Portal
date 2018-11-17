@@ -74,7 +74,7 @@ $route['translate_uri_dashes'] = FALSE;
 /* Log in */                                $route['manage/login'] = 'admin/HomeController/AdminEmployeeLogin';
     /* Dashboard */                         $route['manage'] = 'admin/HomeController/Dashboard';
     /* MANAGE */                        
-        /* User Masterlist */               $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';
+$route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';        /* User Masterlist */               
         /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
@@ -85,6 +85,14 @@ $route['translate_uri_dashes'] = FALSE;
             /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/LocationController/Location';
             /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobtitlesController/Jobtitles';
             /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/CategoriesController/Categories';
+
+            /* Applicant Level */           $route['manage/maintenance/applicant-level'] = 'admin/ApplicantLevelController/ApplicantLevel';
+
+            /* Employment Types */           $route['manage/maintenance/employment-types'] = 'admin/EmploymentTypesController/EmploymentTypes';
+
+
+             /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
+
         /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
         /* Surveys */                       $route['manage/surveys'] = 'admin/SurveyController/Survey';
 
@@ -181,10 +189,28 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/categories/del'] = 'admin/CategoriesController/Delete'; // POST to delete
         $route['admin/categories/read'] = 'admin/CategoriesController/Read'; // POST to view
 
+        //Applicant Level
+        $route['admin/applicantlevel/add'] = 'admin/ApplicantLevelController/Create';
+        $route['admin/applicantlevel/edit'] = 'admin/ApplicantLevelController/Update';
+        $route['admin/applicantlevel/del'] = 'admin/ApplicantLevelController/Delete';
+        $route['admin/applicantlevel/read'] = 'admin/ApplicantLevelController/Read';
+
+        //Employment Types
+        $route['admin/employmenttypes/add'] = 'admin/EmploymentTypesController/Create';
+        $route['admin/employmenttypes/edit'] = 'admin/EmploymentTypesController/Update';
+        $route['admin/employmenttypes/del'] = 'admin/EmploymentTypesController/Delete';
+        $route['admin/employmenttypes/read'] = 'admin/EmploymentTypesController/Read';
+
+
          //Group
         $route['admin/group/add'] = 'admin/GroupController/Create'; //POST to create
         $route['admin/group/edit'] = 'admin/GroupController/Update'; // POST to edit
         $route['admin/group/del'] = 'admin/GroupController/Delete'; // POST to delete
         $route['admin/group/read'] = 'admin/GroupController/Read'; // POST to view
 
+         //industries
+        $route['admin/industries/add'] = 'admin/IndustriesController/Create'; //POST to create
+        $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
+        $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
+        $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
 
