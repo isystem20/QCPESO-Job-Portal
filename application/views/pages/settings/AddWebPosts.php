@@ -96,7 +96,7 @@
 
                         
                             <div class="form-group">
-                                <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." name="textarea"></textarea>
+                                <textarea class="textarea_editor form-control" name="textarea" rows="15" ></textarea>
                             </div>
                             <div class="form-actions">
                                 <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
@@ -110,7 +110,7 @@
 
     </div>
 
-    </form>
+    
 </div>
 </div>
 </div>
