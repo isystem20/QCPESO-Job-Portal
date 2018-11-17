@@ -53,9 +53,9 @@ $(document).ready(function() {
 
                   if ($('input[name=itemid]').val() != '') {
 
-                      var Id = data[0].id;
+                      var Id = data[0].Id;
                       var table = $('#myTable').DataTable();
-                      table.row($('#row'+data[0].id))
+                      table.row($('#row'+data[0].Id))
                       .remove()
                       .draw();
 
@@ -63,28 +63,28 @@ $(document).ready(function() {
 
 
 
-                    var id = data[0].id;
-                    var name = data[0].name;
-                    var desc = data[0].description.substr(0,30);
-                    var modby = data[0].modifiedById;
+                    var id = data[0].Id;
+                    var name = data[0].Name;
+                    var desc = data[0].Description.substr(0,30);
+                    var modby = data[0].ModifiedById;
                     // var modat = $.datepicker.formatDate('yy-dd-mm', new Date(data[0].modifiedAt));
-                    var modat = data[0].modifiedAt;
+                    var modat = data[0].ModifiedAt;
 
-                    if (data[0].isActive == '1') {
+                    if (data[0].IsActive == '1') {
                       var status = '<label class="label label-success">Active</label>';
                     }else {
                       var status = '<span class="label label-light-inverse">Inactive</span>';
                     }
 
-                    var actions = '<button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'" data-desc="'+data[0].description+'" data-createdby="'+data[0].createdById+'" data-createdat="'+data[0].createdAt+'" data-modifiedby="'+data[0].modifiedById+'" data-modifiedat="'+data[0].modifiedAt+'" data-version="'+data[0].VersionNo+'" data-status="'+data[0].isActive+'"> <i class="fas fa-info-circle"></i> </button>'+
-                                  '<button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'" data-desc="'+desc+'" data-status="'+data[0].isActive+'"> <i class="far fa-edit" ></i> </button>'+
+                    var actions = '<button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'" data-desc="'+data[0].Description+'" data-createdby="'+data[0].CreatedById+'" data-createdat="'+data[0].CreatedAt+'" data-modifiedby="'+data[0].ModifiedById+'" data-modifiedat="'+data[0].ModifiedAt+'" data-version="'+data[0].VersionNo+'" data-status="'+data[0].IsActive+'"> <i class="fas fa-info-circle"></i> </button>'+
+                                  '<button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'" data-desc="'+desc+'" data-status="'+data[0].IsActive+'"> <i class="far fa-edit" ></i> </button>'+
                                   '<button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'"> <i class="fas fa-trash-alt"></i></button>';
 
                     var table = $('#myTable').DataTable();
                     var row = table.row.add( [
                       name,desc,modby,modat,status,actions,
                       ]).draw().node();
-                    $( row ).attr('id','row'+data[0].id);
+                    $( row ).attr('id','row'+data[0].Id);
 
                   }
                   else{
@@ -197,7 +197,7 @@ $(document).ready(function() {
 
                   var Id = data.id;
                   var table = $('#myTable').DataTable();
-                  table.row($('#row'+data.id))
+                  table.row($('#row'+data.Id))
                   .remove()
                   .draw();
 
@@ -262,13 +262,13 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
         var newURL = $(this).attr('action');      //Get the form action attribute value.
         var newData  = {
-                'id' : $('input[name=id]').val(),     //List of data you want to post
+                    //List of data you want to post
                 'title' : $('input[name=title]').val(),
                 'description' : $('input[name=description]').val(),
                 'type' : $('select[name=type]').val(),
-                'tags' : $('select[name=tags]').val(),
+                'tags' : $('input[name=tags]').val(),
                 'status' : $('select[name=status]').val(),
-                'textarea' : $('input[name=textarea]').html(),
+                'textarea' : $('input[name=textarea]').val(),
             }
             console.log(newData);
           $.ajax({
