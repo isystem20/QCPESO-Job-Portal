@@ -5,109 +5,41 @@
                                     <div class="row row-post-masonry" style="position: absolute; height: 800px;">
                                 <div class="col-md-12 post-item" style="position: absolute; left: 0px; top: 10px;">
                                     <!-- Post-->
-                                    <article class="post">
+ <?php
+                                        if ($browsejob->num_rows() > 0) {
+                                            foreach ($browsejob->result() as $row) { ?>
+                                            
+ <article class="post">
                                         <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/blog/1.jpg" alt=""></a></div>
                                         <div class="post-wrapper">
                                             <div class="post-header">
-                                                <h2 class="post-title"><a href="blog-single.html">Warehouse Staff</a></h2>
+                                                <h2 class="post-title"><a href="blog-single.html"> <?php echo $row->PostTitle; ?></a></h2>
                                             </div>
                                             <div class="card-body">
-                                                <p>Perform an array of functions that may include receiving and processing incoming stock and materials, picking and filling orders from stock, packing and shipping orders, or managing, organizing and retrieving stock in the warehouse.</p>
+                                                <p><?php echo $row->PostDescription; ?></p>
                                                 <p><a href="#">Read more</a></p>
                                             </div>
                                         </div>
                                     </article>
-                                    <!-- Post end-->
-                                </div>
-                                <div class="col-md-12 post-item">
-                                    <!-- Post-->
-                                    <article class="post">
-                                        <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/blog/2.jpg" alt=""></a></div>
-                                        <div class="post-wrapper">
-                                            <div class="post-header">
-                                                <h2 class="post-title"><a href="blog-single.html">Cashier</a></h2>
-                                            </div>
-                                            <div class="post-content">
-                                                <p>Cashiers scan items, ensure that prices are quantities are correct, and collect payments. They also assist customers by explaining or recommending items, answering questions, and processing exchanges or refunds.</p>
-                                                <p><a href="#">Read more</a></p>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    <!-- Post end-->
-                                </div>
-                                <div class="col-md-12 post-item">
-                                    <!-- Post-->
-                                    <article class="post">
-                                        <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/blog/4.jpg" alt=""></a></div>
-                                        <div class="post-wrapper">
-                                            <div class="post-header">
-                                                <h2 class="post-title"><a href="blog-single.html">Carpenter</a></h2>
-                                            </div>
-                                            <div class="post-content">
-                                                <p>We are looking for a qualified Carpenter to cut, fabricate and install wooden and other structures according to specifications. Your job will entail working in diverse settings to produce steady and functional infrastructure and products.
 
-A carpenter is an individual with great hand dexterity and an eye for detail. The ideal candidate will also have good knowledge of wood properties and other carpentry materials. Working with little supervision while following all health and safety standards is essential.
 
-The goal is to contribute to the construction and maintenance of strong and long-lasting buildings and products.</p>
-                                                <p><a href="#">Read more</a></p>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    <!-- Post end-->
-                                </div>
-                                <div class="col-md-12 post-item">
-                                    <!-- Post-->
-                                    <article class="post">
-                                        <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/blog/3.jpg" alt=""></a></div>
-                                        <div class="post-wrapper">
-                                            <div class="post-header">
-                                                <h2 class="post-title"><a href="blog-single.html">Street Fashion</a></h2>
-                                            </div>
-                                            <div class="post-content">
-                                                <p>See how your users experience your website in realtime or view trends to see any changes in performance over time.</p>
-                                                <p><a href="#">Read more</a></p>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    <!-- Post end-->
-                                </div>
-                                <div class="col-md-12 post-item">
-                                    <!-- Post-->
-                                    <article class="post">
-                                        <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/blog/6.jpg" alt=""></a></div>
-                                        <div class="post-wrapper">
-                                            <div class="post-header">
-                                                <h2 class="post-title"><a href="blog-single.html">Bluetooth Speaker</a></h2>
-                                            </div>
-                                            <div class="post-content">
-                                                <p>See how your users experience your website in realtime or view trends to see any changes in performance over time.</p>
-                                                <p><a href="#">Read more</a></p>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    <!-- Post end-->
-                                </div>
-                                <div class="col-md-12 post-item">
-                                    <!-- Post-->
-                                    <article class="post">
-                                        <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/blog/5.jpg" alt=""></a></div>
-                                        <div class="post-wrapper">
-                                            <div class="post-header">
-                                                <h2 class="post-title"><a href="blog-single.html">Minimalist Chandelier</a></h2>
-                                            </div>
-                                            <div class="post-content">
-                                                <p>See how your users experience your website in realtime or view trends to see any changes in performance over time.</p>
-                                                <p><a href="#">Read more</a></p>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    <!-- Post end-->
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+
+
+
+
+
+
+
+
+
+
+
+                                   
                                 </div>
                             </div>
                         </div>
