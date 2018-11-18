@@ -1,30 +1,30 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class EmploymentTypesController extends CI_Controller {
+ class EmploymentStatusController extends CI_Controller {
  
  	function __construct() {
          parent::__construct();
-         $this->load->model('admin/EmploymentTypesModel','typesmod');
+         $this->load->model('admin/EmploymentStatusModel','empstmod');
      }
  
- 	public function EmploymentTypes()
+ 	public function EmploymentStatus()
  	{
  
  		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
- 		$data['masterlist'] = $this->typesmod->LoadMasterlist();
-        $data['class'] = 'employmenttypes';
+ 		$data['masterlist'] = $this->empstmod->LoadMasterlist();
+        $data['class'] = 'employmentstat';
  		$this->load->view('layout/admin/1_css');
  		$this->load->view('layout/admin/2_preloader');
  		$this->load->view('layout/admin/3_topbar');
  		$this->load->view('layout/admin/4_leftsidebar');
- 		$this->load->view('pages/maintenance/EmploymentTypes',$data);
+ 		$this->load->view('pages/maintenance/EmploymentStatus',$data);
  		$this->load->view('layout/admin/6_js',$layout);		
         $this->load->view('layout/admin/7_modals'); 
 
  	}
  	public function Create() {
-		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_employment_types.name]',
+		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_employment_status.name]',
 		        array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
@@ -37,7 +37,7 @@
          }
         else {
         	$postdata = $this->input->post();
-        	$inserted = $this->typesmod->Add($postdata);
+        	$inserted = $this->empstmod->Add($postdata);
         	// echo json_encode(['success'=>TRUE]);
          	if ($inserted != FALSE) {
 	        	$json = json_encode($inserted);       		
@@ -66,7 +66,7 @@
             unset($postdata['itemid']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->typesmod->Update($id,$postdata);
+            $result = $this->empstmod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                 echo $json;
@@ -94,7 +94,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->typesmod->Delete($postdata);
+            $result = $this->empstmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
                 echo $json;

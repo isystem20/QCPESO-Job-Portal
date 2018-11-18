@@ -34,6 +34,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    
+  
     <?php
     if (!empty($login)) { ?>
     <!-- page css -->
@@ -41,7 +43,11 @@
     <?php
         }
     ?>
-
+   
+     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+  <link rel="stylesheet" href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/html5-editor/bootstrap-wysihtml5.css" />
+   
+  
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/datatables/media/css/dataTables.bootstrap4.css">
 
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet">
