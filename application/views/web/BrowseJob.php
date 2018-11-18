@@ -14,10 +14,10 @@
 /images/blog/1.jpg" alt=""></a></div>
                                         <div class="post-wrapper">
                                             <div class="post-header">
-                                                <h2 class="post-title"><a href="blog-single.html"> <?php echo $row->PostTitle; ?></a></h2>
+                                                <h2 class="post-title"><a href="blog-single.html"> <?php echo $row->EstablishmentId; ?></a></h2>
                                             </div>
                                             <div class="card-body">
-                                                <p><?php echo $row->PostDescription; ?></p>
+                                                <p><?php echo $row->JobTitle; ?></p>
                                                 <p><a href="#">Read more</a></p>
                                             </div>
                                         </div>
