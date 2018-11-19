@@ -54,14 +54,14 @@
                                         <?php
                                         if ($masterlist->num_rows() > 0) {
                                             foreach ($masterlist->result() as $row) { ?>
-                                            <tr id="row<?=$row->id; ?>">
-                                                <td><?php echo $row->name; ?></td>
-                                                <td><?php echo character_limiter($row->description, 30); ?></td>
-                                                <td><?php echo $row->modifiedById; ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->modifiedAt)); ?></td>
+                                            <tr Id="row<?=$row->Id; ?>">
+                                                <td><?php echo $row->Name; ?></td>
+                                                <td><?php echo character_limiter($row->Description, 30); ?></td>
+                                                <td><?php echo $row->ModifiedById; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
                                                 <td>
                                                     <?php 
-                                                    if ($row->isActive == '1') {
+                                                    if ($row->IsActive == '1') {
                                                         echo '<label class="label label-success">Active</label>';
                                                     }
                                                     else {
@@ -70,14 +70,14 @@
                                                     ?>
                                                 </td>
                                                 <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-name="<?=$row->name; ?>" data-desc="<?=$row->description; ?>" data-createdby="<?=$row->createdById; ?>" data-createdat="<?=$row->createdAt; ?>" data-modifiedby="<?=$row->modifiedById; ?>" data-modifiedat="<?=$row->modifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->isActive; ?>"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-createdby="<?=$row->CreatedById; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
 
 
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-name="<?=$row->name; ?>" data-desc="<?=$row->description; ?>" data-status="<?=$row->isActive; ?>"> <i class="far fa-edit" ></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
 
 
 
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-name="<?=$row->name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php
