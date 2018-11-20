@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2018 at 06:08 AM
+-- Generation Time: Nov 20, 2018 at 01:00 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -29,25 +29,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_dresscodes` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Description` varchar(300) NOT NULL,
+  `CreatedById` varchar(50) NOT NULL,
+  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifiedById` varchar(50) NOT NULL,
+  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `VersionNo` int(11) NOT NULL DEFAULT '1',
-  `isActive` tinyint(1) NOT NULL
+  `IsActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_dresscodes`
 --
 
-INSERT INTO `tbl_dresscodes` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `VersionNo`, `isActive`) VALUES
-(1, '1', 'one', '', '2018-11-11 17:08:17', '', '2018-11-11 17:08:44', 2, 1),
-(2, '2', '2', '', '2018-11-11 17:09:03', '', '2018-11-17 11:55:27', 2, 1),
-(3, '[Del-1542426908]~3', '3', '', '2018-11-11 17:09:14', '', '2018-11-11 17:09:14', 1, 0);
+INSERT INTO `tbl_dresscodes` (`Id`, `Name`, `Description`, `CreatedById`, `CreatedAt`, `ModifiedById`, `ModifiedAt`, `VersionNo`, `IsActive`) VALUES
+(1, '1', '1', '', '2018-11-20 19:45:16', '', '2018-11-20 19:49:43', 3, 1);
 
 --
 -- Indexes for dumped tables
@@ -57,7 +55,7 @@ INSERT INTO `tbl_dresscodes` (`id`, `name`, `description`, `createdById`, `creat
 -- Indexes for table `tbl_dresscodes`
 --
 ALTER TABLE `tbl_dresscodes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -67,7 +65,7 @@ ALTER TABLE `tbl_dresscodes`
 -- AUTO_INCREMENT for table `tbl_dresscodes`
 --
 ALTER TABLE `tbl_dresscodes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
