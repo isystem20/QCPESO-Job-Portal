@@ -312,3 +312,49 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
 
 
 });
+
+
+// JS Add new Job Post
+
+
+$('#jobposts-form').submit(function(e){
+        e.preventDefault();
+        // alert('tang ina gumana ka');
+        // $("#save-jobpost").prop("disabled", true);   
+        var newURL = $(this).attr('action');  
+        var me = $(this);
+
+        $.ajax({
+          url: newURL,
+          type: 'post',
+          // data: me.serialize(),
+          dataType: "json",
+          success: function(response){
+              console.log(response);  
+
+              if(response.success == false){
+                  $.each(response.messages, function(key, value){
+                  var element = $('#' + key);
+                  element.closest('div.form-control')
+                  
+                  .addClass('has-error');
+
+                  // .removeClass('har-error')
+                  // .find('.text-danger')
+                  // .remove();            
+                  element.after(value);
+                });
+              }
+              else{
+                alert('success');
+
+              
+              }
+          }
+        });
+
+
+        // $("#save-jobpost").prop("disabled", false);   
+
+    });
+

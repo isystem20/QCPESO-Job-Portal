@@ -11,13 +11,13 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Bootsrap wysihtml</h3>
+                    <h3 class="text-themecolor">Job Posts</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Forms</li>
-                        <li class="breadcrumb-item active">Bootsrap wysihtml</li>
+                        <li class="breadcrumb-item">Transactions</li>
+                        <li class="breadcrumb-item active">Jobs</li>
                     </ol>
                 </div>
                 <div class="">
@@ -31,21 +31,108 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+
+                
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-lg-12">
                         <div class="card">
+                            <div class="card-header bg-info">
+                                <h4 class="m-b-0 text-white">Job Post Form</h4>
+                            </div>
                             <div class="card-body">
-                                <h4 class="card-title">Bootstrap wysihtml5</h4>
-                                <h6 class="card-subtitle">Bootstrap html5 editor</h6>
-                                <form method="post">
-                                    <div class="form-group">
-                                        <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..."></textarea>
+                                    <div class="form-body">
+                                        <h3 class="card-title">Job Post Information</h3>
+                                        <hr>
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                            <?php echo form_open('manage/do/jobs/addnewjob','id="jobposts-form"'); ?>
+
+                                                <div class="form-group">
+                                                    <label class="control-label">Job Title</label>
+                                                    <input type="text" name="jobtitle" class="form-control" placeholder="Job title">
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Specialization</label>
+                                                    <input type="text" name="spec" class="form-control" placeholder="Specialization">
+                                                </div>
+                                            </div> -->
+                                        </div> 
+
+                                        <!-- <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Employment Type</label>
+                                                    <select class="form-control" name="emptype">
+                                                            <option value="">Male</option>
+                                                            <option value="">Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Position Level</label>
+                                                    <select class="form-control" name="postlevel">
+                                                            <option value="">Male</option>
+                                                            <option value="">Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                                <div class="col-12">
+                                                    <label class="control-label">Job Description</label>                       
+                                                        <div class="form-group">
+                                                            <textarea class=" form-control" rows="10" placeholder="Enter job description ..." name="jobdesc"></textarea>
+                                                        </div>                                                                       
+                                                </div>
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Salary</label>
+                                                    <input type="text" name="salary" class="form-control" placeholder="Salary">
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Job Image</label>
+                                                    <input type="file" name="jobimage" class="form-control" >
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                       
+                                       
                                     </div>
-                                </form>
+                                    <div class="form-GROUP">
+                                        <button type="submit" id="add-jobposts" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                    </div>
+
+                                <?php echo form_close(); ?>    
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Row -->
+
+
+
+              
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -123,3 +210,9 @@
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
+
+
+
+        <script>
+            
+        </script>

@@ -111,7 +111,9 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EstablishmentController/EstablishmentMasterlist';
             /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/AccreditationController/AccreditationRequest';   
         /* Jobs */ 
-            /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';       
+            /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';  
+                                            $route['manage/do/jobs/addnewjob'] = 'admin/JobsController/AddNewJob';  
+                                                 
             /* View Jobs */                 $route['manage/do/jobs/view-list'] = 'admin/JobController/JobMasterlist';  
             /* Pending Job Posting */       $route['manage/do/jobs/pending-job-posts'] = 'admin/JobController/PendingJobMasterlist';      
 

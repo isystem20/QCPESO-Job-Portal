@@ -5,7 +5,7 @@
  
  	function __construct() {
          parent::__construct();
-         $this->load->model('admin/CategoriesModel','categmod');
+         $this->load->model('admin/JobsModel','jobsmod');
      }
  
  	public function NewJob()
@@ -23,5 +23,28 @@
  		$this->load->view('layout/admin/6_js',$layout);		
         $this->load->view('layout/admin/7_modals'); 
 
+ 	}
+
+ 	public function AddNewJob(){
+
+ 	$data = array('success' => false, 'messages' => array());
+
+ 	$this->form_validation->set_rules('jobtitle', 'Job Title', 'trim|required');
+ 	$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+ 	if ($this->form_validation->run()) {
+ 		// die ('save');
+ 		$data['success'] = true;
+ 	}
+ 	else{
+ 		// die ('error');
+ 		foreach ($_POST as $key => $value) {
+ 			$data['messages'][$key] = form_error($key);
+ 		}
+ 	}
+
+ 	echo json_encode($data);
+
+ 
  	}
  }
