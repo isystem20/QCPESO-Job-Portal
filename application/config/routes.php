@@ -87,7 +87,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Dress Code */                $route['manage/maintenance/dresscode'] = 'admin/DresscodeController/Dresscode';
             
             /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/LocationController/Location';
-            /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobTitlesController/JobTitles';
+            /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobtitlesController/Jobtitles';
             /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/CategoriesController/Categories';
 
             /* Applicant Level */           $route['manage/maintenance/applicant-level'] = 'admin/ApplicantLevelController/ApplicantLevel';
@@ -193,10 +193,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/preferred-locations/read'] = 'admin/LocationController/Read';
           
         //Job Titles
-        $route['admin/job-titles/add'] = 'admin/JobTiltlesController/Create';
-        $route['admin/job-titles/edit'] = 'admin/JobTiltlesController/Update';
-        $route['admin/job-titles/del'] = 'admin/JobTiltlesController/Delete';
-        $route['admin/job-titles/read'] = 'admin/JobTiltlesController/Read';
+        $route['admin/job-titles/add'] = 'admin/JobtitlesController/Create';
+        $route['admin/job-titles/edit'] = 'admin/JobtitlesController/Update';
+        $route['admin/job-titles/del'] = 'admin/JobtitlesController/Delete';
+        $route['admin/job-titles/read'] = 'admin/JobtitlesController/Read';
 
         //Categories
         $route['admin/categories/add'] = 'admin/CategoriesController/Create'; //POST to create
