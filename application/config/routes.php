@@ -284,9 +284,9 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
         $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
 
-
         $route['manage/maintenance/countries'] = 'admin/CountriesController/Countries';
         $route['admin/countries/add'] = 'admin/CountriesController/Create'; //POST to create
         $route['admin/countries/edit'] = 'admin/CountriesController/Update'; // POST to edit
         $route['admin/countries/del'] = 'admin/CountriesController/Delete'; // POST to delete
         $route['admin/countries/read'] = 'admin/CountriesController/Read'; // POST to view
+
