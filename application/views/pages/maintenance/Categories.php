@@ -54,7 +54,7 @@
                                         <?php
                                         if ($categories->num_rows() > 0) {
                                             foreach ($categories->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
+                                            <tr Id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->Name; ?></td>
                                                 <td><?php echo character_limiter($row->Description, 30); ?></td>
                                                 <td><?php echo $row->ModifiedById; ?></td>
