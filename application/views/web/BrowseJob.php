@@ -5,36 +5,28 @@
                                     <div class="row row-post-masonry" style="position: absolute; height: 800px;">
                                 <div class="col-md-12 post-item" style="position: absolute; left: 0px; top: 10px;">
                                     <!-- Post-->
- <?php
+                                    <?php
                                         if ($browsejob->num_rows() > 0) {
                                             foreach ($browsejob->result() as $row) { ?>
                                             
- <article class="post">
-                                        <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/blog/1.jpg" alt=""></a></div>
-                                        <div class="post-wrapper">
-                                            <div class="post-header">
-                                                <h2 class="post-title"><a href="blog-single.html"> <?php echo $row->JobTitle; ?></a></h2>
+                                        <article class="post">
+                                            <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/images/blog/1.jpg" alt=""></a></div>
+                                            <div class="post-wrapper">
+                                                <div class="post-header">
+                                                    <h2 class="post-title"><a href="blog-single.html"> <?php echo $row->JobTitle; ?></a></h2>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p><?php echo $row->JobDescription; ?></p>
+                                                    <p><a href="#">Read more</a></p>
+                                                </div>
                                             </div>
-                                            <div class="card-body">
-                                                <p><?php echo $row->JobDescription; ?></p>
-                                                <p><a href="#">Read more</a></p>
-                                            </div>
-                                        </div>
-                                    </article>
+                                        </article>
 
 
                                         <?php
                                             }
                                         }
                                         ?>
-
-
-
-
-
-
-
 
 
 
@@ -48,8 +40,8 @@
 
                                 <!-- Search widget-->
                                 <aside class="widget widget-search">
-                                    <form>
-                                        <input class="form-control" type="search" placeholder="Job Title">
+                                    <form action="#" method="POST">
+                                        <input class="form-control" type="search" name="searchtext" placeholder="Job Title">
                                         <button class="search-button" type="submit"><span class="fas fa-search"></span></button>
                                     </form>
                                 </aside>
