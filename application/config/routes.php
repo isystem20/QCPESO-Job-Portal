@@ -202,6 +202,12 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/categories/del'] = 'admin/CategoriesController/Delete'; // POST to delete
         $route['admin/categories/read'] = 'admin/CategoriesController/Read'; // POST to view
 
+          //industries
+        $route['admin/industries/add'] = 'admin/IndustriesController/Create'; //POST to create
+        $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
+        $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
+        $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
+
         //Applicant Level
         $route['admin/applicantlevel/add'] = 'admin/ApplicantLevelController/Create';
         $route['admin/applicantlevel/edit'] = 'admin/ApplicantLevelController/Update';
@@ -278,8 +284,4 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/types/del'] = 'admin/TypesController/Delete'; // POST to delete
         $route['admin/types/read'] = 'admin/TypesController/Read'; // POST to view
 
-        //industries
-        $route['admin/industries/add'] = 'admin/IndustriesController/Create'; //POST to create
-        $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
-        $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
-        $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
+      
