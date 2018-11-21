@@ -53,24 +53,24 @@ $(document).ready(function() {
 
                   if ($('input[name=itemid]').val() != '') {
 
-                      var Id = data[0].id;
+                      var id = data[0].Id;
                       var table = $('#myTable').DataTable();
                       table.row($('#row'+data[0].id))
                       .remove()
                       .draw();
 
                   }
+ 
 
 
-
-                    var id = data[0].id;
-                    var name = data[0].name;
-                    var desc = data[0].description.substr(0,30);
-                    var modby = data[0].modifiedById;
+                    var id = data[0].Id;
+                    var name = data[0].Name;
+                    var desc = data[0].Description.substr(0,30);
+                    var modby = data[0].ModifiedById;
                     // var modat = $.datepicker.formatDate('yy-dd-mm', new Date(data[0].modifiedAt));
-                    var modat = data[0].modifiedAt;
+                    var modat = data[0].ModifiedAt;
 
-                    if (data[0].isActive == '1') {
+                    if (data[0].IsActive == '1') {
                       var status = '<label class="label label-success">Active</label>';
                     }else {
                       var status = '<span class="label label-light-inverse">Inactive</span>';
