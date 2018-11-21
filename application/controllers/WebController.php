@@ -23,7 +23,7 @@ class WebController extends Public_Controller {
 			$this->load->view('layout/web/1_head',$layout);
 			$this->load->view('layout/web/2_preloader');
 			$this->load->view('layout/web/3_header',$layout);
-			$this->load->view('admin/FrontPage2');
+			$this->load->view('web/Home');
 			$this->load->view('layout/web/5_rightbar');
 			$this->load->view('layout/web/6_footer');			
 		}
