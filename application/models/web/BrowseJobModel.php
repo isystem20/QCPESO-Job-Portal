@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function  BrowseJobModelMasterlist() {
 			$this->db->select('*');
-			$this->db->from('tbl_web_posts');
+			$this->db->from('tbl_establishments_jobposts');
 			return $this->db->get();
 
 		}
