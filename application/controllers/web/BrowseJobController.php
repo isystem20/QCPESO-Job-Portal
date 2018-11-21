@@ -7,6 +7,7 @@ class BrowseJobController extends CI_Controller {
 function __construct() {
          parent::__construct();
          $this->load->model('web/BrowseJobModel','browsmod');
+         $this->load->model('web/EstablishmentModel','estmod');
      }
 	public function BrowseJob()
 	{
@@ -17,6 +18,7 @@ function __construct() {
 		}
 
 		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($str);
+		$data['estabpost'] = $this->estmod->LoadMasterlist();
 		$layout = array('transparentwrapper' => TRUE, );
 		$this->load->view('layout/web/1_head');
 		$this->load->view('layout/web/2_preloader');
