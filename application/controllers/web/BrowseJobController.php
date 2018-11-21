@@ -8,10 +8,15 @@ function __construct() {
          parent::__construct();
          $this->load->model('web/BrowseJobModel','browsmod');
      }
-public function BrowseJob()
+	public function BrowseJob()
 	{
+		$str = null;
+		$postdata = $this->input->post();
+		if (!empty($postdata['searchtext'])) {
+			$str = $postdata['searchtext'];
+		}
 
-		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist();
+		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($str);
 		$layout = array('transparentwrapper' => TRUE, );
 		$this->load->view('layout/web/1_head');
 		$this->load->view('layout/web/2_preloader');
