@@ -76,8 +76,8 @@ $route['manage'] = 'admin/HomeController/Dashboard';    /* Dashboard */
     /* MANAGE */                        
 $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';        /* User Masterlist */               
         /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
-        /* Manage Courses */                 $route['manage/user-courses'] = 'admin/CourselistController/Courselist';
-        /* Manage Employment Status */                 $route['manage/user-status'] = 'admin/EmploymentStatusController/EmploymentStatus';
+        /* Manage Courses */                 $route['manage/maintenace/user-courses'] = 'admin/CourselistController/Courselist';
+        /* Manage Employment Status */                 $route['manage/maintenance/user-status'] = 'admin/EmploymentStatusController/EmploymentStatus';
          /* Manage Account Release */                 $route['manage/account-release'] = 'admin/AccountReleaseController/AccountRelease';
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
@@ -201,6 +201,12 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/categories/edit'] = 'admin/CategoriesController/Update'; // POST to edit
         $route['admin/categories/del'] = 'admin/CategoriesController/Delete'; // POST to delete
         $route['admin/categories/read'] = 'admin/CategoriesController/Read'; // POST to view
+
+          //industries
+        $route['admin/industries/add'] = 'admin/IndustriesController/Create'; //POST to create
+        $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
+        $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
+        $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
 
         //Applicant Level
         $route['admin/applicantlevel/add'] = 'admin/ApplicantLevelController/Create';
