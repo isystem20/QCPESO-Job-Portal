@@ -1,20 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class WebPostsModel extends CI_Model {
+	class CertificatesModel extends CI_Model {
 
 
-		public $tbl = 'tbl_web_posts';
+		public $tbl = 'tbl_applicants_certificate_list';
 
 		public function LoadMasterlist($id = null) {
 			$this->db->select('*');
 			$this->db->from($this->tbl);
 			if (!empty($id)) {
-				$this->db->where('id',$id);
+				$this->db->where('Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('isActive','1');
-				$this->db->or_where('isActive','2');
+				$this->db->where('IsActive','1');
+				$this->db->or_where('IsActive','2');
 				return $this->db->get();
 			}
 			
@@ -22,16 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		public function Add($data) {
-	
-			$this->db->set('PostTitle',"'".$data['title']."'",FALSE);
-			$this->db->set('PostDescription',"'".$data['description']."'",FALSE);
-			$this->db->set('PostTypeId',"'".$data['type']."'",FALSE);	
-			$this->db->set('PostContent',"'".$data['textarea']."'",FALSE);	
-			$this->db->set('Tags',"'".$data['tags']."'",FALSE);
-			$this->db->set('IsActive',"'".$data['status']."'",FALSE);
+			$this->db->set('Name',"'".$data['name']."'",FALSE);
+			$this->db->set('Description',"'".$data['description']."'",FALSE);
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
-		
+			$this->db->set('IsActive',"'".$data['status']."'",FALSE);
 
 			$this->db->insert($this->tbl);
 
@@ -50,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function Delete($data) {
 			//filerecord = [Del-1234567890]filerecord
-			$this->db->set('PostTitle','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
+			$this->db->set('Name','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
 			$this->db->set('IsActive','"0"',FALSE);
 			$this->db->where('Id', $data['id']);
 			$this->db->update($this->tbl);
@@ -69,11 +64,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
 		    $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
 		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
-			$this->db->set('PostTitle',"'".$data['title']."'",FALSE);
-			$this->db->set('PostDescription',"'".$data['description']."'",FALSE);
-			$this->db->set('PosttypeId',"'".$data['type']."'",FALSE);
-			$this->db->set('PostContent',"'".$data['textarea']."'",FALSE);	
-			$this->db->set('IsActive',"'".$data['status']."'",FALSE);
+		    $this->db->set('Name', '"'.$data['name'].'"', FALSE); 
+		    $this->db->set('Description', '"'.$data['description'].'"', FALSE); 
+		    $this->db->set('IsActive', '"'.$data['status'].'"', FALSE);
 		    $this->db->where('Id', $id);
 		    $query = $this->db->update($this->tbl);
 			$update = $this->db->affected_rows();
