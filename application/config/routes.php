@@ -82,7 +82,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
             /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
-            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificateController/Certificates';
+            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificatesController/CertificatesList';
             /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
             /* Dress Code */                $route['manage/maintenance/dresscode'] = 'admin/DresscodeController/Dresscode';
             
@@ -124,7 +124,8 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Establishment Ratings */         $route['manage/reports/establishment-ratings'] = 'admin/ReportController/EstablishmentRatings'; 
         /* Survey Summary */                $route['manage/reports/survey-summary'] = 'admin/ReportController/SurverSummary'; 
         /* Add Posts */                     $route['manage/settings/add-web-post'] = 'admin/WebPostsController/AddWebPosts'; 
-        /* Post Types */                    $route['manage/settings/add-post-types'] = 'admin/WebPostsTypesController/PostTypes'; 
+        /* Post Types */                    $route['manage/settings/add-post-types'] = 'admin/WebPostsTypesController/PostTypes';
+
         
 // $route['manage/do/jobs/view-list'] = 'PostController/JobPost';
 
@@ -166,10 +167,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/licences/read'] = 'admin/LicenseController/Read';
 
         //Certificates
-        $route['admin/certificates/add'] = 'admin/CertificateController/Create';
-        $route['admin/certificates/edit'] = 'admin/CertificateController/Update';
-        $route['admin/certificates/del'] = 'admin/CertificateController/Delete';
-        $route['admin/certificates/read'] = 'admin/CertificateController/Read';
+        $route['admin/certificates/add'] = 'admin/CertificatesController/Create';
+        $route['admin/certificates/edit'] = 'admin/CertificatesController/Update';
+        $route['admin/certificates/del'] = 'admin/CertificatesController/Delete';
+        $route['admin/certificates/read'] = 'admin/CertificatesController/Read';
 
         //Disabilities
         $route['admin/disabilities/add'] = 'admin/DisabilitiesController/Create';
@@ -261,3 +262,31 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/EstablishmentMasterlist/edit'] = 'admin/EstablishmentlistController/Update'; // POST to edit
         $route['admin/EstablishmentMasterlist/del'] = 'admin/EstablishmentlistController/Delete'; // POST to delete
         $route['admin/EstablishmentMasterlist/read'] = 'admin/EstablishmentlistController/Read'; // POST to view
+
+
+        /* Tags */ $route['manage/settings/tags'] = 'admin/TagsController/Tags';
+
+        $route['admin/tags/add'] = 'admin/TagsController/Create'; //POST to create
+        $route['admin/tags/edit'] = 'admin/TagsController/Update'; // POST to edit
+        $route['admin/tags/del'] = 'admin/TagsController/Delete'; // POST to delete
+        $route['admin/tags/read'] = 'admin/TagsController/Read'; // POST to view
+
+        /* Types */ $route['manage/settings/types'] = 'admin/TypesController/Types';
+
+        $route['admin/types/add'] = 'admin/TypesController/Create'; //POST to create
+        $route['admin/types/edit'] = 'admin/TypesController/Update'; // POST to edit
+        $route['admin/types/del'] = 'admin/TypesController/Delete'; // POST to delete
+        $route['admin/types/read'] = 'admin/TypesController/Read'; // POST to view
+
+        //industries
+        $route['admin/industries/add'] = 'admin/IndustriesController/Create'; //POST to create
+        $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
+        $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
+        $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
+
+
+        $route['manage/maintenance/countries'] = 'admin/CountriesController/Countries';
+        $route['admin/countries/add'] = 'admin/CountriesController/Create'; //POST to create
+        $route['admin/countries/edit'] = 'admin/CountriesController/Update'; // POST to edit
+        $route['admin/countries/del'] = 'admin/CountriesController/Delete'; // POST to delete
+        $route['admin/countries/read'] = 'admin/CountriesController/Read'; // POST to view
