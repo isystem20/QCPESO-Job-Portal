@@ -57,7 +57,8 @@
                                             foreach ($estabpost->result() as $row) { ?>
                                             
  
-                                        <li><a href="#"><?=$row->CompanyName;?><span class="float-right">100</span></a></li>
+                                        <li><a href="#"><?=$row->CompanyName;?><span class="float-right">10</span></a></li>
+
 
                                         <?php
                                             }
