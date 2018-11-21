@@ -1,52 +1,30 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class WebPostsController extends CI_Controller {
+ class CertificatesController extends CI_Controller {
  
-    function __construct() {
+ 	function __construct() {
          parent::__construct();
-         $this->load->model('admin/WebPostsModel','webpostmod');
-         $this->load->model('admin/PostTypesModel','postymod');
+         $this->load->model('admin/CertificatesModel','certmod');
      }
  
-      public function AllWebPosts()
-    {
+ 	public function CertificatesList()
+ 	{
  
-        $layout = array('tables'=>TRUE);
-        $data['webposts'] = $this->webpostmod->LoadMasterlist();
-        $data['class'] = 'webposts';
-
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
-        $this->load->view('pages/settings/AllWebPosts',$data);
-        $this->load->view('layout/admin/6_js',$layout);     
+ 		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
+ 		$data['masterlist'] = $this->certmod->LoadMasterlist();
+        $data['class'] = 'certificates';
+ 		$this->load->view('layout/admin/1_css');
+ 		$this->load->view('layout/admin/2_preloader');
+ 		$this->load->view('layout/admin/3_topbar');
+ 		$this->load->view('layout/admin/4_leftsidebar');
+ 		$this->load->view('pages/maintenance/CertificatesList',$data);
+ 		$this->load->view('layout/admin/6_js',$layout);		
         $this->load->view('layout/admin/7_modals'); 
 
-
-    }
-
-    public function AddWebPosts()
-    {
- 
-        $layout = array('editor'=>TRUE, 'tags'=>TRUE);
-        $data['webposts'] = $this->webpostmod->LoadMasterlist();
-        $data['posttypes'] = $this->postymod->LoadMasterlist();
-        $data['class'] = 'webposts';
-
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
-        $this->load->view('pages/settings/AddWebPosts',$data);
-        $this->load->view('layout/admin/6_js',$layout);     
-       
-
-    }
- 
+ 	}
  	public function Create() {
-		$this->form_validation->set_rules('title','title','required|is_unique[tbl_web_posts.PostTitle]',
+		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_prefer_locations.name]',
 		        array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
@@ -59,11 +37,11 @@
          }
         else {
         	$postdata = $this->input->post();
-        	$inserted = $this->webpostmod->Add($postdata);
+        	$inserted = $this->certmod->Add($postdata);
         	// echo json_encode(['success'=>TRUE]);
-         	if ($inserted != FALSE) {      		
-        		
-                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/settings/all-web-post']);
+         	if ($inserted != FALSE) {
+	        	$json = json_encode($inserted);       		
+        		echo $json;
         	}
         	else {
         		echo json_encode(['error'=>'Update Unsuccessful.']);
@@ -88,7 +66,7 @@
             unset($postdata['itemid']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->webpostmod->Update($id,$postdata);
+            $result = $this->certmod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                 echo $json;
@@ -116,7 +94,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->webpostmod->Delete($postdata);
+            $result = $this->certmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
                 echo $json;
