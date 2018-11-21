@@ -33,7 +33,7 @@
         $layout = array('editor'=>TRUE, 'tags'=>TRUE);
         $data['webposts'] = $this->webpostmod->LoadMasterlist();
         $data['posttypes'] = $this->postymod->LoadMasterlist();
-        $data['class'] = 'web-posts';
+        $data['class'] = 'webposts';
 
         $this->load->view('layout/admin/1_css');
         $this->load->view('layout/admin/2_preloader');
@@ -105,7 +105,7 @@
  
  	public function Delete() {
  
-         $this->form_validation->set_rules('Id', 'Item Record', 'required',
+         $this->form_validation->set_rules('id', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
                 ));

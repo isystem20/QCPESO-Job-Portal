@@ -51,6 +51,7 @@
                                                 <th>Modified By</th>
                                                 <th>Modified At</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                                 
                                             </tr>
                                         </thead>
@@ -58,11 +59,11 @@
                                         if ($webposts->num_rows() > 0) {
                                             foreach ($webposts->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo $row->PostTitle; ?></td>
+                                                <td><?php echo character_limiter($row->PostTitle, 10); ?></td>
                                                 <td><?php echo character_limiter($row->PostDescription, 30); ?></td>
-                                                 <td><?php echo $row->PostContent; ?></td>
+                                                 <td><?php echo character_limiter($row->PostContent, 30); ?></td>
                                                  <td><?php echo $row->PostTypeId; ?></td>
-                                                <td><?php echo $row->Tags; ?></td>
+                                                <td><?php echo character_limiter($row->Tags, 30); ?></td>
                                                 <td><?php echo $row->ModifiedById; ?></td>
                                                 <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
                                                 <td>
@@ -76,14 +77,14 @@
                                                     ?>
                                                 </td>
                                                 <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->PostTitle; ?>" data-desc="<?=$row->PostDescription; ?>" data-cont="<?=$row->PostContent; ?>" data-cont="<?=$row->PostContent; ?>" data-typeid="<?=$row->PostTypeId; ?>" data-tag="<?=$row->Tags; ?>" data-createdby="<?=$row->CreatedById; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->PostTitle; ?>" data-desc="<?=$row->PostDescription; ?>" data-cont="<?=$row->PostContent; ?>" data-typeid="<?=$row->PostTypeId; ?>" data-tag="<?=$row->Tags; ?>" data-createdby="<?=$row->CreatedById; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
 
 
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->PostTitle; ?>" data-desc="<?=$row->PostDescription; ?>" data-cont="<?=$row->PostContent; ?>" data-cont="<?=$row->PostContent; ?>" data-typeid="<?=$row->PostTypeId; ?>" data-tag="<?=$row->Tags; ?>" data-createdby="<?=$row->CreatedById; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" name="<?=$row->PostTitle; ?>" desc="<?=$row->PostDescription; ?>" cont="<?=$row->PostContent; ?>"typeid="<?=$row->PostTypeId; ?>" tag="<?=$row->Tags; ?>" createdby="<?=$row->CreatedById; ?>" createdat="<?=$row->CreatedAt; ?>"modifiedby="<?=$row->ModifiedById; ?>" modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>"status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
 
 
 
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->PostTitle; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/webposts/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->PostTitle; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php

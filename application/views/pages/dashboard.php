@@ -21,8 +21,26 @@
                                 <div class="d-flex">
                                     <div class="m-r-20 align-self-center"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/icon/income.png" alt="Income" /></div>
                                     <div class="align-self-center">
-                                        <h6 class="text-muted m-t-10 m-b-0">Total Income</h6>
-                                        <h2 class="m-t-0">953,000</h2></div>
+                                        <h6 class="text-muted m-t-10 m-b-0">Total Jobs</h6>
+                                        <?php
+                                        if($totaljobs->num_rows() > 0)
+                                        {
+                                            foreach($totaljobs->result() as $row)
+                                            {
+                                              ?>
+                                              <h2 class="m-t-0"><?php echo $this->db->count_all('tbl_establishments_jobposts'); ?></h2></div>
+                                              <?php  
+                                            }
+                                        }
+                                        else
+                                        {
+                                        ?>
+                                        <h2 class="m-t-0"> NO DATA FOUND </h2></div>
+                                        <?php
+                                        }
+                                        ?>
+
+                                       
                                 </div>
                             </div>
                         </div>
@@ -33,8 +51,25 @@
                                 <div class="d-flex">
                                     <div class="m-r-20 align-self-center"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/icon/expense.png" alt="Income" /></div>
                                     <div class="align-self-center">
-                                        <h6 class="text-muted m-t-10 m-b-0">Total Expense</h6>
-                                        <h2 class="m-t-0">236,000</h2></div>
+                                        <h6 class="text-muted m-t-10 m-b-0">Total Employers</h6>
+                                        
+                                         <?php
+                                        if($totalemployers->num_rows() > 0)
+                                        {
+                                            foreach($totalemployers->result() as $row)
+                                            {
+                                              ?>
+                                              <h2 class="m-t-0"><?php echo $this->db->count_all('tbl_establishments'); ?></h2></div>
+                                              <?php  
+                                            }
+                                        }
+                                        else
+                                        {
+                                        ?>
+                                        <h2 class="m-t-0"> NO DATA FOUND </h2></div>
+                                        <?php
+                                        }
+                                        ?>
                                 </div>
                             </div>
                         </div>
@@ -45,8 +80,25 @@
                                 <div class="d-flex">
                                     <div class="m-r-20 align-self-center"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/icon/assets.png" alt="Income" /></div>
                                     <div class="align-self-center">
-                                        <h6 class="text-muted m-t-10 m-b-0">Total Assets</h6>
-                                        <h2 class="m-t-0">987,563</h2></div>
+                                        <h6 class="text-muted m-t-10 m-b-0">Total Applicants</h6>
+                                        
+                                         <?php
+                                        if($totalapplicants->num_rows() > 0)
+                                        {
+                                            foreach($totalapplicants->result() as $row)
+                                            {
+                                              ?>
+                                              <h2 class="m-t-0"><?php echo $this->db->count_all('tbl_applicants'); ?></h2></div>
+                                              <?php  
+                                            }
+                                        }
+                                        else
+                                        {
+                                        ?>
+                                        <h2 class="m-t-0"> NO DATA FOUND </h2></div>
+                                        <?php
+                                        }
+                                        ?>
                                 </div>
                             </div>
                         </div>
@@ -57,8 +109,25 @@
                                 <div class="d-flex">
                                     <div class="m-r-20 align-self-center"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/icon/staff.png" alt="Income" /></div>
                                     <div class="align-self-center">
-                                        <h6 class="text-muted m-t-10 m-b-0">Total Staff</h6>
-                                        <h2 class="m-t-0">987,563</h2></div>
+                                        <h6 class="text-muted m-t-10 m-b-0">Successful Hires</h6>
+                                        
+                                         <?php
+                                        if($successhires->num_rows() > 0)
+                                        {
+                                            foreach($successhires->result() as $row)
+                                            {
+                                              ?>
+                                              <h2 class="m-t-0"><?php echo $this->db->count_all('tbl_applicants_job_applications'); ?></h2></div>
+                                              <?php  
+                                            }
+                                        }
+                                        else
+                                        {
+                                        ?>
+                                        <h2 class="m-t-0"> NO DATA FOUND </h2></div>
+                                        <?php
+                                        }
+                                        ?>
                                 </div>
                             </div>
                         </div>
@@ -177,44 +246,40 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title"><span class="lstick"></span>Browser Stats</h4>
-                                <table class="table browser m-t-30 no-border">
+                                <h4 class="card-title"><span class="lstick"></span>Categories</h4>
+
+                                <table class="table browser m-t-30 no-border" >
                                     <tbody>
-                                        <tr>
-                                            <td style="width:40px"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/browser/chrome-logo.png" alt=logo /></td>
-                                            <td>Google Chrome</td>
-                                            <td class="text-right">23%</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/browser/firefox-logo.png" alt=logo /></td>
-                                            <td>Mozila Firefox</td>
-                                            <td class="text-right">15%</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/browser/safari-logo.png" alt=logo /></td>
-                                            <td>Apple Safari</td>
-                                            <td class="text-right">07%</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/browser/internet-logo.png" alt=logo /></td>
-                                            <td>Internet Explorer</td>
-                                            <td class="text-right">09%</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/browser/opera-logo.png" alt=logo /></td>
-                                            <td>Opera mini</td>
-                                            <td class="text-right">23%</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/browser/edge-logo.png" alt=logo /></td>
-                                            <td>Microsoft edge</td>
-                                            <td class="text-right">09%</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/browser/netscape-logo.png" alt=logo /></td>
-                                            <td>Netscape Navigator</td>
-                                            <td class="text-right">04%</td>
-                                        </tr>
+                                           <th>Name of Categories</th>
+                                           <th>Currently Available</th>
+
+                                             <?php
+                                        if ($query->num_rows() > 0) {
+                                            foreach ($query->result() as $row) { ?>
+                                            <tr>
+                                                <td><?php echo $row->description; ?></td>
+                                                <td><center>
+                                                    <?php echo $row->category; ?>  </center>
+                                                </td>
+                                            </tr>
+                                                <?php
+
+                                            }
+                                            }
+                                            else
+                                            {
+                                                ?>
+                                                <tr>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                </tr>
+                                                <?php
+                                            }
+
+                                        
+                                        ?>
+
+                                         
                                     </tbody>
                                 </table>
                             </div>

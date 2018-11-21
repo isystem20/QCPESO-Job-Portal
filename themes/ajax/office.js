@@ -53,9 +53,9 @@ $(document).ready(function() {
 
                   if ($('input[name=itemid]').val() != '') {
 
-                      var Id = data[0].id;
+                      var Id = data[0].Id;
                       var table = $('#myTable').DataTable();
-                      table.row($('#row'+data[0].id))
+                      table.row($('#row'+data[0].Id))
                       .remove()
                       .draw();
 
@@ -195,9 +195,9 @@ $(document).ready(function() {
                       stack: 6
                     });
 
-                  var Id = data.Id;
+                  var Id = data.id;
                   var table = $('#myTable').DataTable();
-                  table.row($('#row'+data.Id))
+                  table.row($('#row'+data.id))
                   .remove()
                   .draw();
 
@@ -262,13 +262,13 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
         var newURL = $(this).attr('action');      //Get the form action attribute value.
         var newData  = {
-                'id' : $('input[name=id]').val(),     //List of data you want to post
+                   'id' : $('input[name=id]').val(), //List of data you want to post
                 'title' : $('input[name=title]').val(),
                 'description' : $('input[name=description]').val(),
                 'type' : $('select[name=type]').val(),
-                'tags' : $('select[name=tags]').val(),
+                'tags' : $('input[name=tags]').val(),
                 'status' : $('select[name=status]').val(),
-                'textarea' : $('input[name=textarea]').html(),
+                'textarea' : $('textarea[name=textarea]').val(),
             }
             console.log(newData);
           $.ajax({

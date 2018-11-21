@@ -3,7 +3,6 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2018 at 07:58 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -132,9 +131,7 @@ INSERT INTO `tbl_applicants_categories` (`id`, `name`, `description`, `createdBy
 (73, '17', '17', 'ADMIN', '2018-11-10 15:09:34', 'ADMIN', '2018-11-10 16:43:46', 4, 2),
 (74, '18', '18', 'ADMIN', '2018-11-10 15:33:27', 'ADMIN', '2018-11-10 15:33:27', 0, 1),
 (75, '19', '19', 'ADMIN', '2018-11-10 16:32:18', 'ADMIN', '2018-11-10 16:32:18', 1, 1),
-(76, '55', '55', 'ADMIN', '2018-11-10 17:32:04', 'ADMIN', '2018-11-10 17:32:12', 2, 1),
-(77, '[Del-1542335111]~denz', 'dsa', '', '2018-11-16 09:35:07', '', '2018-11-16 09:35:07', 1, 0),
-(78, '[Del-1542335105]~dsa', 'dsad', 'ADMIN', '2018-11-16 10:24:57', 'ADMIN', '2018-11-16 10:24:57', 1, 0);
+(76, '55', '55', 'ADMIN', '2018-11-10 17:32:04', 'ADMIN', '2018-11-10 17:32:12', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -215,10 +212,11 @@ CREATE TABLE `tbl_applicants_employment_status` (
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modifiedById` varchar(50) NOT NULL,
   `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `VersionNo` int(11) NOT NULL DEFAULT '1',
   `isActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+=======
 --
 -- Dumping data for table `tbl_applicants_employment_status`
 --
@@ -300,6 +298,7 @@ INSERT INTO `tbl_applicants_employment_types` (`id`, `name`, `description`, `cre
 (77, '[Del-1542335111]~denz', 'dsa', '', '2018-11-16 09:35:07', '', '2018-11-16 09:35:07', 1, 0),
 (78, '[Del-1542335105]~dsa', 'dsad', 'ADMIN', '2018-11-16 10:24:57', 'ADMIN', '2018-11-16 10:24:57', 1, 0),
 (79, 'dsadas', 'dsadsadsadsa', '', '2018-11-16 23:44:24', '', '2018-11-16 23:44:24', 1, 1);
+
 
 -- --------------------------------------------------------
 
@@ -414,6 +413,7 @@ INSERT INTO `tbl_applicants_levels` (`id`, `name`, `description`, `createdById`,
 (77, '[Del-1542336849]~dsa', 'dsa', 'ADMIN', '2018-11-16 10:40:18', 'ADMIN', '2018-11-16 10:40:18', 1, 0),
 (78, 'qwe', 'ewqdsadsa', 'ADMIN', '2018-11-16 10:41:40', 'ADMIN', '2018-11-16 10:42:26', 2, 1),
 (79, 'refdsfd', 'fdsfs', 'ADMIN', '2018-11-16 12:37:41', 'ADMIN', '2018-11-16 12:37:41', 1, 1);
+
 
 -- --------------------------------------------------------
 
@@ -965,6 +965,15 @@ INSERT INTO `tbl_web_post_tags` (`Id`, `Name`, `Description`, `CreatedById`, `Cr
 --
 
 CREATE TABLE `tbl_web_post_types` (
+
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Description` varchar(300) NOT NULL,
+  `CreatedById` varchar(50) NOT NULL,
+  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifiedById` varchar(50) NOT NULL,
+  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+=======
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` varchar(300) NOT NULL,
@@ -972,6 +981,7 @@ CREATE TABLE `tbl_web_post_types` (
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modifiedById` varchar(50) NOT NULL,
   `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
   `VersionNo` int(11) NOT NULL DEFAULT '1',
   `isActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1078,12 +1088,6 @@ ALTER TABLE `tbl_applicants_languages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_applicants_levels`
---
-ALTER TABLE `tbl_applicants_levels`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tbl_applicants_licenses`
 --
 ALTER TABLE `tbl_applicants_licenses`
@@ -1143,13 +1147,13 @@ ALTER TABLE `tbl_applicants_sydp`
 ALTER TABLE `tbl_applicants_work_history`
   ADD PRIMARY KEY (`id`);
 
---
+
+=======
 -- Indexes for table `tbl_dresscodes`
 --
 ALTER TABLE `tbl_dresscodes`
   ADD PRIMARY KEY (`id`);
 
---
 -- Indexes for table `tbl_establishments_jobposts`
 --
 ALTER TABLE `tbl_establishments_jobposts`
@@ -1208,7 +1212,8 @@ ALTER TABLE `tbl_web_post_tags`
 -- Indexes for table `tbl_web_post_types`
 --
 ALTER TABLE `tbl_web_post_types`
-  ADD PRIMARY KEY (`id`);
+
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `tbl_web_services`
@@ -1230,7 +1235,9 @@ ALTER TABLE `tbl_web_settings`
 -- AUTO_INCREMENT for table `tbl_applicants_categories`
 --
 ALTER TABLE `tbl_applicants_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
 
 --
 -- AUTO_INCREMENT for table `tbl_applicants_certificates`
@@ -1254,6 +1261,7 @@ ALTER TABLE `tbl_applicants_disabilities`
 -- AUTO_INCREMENT for table `tbl_applicants_employment_status`
 --
 ALTER TABLE `tbl_applicants_employment_status`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
@@ -1261,6 +1269,7 @@ ALTER TABLE `tbl_applicants_employment_status`
 --
 ALTER TABLE `tbl_applicants_employment_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
 
 --
 -- AUTO_INCREMENT for table `tbl_applicants_job_applications`
@@ -1278,6 +1287,8 @@ ALTER TABLE `tbl_applicants_kasambahay`
 -- AUTO_INCREMENT for table `tbl_applicants_languages`
 --
 ALTER TABLE `tbl_applicants_languages`
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+=======
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -1286,11 +1297,14 @@ ALTER TABLE `tbl_applicants_languages`
 ALTER TABLE `tbl_applicants_levels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
+
 --
 -- AUTO_INCREMENT for table `tbl_applicants_licenses`
 --
 ALTER TABLE `tbl_applicants_licenses`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 
 --
 -- AUTO_INCREMENT for table `tbl_applicants_ofw`
@@ -1326,7 +1340,9 @@ ALTER TABLE `tbl_applicants_positions`
 -- AUTO_INCREMENT for table `tbl_applicants_prefer_locations`
 --
 ALTER TABLE `tbl_applicants_prefer_locations`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 
 --
 -- AUTO_INCREMENT for table `tbl_applicants_schools_attended`
@@ -1346,11 +1362,10 @@ ALTER TABLE `tbl_applicants_sydp`
 ALTER TABLE `tbl_applicants_work_history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `tbl_dresscodes`
---
+
 ALTER TABLE `tbl_dresscodes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 
 --
 -- AUTO_INCREMENT for table `tbl_establishments_jobposts`
@@ -1376,9 +1391,7 @@ ALTER TABLE `tbl_establishment_industries`
 ALTER TABLE `tbl_establistments_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `tbl_job_titles`
---
+
 ALTER TABLE `tbl_job_titles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
@@ -1386,7 +1399,9 @@ ALTER TABLE `tbl_job_titles`
 -- AUTO_INCREMENT for table `tbl_school_course_list`
 --
 ALTER TABLE `tbl_school_course_list`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 
 --
 -- AUTO_INCREMENT for table `tbl_web_posts`
@@ -1398,13 +1413,17 @@ ALTER TABLE `tbl_web_posts`
 -- AUTO_INCREMENT for table `tbl_web_post_tags`
 --
 ALTER TABLE `tbl_web_post_tags`
+
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 
 --
 -- AUTO_INCREMENT for table `tbl_web_post_types`
 --
 ALTER TABLE `tbl_web_post_types`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 
 --
 -- AUTO_INCREMENT for table `tbl_web_services`

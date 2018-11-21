@@ -25,9 +25,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 			$this->db->set('PostTitle',"'".$data['title']."'",FALSE);
 			$this->db->set('PostDescription',"'".$data['description']."'",FALSE);
-			$this->db->set('PostTypeId',"'".$data['type']."'",FALSE);
-			$this->db->set('Tags',"'".$data['tags']."'",FALSE);
+			$this->db->set('PostTypeId',"'".$data['type']."'",FALSE);	
 			$this->db->set('PostContent',"'".$data['textarea']."'",FALSE);	
+			$this->db->set('Tags',"'".$data['tags']."'",FALSE);
 			$this->db->set('IsActive',"'".$data['status']."'",FALSE);
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
@@ -50,9 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function Delete($data) {
 			//filerecord = [Del-1234567890]filerecord
-			$this->db->set('PostTitle','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['PostTitle'].'"',FALSE);
+			$this->db->set('PostTitle','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
 			$this->db->set('IsActive','"0"',FALSE);
-			$this->db->where('Id', $data['Id']);
+			$this->db->where('Id', $data['id']);
 			$this->db->update($this->tbl);
 			$deleted = $this->db->affected_rows();
 			if ($deleted > 0) {
