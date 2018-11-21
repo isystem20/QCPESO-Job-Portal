@@ -76,8 +76,8 @@ $route['manage'] = 'admin/HomeController/Dashboard';    /* Dashboard */
     /* MANAGE */                        
 $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';        /* User Masterlist */               
         /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
-        /* Manage Courses */                 $route['manage/user-courses'] = 'admin/CourselistController/Courselist';
-        /* Manage Employment Status */                 $route['manage/user-status'] = 'admin/EmploymentStatusController/EmploymentStatus';
+        /* Manage Courses */                 $route['manage/maintenace/user-courses'] = 'admin/CourselistController/Courselist';
+        /* Manage Employment Status */                 $route['manage/maintenance/user-status'] = 'admin/EmploymentStatusController/EmploymentStatus';
          /* Manage Account Release */                 $route['manage/account-release'] = 'admin/AccountReleaseController/AccountRelease';
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
