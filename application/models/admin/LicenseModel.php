@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class EmploymentTypesModel extends CI_Model {
+	class LicenseModel extends CI_Model {
 
 
-		public $tbl = 'tbl_applicants_employment_types';
+		public $tbl = 'tbl_license_list';
 
 		public function LoadMasterlist($id = null) {
 			$this->db->select('*');

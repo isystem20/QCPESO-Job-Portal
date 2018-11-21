@@ -18,7 +18,7 @@
  		$this->load->view('layout/admin/2_preloader');
  		$this->load->view('layout/admin/3_topbar');
  		$this->load->view('layout/admin/4_leftsidebar');
- 		$this->load->view('pages/maintenance/LanguageList',$data);
+ 		$this->load->view('pages/maintenance/Languages',$data);
  		$this->load->view('layout/admin/6_js',$layout);		
         $this->load->view('layout/admin/7_modals'); 
 
