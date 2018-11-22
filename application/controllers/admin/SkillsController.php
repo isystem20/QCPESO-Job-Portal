@@ -8,7 +8,7 @@
          $this->load->model('admin/SkillsModel','skimod');
      }
  
-    public function ApplicantSkills()
+    public function Skills()
     {
  
         $layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
@@ -18,7 +18,7 @@
         $this->load->view('layout/admin/2_preloader');
         $this->load->view('layout/admin/3_topbar');
         $this->load->view('layout/admin/4_leftsidebar');
-        $this->load->view('pages/maintenance/ApplicantSkills',$data);
+        $this->load->view('pages/maintenance/Skills',$data);
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals'); 
 

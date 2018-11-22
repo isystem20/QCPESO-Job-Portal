@@ -94,7 +94,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
 
             /* Employment Types */           $route['manage/maintenance/employment-types'] = 'admin/EmploymentTypesController/EmploymentTypes';
 
-            /* Skills */                     $route['manage/maintenance/skills'] = 'admin/SkillsController/ApplicantSkills';
+            /* Skills */                     $route['manage/maintenance/skills'] = 'admin/SkillsController/Skills';
 
 
              /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
