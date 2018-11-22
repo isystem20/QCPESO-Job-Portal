@@ -94,6 +94,8 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
 
             /* Employment Types */           $route['manage/maintenance/employment-types'] = 'admin/EmploymentTypesController/EmploymentTypes';
 
+            /* Skills */                     $route['manage/maintenance/skills'] = 'admin/SkillsController/ApplicantSkills';
+
 
              /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
 
@@ -256,6 +258,13 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/webposts/edit'] = 'admin/WebPostsController/Update'; // POST to edit
         $route['admin/webposts/del'] = 'admin/WebPostsController/Delete'; // POST to delete
         $route['admin/webposts/read'] = 'admin/WebPostsController/Read'; // POST to view
+
+        //Skills
+        $route['admin/skills/add'] = 'admin/SkillsController/Create';
+        $route['admin/skills/edit'] = 'admin/SkillsController/Update';
+        $route['admin/skills/del'] = 'admin/SkillsController/Delete';
+        $route['admin/skills/read'] = 'admin/SkillsController/Read';
+
 
         //Applicant Masterlist
         $route['admin/applicantmasterlist/add'] = 'admin/ApplicantMasterlistController/Create'; //POST to create
