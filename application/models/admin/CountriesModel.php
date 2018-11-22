@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class DisabilityModel extends CI_Model {
+	class CountriesModel extends CI_Model {
 
 
-		public $tbl = 'tbl_applicants_disabilities';
+		public $tbl = 'tbl_applicants_country';
 
 		public function LoadMasterlist($id = null) {
 			$this->db->select('*');
