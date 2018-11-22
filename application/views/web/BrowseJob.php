@@ -79,12 +79,24 @@
                                         <h6>Recent Jobs</h6>
                                     </div>
                                     <ul>
+
+                                        <?php
+                                        if ($browsejob->num_rows() > 0) {
+                                            foreach ($browsejob->result() as $row) { ?>
+
+
                                         <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
+                                            <div class="wb"><a href="#"><?=$row->JobDescription;?></span></div>
                                         </li>
-                                        <li class="clearfix">
+                                        
+                                        <?php
+                                            }
+                                        }
+                                        ?>                                          
+
+                                       <!--  <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/2.jpg" alt=""></a></div>
                                             <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
@@ -93,7 +105,7 @@
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/3.jpg" alt=""></a></div>
                                             <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </aside>
 
