@@ -81,8 +81,8 @@
                                     <ul>
 
                                         <?php
-                                        if ($browsejob->num_rows() > 0) {
-                                            foreach ($browsejob->result() as $row ) { ?>
+                                        if ($browsejob1->num_rows() > 0) {
+                                            foreach ($browsejob1->result() as $row ) { ?>
 
 
                                         <li class="clearfix">
