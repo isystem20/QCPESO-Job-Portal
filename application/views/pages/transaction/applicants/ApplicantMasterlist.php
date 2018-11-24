@@ -54,12 +54,12 @@
                                             foreach ($masterlist->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->lastName; ?></td>
-                                                <td><?php echo $row->firstName; ?></td>
-                                                <td><?php echo $row->emailAddress; ?></td> 
+                                                <td><?php echo $row->FirstName; ?></td>
+                                                <td><?php echo $row->EmailAddress; ?></td> 
 
                                                 <td>
                                                     <?php 
-                                                    if ($row->isActive == '1') {
+                                                    if ($row->IsActive == '1') {
                                                         echo '<label class="label label-success">Active</label>';
                                                     }
                                                     else {
@@ -68,14 +68,14 @@
                                                     ?>
                                                 </td>
                                                 <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->lastName; ?>" data-name="<?=$row->firstName; ?>"  data-desc="<?=$row->emailAddress; ?>" data-version="<?=$row->versionNum; ?>" data-status="<?=$row->isActive; ?>"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->LastName; ?>" data-name="<?=$row->FirstName; ?>"  data-desc="<?=$row->EmailAddress; ?>" data-version="<?=$row->VersionNum; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
 
 
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->lastName; ?>" data-name="<?=$row->firstName; ?>" data-desc="<?=$row->emailAddress; ?>" data-status="<?=$row->isActive; ?>"> <i class="far fa-edit" ></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->LastName; ?>" data-name="<?=$row->FirstName; ?>" data-desc="<?=$row->EmailAddress; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
 
 
 
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->lastName; ?>" data-name="<?=$row->firstName; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->LastName; ?>" data-name="<?=$row->FirstName; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php
