@@ -51,9 +51,11 @@
 
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li>
 
-                                <li><a href="<?php echo base_url(); ?>manage/maintenance/countries"> Country List</a></li>
+                                <li><a href="<?php echo base_url(); ?>manage/maintenance/countrylist"> Country List</a></li>
 
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/user-status"> Employment Status</a></li>
+
+                                <li><a href="<?php echo base_url(); ?>manage/maintenance/skills"> Skills</a></li>
 
                             </ul>
                         </li>

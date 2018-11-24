@@ -11,15 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Employment Types</h3>
-                    <h6 class="text-muted">Masterlist of All Employment Types</h6>
+                    <h3 class="text-themecolor">Licenses</h3>
+                    <h6 class="text-muted">Masterlist of All Licenses</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item">Maintenenace</li>
-                        <li class="breadcrumb-item active">Employment Types</li>
+                        <li class="breadcrumb-item active">Licenses</li>
                     </ol>
                 </div>
                 <div>
@@ -54,7 +54,7 @@
                                         <?php
                                         if ($masterlist->num_rows() > 0) {
                                             foreach ($masterlist->result() as $row) { ?>
-                                            <tr Id="row<?=$row->Id; ?>">
+                                            <tr id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->Name; ?></td>
                                                 <td><?php echo character_limiter($row->Description, 30); ?></td>
                                                 <td><?php echo $row->ModifiedById; ?></td>
@@ -162,3 +162,4 @@
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
+

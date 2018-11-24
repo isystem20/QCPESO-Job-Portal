@@ -11,15 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Countries List</h3>
-                    <h6 class="text-muted">Masterlist of All Countries</h6>
+                    <h3 class="text-themecolor">Skills</h3>
+                    <h6 class="text-muted">Masterlist of All Skills</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item">Maintenenace</li>
-                        <li class="breadcrumb-item active">Countries</li>
+                        <li class="breadcrumb-item active">Skills</li>
                     </ol>
                 </div>
                 <div>
@@ -54,7 +54,7 @@
                                         <?php
                                         if ($masterlist->num_rows() > 0) {
                                             foreach ($masterlist->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
+                                            <tr Id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->Name; ?></td>
                                                 <td><?php echo character_limiter($row->Description, 30); ?></td>
                                                 <td><?php echo $row->ModifiedById; ?></td>
@@ -73,7 +73,7 @@
                                                     <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-createdby="<?=$row->CreatedById; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
 
 
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
 
 
 
@@ -162,4 +162,3 @@
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
-
