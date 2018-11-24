@@ -103,7 +103,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
 
     /* TRANSACTIONS */
         /* Applicants */ 
-            /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantRegistration';
+            /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
             /* View List */                 $route['manage/do/applicants/view-list'] = 'admin/ApplicantMasterlistController/ApplicantMasterlist';
             /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
@@ -251,12 +251,28 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/webposts/del'] = 'admin/WebPostsController/Delete'; // POST to delete
         $route['admin/webposts/read'] = 'admin/WebPostsController/Read'; // POST to view
 
+<<<<<<< HEAD
         //Applicant Masterlist
         $route['admin/applicantmasterlist/add'] = 'admin/ApplicantMasterlistController/Create'; //POST to create
         $route['admin/applicantmasterlist/edit'] = 'admin/ApplicantMasterlistController/Update'; // POST to edit
         $route['admin/applicantmasterlist/del'] = 'admin/ApplicantMasterlistController/Delete'; // POST to delete
         $route['admin/applicantmasterlist/read'] = 'admin/ApplicantMasterlistController/Read'; // POST to view
 
+=======
+        //Skills
+        $route['admin/skills/add'] = 'admin/SkillsController/Create';
+        $route['admin/skills/edit'] = 'admin/SkillsController/Update';
+        $route['admin/skills/del'] = 'admin/SkillsController/Delete';
+        $route['admin/skills/read'] = 'admin/SkillsController/Read';
+
+        $route['admin/applicants/(:any)'] = 'admin/ApplicantController/ApplicantInfo/$1';
+        $route['admin/applicants'] = 'admin/ApplicantController/ApplicantInfo';
+        $route['admin/applicants/add'] = 'admin/ApplicantController/Create'; //POST to create
+        $route['admin/applicants/edit'] = 'admin/ApplicantController/Update'; // POST to edit
+        $route['admin/applicants/del'] = 'admin/ApplicantController/Delete'; // POST to delete
+        $route['admin/applicants/read'] = 'admin/ApplicantController/Read'; // POST to view
+        $route['admin/applicants/(:any)/(:any)'] = 'admin/ApplicantController/ApplicantInfo/$1/$2';
+>>>>>>> f2f3b933db25a0e94f28882406dbd920eda3af07
         $route['manage/settings/all-web-post'] = 'admin/WebPostsController/AllWebPosts';
         $route['admin/EstablishmentMasterlist/add'] = 'admin/EstablishmentlistController/Create'; //POST to create
         $route['admin/EstablishmentMasterlist/edit'] = 'admin/EstablishmentlistController/Update'; // POST to edit
