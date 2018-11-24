@@ -83,4 +83,35 @@
             font-size:14px !important; 
         }
     </style>
+
+
+
+    <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
+      <script>
+
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher('b40201798c4cfcffea24', {
+          cluster: 'ap1',
+          forceTLS: true
+        });
+
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function(data) {
+         $.toast({
+          heading: 'Notification:',
+          text: JSON.stringify(data),
+          position: 'top-right',
+          loaderBg:'#ff6849',
+          icon: 'success',
+          hideAfter: 3500, 
+          stack: 6
+        }); 
+          // alert(JSON.stringify(data));
+        });
+      </script>
+
+
+
 </head>

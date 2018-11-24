@@ -9,14 +9,33 @@ $(function() {
     // ============================================================== 
     // Sales overview
     // ============================================================== 
+    var monthly_applicants = $('#sales-overview2').data('values');
+
+    var labels = [], madata=[], highest = 0 ;
+
+
+    for (var key in monthly_applicants) {
+        var value = monthly_applicants[key];
+        console.log(key, value);
+        labels.push(key);
+        madata.push(value);
+        if (value > highest) {
+            highest = value;
+        }
+    }
+
+
     new Chartist.Line('#sales-overview2', {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+
+        labels: labels,
         series: [
-            { meta: "Earning ($)", data: [10, 150, 110, 240, 200, 200, 300] }
+            { meta: "Monthly Applicant Registration", data: madata }
         ]
+
+
     }, {
         low: 0,
-        high: 400,
+        high: highest,
         showArea: true,
         divisor: 10,
         lineSmooth: false,
@@ -39,7 +58,7 @@ $(function() {
             showGrid: true,
             offset: 10,
             labelInterpolationFnc: function(value) {
-                return (value / 100) + 'k'
+                return (value / 1000) + 'k'
             },
 
         }

@@ -22,7 +22,7 @@ class LoggerModel extends CI_Model
 				'Platform' => $this->agent->platform(),
 				'UserAgent' => $this->input->user_agent(),
 				);
-		$query = $this->db->insert('logs', $logdata);
+		$query = $this->db->insert('system_logs', $logdata);
 		return $this->db->insert_id();
 	}
 
