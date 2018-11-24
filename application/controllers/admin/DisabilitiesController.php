@@ -6,6 +6,7 @@
  	function __construct() {
          parent::__construct();
          $this->load->model('admin/DisabilityModel','dismod');
+         $this->load->model('LoggerModel','logger'); //Include LoggerModel
      }
  
  	public function Disabilities()
@@ -67,11 +68,15 @@
             $postdata = array_filter($postdata, 'strlen');
 
             $result = $this->dismod->Update($id,$postdata);
+
             if ($result != FALSE) {
-                $json = json_encode($result);             
+                $json = json_encode($result);
+                $this->logger->log('Update','Disabilities',$json); //Log           
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Update','Disabilities',$json); //Log  
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
         }
