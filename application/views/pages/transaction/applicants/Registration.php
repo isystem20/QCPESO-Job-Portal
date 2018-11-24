@@ -40,7 +40,7 @@ if (!empty($applicant)) {
                                 <form action="<?=base_url('admin/applicants/add'); ?>" id="applicant-info-form" method="POST" class="tab-wizard wizard-circle">
                                     <!-- Step 1 -->
                                     <h6>Personal Info</h6>
-                                    <section>
+                                    
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <div class="row">
@@ -177,63 +177,10 @@ if (!empty($applicant)) {
                                                 </div>
                                             </div>                                            
                                         </div>
-                                    </section>
+                             
                                     <!-- Step 2 -->
                                     <h6>Educational Background</h6>
-                                    <section>
-
-                                        <table class="table">
-                                            <tr>
-                                                <td><input type="text" placeholder="School" class="form-control" id="jobTitle1"></td>
-                                                <td><input type="text" placeholder="Degree" class="form-control" id="jobTitle1"></td>
-                                                <td><input type="text" placeholder="Last Year Attended" class="form-control" id="jobTitle1"></td>
-                                                <td><input type="text" placeholder="Award" class="form-control" id="jobTitle1"></td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="" >Remarks</option>
-                                                        <option value="Completed">Completed</option>
-                                                        <option value="On-Going">On-going</option>
-                                                        <option value="Not Completed">Not Completed</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn waves-effect waves-light btn-sm btn-success">Add</button>
-                                                </td>
-
-                                            </tr>
-
-                                        </table>
-
-
-
-
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                    <table class="table">
-                                                        <thead>
-                                                            
-                                                            <td>School</td>
-                                                            <td>Degree</td>
-                                                            <td>Year</td>
-                                                            <td>Award</td>
-                                                            <td>Completed?</td>
-                                                            <td></td>
-                                                        </thead>
-                                                        <tr>
-                                                            <td><input type="text" class="form-control" id="jobTitle1"></td>
-                                                            <td><input type="text" class="form-control" id="jobTitle1"></td>
-                                                            <td><input type="text" class="form-control" id="jobTitle1"></td>
-                                                            <td><input type="text" class="form-control" id="jobTitle1"></td>
-                                                            <td><input type="text" class="form-control" id="jobTitle1"></td>
-                                                            <td><button type="button" class="btn waves-effect waves-light btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button></td>
-                                                        </tr>
-
-                                                    </table>
-
-
-                                            </div>
-                                        </div>
-                                    </section>
+                                    
           <!--                           <h6>Work History</h6>
                                     <section>
                                         <div class="row">
