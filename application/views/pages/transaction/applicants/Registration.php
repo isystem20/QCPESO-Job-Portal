@@ -204,9 +204,6 @@ if (!empty($applicant)) {
 
                                         </table>
 
-
-
-
                                         <div class="row">
                                             <div class="col-md-12">
                                                     <table class="table">
@@ -234,7 +231,8 @@ if (!empty($applicant)) {
                                             </div>
                                         </div>
                                     </section>
-          <!--                           <h6>Work History</h6>
+                                    <!-- Step 3 -->
+                                    <h6>Work History</h6>
                                     <section>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -280,6 +278,7 @@ if (!empty($applicant)) {
                                             </div>
                                         </div>
                                     </section>
+                                    <!-- Step 4 -->
                                     <h6>Licenses/Certificates</h6>
                                     <section>
                                         <div class="row">
@@ -369,7 +368,7 @@ if (!empty($applicant)) {
                                                 </div>
                                             </div>
                                         </div>
-                                    </section> -->
+                                    </section>
 
                                 </form>
                             </div>
@@ -689,7 +688,7 @@ else { ?>
                                             </div>
                                         </div>
                                     </section>
-          <!--                           <h6>Work History</h6>
+                                    <h6>Work History</h6>
                                     <section>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -824,7 +823,7 @@ else { ?>
                                                 </div>
                                             </div>
                                         </div>
-                                    </section> -->
+                                    </section>
 
                                 </form>
                             </div>
