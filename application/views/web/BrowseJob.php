@@ -82,7 +82,7 @@
 
                                         <?php
                                         if ($browsejob->num_rows() > 0) {
-                                            foreach ($browsejob->result() as $row) { ?>
+                                            foreach ($browsejob->result() as $row ) { ?>
 
 
                                         <li class="clearfix">
@@ -90,7 +90,7 @@
 /images/widgets/1.jpg" alt=""></a></div>
                                             <div class="wb"><a href="#"><?=$row->JobDescription;?></span></div>
                                         </li>
-                                        
+
                                         <?php
                                             }
                                         }
