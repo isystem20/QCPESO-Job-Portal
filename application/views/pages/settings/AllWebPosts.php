@@ -51,6 +51,7 @@
                                                 <th>Modified By</th>
                                                 <th>Modified At</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                                 
                                             </tr>
                                         </thead>
@@ -83,7 +84,7 @@
 
 
 
-                                                     <button class="del-item-btn1 btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/webposts/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->PostTitle; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/webposts/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->PostTitle; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php

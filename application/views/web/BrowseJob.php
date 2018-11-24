@@ -52,11 +52,24 @@
                                         <h6>Companies</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">Jolibee<span class="float-right">100</span></a></li>
+  <?php
+                                        if ($estabpost->num_rows() > 0) {
+                                            foreach ($estabpost->result() as $row) { ?>
+                                            
+ 
+                                        <li><a href="#"><?=$row->CompanyName;?><span class="float-right">10</span></a></li>
+
+
+                                        <?php
+                                            }
+                                        }
+                                        ?>                                          
+
+                                        <!-- <li><a href="#">Jolibee<span class="float-right">100</span></a></li>
                                         <li><a href="#">McDO <span class="float-right">50</span></a></li>
                                         <li><a href="#">Mang Inasal <span class="float-right">40</span></a></li>
                                         <li><a href="#">Healthy Shabu <span class="float-right">30</span></a></li>
-                                        <li><a href="#">Kuya J <span class="float-right">18</span></a></li>
+                                        <li><a href="#">Kuya J <span class="float-right">18</span></a></li> -->
                                     </ul>
                                 </aside>
 

@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class EmploymentTypesModel extends CI_Model {
+	class CertificatesModel extends CI_Model {
 
 
-		public $tbl = 'tbl_applicants_employment_types';
+		public $tbl = 'tbl_applicants_certificate_list';
 
 		public function LoadMasterlist($id = null) {
 			$this->db->select('*');
@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    $this->db->set('Name', '"'.$data['name'].'"', FALSE); 
 		    $this->db->set('Description', '"'.$data['description'].'"', FALSE); 
 		    $this->db->set('IsActive', '"'.$data['status'].'"', FALSE);
-		    $this->db->where('id', $id);
+		    $this->db->where('Id', $id);
 		    $query = $this->db->update($this->tbl);
 			$update = $this->db->affected_rows();
 			if ($update > 0) {
