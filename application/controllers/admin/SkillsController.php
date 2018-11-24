@@ -1,30 +1,30 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class GroupController extends CI_Controller {
+ class SkillsController extends CI_Controller {
  
     function __construct() {
          parent::__construct();
-         $this->load->model('admin/GroupModel','groupmod');
+         $this->load->model('admin/SkillsModel','skimod');
      }
  
-    public function Group()
+    public function Skills()
     {
  
         $layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
-        $data['masterlist'] = $this->groupmod->LoadMasterlist();
-        $data['class'] = 'group';
+        $data['masterlist'] = $this->skimod->LoadMasterlist();
+        $data['class'] = 'skills';
         $this->load->view('layout/admin/1_css');
         $this->load->view('layout/admin/2_preloader');
         $this->load->view('layout/admin/3_topbar');
         $this->load->view('layout/admin/4_leftsidebar');
-        $this->load->view('pages/maintenance/Group',$data);
+        $this->load->view('pages/maintenance/Skills',$data);
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals'); 
 
     }
     public function Create() {
-        $this->form_validation->set_rules('name','Name','required|is_unique[tbl_group_masterlist.name]',
+        $this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_skills.name]',
                 array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
@@ -37,7 +37,7 @@
          }
         else {
             $postdata = $this->input->post();
-            $inserted = $this->groupmod->Add($postdata);
+            $inserted = $this->skimod->Add($postdata);
             // echo json_encode(['success'=>TRUE]);
             if ($inserted != FALSE) {
                 $json = json_encode($inserted);             
@@ -66,7 +66,7 @@
             unset($postdata['itemid']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->groupmod->Update($id,$postdata);
+            $result = $this->skimod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                 echo $json;
@@ -94,7 +94,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->groupmod->Delete($postdata);
+            $result = $this->skimod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
                 echo $json;

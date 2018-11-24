@@ -105,7 +105,7 @@
  
  	public function Delete() {
  
-         $this->form_validation->set_rules('Id', 'Item Record', 'required',
+         $this->form_validation->set_rules('id', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
                 ));

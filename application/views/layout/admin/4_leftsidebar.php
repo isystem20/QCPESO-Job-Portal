@@ -47,13 +47,15 @@
 
 
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/industries"> Industries </a></li>
-                                <li><a href="<?php echo base_url(); ?>manage/maintenance/courses-list"> Course List </a></li>
+                                <li><a href="<?php echo base_url(); ?>manage/maintenace/user-courses"> Course List </a></li>
 
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li>
 
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/countrylist"> Country List</a></li>
 
-                                <li><a href="<?php echo base_url(); ?>manage/user-status"> Employment Status</a></li>
+                                <li><a href="<?php echo base_url(); ?>manage/maintenance/user-status"> Employment Status</a></li>
+
+                                <li><a href="<?php echo base_url(); ?>manage/maintenance/skills"> Skills</a></li>
 
                             </ul>
                         </li>
