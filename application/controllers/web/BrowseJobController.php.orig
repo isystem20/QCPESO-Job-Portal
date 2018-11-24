@@ -12,8 +12,12 @@ function __construct() {
 public function BrowseJob()
 	{
 
-		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist();
+<<<<<<< HEAD
+		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($str);
 		$data['estabpost'] = $this->estmod->LoadMasterlist();
+=======
+		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist();
+>>>>>>> 0b9d9f73e0969b442562c74ece37f64822e41139
 		$layout = array('transparentwrapper' => TRUE, );
 		$this->load->view('layout/web/1_head');
 		$this->load->view('layout/web/2_preloader');
