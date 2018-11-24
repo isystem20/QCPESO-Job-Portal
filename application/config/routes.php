@@ -82,7 +82,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
             /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
-            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificateController/Certificates';
+            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificatesController/CertificatesList';
             /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
             /* Dress Code */                $route['manage/maintenance/dresscode'] = 'admin/DresscodeController/Dresscode';
             
@@ -169,10 +169,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/licenses/read'] = 'admin/LicenseController/Read';
 
         //Certificates
-        $route['admin/certificates/add'] = 'admin/CertificateController/Create';
-        $route['admin/certificates/edit'] = 'admin/CertificateController/Update';
-        $route['admin/certificates/del'] = 'admin/CertificateController/Delete';
-        $route['admin/certificates/read'] = 'admin/CertificateController/Read';
+        $route['admin/certificates/add'] = 'admin/CertificatesController/Create';
+        $route['admin/certificates/edit'] = 'admin/CertificatesController/Update';
+        $route['admin/certificates/del'] = 'admin/CertificatesController/Delete';
+        $route['admin/certificates/read'] = 'admin/CertificatesController/Read';
 
         //Disabilities
         $route['admin/disabilities/add'] = 'admin/DisabilitiesController/Create';
