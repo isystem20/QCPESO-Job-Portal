@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public $val = '1';
     	
-    	public function total_Jobs(){
+    public function total_Jobs(){
     		$query = $this->db->query("SELECT COUNT(JobTitle) from tbl_establishments_jobposts");
     		return $query;
 
