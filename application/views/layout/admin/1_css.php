@@ -97,7 +97,7 @@
           text: data.message,
           position: 'top-right',
           loaderBg:'#ff6849',
-          icon: 'success',
+          icon: 'info',
           hideAfter: 3500, 
           stack: 6
         }); 
