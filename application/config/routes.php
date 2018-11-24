@@ -114,7 +114,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';  
                                             $route['manage/do/jobs/addnewjob'] = 'admin/JobsController/AddNewJob';  
                                                  
-            /* View Jobs */                 $route['manage/do/jobs/view-list'] = 'admin/JobController/JobMasterlist';  
+            /* View Jobs */                 $route['manage/do/jobs/view-list'] = 'admin/JobsController/ViewJobs';  
             /* Pending Job Posting */       $route['manage/do/jobs/pending-job-posts'] = 'admin/JobController/PendingJobMasterlist';      
 
     /* REPORTS */

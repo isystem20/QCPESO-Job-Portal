@@ -39,129 +39,74 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <!-- Row -->
-                <div class="row">
-                    <div class="col-lg-12">
+                 <div class="row">
+                    <div class="col-12">
+
                         <div class="card">
-                            <div class="card-header bg-info">
-                                <h4 class="m-b-0 text-white">Job Post Form</h4>
-                            </div>
                             <div class="card-body">
-                                    <div class="form-body">
-                                        <h3 class="card-title">Job Post Information</h3>
-                                        <hr>
-                                        <div class="col-md-12">
-                                                <div id="notif"></div>
-                                        </div>
-                                        <div class="row p-t-20">
-                                            
-                                            <div class="col-md-6">
-                                            <?php echo form_open('manage/do/jobs/addnewjob','id="jobpost-form"'); ?>
-
-                                                <div class="form-group">
-                                                    <label class="control-label">Job Title</label>
-                                                    <input type="text" id="jtitle" name="jtitle" class="form-control" placeholder="Job title">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Specialization</label>
-                                                    
-                                                    <select name="speci" class="selectpicker form-control" data-style="form-control btn border" multiple="multiple" data-placeholder="Please select">    
-                                                        <option value="3">3</option>
-                                                        <option value="2">2</option>
-                                                        <option value="1">1</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div> 
-
-                                        <div class="row p-t-20">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Employment Type</label>
-                                                    <select class="form-control" name="emptype">
-                                                        <?php
-                                                            if ($emptypes->num_rows() > 0) {
-                                                                foreach ($emptypes->result() as $row) { ?>
-                                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
-                                                        <?php
-                                                            }
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Position Level</label>
-                                                    <select class="form-control" name="postlevel">
-                                                        <?php
-                                                            if ($applev->num_rows() > 0) {
-                                                                foreach ($applev->result() as $row) { ?>
-                                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
-                                                        <?php
-                                                            }
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                                <div class="col-12">
-                                                    <label class="control-label">Job Description</label>  
-                                                    <div class="form-group">
-                                                        <textarea class="textarea_editor form-control" id="jobdesc" name="jobdesc" rows="5" placeholder="Enter text ..."></textarea>
-                                                    </div>
-                                                                            
-                                                </div>
-                                        </div>
+                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped" >
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Modified By</th>
+                                                <th>Last Modified</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Modified By</th>
+                                                <th>Last Modified</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                        <?php
+                                        if ($viewjobs->num_rows() > 0) {
+                                            foreach ($viewjobs->result() as $row) { ?>
+                                            <tr id="row<?=$row->Id; ?>">
+                                                <td><?php echo $row->JobTitle; ?></td>
+                                                <td><?php echo character_limiter($row->JobDescription, 30); ?></td>
+                                                <td><?php echo $row->ModifiedById; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
+                                                <td>
+                                                    <?php 
+                                                    if ($row->IsActive == '1') {
+                                                        echo '<label class="label label-success">Active</label>';
+                                                    }
+                                                    else {
+                                                        echo '<span class="label label-light-inverse">Inactive</span>';
+                                                    }
+                                                    ?>
+                                        
+                                                </td>
+                                                <td class="actions">
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" > <i class="fas fa-info-circle"></i> </button>
 
 
-                                        <div class="row p-t-20">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">Salary</label>
-                                                    <input type="text" id="salary" name="salary" class="form-control" placeholder="Salary">
-                                                    
-                                                </div>
-                                            </div>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button"> <i class="far fa-edit" ></i> </button>
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">Job Image</label>
-                                                    <input type="file" name="jobimage" class="form-control" >
-                                                </div>
-                                            </div>
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">Status</label>
-                                                    <select class="form-control" id="stat" name="stat">
-                                                        <option value="1">Active</option>
-                                                        <option value="2">Inactive</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                       
-                                       
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" id="add-jobposts" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                        <button type="button" class="btn btn-danger">Cancel</button>
-                                    </div>
 
-                                <!--  -->
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+                                            </tr>
+                                         <?php
+                                            }
+                                        }
+                                        ?>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Row -->
-
 
 
               
@@ -242,3 +187,5 @@
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
+
+

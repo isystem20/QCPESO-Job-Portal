@@ -262,7 +262,7 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
         var newURL = $(this).attr('action');      //Get the form action attribute value.
         var newData  = {
-                   'id' : $('input[name=id]').val(), //List of data you want to post
+                'id' : $('input[name=id]').val(), //List of data you want to post
                 'title' : $('input[name=title]').val(),
                 'description' : $('input[name=description]').val(),
                 'type' : $('select[name=type]').val(),
@@ -317,44 +317,66 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
 // JS Add new Job Post
 
 
-$('#jobposts-form').submit(function(e){
+$('#jobpost-form').submit(function(e) {
         e.preventDefault();
         // alert('tang ina gumana ka');
-        // $("#save-jobpost").prop("disabled", true);   
+        // $("#add-jobposts").prop("disabled", true);   
         var newURL = $(this).attr('action');  
         var me = $(this);
+        // var newData  = {
+        //         'jobtitle' : $('input[name=jtitle]').val(),
 
-        $.ajax({
-          url: newURL,
-          type: 'post',
-          // data: me.serialize(),
-          dataType: "json",
-          success: function(response){
-              console.log(response);  
+        //         }
+        //         console.log(newData);
 
-              if(response.success == false){
-                  $.each(response.messages, function(key, value){
-                  var element = $('#' + key);
-                  element.closest('div.form-control')
-                  
-                  .addClass('has-error');
+                $.ajax({
+                  url: newURL,
+                  type: 'POST',               
+                  dataType: 'json',
+                  data: me.serialize(),
+                  success: function(response){
+                    console.log(response); 
 
-                  // .removeClass('har-error')
-                  // .find('.text-danger')
-                  // .remove();            
-                  element.after(value);
-                });
-              }
-              else{
-                alert('success');
+                      if(response.success == true){  
+                        // alert('Good');
 
-              
-              }
-          }
-        });
+                        $('#notif').append('<div class="alert alert-success">' +
+                          '<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>' +
+                          '<i class="fa fa-check-circle"></i>' +
+                          ' New Job Post has been saved.' +
+                          '</div>');
+                        $('.form-group').removeClass('has-error')
+                                        .removeClass('has-success');
+                        $('.text-danger').remove();
 
+                        // reset the form jonathan :)
 
-        // $("#save-jobpost").prop("disabled", false);   
+                        me[0].reset();
 
+                        // close the notif after n seconds
+
+                        $('.alert-success').delay(500).show(10, function(){
+                          $(this).delay(3000).hide(10, function(){
+                            $(this).remove();
+                          });
+                        });
+                      }
+                      else{
+                        // alert('Bad');
+                        $.each(response.messages, function(key, value){
+                          var element =  $('#' + key);
+                          
+                          element.closest('div.form-group')
+                          .removeClass('has-error')
+                          .removeClass('has-success')
+                          .addClass(value.length > 0 ? 'has-error' : 'has-success')
+                          .find('.text-danger').remove();
+                          element.after(value);
+                        });
+                      } 
+                      
+                    }
+                  });
+    // $("#add-jobposts").prop("disabled", false);  
     });
 
