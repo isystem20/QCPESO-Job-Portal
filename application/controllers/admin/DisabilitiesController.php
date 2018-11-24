@@ -64,7 +64,7 @@
                     $options
                   );
 
-                  $data['message'] = $this->session->firstname.' added new disability';
+                  $data['message'] = $this->session->firstname.' Pangit ni Diego';
                   $pusher->trigger('my-channel', 'my-event', $data);
 
 

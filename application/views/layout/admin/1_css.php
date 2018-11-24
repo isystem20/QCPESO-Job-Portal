@@ -100,8 +100,8 @@
         var channel = pusher.subscribe('my-channel');
         channel.bind('my-event', function(data) {
          $.toast({
-          heading: 'Notification:',
-          text: JSON.stringify(data),
+          heading: 'Wawa si Diego:',
+          text: data.message,
           position: 'top-right',
           loaderBg:'#ff6849',
           icon: 'success',
