@@ -68,9 +68,14 @@
                                                     <label class="control-label">Specialization</label>
                                                     
                                                     <select name="speci" class="selectpicker form-control" data-style="form-control btn border" multiple="multiple" data-placeholder="Please select">    
-                                                        <option value="3">3</option>
-                                                        <option value="2">2</option>
-                                                        <option value="1">1</option>
+                                                        <?php
+                                                            if ($applev->num_rows() > 0) {
+                                                                foreach ($applev->result() as $row) { ?>
+                                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
