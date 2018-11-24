@@ -31,6 +31,8 @@
                 )
             );
 
+        
+
             if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
