@@ -262,13 +262,13 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
         var newURL = $(this).attr('action');      //Get the form action attribute value.
         var newData  = {
-                   'id' : $('input[name=id]').val(), //List of data you want to post
-                'title' : $('input[name=title]').val(),
-                'description' : $('input[name=description]').val(),
-                'type' : $('select[name=type]').val(),
-                'tags' : $('input[name=tags]').val(),
-                'status' : $('select[name=status]').val(),
-                'textarea' : $('textarea[name=textarea]').val(),
+                'Id' : $('input[name=id]').val(), //List of data you want to post
+                'PostTitle' : $('input[name=title]').val(),
+                'PostDescription' : $('input[name=description]').val(),
+                'PostTypeId' : $('select[name=type]').val(),
+                'Tags' : $('input[name=tags]').val(),
+                'IsActive' : $('select[name=status]').val(),
+                'PostContent' : $('textarea[name=textarea]').val(),
             }
             console.log(newData);
           $.ajax({

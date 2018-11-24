@@ -27,26 +27,46 @@
 
     }
 
-    public function AddWebPosts()
+    public function AddWebPosts($id = null,$mode= null)
     {
  
         $layout = array('editor'=>TRUE, 'tags'=>TRUE);
-        $data['webposts'] = $this->webpostmod->LoadMasterlist();
         $data['posttypes'] = $this->postymod->LoadMasterlist();
         $data['class'] = 'webposts';
 
+             
+
+       if (!empty($id)) {
+
+            $data['webposts'] = $this->webpostmod->LoadMasterlist($id);
+
+            // print_r($data['applicant']);
+
+            if (!empty($mode)) {
+                if ($mode == 'edit') {
+                    $mode = array('edit' => TRUE, );
+                }
+                elseif ($mode == 'view') {
+                    $mode = array('view' => TRUE, );
+                }
+                else {
+                    die('Invalid Mode');
+                }
+            }
+            else {
+                $mode = array('view' => TRUE, );
+            }
+        }
         $this->load->view('layout/admin/1_css');
         $this->load->view('layout/admin/2_preloader');
         $this->load->view('layout/admin/3_topbar');
         $this->load->view('layout/admin/4_leftsidebar');
         $this->load->view('pages/settings/AddWebPosts',$data);
-        $this->load->view('layout/admin/6_js',$layout);     
-       
-
+        $this->load->view('layout/admin/6_js',$layout);
     }
  
  	public function Create() {
-		$this->form_validation->set_rules('title','title','required|is_unique[tbl_web_posts.PostTitle]',
+		$this->form_validation->set_rules('PostTitle','title','required|is_unique[tbl_web_posts.PostTitle]',
 		        array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'

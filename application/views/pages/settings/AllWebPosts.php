@@ -38,7 +38,7 @@
 
                         <div class="card">
                             <div class="card-body">
-                               
+                               <a href="<?=base_url('manage/settings/add-web-post');?>" class="btn waves-effect waves-light btn-success">Add</a>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
@@ -77,10 +77,10 @@
                                                     ?>
                                                 </td>
                                                 <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->PostTitle; ?>" data-desc="<?=$row->PostDescription; ?>" data-cont="<?=$row->PostContent; ?>" data-typeid="<?=$row->PostTypeId; ?>" data-tag="<?=$row->Tags; ?>" data-createdby="<?=$row->CreatedById; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
+                                                    <a href="<?=base_url('manage/settings/add-web-post/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->PostTitle; ?>" data-desc="<?=$row->PostDescription; ?>" data-cont="<?=$row->PostContent; ?>" data-typeid="<?=$row->PostTypeId; ?>" data-tag="<?=$row->Tags; ?>" data-createdby="<?=$row->CreatedById; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </a>
 
 
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" name="<?=$row->PostTitle; ?>" desc="<?=$row->PostDescription; ?>" cont="<?=$row->PostContent; ?>"typeid="<?=$row->PostTypeId; ?>" tag="<?=$row->Tags; ?>" createdby="<?=$row->CreatedById; ?>" createdat="<?=$row->CreatedAt; ?>"modifiedby="<?=$row->ModifiedById; ?>" modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>"status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
+                                                    <a href="<?=base_url('manage/settings/add-web-post');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" name="<?=$row->PostTitle; ?>" desc="<?=$row->PostDescription; ?>" cont="<?=$row->PostContent; ?>"typeid="<?=$row->PostTypeId; ?>" tag="<?=$row->Tags; ?>" createdby="<?=$row->CreatedById; ?>" createdat="<?=$row->CreatedAt; ?>"modifiedby="<?=$row->ModifiedById; ?>" modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>"status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </a>
 
 
 

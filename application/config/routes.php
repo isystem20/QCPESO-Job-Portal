@@ -305,3 +305,7 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/countries/del'] = 'admin/CountriesController/Delete'; // POST to delete
         $route['admin/countries/read'] = 'admin/CountriesController/Read'; // POST to view
 
+
+        $route['manage/settings/add-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+      
+        $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
