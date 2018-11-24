@@ -82,7 +82,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
             /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
-            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificateController/Certificates';
+            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificatesController/CertificatesList';
             /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
             /* Dress Code */                $route['manage/maintenance/dresscode'] = 'admin/DresscodeController/Dresscode';
             
@@ -93,6 +93,8 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Applicant Level */           $route['manage/maintenance/applicant-level'] = 'admin/ApplicantLevelController/ApplicantLevel';
 
             /* Employment Types */           $route['manage/maintenance/employment-types'] = 'admin/EmploymentTypesController/EmploymentTypes';
+
+            /* Skills */                     $route['manage/maintenance/skills'] = 'admin/SkillsController/Skills';
 
 
              /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
@@ -167,10 +169,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/licenses/read'] = 'admin/LicenseController/Read';
 
         //Certificates
-        $route['admin/certificates/add'] = 'admin/CertificateController/Create';
-        $route['admin/certificates/edit'] = 'admin/CertificateController/Update';
-        $route['admin/certificates/del'] = 'admin/CertificateController/Delete';
-        $route['admin/certificates/read'] = 'admin/CertificateController/Read';
+        $route['admin/certificates/add'] = 'admin/CertificatesController/Create';
+        $route['admin/certificates/edit'] = 'admin/CertificatesController/Update';
+        $route['admin/certificates/del'] = 'admin/CertificatesController/Delete';
+        $route['admin/certificates/read'] = 'admin/CertificatesController/Read';
 
         //Disabilities
         $route['admin/disabilities/add'] = 'admin/DisabilitiesController/Create';
@@ -256,6 +258,13 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/webposts/edit'] = 'admin/WebPostsController/Update'; // POST to edit
         $route['admin/webposts/del'] = 'admin/WebPostsController/Delete'; // POST to delete
         $route['admin/webposts/read'] = 'admin/WebPostsController/Read'; // POST to view
+
+        //Skills
+        $route['admin/skills/add'] = 'admin/SkillsController/Create';
+        $route['admin/skills/edit'] = 'admin/SkillsController/Update';
+        $route['admin/skills/del'] = 'admin/SkillsController/Delete';
+        $route['admin/skills/read'] = 'admin/SkillsController/Read';
+
 
         //Applicant Masterlist
         $route['admin/applicantmasterlist/add'] = 'admin/ApplicantMasterlistController/Create'; //POST to create
