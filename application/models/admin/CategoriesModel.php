@@ -3,11 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class CategoriesModel extends CI_Model {
 
+	    // function __construct(){
+	    //     parent::__construct();
+	    //     // $this->ms = $this->load->database('msql', TRUE);
+	    // }
+
+
+
 		public function LoadCategoryMasterlist($id = null) {
 			$this->db->select('*');
 			$this->db->from('tbl_applicants_categories');
 			if (!empty($id)) {
-				$this->db->where('id',$id);
+				$this->db->where('Id',$id);
 				return $this->db->get()->result();
 			}else {
 				$this->db->where('isActive','1');

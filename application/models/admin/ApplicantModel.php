@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-    class ApplicantMasterlistModel extends CI_Model {
+    class ApplicantModel extends CI_Model {
 
 
         public $tbl = 'tbl_applicants';
@@ -22,17 +22,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         public function Add($data) {
-            $this->db->set('name',"'".$data['name']."'",FALSE);
-            $this->db->set('description',"'".$data['description']."'",FALSE);
+            $this->load->library('Uuid');
+            $id = $this->uuid->v4();
+
+            $this->db->set('Id',"'".$id."'",FALSE);
             $this->db->set('createdById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('modifiedById',"'".$this->session->userdata('userid')."'",FALSE);    
-            $this->db->set('isActive',"'".$data['status']."'",FALSE);
 
-            $this->db->insert($this->tbl);
+            $this->db->insert($this->tbl,$data);
 
-            $id = $this->db->insert_id();
+            $added = $this->db->affected_rows();
 
-            if ($id > 0) {
+            if ($added > 0) {
                 $inserted = $this->LoadMasterlist($id);
                 return $inserted;
             }

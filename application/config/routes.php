@@ -82,7 +82,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
             /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
-            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificateController/Certificates';
+            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificatesController/CertificatesList';
             /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
             /* Dress Code */                $route['manage/maintenance/dresscode'] = 'admin/DresscodeController/Dresscode';
             
@@ -105,7 +105,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
 
     /* TRANSACTIONS */
         /* Applicants */ 
-            /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantRegistration';
+            /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
             /* View List */                 $route['manage/do/applicants/view-list'] = 'admin/ApplicantMasterlistController/ApplicantMasterlist';
             /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
@@ -169,10 +169,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/licenses/read'] = 'admin/LicenseController/Read';
 
         //Certificates
-        $route['admin/certificates/add'] = 'admin/CertificateController/Create';
-        $route['admin/certificates/edit'] = 'admin/CertificateController/Update';
-        $route['admin/certificates/del'] = 'admin/CertificateController/Delete';
-        $route['admin/certificates/read'] = 'admin/CertificateController/Read';
+        $route['admin/certificates/add'] = 'admin/CertificatesController/Create';
+        $route['admin/certificates/edit'] = 'admin/CertificatesController/Update';
+        $route['admin/certificates/del'] = 'admin/CertificatesController/Delete';
+        $route['admin/certificates/read'] = 'admin/CertificatesController/Read';
 
         //Disabilities
         $route['admin/disabilities/add'] = 'admin/DisabilitiesController/Create';
@@ -265,13 +265,13 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/skills/del'] = 'admin/SkillsController/Delete';
         $route['admin/skills/read'] = 'admin/SkillsController/Read';
 
-
-        //Applicant Masterlist
-        $route['admin/applicantmasterlist/add'] = 'admin/ApplicantMasterlistController/Create'; //POST to create
-        $route['admin/applicantmasterlist/edit'] = 'admin/ApplicantMasterlistController/Update'; // POST to edit
-        $route['admin/applicantmasterlist/del'] = 'admin/ApplicantMasterlistController/Delete'; // POST to delete
-        $route['admin/applicantmasterlist/read'] = 'admin/ApplicantMasterlistController/Read'; // POST to view
-
+        $route['admin/applicants/(:any)'] = 'admin/ApplicantController/ApplicantInfo/$1';
+        $route['admin/applicants'] = 'admin/ApplicantController/ApplicantInfo';
+        $route['admin/applicants/add'] = 'admin/ApplicantController/Create'; //POST to create
+        $route['admin/applicants/edit'] = 'admin/ApplicantController/Update'; // POST to edit
+        $route['admin/applicants/del'] = 'admin/ApplicantController/Delete'; // POST to delete
+        $route['admin/applicants/read'] = 'admin/ApplicantController/Read'; // POST to view
+        $route['admin/applicants/(:any)/(:any)'] = 'admin/ApplicantController/ApplicantInfo/$1/$2';
         $route['manage/settings/all-web-post'] = 'admin/WebPostsController/AllWebPosts';
         $route['admin/EstablishmentMasterlist/add'] = 'admin/EstablishmentlistController/Create'; //POST to create
         $route['admin/EstablishmentMasterlist/edit'] = 'admin/EstablishmentlistController/Update'; // POST to edit

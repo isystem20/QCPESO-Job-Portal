@@ -24,7 +24,7 @@
 
  	}
  	public function Create() {
-		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_prefer_locations.name]',
+		$this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_certificate_list.name]',
 		        array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
