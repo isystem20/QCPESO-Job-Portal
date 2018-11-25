@@ -21,6 +21,7 @@ function __construct() {
 		$data["totalapplicants"] = $this->totapp->total_Applicants();
 		$data["successhires"] = $this->totsh->total_SuccessHires();
 		$data['query'] = $this->loadcat->load_Categories();
+		$data['monthly_applicants'] = array('Jan'=>200, 'Feb'=> 512, 'Mar'=> 300, 'Apr'=> 503, 'May'=>21);
 		$layout = array('charts' => TRUE, );
 		$this->load->view('layout/admin/1_css',$layout);
 		$this->load->view('layout/admin/2_preloader');

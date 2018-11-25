@@ -153,7 +153,8 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div id="sales-overview2" class="p-relative" style="height:360px;"></div>
+                                <!-- Charts for monthly Applicants -->
+                                <div id="sales-overview2" data-values='<?=json_encode($monthly_applicants); ?>' class="p-relative" style="height:360px;"></div>
                                 <div class="stats-bar">
                                     <div class="row text-center">
                                         <div class="col-lg-4 col-md-4">
