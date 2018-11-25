@@ -94,10 +94,10 @@
         channel.bind('my-event', function(data) {
          $.toast({
           heading: 'Notification:',
-          text: data.messege,
+          text: data.message,
           position: 'top-right',
           loaderBg:'#ff6849',
-          icon: 'success',
+          icon: 'info',
           hideAfter: 3500, 
           stack: 6
         }); 
