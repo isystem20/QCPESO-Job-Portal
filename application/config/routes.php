@@ -109,7 +109,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* View List */                 $route['manage/do/applicants/view-list'] = 'admin/ApplicantMasterlistController/ApplicantMasterlist';
             /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
-            /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
+            /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerInfo';
             /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EstablishmentController/EstablishmentMasterlist';
             /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/AccreditationController/AccreditationRequest';   
         /* Jobs */ 

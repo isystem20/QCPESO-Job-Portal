@@ -1,6 +1,6 @@
 <?php 
-if (!empty($applicant)) {
-   foreach ($applicant as $row) { ?>
+if (!empty($employer)) {
+   foreach ($employer as $row) { ?>
 
         <div class="page-wrapper">
             <!-- ============================================================== -->

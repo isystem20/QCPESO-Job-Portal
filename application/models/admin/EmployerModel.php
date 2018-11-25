@@ -1,16 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-    class AccountReleaseModel extends CI_Model {
+    class EmployerModel extends CI_Model {
 
 
-        public $tbl = 'tbl_applicants_employment_status';
+        public $tbl = 'tbl_establishments';
 
         public function LoadMasterlist($id = null) {
             $this->db->select('*');
             $this->db->from($this->tbl);
             if (!empty($id)) {
-                $this->db->where('id',$id);
+                $this->db->where('Id',$id);
                 return $this->db->get()->result();
             }else {
                 $this->db->where('isActive','1');
@@ -22,17 +22,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         public function Add($data) {
-            $this->db->set('name',"'".$data['name']."'",FALSE);
-            $this->db->set('description',"'".$data['description']."'",FALSE);
+            $this->load->library('Uuid');
+            $id = $this->uuid->v4();
+
+            $this->db->set('Id',"'".$id."'",FALSE);
             $this->db->set('createdById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('modifiedById',"'".$this->session->userdata('userid')."'",FALSE);    
-            $this->db->set('isActive',"'".$data['status']."'",FALSE);
 
-            $this->db->insert($this->tbl);
+            $this->db->insert($this->tbl,$data);
 
-            $id = $this->db->insert_id();
+            $added = $this->db->affected_rows();
 
-            if ($id > 0) {
+            if ($added > 0) {
                 $inserted = $this->LoadMasterlist($id);
                 return $inserted;
             }
@@ -45,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function Delete($data) {
             //filerecord = [Del-1234567890]filerecord
-            $this->db->set('name','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
+            $this->db->set('lastName','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
             $this->db->set('isActive','"0"',FALSE);
             $this->db->where('id', $data['id']);
             $this->db->update($this->tbl);
