@@ -328,3 +328,11 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/cities/edit'] = 'admin/CitiesController/Update'; // POST to edit
         $route['admin/cities/del'] = 'admin/CitiesController/Delete'; // POST to delete
         $route['admin/cities/read'] = 'admin/CitiesController/Read'; // POST to view
+
+
+        $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+      
+        $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
+
+        $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+      

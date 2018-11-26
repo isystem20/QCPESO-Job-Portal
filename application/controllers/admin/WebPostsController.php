@@ -9,25 +9,7 @@
          $this->load->model('admin/PostTypesModel','postymod');
      }
  
-      public function AllWebPosts()
-    {
- 
-        $layout = array('tables'=>TRUE);
-        $data['webposts'] = $this->webpostmod->LoadMasterlist();
-        $data['class'] = 'webposts';
-
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
-        $this->load->view('pages/settings/AllWebPosts',$data);
-        $this->load->view('layout/admin/6_js',$layout);     
-        $this->load->view('layout/admin/7_modals'); 
-
-
-    }
-
-    public function AddWebPosts($id = null,$mode= null)
+  public function AddWebPosts($id = null,$mode= null)
     {
  
         $layout = array('editor'=>TRUE, 'tags'=>TRUE);
@@ -65,6 +47,25 @@
         $this->load->view('layout/admin/6_js',$layout);
     }
  
+      public function AllWebPosts()
+    {
+ 
+        $layout = array('tables'=>TRUE);
+        $data['webposts'] = $this->webpostmod->LoadMasterlist();
+        $data['class'] = 'webposts';
+
+        $this->load->view('layout/admin/1_css');
+        $this->load->view('layout/admin/2_preloader');
+        $this->load->view('layout/admin/3_topbar');
+        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('pages/settings/AllWebPosts',$data);
+        $this->load->view('layout/admin/6_js',$layout);     
+        $this->load->view('layout/admin/7_modals'); 
+
+
+    }
+
+   
  	public function Create() {
 		$this->form_validation->set_rules('PostTitle','title','required|is_unique[tbl_web_posts.PostTitle]',
 		        array(
@@ -72,7 +73,9 @@
                 'is_unique'     => 'This %s already exists.'
         		)
 		    );
-
+        $this->form_validation->set_rules('PostDescription','Post Description','required');
+           $this->form_validation->set_rules('Tags','Tags','required');
+            $this->form_validation->set_rules('PostContent','Post Content','required');
 		    if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);

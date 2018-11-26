@@ -7,7 +7,7 @@ if (!empty($webposts)) {
 
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h3 class="text-themecolor">Add New Web Posts</h3>
+                <h3 class="text-themecolor">View Web Posts</h3>
                 <h6 class="text-muted">Web Posts Information</h6>
 
             </div>
@@ -15,7 +15,7 @@ if (!empty($webposts)) {
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                     <li class="breadcrumb-item">Settings</li>
-                    <li class="breadcrumb-item active">Add New Web Posts</li>
+                    <li class="breadcrumb-item active">View Web Posts</li>
                 </ol>
             </div>
             <div>
@@ -29,14 +29,14 @@ if (!empty($webposts)) {
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">Post Title</label>
-                            <input type="text" name="title" value="<?=$row->PostTitle;?>" class="form-control">
+                            <input type="text" name="title" value="<?=$row->PostTitle;?>" class="form-control" disabled="True">
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">Post Description</label>
-                            <input type="text" name="description"  value="<?=$row->PostDescription;?>"class="form-control">
+                            <input type="text" name="description"  value="<?=$row->PostDescription;?>"class="form-control" disabled="True">
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ if (!empty($webposts)) {
                     <div class="col-md-6">
                         <div class="form-group has-success" ">
                                             <label class="control-label ">Post Type</label>
-                                            <select class="form-control custom-select"  name="type">
+                                            <select class="form-control custom-select"  name="type" >
                                                  <?php $str="";
                                         if ($posttypes->num_rows() > 0) {
                                             foreach ($posttypes->result() as $types) { 
@@ -70,7 +70,8 @@ if (!empty($webposts)) {
                                        <div class="form-group has-success ">
                                             <label class="control-label ">Status</label>
                                             <select class="form-control custom-select "
-                                            name="status">
+                                            name="status"  value="<?=$row->IsActive;?>">
+
                                                 <option value="1">Active</option>
                                                 <option value="2">Inactive</option>
                                             </select>
@@ -83,7 +84,7 @@ if (!empty($webposts)) {
                                         <div class="form-group has-success "">
                             <label class="control-label">Add Tags</label>
                             <div class="tags-default">
-                                <input type="text" name="tags" data-role="tagsinput"  value="<?=$row->PostDescription;?>" placeholder="Add New Search Tags" /> </div>
+                                <input type="text" name="tags" data-role="tagsinput"  value="<?=$row->Tags;?>" disabled="True" /> </div>
 
                         </div>
                     </div>
@@ -91,7 +92,7 @@ if (!empty($webposts)) {
 
                 <div class="row">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Post Description</h3>
+                        <h3 class="text-themecolor">Post Content</h3>
                     </div>
 
                     <div class="">
@@ -104,11 +105,10 @@ if (!empty($webposts)) {
 
                         
                             <div class="form-group">
-                                <textarea class="textarea_editor form-control" name="textarea" rows="15" ></textarea>
+                                <textarea disabled class="textarea_editor form-control" name="textarea" rows="15" > <?=$row->PostContent;?></textarea>
                             </div>
-                            <div class="form-actions">
-                                <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                <button type="button" class="btn btn-inverse">Cancel</button>
+                           <div class="form-actions">
+                                <a href="<?php echo base_url();?>manage/settings/all-web-post" class="btn btn-inverse">Cancel</a>
                             </div>
                         </form>
                     </div>
@@ -156,7 +156,7 @@ else { ?>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">Post Description</label>
-                            <input type="text" name="description" value="" class="form-control">
+                            <input type="text" name="description"  value=""class="form-control">
                         </div>
                     </div>
                 </div>
@@ -165,11 +165,16 @@ else { ?>
                     <div class="col-md-6">
                         <div class="form-group has-success" ">
                                             <label class="control-label ">Post Type</label>
-                                            <select class="form-control custom-select" value="" name="type">
-                                                 <?php
+                                            <select class="form-control custom-select"  name="type">
+                                                 <?php $str="";
                                         if ($posttypes->num_rows() > 0) {
-                                            foreach ($posttypes->result() as $row) { ?>
-                                            <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                            foreach ($posttypes->result() as $types) { 
+                                                if ($types->Id==$row->PostTypeId){
+                                                     $str ="Selected";
+                                                }
+                                                       
+                                                ?>
+                                            <option <?=$str ?> value="<?=$types->Id; ?>"><?php echo $types->Name; ?></option>
                                         <?php
                                             }
                                         }
@@ -185,7 +190,7 @@ else { ?>
                                        <div class="form-group has-success ">
                                             <label class="control-label ">Status</label>
                                             <select class="form-control custom-select "
-                                            name="status" value="">
+                                            name="status">
                                                 <option value="1">Active</option>
                                                 <option value="2">Inactive</option>
                                             </select>
@@ -198,7 +203,7 @@ else { ?>
                                         <div class="form-group has-success "">
                             <label class="control-label">Add Tags</label>
                             <div class="tags-default">
-                                <input type="text" name="tags" data-role="tagsinput" placeholder="Add New Search Tags" value="" /> </div>
+                                <input type="text" name="tags" data-role="tagsinput"  value="" placeholder="Add New Search Tags" /> </div>
 
                         </div>
                     </div>
@@ -206,7 +211,7 @@ else { ?>
 
                 <div class="row">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Post Description</h3>
+                        <h3 class="text-themecolor">Post Content</h3>
                     </div>
 
                     <div class="">
@@ -219,7 +224,7 @@ else { ?>
 
                         
                             <div class="form-group">
-                                <textarea class="textarea_editor form-control" name="textarea" value="" rows="15" ></textarea>
+                                <textarea class="textarea_editor form-control" name="textarea" rows="15" ></textarea>
                             </div>
                             <div class="form-actions">
                                 <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
