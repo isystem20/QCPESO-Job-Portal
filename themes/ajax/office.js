@@ -262,13 +262,13 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
         var newURL = $(this).attr('action');      //Get the form action attribute value.
         var newData  = {
-                'id' : $('input[name=id]').val(), //List of data you want to post
-                'title' : $('input[name=title]').val(),
-                'description' : $('input[name=description]').val(),
-                'type' : $('select[name=type]').val(),
-                'tags' : $('input[name=tags]').val(),
-                'status' : $('select[name=status]').val(),
-                'textarea' : $('textarea[name=textarea]').val(),
+                'Id' : $('input[name=id]').val(), //List of data you want to post
+                'PostTitle' : $('input[name=title]').val(),
+                'PostDescription' : $('input[name=description]').val(),
+                'PostTypeId' : $('select[name=type]').val(),
+                'Tags' : $('input[name=tags]').val(),
+                'IsActive' : $('select[name=status]').val(),
+                'PostContent' : $('textarea[name=textarea]').val(),
             }
             console.log(newData);
           $.ajax({
@@ -368,71 +368,3 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
 
 
 });
-
-
-// JS Add new Job Post
-
-
-$('#jobpost-form').submit(function(e) {
-        e.preventDefault();
-        // alert('tang ina gumana ka');
-        // $("#add-jobposts").prop("disabled", true);   
-        var newURL = $(this).attr('action');  
-        var me = $(this);
-        // var newData  = {
-        //         'jobtitle' : $('input[name=jtitle]').val(),
-
-        //         }
-        //         console.log(newData);
-
-                $.ajax({
-                  url: newURL,
-                  type: 'POST',               
-                  dataType: 'json',
-                  data: me.serialize(),
-                  success: function(response){
-                    console.log(response); 
-
-                      if(response.success == true){  
-                        // alert('Good');
-
-                        $('#notif').append('<div class="alert alert-success">' +
-                          '<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>' +
-                          '<i class="fa fa-check-circle"></i>' +
-                          ' New Job Post has been saved.' +
-                          '</div>');
-                        $('.form-group').removeClass('has-error')
-                                        .removeClass('has-success');
-                        $('.text-danger').remove();
-
-                        // reset the form jonathan :)
-
-                        me[0].reset();
-
-                        // close the notif after n seconds
-
-                        $('.alert-success').delay(500).show(10, function(){
-                          $(this).delay(3000).hide(10, function(){
-                            $(this).remove();
-                          });
-                        });
-                      }
-                      else{
-                        // alert('Bad');
-                        $.each(response.messages, function(key, value){
-                          var element =  $('#' + key);
-                          
-                          element.closest('div.form-group')
-                          .removeClass('has-error')
-                          .removeClass('has-success')
-                          .addClass(value.length > 0 ? 'has-error' : 'has-success')
-                          .find('.text-danger').remove();
-                          element.after(value);
-                        });
-                      } 
-                      
-                    }
-                  });
-    // $("#add-jobposts").prop("disabled", false);  
-    });
-

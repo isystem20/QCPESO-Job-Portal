@@ -54,13 +54,6 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
     
-     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/switchery/dist/switchery.min.css" rel="stylesheet" />
-    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
-    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
-    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
-    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
   
     <?php
     if (!empty($login)) { ?>
@@ -100,11 +93,11 @@
         var channel = pusher.subscribe('my-channel');
         channel.bind('my-event', function(data) {
          $.toast({
-          heading: 'Wawa si Diego:',
+          heading: 'Notification:',
           text: data.message,
           position: 'top-right',
           loaderBg:'#ff6849',
-          icon: 'success',
+          icon: 'info',
           hideAfter: 3500, 
           stack: 6
         }); 
