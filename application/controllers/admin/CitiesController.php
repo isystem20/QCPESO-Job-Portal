@@ -114,7 +114,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->dismod->Delete($postdata);
+            $result = $this->citmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);
                 $this->logger->log('Delete','Cities',$json); //Log                

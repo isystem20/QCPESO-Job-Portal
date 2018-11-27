@@ -117,7 +117,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->dismod->Delete($postdata);
+            $result = $this->natmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);
                 $this->logger->log('Delete','Nationality',$json); //Log                
