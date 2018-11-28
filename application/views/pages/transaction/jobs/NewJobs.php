@@ -56,7 +56,7 @@
                                         <div class="row p-t-20">
                                             
                                             <div class="col-md-6">
-                                            <?php echo form_open('manage/do/jobs/addnewjob','id="jobpost-form"'); ?>
+                                            <?php echo form_open_multipart('manage/do/jobs/addnewjob','id="jobpost-form"'); ?>
 
                                                 <div class="form-group">
                                                     <label class="control-label">Job Title</label>
@@ -67,10 +67,10 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Specialization</label>
                                                     
-                                                    <select name="speci" class="selectpicker form-control" data-style="form-control btn border" multiple="multiple" data-placeholder="Please select">    
+                                                    <select name="speci" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php
-                                                            if ($applev->num_rows() > 0) {
-                                                                foreach ($applev->result() as $row) { ?>
+                                                            if ($skills->num_rows() > 0) {
+                                                                foreach ($skills->result() as $row) { ?>
                                                                 <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
                                                         <?php
                                                             }
@@ -82,10 +82,25 @@
                                         </div> 
 
                                         <div class="row p-t-20">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Establishment</label>
+                                                    <select class="select2 form-control custom-select" name="estab" id="estab">
+                                                        <?php
+                                                            if ($estabs->num_rows() > 0) {
+                                                                foreach ($estabs->result() as $row) { ?>
+                                                                <option value="<?=$row->Id; ?>"><?php echo $row->CompanyName; ?></option>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Employment Type</label>
-                                                    <select class="form-control" name="emptype">
+                                                    <select class="select2 form-control custom-select" name="emptype">
                                                         <?php
                                                             if ($emptypes->num_rows() > 0) {
                                                                 foreach ($emptypes->result() as $row) { ?>
@@ -98,10 +113,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Position Level</label>
-                                                    <select class="form-control" name="postlevel">
+                                                    <select class="select2 form-control custom-select" name="postlevel">
                                                         <?php
                                                             if ($applev->num_rows() > 0) {
                                                                 foreach ($applev->result() as $row) { ?>
@@ -138,7 +153,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Job Image</label>
-                                                    <input type="file" name="jobimage" class="form-control" >
+                                                    <input type="file" id="jobimage" name="jobimage" class="form-control" >
                                                 </div>
                                             </div>
 
@@ -148,6 +163,8 @@
                                                     <select class="form-control" id="stat" name="stat">
                                                         <option value="1">Active</option>
                                                         <option value="2">Inactive</option>
+                                                        <option value="3">Pending</option>
+                                                        
                                                     </select>
                                                 </div>
                                             </div>

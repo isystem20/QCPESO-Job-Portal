@@ -46,7 +46,7 @@
                             <div class="card-body">
                                 <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
                                 <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped" >
+                                    <table id="myJobs" class="table table-bordered table-striped" >
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
@@ -94,7 +94,7 @@
 
 
 
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-action="<?=base_url('manage/do/jobs/del'); ?>" data-placement="top" title="" data-original-title="Delete"  data-id="<?php echo $row->Id; ?>" data-name="<?=$row->JobTitle; ?>"  type="button"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                          <?php

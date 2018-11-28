@@ -323,7 +323,7 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
                 'description' : $('textarea[name=description]').val(),
                 'status' : $('select[name=status]').val(),
             }
-          console.log(newData);  
+          console.log(newData);  x
           $.ajax({
               url: newURL,
               type:'POST',
@@ -368,3 +368,137 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
 
 
 });
+
+
+// add jobpost :)
+
+$('#jobpost-form').submit(function(e){
+        e.preventDefault();
+        // alert('tang ina gumana ka');
+        // $("#save-jobpost").prop("disabled", true);   
+        var newURL = $(this).attr('action');  
+        var me = $(this);
+
+        $.ajax({
+          url: newURL,
+          type: 'POST',
+          data: me.serialize(),
+          dataType: "json",
+          success: function(response){
+              console.log(response);  
+
+              if(response.success == true){
+                    // alert('success');
+                  $('#notif').append('<div class="alert alert-success">' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>' +
+                    '<i class="fa fa-check-circle"></i>' +
+                    ' New Job has been successfully added' +
+                    '</div>'
+                    );
+                  $('.form-group').removeClass('har-error')
+                                  .removeClass('has-success');
+                  $('.text-danger').remove();
+
+                  //reset the form
+
+                  me[0].reset();
+
+                $('select[name=speci]').val('');  
+                
+                  // close the notif after 5 seconds;
+
+                  $('.alert-success').delay(500).show(10, function(){
+                      $(this).delay(3000).hide(10, function(){
+                        $(this).remove();
+                      });
+                  });
+              }
+              else{
+                // alert('error');
+
+                $.each(response.messages, function(key, value){
+                  var element = $('#' + key);
+
+                  element.closest('div.form-group')
+                  .removeClass('har-error')
+                  .addClass(value.length > 0 ? 'has-error' : 'has-success') 
+
+                  .find('.text-danger')
+                  .remove();            
+                  element.after(value);
+
+                });
+              }
+          }
+        });
+
+
+       
+ // $("#save-jobpost").prop("disabled", false);   
+
+    });
+
+
+//DELETE BUTTON IN jobposts
+  $('#myJobs').delegate(".del-item-btn", "click", function() {
+    $('input[name=id]').val($(this).data('id'));
+    $('input[name=exname]').val($(this).data('name'));
+    $('#del-form-jobpost').attr('action');
+    $('#del-modal-jobpost ').modal();
+  });
+
+// DELETE FORM in job posts
+  $('#del-form-jobpost').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+    e.preventDefault();       //This prevents the action to move to other page.
+        $("#del-submit-jobpost").prop("disabled", true);   //Disables the submit button after click 
+        var newURL = $(this).attr('action');      //Get the form action attribute value.
+        var newData  = {
+                'id' : $('input[name=id]').val(),     //List of data you want to post
+                'name' : $('input[name=exname]').val(),
+            }
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    $('#del-modal-jobpost').modal('hide');
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+                  var id = data.id;
+                  var table = $('#myJobs').DataTable();
+                  table.row($('#row'+data.id))
+                  .remove()
+                  .draw();
+
+                  }
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+                  }
+                $("#del-submit-jobpost").prop("disabled", false);     //Reenable the submit button after the action           
+              }
+          });   
+  });
+
+
+
+

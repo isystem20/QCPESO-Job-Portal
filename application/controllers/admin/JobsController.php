@@ -8,39 +8,47 @@
         $this->load->model('admin/JobsModel','jobsmod');
       	$this->load->model('admin/EmploymentTypesModel','emptypemod');
         $this->load->model('admin/ApplicantLevelModel','applevmod');
+        $this->load->model('admin/SkillsModel','skimod');
+        $this->load->model('admin/EstablishmentModel','establishmentmod');
+
+
         
             
      }
  
  	public function NewJob()
  	{
- 
- 		$layout = array('tables'=>TRUE, 'editor'=>TRUE,'selectpicker'=>TRUE );
+        $css = array('addons' => True, );
+ 		$layout = array('tables'=>TRUE, 'jobpost'=>TRUE,);
  		$data['emptypes'] = $this->emptypemod->LoadMasterlist();
  		$data['applev'] = $this->applevmod->LoadMasterlist();
+        $data['skills'] = $this->skimod->LoadMasterlist();
+        $data['estabs'] = $this->establishmentmod->LoadMasterlist();
+        
+        
         
         $data['class'] = 'viewjobs';
  		// $data['categories'] = $this->categmod->LoadCategoryMasterlist();
    //      $data['class'] = 'categories';
 
- 		$this->load->view('layout/admin/1_css');
+
+
+
+ 		$this->load->view('layout/admin/1_css', $css);
  		$this->load->view('layout/admin/2_preloader');
  		$this->load->view('layout/admin/3_topbar');
  		$this->load->view('layout/admin/4_leftsidebar');
  		$this->load->view('pages/transaction/jobs/NewJobs', $data);
  		$this->load->view('layout/admin/6_js',$layout);		
-        $this->load->view('layout/admin/7_modals'); 
-
+    
  	}
 
  	public function ViewJobs()
  	{
  
- 		$layout = array('tables'=>TRUE, 'editor'=>TRUE, 'datepicker'=>TRUE);
+ 		$layout = array('tables'=>TRUE,);
  		$data['viewjobs'] = $this->jobsmod->LoadMasterlist();
- 		$data['emptypes'] = $this->emptypemod->LoadMasterlist();
  		
-        $data['class'] = 'viewjobs';
 
  		$this->load->view('layout/admin/1_css');
  		$this->load->view('layout/admin/2_preloader');
@@ -48,7 +56,7 @@
  		$this->load->view('layout/admin/4_leftsidebar');
  		$this->load->view('pages/transaction/jobs/ViewJobs', $data);
  		$this->load->view('layout/admin/6_js',$layout);		
-        $this->load->view('layout/admin/7_modals'); 
+    $this->load->view('layout/admin/7_modals'); 
 
  	}
 
@@ -57,7 +65,7 @@
  	$data = array('success' => false, 'messages' => array());
 
  	$this->form_validation->set_rules('jtitle', 'Job Title', 'trim|required');
- 	$this->form_validation->set_rules('spec', 'Specialization', 'trim|required');
+ 	// $this->form_validation->set_rules('speci', 'Specialization', 'trim|required');
  	$this->form_validation->set_rules('jobdesc', 'Job Description', 'trim|required');
  	$this->form_validation->set_rules('salary', 'Salary', 'trim|required|numeric');
  	
@@ -75,15 +83,35 @@
 
  	// }
 
+
  	if ($this->form_validation->run()) {
- 		// die ('save');
- 		
- 		$postdata = $this->input->post();
+ 		// die ('save');		
+
+       //  $config['upload_path'] = APPPATH.'views/pages/transaction/jobs/uploads';
+       //  $config['allowed_type'] = '*';
+
+       //  $this->load->library('upload', $config);
+       //  $this->upload->do_upload('jobimage');
+       //  $jobimage = $this->upload->data();
+        
+       //  $data = array('jobimage' =>$jobimage['jobimage']);
+ 		    // $this->jobsmod->Add($data);
+
+        $postdata = $this->input->post();
+
         $inserted = $this->jobsmod->Add($postdata);
 
-         echo json_encode(['success'=>TRUE]);
+        if ($inserted != FALSE) {         
+            
+            echo json_encode(['error'=>'Update Unsuccessful.']);
 
-    
+          }
+          else {
+            echo json_encode(['success'=>TRUE, 'url'=>base_url().'manage/do/jobs/view-list']);  
+
+          }
+
+        
  	}
  	else{
  		// die ('error');
@@ -91,11 +119,41 @@
  			$data['messages'][$key] = form_error($key);
 
  		}
-                    echo json_encode($data);
+        echo json_encode($data);
 
  	}
 
 
  	} 
+
+
+
+
+  public function Delete() {
+ 
+         $this->form_validation->set_rules('id', 'Item Record', 'required',
+                array(
+                'required'      => 'Cannot identify this record.',
+                ));
+
+        $postdata = $this->input->post();
+        if ($this->form_validation->run() == FALSE){
+            $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
+        }
+        else{
+            $result = $this->jobsmod->Delete($postdata);
+            if ($result != FALSE) {
+                $json = json_encode($result);              
+                echo $json;
+            }
+            else {
+                echo json_encode(['error'=>'Update Unsuccessful.']);
+            }
+
+        }
+
+}
+
 
 }
