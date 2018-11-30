@@ -14,13 +14,13 @@ public function BrowseJob()
 
 		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist();
 		$data['estabpost'] = $this->estmod->LoadMasterlist();
-		$layout = array('transparentwrapper' => TRUE, );
-		$this->load->view('layout/web/1_head');
-		$this->load->view('layout/web/2_preloader');
-		$this->load->view('layout/web/3_header');
+		$layout = array('transparentwrapper' => TRUE, 'pagetitle'=>'BrowseJob');
+		$this->load->view('layout/web/1_head',$layout);
+		$this->load->view('layout/web/2_preloader',$layout);
+		$this->load->view('layout/web/3_header',$layout);
 		$this->load->view('web/BrowseJob',$data);
-		$this->load->view('layout/web/5_rightbar');
-		$this->load->view('layout/web/6_footer');
+		$this->load->view('layout/web/5_rightbar',$layout);
+		$this->load->view('layout/web/6_footer',$layout);
 
 	}
 	

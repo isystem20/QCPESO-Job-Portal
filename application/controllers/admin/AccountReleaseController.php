@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class AccountReleaseController extends CI_Controller {
+ class AccountReleaseController extends Admin_Controller {
  
  	function __construct() {
          parent::__construct();
@@ -12,16 +12,16 @@
  	public function AccountRelease()
  	{
  
- 		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
+ 		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE,'pagetitle'=>'Account Release Masterlist');
  		$data['masterlist'] = $this->accrelmod->LoadMasterlist();
         $data['class'] = 'accountrel';
- 		$this->load->view('layout/admin/1_css');
- 		$this->load->view('layout/admin/2_preloader');
- 		$this->load->view('layout/admin/3_topbar');
- 		$this->load->view('layout/admin/4_leftsidebar');
+ 		$this->load->view('layout/admin/1_css',$layout);
+ 		$this->load->view('layout/admin/2_preloader',$layout);
+ 		$this->load->view('layout/admin/3_topbar',$layout);
+ 		$this->load->view('layout/admin/4_leftsidebar',$layout);
  		$this->load->view('pages/maintenance/AccountRelease',$data);
  		$this->load->view('layout/admin/6_js',$layout);		
-        $this->load->view('layout/admin/7_modals');
+        $this->load->view('layout/admin/7_modals',$layout);
 
         $json = json_encode($data['masterlist']); //log
         $this->logger->log('Load AccountRelease','AccountRelease',$json); //Log 

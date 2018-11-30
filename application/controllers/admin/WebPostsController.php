@@ -12,7 +12,7 @@
   public function AddWebPosts($id = null,$mode= null)
     {
  
-        $layout = array('editor'=>TRUE, 'tags'=>TRUE);
+        $layout = array('editor'=>TRUE, 'tags'=>TRUE, 'pagetitle'=>'Adding New Web Posts');
         $data['posttypes'] = $this->postymod->LoadMasterlist();
         $data['class'] = 'webposts';
 
@@ -39,10 +39,10 @@
                 $mode = array('view' => TRUE, );
             }
         }
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('layout/admin/1_css',$layout);
+        $this->load->view('layout/admin/2_preloader',$layout);
+        $this->load->view('layout/admin/3_topbar',$layout);
+        $this->load->view('layout/admin/4_leftsidebar',$layout);
         $this->load->view('pages/settings/AddWebPosts',$data);
         $this->load->view('layout/admin/6_js',$layout);
     }
@@ -50,14 +50,14 @@
       public function AllWebPosts()
     {
  
-        $layout = array('tables'=>TRUE);
+        $layout = array('tables'=>TRUE,'pagetitle'=>'List of All Web Posts');
         $data['webposts'] = $this->webpostmod->LoadMasterlist();
         $data['class'] = 'webposts';
 
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('layout/admin/1_css',$layout);
+        $this->load->view('layout/admin/2_preloader',$layout);
+        $this->load->view('layout/admin/3_topbar',$layout);
+        $this->load->view('layout/admin/4_leftsidebar',$layout);
         $this->load->view('pages/settings/AllWebPosts',$data);
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals'); 
