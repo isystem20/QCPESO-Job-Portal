@@ -50,9 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function Delete($data) {
 			//filerecord = [Del-1234567890]filerecord
-			$this->db->set('PostTitle','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['PostTitle'].'"',FALSE);
+			$this->db->set('PostTitle','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
 			$this->db->set('IsActive','"0"',FALSE);
-			$this->db->where('Id', $data['Id']);
+			$this->db->where('Id', $data['id']);
 			$this->db->update($this->tbl);
 			$deleted = $this->db->affected_rows();
 			if ($deleted > 0) {

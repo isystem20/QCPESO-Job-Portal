@@ -12,13 +12,13 @@
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor">Applicant Employment Status</h3>
-                    <h6 class="text-muted">This is the Masterlist of all Applicant Employment Status</h6>
+                    <h6 class="text-muted">Applicant Employment Status Masterlist</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Maintenenace</li>
+                        <li class="breadcrumb-item">Manage</li>
                         <li class="breadcrumb-item active">Employment Status</li>
                     </ol>
                 </div>
@@ -54,7 +54,7 @@
                                         <?php
                                         if ($masterlist->num_rows() > 0) {
                                             foreach ($masterlist->result() as $row) { ?>
-                                            <tr Id="row<?=$row->Id; ?>">
+                                            <tr id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->Name; ?></td>
                                                 <td><?php echo character_limiter($row->Description, 30); ?></td>
                                                 <td><?php echo $row->ModifiedById; ?></td>
