@@ -33,27 +33,27 @@
         $data['countries'] = $this->countries->LoadMasterlist();
 
 
-        if (!empty($id)) {
+        // if (!empty($id)) {
 
-            $data['applicant'] = $this->appmamod->LoadMasterlist($id);
+            // $data['applicant'] = $this->appmamod->LoadMasterlist($id);
 
             // print_r($data['applicant']);
 
-            if (!empty($mode)) {
-                if ($mode == 'edit') {
-                    $mode = array('edit' => TRUE, );
-                }
-                elseif ($mode == 'view') {
-                    $mode = array('view' => TRUE, );
-                }
-                else {
-                    die('Invalid Mode');
-                }
-            }
-            else {
-                $mode = array('view' => TRUE, );
-            }
-        }
+        //     if (!empty($mode)) {
+        //         if ($mode == 'edit') {
+        //             $mode = array('edit' => TRUE, );
+        //         }
+        //         elseif ($mode == 'view') {
+        //             $mode = array('view' => TRUE, );
+        //         }
+        //         else {
+        //             die('Invalid Mode');
+        //         }
+        //     }
+        //     else {
+        //         $mode = array('view' => TRUE, );
+        //     }
+        // }
 
         $this->load->view('layout/admin/1_css',$layout);
         $this->load->view('layout/admin/2_preloader',$layout);
