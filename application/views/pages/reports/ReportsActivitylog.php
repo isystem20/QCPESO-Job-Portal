@@ -38,7 +38,41 @@
 
                         <div class="card">
                             <div class="card-body">
-                               
+                               <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
+                                        <thead>
+                                            <tr>
+                                                <th>Time Stamp</th>
+                                                <th>Action</th>
+                                                <th>Entity</th>
+                                               
+                                                <th>IP Address</th>
+                                                <th>Device</th>
+                                                <th>Platform</th>
+                                                <th>User Agent</th>
+                                            </tr>
+                                        </thead>
+                                        <?php
+                                        if ($accountslog->num_rows() > 0) {
+                                            foreach ($accountslog->result() as $row) { ?>
+                                            <tr id="row<?=$row->UserId; ?>">
+                                                <td><?php echo $row->Timestamp; ?></td>
+                                                  <td><?php echo $row->Action; ?></td>
+                                                   <td><?php echo $row->Entity; ?></td>
+                                                    
+                                                     <td><?php echo $row->IpAddress; ?></td>
+                                                      <td><?php echo $row->Device; ?></td>
+                                                       <td><?php echo $row->Platform; ?></td>
+                                                        <td><?php echo $row->UserAgent; ?></td>
+                                            
+                                                
+                                            </tr>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </table>
+                                </div>
                                 
                             </div>
                         </div>
