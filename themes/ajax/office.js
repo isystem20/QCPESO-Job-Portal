@@ -382,7 +382,7 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
         //       values.push(fld.options[i].value);
         //     }
         //   }
-
+                // 'Specialization' : $('select[name=speci]').val(),
 $('#jobpost-form').submit(function(e){
         e.preventDefault();
         
@@ -397,10 +397,10 @@ $('#jobpost-form').submit(function(e){
                 'PositionLevelId' : $('input[name=postlevel]').val(),
                 'Specialization' : $('select[name=speci]').val(),
                 'JobDescription' : $('textarea[name=textarea]').val(),
-                'Salary' : $('input[name=salary]'),
-                'IsActive' : $('selected[name=status]'),
+                'Salary' : $('input[name=salary]').val(),
+                'IsActive' : $('selected[name=status]').val(),
             }
-
+        console.log(newData);  
         $.ajax({
           url: newURL,
           type: 'POST',

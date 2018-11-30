@@ -19,7 +19,7 @@
  	public function NewJob($id = null,$mode= null)
  	{
         $css = array('addons' => True, );
- 		$layout = array('tables'=>TRUE, 'jobpost'=>TRUE,);
+ 		$layout = array('addons'=>TRUE);
  		$data['emptypes'] = $this->emptypemod->LoadMasterlist();
  		$data['applev'] = $this->applevmod->LoadMasterlist();
         $data['skills'] = $this->skimod->LoadMasterlist();
