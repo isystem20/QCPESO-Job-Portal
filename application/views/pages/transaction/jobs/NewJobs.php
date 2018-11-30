@@ -51,8 +51,12 @@ if (!empty($jobposts)) {
                                 <h4 class="m-b-0 text-white">Job Post Form</h4>
                             </div>
                             <div class="card-body">
-
-                                    <div class="form-body">
+                                    <?php
+                                        $hidden = array(
+                                          'id' => $row->Id,
+                                        );
+                                        ?>
+                                        <div class="form-body">
                                         <h3 class="card-title">Job Post Information</h3>
                                         <hr>
                                         <div class="col-md-12">
@@ -61,7 +65,7 @@ if (!empty($jobposts)) {
                                         <div class="row p-t-20">
                                             
                                             <div class="col-md-6">
-                                            <?php echo form_open_multipart('manage/do/jobs/addnewjob','id="jobpost-form"'); ?>
+                                            <?php echo form_open_multipart('manage/do/jobs/addnewjob','id="jobpost-form"', $hidden); ?>
 
                                                 <div class="form-group">
                                                     <label class="control-label">Job Title</label>
@@ -71,10 +75,29 @@ if (!empty($jobposts)) {
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Specialization</label>
+
                                                     
                                                     <select name="speci" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
-                                                        
-                                                       
+                                                        <?php $str="";
+                                                            if ($skills->num_rows() > 0) {
+
+                                                                $skillset = json_decode($row->Specialization,true);
+                                                                    foreach($skills->result() as $types) {
+                                                                        $str = "";
+                                                                        foreach($skillset as $key) {
+                                                                            if($key == $types->Id) {
+                                                                                $str = "selected";
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                                        <?php
+                                                                         
+                                                                    }
+
+                                                                }
+                                                            
+                                                            ?> 
                                                     </select>
                                                 </div>
                                             </div>
@@ -85,7 +108,22 @@ if (!empty($jobposts)) {
                                                 <div class="form-group">
                                                     <label class="control-label">Establishment</label>
                                                     <select class="select2 form-control custom-select" name="estab" id="estab">
-                                                        
+                                                        <?php $str="";
+                                                            if ($estabs->num_rows() > 0) {
+                                                                foreach ($estabs->result() as $types) { 
+                                                                    if ($row->EstablishmentId==$types->Id){
+                                                                      $str="Selected";
+                                                                    }
+                                                                    else {
+                                                                        $str="";
+
+                                                                    }
+                                                                    ?>
+                                                                <option <?=$str?> value="<?=$types->Id?>"><?=$types->CompanyName?></option>
+                                                            <?php
+                                                                }
+                                                            }
+                                                            ?> 
                                                     </select>
                                                 </div>
                                             </div>
@@ -93,7 +131,22 @@ if (!empty($jobposts)) {
                                                 <div class="form-group">
                                                     <label class="control-label">Employment Type</label>
                                                     <select class="select2 form-control custom-select" name="emptype">
-                                                        
+                                                        <?php $str="";
+                                                            if ($emptypes->num_rows() > 0) {
+                                                                foreach ($emptypes->result() as $types) { 
+                                                                    if ($row->Id==$types->Id){
+                                                                      $str="Selected";
+                                                                    }
+                                                                    else {
+                                                                        $str="";
+
+                                                                    }
+                                                                    ?>
+                                                                <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                            <?php
+                                                                }
+                                                            }
+                                                            ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -102,7 +155,22 @@ if (!empty($jobposts)) {
                                                 <div class="form-group">
                                                     <label class="control-label">Position Level</label>
                                                     <select class="select2 form-control custom-select" name="postlevel">
-                                                       
+                                                       <?php $str="";
+                                                            if ($applev->num_rows() > 0) {
+                                                                foreach ($applev->result() as $types) { 
+                                                                    if ($row->Id==$types->Id){
+                                                                      $str="Selected";
+                                                                    }
+                                                                    else {
+                                                                        $str="";
+
+                                                                    }
+                                                                    ?>
+                                                                <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                            <?php
+                                                                }
+                                                            }
+                                                            ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -123,7 +191,7 @@ if (!empty($jobposts)) {
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Salary</label>
-                                                    <input type="text" id="salary" name="salary" class="form-control" placeholder="Salary">
+                                                    <input type="text" value="<?=$row->Salary;?>" id="salary" name="salary" class="form-control" placeholder="Salary">
                                                     
                                                 </div>
                                             </div>
@@ -137,16 +205,28 @@ if (!empty($jobposts)) {
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="control-label">Status</label>
-                                                    <select class="form-control" id="stat" name="stat">
-                                                        <option value="1">Active</option>
-                                                        <option value="2">Inactive</option>
-                                                        <option value="3">Pending</option>
-                                                        
+                                                        <label class="control-label ">Status</label>
+
+                                                         <?php 
+                                                            $usertype = $this->session->userdata('usertype');
+                                                            if ($usertype == 'ADMIN') {
+                                                            ?>
+                                                                <select class="form-control name="stat" >
+
+                                                                <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
+                                                                <option <?php if($row->IsActive=="2"){ echo "Selected";}?> value="2">Inactive</option>
+                                                             
+                                                                </select>
+                                                        </div>
+
+
+                                                            <?php
+                                                             }
+                                                            ?>
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
+                                        
                                        
                                        
                                     </div>

@@ -85,8 +85,8 @@
  		$this->load->view('layout/admin/6_js',$layout);		
         $this->load->view('layout/admin/7_modals',$layout);
 
-        $json = json_encode($data['categories']); //log
-        $this->logger->log('Load Jobs','Jobs',$json); //Log  
+        // $json = json_encode($data['categories']); //log
+        // $this->logger->log('Load Jobs','Jobs',$json); //Log  
 
  	}
 
