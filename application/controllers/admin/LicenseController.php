@@ -26,6 +26,9 @@
         $json = json_encode($data['masterlist']); //log
         $this->logger->log('Load Licenses','Licenses',$json); //Log
 
+        $json = json_encode($data['masterlist']); //log
+        $this->logger->log('Load Masterlist','Licenses',$json); //Log
+
     }
     public function Create() {
         $this->form_validation->set_rules('name','Name','required|is_unique[tbl_license_list.name]',
@@ -37,7 +40,7 @@
 
             if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
-             $this->logger->log('Error Form Create','License',$errors); //LoggerModel
+             $this->logger->log('Error Form Create','Licenses',$errors); //Log
              echo json_encode(['error'=>$errors]);
          }
         else {

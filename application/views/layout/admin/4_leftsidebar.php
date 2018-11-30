@@ -91,17 +91,17 @@
                         <li class="nav-small-cap">REPORTS</li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Applicants</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Masterlist</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/reportsmasterlist">Masterlist</a></li>
                                 <li><a href="#">Applications</a></li>
                                 <li><a href="#">Custom Report</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Establishments</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Masterlist</a></li>
-                                <li><a href="#">Posted Jobs</a></li>
-                                <li><a href="#">Review and Ratings</a></li>
-                                <li><a href="#">Custom Report</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/reportsestablishmentsmasterlist">Masterlist</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/reportsestablishmentspostedjobs">Posted Jobs</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/reportsestablishmentreviewandratings">Review and Ratings</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/reportsestablishmentcustom">Custom Report</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Accounts</span></a>
