@@ -1,7 +1,7 @@
 <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class TypesController extends CI_Controller {
+ class TypesController extends Admin_Controller {
  
  	function __construct() {
          parent::__construct();
@@ -12,16 +12,16 @@
  	public function Types()
  	{
  
- 		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
+ 		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'pagetitle'=>'Post Types Masterlist');
  		$data['types'] = $this->typesmod->LoadTypeslist();
         $data['class'] = 'types';
- 		$this->load->view('layout/admin/1_css');
- 		$this->load->view('layout/admin/2_preloader');
- 		$this->load->view('layout/admin/3_topbar');
+ 		$this->load->view('layout/admin/1_css',$layout);
+ 		$this->load->view('layout/admin/2_preloader',$layout);
+ 		$this->load->view('layout/admin/3_topbar',$layout);
  		$this->load->view('layout/admin/4_leftsidebar');
  		$this->load->view('pages/settings/Types',$data);
  		$this->load->view('layout/admin/6_js',$layout);		
-        $this->load->view('layout/admin/7_modals'); 
+        $this->load->view('layout/admin/7_modals',$layout); 
 
         $json = json_encode($data['types']); //log
         $this->logger->log('Load Types','Types',$json); //Log 
