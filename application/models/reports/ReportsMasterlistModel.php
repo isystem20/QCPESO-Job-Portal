@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class MasterlistModel extends CI_Model {
+	class ReportsMasterlistModel extends CI_Model {
 
-		public function LoadMasterlist($id = null) {
+		public function LoadReportsMasterlist($id = null) {
 			$this->db->select('*');
-			$this->db->from('tbl_applicants_categories');
+			$this->db->from('tbl_applicants');
 			if (!empty($id)) {
 				$this->db->where('id',$id);
 				return $this->db->get()->result();
