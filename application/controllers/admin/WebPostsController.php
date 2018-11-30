@@ -91,7 +91,7 @@
             $imagepath="";
             $path = dirname(BASEPATH).'/uploads/';
             $config['upload_path'] = $path;
-            $config['allowed_types'] = 'gif|jpg|png|pdf';
+            $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size'] = '100000';
             $senderror = FALSE;
             $this->load->library('upload', $config);
