@@ -96,7 +96,7 @@
  	}
  
  	public function Update() {
-         $this->form_validation->set_rules('itemid', 'Item Record', 'required',
+         $this->form_validation->set_rules('Id', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
                 ));
@@ -107,8 +107,8 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $id = $postdata['itemid'];
-            unset($postdata['itemid']);
+            $id = $postdata['Id'];
+            unset($postdata['Id']);
             $postdata = array_filter($postdata, 'strlen');
 
             $result = $this->webpostmod->Update($id,$postdata);
