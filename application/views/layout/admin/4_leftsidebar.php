@@ -57,6 +57,11 @@
 
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/skills"> Skills</a></li>
 
+                                <li><a href="<?php echo base_url(); ?>manage/maintenance/nationality"> Nationalities</a></li>
+
+                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/region"> Regions</a></li>
+                                  <li><a href="<?php echo base_url(); ?>manage/maintenance/cities"> Cities</a></li>
+
                             </ul>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Survey and Ratings</span></a></li>
@@ -138,6 +143,7 @@
                             </ul>
                         </li>                        
                         <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Change Logs</span></a></li>
+
 
                     </ul>
                 </nav>
