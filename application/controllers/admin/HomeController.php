@@ -23,7 +23,7 @@ function __construct() {
 		$data["successhires"] = $this->totsh->total_SuccessHires();
 		$data['query'] = $this->loadcat->load_Categories();
 		$data['monthly_applicants'] = array('Jan'=>200, 'Feb'=> 512, 'Mar'=> 300, 'Apr'=> 503, 'May'=>21);
-		$layout = array('charts' => TRUE, );
+		$layout = array('charts' => TRUE, 'pagetitle'=>'Dashboard' );
 		$this->load->view('layout/admin/1_css',$layout);
 		$this->load->view('layout/admin/2_preloader');
 		$this->load->view('layout/admin/3_topbar');

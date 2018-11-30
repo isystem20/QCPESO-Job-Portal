@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class TagsController extends CI_Controller {
+ class TagsController extends Admin_Controller {
  
  	function __construct() {
          parent::__construct();
@@ -12,16 +12,16 @@
  	public function Tags()
  	{
  
- 		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
+ 		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'pagetitle'=>'Post Tags Masterlist');
  		$data['tags'] = $this->tagsmod->LoadTagslist();
         $data['class'] = 'tags';
- 		$this->load->view('layout/admin/1_css');
- 		$this->load->view('layout/admin/2_preloader');
- 		$this->load->view('layout/admin/3_topbar');
- 		$this->load->view('layout/admin/4_leftsidebar');
+ 		$this->load->view('layout/admin/1_css',$layout,$layout);
+ 		$this->load->view('layout/admin/2_preloader',$layout);
+ 		$this->load->view('layout/admin/3_topbar',$layout);
+ 		$this->load->view('layout/admin/4_leftsidebar',$layout);
  		$this->load->view('pages/settings/Tags',$data);
  		$this->load->view('layout/admin/6_js',$layout);		
-        $this->load->view('layout/admin/7_modals');
+        $this->load->view('layout/admin/7_modals',$layout);
 
         $json = json_encode($data['tags']); //log
         $this->logger->log('Load Tags','Tags',$json); //Log 

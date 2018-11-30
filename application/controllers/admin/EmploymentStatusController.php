@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class EmploymentStatusController extends CI_Controller {
+ class EmploymentStatusController extends Admin_Controller {
  
     function __construct() {
          parent::__construct();
@@ -12,16 +12,16 @@
     public function EmploymentStatus()
     {
  
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE,'pagetitle'=>'Employment Status Masterlist');
         $data['masterlist'] = $this->empstatmod->LoadMasterlist();
         $data['class'] = 'employmentstat';
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('layout/admin/1_css',$layout);
+        $this->load->view('layout/admin/2_preloader',$layout);
+        $this->load->view('layout/admin/3_topbar',$layout);
+        $this->load->view('layout/admin/4_leftsidebar',$layout);
         $this->load->view('pages/maintenance/EmploymentStatus',$data);
         $this->load->view('layout/admin/6_js',$layout);     
-        $this->load->view('layout/admin/7_modals');
+        $this->load->view('layout/admin/7_modals',$layout);
 
         $json = json_encode($data['masterlist']); //log
         $this->logger->log('Load EmploymentStatus','EmploymentStatus',$json); //Log 

@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class ApplicantController extends CI_Controller {
+ class ApplicantController extends Admin_Controller {
  
     function __construct() {
          parent::__construct();
@@ -13,23 +13,23 @@
     public function Masterlist()
     {
  
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'pagetitle'=>'Applicant Masterlist');
         $data['masterlist'] = $this->appmamod->LoadMasterlist();
         $data['class'] = 'applicantmasterlist';
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('layout/admin/1_css',$layout);
+        $this->load->view('layout/admin/2_preloader',$layout);
+        $this->load->view('layout/admin/3_topbar',$layout);
+        $this->load->view('layout/admin/4_leftsidebar',$layout);
         $this->load->view('pages/transaction/applicants/ApplicantMasterlist',$data);
         $this->load->view('layout/admin/6_js',$layout);     
-        $this->load->view('layout/admin/7_modals'); 
+        $this->load->view('layout/admin/7_modals',$layout); 
 
         $json = json_encode($data['masterlist']); //log
         $this->logger->log('Load Masterlist','Applicant',$json); //Log 
     }
 
     public function ApplicantInfo($id = null,$mode = null) {
-        $layout = array('wizard'=>TRUE,'datepicker'=>TRUE, 'addons'=>TRUE);
+        $layout = array('wizard'=>TRUE,'datepicker'=>TRUE, 'addons'=>TRUE, 'pagetitle'=>'Adding New Applicant');
         $data['countries'] = $this->countries->LoadMasterlist();
 
 
@@ -56,12 +56,12 @@
         }
 
         $this->load->view('layout/admin/1_css',$layout);
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('layout/admin/2_preloader',$layout);
+        $this->load->view('layout/admin/3_topbar',$layout);
+        $this->load->view('layout/admin/4_leftsidebar',$layout);
         $this->load->view('pages/transaction/applicants/Registration',$data);
         $this->load->view('layout/admin/6_js',$layout);     
-        $this->load->view('layout/admin/7_modals');
+        $this->load->view('layout/admin/7_modals',$layout);
 
         $json = json_encode($data['countries']); //log
         $this->logger->log('Load ApplicantInfo','ApplicantInfo',$json); //Log 
