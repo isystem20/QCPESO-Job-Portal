@@ -372,17 +372,39 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
 
 // add jobpost :)
 
+
+// alert('tang ina gumana ka');
+        // $("#save-jobpost").prop("disabled", true);   
+        //  var fld = $('select[name=speci]');
+        // var values = [];
+        //   for (var i = 0; i < fld.options.length; i++) {
+        //     if (fld.options[i].selected) {
+        //       values.push(fld.options[i].value);
+        //     }
+        //   }
+
 $('#jobpost-form').submit(function(e){
         e.preventDefault();
-        // alert('tang ina gumana ka');
-        // $("#save-jobpost").prop("disabled", true);   
+        
+
         var newURL = $(this).attr('action');  
         var me = $(this);
+        var newData  = {
+                'Id' : $('input[name=id]').val(), //List of data you want to post
+                'EstablishmentId' : $('input[name=estab]').val(),
+                'JobTitle' : $('input[name=jtitle]').val(),
+                'EmpTypeId' : $('select[name=emptype]').val(),
+                'PositionLevelId' : $('input[name=postlevel]').val(),
+                'Specialization' : $('select[name=speci]').val(),
+                'JobDescription' : $('textarea[name=textarea]').val(),
+                'Salary' : $('input[name=salary]'),
+                'IsActive' : $('selected[name=status]'),
+            }
 
         $.ajax({
           url: newURL,
           type: 'POST',
-          data: me.serialize(),
+          data: newData,
           dataType: "json",
           success: function(response){
               console.log(response);  
@@ -437,68 +459,4 @@ $('#jobpost-form').submit(function(e){
  // $("#save-jobpost").prop("disabled", false);   
 
     });
-
-
-//DELETE BUTTON IN jobposts
-  $('#myJobs').delegate(".del-item-btn", "click", function() {
-    $('input[name=id]').val($(this).data('id'));
-    $('input[name=exname]').val($(this).data('name'));
-    $('#del-form-jobpost').attr('action');
-    $('#del-modal-jobpost ').modal();
-  });
-
-// DELETE FORM in job posts
-  $('#del-form-jobpost').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
-    e.preventDefault();       //This prevents the action to move to other page.
-        $("#del-submit-jobpost").prop("disabled", true);   //Disables the submit button after click 
-        var newURL = $(this).attr('action');      //Get the form action attribute value.
-        var newData  = {
-                'id' : $('input[name=id]').val(),     //List of data you want to post
-                'name' : $('input[name=exname]').val(),
-            }
-          $.ajax({
-              url: newURL,
-              type:'POST',
-              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
-              data: newData,
-              success: function(data) {
-                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
-                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
-                    $('#del-modal-jobpost').modal('hide');
-
-                     $.toast({
-                      heading: 'Success!',
-                      text: 'Record Updated',
-                      position: 'top-right',
-                      loaderBg:'#ff6849',
-                      icon: 'success',
-                      hideAfter: 3500, 
-                      stack: 6
-                    });
-
-                  var id = data.id;
-                  var table = $('#myJobs').DataTable();
-                  table.row($('#row'+data.id))
-                  .remove()
-                  .draw();
-
-                  }
-                  else{
-                    $.toast({
-                      heading: 'Error',
-                      text: data.error,
-                      position: 'top-right',
-                      loaderBg:'#ff6849',
-                      icon: 'error',
-                      hideAfter: 3500
-                      
-                    });
-                  }
-                $("#del-submit-jobpost").prop("disabled", false);     //Reenable the submit button after the action           
-              }
-          });   
-  });
-
-
-
 

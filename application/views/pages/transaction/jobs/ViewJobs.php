@@ -46,35 +46,32 @@
                             <div class="card-body">
                                 <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
                                 <div class="table-responsive m-t-40">
-                                    <table id="myJobs" class="table table-bordered table-striped" >
+                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Description</th>
-                                                <th>Modified By</th>
-                                                <th>Last Modified</th>
+                                                <th>Job Title</th>
+                                                <th>Job Description</th>
+                                                <th>Salary</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Description</th>
-                                                <th>Modified By</th>
-                                                <th>Last Modified</th>
+                                                <th>Job Title</th>
+                                                <th>Job Description</th>
+                                                <th>Salary</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
                                         <?php
-                                        if ($viewjobs->num_rows() > 0) {
-                                            foreach ($viewjobs->result() as $row) { ?>
+                                        if ($jobposts->num_rows() > 0) {
+                                            foreach ($jobposts->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo $row->JobTitle; ?></td>
+                                                <td><?php echo character_limiter($row->JobTitle, 10); ?></td>
                                                 <td><?php echo character_limiter($row->JobDescription, 30); ?></td>
-                                                <td><?php echo $row->ModifiedById; ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
+                                                <td><?php echo character_limiter($row->Salary, 30); ?></td>
                                                 <td>
                                                     <?php 
                                                     if ($row->IsActive == '1') {
@@ -84,20 +81,19 @@
                                                         echo '<span class="label label-light-inverse">Inactive</span>';
                                                     }
                                                     ?>
-                                        
                                                 </td>
                                                 <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" > <i class="fas fa-info-circle"></i> </button>
+                                                    <a href="<?=base_url('manage/do/jobs/add/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
 
 
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button"> <i class="far fa-edit" ></i> </button>
+                                                    <a href="<?=base_url('manage/settings/add-web-post'.$row->Id);?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
 
 
 
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-action="<?=base_url('manage/do/jobs/del'); ?>" data-placement="top" title="" data-original-title="Delete"  data-id="<?php echo $row->Id; ?>" data-name="<?=$row->JobTitle; ?>"  type="button"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/jobposts/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->JobTitle; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
-                                         <?php
+                                        <?php
                                             }
                                         }
                                         ?>

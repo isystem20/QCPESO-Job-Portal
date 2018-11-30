@@ -16,7 +16,7 @@
             
      }
  
- 	public function NewJob()
+ 	public function NewJob($id = null,$mode= null)
  	{
         $css = array('addons' => True, );
  		$layout = array('tables'=>TRUE, 'jobpost'=>TRUE,);
@@ -27,10 +27,33 @@
         
         
         
-        $data['class'] = 'viewjobs';
+        $data['class'] = 'jobposts';
  		// $data['categories'] = $this->categmod->LoadCategoryMasterlist();
    //      $data['class'] = 'categories';
 
+
+     if (!empty($id)) {
+
+            $data['jobposts'] = $this->jobsmod->LoadMasterlist($id);
+
+            print_r($data['jobposts']);
+
+            if (!empty($mode)) {
+                if ($mode == 'edit') {
+                    $mode = array('edit' => TRUE, );
+                }
+                elseif ($mode == 'view') {
+                    $mode = array('view' => TRUE, );
+                }
+                else {
+                    die('Invalid Mode');
+                }
+            }
+            else {
+                $mode = array('view' => TRUE, );
+            }
+        }
+    
 
 
 
@@ -45,10 +68,13 @@
 
  	public function ViewJobs()
  	{
+
  
  		$layout = array('tables'=>TRUE,);
- 		$data['viewjobs'] = $this->jobsmod->LoadMasterlist();
- 		
+ 		$data['jobposts'] = $this->jobsmod->LoadMasterlist();
+    $data['class'] = 'jobposts';
+
+
 
  		$this->load->view('layout/admin/1_css');
  		$this->load->view('layout/admin/2_preloader');
@@ -144,11 +170,13 @@
         else{
             $result = $this->jobsmod->Delete($postdata);
             if ($result != FALSE) {
+
                 $json = json_encode($result);              
                 echo $json;
             }
             else {
                 echo json_encode(['error'=>'Update Unsuccessful.']);
+
             }
 
         }

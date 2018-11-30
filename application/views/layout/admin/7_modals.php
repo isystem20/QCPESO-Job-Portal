@@ -104,43 +104,6 @@
 
 <!-- /.modal -->
 
-// modal for job post
-
-<div class="modal fade"  id="del-modal-jobpost" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-
-            <?php
-            $hidden = array(
-              'id' => '',
-              'exname' => '',
-            );
-            ?>
-            <?php echo form_open('manage/do/jobs/del','id="del-form-jobpost"',$hidden); ?>
-
-            <div class="modal-header" style="background-color: #ff6c60;">
-                <h4 class="modal-title" id="mySmallModalLabel">Warning!</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            </div>
-            <div class="modal-body"> 
-                <center>
-                You are about to delete this record. <br><b>Are you sure?</b>                  
-                </center>
-            </div>
-
-            <div class="modal-footer">
-                  <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
-                  <button class="btn btn-danger" id="del-submit-jobpost" type="submit"> Confirm</button>
-            </div>      
-             <?php echo form_close(); ?>     
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-
-
-
 
 
 

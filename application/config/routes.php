@@ -342,5 +342,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
         // jobposts
 
-        $route['manage/do/jobs/del'] = 'admin/JobsController/Delete';
+        $route['admin/jobposts/del'] = 'admin/JobsController/Delete';
       
+        $route['manage/do/jobs/add/(:any)'] = 'admin/JobsController/NewJob/$1';
+      
+        $route['manage/do/jobs/add/(:any)/(:any)'] = 'admin/JobsController/NewJob/$1/$2';
+
+        $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';

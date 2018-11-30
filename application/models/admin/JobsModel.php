@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function LoadMasterlist($id = null) {
 			$this->db->select('*');
-			$this->db->from('tbl_establishments_jobposts');
+			$this->db->from($this->tbl);
 			if (!empty($id)) {
 				$this->db->where('Id',$id);
 				return $this->db->get()->result();
@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			public function Delete($data) {
 			//filerecord = [Del-1234567890]filerecord
-			$this->db->set('JobTitle','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['exname'].'"',FALSE);
+			$this->db->set('JobTitle','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
 			$this->db->set('IsActive','"2"',FALSE);
 			$this->db->where('Id', $data['id']);
 			$this->db->update($this->tbl);
