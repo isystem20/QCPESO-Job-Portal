@@ -23,12 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function Add($data) {
 			
-			// $this->db->set('PostTitle',"'".$data['title']."'",FALSE);
-			// $this->db->set('PostDescription',"'".$data['description']."'",FALSE);
-			// $this->db->set('PostTypeId',"'".$data['type']."'",FALSE);	
-			// $this->db->set('PostContent',"'".$data['textarea']."'",FALSE);	
-			// $this->db->set('Tags',"'".$data['tags']."'",FALSE);
-			// $this->db->set('IsActive',"'".$data['status']."'",FALSE);
+		
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
 		
@@ -69,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
 		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
 		    $this->db->where('Id', $id);
-		    $query = $this->db->update($this->tbl);
+		    $query = $this->db->update($this->tbl,$data);
 			$update = $this->db->affected_rows();
 			if ($update > 0) {
 				$result = $this->LoadMasterlist($id);

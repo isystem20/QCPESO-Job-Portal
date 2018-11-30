@@ -10,6 +10,7 @@ function __construct() {
          $this->load->model('admin/DashboardModel','totapp');
          $this->load->model('admin/DashboardModel','totsh');
          $this->load->model('admin/DashboardModel','loadcat');
+         $this->load->model('LoggerModel','logger'); //Include LoggerModel
 
 
      }
@@ -29,8 +30,10 @@ function __construct() {
 		$this->load->view('layout/admin/4_leftsidebar');
 		$this->load->view('pages/dashboard',$data);
 		$this->load->view('layout/admin/6_js',$layout);	
+
+		$json = json_encode($data); //log
+        $this->logger->log('Load Dashboard','Home',$json); //Log 
 		
 	}
-
 
 }
