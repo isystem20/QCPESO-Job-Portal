@@ -12,7 +12,7 @@
   public function AddWebPosts($id = null,$mode= null)
     {
  
-        $layout = array('editor'=>TRUE, 'tags'=>TRUE);
+        $layout = array('editor'=>TRUE, 'tags'=>TRUE, 'pagetitle'=>'Adding New Web Posts');
         $data['posttypes'] = $this->postymod->LoadMasterlist();
         $data['class'] = 'webposts';
 
@@ -39,10 +39,10 @@
                 $mode = array('view' => TRUE, );
             }
         }
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('layout/admin/1_css',$layout);
+        $this->load->view('layout/admin/2_preloader',$layout);
+        $this->load->view('layout/admin/3_topbar',$layout);
+        $this->load->view('layout/admin/4_leftsidebar',$layout);
         $this->load->view('pages/settings/AddWebPosts',$data);
         $this->load->view('layout/admin/6_js',$layout);
     }
@@ -50,14 +50,14 @@
       public function AllWebPosts()
     {
  
-        $layout = array('tables'=>TRUE);
+        $layout = array('tables'=>TRUE,'pagetitle'=>'List of All Web Posts');
         $data['webposts'] = $this->webpostmod->LoadMasterlist();
         $data['class'] = 'webposts';
 
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('layout/admin/1_css',$layout);
+        $this->load->view('layout/admin/2_preloader',$layout);
+        $this->load->view('layout/admin/3_topbar',$layout);
+        $this->load->view('layout/admin/4_leftsidebar',$layout);
         $this->load->view('pages/settings/AllWebPosts',$data);
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals'); 
@@ -73,15 +73,44 @@
                 'is_unique'     => 'This %s already exists.'
         		)
 		    );
-        $this->form_validation->set_rules('PostDescription','Post Description','required');
-           $this->form_validation->set_rules('Tags','Tags','required');
+            $this->form_validation->set_rules('PostDescription','Post Description','required');
+             $this->form_validation->set_rules('Tags','Tags','required');
             $this->form_validation->set_rules('PostContent','Post Content','required');
-		    if ($this->form_validation->run() == FALSE){
+	     if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
+
          }
-        else {
+
+         elseif (empty($_FILES["WebImage"]["name"])) {
+            $errors = "Image File Needed.";
+           
+        }
+  
+            else {
+            $imagepath="";
+            $path = dirname(BASEPATH).'/uploads/';
+            $config['upload_path'] = $path;
+            $config['allowed_types'] = 'gif|jpg|png|pdf';
+            $config['max_size'] = '100000';
+            $senderror = FALSE;
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('WebImage')) {
+                $errors = $this->upload->display_errors();
+                $senderror = TRUE;
+            }       
+            else {
+                $imagedata = $this->upload->data();
+                $imagepath =  'uploads/'.$imagedata['file_name'];   
+            }
+
+
+
+
         	$postdata = $this->input->post();
+            $postdata['WebImage']=$imagepath;
+            unset($postdata['_wysihtml5_mode']);
         	$inserted = $this->webpostmod->Add($postdata);
         	// echo json_encode(['success'=>TRUE]);
          	if ($inserted != FALSE) {      		
@@ -96,7 +125,7 @@
  	}
  
  	public function Update() {
-         $this->form_validation->set_rules('itemid', 'Item Record', 'required',
+         $this->form_validation->set_rules('Id', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
                 ));
@@ -107,8 +136,8 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $id = $postdata['itemid'];
-            unset($postdata['itemid']);
+            $id = $postdata['Id'];
+            unset($postdata['Id']);
             $postdata = array_filter($postdata, 'strlen');
 
             $result = $this->webpostmod->Update($id,$postdata);
