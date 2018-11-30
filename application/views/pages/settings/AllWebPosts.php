@@ -48,6 +48,7 @@
                                                 <th>Post Content</th>
                                                 <th>Post Type ID</th>
                                                 <th>Tags</th>
+                                                <th>Web Image</th>
                                                 <th>Modified By</th>
                                                 <th>Modified At</th>
                                                 <th>Status</th>
@@ -64,8 +65,10 @@
                                                  <td><?php echo character_limiter($row->PostContent, 30); ?></td>
                                                  <td><?php echo $row->PostTypeId; ?></td>
                                                 <td><?php echo character_limiter($row->Tags, 30); ?></td>
+                                                <td><?php echo character_limiter($row->WebImage, 30); ?></td>
                                                 <td><?php echo $row->ModifiedById; ?></td>
                                                 <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
+                                                
                                                 <td>
                                                     <?php 
                                                     if ($row->IsActive == '1') {
