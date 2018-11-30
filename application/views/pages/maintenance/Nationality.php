@@ -11,15 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Web Post</h3>
-                    <h6 class="text-muted">Masterlist of All Web Posts</h6>
+                    <h3 class="text-themecolor">Nationalities</h3>
+                    <h6 class="text-muted">Masterlist of All Nationalities</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Settings</li>
-                        <li class="breadcrumb-item active">Web Posts</li>
+                        <li class="breadcrumb-item">Maintenance</li>
+                        <li class="breadcrumb-item active">Nationalities</li>
                     </ol>
                 </div>
                 <div>
@@ -38,32 +38,25 @@
 
                         <div class="card">
                             <div class="card-body">
-                               <a href="<?=base_url('manage/settings/add-web-post');?>" class="btn waves-effect waves-light btn-success">Add</a>
+                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-                                                <th>Post Title</th>
-                                                <th>Post Description</th>
-                                                <th>Post Content</th>
-                                                <th>Post Type ID</th>
-                                                <th>Tags</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
                                                 <th>Modified By</th>
-                                                <th>Modified At</th>
+                                                <th>Last Modified</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
-                                                
                                             </tr>
                                         </thead>
                                         <?php
-                                        if ($webposts->num_rows() > 0) {
-                                            foreach ($webposts->result() as $row) { ?>
+                                        if ($masterlist->num_rows() > 0) {
+                                            foreach ($masterlist->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo character_limiter($row->PostTitle, 10); ?></td>
-                                                <td><?php echo character_limiter($row->PostDescription, 30); ?></td>
-                                                 <td><?php echo character_limiter($row->PostContent, 30); ?></td>
-                                                 <td><?php echo $row->PostTypeId; ?></td>
-                                                <td><?php echo character_limiter($row->Tags, 30); ?></td>
+                                                <td><?php echo $row->Name; ?></td>
+                                                <td><?php echo character_limiter($row->Description, 30); ?></td>
                                                 <td><?php echo $row->ModifiedById; ?></td>
                                                 <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
                                                 <td>
@@ -77,14 +70,14 @@
                                                     ?>
                                                 </td>
                                                 <td class="actions">
-                                                    <a href="<?=base_url('manage/settings/view-web-post/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-createdby="<?=$row->CreatedById; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
 
 
-                                                    <a href="<?=base_url('manage/settings/add-web-post');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
 
 
 
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/webposts/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->PostTitle; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php
@@ -169,4 +162,3 @@
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
-
