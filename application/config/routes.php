@@ -292,8 +292,8 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
          /*Establishments*/ 
             /*Masterlist*/  $route['manage/reports/reportsestablishmentsmasterlist'] = 'reports/ReportsEstablishmentsMasterlistController/ReportsEstablishmentsMasterlist';
-            /*Post Jobs*/  $route['manage/reports/reportsestablishmentpostjobs'] = 'reports/ReportsEstablishmentsPostJobsController/ReportsEstablishmentsPostJobs';
-            /*Review and Ratings*/  $route['manage/reports/reportsestablishmentreview'] = 'reports/ReportsEstablishmentsReviewController/ReportsEstablishmentsReview';
+            /*Post Jobs*/  $route['manage/reports/reportsestablishmentspostedjobs'] = 'reports/ReportsEstablishmentsPostedJobsController/ReportsEstablishmentsPostedJobs';
+            /*Review and Ratings*/  $route['manage/reports/reportsestablishmentreviewandratings'] = 'reports/ReportsEstablishmentsReviewController/ReportsEstablishmentsReview';
             /*Custom Reports*/  $route['manage/reports/reportsestablishmentcustom'] = 'reports/ReportsEstablishmentsCustomController/ReportsEstablishmentsCustom';
 
          /*Accounts*/ 
