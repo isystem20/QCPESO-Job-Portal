@@ -7,6 +7,7 @@
          parent::__construct();
          $this->load->model('admin/ApplicantModel','appmamod');
          $this->load->model('admin/CountriesModel','countries');
+         $this->load->model('LoggerModel','logger'); //Include LoggerModel
      }
  
     public function Masterlist()
@@ -23,6 +24,8 @@
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals'); 
 
+        $json = json_encode($data['masterlist']); //log
+        $this->logger->log('Load Masterlist','Applicant',$json); //Log 
     }
 
     public function ApplicantInfo($id = null,$mode = null) {
@@ -58,7 +61,10 @@
         $this->load->view('layout/admin/4_leftsidebar');
         $this->load->view('pages/transaction/applicants/Registration',$data);
         $this->load->view('layout/admin/6_js',$layout);     
-        $this->load->view('layout/admin/7_modals'); 
+        $this->load->view('layout/admin/7_modals');
+
+        $json = json_encode($data['countries']); //log
+        $this->logger->log('Load ApplicantInfo','ApplicantInfo',$json); //Log 
     }
 
     public function Create() {
@@ -67,6 +73,7 @@
 
         if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
+             $this->logger->log('Error Form Create','Application',$errors); //LoggerModel
              echo json_encode(['error'=>$errors]);
          }
         else {
@@ -75,9 +82,13 @@
             // echo json_encode(['success'=>TRUE]);
             if ($inserted != FALSE) {
                 $json = json_encode($inserted);             
+                 $this->logger->log('Create','Application',$json); //Log  
+                
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Create','Application',$json); //Log
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
          }
@@ -93,6 +104,7 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
+            $this->logger->log('Error Form Create','Application',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
@@ -102,10 +114,12 @@
 
             $result = $this->appmamod->Update($id,$postdata);
             if ($result != FALSE) {
-                $json = json_encode($result);             
+                  $this->logger->log('Update','Application',$json); //Log           
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Update','Application',$json); //Log 
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
         }
@@ -125,15 +139,19 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
+            $this->logger->log('Error Form Create','Application',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
             $result = $this->appmamod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
+               $this->logger->log('Delete','Application',$json); //Log
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Delete','Application',$json); //Log 
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
 

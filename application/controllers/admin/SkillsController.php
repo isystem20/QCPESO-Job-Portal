@@ -6,6 +6,7 @@
     function __construct() {
          parent::__construct();
          $this->load->model('admin/SkillsModel','skimod');
+         $this->load->model('LoggerModel','logger'); //Include LoggerModel
      }
  
     public function Skills()
@@ -22,6 +23,9 @@
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals'); 
 
+        $json = json_encode($data['masterlist']); //log
+        $this->logger->log('Load Skills','Skills',$json); //Log 
+
     }
     public function Create() {
         $this->form_validation->set_rules('name','Name','required|is_unique[tbl_applicants_skills.name]',
@@ -33,6 +37,7 @@
 
             if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
+             $this->logger->log('Error Form Create','Skills',$errors); //LoggerModel
              echo json_encode(['error'=>$errors]);
          }
         else {
@@ -40,10 +45,13 @@
             $inserted = $this->skimod->Add($postdata);
             // echo json_encode(['success'=>TRUE]);
             if ($inserted != FALSE) {
-                $json = json_encode($inserted);             
+                $json = json_encode($inserted); 
+                 $this->logger->log('Create','Skills',$json); //Log           
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Create','Skills',$json); //Log 
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
          }
@@ -59,6 +67,7 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
+            $this->logger->log('Error Form Create','Skills',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
@@ -68,10 +77,13 @@
 
             $result = $this->skimod->Update($id,$postdata);
             if ($result != FALSE) {
-                $json = json_encode($result);             
+                $json = json_encode($result);
+                $this->logger->log('Update','Skills',$json); //Log            
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Update','Skills',$json); //Log
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
         }
@@ -91,15 +103,19 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
+            $this->logger->log('Error Form Create','Skills',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
             $result = $this->skimod->Delete($postdata);
             if ($result != FALSE) {
-                $json = json_encode($result);              
+                $json = json_encode($result);
+                $this->logger->log('Delete','Skills',$json); //Log              
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Delete','Skills',$json); //Log
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
 

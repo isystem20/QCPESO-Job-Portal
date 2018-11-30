@@ -9,15 +9,10 @@ function __construct() {
          $this->load->model('web/BrowseJobModel','browsmod');
          $this->load->model('web/EstablishmentModel','estmod');
      }
-	public function BrowseJob()
+public function BrowseJob()
 	{
-		$str = null;
-		$postdata = $this->input->post();
-		if (!empty($postdata['searchtext'])) {
-			$str = $postdata['searchtext'];
-		}
 
-		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($str);
+		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist();
 		$data['estabpost'] = $this->estmod->LoadMasterlist();
 		$layout = array('transparentwrapper' => TRUE, );
 		$this->load->view('layout/web/1_head');
