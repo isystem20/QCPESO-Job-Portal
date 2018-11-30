@@ -111,7 +111,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->dismod->Delete($postdata);
+            $result = $this->regmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);
                 $this->logger->log('Delete','Region',$json); //Log                
