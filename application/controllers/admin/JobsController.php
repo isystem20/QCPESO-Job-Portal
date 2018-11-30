@@ -18,16 +18,16 @@
  
  	public function NewJob($id = null,$mode= null)
  	{
-        $css = array('addons' => True, );
- 		$layout = array('addons'=>TRUE);
- 		$data['emptypes'] = $this->emptypemod->LoadMasterlist();
- 		$data['applev'] = $this->applevmod->LoadMasterlist();
-        $data['skills'] = $this->skimod->LoadMasterlist();
-        $data['estabs'] = $this->establishmentmod->LoadMasterlist();
+      $css = array('addons' => True, );
+      $layout = array('addons'=>TRUE);
+      $data['emptypes'] = $this->emptypemod->LoadMasterlist();
+      $data['applev'] = $this->applevmod->LoadMasterlist();
+      $data['skills'] = $this->skimod->LoadMasterlist();
+      $data['estabs'] = $this->establishmentmod->LoadMasterlist();
         
         
         
-        $data['class'] = 'jobposts';
+        $data['class'] = 'viewjobs';
  		// $data['categories'] = $this->categmod->LoadCategoryMasterlist();
    //      $data['class'] = 'categories';
 
@@ -36,7 +36,7 @@
 
             $data['jobposts'] = $this->jobsmod->LoadMasterlist($id);
 
-            print_r($data['jobposts']);
+            // print_r($data['jobposts']);
 
             if (!empty($mode)) {
                 if ($mode == 'edit') {
@@ -88,66 +88,24 @@
 
  	public function AddNewJob(){
 
- 	$data = array('success' => false, 'messages' => array());
-
- 	$this->form_validation->set_rules('jtitle', 'Job Title', 'trim|required');
- 	// $this->form_validation->set_rules('speci', 'Specialization', 'trim|required');
- 	$this->form_validation->set_rules('jobdesc', 'Job Description', 'trim|required');
- 	$this->form_validation->set_rules('salary', 'Salary', 'trim|required|numeric');
- 	
- 	
- 	$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
-
-
- 	// if ($this->form_validation->run() == FALSE){
- 	// 	$errors = validation_errors();
- 	// 	echo json_encode(['error' => $errors]);
- 	// }
- 	// else{
-
- 	// 	echo json_encode('ok');
-
- 	// }
-
-
- 	if ($this->form_validation->run()) {
- 		// die ('save');		
-
-       //  $config['upload_path'] = APPPATH.'views/pages/transaction/jobs/uploads';
-       //  $config['allowed_type'] = '*';
-
-       //  $this->load->library('upload', $config);
-       //  $this->upload->do_upload('jobimage');
-       //  $jobimage = $this->upload->data();
-        
-       //  $data = array('jobimage' =>$jobimage['jobimage']);
- 		    // $this->jobsmod->Add($data);
-
-        $postdata = $this->input->post();
-
-        $inserted = $this->jobsmod->Add($postdata);
-
-        if ($inserted != FALSE) {         
+      
+        $this->form_validation->set_rules('JobTitle','Job Title','required');
+        if ($this->form_validation->run() == FALSE){
+             $errors = validation_errors();
+             echo json_encode(['error'=>$errors]);
+         }
+        else {
+          $postdata = $this->input->post();
+          $inserted = $this->jobsmod->Add($postdata);
+          // echo json_encode(['success'=>TRUE]);
+          if ($inserted != FALSE) {         
             
-            echo json_encode(['error'=>'Update Unsuccessful.']);
-
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/do/jobs/view-list']);
           }
           else {
-            echo json_encode(['success'=>TRUE, 'url'=>base_url().'manage/do/jobs/view-list']);  
-
+            echo json_encode(['error'=>'Update Unsuccessful.']);
           }
-
-        
- 	}
- 	else{
- 		// die ('error');
- 		foreach ($_POST as $key => $value) {
- 			$data['messages'][$key] = form_error($key);
-
- 		}
-        echo json_encode($data);
-
- 	}
+         }
 
 
  	} 

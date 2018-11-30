@@ -323,7 +323,7 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
                 'description' : $('textarea[name=description]').val(),
                 'status' : $('select[name=status]').val(),
             }
-          console.log(newData);  x
+          console.log(newData);  
           $.ajax({
               url: newURL,
               type:'POST',
@@ -385,74 +385,59 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
                 // 'Specialization' : $('select[name=speci]').val(),
 $('#jobpost-form').submit(function(e){
         e.preventDefault();
-        
+        $("#add-jobposts").prop("disabled", true); 
 
         var newURL = $(this).attr('action');  
         var me = $(this);
         var newData  = {
                 'Id' : $('input[name=id]').val(), //List of data you want to post
-                'EstablishmentId' : $('input[name=estab]').val(),
+                'EstablishmentId' : $('select[name=estab]').val(),
                 'JobTitle' : $('input[name=jtitle]').val(),
                 'EmpTypeId' : $('select[name=emptype]').val(),
-                'PositionLevelId' : $('input[name=postlevel]').val(),
+                'PositionLevelId' : $('select[name=postlevel]').val(),
                 'Specialization' : $('select[name=speci]').val(),
-                'JobDescription' : $('textarea[name=textarea]').val(),
+                'JobDescription' : $('textarea[name=jobdesc]').val(),
                 'Salary' : $('input[name=salary]').val(),
-                'IsActive' : $('selected[name=status]').val(),
+                'IsActive' : $('select[name=stat]').val(),
             }
         console.log(newData);  
-        $.ajax({
-          url: newURL,
-          type: 'POST',
-          data: newData,
-          dataType: "json",
-          success: function(response){
-              console.log(response);  
+         $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    
 
-              if(response.success == true){
-                    // alert('success');
-                  $('#notif').append('<div class="alert alert-success">' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>' +
-                    '<i class="fa fa-check-circle"></i>' +
-                    ' New Job has been successfully added' +
-                    '</div>'
-                    );
-                  $('.form-group').removeClass('har-error')
-                                  .removeClass('has-success');
-                  $('.text-danger').remove();
-
-                  //reset the form
-
-                  me[0].reset();
-
-                $('select[name=speci]').val('');  
-                
-                  // close the notif after 5 seconds;
-
-                  $('.alert-success').delay(500).show(10, function(){
-                      $(this).delay(3000).hide(10, function(){
-                        $(this).remove();
-                      });
-                  });
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+                      window.setTimeout(function(){
+                      window.location.href = data.url;  
+                    }, 1000);
               }
-              else{
-                // alert('error');
-
-                $.each(response.messages, function(key, value){
-                  var element = $('#' + key);
-
-                  element.closest('div.form-group')
-                  .removeClass('har-error')
-                  .addClass(value.length > 0 ? 'has-error' : 'has-success') 
-
-                  .find('.text-danger')
-                  .remove();            
-                  element.after(value);
-
-                });
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+                  }
+                $("#add-jobposts").prop("disabled", false);     //Reenable the submit button after the action           
               }
-          }
-        });
+          }); 
 
 
        

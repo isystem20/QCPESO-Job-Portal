@@ -22,31 +22,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		public function Add($data) {
-			$this->db->set('JobTitle',"'".$data['jtitle']."'",FALSE);
-			$this->db->set('Specialization',"'".$data['speci']."'",FALSE);
-			$this->db->set('EstablishmentId',"'".$data['estab']."'",FALSE);
-			$this->db->set('EmpTypeId',"'".$data['emptype']."'",FALSE);
-			$this->db->set('PositionLevelId',"'".$data['postlevel']."'",FALSE);	
-			$this->db->set('JobDescription',"'".$data['jobdesc']."'",FALSE);
-			$this->db->set('Salary',"'".$data['salary']."'",FALSE);
+			// $this->db->set('JobTitle',"'".$data['JobTitle']."'",FALSE);
+			// $this->db->set('Specialization',"'".json_encode($data['Specialization'])."'",FALSE);
+			// $this->db->set('EstablishmentId',"'".$data['EstablishmentId']."'",FALSE);
+			// $this->db->set('EmpTypeId',"'".$data['EmpTypeId']."'",FALSE);
+			// $this->db->set('PositionLevelId',"'".$data['PositionLevelId']."'",FALSE);	
+			// $this->db->set('JobDescription',"'".$data['JobDescription']."'",FALSE);
+			// $this->db->set('Salary',"'".$data['Salary']."'",FALSE);
+			$data['Specialization'] = json_encode($data['Specialization']);
+			
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
 
-			// $this->db->set('JobImage',"'".$data['jobimage']."'",FALSE);	
+			// // $this->db->set('JobImage',"'".$data['jobimage']."'",FALSE);	
+			// $this->db->set('IsActive',"'".$data['IsActive']."'",FALSE);
 
-			
-			
-			$this->db->set('IsActive',"'".$data['stat']."'",FALSE);
+			// $this->db->insert('tbl_establishments_jobposts');			
 
-			$this->db->insert('tbl_establishments_jobposts');			
+			$this->db->insert($this->tbl,$data);
 
-			// $query = $this->db->insert('tbl_establishments_jobposts', $data);
-			// if ($query) {
-			// 	echo "alright";
-			// }
-			// else{
-			// 	echo "error";
-			// }
+			$added = $this->db->insert_id();
+
+			if ($added > 0) {
+                $inserted = $this->LoadMasterlist($added);
+                return $inserted;
+            }
+            else {
+                return FALSE;
+            }
 		}
 
 			public function Delete($data) {
