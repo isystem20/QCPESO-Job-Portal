@@ -46,26 +46,8 @@
         	// echo json_encode(['success'=>TRUE]);
          	if ($inserted != FALSE) {
 	        	$json = json_encode($inserted);      		
-                $this->logger->log('Create','Tags',$json); //Log   
-
-
-
-                # SEND NOTIFICATION
-                $this->load->library('pusherclass');
-                $options = array(
-                    'cluster' => 'ap1',
-                    'useTLS' => true
-                  );
-                  $pusher = new Pusher\Pusher(
-                    'b40201798c4cfcffea24',
-                    '1518e49272e3b378e3ba',
-                    '656525',
-                    $options
-                  );
-
-                  $data['message'] = $this->session->firstname.' added new tags';
-                  $pusher->trigger('my-channel', 'my-event', $data);
-
+                $this->logger->log('Create','Tags',$json); //Log  
+                
         		echo $json;
         	}
         	else {

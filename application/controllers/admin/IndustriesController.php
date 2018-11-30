@@ -6,6 +6,7 @@
     function __construct() {
          parent::__construct();
          $this->load->model('admin/IndustriesModel','indmod');
+         $this->load->model('LoggerModel','logger'); //Include LoggerModel
      }
  
     public function Industries()
@@ -20,7 +21,10 @@
         $this->load->view('layout/admin/4_leftsidebar');
         $this->load->view('pages/maintenance/IndustryList',$data);
         $this->load->view('layout/admin/6_js',$layout);     
-        $this->load->view('layout/admin/7_modals'); 
+        $this->load->view('layout/admin/7_modals');
+
+        $json = json_encode($data['masterlist']); //log
+        $this->logger->log('Load Industries','Industries',$json); //Log  
 
     }
     public function Create() {
@@ -33,6 +37,7 @@
 
             if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
+             $this->logger->log('Error Form Create','Industries',$errors); //LoggerModel
              echo json_encode(['error'=>$errors]);
          }
         else {
@@ -40,10 +45,13 @@
             $inserted = $this->indmod->Add($postdata);
             // echo json_encode(['success'=>TRUE]);
             if ($inserted != FALSE) {
-                $json = json_encode($inserted);             
+                $json = json_encode($inserted);
+                $this->logger->log('Create','Industries',$json); //Log           
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Create','Industries',$json); //Log
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
          }
@@ -59,6 +67,7 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
+            $this->logger->log('Error Form Create','Industries',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
@@ -68,10 +77,13 @@
 
             $result = $this->indmod->Update($id,$postdata);
             if ($result != FALSE) {
-                $json = json_encode($result);             
+                $json = json_encode($result);
+                $this->logger->log('Update','Industries',$json); //Log             
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Update','Industries',$json); //Log  
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
         }
@@ -91,15 +103,19 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
+            $this->logger->log('Error Form Create','Industries',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
             $result = $this->indmod->Delete($postdata);
             if ($result != FALSE) {
-                $json = json_encode($result);              
+                $json = json_encode($result);
+                $this->logger->log('Delete','Industries',$json); //Log             
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Delete','Industries',$json); //Log 
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
 
