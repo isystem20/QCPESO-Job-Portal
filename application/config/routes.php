@@ -287,3 +287,20 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         //Reports
         /*Applicants*/ 
             /*Masterlist*/  $route['manage/reports/reportsmasterlist'] = 'reports/ReportsMasterlistController/ReportsMasterlist';
+            /*Applications*/  $route['manage/reports/reportsapplications'] = 'reports/ReportsApplicationsController/ReportsApplications';
+            /*Custom Reports*/  $route['manage/reports/reportscustom'] = 'reports/ReportsCustomController/ReportsCustom';
+
+         /*Establishments*/ 
+            /*Masterlist*/  $route['manage/reports/reportsestablishmentsmasterlist'] = 'reports/ReportsEstablishmentsMasterlistController/ReportsEstablishmentsMasterlist';
+            /*Post Jobs*/  $route['manage/reports/reportsestablishmentpostjobs'] = 'reports/ReportsEstablishmentsPostJobsController/ReportsEstablishmentsPostJobs';
+            /*Review and Ratings*/  $route['manage/reports/reportsestablishmentreview'] = 'reports/ReportsEstablishmentsReviewController/ReportsEstablishmentsReview';
+            /*Custom Reports*/  $route['manage/reports/reportsestablishmentcustom'] = 'reports/ReportsEstablishmentsCustomController/ReportsEstablishmentsCustom';
+
+         /*Accounts*/ 
+            /*Masterlist*/  $route['manage/reports/reportsaccountsmasterlist'] = 'reports/ReportsAccountsMasterlistController/ReportsAccountsMasterlist';
+            /*Access list*/  $route['manage/reports/reportsaccountsaccesslist'] = 'reports/ReportsAccountsAccesslistController/ReportsAccountsAccesslist';
+            /*Custom Reports*/  $route['manage/reports/reportsaccountscustom'] = 'reports/ReportsAccountsCustomController/ReportsAccountsCustom';
+
+         /*Activity Log*/   $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';
+
+           
