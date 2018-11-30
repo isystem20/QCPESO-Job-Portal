@@ -286,4 +286,4 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
         //Reports
         /*Applicants*/ 
-            /*Masterlist*/  $route['manage/reports/reportsmasterlist'] = 'reports/MasterlistController/ReportsMasterlist';
+            /*Masterlist*/  $route['manage/reports/reportsmasterlist'] = 'reports/ReportsMasterlistController/ReportsMasterlist';
