@@ -11,7 +11,7 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Web Post</h3>
+                    <h3 name="header-text" class="text-themecolor" >Web Post</h3>
                     <h6 class="text-muted">Masterlist of All Web Posts</h6>
                 
                 </div>
@@ -77,10 +77,10 @@
                                                     ?>
                                                 </td>
                                                 <td class="actions">
-                                                    <a href="<?=base_url('manage/settings/view-web-post/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
+                                                    <a href="<?=base_url('manage/settings/view-web-post/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
 
 
-                                                    <a href="<?=base_url('manage/settings/add-web-post');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
+                                                    <a href="<?=base_url('manage/settings/update-web-post/'.$row->Id);?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
 
 
 

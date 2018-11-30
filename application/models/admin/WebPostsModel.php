@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
 		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
 		    $this->db->where('Id', $id);
-		    $query = $this->db->update($this->tbl);
+		    $query = $this->db->update($this->tbl,$data);
 			$update = $this->db->affected_rows();
 			if ($update > 0) {
 				$result = $this->LoadMasterlist($id);
