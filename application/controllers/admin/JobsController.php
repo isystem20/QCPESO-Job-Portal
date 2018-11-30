@@ -1,12 +1,13 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class JobsController extends CI_Controller {
+ class JobsController extends Admin_Controller {
  
  	function __construct() {
         parent::__construct();
         $this->load->model('admin/JobsModel','jobsmod');
       	$this->load->model('admin/EmploymentTypesModel','emptypemod');
+         $this->load->model('LoggerModel','logger'); //Include LoggerModel
         $this->load->model('admin/ApplicantLevelModel','applevmod');
         $this->load->model('admin/SkillsModel','skimod');
         $this->load->model('admin/EstablishmentModel','establishmentmod');
@@ -82,7 +83,10 @@
  		$this->load->view('layout/admin/4_leftsidebar');
  		$this->load->view('pages/transaction/jobs/ViewJobs', $data);
  		$this->load->view('layout/admin/6_js',$layout);		
-    $this->load->view('layout/admin/7_modals'); 
+        $this->load->view('layout/admin/7_modals',$layout);
+
+        $json = json_encode($data['categories']); //log
+        $this->logger->log('Load Jobs','Jobs',$json); //Log  
 
  	}
 
