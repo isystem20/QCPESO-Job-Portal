@@ -283,3 +283,7 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
         $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
         $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
+
+        //Reports
+        /*Applicants*/ 
+            /*Masterlist*/  $route['manage/reports/masterlist'] = 'admin/MasterlistContoller/Masterlist';
