@@ -73,15 +73,44 @@
                 'is_unique'     => 'This %s already exists.'
         		)
 		    );
-        $this->form_validation->set_rules('PostDescription','Post Description','required');
-           $this->form_validation->set_rules('Tags','Tags','required');
+            $this->form_validation->set_rules('PostDescription','Post Description','required');
+             $this->form_validation->set_rules('Tags','Tags','required');
             $this->form_validation->set_rules('PostContent','Post Content','required');
-		    if ($this->form_validation->run() == FALSE){
+	     if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
+
          }
-        else {
+
+         elseif (empty($_FILES["WebImage"]["name"])) {
+            $errors = "Image File Needed.";
+           
+        }
+  
+            else {
+            $imagepath="";
+            $path = dirname(BASEPATH).'/uploads/';
+            $config['upload_path'] = $path;
+            $config['allowed_types'] = 'gif|jpg|png|pdf';
+            $config['max_size'] = '100000';
+            $senderror = FALSE;
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('WebImage')) {
+                $errors = $this->upload->display_errors();
+                $senderror = TRUE;
+            }       
+            else {
+                $imagedata = $this->upload->data();
+                $imagepath =  'uploads/'.$imagedata['file_name'];   
+            }
+
+
+
+
         	$postdata = $this->input->post();
+            $postdata['WebImage']=$imagepath;
+            unset($postdata['_wysihtml5_mode']);
         	$inserted = $this->webpostmod->Add($postdata);
         	// echo json_encode(['success'=>TRUE]);
          	if ($inserted != FALSE) {      		
