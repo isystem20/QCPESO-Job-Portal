@@ -76,13 +76,13 @@ $route['manage'] = 'admin/HomeController/Dashboard';    /* Dashboard */
     /* MANAGE */                        
 $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';        /* User Masterlist */               
         /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
-        /* Manage Courses */                 $route['manage/user-courses'] = 'admin/CourselistController/Courselist';
-        /* Manage Employment Status */                 $route['manage/user-status'] = 'admin/EmploymentStatusController/EmploymentStatus';
+        /* Manage Courses */                 $route['manage/maintenace/user-courses'] = 'admin/CourselistController/Courselist';
+        /* Manage Employment Status */                 $route['manage/maintenance/user-status'] = 'admin/EmploymentStatusController/EmploymentStatus';
          /* Manage Account Release */                 $route['manage/account-release'] = 'admin/AccountReleaseController/AccountRelease';
         /* Maintenance */
             /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
             /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
-            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificateController/Certificates';
+            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificatesController/CertificatesList';
             /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
             /* Dress Code */                $route['manage/maintenance/dresscode'] = 'admin/DresscodeController/Dresscode';
             
@@ -94,6 +94,8 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
 
             /* Employment Types */           $route['manage/maintenance/employment-types'] = 'admin/EmploymentTypesController/EmploymentTypes';
 
+            /* Skills */                     $route['manage/maintenance/skills'] = 'admin/SkillsController/Skills';
+
 
              /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
 
@@ -103,7 +105,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
 
     /* TRANSACTIONS */
         /* Applicants */ 
-            /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantRegistration';
+            /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
             /* View List */                 $route['manage/do/applicants/view-list'] = 'admin/ApplicantMasterlistController/ApplicantMasterlist';
             /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
@@ -161,16 +163,16 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/languages/read'] = 'admin/LanguageController/Read';
 
         //Licences
-        $route['admin/licences/add'] = 'admin/LicenseController/Create';
-        $route['admin/licences/edit'] = 'admin/LicenseController/Update';
-        $route['admin/licences/del'] = 'admin/LicenseController/Delete';
-        $route['admin/licences/read'] = 'admin/LicenseController/Read';
+        $route['admin/licenses/add'] = 'admin/LicenseController/Create';
+        $route['admin/licenses/edit'] = 'admin/LicenseController/Update';
+        $route['admin/licenses/del'] = 'admin/LicenseController/Delete';
+        $route['admin/licenses/read'] = 'admin/LicenseController/Read';
 
         //Certificates
-        $route['admin/certificates/add'] = 'admin/CertificateController/Create';
-        $route['admin/certificates/edit'] = 'admin/CertificateController/Update';
-        $route['admin/certificates/del'] = 'admin/CertificateController/Delete';
-        $route['admin/certificates/read'] = 'admin/CertificateController/Read';
+        $route['admin/certificates/add'] = 'admin/CertificatesController/Create';
+        $route['admin/certificates/edit'] = 'admin/CertificatesController/Update';
+        $route['admin/certificates/del'] = 'admin/CertificatesController/Delete';
+        $route['admin/certificates/read'] = 'admin/CertificatesController/Read';
 
         //Disabilities
         $route['admin/disabilities/add'] = 'admin/DisabilitiesController/Create';
@@ -201,6 +203,12 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/categories/edit'] = 'admin/CategoriesController/Update'; // POST to edit
         $route['admin/categories/del'] = 'admin/CategoriesController/Delete'; // POST to delete
         $route['admin/categories/read'] = 'admin/CategoriesController/Read'; // POST to view
+
+          //industries
+        $route['admin/industries/add'] = 'admin/IndustriesController/Create'; //POST to create
+        $route['admin/industries/edit'] = 'admin/IndustriesController/Update'; // POST to edit
+        $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
+        $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
 
         //Applicant Level
         $route['admin/applicantlevel/add'] = 'admin/ApplicantLevelController/Create';
@@ -251,12 +259,19 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/webposts/del'] = 'admin/WebPostsController/Delete'; // POST to delete
         $route['admin/webposts/read'] = 'admin/WebPostsController/Read'; // POST to view
 
-        //Applicant Masterlist
-        $route['admin/applicantmasterlist/add'] = 'admin/ApplicantMasterlistController/Create'; //POST to create
-        $route['admin/applicantmasterlist/edit'] = 'admin/ApplicantMasterlistController/Update'; // POST to edit
-        $route['admin/applicantmasterlist/del'] = 'admin/ApplicantMasterlistController/Delete'; // POST to delete
-        $route['admin/applicantmasterlist/read'] = 'admin/ApplicantMasterlistController/Read'; // POST to view
+        //Skills
+        $route['admin/skills/add'] = 'admin/SkillsController/Create';
+        $route['admin/skills/edit'] = 'admin/SkillsController/Update';
+        $route['admin/skills/del'] = 'admin/SkillsController/Delete';
+        $route['admin/skills/read'] = 'admin/SkillsController/Read';
 
+        $route['admin/applicants/(:any)'] = 'admin/ApplicantController/ApplicantInfo/$1';
+        $route['admin/applicants'] = 'admin/ApplicantController/ApplicantInfo';
+        $route['admin/applicants/add'] = 'admin/ApplicantController/Create'; //POST to create
+        $route['admin/applicants/edit'] = 'admin/ApplicantController/Update'; // POST to edit
+        $route['admin/applicants/del'] = 'admin/ApplicantController/Delete'; // POST to delete
+        $route['admin/applicants/read'] = 'admin/ApplicantController/Read'; // POST to view
+        $route['admin/applicants/(:any)/(:any)'] = 'admin/ApplicantController/ApplicantInfo/$1/$2';
         $route['manage/settings/all-web-post'] = 'admin/WebPostsController/AllWebPosts';
         $route['admin/EstablishmentMasterlist/add'] = 'admin/EstablishmentlistController/Create'; //POST to create
         $route['admin/EstablishmentMasterlist/edit'] = 'admin/EstablishmentlistController/Update'; // POST to edit
@@ -284,23 +299,40 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
         $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
 
-        //Reports
-        /*Applicants*/ 
-            /*Masterlist*/  $route['manage/reports/reportsmasterlist'] = 'reports/ReportsMasterlistController/ReportsMasterlist';
-            /*Applications*/  $route['manage/reports/reportsapplications'] = 'reports/ReportsApplicationsController/ReportsApplications';
-            /*Custom Reports*/  $route['manage/reports/reportscustom'] = 'reports/ReportsCustomController/ReportsCustom';
+        $route['manage/maintenance/countries'] = 'admin/CountriesController/Countries';
+        $route['admin/countries/add'] = 'admin/CountriesController/Create'; //POST to create
+        $route['admin/countries/edit'] = 'admin/CountriesController/Update'; // POST to edit
+        $route['admin/countries/del'] = 'admin/CountriesController/Delete'; // POST to delete
+        $route['admin/countries/read'] = 'admin/CountriesController/Read'; // POST to view
 
-         /*Establishments*/ 
-            /*Masterlist*/  $route['manage/reports/reportsestablishmentsmasterlist'] = 'reports/ReportsEstablishmentsMasterlistController/ReportsEstablishmentsMasterlist';
-            /*Post Jobs*/  $route['manage/reports/reportsestablishmentspostedjobs'] = 'reports/ReportsEstablishmentsPostedJobsController/ReportsEstablishmentsPostedJobs';
-            /*Review and Ratings*/  $route['manage/reports/reportsestablishmentreviewandratings'] = 'reports/ReportsEstablishmentsReviewController/ReportsEstablishmentsReview';
-            /*Custom Reports*/  $route['manage/reports/reportsestablishmentcustom'] = 'reports/ReportsEstablishmentsCustomController/ReportsEstablishmentsCustom';
+        /* Nationality */                     $route['manage/maintenance/nationality'] = 'admin/NationalityController/Nationality';
+        
+        //Nationality
+        $route['admin/nationality/add'] = 'admin/NationalityController/Create'; //POST to create
+        $route['admin/nationality/edit'] = 'admin/NationalityController/Update'; // POST to edit
+        $route['admin/nationality/del'] = 'admin/NationalityController/Delete'; // POST to delete
+        $route['admin/nationality/read'] = 'admin/NationalityController/Read'; // POST to view
 
-         /*Accounts*/ 
-            /*Masterlist*/  $route['manage/reports/reportsaccountsmasterlist'] = 'reports/ReportsAccountsMasterlistController/ReportsAccountsMasterlist';
-            /*Access list*/  $route['manage/reports/reportsaccountsaccesslist'] = 'reports/ReportsAccountsAccesslistController/ReportsAccountsAccesslist';
-            /*Custom Reports*/  $route['manage/reports/reportsaccountscustom'] = 'reports/ReportsAccountsCustomController/ReportsAccountsCustom';
+        /* Regions */                     $route['manage/maintenance/region'] = 'admin/RegionController/Region';
+        
+        //Regions
+        $route['admin/region/add'] = 'admin/RegionController/Create'; //POST to create
+        $route['admin/region/edit'] = 'admin/RegionController/Update'; // POST to edit
+        $route['admin/region/del'] = 'admin/RegionController/Delete'; // POST to delete
+        $route['admin/region/read'] = 'admin/RegionController/Read'; // POST to view
 
-         /*Activity Log*/   $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';
+        /* Cities */                     $route['manage/maintenance/cities'] = 'admin/CitiesController/Cities';
+        
+        //Cities
+        $route['admin/cities/add'] = 'admin/CitiesController/Create'; //POST to create
+        $route['admin/cities/edit'] = 'admin/CitiesController/Update'; // POST to edit
+        $route['admin/cities/del'] = 'admin/CitiesController/Delete'; // POST to delete
+        $route['admin/cities/read'] = 'admin/CitiesController/Read'; // POST to view
 
-           
+
+        $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+      
+        $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
+
+        $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+      
