@@ -344,5 +344,11 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/dialect/del'] = 'admin/DialectController/Delete'; // POST to delete
         $route['admin/dialect/read'] = 'admin/DialectController/Read'; // POST to view
 
+      //JobApplication
+        $route['admin/jobapplications/add'] = 'admin/JobApplicationController/Create'; //POST to create
+        $route['admin/jobapplications/edit'] = 'admin/JobApplicationController/Update'; // POST to edit
+        $route['admin/jobapplications/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
+        $route['admin/jobapplications/read'] = 'admin/JobApplicationController/Read'; // POST to view
+
 
 
