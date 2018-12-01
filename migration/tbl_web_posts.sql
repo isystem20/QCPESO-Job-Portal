@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2018 at 01:36 AM
--- Server version: 10.1.24-MariaDB
--- PHP Version: 7.1.6
+-- Generation Time: Nov 30, 2018 at 09:22 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -35,22 +33,48 @@ CREATE TABLE `tbl_web_posts` (
   `PostContent` text NOT NULL,
   `PostTypeId` int(11) NOT NULL,
   `Tags` varchar(200) NOT NULL,
+  `WebImage` varchar(100) NOT NULL,
   `CreatedById` varchar(50) NOT NULL,
   `CreatedAt` datetime DEFAULT CURRENT_TIMESTAMP,
   `ModifiedById` varchar(50) NOT NULL,
   `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `VersionNo` int(11) NOT NULL DEFAULT '1',
-  `IsActive` tinyint(1) NOT NULL
+  `IsActive` tinyint(1) NOT NULL DEFAULT '2'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_web_posts`
 --
 
-INSERT INTO `tbl_web_posts` (`Id`, `PostTitle`, `PostDescription`, `PostContent`, `PostTypeId`, `Tags`, `CreatedById`, `CreatedAt`, `ModifiedById`, `ModifiedAt`, `VersionNo`, `IsActive`) VALUES
-(1, 'Tenetur est et sequi et labore excepturi deleniti.', 'Voluptatem tempore voluptas quisquam et qui. Cum omnis ex voluptate et illum nesciunt. Quisquam iusto eos quasi officia ea et id occaecati. Aspernatur quo laudantium incidunt quaerat.', 'Repellat cum quam repellat dolores repellat. Quasi dolore nisi amet consequatur sit quia aperiam. Consequatur occaecati dolor et et. Laborum cum eaque deleniti doloremque sit ex pariatur repellat.', 0, '', '', '1980-10-12 11:30:40', '', '2003-11-16 06:10:16', 1, 0),
-(2, 'Excepturi voluptate qui placeat suscipit.', 'Unde quo qui quasi maxime est illo voluptatem. Sit ducimus incidunt ut sunt laboriosam. Omnis in ut similique autem dolores autem.', 'Iure facilis quia est numquam. Non nesciunt quas quo sed possimus voluptas quia. Ullam beatae cum eos atque. Dolore dicta ut natus qui rerum porro. Fugit vero quaerat dicta sequi possimus.', 0, '', '', '2007-01-24 23:01:02', '', '2013-06-22 18:57:32', 1, 0),
-(3, 'Earum minus aut velit commodi iste ipsum.', 'Dolores provident non aliquam natus omnis fuga nobis. Eius fugit voluptas est aut voluptas. Iusto quasi sapiente reiciendis aut ex aut molestiae corrupti. Eligendi sunt est sed.', 'Sed aliquam quis velit dolore. Quia quae iste enim illum.', 0, '', '', '2001-12-21 06:45:33', '', '1979-06-19 07:09:43', 1, 1),
+INSERT INTO `tbl_web_posts` (`Id`, `PostTitle`, `PostDescription`, `PostContent`, `PostTypeId`, `Tags`, `WebImage`, `CreatedById`, `CreatedAt`, `ModifiedById`, `ModifiedAt`, `VersionNo`, `IsActive`) VALUES
+(23, 'test1', 'test1', 'teaeaef', 3, 'test1,test2', '', 'ADMIN', '2018-11-30 13:35:35', 'ADMIN', '2018-11-30 13:35:35', 1, 2),
+(24, '1', '2', '4', 1, '3', '', 'ADMIN', '2018-11-30 16:14:50', 'ADMIN', '2018-11-30 16:14:50', 1, 1),
+(25, '3', '4', '6', 1, '5', 'uploads/Logo.png', 'ADMIN', '2018-11-30 16:16:18', 'ADMIN', '2018-11-30 16:16:18', 1, 1),
+(26, 'q', 'w', 'r', 1, 'e', 'uploads/Logo1.png', 'ADMIN', '2018-11-30 16:18:23', 'ADMIN', '2018-11-30 16:18:23', 1, 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_web_posts`
+--
+ALTER TABLE `tbl_web_posts`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_web_posts`
+--
+ALTER TABLE `tbl_web_posts`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+3, 'Earum minus aut velit commodi iste ipsum.', 'Dolores provident non aliquam natus omnis fuga nobis. Eius fugit voluptas est aut voluptas. Iusto quasi sapiente reiciendis aut ex aut molestiae corrupti. Eligendi sunt est sed.', 'Sed aliquam quis velit dolore. Quia quae iste enim illum.', 0, '', '', '2001-12-21 06:45:33', '', '1979-06-19 07:09:43', 1, 1),
 (4, 'Saepe neque officiis neque molestiae aut.', 'Accusantium et sint id velit. Consequatur nesciunt sit assumenda quia. Qui possimus sed officia occaecati ullam velit. Asperiores voluptatem assumenda quasi.', 'Animi et fugiat nisi voluptatum id dolore. Totam sapiente voluptatem quisquam vitae commodi fuga.', 0, '', '', '1998-09-11 00:23:33', '', '1982-05-02 20:21:17', 1, 1),
 (5, 'Animi quae pariatur vero nisi alias eos id non.', 'Rerum accusamus qui cumque est. Et quaerat officia commodi quisquam blanditiis ut voluptas. Tempora id recusandae excepturi est consectetur voluptatem hic. Et fugiat sapiente sequi delectus nemo.', 'Corrupti fugiat numquam veniam et. Impedit blanditiis ut molestiae ut dolor aspernatur. Veniam delectus nihil optio dolore alias adipisci.', 0, '', '', '2004-05-24 20:07:13', '', '2005-11-08 02:23:42', 1, 0),
 (6, 'Atque animi dolorum minus sit sunt vel velit.', 'In numquam aut et maxime nesciunt. Fuga doloribus distinctio impedit. Optio rerum qui assumenda et consequatur voluptatibus.', 'Amet magni voluptatem molestiae iste. Ad saepe quo adipisci quia sed. Veritatis aperiam at temporibus deleniti.', 0, '', '', '1971-07-25 14:00:06', '', '1987-03-21 22:25:15', 1, 0),
