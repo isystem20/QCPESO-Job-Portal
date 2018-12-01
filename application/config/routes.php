@@ -351,5 +351,12 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/jobapplications/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
         $route['admin/jobapplications/read'] = 'admin/JobApplicationController/Read'; // POST to view
 
+       /* Applicants Masterlist */         $route['manage/maintenance/dialect'] = 'admin/DialectController/Dialect'; 
 
+       /* Applicant list */         $route['manage/maintenance/applicantlist'] = 'admin/ApplicantController/Applicantlist'; 
 
+       //Applicant list
+        $route['admin/applicantlist/add'] = 'admin/JobApplicationController/Create'; //POST to create
+        $route['admin/applicantlist/edit'] = 'admin/JobApplicationController/Update'; // POST to edit
+        $route['admin/applicantlist/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
+        $route['admin/applicantlist/read'] = 'admin/JobApplicationController/Read'; // POST to view
