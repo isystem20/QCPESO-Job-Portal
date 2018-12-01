@@ -1,6 +1,14 @@
 <?php 
 if (!empty($webposts)) {
-   foreach ($webposts as $row) { ?>
+    $attr="";
+   foreach ($webposts as $row) 
+    { 
+        if ($mode=="view") {
+            $attr="disabled readonly";
+            
+        }
+
+        ?>
 <div class="page-wrapper">
 
     <div class="container-fluid">
@@ -34,23 +42,23 @@ if (!empty($webposts)) {
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">Post Title</label>
-                            <input type="text" name="PostTitle" value="<?=$row->PostTitle;?>" class="form-control" >
+                            <input type="text" <?=$attr?> name="PostTitle" value="<?=$row->PostTitle;?>" class="form-control" >
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">Post Description</label>
-                            <input type="text" name="PostDescription"  value="<?=$row->PostDescription;?>"class="form-control">
+                            <input type="text" <?=$attr?> name="PostDescription"  value="<?=$row->PostDescription;?>"class="form-control">
                         </div>
                     </div>
                 </div>
 
                 <div class="row p-t-20">
                     <div class="col-md-6">
-                        <div class="form-group has-success" ">
+                        <div class="form-group">
                                             <label class="control-label ">Post Type</label>
-                                            <select class="form-control custom-select"  name="PostTypeId">
+                                            <select class="form-control custom-select" <?=$attr?>  name="PostTypeId">
                                     <?php $str="";
                                         if ($posttypes->num_rows() > 0) {
                                             foreach ($posttypes->result() as $types) { 
@@ -79,10 +87,10 @@ if (!empty($webposts)) {
                                         $usertype = $this->session->userdata('usertype');
                                         if ($usertype == 'ADMIN') {
                                         ?>
-                                            <div class="form-group has-success ">
+                                            <div class="form-group">
                                             <label class="control-label ">Status</label>
                                             <select class="form-control custom-select "
-                                            name="IsActive"  >
+                                            name="IsActive" <?=$attr?> >
 
                                             <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
                                             <option <?php if($row->IsActive=="2"){ echo "Selected";}?> value="2">Inactive</option>
@@ -105,15 +113,18 @@ if (!empty($webposts)) {
                                         <div class="form-group has-success "">
                             <label class="control-label">Add Tags</label>
                             <div class="tags-default">
-                                <input type="text" name="Tags" data-role="tagsinput"  value="<?=$row->Tags;?>"/> </div>
+                                <input type="text" <?=$attr?> name="Tags" data-role="tagsinput"  value="<?=$row->Tags;?>"/> </div>
 
                         </div>
                     </div>
                       <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label">Add Image</label>
-                            <input type="file" name="WebImage" class="form-control">
+                        <div class="card">
+                            <div class="card-body">
+                                 <label class="control-label">Add Image</label>
+                                <input type="file"  <?=$attr?> name="WebImage" class="dropify" data-default-file="<?php echo base_url().$row->WebImage?>"/>
+                            </div>
                         </div>
+                      
                     </div>
                 </div>
 
@@ -132,12 +143,20 @@ if (!empty($webposts)) {
 
                         
                             <div class="form-group">
-                                <textarea class="textarea_editor form-control" name="PostContent" rows="15" > <?=$row->PostContent;?></textarea>
+                                <textarea class="textarea_editor form-control" <?=$attr?> name="PostContent" rows="15" > <?=$row->PostContent;?></textarea>
                             </div>
-                           <div class="form-actions">
+                            <?php
+                            if ($mode=="edit") {
+                                ?>
+                            <div class="form-actions">
                               <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
                                 <a href="<?php echo base_url();?>manage/settings/all-web-post" class="btn btn-inverse">Cancel</a>
                             </div>
+                                <?php
+                            }
+
+                             ?>
+                           
                         </form>
                     </div>
                 </div>
@@ -191,7 +210,7 @@ else { ?>
 
                 <div class="row p-t-20">
                     <div class="col-md-6">
-                        <div class="form-group has-success" ">
+                        <div class="form-group">
                                             <label class="control-label ">Post Type</label>
                                             <select class="form-control custom-select"  name="PostTypeId">
                                                  <?php $str="";
@@ -215,7 +234,7 @@ else { ?>
                                     </div>
 
                                     <div class="col-md-6 ">
-                                       <div class="form-group has-success ">
+                                       <div class="form-group">
                                             <label class="control-label ">Status</label>
                                             <select class="form-control custom-select "
                                             name="IsActive">
@@ -236,10 +255,10 @@ else { ?>
                         </div>
                     </div>
                      <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label">Add Image</label>
-                            <input type="file" name="WebImage" class="form-control">
-                        </div>
+                        <div class="card-body">
+                                 <label class="control-label">Add Image</label>
+                                <input type="file"  name="WebImage" class="dropify"/>
+                            </div>
                     </div>
                 </div>
 
