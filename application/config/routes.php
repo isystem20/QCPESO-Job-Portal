@@ -303,9 +303,23 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
          /*Activity Log*/   $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';
 
-            $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+        $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
       
         $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
 
         $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
         $route['manage/settings/update-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
+
+
+
+        $route['manage/settings/add-services'] = 'admin/ServicesController/AddServices'; 
+        $route['manage/settings/all-services'] = 'admin/ServicesController/AllServices';
+        $route['manage/settings/services'] = 'admin/ServicesController/Services';
+        $route['admin/services/add'] = 'admin/ServicesController/Create'; //POST to create
+        $route['admin/services/edit'] = 'admin/ServicesController/Update'; // POST to edit
+        $route['admin/services/del'] = 'admin/ServicesController/Delete'; // POST to delete
+        $route['admin/services/read'] = 'admin/ServicesController/Read'; // POST to view
+        $route['manage/settings/view-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
+        $route['manage/settings/add-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
+        $route['manage/settings/update-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
+        $route['manage/settings/update-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
