@@ -1,18 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AboutController extends CI_Controller {
+class AboutController extends Public_Controller {
 
 public function About()
 	{
 
-		$layout = array('transparentwrapper' => TRUE,);
-		$this->load->view('layout/web/1_head');
-		$this->load->view('layout/web/2_preloader');
-		$this->load->view('layout/web/3_header');
-		$this->load->view('web/About');
-		$this->load->view('layout/web/5_rightbar');
-		$this->load->view('layout/web/6_footer');
+		$layout = array('transparentwrapper' => TRUE,'pagetitle'=>'About Us');
+		$this->load->view('layout/web/1_head',$layout);
+		$this->load->view('layout/web/2_preloader',$layout);
+		$this->load->view('layout/web/3_header',$layout);
+		$this->load->view('web/About',$layout);
+		$this->load->view('layout/web/5_rightbar',$layout);
+		$this->load->view('layout/web/6_footer',$layout);
 		
 	}
 	
