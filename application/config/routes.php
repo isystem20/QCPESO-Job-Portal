@@ -333,11 +333,12 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
       
         $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
+        $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+      
+        $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
 
         $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
-      
-        /* Dialect */ $route['manage/maintenance/Dialect'] = 'admin/DialectController/Dialect';
-
+        $route['manage/settings/update-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
       //Dialect
         $route['admin/dialect/add'] = 'admin/DialectController/Create'; //POST to create
         $route['admin/dialect/edit'] = 'admin/DialectController/Update'; // POST to edit

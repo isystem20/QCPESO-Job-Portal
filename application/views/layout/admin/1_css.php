@@ -65,7 +65,7 @@
    
      <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
   <link rel="stylesheet" href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/html5-editor/bootstrap-wysihtml5.css" />
-   
+    <link rel="stylesheet" href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/dropify/dist/css/dropify.min.css">
   
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/datatables/media/css/dataTables.bootstrap4.css">
 

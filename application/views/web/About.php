@@ -45,7 +45,71 @@
                             This original mandate was broadened to include the promotion and sustenance of the City's <br>
                             Employment Program when, in September 3, 1992, the City Government signed a pertinent <br>
                             Memorandum of Agreement with the Department of Labor and Employment (DOLE). <br>Thus, the City's Public Employment Service Office (PESO) was born.<br></center><br>
+                            </div>
+
+                    <div class="row">
+                        <div class="col-md-8 m-auto text-center">
+                            <h1>Officials</h1>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="icon-box text-center">
+                                <div class="icon-box-title">
+                                    <h6>Mr. Carlo Magno Abella</h6>
+                                </div>
+                                <div class="icon-box-content">
+                                    <p>Officer-in-Charge</p>
+                                </div>
+                                 <div class="icon-box-content">
+                                    <p>Tel. No. 988-4242 local 8435</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="icon-box text-center">
+                                <div class="icon-box-title">
+                                    <h6>Ms.Aurora O. Palogan</h6>
+                                </div>
+                                <div class="icon-box-content">
+                                    <p>Administrative Section</p>
+                                </div>
+                                <div class="icon-box-content">
+                                    <p>Tel. No. 988-4242 local 8439</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="icon-box text-center">  
+                                <div class="icon-box-title">
+                                    <h6>Mr. Joe Alex M. Macabulos</h6>
+                                </div>
+                                <div class="icon-box-content">
+                                    <p>Employment Section</p>
+                                </div>
+                                <div class="icon-box-content">
+                                    <p>Tel. No. 988-4242 local 8437</p>
+                                </div>
+                            </div>
+                        </div>
+
+                          <!--   <div class="col-lg-12"><center> <br>
+                                    Mr. Carlo Magno Abella<br>
+                                    Officer-in-Charge<br>
+                                    Tel. No. 988-4242 local 8435<br>
+
+                                    Administrative Section<br>
+                                    Ms.Aurora O. Palogan<br>
+                                    Tel. No. 988-4242 local 8439<br>
+
+                                    Employment Section<br>
+                                    Mr. Joe Alex M. Macabulos<br>
+                                    Tel. No. 988-4242 local 8437<br>
+
+                                    Special Program Section<br>
+                                    Ms. Djohanna Delia G. Ravelo<br>
+                                    Tel. No. 988-4242 local 8436<br>
+                        </div> -->
                     </div>
                 </div>
             </section>
@@ -107,25 +171,12 @@
                                         <h6>About Us</h6>
                                     </div>
                                     <div class="textwidget">
+                                        <p>Quezon City Public Employment Service Office</p>
                                         <p>
-                                            Mr. Carlo Magno Abella<br>
-                                            Officer-in-Charge<br>
-                                            Tel. No. 988-4242 local 8435<br>
-                                        </p>
-                                        <p>
-                                            Administrative Section<br>
-                                            Ms.Aurora O. Palogan<br>
-                                            Tel. No. 988-4242 local 8439<br>
-                                        </p>
-                                        <p>
-                                            Employment Section<br>
-                                            Mr. Joe Alex M. Macabulos<br>
-                                            Tel. No. 988-4242 local 8437<br>
-                                        </p>
-                                        <p>
-                                            Special Program Section<br>
-                                            Ms. Djohanna Delia G. Ravelo<br>
-                                            Tel. No. 988-4242 local 8436<br>
+                                            Location: 4th Floor, Civic Center <br>
+                                            Building A, City Hall Compound <br>
+                                            E-mail: isystem20@gmail.com<br>
+                                            Phone: +63123453456<br>
                                         </p>
                                         <ul class="social-icons">
                                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
