@@ -21,13 +21,13 @@ class ProfileController extends Applicant_Controller {
 
 public function ShowProfile()
 	{
-
-		$this->load->view('layout/web/1_head');
-		$this->load->view('layout/web/2_preloader');
-		$this->load->view('layout/web/3_header_login');
-		$this->load->view('web/Profile');
-		$this->load->view('layout/web/5_rightbar');
-		$this->load->view('layout/web/6_footer');
+		$layout = array ('transparentwrapper' => TRUE,'pagetitle'=>'Profile')
+		$this->load->view('layout/web/1_head',$layout);
+		$this->load->view('layout/web/2_preloader',$layout);
+		$this->load->view('layout/web/3_header_login',$layout);
+		$this->load->view('web/Profile',$layout);
+		$this->load->view('layout/web/5_rightbar',$layout);
+		$this->load->view('layout/web/6_footer',$layout);
 
 		
 	}

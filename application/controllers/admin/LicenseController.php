@@ -1,26 +1,33 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class LicenseController extends CI_Controller {
+ class LicenseController extends Admin_Controller {
  
     function __construct() {
          parent::__construct();
          $this->load->model('admin/LicenseModel','licenmod');
+         $this->load->model('LoggerModel','logger'); //Include LoggerModel
      }
  
     public function Licenses()
     {
  
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE,'pagetitle'=>'Masterlist of Licenses');
         $data['masterlist'] = $this->licenmod->LoadMasterlist();
         $data['class'] = 'licenses';
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('layout/admin/1_css',$layout);
+        $this->load->view('layout/admin/2_preloader',$layout);
+        $this->load->view('layout/admin/3_topbar',$layout);
+        $this->load->view('layout/admin/4_leftsidebar',$layout);
         $this->load->view('pages/maintenance/Licenses',$data);
         $this->load->view('layout/admin/6_js',$layout);     
-        $this->load->view('layout/admin/7_modals'); 
+        $this->load->view('layout/admin/7_modals',$layout);
+
+        $json = json_encode($data['masterlist']); //log
+        $this->logger->log('Load Licenses','Licenses',$json); //Log
+
+        $json = json_encode($data['masterlist']); //log
+        $this->logger->log('Load Masterlist','Licenses',$json); //Log
 
     }
     public function Create() {
@@ -33,6 +40,7 @@
 
             if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
+             $this->logger->log('Error Form Create','Licenses',$errors); //Log
              echo json_encode(['error'=>$errors]);
          }
         else {
@@ -40,10 +48,13 @@
             $inserted = $this->licenmod->Add($postdata);
             // echo json_encode(['success'=>TRUE]);
             if ($inserted != FALSE) {
-                $json = json_encode($inserted);             
+                $json = json_encode($inserted);
+                $this->logger->log('Create','License',$json); //Log 
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Create','License',$json); //Log
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
          }
@@ -59,6 +70,7 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
+            $this->logger->log('Error Form Create','License',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
@@ -68,10 +80,13 @@
 
             $result = $this->licenmod->Update($id,$postdata);
             if ($result != FALSE) {
-                $json = json_encode($result);             
+                $json = json_encode($result);
+                $this->logger->log('Update','License',$json); //Log              
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Update','License',$json); //Log
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
         }
@@ -91,15 +106,19 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
+            $this->logger->log('Error Form Create','License',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
             $result = $this->licenmod->Delete($postdata);
             if ($result != FALSE) {
-                $json = json_encode($result);              
+                $json = json_encode($result); 
+                $this->logger->log('Delete','License',$json); //Log             
                 echo $json;
             }
             else {
+                $json = json_encode($postdata); // encode postdata
+                $this->logger->log('Error Delete','License',$json); //Log 
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
 
