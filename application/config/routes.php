@@ -305,3 +305,7 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/countries/del'] = 'admin/CountriesController/Delete'; // POST to delete
         $route['admin/countries/read'] = 'admin/CountriesController/Read'; // POST to view
 
+
+
+
+
