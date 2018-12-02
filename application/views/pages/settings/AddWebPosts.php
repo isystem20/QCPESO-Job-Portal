@@ -234,14 +234,28 @@ else { ?>
                                     </div>
 
                                     <div class="col-md-6 ">
-                                       <div class="form-group">
+                                        <?php 
+                                        $usertype = $this->session->userdata('usertype');
+                                        if ($usertype == 'ADMIN') {
+                                        ?>
+                                            <div class="form-group">
                                             <label class="control-label ">Status</label>
                                             <select class="form-control custom-select "
-                                            name="IsActive">
-                                                <option value="1">Active</option>
-                                                <option value="2">Inactive</option>
+                                            name="IsActive" <?=$attr?> >
+
+                                            <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
+                                            <option <?php if($row->IsActive=="2"){ echo "Selected";}?> value="2">Inactive</option>
+                                         
                                             </select>
                                     </div>
+
+
+                                        <?php
+                                         }
+                                        ?>
+
+
+                                     
                                     </div>
                                 </div>
 
