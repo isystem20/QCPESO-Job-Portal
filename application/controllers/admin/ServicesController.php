@@ -1,26 +1,25 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class WebPostsController extends CI_Controller {
+ class ServicesController extends CI_Controller {
  
     function __construct() {
          parent::__construct();
-         $this->load->model('admin/WebPostsModel','webpostmod');
-         $this->load->model('admin/PostTypesModel','postymod');
+         $this->load->model('admin/ServicesModel','servmod');
+     
      }
  
-  public function AddWebPosts($id = null,$mode= null)
+  public function AddServices($id = null,$mode= null)
     {
  
-        $layout = array('editor'=>TRUE, 'tags'=>TRUE, 'pagetitle'=>'Adding New Web Posts','uploadfile'=>TRUE);
-        $data['posttypes'] = $this->postymod->LoadMasterlist();
-        $data['class'] = 'webposts';
+        $layout = array('editor'=>TRUE, 'pagetitle'=>'Adding New Services','uploadfile'=>TRUE);
+        $data['class'] = 'services';
 
              
 
        if (!empty($id)) {
 
-            $data['webposts'] = $this->webpostmod->LoadMasterlist($id);
+            $data['services'] = $this->servmod->LoadMasterlist($id);
 
             // print_r($data['applicant']);
 
@@ -43,23 +42,23 @@
         $this->load->view('layout/admin/2_preloader',$layout);
         $this->load->view('layout/admin/3_topbar',$layout);
         $this->load->view('layout/admin/4_leftsidebar',$layout);
-        $this->load->view('pages/settings/AddWebPosts',$data);
+        $this->load->view('pages/settings/AddServices',$data);
         $this->load->view('layout/admin/6_js',$layout);
 
     }
  
-      public function AllWebPosts()
+      public function AllServices()
     {
  
-        $layout = array('tables'=>TRUE,'pagetitle'=>'List of All Web Posts');
-        $data['webposts'] = $this->webpostmod->LoadMasterlist();
-        $data['class'] = 'webposts';
+        $layout = array('tables'=>TRUE,'pagetitle'=>'List of All Services');
+        $data['services'] = $this->servmod->LoadMasterlist();
+        $data['class'] = 'services';
 
         $this->load->view('layout/admin/1_css',$layout);
         $this->load->view('layout/admin/2_preloader',$layout);
         $this->load->view('layout/admin/3_topbar',$layout);
         $this->load->view('layout/admin/4_leftsidebar',$layout);
-        $this->load->view('pages/settings/AllWebPosts',$data);
+        $this->load->view('pages/settings/AllServices',$data);
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals'); 
 
@@ -68,15 +67,14 @@
 
    
  	public function Create() {
-		$this->form_validation->set_rules('PostTitle','title','required|is_unique[tbl_web_posts.PostTitle]',
+		$this->form_validation->set_rules('Name','Name','required|is_unique[tbl_web_services.Name]',
 		        array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
         		)
 		    );
-            $this->form_validation->set_rules('PostDescription','Post Description','required');
-             $this->form_validation->set_rules('Tags','Tags','required');
-            $this->form_validation->set_rules('PostContent','Post Content','required');
+            $this->form_validation->set_rules('Description','Description','required');
+            $this->form_validation->set_rules('Content','Content','required');
 	     if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
@@ -110,13 +108,13 @@
 
 
         	$postdata = $this->input->post();
-            $postdata['WebImage']=$imagepath;
+            $postdata['Image']=$imagepath;
             unset($postdata['_wysihtml5_mode']);
-        	$inserted = $this->webpostmod->Add($postdata);
+        	$inserted = $this->servmod->Add($postdata);
         	// echo json_encode(['success'=>TRUE]);
          	if ($inserted != FALSE) {      		
         		
-                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/settings/all-web-post']);
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/settings/all-services']);
         	}
         	else {
         		echo json_encode(['error'=>'Update Unsuccessful.']);
@@ -142,7 +140,7 @@
             unset($postdata['_wysihtml5_mode']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->webpostmod->Update($id,$postdata);
+            $result = $this->servmod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                 echo $json;
@@ -170,7 +168,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->webpostmod->Delete($postdata);
+            $result = $this->servmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
                 echo $json;

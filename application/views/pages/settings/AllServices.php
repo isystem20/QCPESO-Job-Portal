@@ -11,15 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Activity Log</h3>
-                    <h6 class="text-muted">Masterlist of All Activity Log</h6>
+                    <h3 name="header-text" class="text-themecolor" >Services</h3>
+                    <h6 class="text-muted">Masterlist of All Services</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Reports</li>
-                        <li class="breadcrumb-item active">Activity Log</li>
+                        <li class="breadcrumb-item">Settings</li>
+                        <li class="breadcrumb-item active">Services</li>
                     </ol>
                 </div>
                 <div>
@@ -38,34 +38,56 @@
 
                         <div class="card">
                             <div class="card-body">
-                               <div class="table-responsive m-t-40">
+                               <a href="<?=base_url('manage/settings/add-services');?>" class="btn waves-effect waves-light btn-success">Add</a>
+                                <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-                                                <th>Time Stamp</th>
+                                                <th>Slug</th>
+                                                <th>Service Name</th>
+                                                <th>Description</th>
+                                                <th>Content</th>
+                                                <th>Image</th>
+                                                <th>Modified By</th>
+                                                <th>Modified At</th>
+                                                <th>Version No</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
-                                                <th>Entity</th>
-                                               
-                                                <th>IP Address</th>
-                                                <th>Device</th>
-                                                <th>Platform</th>
-                                                <th>User Agent</th>
+                                                
                                             </tr>
                                         </thead>
                                         <?php
-                                        if ($accountslog->num_rows() > 0) {
-                                            foreach ($accountslog->result() as $row) { ?>
-                                            <tr id="row<?=$row->UserId; ?>">
-                                                <td><?php echo $row->Timestamp; ?></td>
-                                                  <td><?php echo $row->Action; ?></td>
-                                                   <td><?php echo $row->Entity; ?></td>
-                                                    
-                                                     <td><?php echo $row->IpAddress; ?></td>
-                                                      <td><?php echo $row->Device; ?></td>
-                                                       <td><?php echo $row->Platform; ?></td>
-                                                        <td><?php echo $row->UserAgent; ?></td>
-                                            
-                                                
+                                        if ($services->num_rows() > 0) {
+                                            foreach ($services->result() as $row) { ?>
+                                            <tr id="row<?=$row->Id; ?>">
+                                                <td><?php echo character_limiter($row->Slug, 10); ?></td>
+                                                <td><?php echo character_limiter($row->Name, 30); ?></td>
+                                                 <td><?php echo character_limiter($row->Description, 30); ?></td>
+                                                 <td><?php echo $row->Content; ?></td>
+                                                <td><?php echo character_limiter($row->Image, 30); ?></td>
+                                                <td><?php echo $row->ModifiedById; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
+                                                <td><?php echo character_limiter($row->VersionNo, 10); ?></td>
+                                                <td>
+                                                    <?php 
+                                                    if ($row->IsActive == '1') {
+                                                        echo '<label class="label label-success">Active</label>';
+                                                    }
+                                                    else {
+                                                        echo '<span class="label label-light-inverse">Inactive</span>';
+                                                    }
+                                                    ?>
+                                                </td>
+                                                <td class="actions">
+                                                    <a href="<?=base_url('manage/settings/view-services/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
+
+
+                                                    <a href="<?=base_url('manage/settings/update-services/'.$row->Id.'/edit');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
+
+
+
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/services/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
                                             </tr>
                                         <?php
                                             }
@@ -73,7 +95,6 @@
                                         ?>
                                     </table>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>

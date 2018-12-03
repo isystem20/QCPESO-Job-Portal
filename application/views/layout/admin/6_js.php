@@ -923,6 +923,66 @@ $('#to-recover').on("click", function() {
     ?>
 
 
+<?php
+    if (!empty($uploadfile)) { ?>
+
+   
+   
+   
+
+   
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+   
+    <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/custom.min.js"></script>
+  
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/dropify/dist/js/dropify.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      
+        $('.dropify').dropify();
+
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove: 'Supprimer',
+                error: 'Désolé, le fichier trop volumineux'
+            }
+        });
+
+    
+        var drEvent = $('#input-file-events').dropify();
+
+        drEvent.on('dropify.beforeClear', function(event, element) {
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+
+        drEvent.on('dropify.afterClear', function(event, element) {
+            alert('File deleted');
+        });
+
+        drEvent.on('dropify.errors', function(event, element) {
+            console.log('Has Errors');
+        });
+
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function(e) {
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        })
+    });
+    </script>
+   
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+<?php
+    }
+    ?>
 <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/js/jquery.toast.js"></script>
 
 

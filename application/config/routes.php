@@ -348,6 +348,9 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
       
         $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
+        $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+      
+        $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
         
         //Regions
         $route['admin/region/add'] = 'admin/RegionController/Create'; //POST to create
@@ -358,6 +361,8 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         /* Cities */                     $route['manage/maintenance/cities'] = 'admin/CitiesController/Cities';
         
         $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+        $route['manage/settings/update-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
+
 
 
 
@@ -371,6 +376,17 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/jobposts/del'] = 'admin/JobsController/Delete';
       
         $route['manage/do/jobs/add/(:any)'] = 'admin/JobsController/NewJob/$1';
+        $route['manage/settings/add-services'] = 'admin/ServicesController/AddServices'; 
+        $route['manage/settings/all-services'] = 'admin/ServicesController/AllServices';
+        $route['manage/settings/services'] = 'admin/ServicesController/Services';
+        $route['admin/services/add'] = 'admin/ServicesController/Create'; //POST to create
+        $route['admin/services/edit'] = 'admin/ServicesController/Update'; // POST to edit
+        $route['admin/services/del'] = 'admin/ServicesController/Delete'; // POST to delete
+        $route['admin/services/read'] = 'admin/ServicesController/Read'; // POST to view
+        $route['manage/settings/view-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
+        $route['manage/settings/add-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
+        $route['manage/settings/update-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
+        $route['manage/settings/update-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
 
         $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
       
