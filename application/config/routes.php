@@ -305,3 +305,51 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/countries/del'] = 'admin/CountriesController/Delete'; // POST to delete
         $route['admin/countries/read'] = 'admin/CountriesController/Read'; // POST to view
 
+        /* Nationality */                     $route['manage/maintenance/nationality'] = 'admin/NationalityController/Nationality';
+        
+        //Nationality
+        $route['admin/nationality/add'] = 'admin/NationalityController/Create'; //POST to create
+        $route['admin/nationality/edit'] = 'admin/NationalityController/Update'; // POST to edit
+        $route['admin/nationality/del'] = 'admin/NationalityController/Delete'; // POST to delete
+        $route['admin/nationality/read'] = 'admin/NationalityController/Read'; // POST to view
+
+        /* Regions */                     $route['manage/maintenance/region'] = 'admin/RegionController/Region';
+        
+        //Regions
+        $route['admin/region/add'] = 'admin/RegionController/Create'; //POST to create
+        $route['admin/region/edit'] = 'admin/RegionController/Update'; // POST to edit
+        $route['admin/region/del'] = 'admin/RegionController/Delete'; // POST to delete
+        $route['admin/region/read'] = 'admin/RegionController/Read'; // POST to view
+
+        /* Cities */                     $route['manage/maintenance/cities'] = 'admin/CitiesController/Cities';
+        
+        //Cities
+        $route['admin/cities/add'] = 'admin/CitiesController/Create'; //POST to create
+        $route['admin/cities/edit'] = 'admin/CitiesController/Update'; // POST to edit
+        $route['admin/cities/del'] = 'admin/CitiesController/Delete'; // POST to delete
+        $route['admin/cities/read'] = 'admin/CitiesController/Read'; // POST to view
+
+
+        $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+      
+        $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
+        $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+      
+        $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
+
+        $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+        $route['manage/settings/update-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
+
+
+
+        $route['manage/settings/add-services'] = 'admin/ServicesController/AddServices'; 
+        $route['manage/settings/all-services'] = 'admin/ServicesController/AllServices';
+        $route['manage/settings/services'] = 'admin/ServicesController/Services';
+        $route['admin/services/add'] = 'admin/ServicesController/Create'; //POST to create
+        $route['admin/services/edit'] = 'admin/ServicesController/Update'; // POST to edit
+        $route['admin/services/del'] = 'admin/ServicesController/Delete'; // POST to delete
+        $route['admin/services/read'] = 'admin/ServicesController/Read'; // POST to view
+        $route['manage/settings/view-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
+        $route['manage/settings/add-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
+        $route['manage/settings/update-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
+        $route['manage/settings/update-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
