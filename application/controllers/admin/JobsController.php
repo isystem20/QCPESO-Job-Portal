@@ -10,17 +10,13 @@
          $this->load->model('LoggerModel','logger'); //Include LoggerModel
         $this->load->model('admin/ApplicantLevelModel','applevmod');
         $this->load->model('admin/SkillsModel','skimod');
-        $this->load->model('admin/EstablishmentModel','establishmentmod');
-
-
-        
-            
+        $this->load->model('admin/EstablishmentModel','establishmentmod');         
      }
  
  	public function NewJob($id = null,$mode= null)
  	{
       $css = array('addons' => True, );
-      $layout = array('addons'=>TRUE);
+      $layout = array('addons'=>TRUE, 'pagetitle'=>'Adding New Job Posts','uploadfile'=>TRUE);
       $data['emptypes'] = $this->emptypemod->LoadMasterlist();
       $data['applev'] = $this->applevmod->LoadMasterlist();
       $data['skills'] = $this->skimod->LoadMasterlist();
@@ -28,7 +24,7 @@
         
         
         
-        $data['class'] = 'viewjobs';
+      $data['class'] = 'jobposts';
  		// $data['categories'] = $this->categmod->LoadCategoryMasterlist();
    //      $data['class'] = 'categories';
 
@@ -39,29 +35,26 @@
 
             // print_r($data['jobposts']);
 
-            if (!empty($mode)) {
+             if (!empty($mode)) {
                 if ($mode == 'edit') {
-                    $mode = array('edit' => TRUE, );
+                    $data['mode']="edit";
                 }
                 elseif ($mode == 'view') {
-                    $mode = array('view' => TRUE, );
+                    $data['mode']="view";
                 }
                 else {
                     die('Invalid Mode');
                 }
             }
             else {
-                $mode = array('view' => TRUE, );
+                  $data['mode']="view";
             }
         }
     
-
-
-
- 		$this->load->view('layout/admin/1_css', $css);
- 		$this->load->view('layout/admin/2_preloader');
- 		$this->load->view('layout/admin/3_topbar');
- 		$this->load->view('layout/admin/4_leftsidebar');
+ 		$this->load->view('layout/admin/1_css', $layout);
+ 		$this->load->view('layout/admin/2_preloader', $layout);
+ 		$this->load->view('layout/admin/3_topbar', $layout);
+ 		$this->load->view('layout/admin/4_leftsidebar', $layout);
  		$this->load->view('pages/transaction/jobs/NewJobs', $data);
  		$this->load->view('layout/admin/6_js',$layout);		
     
@@ -93,13 +86,43 @@
  	public function AddNewJob(){
 
       
-        $this->form_validation->set_rules('JobTitle','Job Title','required');
-        if ($this->form_validation->run() == FALSE){
+       $this->form_validation->set_rules('JobTitle','Job Title','required');
+          
+       if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
+
          }
-        else {
+
+         elseif (empty($_FILES["jobimg"]["name"])) {
+            $errors = "Image File Needed.";
+           
+        }
+  
+            else {
+            $imagepath="";
+            $path = dirname(BASEPATH).'/uploadss/';
+            $config['upload_path'] = $path;
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = '100000';
+            $senderror = FALSE;
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('jobimg')) {
+                $errors = $this->upload->display_errors();
+                $senderror = TRUE;
+            }       
+            else {
+                $imagedata = $this->upload->data();
+                $imagepath =  'uploads/'.$imagedata['file_name'];   
+            }
+
+
+
+
           $postdata = $this->input->post();
+            $postdata['jobimg']=$imagepath;
+            // unset($postdata['_wysihtml5_mode']);
           $inserted = $this->jobsmod->Add($postdata);
           // echo json_encode(['success'=>TRUE]);
           if ($inserted != FALSE) {         
@@ -110,6 +133,7 @@
             echo json_encode(['error'=>'Update Unsuccessful.']);
           }
          }
+ 
 
 
  	} 

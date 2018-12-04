@@ -20,7 +20,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 		}
 
-
 		public function Add($data) {
 			// $this->db->set('JobTitle',"'".$data['JobTitle']."'",FALSE);
 			// $this->db->set('Specialization',"'".json_encode($data['Specialization'])."'",FALSE);
@@ -33,11 +32,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
-
-			// // $this->db->set('JobImage',"'".$data['jobimage']."'",FALSE);	
-			// $this->db->set('IsActive',"'".$data['IsActive']."'",FALSE);
-
-			// $this->db->insert('tbl_establishments_jobposts');			
 
 			$this->db->insert($this->tbl,$data);
 

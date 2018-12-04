@@ -1,9 +1,15 @@
 <?php 
 if (!empty($jobposts)) {
-   foreach ($jobposts as $row) { ?>
+    $attr="";
+   foreach ($jobposts as $row) 
+    { 
+        if ($mode=="view") {
+            $attr="disabled readonly";
+            
+        }
 
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
+        ?>
+
         <div class="page-wrapper">
             
             <!-- ============================================================== -->
@@ -51,11 +57,7 @@ if (!empty($jobposts)) {
                                 <h4 class="m-b-0 text-white">Job Post Form</h4>
                             </div>
                             <div class="card-body">
-                                    <?php
-                                        $hidden = array(
-                                          'id' => $row->Id,
-                                        );
-                                        ?>
+                                    
                                         <div class="form-body">
                                         <h3 class="card-title">Job Post Information</h3>
                                         <hr>
@@ -65,11 +67,16 @@ if (!empty($jobposts)) {
                                         <div class="row p-t-20">
                                             
                                             <div class="col-md-6">
+                                            <?php
+                                            $hidden = array(
+                                              'id' => $row->Id,
+                                            );
+                                            ?>
                                             <?php echo form_open_multipart('manage/do/jobs/addnewjob','id="jobpost-form"', $hidden); ?>
 
                                                 <div class="form-group">
                                                     <label class="control-label">Job Title</label>
-                                                    <input  type="text" value="<?=$row->JobTitle;?>" id="jtitle" name="jtitle"  class="form-control" >
+                                                    <input  type="text"  <?=$attr?> value="<?=$row->JobTitle;?>" id="jtitle" name="jtitle"  class="form-control" >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -77,7 +84,7 @@ if (!empty($jobposts)) {
                                                     <label class="control-label">Specialization</label>
 
                                                     
-                                                    <select name="speci" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                    <select name="speci"  <?=$attr?> id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php $str="";
                                                             if ($skills->num_rows() > 0) {
 
@@ -107,7 +114,7 @@ if (!empty($jobposts)) {
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Establishment</label>
-                                                    <select class="select2 form-control custom-select" name="estab" id="estab">
+                                                    <select class="select2 form-control custom-select"  <?=$attr?> name="estab" id="estab">
                                                         <?php $str="";
                                                             if ($estabs->num_rows() > 0) {
                                                                 foreach ($estabs->result() as $types) { 
@@ -130,7 +137,7 @@ if (!empty($jobposts)) {
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Employment Type</label>
-                                                    <select class="select2 form-control custom-select" name="emptype">
+                                                    <select class="select2 form-control custom-select"  <?=$attr?> name="emptype">
                                                         <?php $str="";
                                                             if ($emptypes->num_rows() > 0) {
                                                                 foreach ($emptypes->result() as $types) { 
@@ -154,7 +161,7 @@ if (!empty($jobposts)) {
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Position Level</label>
-                                                    <select class="select2 form-control custom-select" name="postlevel">
+                                                    <select class="select2 form-control custom-select"   <?=$attr?> name="postlevel">
                                                        <?php $str="";
                                                             if ($applev->num_rows() > 0) {
                                                                 foreach ($applev->result() as $types) { 
@@ -180,7 +187,7 @@ if (!empty($jobposts)) {
                                                 <div class="col-12">
                                                     <label class="control-label">Job Description</label>  
                                                     <div class="form-group">
-                                                        <textarea  class="textarea_editor form-control" id="jobdesc" name="jobdesc" rows="5" placeholder="Enter text ..."><?=$row->JobDescription;?></textarea>
+                                                        <textarea  class="textarea_editor form-control"  <?=$attr?> id="jobdesc" name="jobdesc" rows="5" placeholder="Enter text ..."><?=$row->JobDescription;?></textarea>
                                                     </div>
                                                                             
                                                 </div>
@@ -199,7 +206,7 @@ if (!empty($jobposts)) {
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Job Image</label>
-                                                    <input type="file" id="jobimage" name="jobimage" class="form-control" >
+                                                    <input type="file"  <?=$attr?> name="jobimage" class="form-control" data-default-file="<?php echo base_url().$row->JobImage?>" >
                                                 </div>
                                             </div>
 
@@ -229,11 +236,19 @@ if (!empty($jobposts)) {
                                         
                                        
                                        
-                                    </div>
+                                    </div> 
+                                    <?php
+                                    if ($mode=="edit") {
+                                        ?>
                                     <div class="form-group">
                                         <button type="submit" id="add-jobposts" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
                                         <button type="button" class="btn btn-danger">Cancel</button>
                                     </div>
+
+                                    <?php
+                                    }
+
+                                     ?>
 
                                 <!--  -->
                             </div>
@@ -249,62 +264,7 @@ if (!empty($jobposts)) {
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <div class="right-sidebar">
-                    <div class="slimscrollright">
-                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
-                        <div class="r-panel-body">
-                            <ul id="themecolors" class="m-t-20">
-                                <li><b>With Light sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default" class="default-theme working">1</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme">4</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
-                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                            </ul>
-                            <ul class="m-t-20 chatonline">
-                                <li><b>Chat option</b></li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
+
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -482,7 +442,7 @@ else { ?>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Job Image</label>
-                                                    <input type="file" id="jobimage" name="jobimage" class="form-control" >
+                                                    <input type="file" name="jobimg" class="form-control" >
                                                 </div>
                                             </div>
 
@@ -492,7 +452,7 @@ else { ?>
                                                     <select class="form-control" id="stat" name="stat">
                                                         <option value="1">Active</option>
                                                         <option value="2">Inactive</option>
-                                                        <option value="3">Pending</option>
+                                                       
                                                         
                                                     </select>
                                                 </div>
