@@ -1,23 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AuthenticationController extends CI_Controller {
+class AuthenticationController extends public_Controller {
 
 
 	function __construct() {
         parent::__construct();
         $this->load->model('admin/AuthModel','auth');
+        $this->load->model('LoggerModel','logger'); //Include LoggerModel
     }
 
 
 
 	public function LoginPage()
 	{
-		$layout = array('login' => TRUE, );
+		$layout = array('login' => TRUE,'pagetitle'=>'Login' );
 		$this->load->view('layout/admin/1_css',$layout);
 		$this->load->view('layout/admin/2_preloader',$layout);
-		$this->load->view('auth/LoginPage');
-		$this->load->view('layout/admin/6_js');	
+		$this->load->view('auth/LoginPage',$layout);
+		$this->load->view('layout/admin/6_js',$layout);
 	}
 
 
@@ -25,6 +26,7 @@ class AuthenticationController extends CI_Controller {
 
 		$this->form_validation->set_rules('Email','Email','required|valid_email');
 		$this->form_validation->set_rules('Password','Password','required');
+
 
   		if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
@@ -44,9 +46,13 @@ class AuthenticationController extends CI_Controller {
         	if ($login != FALSE) {
 
         		if ($login->Active == '0' || $login->applicantstatus == '0') {
+        			$json = json_encode($login); //log
+        			$this->logger->log('Account Disabled','Authentication',$json); //Log 
         			echo json_encode(['error'=>'Account Disabled.']);
         		}
         		elseif ($login->PasswordHash != $hashed_password) {
+        			$json = json_encode($login); //log
+        			$this->logger->log('Incorect Password','Authentication',$json); //Log
         			echo json_encode(['error'=>'Incorrect Password']);
         		}
         		else {
@@ -62,6 +68,8 @@ class AuthenticationController extends CI_Controller {
 	        		);  
 	        		
 	        		$this->session->set_userdata($session_data);
+	        		$json = json_encode($session_data); //log
+        			$this->logger->log('Success Login','Authentication',$json); //Log
         			echo json_encode(['success'=>TRUE,'url'=>base_url().'manage']);	        		
 
         		}

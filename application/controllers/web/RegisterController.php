@@ -11,24 +11,24 @@ class RegisterController extends CI_Controller {
 	public function register()
 	{
 		
-		$layout = array('transparentwrapper' => TRUE, );
-		$this->load->view('layout/web/1_head');
-		$this->load->view('layout/web/2_preloader');
+		$layout = array('transparentwrapper' => TRUE,'pagetitle'=>'Register' );
+		$this->load->view('layout/web/1_head',$layout);
+		$this->load->view('layout/web/2_preloader',$layout);
 		$this->load->view('layout/web/3_header', $layout);
-		$this->load->view('web/Register');
-		$this->load->view('layout/web/5_rightbar');
-		$this->load->view('layout/web/6_footer');
+		$this->load->view('web/Register',$layout);
+		$this->load->view('layout/web/5_rightbar',$layout);
+		$this->load->view('layout/web/6_footer',$layout);
 		
 	}
 	
 	public function VerifyEmail() {
-		$layout = array('transparentwrapper' => TRUE, );
-		$this->load->view('layout/web/1_head');
-		$this->load->view('layout/web/2_preloader');
+		$layout = array('transparentwrapper' => TRUE,'pagetitle'='Verification of Email' );
+		$this->load->view('layout/web/1_head',$layout);
+		$this->load->view('layout/web/2_preloader',$layout);
 		$this->load->view('layout/web/3_header', $layout);
-		$this->load->view('web/VerifyEmail');
-		$this->load->view('layout/web/5_rightbar');
-		$this->load->view('layout/web/6_footer');	
+		$this->load->view('web/VerifyEmail',$layout);
+		$this->load->view('layout/web/5_rightbar',$layout);
+		$this->load->view('layout/web/6_footer',$layout);	
 	}
 
 	//POST Function to create new applicant
