@@ -5,34 +5,20 @@
  
     function __construct() {
          parent::__construct();
-         $this->load->model('admin/EmployerModel','appmamod');
-         $this->load->model('admin/CountriesModel','countries');
+         $this->load->model('admin/EmployerModel','webpostmod');
      }
  
-    public function EstablishmentMasterlist()
+  public function EmployerRegistration($id = null,$mode= null)
     {
  
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
-        $data['masterlist'] = $this->appmamod->LoadMasterlist();
-        $data['class'] = 'employermasterlist';
-        $this->load->view('layout/admin/1_css');
-        $this->load->view('layout/admin/2_preloader');
-        $this->load->view('layout/admin/3_topbar');
-        $this->load->view('layout/admin/4_leftsidebar');
-        $this->load->view('pages/transaction/establishment/EmployerRegistration',$data);
-        $this->load->view('layout/admin/6_js',$layout);     
-        $this->load->view('layout/admin/7_modals'); 
+        $layout = array('editor'=>TRUE, 'tags'=>TRUE);
+        $data['class'] = 'webposts';
 
-    }
+             
 
-    public function EmployerInfo($id = null,$mode = null) {
-        $layout = array('wizard'=>TRUE,'datepicker'=>TRUE, 'addons'=>TRUE);
-        $data['countries'] = $this->countries->LoadMasterlist();
+       if (!empty($id)) {
 
-
-        if (!empty($id)) {
-
-            $data['employer'] = $this->appmamod->LoadMasterlist($id);
+            $data['webposts'] = $this->webpostmod->LoadMasterlist($id);
 
             // print_r($data['applicant']);
 
@@ -51,40 +37,63 @@
                 $mode = array('view' => TRUE, );
             }
         }
-
-        $this->load->view('layout/admin/1_css',$layout);
+        $this->load->view('layout/admin/1_css');
         $this->load->view('layout/admin/2_preloader');
         $this->load->view('layout/admin/3_topbar');
         $this->load->view('layout/admin/4_leftsidebar');
         $this->load->view('pages/transaction/establishment/EmployerRegistration',$data);
+        $this->load->view('layout/admin/6_js',$layout);
+    }
+ 
+      public function AllWebPosts()
+    {
+ 
+        $layout = array('tables'=>TRUE);
+        $data['webposts'] = $this->webpostmod->LoadMasterlist();
+        $data['class'] = 'webposts';
+
+        $this->load->view('layout/admin/1_css');
+        $this->load->view('layout/admin/2_preloader');
+        $this->load->view('layout/admin/3_topbar');
+        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('pages/settings/AllWebPosts',$data);
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals'); 
+
+
     }
 
-    public function Create() {
-        $this->form_validation->set_rules('FirstName','Firstname','required');
-        $this->form_validation->set_rules('LastName','Lastname','required');
-
-        if ($this->form_validation->run() == FALSE){
+   
+ 	public function Create() {
+		$this->form_validation->set_rules('PostTitle','title','required|is_unique[tbl_web_posts.PostTitle]',
+		        array(
+                'required'      => 'You have not provided %s.',
+                'is_unique'     => 'This %s already exists.'
+        		)
+		    );
+        $this->form_validation->set_rules('PostDescription','Post Description','required');
+           $this->form_validation->set_rules('Tags','Tags','required');
+            $this->form_validation->set_rules('PostContent','Post Content','required');
+		    if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
          }
         else {
-            $postdata = $this->input->post();
-            $inserted = $this->appmamod->Add($postdata);
-            // echo json_encode(['success'=>TRUE]);
-            if ($inserted != FALSE) {
-                $json = json_encode($inserted);             
-                echo $json;
-            }
-            else {
-                echo json_encode(['error'=>'Update Unsuccessful.']);
-            }
+        	$postdata = $this->input->post();
+        	$inserted = $this->webpostmod->Add($postdata);
+        	// echo json_encode(['success'=>TRUE]);
+         	if ($inserted != FALSE) {      		
+        		
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/settings/all-web-post']);
+        	}
+        	else {
+        		echo json_encode(['error'=>'Update Unsuccessful.']);
+        	}
          }
  
-    }
+ 	}
  
-    public function Update() {
+ 	public function Update() {
          $this->form_validation->set_rules('itemid', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
@@ -100,7 +109,7 @@
             unset($postdata['itemid']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->appmamod->Update($id,$postdata);
+            $result = $this->webpostmod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                 echo $json;
@@ -113,9 +122,9 @@
 
 
 
-    }
+ 	}
  
-    public function Delete() {
+ 	public function Delete() {
  
          $this->form_validation->set_rules('id', 'Item Record', 'required',
                 array(
@@ -128,7 +137,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->appmamod->Delete($postdata);
+            $result = $this->webpostmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
                 echo $json;
@@ -141,11 +150,11 @@
 
 
 
-    }
+ 	}
  
-    public function Read() {
+ 	public function Read() {
  
-    }
+ 	}
  
  
  
