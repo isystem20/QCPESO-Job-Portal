@@ -28,7 +28,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			// $this->db->set('PositionLevelId',"'".$data['PositionLevelId']."'",FALSE);	
 			// $this->db->set('JobDescription',"'".$data['JobDescription']."'",FALSE);
 			// $this->db->set('Salary',"'".$data['Salary']."'",FALSE);
+
 			$data['Specialization'] = json_encode($data['Specialization']);
+			$data['Category'] = json_encode($data['Category']);
 			
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	

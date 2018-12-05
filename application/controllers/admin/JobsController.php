@@ -10,7 +10,9 @@
          $this->load->model('LoggerModel','logger'); //Include LoggerModel
         $this->load->model('admin/ApplicantLevelModel','applevmod');
         $this->load->model('admin/SkillsModel','skimod');
-        $this->load->model('admin/EstablishmentModel','establishmentmod');         
+        $this->load->model('admin/EstablishmentModel','establishmentmod'); 
+        $this->load->model('admin/CategoriesModel','categmod');
+        
      }
  
  	public function NewJob($id = null,$mode= null)
@@ -21,6 +23,8 @@
       $data['applev'] = $this->applevmod->LoadMasterlist();
       $data['skills'] = $this->skimod->LoadMasterlist();
       $data['estabs'] = $this->establishmentmod->LoadMasterlist();
+      $data['categories'] = $this->categmod->LoadCategoryMasterlist();
+
         
         
         
@@ -85,54 +89,30 @@
 
  	public function AddNewJob(){
 
-      
+
        $this->form_validation->set_rules('JobTitle','Job Title','required');
-          
-       if ($this->form_validation->run() == FALSE){
+
+        if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
+             // $this->logger->log('Error Form Create','Categories',$errors); //LoggerModel
              echo json_encode(['error'=>$errors]);
-
          }
-
-         elseif (empty($_FILES["jobimg"]["name"])) {
-            $errors = "Image File Needed.";
-           
-        }
-  
-            else {
-            $imagepath="";
-            $path = dirname(BASEPATH).'/uploadss/';
-            $config['upload_path'] = $path;
-            $config['allowed_types'] = 'gif|jpg|png';
-            $config['max_size'] = '100000';
-            $senderror = FALSE;
-            $this->load->library('upload', $config);
-
-            if (!$this->upload->do_upload('jobimg')) {
-                $errors = $this->upload->display_errors();
-                $senderror = TRUE;
-            }       
-            else {
-                $imagedata = $this->upload->data();
-                $imagepath =  'uploads/'.$imagedata['file_name'];   
-            }
-
-
-
-
+        else {
           $postdata = $this->input->post();
-            $postdata['jobimg']=$imagepath;
-            // unset($postdata['_wysihtml5_mode']);
           $inserted = $this->jobsmod->Add($postdata);
           // echo json_encode(['success'=>TRUE]);
-          if ($inserted != FALSE) {         
-            
+          if ($inserted != FALSE) {
                 echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/do/jobs/view-list']);
+                // $this->logger->log('Create','Categories',$json); //Log          
           }
           else {
+                $json = json_encode($postdata); // encode postdata
+                // $this->logger->log('Error Create','Categories',$json); //Log 
             echo json_encode(['error'=>'Update Unsuccessful.']);
           }
          }
+ 
+
  
 
 

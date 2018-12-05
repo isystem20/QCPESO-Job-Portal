@@ -344,7 +344,7 @@ else { ?>
                                         </div>
                                         <div class="row p-t-20">
                                             
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                             <?php echo form_open_multipart('manage/do/jobs/addnewjob','id="jobpost-form"'); ?>
 
                                                 <div class="form-group">
@@ -352,7 +352,7 @@ else { ?>
                                                     <input type="text" id="jtitle" name="jtitle" class="form-control" placeholder="Job title">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Specialization</label>
                                                     
@@ -360,6 +360,22 @@ else { ?>
                                                         <?php
                                                             if ($skills->num_rows() > 0) {
                                                                 foreach ($skills->result() as $row) { ?>
+                                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Category</label>
+                                                    
+                                                    <select name="cate" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                        <?php
+                                                            if ($categories->num_rows() > 0) {
+                                                                foreach ($categories->result() as $row) { ?>
                                                                 <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
                                                         <?php
                                                             }

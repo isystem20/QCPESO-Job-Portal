@@ -475,8 +475,12 @@ $('#jobpost-form').submit(function(e){
                 'EmpTypeId' : $('select[name=emptype]').val(),
                 'PositionLevelId' : $('select[name=postlevel]').val(),
                 'Specialization' : $('select[name=speci]').val(),
+                'Category' : $('select[name=cate]').val(),
+                
                 'JobDescription' : $('textarea[name=jobdesc]').val(),
                 'Salary' : $('input[name=salary]').val(),
+                'JobImage' : $('input[name=jobimg]').val(),
+                
                 'IsActive' : $('select[name=stat]').val(),
             }
         console.log(newData);  
