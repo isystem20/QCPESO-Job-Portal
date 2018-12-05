@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class BrowseJobModel extends CI_Model {
 
-		public function  BrowseJobModelMasterlist($str = null) {
+		public function  BrowseJobModelMasterlist($str = null, $category = null) {
 			$this->db->select('*');
 			$this->db->from('tbl_establishments_jobposts');
 			if (!empty($str)) {

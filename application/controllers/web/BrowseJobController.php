@@ -8,12 +8,25 @@ function __construct() {
          parent::__construct();
          $this->load->model('web/BrowseJobModel','browsmod');
          $this->load->model('web/EstablishmentModel','estmod');
+          $this->load->model('admin/CategoriesModel','categmod');
      }
 public function BrowseJob()
 	{
 
-		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist();
+		$str = null;
+		$category = null;
+		$postdata = $this->input->post();
+		if (!empty($postdata['searchtext'])) {
+			$str = $postdata['searchtext'];
+			
+		}
+
+
+		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($str, $category);
+
+		$data['browsejob1'] = $this->browsmod->MostRecentJobs();
 		$data['estabpost'] = $this->estmod->LoadMasterlist();
+		$data['skills'] = $this->categmod->LoadCategoryMasterlist();
 		$layout = array('transparentwrapper' => TRUE, 'pagetitle'=>'BrowseJob');
 		$this->load->view('layout/web/1_head',$layout);
 		$this->load->view('layout/web/2_preloader',$layout);

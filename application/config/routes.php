@@ -353,3 +353,7 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['manage/settings/add-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
         $route['manage/settings/update-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
         $route['manage/settings/update-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
+
+
+        $route['web/browsejob'] = 'web/browsejobcontroller/browsejob';
+

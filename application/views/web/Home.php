@@ -17,11 +17,11 @@
                             <!-- <p><a class="btn btn-lg btn-circle btn-brand" href="#">Get Started</a></p> -->
 
                             <div class="col-md-12" style="background: rgba(20,105,170,0.8); height: 100px;padding:20px;">
-                                <form>
+                                <form action="web/browsejob" method="POST">
                                    <div class="row">
                                        <div class="col-md-5">
                                            <div class="form-group">
-                                               <input class="form-control" type="text" placeholder="Write Job Name">
+                                               <input class="form-control" type="search" name="searchtext" placeholder="Write Job Name">
                                            </div>
                                        </div>
                                        <div class="col-md-5">
@@ -40,7 +40,7 @@
                                        </div>
                                        <div class="col-md-2">
                                            <div class="form-group">
-                                               <input type="submit" class="btn" value="Find Jobs">
+                                               <input type="submit" class="btn" type="submit" value="Find Jobs">
                                            </div>
                                        </div>                                       
                                    </div>
