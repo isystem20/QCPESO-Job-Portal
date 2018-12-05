@@ -110,8 +110,8 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
             /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
-            /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EstablishmentController/EstablishmentMasterlist';
-            /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/AccreditationController/AccreditationRequest';   
+            /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EmployerController/EstablishmentMasterlist';
+            /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/EmployerController/PendingRequest';   
         /* Jobs */ 
             /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';  
                                             $route['manage/do/jobs/addnewjob'] = 'admin/JobsController/AddNewJob';  
@@ -397,3 +397,8 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['manage/do/jobs/add/(:any)/(:any)'] = 'admin/JobsController/NewJob/$1/$2';
 
         $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+
+        $route['admin/emppost/add'] = 'admin/EmployerController/Create'; //POST to create
+        $route['admin/emppost/edit'] = 'admin/EmployerController/Update'; // POST to edit
+        $route['admin/emppost/del'] = 'admin/EmployerController/Delete'; // POST to delete
+        $route['admin/emppost/read'] = 'admin/EmployerController/Read'; // POST to view
