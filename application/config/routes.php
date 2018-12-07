@@ -106,7 +106,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
     /* TRANSACTIONS */
         /* Applicants */ 
             /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
-            /* View List */                 $route['manage/do/applicants/view-list'] = 'admin/ApplicantMasterlistController/ApplicantMasterlist';
+            /* View List */                 $route['manage/do/applicants/view-list'] = 'admin/ApplicantController/Masterlist';
             /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
             /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
