@@ -129,7 +129,12 @@
                                         <li><a href="<?php echo base_url(); ?>manage/settings/tags">Post Tags</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Services</a></li>
+                                <li> <a class="has-arrow" href="#" aria-expanded="false">Services</a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li><a href="<?php echo base_url();?>manage/settings/add-services">Add Services</a></li>
+                                        <li><a href="<?php echo base_url();?>manage/settings/all-services">All Services</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="#">Maintenance</a></li>
                                 <li><a href="#">Design</a></li>
                             </ul>
