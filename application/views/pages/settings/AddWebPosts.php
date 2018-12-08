@@ -59,22 +59,22 @@ if (!empty($webposts)) {
                         <div class="form-group">
                                             <label class="control-label ">Post Type</label>
                                             <select class="form-control custom-select" <?=$attr?>  name="PostTypeId">
-                                    <?php $str="";
-                                        if ($posttypes->num_rows() > 0) {
-                                            foreach ($posttypes->result() as $types) { 
-                                                if ($row->PostTypeId==$types->Id){
-                                                  $str="Selected";
-                                                }
-                                                else {
-                                                    $str="";
+                                                <?php $str="";
+                                                    if ($posttypes->num_rows() > 0) {
+                                                        foreach ($posttypes->result() as $types) { 
+                                                            if ($row->PostTypeId==$types->Id){
+                                                              $str="Selected";
+                                                            }
+                                                            else {
+                                                                $str="";
 
-                                                }
-                                                ?>
-                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
-                                        <?php
-                                            }
-                                        }
-                                        ?> 
+                                                            }
+                                                            ?>
+                                                        <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?> 
                                                
                                                
                                             </select>

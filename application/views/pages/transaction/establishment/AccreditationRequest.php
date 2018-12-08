@@ -34,45 +34,43 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
+               <div class="row">
                     <div class="col-12">
 
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+                               <a href="<?=base_url('manage/do/establishments/add');?>" class="btn waves-effect waves-light btn-success">Add</a>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-                                                <th>Company Name</th>
-                                                <th>Establisment Type</th>
-                                                <th>Company Address</th>
-                                                <th>Contact No.</th>
+                                                <th>CompanyName</th>
+                                                 <th>Acronym</th>
+                                                <th>Industry Type</th>
                                                 <th>Email</th>
                                                 <th>Action</th>
+                                                
                                             </tr>
                                         </thead>
                                         <?php
-                                        if ($masterlist->num_rows() > 0) {
-                                            foreach ($masterlist->result() as $row) { ?>
+                                        if ($emppost->num_rows() > 0) {
+                                            foreach ($emppost->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo $row->CompanyName; ?></td>
-                                                <td><?php echo character_limiter($row->EstablismentType, 30); ?></td>
-                                                <td><?php echo character_limiter($row->CompanyAddress, 30); ?></td>
-                                                <td><?php echo $row->LandlineNum; ?></td>
-                                                <td><?php echo $row->CompanyEmail; ?></td>
-                                               
+                                                <td><?php echo character_limiter($row->CompanyName, 30); ?></td>
+                                                <td><?php echo character_limiter($row->CompanyNameAcronym, 10); ?></td>
+                                                <td><?php echo character_limiter($row->IndustryType, 30); ?></td>
+                                                <td><?php echo character_limiter($row->CompanyEmail, 30); ?></td>
+        
+                                                
                                                 <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button"data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->CompanyName; ?>" data-type="<?=$row->EstablismentType;?>"
-                                                    data-address="<?=$row->CompanyAddress; ?>" data-contact="<?=$row->LandlineNum; ?>" data-email="<?=$row->CompanyEmail; ?>"data-createdby="<?=$row->CreatedById; ?>"data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>"data-Modifiedat="<?=$row->ModifiedAt; ?>"><i class="fas fa-info-circle"></i> </button>
+                                                    <a href="<?=base_url('manage/settings/view-web-post/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
 
 
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->CompanyName; ?>" data-type="<?=$row->EstablismentType; ?>"
-                                                    data-address="<?=$row->CompanyAddress; ?>" data-contact="<?=$row->LandlineNum; ?>" data-email="<?=$row->CompanyEmail; ?>"> <i class="far fa-edit" ></i> </button>
+                                                    <a href="<?=base_url('manage/settings/update-web-post/'.$row->Id.'/edit');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
 
 
 
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->CompanyName; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/emppost/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->CompanyName; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php
