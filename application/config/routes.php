@@ -339,20 +339,27 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
         $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
         $route['manage/settings/update-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
+      //Dialect
+        $route['admin/dialect/add'] = 'admin/DialectController/Create'; //POST to create
+        $route['admin/dialect/edit'] = 'admin/DialectController/Update'; // POST to edit
+        $route['admin/dialect/del'] = 'admin/DialectController/Delete'; // POST to delete
+        $route['admin/dialect/read'] = 'admin/DialectController/Read'; // POST to view
 
+      //JobApplication
+        $route['admin/jobapplications/add'] = 'admin/JobApplicationController/Create'; //POST to create
+        $route['admin/jobapplications/edit'] = 'admin/JobApplicationController/Update'; // POST to edit
+        $route['admin/jobapplications/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
+        $route['admin/jobapplications/read'] = 'admin/JobApplicationController/Read'; // POST to view
 
+       /* Applicants Masterlist */         $route['manage/maintenance/dialect'] = 'admin/DialectController/Dialect'; 
 
-        $route['manage/settings/add-services'] = 'admin/ServicesController/AddServices'; 
-        $route['manage/settings/all-services'] = 'admin/ServicesController/AllServices';
-        $route['manage/settings/services'] = 'admin/ServicesController/Services';
-        $route['admin/services/add'] = 'admin/ServicesController/Create'; //POST to create
-        $route['admin/services/edit'] = 'admin/ServicesController/Update'; // POST to edit
-        $route['admin/services/del'] = 'admin/ServicesController/Delete'; // POST to delete
-        $route['admin/services/read'] = 'admin/ServicesController/Read'; // POST to view
-        $route['manage/settings/view-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
-        $route['manage/settings/add-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
-        $route['manage/settings/update-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
-        $route['manage/settings/update-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
+       /* Applicant list */         $route['manage/maintenance/applicantlist'] = 'admin/ApplicantController/Applicantlist'; 
+
+       //Applicant list
+        $route['admin/applicantlist/add'] = 'admin/JobApplicationController/Create'; //POST to create
+        $route['admin/applicantlist/edit'] = 'admin/JobApplicationController/Update'; // POST to edit
+        $route['admin/applicantlist/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
+        $route['admin/applicantlist/read'] = 'admin/JobApplicationController/Read'; // POST to view
 
         //Dialect
         $route['admin/dialect/add'] = 'admin/DialectController/Create'; //POST to create
