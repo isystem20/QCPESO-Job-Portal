@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AuthenticationController extends Public_Controller {
+class AuthenticationController extends Admin_Controller {
 
 
 	function __construct() {

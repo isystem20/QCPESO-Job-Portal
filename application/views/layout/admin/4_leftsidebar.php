@@ -28,7 +28,6 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/users-masterlist"> Users </a></li> 
                                 <li><a href="<?php echo base_url(); ?>manage/user-groups/"> Groups </a> </li>
-                                <li><a href="<?php echo base_url(); ?>manage/modulesmasterlist/"> Modules </a> </li>
                             </ul>
                         </li>
  
