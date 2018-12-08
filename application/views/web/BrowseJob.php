@@ -44,21 +44,53 @@
                                         <input class="form-control" type="search" name="searchtext" placeholder="Job Title">
                                         <button class="search-button" type="submit"><span class="fas fa-search"></span></button>
                                     </form>
+                                <!--  <div class="form-group">
+                                     <form action="#" method="POST">
+                                        <input class="form-control" type="search" name="searchtextcat" placeholder="Categories">
+                                        <button class="search-button" type="submit"><span class="fas fa-search"></span></button>
+                                    </form> -->
+
+                                    <label class="control-label">Categories</label>
+                                    
+                                    <select name="speci" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                        <?php
+                                            if ($skills->num_rows() > 0) {
+                                                foreach ($skills->result() as $row) { ?>
+                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?> 
+                                    </select>
+                                    <div class="form-group">
+                                    <label class="control-label">Specialization</label>
+                                    
+                                    <select name="speci" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                        <?php
+                                            if ($skills->num_rows() > 0) {
+                                                foreach ($skills->result() as $row) { ?>
+                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
                                  <div class="form-group">
-                                                    <label class="control-label">Specialization</label>
-                                                    
-                                                    <select name="speci" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
-                                                        <?php
-                                                            if ($skills->num_rows() > 0) {
-                                                                foreach ($skills->result() as $row) { ?>
-                                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
-                                                        <?php
-                                                            }
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                </aside>
+                                    <label class="control-label">Employment Level</label>
+                                    
+                                    <select name="speci" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                        <?php
+                                            if ($skills->num_rows() > 0) {
+                                                foreach ($skills->result() as $row) { ?>
+                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                </aside>
 
                                 <!-- Categories widget-->
                                 <aside class="widget widget-categories">

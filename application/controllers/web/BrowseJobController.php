@@ -14,16 +14,24 @@ public function BrowseJob()
 	{
 
 		$str = null;
-		$category = null;
+		// $category = null;
 		$postdata = $this->input->post();
 		if (!empty($postdata['searchtext'])) {
 			$str = $postdata['searchtext'];
-			
+			// $category = $postdata['searchtext'];
+			// /$str = null;
+		
 		}
-
+		$category = null;
+		$postdata = $this->input->post();
+		if (!empty($postdata['searchtextcat'])) {
+			// $str = $postdata['searchtext']
+			$category = $postdata['searchtextcat'];
+		
+		}
+		
 
 		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($str, $category);
-
 		$data['browsejob1'] = $this->browsmod->MostRecentJobs();
 		$data['estabpost'] = $this->estmod->LoadMasterlist();
 		$data['skills'] = $this->categmod->LoadCategoryMasterlist();
