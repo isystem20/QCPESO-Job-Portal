@@ -1,4 +1,5 @@
 
+
         <div class="page-wrapper">
             
             <!-- ============================================================== -->
@@ -10,15 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Applicant Masterlist</h3>
-                    <h6 class="text-muted">This is the Masterlist of all Applicants</h6>
+                    <h3 class="text-themecolor">Survey and Rating</h3>
+                    <h6 class="text-muted">Survey and Rating Masterlist</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Maintenenace</li>
-                        <li class="breadcrumb-item active">Applicants Masterlist</li>
+                        <li class="breadcrumb-item">Maintenace</li>
+                        <li class="breadcrumb-item active">Survey & Rating</li>
                     </ol>
                 </div>
                 <div>
@@ -42,9 +43,10 @@
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-                                                <th>LastName</th>
-                                                <th>FirstName</th>
-                                                <th>Email Address</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Modified By</th>
+                                                <th>Last Modified</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -53,10 +55,10 @@
                                         if ($masterlist->num_rows() > 0) {
                                             foreach ($masterlist->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo $row->lastName; ?></td>
-                                                <td><?php echo $row->FirstName; ?></td>
-                                                <td><?php echo $row->EmailAddress; ?></td> 
-
+                                                <td><?php echo $row->Name; ?></td>
+                                                <td><?php echo character_limiter($row->Description, 30); ?></td>
+                                                <td><?php echo $row->ModifiedById; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
                                                 <td>
                                                     <?php 
                                                     if ($row->IsActive == '1') {
@@ -68,14 +70,14 @@
                                                     ?>
                                                 </td>
                                                 <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->LastName; ?>" data-name="<?=$row->FirstName; ?>"  data-desc="<?=$row->EmailAddress; ?>" data-version="<?=$row->VersionNum; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-createdby="<?=$row->CreatedById; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
 
 
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->LastName; ?>" data-name="<?=$row->FirstName; ?>" data-desc="<?=$row->EmailAddress; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
 
 
 
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->LastName; ?>" data-name="<?=$row->FirstName; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php
@@ -160,4 +162,3 @@
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
-

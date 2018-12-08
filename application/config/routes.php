@@ -374,3 +374,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/applicantlist/del'] = 'admin/ApplicantController/Delete'; // POST to delete
         $route['admin/applicantlist/read'] = 'admin/ApplicantController/Read'; // POST to view
 
+         /* Survey and Ratings Masterlist */         $route['manage/maintenance/SurveyAndRatings'] = 'admin/SurveyAndRatingsController/SurveyAndRatings';
+
+         // SurveyAndRatings list
+        $route['admin/surveyandratings/add'] = 'admin/SurveyAndRatingsController/Create'; //POST to create
+        $route['admin/surveyandratings/edit'] = 'admin/SurveyAndRatingsController/Update'; // POST to edit
+        $route['admin/surveyandratings/del'] = 'admin/SurveyAndRatingsController/Delete'; // POST to delete
+        $route['admin/surveyandratings/read'] = 'admin/SurveyAndRatingsController/Read'; // POST to view
