@@ -11,16 +11,16 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 name="header-text" class="text-themecolor" >Establishment</h3>
-                    <h6 class="text-muted">Masterlist of All Active Employer</h6>
+                    <h3 class="text-themecolor">Job Application</h3>
+                    <h6 class="text-muted">Masterlist of All Job Application</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Transaction</li>
-                        <li class="breadcrumb-item active">Establishment</li>
-                        <li class="breadcrumb-item active">Masterlist</li>
+                        <li class="breadcrumb-item">Transactions</li>
+                         <li class="breadcrumb-item">Applicants</li>
+                        <li class="breadcrumb-item active">Job Application</li>
                     </ol>
                 </div>
                 <div>
@@ -39,38 +39,46 @@
 
                         <div class="card">
                             <div class="card-body">
-                               <a href="<?=base_url('manage/do/establishments/add');?>" class="btn waves-effect waves-light btn-success">Add</a>
+                                
+
+       
+                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-                                                <th>CompanyName</th>
-                                                 <th>Acronym</th>
-                                                <th>Industry Type</th>
-                                                <th>Email</th>
+                                                <th>Applicant Id</th>
+                                                <th>Job Post Id</th>
+                                                <th>Application Letter</th>
+                                                <th>Resume</th>
+                                                <th>Application Date</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
-                                                
                                             </tr>
                                         </thead>
                                         <?php
-                                        if ($emppost->num_rows() > 0) {
-                                            foreach ($emppost->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo character_limiter($row->CompanyName, 30); ?></td>
-                                                <td><?php echo character_limiter($row->CompanyNameAcronym, 10); ?></td>
-                                                <td><?php echo character_limiter($row->IndustryType, 30); ?></td>
-                                                <td><?php echo character_limiter($row->CompanyEmail, 30); ?></td>
-        
-                                                
-                                                <td class="actions">
-                                                    <a href="<?=base_url('manage/settings/view-web-post/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
-
-
-                                                    <a href="<?=base_url('manage/settings/update-web-post/'.$row->Id.'/edit');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
-
-
-
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/emppost/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->CompanyName; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                        if ($masterlist->num_rows() > 0) {
+                                            foreach ($masterlist->result() as $row) { ?>
+                                            <tr Id="row<?=$row->Id; ?>">
+                                                <td><?php echo $row->ApplicantId; ?></td>
+                                                <td><?php echo $row->JobPostId; ?></td>
+                                                <td><?php echo $row->ApplicationLetter; ?></td>
+                                                <td><?php echo $row->Resume; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ApplicationDate)); ?></td>
+                                                <td>
+                                                    <?php 
+                                                    if ($row->IsActive == '1') {
+                                                        echo '<label class="label label-success">Active</label>';
+                                                    }
+                                                    else {
+                                                        echo '<span class="label label-light-inverse">Inactive</span>';
+                                                    }
+                                                    ?>
+                                                </td>
+                                               <td class="actions">
+                                            
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->ApplicantId; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php
@@ -155,4 +163,6 @@
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
+
+
 

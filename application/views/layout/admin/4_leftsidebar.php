@@ -71,7 +71,9 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/do/applicants/add" data-i18n="nav.json-form.simple-form">Add Walk-in</a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/do/applicants/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
-                                <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.customer-form">Job Applications</a></li>
+                                 <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.clubs-view">Job Application</a></li>
+                                 
+                               
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Establishment</span></a>
