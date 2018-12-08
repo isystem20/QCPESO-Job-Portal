@@ -19,9 +19,8 @@
         $data['industry'] = $this->indmod->LoadMasterlist();
         $data['class'] = 'emppost';
         $data['dresscode'] = $this->dremod->LoadDresscodeMasterlist();
-        $data['class'] = 'dresscode';
         $data['language'] = $this->langmod->LoadMasterlist();
-        $data['class'] = 'languages';
+       
 
              
 
