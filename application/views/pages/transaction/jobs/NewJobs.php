@@ -206,7 +206,7 @@ if (!empty($jobposts)) {
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Job Image</label>
-                                                    <input  style="background-color: #fff; color: black;" type="file"  <?=$attr?> name="image" class="form-control" data-default-file="<?php echo base_url().$row->image?>" >
+                                                    <input  style="background-color: #fff; color: black;" type="file"  <?=$attr?> name="image" class="form-control" data-default-file="<?php echo base_url().$row->JobImage?>" >
                                                 </div>
                                             </div>
 
@@ -366,7 +366,7 @@ else { ?>
                                                         }
                                                         ?>
                                                     </select>
-                                                    <small class="form-control-feedback"> This is inline help </small>
+                                                    <small class="form-control-feedback">Please select skills required.</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -383,6 +383,7 @@ else { ?>
                                                         }
                                                         ?>
                                                     </select>
+                                                    <small class="form-control-feedback">Please select the category.</small>
                                                 </div>
                                             </div>
                                         </div> 
@@ -401,6 +402,7 @@ else { ?>
                                                         }
                                                         ?>
                                                     </select>
+                                                    <small class="form-control-feedback">Please select type of establishment.</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -440,7 +442,7 @@ else { ?>
                                                 <div class="col-6">
                                                     <label class="control-label">Job Description</label>  
                                                     <div class="form-group">
-                                                        <textarea class="textarea_editor form-control" id="jobdesc" name="JobDescription" rows="8" placeholder="Enter text ..."></textarea>
+                                                        <textarea class="textarea_editor form-control" id="jobdesc" name="JobDescription" rows="8" placeholder="Please enter job description..."></textarea>
                                                     </div>
                                                                             
                                                 </div>
