@@ -1,5 +1,5 @@
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
+
+
         <div class="page-wrapper">
             
             <!-- ============================================================== -->
@@ -11,16 +11,19 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Job Posts</h3>
+                    <h3 class="text-themecolor">Job Application</h3>
+                    <h6 class="text-muted">Masterlist of All Job Application</h6>
+                
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item">Transactions</li>
-                        <li class="breadcrumb-item active">Jobs</li>
+                         <li class="breadcrumb-item">Applicants</li>
+                        <li class="breadcrumb-item active">Job Application</li>
                     </ol>
                 </div>
-                <div class="">
+                <div>
                     <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
                 </div>
             </div>
@@ -31,50 +34,38 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-
-                
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                 <div class="row">
+                <div class="row">
                     <div class="col-12">
 
                         <div class="card">
                             <div class="card-body">
+                                
+
+       
                                 <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-                                                <th>Job Title</th>
-                                                <th>Job Description</th>
-                                                <th>Salary</th>
-                                                <th>Image</th>
+                                                <th>Applicant Id</th>
+                                                <th>Job Post Id</th>
+                                                <th>Application Letter</th>
+                                                <th>Resume</th>
+                                                <th>Application Date</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Job Title</th>
-                                                <th>Job Description</th>
-                                                <th>Salary</th>
-                                                <th>Image</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot>
                                         <?php
-                                        if ($jobposts->num_rows() > 0) {
-                                            foreach ($jobposts->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo character_limiter($row->JobTitle, 10); ?></td>
-                                                <td><?php echo character_limiter($row->JobDescription, 30); ?></td>
-                                                <td><?php echo character_limiter($row->Salary, 30); ?></td>
-                                                <td><?php echo '<img src="data:image/jpeg;'.( $row->JobImage ).'"/ > '; ?></td>
+                                        if ($masterlist->num_rows() > 0) {
+                                            foreach ($masterlist->result() as $row) { ?>
+                                            <tr Id="row<?=$row->Id; ?>">
+                                                <td><?php echo $row->ApplicantId; ?></td>
+                                                <td><?php echo $row->JobPostId; ?></td>
+                                                <td><?php echo $row->ApplicationLetter; ?></td>
+                                                <td><?php echo $row->Resume; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ApplicationDate)); ?></td>
                                                 <td>
                                                     <?php 
                                                     if ($row->IsActive == '1') {
@@ -85,15 +76,9 @@
                                                     }
                                                     ?>
                                                 </td>
-                                                <td class="actions">
-                                                    <a href="<?=base_url('manage/do/jobs/add/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
-
-
-                                                    <a href="<?=base_url('admin/jobposts/edit/'.$row->Id);?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
-
-
-
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/jobposts/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->JobTitle; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                               <td class="actions">
+                                            
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->ApplicantId; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php
@@ -106,9 +91,6 @@
                         </div>
                     </div>
                 </div>
-
-
-              
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -176,15 +158,11 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer">
-                © 2018 Admin Pro by wrappixel.com
-            </footer>
+            <footer class="footer"> © 2018 Admin Pro by wrappixel.com </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
+
 
 

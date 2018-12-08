@@ -110,12 +110,10 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
             /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
-            /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EmployerController/EstablishmentMasterlist';
-            /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/EmployerController/PendingRequest';   
+            /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EstablishmentController/EstablishmentMasterlist';
+            /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/AccreditationController/AccreditationRequest';   
         /* Jobs */ 
-            /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';  
-                                            $route['manage/do/jobs/addnewjob'] = 'admin/JobsController/AddNewJob';  
-                                                 
+            /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';       
             /* View Jobs */                 $route['manage/do/jobs/view-list'] = 'admin/JobsController/ViewJobs';  
             /* Pending Job Posting */       $route['manage/do/jobs/pending-job-posts'] = 'admin/JobController/PendingJobMasterlist';      
 
@@ -306,13 +304,7 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/countries/edit'] = 'admin/CountriesController/Update'; // POST to edit
         $route['admin/countries/del'] = 'admin/CountriesController/Delete'; // POST to delete
         $route['admin/countries/read'] = 'admin/CountriesController/Read'; // POST to view
-        $route['manage/maintenance/countries'] = 'admin/CountriesController/Countries';
-        $route['admin/countries/add'] = 'admin/CountriesController/Create'; //POST to create
-        $route['admin/countries/edit'] = 'admin/CountriesController/Update'; // POST to edit
-        $route['admin/countries/del'] = 'admin/CountriesController/Delete'; // POST to delete
-        $route['admin/countries/read'] = 'admin/CountriesController/Read'; // POST to view
 
-        /* Nationality */                     $route['manage/maintenance/nationality'] = 'admin/NationalityController/Nationality';
         /* Nationality */                     $route['manage/maintenance/nationality'] = 'admin/NationalityController/Nationality';
         
         //Nationality
@@ -337,45 +329,19 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/cities/del'] = 'admin/CitiesController/Delete'; // POST to delete
         $route['admin/cities/read'] = 'admin/CitiesController/Read'; // POST to view
 
-        
-        //Nationality
-        $route['admin/nationality/add'] = 'admin/NationalityController/Create'; //POST to create
-        $route['admin/nationality/edit'] = 'admin/NationalityController/Update'; // POST to edit
-        $route['admin/nationality/del'] = 'admin/NationalityController/Delete'; // POST to delete
-        $route['admin/nationality/read'] = 'admin/NationalityController/Read'; // POST to view
 
-        /* Regions */                     $route['manage/maintenance/region'] = 'admin/RegionController/Region';
         $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
       
         $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
         $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
       
         $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
-        
-        //Regions
-        $route['admin/region/add'] = 'admin/RegionController/Create'; //POST to create
-        $route['admin/region/edit'] = 'admin/RegionController/Update'; // POST to edit
-        $route['admin/region/del'] = 'admin/RegionController/Delete'; // POST to delete
-        $route['admin/region/read'] = 'admin/RegionController/Read'; // POST to view
 
-        /* Cities */                     $route['manage/maintenance/cities'] = 'admin/CitiesController/Cities';
-        
         $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
         $route['manage/settings/update-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
 
 
 
-
-        // jobposts
-        //Cities
-        $route['admin/cities/add'] = 'admin/CitiesController/Create'; //POST to create
-        $route['admin/cities/edit'] = 'admin/CitiesController/Update'; // POST to edit
-        $route['admin/cities/del'] = 'admin/CitiesController/Delete'; // POST to delete
-        $route['admin/cities/read'] = 'admin/CitiesController/Read'; // POST to view
-
-        $route['admin/jobposts/del'] = 'admin/JobsController/Delete';
-      
-        $route['manage/do/jobs/add/(:any)'] = 'admin/JobsController/NewJob/$1';
         $route['manage/settings/add-services'] = 'admin/ServicesController/AddServices'; 
         $route['manage/settings/all-services'] = 'admin/ServicesController/AllServices';
         $route['manage/settings/services'] = 'admin/ServicesController/Services';
@@ -388,17 +354,21 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['manage/settings/update-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
         $route['manage/settings/update-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
 
-        $route['manage/settings/view-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
-      
-        $route['manage/settings/add-web-post/(:any)/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1/$2';
 
-        $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
+      $route['admin/job-applications/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
+
+
+
+      // jobposts
+
+        $route['manage/do/jobs/addnewjob'] = 'admin/JobsController/AddNewJob'; 
+        $route['admin/jobposts/del'] = 'admin/JobsController/Delete';
       
+        $route['manage/do/jobs/add/(:any)'] = 'admin/JobsController/NewJob/$1'; 
         $route['manage/do/jobs/add/(:any)/(:any)'] = 'admin/JobsController/NewJob/$1/$2';
-
-        $route['manage/settings/update-web-post/(:any)'] = 'admin/WebPostsController/AddWebPosts/$1';
 
         $route['admin/emppost/add'] = 'admin/EmployerController/Create'; //POST to create
         $route['admin/emppost/edit'] = 'admin/EmployerController/Update'; // POST to edit
         $route['admin/emppost/del'] = 'admin/EmployerController/Delete'; // POST to delete
         $route['admin/emppost/read'] = 'admin/EmployerController/Read'; // POST to view
+
