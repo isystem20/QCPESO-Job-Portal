@@ -11,7 +11,7 @@ $(document).ready(function() {
     $('.viewing').hide();
     $('form input.form-control').prop('readonly',false);
     $('form textarea.form-control').prop('readonly',false);
-    $('form select.form-control').prop('readonly',false);
+    $('form select.form-control').prop('disabled',false);
 
 
     $('.modal-footer').show();
@@ -164,6 +164,7 @@ $(document).ready(function() {
     $('input[name=exname]').val($(this).data('name'));
     $('#del-form').attr('action',$('#myTable').data('action')+'del');
     $('#del-modal').modal();
+    $('.modal-footer').show();
   });
 
 // DELETE FORM
@@ -229,7 +230,7 @@ $(document).ready(function() {
     $('.viewing').hide();
     $('form input.form-control').prop('readonly',false);
     $('form textarea.form-control').prop('readonly',false);
-    $('form select.form-control').prop('readonly',false);
+    $('form select.form-control').prop('disabled',false);
     $('.modal-footer').show();
     $('#add-modal').modal();
   });
@@ -247,7 +248,7 @@ $(document).ready(function() {
 
     $('form input.form-control').prop('readonly',true);
     $('form textarea.form-control').prop('readonly',true);
-    $('form select.form-control').prop('readonly',true);
+    $('form select.form-control').prop('disabled',true);
 
     $('#add-form').attr('action','');
     $('.viewing').show();
@@ -260,22 +261,27 @@ $(document).ready(function() {
 $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
     e.preventDefault();       //This prevents the action to move to other page.
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
-        var newURL = $(this).attr('action');      //Get the form action attribute value.
-        var newData  = {
-                'Id' : $('input[name=id]').val(), //List of data you want to post
-                'PostTitle' : $('input[name=title]').val(),
-                'PostDescription' : $('input[name=description]').val(),
-                'PostTypeId' : $('select[name=type]').val(),
-                'Tags' : $('input[name=tags]').val(),
-                'IsActive' : $('select[name=status]').val(),
-                'PostContent' : $('textarea[name=textarea]').val(),
-            }
+        var newURL = $(this).attr('action');   
+         var newData = new FormData(this);   //Get the form action attribute value.
+        // var newData  = {
+        //         'Id' : $('input[name=id]').val(), //List of data you want to post
+        //         'PostTitle' : $('input[name=title]').val(),
+        //         'PostDescription' : $('input[name=description]').val(),
+        //         'PostTypeId' : $('select[name=type]').val(),
+        //         'Tags' : $('input[name=tags]').val(),
+        //         'IsActive' : $('select[name=status]').val(),
+        //         'PostContent' : $('textarea[name=textarea]').val(),
+        //         'WebImage' : $('input[name=file]').val(),
+        //     }
             console.log(newData);
           $.ajax({
               url: newURL,
               type:'POST',
               dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
               data: newData,
+              contentType: false,
+              cache: false,  
+              processData:false,  
               success: function(data) {
                 console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
                 if($.isEmptyObject(data.error)){      //Checking if the data.error has value
@@ -373,24 +379,30 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
           });   
   });
 
-
-$('#modulesform').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+$('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
     e.preventDefault();       //This prevents the action to move to other page.
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
-        var newURL = $(this).attr('action');      //Get the form action attribute value.
-        var newData  = {
-                'Id' : $('input[name=id]').val(), //List of data you want to post
-                'Name' : $('input[name=name]').val(),
-                'Url' : $('input[name=url]]').val(),
-                'Description' : $('input[name=description]').val(),
-                'IsActive' : $('select[name=status]').val(),
-            }
+        var newURL = $(this).attr('action');   
+         var newData = new FormData(this);   //Get the form action attribute value.
+        // var newData  = {
+        //         'Id' : $('input[name=id]').val(), //List of data you want to post
+        //         'PostTitle' : $('input[name=title]').val(),
+        //         'PostDescription' : $('input[name=description]').val(),
+        //         'PostTypeId' : $('select[name=type]').val(),
+        //         'Tags' : $('input[name=tags]').val(),
+        //         'IsActive' : $('select[name=status]').val(),
+        //         'PostContent' : $('textarea[name=textarea]').val(),
+        //         'WebImage' : $('input[name=file]').val(),
+        //     }
             console.log(newData);
           $.ajax({
               url: newURL,
               type:'POST',
               dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
               data: newData,
+              contentType: false,
+              cache: false,  
+              processData:false,  
               success: function(data) {
                 console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
                 if($.isEmptyObject(data.error)){      //Checking if the data.error has value
@@ -434,4 +446,169 @@ $('#modulesform').submit(function(e){ //Input the form's ID or CLASS, use # for 
           });   
   });
 
+
 });
+
+
+// add jobpost :)
+
+
+// alert('tang ina gumana ka');
+        // $("#save-jobpost").prop("disabled", true);   
+        //  var fld = $('select[name=speci]');
+        // var values = [];
+        //   for (var i = 0; i < fld.options.length; i++) {
+        //     if (fld.options[i].selected) {
+        //       values.push(fld.options[i].value);
+        //     }
+        //   }
+                // 'Specialization' : $('select[name=speci]').val(),
+$('#jobpost-form').submit(function(e){
+        e.preventDefault();
+        $("#add-jobposts").prop("disabled", true); 
+
+        var newURL = $(this).attr('action');  
+        var me = $(this);
+        var newData  = {
+                'Id' : $('input[name=id]').val(), //List of data you want to post
+                'EstablishmentId' : $('select[name=estab]').val(),
+                'JobTitle' : $('input[name=jtitle]').val(),
+                'EmpTypeId' : $('select[name=emptype]').val(),
+                'PositionLevelId' : $('select[name=postlevel]').val(),
+                'Specialization' : $('select[name=speci]').val(),
+                'Category' : $('select[name=cate]').val(),
+                
+                'JobDescription' : $('textarea[name=jobdesc]').val(),
+                'Salary' : $('input[name=salary]').val(),
+                'JobImage' : $('input[name=jobimg]').val(),
+                
+                'IsActive' : $('select[name=stat]').val(),
+            }
+        console.log(newData);  
+         $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+                      window.setTimeout(function(){
+                      window.location.href = data.url;  
+                    }, 1000);
+              }
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+                  }
+                $("#add-jobposts").prop("disabled", false);     //Reenable the submit button after the action           
+              }
+          }); 
+
+
+       
+ // $("#save-jobpost").prop("disabled", false);   
+
+    });
+
+//employer
+$('#empform').submit(function(e){
+        e.preventDefault();
+        $("#sub-btn-emp").prop("disabled", true); 
+
+        var newURL = $(this).attr('action');  
+        var me = $(this);
+        var newData  = {
+                'Id' : $('input[name=id]').val(), //List of data you want to post
+                'CompanyName' : $('input[name=CompanyName]').val(),
+                'CompanyNameAcronym' : $('input[name=CompanyNameAcronym]').val(),
+                'IsActive' : $('select[name=IsActive]').val(),
+                'TIN' : $('input[name=TIN]').val(),
+                'PermitIssuedDate' : $('input[name=PermitIssuedDate]').val(),
+                'EstablismentType' : $('select[name=EstablismentType]').val(),
+                'IndustryType' : $('select[name=IndustryType]').val(),
+                'CompanyAddress' : $('input[name=CompanyAddress]').val(),
+                'LandlineNum' : $('input[name=LandlineNum]').val(),
+                'FaxNum' : $('input[name=FaxNum]').val(),
+                'CompanyEmail' : $('input[name=CompanyEmail]').val(),
+                'Website' : $('input[name=Website]').val(),
+                'OwnerName' : $('input[name=OwnerName]').val(),
+                'Designation' : $('input[name=Designation]').val(),
+                'ContactPerson' : $('input[name=ContactPerson]').val(),
+                'ContactPersonDesignation' : $('input[name=ContactPersonDesignation]').val(),
+                'ContactPersonLandline' : $('input[name=ContactPersonLandline]').val(),
+                'ContactPersonMobile' : $('input[name=ContactPersonMobile]').val(),
+                'DoleRegistration' : $('input[name=DoleRegistration]').val(),
+                'DoleRegistrationDateIssued' : $('input[name=DoleRegistrationDateIssued]').val(),
+                'DoleRegistrationExpiration' : $('input[name=DoleRegistrationExpiration]').val(),
+                'PoeaLicenseDateIssued' : $('input[name=PoeaLicenseDateIssued]').val(),
+                'PoeaLicenseExpiration' : $('input[name=PoeaLicenseExpiration]').val(),
+                'WorkingHours' : $('input[name=WorkingHours]').val(),
+                'Benefits' : $('input[name=Benefits]').val(),
+                'DressCode' : $('input[name=DressCode]').val(),
+                'SpokenLanguage' : $('input[name=SpokenLanguage]').val(),
+            }
+        console.log(newData);  
+         $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+                      window.setTimeout(function(){
+                      window.location.href = data.url;  
+                    }, 1000);
+              }
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+                  }
+                $("#sub-btn-emp").prop("disabled", false);     //Reenable the submit button after the action           
+              }
+          }); 
+
+
+       
+ // $("#save-jobpost").prop("disabled", false);   
+
+    });
+
+

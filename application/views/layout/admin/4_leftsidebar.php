@@ -72,7 +72,9 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/do/applicants/add" data-i18n="nav.json-form.simple-form">Add Walk-in</a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/do/applicants/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
-                                <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.customer-form">Job Applications</a></li>
+                                 <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.clubs-view">Job Application</a></li>
+                                 
+                               
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Establishment</span></a>
@@ -93,8 +95,8 @@
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Applicants</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url();?>manage/reports/reportsmasterlist">Masterlist</a></li>
-                                <li><a href="#">Applications</a></li>
-                                <li><a href="#">Custom Report</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/reportsapplications">Applications</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/reportscustom">Custom Report</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Establishments</span></a>
@@ -107,12 +109,12 @@
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Accounts</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Masterlist</a></li>
-                                <li><a href="#">Access List</a></li>
-                                <li><a href="#">Custom Report</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/reportsaccountsmasterlist">Masterlist</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/reportsaccountsaccesslist">Access List</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/reportsaccountscustom">Custom Report</a></li>
                             </ul>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Activity Logs</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>manage/reports/reportsactivitylog" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Activity Logs</span></a></li>
 
                         <li class="nav-small-cap">SETTINGS</li>
 
@@ -130,7 +132,12 @@
                                         <li><a href="<?php echo base_url(); ?>manage/settings/tags">Post Tags</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Services</a></li>
+                                <li> <a class="has-arrow" href="#" aria-expanded="false">Services</a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li><a href="<?php echo base_url();?>manage/settings/add-services">Add Services</a></li>
+                                        <li><a href="<?php echo base_url();?>manage/settings/all-services">All Services</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="#">Maintenance</a></li>
                                 <li><a href="#">Design</a></li>
                             </ul>
