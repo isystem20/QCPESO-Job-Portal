@@ -303,4 +303,9 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
          /*Activity Log*/   $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';
 
-           
+        $route['manage/modulesmasterlist'] = 'Admin/ModulesController/Modules';/* Modules Masterlist */
+        $route['manage/addmodules'] = 'admin/ModulesController/AddModules';
+        $route['manage/modules/add'] = 'admin/ModulesController/Create'; //POST to create
+        $route['manage/modules/edit'] = 'admin/ModulesController/Update'; // POST to edit
+        $route['manage/modules/del'] = 'admin/ModulesController/Delete'; // POST to delete
+        $route['manage/modules/read'] = 'admin/ModulesController/Read'; // POST to view
