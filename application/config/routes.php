@@ -353,3 +353,22 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['manage/settings/add-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
         $route['manage/settings/update-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
         $route['manage/settings/update-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
+
+
+      $route['admin/job-applications/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
+
+
+
+      // jobposts
+
+        $route['manage/do/jobs/addnewjob'] = 'admin/JobsController/AddNewJob'; 
+        $route['admin/jobposts/del'] = 'admin/JobsController/Delete';
+      
+        $route['manage/do/jobs/add/(:any)'] = 'admin/JobsController/NewJob/$1'; 
+        $route['manage/do/jobs/add/(:any)/(:any)'] = 'admin/JobsController/NewJob/$1/$2';
+
+        $route['admin/emppost/add'] = 'admin/EmployerController/Create'; //POST to create
+        $route['admin/emppost/edit'] = 'admin/EmployerController/Update'; // POST to edit
+        $route['admin/emppost/del'] = 'admin/EmployerController/Delete'; // POST to delete
+        $route['admin/emppost/read'] = 'admin/EmployerController/Read'; // POST to view
+
