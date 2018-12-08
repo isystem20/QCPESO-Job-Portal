@@ -38,8 +38,13 @@
                                 <h6 class="card-subtitle">You can us the validation like what we did</h6>
                                 <form action="#" class="validation-wizard wizard-circle">
                                     <!-- Step 1 -->
+<<<<<<< HEAD
+                                    <h6>Personal Info</h6>
+                                    
+=======
                                     <h6>Basic Information</h6>
                                     <section>
+>>>>>>> 7727e010d515539838868ae8e1dff000bc601c0f
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -64,6 +69,15 @@
                                                     <input type="tel" class="form-control" id="wphoneNumber2"> </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
+                             
+                                    <!-- Step 2 -->
+                                    <h6>Educational Background</h6>
+                                    
+          <!--                           <h6>Work History</h6>
+                                    <section>
+=======
+>>>>>>> 7727e010d515539838868ae8e1dff000bc601c0f
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
