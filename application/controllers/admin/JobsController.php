@@ -97,20 +97,65 @@
              // $this->logger->log('Error Form Create','Categories',$errors); //LoggerModel
              echo json_encode(['error'=>$errors]);
          }
+
+        elseif (empty($_FILES["image"]["name"])) {
+            echo json_encode(['error'=> print_r($this->input->post())]);
+
+           
+        }
+  
         else {
+            $imagepath="";
+            $path = dirname(BASEPATH).'/uploads/';
+            $config['upload_path'] = $path;
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = '100000';
+            $senderror = FALSE;
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('image')) {
+                $errors = $this->upload->display_errors();
+                $senderror = TRUE;
+            }       
+            else {
+                $imagedata = $this->upload->data();
+                $imagepath =  'uploads/'.$imagedata['file_name'];   
+            }
+
+
+
+
           $postdata = $this->input->post();
+            $postdata['image']=$imagedata;
+            // unset($postdata['_wysihtml5_mode']);
           $inserted = $this->jobsmod->Add($postdata);
           // echo json_encode(['success'=>TRUE]);
-          if ($inserted != FALSE) {
+          if ($inserted != FALSE) {         
+            
                 echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/do/jobs/view-list']);
-                // $this->logger->log('Create','Categories',$json); //Log          
           }
           else {
-                $json = json_encode($postdata); // encode postdata
-                // $this->logger->log('Error Create','Categories',$json); //Log 
             echo json_encode(['error'=>'Update Unsuccessful.']);
           }
          }
+
+
+
+
+        // else {
+        //   $postdata = $this->input->post();
+        //   $inserted = $this->jobsmod->Add($postdata);
+        //   // echo json_encode(['success'=>TRUE]);
+        //   if ($inserted != FALSE) {
+        //         echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/do/jobs/view-list']);
+        //         // $this->logger->log('Create','Categories',$json); //Log          
+        //   }
+        //   else {
+        //         $json = json_encode($postdata); // encode postdata
+        //         // $this->logger->log('Error Create','Categories',$json); //Log 
+        //     echo json_encode(['error'=>'Update Unsuccessful.']);
+        //   }
+        //  }
  
 
  

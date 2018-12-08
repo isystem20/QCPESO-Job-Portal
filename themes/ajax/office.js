@@ -468,27 +468,17 @@ $('#jobpost-form').submit(function(e){
 
         var newURL = $(this).attr('action');  
         var me = $(this);
-        var newData  = {
-                'Id' : $('input[name=id]').val(), //List of data you want to post
-                'EstablishmentId' : $('select[name=estab]').val(),
-                'JobTitle' : $('input[name=jtitle]').val(),
-                'EmpTypeId' : $('select[name=emptype]').val(),
-                'PositionLevelId' : $('select[name=postlevel]').val(),
-                'Specialization' : $('select[name=speci]').val(),
-                'Category' : $('select[name=cate]').val(),
-                
-                'JobDescription' : $('textarea[name=jobdesc]').val(),
-                'Salary' : $('input[name=salary]').val(),
-                'JobImage' : $('input[name=jobimg]').val(),
-                
-                'IsActive' : $('select[name=stat]').val(),
-            }
+        var newData = new FormData(this);
+
         console.log(newData);  
          $.ajax({
               url: newURL,
               type:'POST',
               dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
               data: newData,
+              contentType: false,
+              cache: false,  
+              processData:false,  
               success: function(data) {
                 console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
                 if($.isEmptyObject(data.error)){      //Checking if the data.error has value
