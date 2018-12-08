@@ -91,6 +91,7 @@
 
 
        $this->form_validation->set_rules('JobTitle','Job Title','required');
+       
 
         if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
@@ -98,8 +99,8 @@
              echo json_encode(['error'=>$errors]);
          }
 
-        elseif (empty($_FILES["image"]["name"])) {
-            echo json_encode(['error'=> print_r($this->input->post())]);
+        elseif (empty($_FILES['JobImage']['name'])) {
+            echo json_encode(['error'=>'File upload error.']);
 
            
         }
@@ -113,7 +114,7 @@
             $senderror = FALSE;
             $this->load->library('upload', $config);
 
-            if (!$this->upload->do_upload('image')) {
+            if (!$this->upload->do_upload('JobImage')) {
                 $errors = $this->upload->display_errors();
                 $senderror = TRUE;
             }       
@@ -126,7 +127,7 @@
 
 
           $postdata = $this->input->post();
-            $postdata['image']=$imagedata;
+          $postdata['JobImage']=$imgaepath;
             // unset($postdata['_wysihtml5_mode']);
           $inserted = $this->jobsmod->Add($postdata);
           // echo json_encode(['success'=>TRUE]);
@@ -163,6 +164,38 @@
 
  	} 
 
+
+  public function Update() {
+         $this->form_validation->set_rules('id', 'Item Record', 'required',
+                array(
+                'required'      => 'Cannot identify this record.',
+                ));
+
+        $postdata = $this->input->post();
+        if ($this->form_validation->run() == FALSE){
+            $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
+        }
+        else{
+            $id = $postdata['id'];
+            unset($postdata['id']);
+            unset($postdata['_wysihtml5_mode']);
+            $postdata = array_filter($postdata, 'strlen');
+
+            $result = $this->jobsmod->Update($id,$postdata);
+            if ($result != FALSE) {
+                $json = json_encode($result);             
+                echo $json;
+            }
+            else {
+                echo json_encode(['error'=>'Update Unsuccessful.']);
+            }
+        }
+
+
+
+
+  }
 
 
 

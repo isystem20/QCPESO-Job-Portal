@@ -452,26 +452,14 @@ $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for
 // add jobpost :)
 
 
-// alert('tang ina gumana ka');
-        // $("#save-jobpost").prop("disabled", true);   
-        //  var fld = $('select[name=speci]');
-        // var values = [];
-        //   for (var i = 0; i < fld.options.length; i++) {
-        //     if (fld.options[i].selected) {
-        //       values.push(fld.options[i].value);
-        //     }
-        //   }
-                // 'Specialization' : $('select[name=speci]').val(),
-$('#jobpost-form').submit(function(e){
-        e.preventDefault();
-        $("#add-jobposts").prop("disabled", true); 
+$('#jobpost-form').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+    e.preventDefault();       //This prevents the action to move to other page.
+        $("#add-jobposts").prop("disabled", true);   //Disables the submit button after click 
+        var newURL = $(this).attr('action');   
+         var newData = new FormData(this);   //Get the form action attribute value.
 
-        var newURL = $(this).attr('action');  
-        var me = $(this);
-        var newData = new FormData(this);
-
-        console.log(newData);  
-         $.ajax({
+            console.log(newData);
+          $.ajax({
               url: newURL,
               type:'POST',
               dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
@@ -493,9 +481,18 @@ $('#jobpost-form').submit(function(e){
                       hideAfter: 3500, 
                       stack: 6
                     });
-                      window.setTimeout(function(){
+                     if($.isEmptyObject(data.url)) {
+                  
+                      
+
+                  }
+
+                  else {
+                    window.setTimeout(function(){
                       window.location.href = data.url;  
                     }, 1000);
+                  }
+        
               }
                   else{
                     $.toast({
@@ -510,13 +507,9 @@ $('#jobpost-form').submit(function(e){
                   }
                 $("#add-jobposts").prop("disabled", false);     //Reenable the submit button after the action           
               }
-          }); 
+          });   
+  });
 
-
-       
- // $("#save-jobpost").prop("disabled", false);   
-
-    });
 
 //employer
 $('#empform').submit(function(e){

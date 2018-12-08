@@ -44,7 +44,7 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+                                <a href="<?=base_url('manage/do/jobs/add');?>" class="btn waves-effect waves-light btn-success">Add</a>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
@@ -89,7 +89,7 @@
                                                     <a href="<?=base_url('manage/do/jobs/add/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
 
 
-                                                    <a href="<?=base_url('admin/jobposts/edit/'.$row->Id);?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
+                                                    <a href="<?=base_url('manage/do/jobs/add/'.$row->Id.'/edit');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
 
 
 

@@ -17,12 +17,11 @@
  
         $layout = array('editor'=>TRUE, 'tags'=>TRUE, 'pagetitle'=>'Adding New Web Employer','uploadfile'=>TRUE);
         $data['industry'] = $this->indmod->LoadMasterlist();
-        $data['class'] = 'emppost';
+        
         $data['dresscode'] = $this->dremod->LoadDresscodeMasterlist();
-        $data['class'] = 'dresscode';
+      
         $data['language'] = $this->langmod->LoadMasterlist();
-        $data['class'] = 'languages';
-
+  
              
 
        if (!empty($id)) {
@@ -132,7 +131,7 @@
         else{
             $id = $postdata['id'];
             unset($postdata['id']);
-            unset($postdata['_wysihtml5_mode']);
+            // unset($postdata['_wysihtml5_mode']);
             $postdata = array_filter($postdata, 'strlen');
 
             $result = $this->webpostmod->Update($id,$postdata);
