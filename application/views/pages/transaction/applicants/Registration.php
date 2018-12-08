@@ -199,13 +199,13 @@
                                     <div class="tab-pane p-20" id="messages7" role="tabpanel">3</div>
                                 </div>
                             </div>
+                           
+                        </div>
+
                         <div class="form-actions">
                             <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
                             <button type="button" class="btn btn-inverse">Cancel</button>
-                        </div>                            
-                        </div>
-
-
+                        </div> 
 
                     </div>
                 </div>
