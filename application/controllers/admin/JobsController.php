@@ -74,10 +74,10 @@
 
 
 
- 		$this->load->view('layout/admin/1_css', $layout);
- 		$this->load->view('layout/admin/2_preloader', $layout);
- 		$this->load->view('layout/admin/3_topbar', $layout);
- 		$this->load->view('layout/admin/4_leftsidebar', $layout);
+ 		$this->load->view('layout/admin/1_css');
+ 		$this->load->view('layout/admin/2_preloader');
+ 		$this->load->view('layout/admin/3_topbar');
+ 		$this->load->view('layout/admin/4_leftsidebar');
  		$this->load->view('pages/transaction/jobs/ViewJobs', $data);
  		$this->load->view('layout/admin/6_js',$layout);		
         $this->load->view('layout/admin/7_modals',$layout);
@@ -102,7 +102,7 @@
           $inserted = $this->jobsmod->Add($postdata);
           // echo json_encode(['success'=>TRUE]);
           if ($inserted != FALSE) {
-                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/do/jobs/view']);
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/do/jobs/view-list']);
                 // $this->logger->log('Create','Categories',$json); //Log          
           }
           else {
