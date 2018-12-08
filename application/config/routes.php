@@ -360,10 +360,6 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/dialect/del'] = 'admin/DialectController/Delete'; // POST to delete
         $route['admin/dialect/read'] = 'admin/DialectController/Read'; // POST to view
 
-      //JobApplication
-
-
-
       // jobposts
 
         $route['manage/do/jobs/addnewjob'] = 'admin/JobsController/AddNewJob'; 
@@ -378,6 +374,30 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/emppost/read'] = 'admin/EmployerController/Read'; // POST to view
 
 
+        $route['admin/surveyandratings/edit'] = 'admin/SurveyAndRatingsController/Update'; // POST to edit
+        $route['admin/surveyandratings/del'] = 'admin/SurveyAndRatingsController/Delete'; // POST to delete
+        $route['admin/surveyandratings/read'] = 'admin/SurveyAndRatingsController/Read'; // POST to view
+
+        //JobApplication
+        $route['admin/jobapplications/add'] = 'admin/JobApplicationController/Create'; //POST to create
+        $route['admin/jobapplications/edit'] = 'admin/JobApplicationController/Update'; // POST to edit
+        $route['admin/jobapplications/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
+        $route['admin/jobapplications/read'] = 'admin/JobApplicationController/Read'; // POST to view
+
+       /* Applicants Masterlist */         $route['manage/maintenance/dialect'] = 'admin/DialectController/Dialect'; 
+
+       //Applicant list
+        $route['admin/applicantlist/add'] = 'admin/ApplicantController/Create'; //POST to create
+        $route['admin/applicantlist/edit'] = 'admin/ApplicantController/Update'; // POST to edit
+        $route['admin/applicantlist/del'] = 'admin/ApplicantController/Delete'; // POST to delete
+        $route['admin/applicantlist/read'] = 'admin/ApplicantController/Read'; // POST to view
+
+
+
+         /* Survey and Ratings Masterlist */         $route['manage/maintenance/SurveyAndRatings'] = 'admin/SurveyAndRatingsController/SurveyAndRatings';
+
+         // SurveyAndRatings list
+        $route['admin/surveyandratings/add'] = 'admin/SurveyAndRatingsController/Create'; //POST to create
         $route['admin/surveyandratings/edit'] = 'admin/SurveyAndRatingsController/Update'; // POST to edit
         $route['admin/surveyandratings/del'] = 'admin/SurveyAndRatingsController/Delete'; // POST to delete
         $route['admin/surveyandratings/read'] = 'admin/SurveyAndRatingsController/Read'; // POST to view
