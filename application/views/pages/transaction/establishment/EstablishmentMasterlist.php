@@ -63,7 +63,7 @@
         
                                                 
                                                 <td class="actions">
-                                                    <a href="<?=base_url('admin/emppost/read'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
+                                                    <a href="<?=base_url('admin/emppost/read/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
 
 
                                                     <a href="<?=base_url('admin/emppost/edit/'.$row->Id.'/edit');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>

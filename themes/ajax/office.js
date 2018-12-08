@@ -552,8 +552,8 @@ $('#empform').submit(function(e){
                 'PoeaLicenseExpiration' : $('input[name=PoeaLicenseExpiration]').val(),
                 'WorkingHours' : $('input[name=WorkingHours]').val(),
                 'Benefits' : $('input[name=Benefits]').val(),
-                'DressCode' : $('input[name=DressCode]').val(),
-                'SpokenLanguage' : $('input[name=SpokenLanguage]').val(),
+                'DressCode' : $('select[name=DressCode]').val(),
+                'SpokenLanguage' : $('select[name=SpokenLanguage]').val(),
             }
         console.log(newData);  
          $.ajax({
