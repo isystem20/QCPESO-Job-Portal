@@ -8,6 +8,8 @@
          $this->load->model('admin/EmployerModel','empmod');
          $this->load->model('admin/PostTypesModel','postymod');
           $this->load->model('admin/IndustriesModel','indmod');
+          $this->load->model('admin/DresscodeModel','dremod');
+          $this->load->model('admin/LanguageModel','langmod');
      }
  
   public function EmployerRegistration($id = null,$mode= null)
@@ -16,6 +18,10 @@
         $layout = array('editor'=>TRUE, 'tags'=>TRUE, 'pagetitle'=>'Adding New Web Employer','uploadfile'=>TRUE);
         $data['industry'] = $this->indmod->LoadMasterlist();
         $data['class'] = 'emppost';
+        $data['dresscode'] = $this->dremod->LoadDresscodeMasterlist();
+        $data['class'] = 'dresscode';
+        $data['language'] = $this->langmod->LoadMasterlist();
+        $data['class'] = 'languages';
 
              
 
