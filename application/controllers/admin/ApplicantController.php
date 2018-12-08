@@ -29,7 +29,7 @@
     }
 
     public function ApplicantInfo($id = null,$mode = null) {
-        $layout = array('wizard'=>TRUE,'datepicker'=>TRUE, 'addons'=>TRUE, 'pagetitle'=>'Adding New Applicant');
+        $layout = array('datepicker'=>TRUE, 'pagetitle'=>'Adding New Applicant');
         $data['countries'] = $this->countries->LoadMasterlist();
 
 

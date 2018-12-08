@@ -143,12 +143,12 @@ $route['web/login/applicant'] = 'web/LoginController/authenticate';
 
 
 $route['web/logout'] = 'WebController/logout';
-
+$route['logout'] = 'WebController/logout';
 
 
 //ERRORS
 
-$route['403'] = 'admin/SiteErrorController/Error403';
+$route['403'] = 'SiteErrorController/Error403';
 $route['admin/login/auth'] = 'admin/AuthenticationController/AuthenticateAdmin';
 $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 

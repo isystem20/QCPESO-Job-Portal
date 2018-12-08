@@ -2,10 +2,22 @@
     </div>
 
 <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap tether Core JavaScript -->
+
 <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/popper.min.js"></script>
 <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<!--Custom JavaScript -->
+
+<script type="text/javascript" src="<?php echo base_url();?>themes/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>themes/bower_components/jquery-ui/jquery-ui.min.js"></script>
+
+<script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/waves.js"></script>
+
+<script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/sidebarmenu.js"></script>
+<script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/custom.min.js"></script>
+
+
+
+
 <script type="text/javascript">
 $(function() {
     $(".preloader").fadeOut();
@@ -13,9 +25,7 @@ $(function() {
 $(function() {
     $('[data-toggle="tooltip"]').tooltip()
 });
-// ============================================================== 
-// Login and Recover Password 
-// ============================================================== 
+ 
 $('#to-recover').on("click", function() {
     $("#loginform").slideUp();
     $("#recoverform").fadeIn();
@@ -23,42 +33,20 @@ $('#to-recover').on("click", function() {
 </script>
 
 
-<script type="text/javascript" src="<?php echo base_url();?>themes/bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>themes/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<?php if (!empty($charts)) { ?>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!--sparkline JavaScript -->
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--morris JavaScript -->
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-js/dist/chartist.min.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <!-- Chart JS -->
+    <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard4.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+<?php } ?>
 
-
-
-    <?php
-    if (!empty($charts)) { ?>
-
-            <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
-            <!-- Bootstrap popper Core JavaScript -->
-            <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/popper.min.js"></script>
-            <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-            <!-- slimscrollbar scrollbar JavaScript -->
-            <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/perfect-scrollbar.jquery.min.js"></script>
-            <!--Wave Effects -->
-            <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/waves.js"></script>
-            <!--Menu sidebar -->
-            <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/sidebarmenu.js"></script>
-            <!--Custom JavaScript -->
-            <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/custom.min.js"></script>
-            <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
-            <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
-            <!--sparkline JavaScript -->
-            <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
-            <!--morris JavaScript -->
-            <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-js/dist/chartist.min.js"></script>
-            <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
-            <!-- Chart JS -->
-            <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard4.js"></script>
-            <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-
-    <?php
-    }
-    ?>
-    <?php 
-    if (!empty($datepicker)) { ?>
+<?php  if (!empty($datepicker)) { ?>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/moment/moment.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
     <!-- Clock Plugin JavaScript -->
@@ -73,24 +61,17 @@ $('#to-recover').on("click", function() {
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/daterangepicker/daterangepicker.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/moment/moment.js"></script>
-    <?php
-    }
-    ?>
+<?php } ?>
 
-    <?php 
-    if (!empty($wizard)) { ?>
+<?php if (!empty($wizard)) { ?>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/wizard/jquery.steps.min.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/wizard/jquery.validate.min.js"></script>
     <!-- Sweet-Alert  -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/sweetalert/sweetalert.min.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/wizard/steps.js"></script>
-    <?php
-    }
-    ?>
+<?php } ?>
 
-
-    <?php 
-    if (!empty($addons)) { ?>
+<?php if (!empty($addons)) { ?>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/switchery/dist/switchery.min.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
@@ -203,14 +184,9 @@ $('#to-recover').on("click", function() {
         });
     });
     </script>
-    <?php
-    }
-    ?>
+<?php } ?>
 
-
-
-    <?php 
-    if (!empty($datepicker)) { ?>
+<?php if (!empty($datepicker)) { ?>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
     <!-- Clock Plugin JavaScript -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/clockpicker/dist/jquery-clockpicker.min.js"></script>
@@ -383,14 +359,9 @@ $('#to-recover').on("click", function() {
         todayHighlight: true
     });
     </script>
-    <?php
-    }
-    ?>
+<?php } ?>
 
-
-
-    <?php
-    if (!empty($tables)) { ?>
+<?php if (!empty($tables)) { ?>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/popper.min.js"></script>
@@ -467,13 +438,9 @@ $('#to-recover').on("click", function() {
     </script>
 
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
- 
-    <?php
-    }
-    ?>
+<?php } ?>
 
-<?php
-    if (!empty($editor)) { ?>
+<?php if (!empty($editor)) { ?>
    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/popper.min.js"></script>
@@ -504,16 +471,9 @@ $('#to-recover').on("click", function() {
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-     <?php
-    }
-    ?>
+<?php } ?>
 
-
-
-
-<?php
-    if (!empty($tags)) { ?>
-    
+<?php if (!empty($tags)) { ?>   
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
   
     <script type="text/javascript" src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/multiselect/js/jquery.multi-select.js"></script>
@@ -635,19 +595,10 @@ $('#to-recover').on("click", function() {
         }
 
         document.onkeypress = stopRKey;
-</script> 
-     <?php
-    }
-    ?>
+        </script> 
+<?php } ?>
 
-<?php
-    if (!empty($uploadfile)) { ?>
-
-   
-   
-   
-
-   
+<?php if (!empty($uploadfile)) { ?>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
    
@@ -697,14 +648,12 @@ $('#to-recover').on("click", function() {
     </script>
    
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-<?php
-    }
-    ?>
+<?php } ?>
+
+
 <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/js/jquery.toast.js"></script>
 
-
 <script src="<?php echo base_url(); ?>themes/ajax/office.js"></script>
-
 
 </body>
 

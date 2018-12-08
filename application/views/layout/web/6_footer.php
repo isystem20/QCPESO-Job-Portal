@@ -24,7 +24,7 @@
 
      	<script type="text/javascript" src="<?php echo base_url(); ?>themes/ajax/webportal.js"></script>   
 
-		<script type="text/javascript">
+<!-- 		<script type="text/javascript">
 		    function onSignIn(googleUser) {
 
 		        var profile = googleUser.getBasicProfile();
@@ -52,7 +52,7 @@
 
 		    //  $('#connecteditsymx9io6he').text('Sign-in With G-Mail');
 		    //  });
-		</script>
+		</script> -->
         
     </body>
 
