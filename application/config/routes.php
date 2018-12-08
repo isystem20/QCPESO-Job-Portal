@@ -114,7 +114,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/AccreditationController/AccreditationRequest';   
         /* Jobs */ 
             /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';       
-            /* View Jobs */                 $route['manage/do/jobs/view-job'] = 'admin/JobsController/ViewJob';  
+            /* View Jobs */                 $route['manage/do/jobs/view'] = 'admin/JobsController/ViewJob';  
             /* Pending Job Posting */       $route['manage/do/jobs/pending-job-posts'] = 'admin/JobController/PendingJobMasterlist';      
 
     /* REPORTS */
@@ -401,3 +401,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/surveyandratings/edit'] = 'admin/SurveyAndRatingsController/Update'; // POST to edit
         $route['admin/surveyandratings/del'] = 'admin/SurveyAndRatingsController/Delete'; // POST to delete
         $route['admin/surveyandratings/read'] = 'admin/SurveyAndRatingsController/Read'; // POST to view
+
+         // SurveyAndRatings list
+        $route['admin/jobposts/add'] = 'admin/JobsController/Create'; //POST to create
+        $route['admin/jobposts/edit'] = 'admin/JobsController/Update'; // POST to edit
+        $route['admin/jobposts/del'] = 'admin/JobsController/Delete'; // POST to delete
+        $route['admin/jobposts/read'] = 'admin/JobsController/Read'; // POST to view
+
