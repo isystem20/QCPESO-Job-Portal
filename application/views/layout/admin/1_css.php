@@ -54,7 +54,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
     
-  
+  <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/tab-page.css" rel="stylesheet">
     <?php
     if (!empty($login)) { ?>
     <!-- page css -->
