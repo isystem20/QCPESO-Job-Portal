@@ -19,13 +19,12 @@ class ControllerFileName extends CI_Controller { //The Class name must be the sa
 	{
 		
 		$layout = array('transparentwrapper' => TRUE, );		//We can set the data that we can pass on to different views
-		$this->load->view('layout/web/1_head');					//These are the segmented parts of the website
+		$this->load->view('layout/web/1_head');       		//These are the segmented parts of the website
 		$this->load->view('layout/web/2_preloader');
 		$this->load->view('layout/web/3_header', $layout);		//This segment is the part where we pass the data called "layout"
 		$this->load->view('web/Register');
 		$this->load->view('layout/web/5_rightbar');
 		$this->load->view('layout/web/6_footer');
-		
 	}
 
 	public function CreateItem() {
@@ -50,7 +49,6 @@ class ControllerFileName extends CI_Controller { //The Class name must be the sa
         	else {
         		echo json_encode(['error'=>'Update Unsuccessful.']);
         	}
-
         }
 	}
 
