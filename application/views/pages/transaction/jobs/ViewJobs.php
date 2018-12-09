@@ -26,7 +26,7 @@
             </div>
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+            <!-- ==================================== ========================== -->
             
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
@@ -52,7 +52,7 @@
                                                 <th>Job Title</th>
                                                 <th>Job Description</th>
                                                 <th>Salary</th>
-                                                <th>Image</th>
+                                                
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -62,7 +62,7 @@
                                                 <th>Job Title</th>
                                                 <th>Job Description</th>
                                                 <th>Salary</th>
-                                                <th>Image</th>
+                                            
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -74,8 +74,8 @@
                                                 <td><?php echo character_limiter($row->JobTitle, 10); ?></td>
                                                 <td><?php echo character_limiter($row->JobDescription, 30); ?></td>
                                                 <td><?php echo character_limiter($row->Salary, 30); ?></td>
-                                                <td><?php echo '<img src="data:image/jpeg;'.( $row->JobImage ).'"/ > '; ?></td>
-                                                <td>
+                                              
+                                                                                                            <td>
                                                     <?php 
                                                     if ($row->IsActive == '1') {
                                                         echo '<label class="label label-success">Active</label>';

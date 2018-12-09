@@ -87,25 +87,21 @@
 
  	}
 
- 	public function AddNewJob(){
-
-
-       $this->form_validation->set_rules('JobTitle','Job Title','required');
-       
-
-        if ($this->form_validation->run() == FALSE){
+ 	public function AddNewJob() {
+  
+            $this->form_validation->set_rules('JobTitle','Job Title','required');
+       if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
-             // $this->logger->log('Error Form Create','Categories',$errors); //LoggerModel
              echo json_encode(['error'=>$errors]);
+
          }
 
-        elseif (empty($_FILES['JobImage']['name'])) {
-            echo json_encode(['error'=>'File upload error.']);
-
+         elseif (empty($_FILES["JobImage"]["name"])) {
+            $errors = "Image File Needed.";
            
         }
   
-        else {
+            else {
             $imagepath="";
             $path = dirname(BASEPATH).'/uploads/';
             $config['upload_path'] = $path;
@@ -127,8 +123,8 @@
 
 
           $postdata = $this->input->post();
-          $postdata['JobImage']=$imgaepath;
-            // unset($postdata['_wysihtml5_mode']);
+            $postdata['JobImage']=$imagepath;
+            unset($postdata['_wysihtml5_mode']);
           $inserted = $this->jobsmod->Add($postdata);
           // echo json_encode(['success'=>TRUE]);
           if ($inserted != FALSE) {         
@@ -139,32 +135,8 @@
             echo json_encode(['error'=>'Update Unsuccessful.']);
           }
          }
-
-
-
-
-        // else {
-        //   $postdata = $this->input->post();
-        //   $inserted = $this->jobsmod->Add($postdata);
-        //   // echo json_encode(['success'=>TRUE]);
-        //   if ($inserted != FALSE) {
-        //         echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/do/jobs/view-list']);
-        //         // $this->logger->log('Create','Categories',$json); //Log          
-        //   }
-        //   else {
-        //         $json = json_encode($postdata); // encode postdata
-        //         // $this->logger->log('Error Create','Categories',$json); //Log 
-        //     echo json_encode(['error'=>'Update Unsuccessful.']);
-        //   }
-        //  }
  
-
- 
-
-
- 	} 
-
-
+  }
   public function Update() {
          $this->form_validation->set_rules('id', 'Item Record', 'required',
                 array(
