@@ -5,36 +5,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public $tbl = 'tbl_security_modules';
 
-		public function LoadMasterlist() {
+		public function LoadModuleslist($id = null) {
 			$this->db->select('*');
 			$this->db->from($this->tbl);
 			if (!empty($id)) {
 				$this->db->where('Id',$id);
-			return $this->db->get();
+				return $this->db->get()->result();
 			}else {
 				$this->db->where('IsActive','1');
 				$this->db->or_where('IsActive','2');
 				return $this->db->get();
 			}
-
+			
 		}
 
+
 		public function Add($data) {
-			//$this->db->set('Name',"'".$data['name']."'",FALSE);
-			//$this->db->set('Url',"'".$data['url']."'",FALSE);
-			//$this->db->set('Parent',"'".$data['parent']."'",FALSE);
-			//$this->db->set('Description',"'".$data['description']."'",FALSE);
-			//$this->db->set('IsActive',"'".$data['status']."'",FALSE);
-			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
+			$this->db->set('Name',"'".$data['name']."'",FALSE);
+			$this->db->set('Url',"'".$data['url']."'",FALSE);
+			$this->db->set('Parent',"'".$data['parent']."'",FALSE);
+			$this->db->set('Description',"'".$data['description']."'",FALSE);
+			$this->db->set('CreatedBy',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
-			
+			$this->db->set('IsActive',"'".$data['status']."'",FALSE);
 
 			$this->db->insert($this->tbl);
 
 			$id = $this->db->insert_id();
 
 			if ($id > 0) {
-				$inserted = $this->LoadMasterlist($id);
+				$inserted = $this->LoadModuleslist($id);
 				return $inserted;
 			}
 			else {
@@ -66,15 +66,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
 		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
 		    $this->db->set('Name', '"'.$data['name'].'"', FALSE);
-		    $this->db->set('Url',"'".$data['url']."'",FALSE);
-			$this->db->set('Parent',"'".$data['parent']."'",FALSE); 
+		    $this->db->set('Url', '"'.$data['url'].'"', FALSE);
+		    $this->db->set('Parent', '"'.$data['parent'].'"', FALSE); 
 		    $this->db->set('Description', '"'.$data['description'].'"', FALSE); 
 		    $this->db->set('IsActive', '"'.$data['status'].'"', FALSE);
 		    $this->db->where('Id', $id);
 		    $query = $this->db->update($this->tbl);
 			$update = $this->db->affected_rows();
 			if ($update > 0) {
-				$result = $this->LoadMasterlist($id);
+				$result = $this->LoadModuleslist($id);
 				return $result;
 			}
 			else {

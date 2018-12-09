@@ -299,7 +299,6 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/industries/del'] = 'admin/IndustriesController/Delete'; // POST to delete
         $route['admin/industries/read'] = 'admin/IndustriesController/Read'; // POST to view
 
-<<<<<<< HEAD
         $route['manage/maintenance/countries'] = 'admin/CountriesController/Countries';
         $route['admin/countries/add'] = 'admin/CountriesController/Create'; //POST to create
         $route['admin/countries/edit'] = 'admin/CountriesController/Update'; // POST to edit
@@ -373,25 +372,9 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/emppost/del'] = 'admin/EmployerController/Delete'; // POST to delete
         $route['admin/emppost/read'] = 'admin/EmployerController/Read'; // POST to view
 
-=======
-        //Reports
-        /*Applicants*/ 
-            /*Masterlist*/  $route['manage/reports/reportsmasterlist'] = 'reports/ReportsMasterlistController/ReportsMasterlist';
-            /*Applications*/  $route['manage/reports/reportsapplications'] = 'reports/ReportsApplicationsController/ReportsApplications';
-            /*Custom Reports*/  $route['manage/reports/reportscustom'] = 'reports/ReportsCustomController/ReportsCustom';
+        /* Modules */ $route['manage/modules'] = 'admin/ModulesController/Modules';
 
-         /*Establishments*/ 
-            /*Masterlist*/  $route['manage/reports/reportsestablishmentsmasterlist'] = 'reports/ReportsEstablishmentsMasterlistController/ReportsEstablishmentsMasterlist';
-            /*Post Jobs*/  $route['manage/reports/reportsestablishmentspostedjobs'] = 'reports/ReportsEstablishmentsPostedJobsController/ReportsEstablishmentsPostedJobs';
-            /*Review and Ratings*/  $route['manage/reports/reportsestablishmentreviewandratings'] = 'reports/ReportsEstablishmentsReviewController/ReportsEstablishmentsReview';
-            /*Custom Reports*/  $route['manage/reports/reportsestablishmentcustom'] = 'reports/ReportsEstablishmentsCustomController/ReportsEstablishmentsCustom';
-
-         /*Accounts*/ 
-            /*Masterlist*/  $route['manage/reports/reportsaccountsmasterlist'] = 'reports/ReportsAccountsMasterlistController/ReportsAccountsMasterlist';
-            /*Access list*/  $route['manage/reports/reportsaccountsaccesslist'] = 'reports/ReportsAccountsAccesslistController/ReportsAccountsAccesslist';
-            /*Custom Reports*/  $route['manage/reports/reportsaccountscustom'] = 'reports/ReportsAccountsCustomController/ReportsAccountsCustom';
-
-         /*Activity Log*/   $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';
-
-           
->>>>>>> parent of 881bc9e... displaying only
+        $route['admin/modules/add'] = 'admin/ModulesController/Create'; //POST to create
+        $route['admin/modules/edit'] = 'admin/ModulesController/Update'; // POST to edit
+        $route['admin/modules/del'] = 'admin/ModulesController/Delete'; // POST to delete
+        $route['admin/modules/read'] = 'admin/ModulesController/Read'; // POST to view
