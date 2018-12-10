@@ -11,7 +11,7 @@ $(document).ready(function() {
     $('.viewing').hide();
     $('form input.form-control').prop('readonly',false);
     $('form textarea.form-control').prop('readonly',false);
-    $('form select.form-control').prop('readonly',false);
+    $('form select.form-control').prop('disabled',false);
 
 
     $('.modal-footer').show();
@@ -164,6 +164,7 @@ $(document).ready(function() {
     $('input[name=exname]').val($(this).data('name'));
     $('#del-form').attr('action',$('#myTable').data('action')+'del');
     $('#del-modal').modal();
+    $('.modal-footer').show();
   });
 
 // DELETE FORM
@@ -229,7 +230,7 @@ $(document).ready(function() {
     $('.viewing').hide();
     $('form input.form-control').prop('readonly',false);
     $('form textarea.form-control').prop('readonly',false);
-    $('form select.form-control').prop('readonly',false);
+    $('form select.form-control').prop('disabled',false);
     $('.modal-footer').show();
     $('#add-modal').modal();
   });
@@ -247,7 +248,7 @@ $(document).ready(function() {
 
     $('form input.form-control').prop('readonly',true);
     $('form textarea.form-control').prop('readonly',true);
-    $('form select.form-control').prop('readonly',true);
+    $('form select.form-control').prop('disabled',true);
 
     $('#add-form').attr('action','');
     $('.viewing').show();
@@ -378,6 +379,7 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
           });   
   });
 
+<<<<<<< HEAD
 $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
     e.preventDefault();       //This prevents the action to move to other page.
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
@@ -419,31 +421,10 @@ $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for
                      if($.isEmptyObject(data.url)) {
                   
                       
+=======
 
-                  }
+>>>>>>> parent of 881bc9e... displaying only
 
-                  else {
-                    window.setTimeout(function(){
-                      window.location.href = data.url;  
-                    }, 1000);
-                  }
-        
-              }
-                  else{
-                    $.toast({
-                      heading: 'Error',
-                      text: data.error,
-                      position: 'top-right',
-                      loaderBg:'#ff6849',
-                      icon: 'error',
-                      hideAfter: 3500
-                      
-                    });
-                  }
-                $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
-              }
-          });   
-  });
 
 
 });

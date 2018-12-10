@@ -1,34 +1,30 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class CourselistController extends Admin_Controller {
+ class DialectController extends CI_Controller {
  
     function __construct() {
          parent::__construct();
-         $this->load->model('admin/CourselistModel','courlimod');
-         $this->load->model('LoggerModel','logger'); //Include LoggerModel
+         $this->load->model('admin/DialectModel','diamod');
      }
  
-    public function Courselist()
+    public function Dialect()
     {
  
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'pagetitle'=>'Courselist Masterlist');
-        $data['masterlist'] = $this->courlimod->LoadMasterlist();
-        $data['class'] = 'course';
-        $this->load->view('layout/admin/1_css',$layout);
-        $this->load->view('layout/admin/2_preloader',$layout);
-        $this->load->view('layout/admin/3_topbar',$layout);
-        $this->load->view('layout/admin/4_leftsidebar',$layout);
-        $this->load->view('pages/maintenance/Courselist',$data);
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
+        $data['masterlist'] = $this->diamod->LoadMasterlist();
+        $data['class'] = 'dialect';
+        $this->load->view('layout/admin/1_css');
+        $this->load->view('layout/admin/2_preloader');
+        $this->load->view('layout/admin/3_topbar');
+        $this->load->view('layout/admin/4_leftsidebar');
+        $this->load->view('pages/maintenance/Dialect',$data);
         $this->load->view('layout/admin/6_js',$layout);     
-        $this->load->view('layout/admin/7_modals',$layout);
-
-        $json = json_encode($data['masterlist']); //log
-        $this->logger->log('Load Courselist','Courselist',$json); //Log  
+        $this->load->view('layout/admin/7_modals'); 
 
     }
     public function Create() {
-        $this->form_validation->set_rules('name','Name','required|is_unique[tbl_school_course_list.name]',
+        $this->form_validation->set_rules('name','Name','required|is_unique[tbl_dialect.name]',
                 array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
@@ -39,21 +35,17 @@
 
             if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
-             $this->logger->log('Error Form Create','CourseList',$errors); //LoggerModel
              echo json_encode(['error'=>$errors]);
          }
         else {
             $postdata = $this->input->post();
-            $inserted = $this->courlimod->Add($postdata);
+            $inserted = $this->diamod->Add($postdata);
             // echo json_encode(['success'=>TRUE]);
             if ($inserted != FALSE) {
-                $json = json_encode($inserted);
-                $this->logger->log('Create','CourseList',$json); //Log           
+                $json = json_encode($inserted);             
                 echo $json;
             }
             else {
-                $json = json_encode($postdata); // encode postdata
-                $this->logger->log('Error Create','CourseList',$json); //Log
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
          }
@@ -69,7 +61,6 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
-            $this->logger->log('Error Form Create','CourseList',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
@@ -77,15 +68,12 @@
             unset($postdata['itemid']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->courlimod->Update($id,$postdata);
+            $result = $this->diamod->Update($id,$postdata);
             if ($result != FALSE) {
-                $json = json_encode($result);
-                $this->logger->log('Update','CourseList',$json); //Log             
+                $json = json_encode($result);             
                 echo $json;
             }
             else {
-                $json = json_encode($postdata); // encode postdata
-                $this->logger->log('Error Update','CourseList',$json); //Log 
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
         }
@@ -105,19 +93,15 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
-            $this->logger->log('Error Form Create','CourseList',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->courlimod->Delete($postdata);
+            $result = $this->diamod->Delete($postdata);
             if ($result != FALSE) {
-                $json = json_encode($result); 
-                $this->logger->log('Delete','CourseList',$json); //Log             
+                $json = json_encode($result);              
                 echo $json;
             }
             else {
-                $json = json_encode($postdata); // encode postdata
-                $this->logger->log('Error Delete','CourseList',$json); //Log 
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
 

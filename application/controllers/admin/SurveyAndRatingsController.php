@@ -1,59 +1,57 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class CourselistController extends Admin_Controller {
+ class SurveyAndRatingsController extends Admin_Controller {
  
     function __construct() {
          parent::__construct();
-         $this->load->model('admin/CourselistModel','courlimod');
+         $this->load->model('admin/SurveyAndRatingsModel','surramod');
          $this->load->model('LoggerModel','logger'); //Include LoggerModel
      }
  
-    public function Courselist()
+    public function SurveyAndRatings()
     {
  
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'pagetitle'=>'Courselist Masterlist');
-        $data['masterlist'] = $this->courlimod->LoadMasterlist();
-        $data['class'] = 'course';
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'pagetitle'=>'SurveyAndRatings');
+        $data['masterlist'] = $this->surramod->LoadMasterlist();
+        $data['class'] = 'surveyandratings';
         $this->load->view('layout/admin/1_css',$layout);
         $this->load->view('layout/admin/2_preloader',$layout);
         $this->load->view('layout/admin/3_topbar',$layout);
         $this->load->view('layout/admin/4_leftsidebar',$layout);
-        $this->load->view('pages/maintenance/Courselist',$data);
+        $this->load->view('pages/maintenance/SurveyAndRatings',$data);
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals',$layout);
 
         $json = json_encode($data['masterlist']); //log
-        $this->logger->log('Load Courselist','Courselist',$json); //Log  
+        $this->logger->log('Load SurveyAndRatings','SurveyAndRatings',$json); //Log  
 
     }
     public function Create() {
-        $this->form_validation->set_rules('name','Name','required|is_unique[tbl_school_course_list.name]',
+        $this->form_validation->set_rules('name','Name','required|is_unique[tbl_survey_and_ratings.name]',
                 array(
                 'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
                 )
             );
 
-        
-
             if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
-             $this->logger->log('Error Form Create','CourseList',$errors); //LoggerModel
+             $this->logger->log('Error Form Create','SurveyAndRatings',$errors); //LoggerModel
              echo json_encode(['error'=>$errors]);
          }
         else {
             $postdata = $this->input->post();
-            $inserted = $this->courlimod->Add($postdata);
+            $inserted = $this->surramod->Add($postdata);
             // echo json_encode(['success'=>TRUE]);
             if ($inserted != FALSE) {
                 $json = json_encode($inserted);
-                $this->logger->log('Create','CourseList',$json); //Log           
+                $this->logger->log('Create','SurveyAndRatings',$json); //Log           
                 echo $json;
             }
             else {
                 $json = json_encode($postdata); // encode postdata
-                $this->logger->log('Error Create','CourseList',$json); //Log
+                $this->logger->log('Error Create','SurveyAndRatings',$json); //Log
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
          }
@@ -69,7 +67,7 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
-            $this->logger->log('Error Form Create','CourseList',$errors); //Log
+            $this->logger->log('Error Form Create','SurveyAndRatings',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
@@ -77,15 +75,15 @@
             unset($postdata['itemid']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->courlimod->Update($id,$postdata);
+            $result = $this->surramod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);
-                $this->logger->log('Update','CourseList',$json); //Log             
+                $this->logger->log('Update','SurveyAndRatings',$json); //Log             
                 echo $json;
             }
             else {
                 $json = json_encode($postdata); // encode postdata
-                $this->logger->log('Error Update','CourseList',$json); //Log 
+                $this->logger->log('Error Update','SurveyAndRatings',$json); //Log 
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
         }
@@ -105,19 +103,19 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
-            $this->logger->log('Error Form Create','CourseList',$errors); //Log
+            $this->logger->log('Error Form Create','SurveyAndRatings',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->courlimod->Delete($postdata);
+            $result = $this->surramod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result); 
-                $this->logger->log('Delete','CourseList',$json); //Log             
+                $this->logger->log('Delete','SurveyAndRatings',$json); //Log             
                 echo $json;
             }
             else {
                 $json = json_encode($postdata); // encode postdata
-                $this->logger->log('Error Delete','CourseList',$json); //Log 
+                $this->logger->log('Error Delete','SurveyAndRatings',$json); //Log 
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
 
