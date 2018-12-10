@@ -258,8 +258,6 @@ else { ?>
                                                             }
                                                         }
                                                         ?>
-                                               
-                                               
                                     </select>
 
                         </div>
@@ -407,14 +405,32 @@ else { ?>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">Dress Code</label>
-                            <input type="text" name="DressCode"  value=""class="form-control">
+                            <select class="form-control custom-select"  name="IndustryType">
+                                                  <?php
+                                                            if ($dresscode->num_rows() > 0) {
+                                                                foreach ($dresscode->result() as $row) { ?>
+                                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                    </select>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">Spoken Language</label>
-                            <input type="text" name="SpokenLanguage"  value=""class="form-control">
+                            <select class="form-control custom-select"  name="SpokenLanguage">
+                                                  <?php
+                                                            if ($language->num_rows() > 0) {
+                                                                foreach ($language->result() as $row) { ?>
+                                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                    </select>
                         </div>
                     </div>
 
