@@ -31,8 +31,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			
 
-			// $data['Specialization'] = json_encode($data['Specialization']);
-			// $data['Category'] = json_encode($data['Category']);
+			$data['Specialization'] = json_encode($data['Specialization']);
+			$data['Category'] = json_encode($data['Category']);
 
 			
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);

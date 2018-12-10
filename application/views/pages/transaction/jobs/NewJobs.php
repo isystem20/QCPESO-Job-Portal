@@ -349,7 +349,7 @@ else { ?>
 
                                                 <div class="form-group">
                                                     <label class="control-label">Job Title</label>
-                                                    <input type="text" id="jtitle" name="JobTitle" class="form-control" placeholder="Job title">
+                                                    <input type="text" name="JobTitle" class="form-control" placeholder="Job title">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">

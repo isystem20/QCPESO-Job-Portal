@@ -89,7 +89,7 @@
 
  	public function AddNewJob() {
   
-            $this->form_validation->set_rules('JobTitle','Job Title','required');
+        $this->form_validation->set_rules('JobTitle','Job Title','required');
        if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
