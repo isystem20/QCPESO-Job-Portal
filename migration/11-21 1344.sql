@@ -10,6 +10,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
+
 SET time_zone = "+00:00";
 
 
@@ -328,10 +329,18 @@ INSERT INTO `tbl_applicants_employment_status` (`Id`, `Name`, `Description`, `Cr
 (75, '[Del-1542348639]~19', 'ewqewqewq', 'ADMIN', '2018-11-10 16:32:18', 'ADMIN', '2018-11-16 10:41:51', 2, 0),
 (76, '[Del-1542336116]~55', '55', 'ADMIN', '2018-11-10 17:32:04', 'ADMIN', '2018-11-10 17:32:12', 2, 0),
 (77, '[Del-1542336849]~dsa', 'dsa', 'ADMIN', '2018-11-16 10:40:18', 'ADMIN', '2018-11-16 10:40:18', 1, 0),
-(78, 'qwe', 'ewqdsadsa', 'ADMIN', '2018-11-16 10:41:40', 'ADMIN', '2018-11-16 10:42:26', 2, 1),
+(78, '[Del-1542784924]~qwe', 'ewqdsadsa', 'ADMIN', '2018-11-16 10:41:40', 'ADMIN', '2018-11-16 10:42:26', 2, 0),
 (79, '[Del-1542349145]~refdsfd', 'fdsfs', 'ADMIN', '2018-11-16 12:37:41', 'ADMIN', '2018-11-16 12:37:41', 1, 0),
-(80, 'dsa', 'dsadsa', 'ADMIN', '2018-11-16 14:08:53', 'ADMIN', '2018-11-16 14:08:53', 1, 1),
-(81, 'gfdgf', 'marvin', 'ADMIN', '2018-11-16 14:16:39', 'ADMIN', '2018-11-16 14:23:09', 2, 1);
+(80, '[Del-1542784731]~dsa', 'dsadsa', 'ADMIN', '2018-11-16 14:08:53', 'ADMIN', '2018-11-16 14:08:53', 1, 0),
+(81, '[Del-1542784738]~gfdgf', 'marvin', 'ADMIN', '2018-11-16 14:16:39', 'ADMIN', '2018-11-16 14:23:09', 2, 0),
+(82, '[Del-1542785855]~ALPHA', 'asdasdasda', '', '2018-11-21 15:19:07', '', '2018-11-21 15:20:40', 2, 0),
+(83, '[Del-1542787403]~asdasdasda', 'asdasdasdas', '', '2018-11-21 15:19:41', '', '2018-11-21 15:19:41', 1, 0),
+(84, 'BRAVO', 'AFASFASFASFA', '', '2018-11-21 15:36:00', '', '2018-11-21 15:36:00', 1, 1),
+(85, 'CHARLIE', 'ASDASDASDASDA', '', '2018-11-21 15:38:46', '', '2018-11-21 15:38:46', 1, 1),
+(86, 'DELTA', 'SADASDASDAS', '', '2018-11-21 15:40:21', '', '2018-11-21 15:40:21', 1, 1),
+(87, 'ECHO', 'ASFASFASFASFAS', '', '2018-11-21 15:42:42', '', '2018-11-21 15:42:42', 1, 1),
+(88, 'ASDSADAS', 'ASDSADASDSA', '', '2018-11-21 15:46:45', '', '2018-11-21 15:46:45', 1, 1),
+(89, 'FOX', 'ASDSADASDASD', '', '2018-11-21 16:03:14', '', '2018-11-21 16:03:14', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -741,6 +750,65 @@ CREATE TABLE `tbl_establistments_categories` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_group_masterlist`
+--
+
+CREATE TABLE `tbl_group_masterlist` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Description` varchar(300) NOT NULL,
+  `CreatedById` varchar(50) NOT NULL,
+  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifiedById` varchar(50) NOT NULL,
+  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `VersionNo` int(11) NOT NULL DEFAULT '1',
+  `IsActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_group_masterlist`
+--
+
+INSERT INTO `tbl_group_masterlist` (`Id`, `Name`, `Description`, `CreatedById`, `CreatedAt`, `ModifiedById`, `ModifiedAt`, `VersionNo`, `IsActive`) VALUES
+(55, '1', '1', 'ADMIN', '2018-11-10 14:02:42', 'ADMIN', '2018-11-10 14:02:42', 0, 0),
+(56, '2', '2', 'ADMIN', '2018-11-10 14:04:05', 'ADMIN', '2018-11-10 14:04:05', 0, 0),
+(57, '3', '3', 'ADMIN', '2018-11-10 14:05:25', 'ADMIN', '2018-11-10 14:05:25', 0, 0),
+(58, '4', '4', 'ADMIN', '2018-11-10 14:05:56', 'ADMIN', '2018-11-10 14:05:56', 0, 0),
+(59, '5', '5', 'ADMIN', '2018-11-10 14:07:27', 'ADMIN', '2018-11-10 14:07:27', 0, 0),
+(60, '[Del-]+name', '6', 'ADMIN', '2018-11-10 14:07:47', 'ADMIN', '2018-11-10 14:07:47', 0, 0),
+(61, '[Del-]+name', '7', 'ADMIN', '2018-11-10 14:12:31', 'ADMIN', '2018-11-10 14:12:31', 0, 0),
+(62, '[Del-]+name', '8', 'ADMIN', '2018-11-10 14:13:03', 'ADMIN', '2018-11-10 14:13:03', 0, 0),
+(63, '9', '9', 'ADMIN', '2018-11-10 14:15:17', 'ADMIN', '2018-11-10 14:15:17', 0, 0),
+(64, '99', '9', 'ADMIN', '2018-11-10 14:16:31', 'ADMIN', '2018-11-10 14:16:31', 0, 0),
+(65, '10', '10', 'ADMIN', '2018-11-10 14:17:02', 'ADMIN', '2018-11-10 14:17:02', 0, 0),
+(66, '[Del-1541832405]+name', '11', 'ADMIN', '2018-11-10 14:22:42', 'ADMIN', '2018-11-10 14:22:42', 0, 0),
+(67, '[Del-1541832852]~13', '13', 'ADMIN', '2018-11-10 14:51:08', 'ADMIN', '2018-11-10 14:51:08', 0, 0),
+(68, '[Del-1541832894]~14', '14', 'ADMIN', '2018-11-10 14:54:42', 'ADMIN', '2018-11-10 14:54:42', 0, 0),
+(69, '[Del-1541832924]~15', '15', 'ADMIN', '2018-11-10 14:55:17', 'ADMIN', '2018-11-10 14:55:17', 0, 0),
+(70, '[Del-1541832958]~16', '16', 'ADMIN', '2018-11-10 14:55:53', 'ADMIN', '2018-11-10 14:55:53', 0, 0),
+(71, '[Del-1541832985]~16', '16', 'ADMIN', '2018-11-10 14:56:18', 'ADMIN', '2018-11-10 14:56:18', 0, 0),
+(72, '[Del-1542784933]~OFW', 'Overseas Filipino Workers', 'ADMIN', '2018-11-10 14:56:31', 'ADMIN', '2018-11-10 15:56:17', 4, 0),
+(73, '[Del-1542336088]~17', '17', 'ADMIN', '2018-11-10 15:09:34', 'ADMIN', '2018-11-10 16:43:46', 4, 0),
+(74, '[Del-1542349003]~18', '18', 'ADMIN', '2018-11-10 15:33:27', 'ADMIN', '2018-11-10 15:33:27', 0, 0),
+(75, '[Del-1542348639]~19', 'ewqewqewq', 'ADMIN', '2018-11-10 16:32:18', 'ADMIN', '2018-11-16 10:41:51', 2, 0),
+(76, '[Del-1542336116]~55', '55', 'ADMIN', '2018-11-10 17:32:04', 'ADMIN', '2018-11-10 17:32:12', 2, 0),
+(77, '[Del-1542336849]~dsa', 'dsa', 'ADMIN', '2018-11-16 10:40:18', 'ADMIN', '2018-11-16 10:40:18', 1, 0),
+(78, '[Del-1542784924]~qwe', 'ewqdsadsa', 'ADMIN', '2018-11-16 10:41:40', 'ADMIN', '2018-11-16 10:42:26', 2, 0),
+(79, '[Del-1542349145]~refdsfd', 'fdsfs', 'ADMIN', '2018-11-16 12:37:41', 'ADMIN', '2018-11-16 12:37:41', 1, 0),
+(80, '[Del-1542784731]~dsa', 'dsadsa', 'ADMIN', '2018-11-16 14:08:53', 'ADMIN', '2018-11-16 14:08:53', 1, 0),
+(81, '[Del-1542784738]~gfdgf', 'marvin', 'ADMIN', '2018-11-16 14:16:39', 'ADMIN', '2018-11-16 14:23:09', 2, 0),
+(82, '[Del-1542785855]~ALPHA', 'asdasdasda', '', '2018-11-21 15:19:07', '', '2018-11-21 15:20:40', 2, 0),
+(83, '[Del-1542787403]~asdasdasda', 'asdasdasdas', '', '2018-11-21 15:19:41', '', '2018-11-21 15:19:41', 1, 0),
+(84, 'BRAVO', 'AFASFASFASFA', '', '2018-11-21 15:36:00', '', '2018-11-21 15:36:00', 1, 1),
+(85, 'CHARLIE', 'ASDASDASDASDA', '', '2018-11-21 15:38:46', '', '2018-11-21 15:38:46', 1, 1),
+(86, 'DELTA', 'SADASDASDAS', '', '2018-11-21 15:40:21', '', '2018-11-21 15:40:21', 1, 1),
+(87, 'ECHO', 'ASFASFASFASFAS', '', '2018-11-21 15:42:42', '', '2018-11-21 15:42:42', 1, 1),
+(88, '[Del-1542788007]~ASDSADAS', 'ASDSADASDSA', '', '2018-11-21 15:46:45', '', '2018-11-21 15:46:45', 1, 0),
+(89, 'FOX', 'ASDSADASDASD', '', '2018-11-21 16:03:14', '', '2018-11-21 16:03:14', 1, 1),
+(90, 'ALPHA', 'ASASDASDASDAS', '', '2018-11-21 16:13:38', '', '2018-11-21 16:13:38', 1, 1);
+
+-- --------------------------------------------------------
+
 -- Table structure for table `tbl_masterlist_positions`
 --
 
@@ -771,15 +839,25 @@ INSERT INTO `tbl_masterlist_positions` (`Id`, `Name`, `Description`, `CreatedByI
 --
 
 CREATE TABLE `tbl_school_course_list` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isActive` tinyint(1) NOT NULL
+
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Description` varchar(300) NOT NULL,
+  `CreatedById` varchar(50) NOT NULL,
+  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifiedById` varchar(50) NOT NULL,
+  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `IsActive` tinyint(1) NOT NULL,
+  `VersionNo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_school_course_list`
+--
+
+INSERT INTO `tbl_school_course_list` (`Id`, `Name`, `Description`, `CreatedById`, `CreatedAt`, `ModifiedById`, `ModifiedAt`, `IsActive`, `VersionNo`) VALUES
+(1, '[Del-1542788783]~QCPU', 'QCPU', '', '2018-11-21 16:22:21', '', '2018-11-21 16:22:21', 0, 0),
+(2, 'PUP Manila', 'PUP', '', '2018-11-21 16:26:35', '', '2018-11-21 16:26:50', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1061,7 +1139,12 @@ ALTER TABLE `tbl_establishment_industries`
 ALTER TABLE `tbl_establistments_categories`
   ADD PRIMARY KEY (`id`);
 
+
+-- Indexes for table `tbl_group_masterlist`
 --
+ALTER TABLE `tbl_group_masterlist`
+  ADD PRIMARY KEY (`Id`);
+
 -- Indexes for table `tbl_masterlist_positions`
 --
 ALTER TABLE `tbl_masterlist_positions`
@@ -1071,7 +1154,7 @@ ALTER TABLE `tbl_masterlist_positions`
 -- Indexes for table `tbl_school_course_list`
 --
 ALTER TABLE `tbl_school_course_list`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `tbl_security_users`
@@ -1119,13 +1202,11 @@ ALTER TABLE `tbl_web_settings`
 --
 ALTER TABLE `del_tbl_applicants_ofw`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `del_tbl_applicants_ofw_conditions`
 --
 ALTER TABLE `del_tbl_applicants_ofw_conditions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `del_tbl_applicants_ofw_locations`
 --
@@ -1166,7 +1247,8 @@ ALTER TABLE `tbl_applicants_disabilities`
 -- AUTO_INCREMENT for table `tbl_applicants_employment_status`
 --
 ALTER TABLE `tbl_applicants_employment_status`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `tbl_applicants_employment_types`
@@ -1246,17 +1328,21 @@ ALTER TABLE `tbl_establishment_industries`
 ALTER TABLE `tbl_establistments_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE `tbl_group_masterlist`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+
 --
 -- AUTO_INCREMENT for table `tbl_masterlist_positions`
 --
 ALTER TABLE `tbl_masterlist_positions`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  
 --
 -- AUTO_INCREMENT for table `tbl_school_course_list`
 --
 ALTER TABLE `tbl_school_course_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_web_posts`
@@ -1287,7 +1373,6 @@ ALTER TABLE `tbl_web_services`
 --
 ALTER TABLE `tbl_web_settings`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
