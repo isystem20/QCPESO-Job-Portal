@@ -373,6 +373,12 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/emppost/del'] = 'admin/EmployerController/Delete'; // POST to delete
         $route['admin/emppost/read'] = 'admin/EmployerController/Read'; // POST to view
 
+        /* Modules */ $route['manage/modules'] = 'admin/ModulesController/Modules';
+
+        $route['admin/modules/add'] = 'admin/ModulesController/Create'; //POST to create
+        $route['admin/modules/edit'] = 'admin/ModulesController/Update'; // POST to edit
+        $route['admin/modules/del'] = 'admin/ModulesController/Delete'; // POST to delete
+        $route['admin/modules/read'] = 'admin/ModulesController/Read'; // POST to view
 
         $route['manage/do/jobs/edit/(:any)'] = 'admin/JobsController/NewJob/$1';
         $route['manage/do/jobs/edit/(:any)/(:any)'] = 'admin/JobsController/NewJob/$1/$2';

@@ -379,6 +379,7 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
           });   
   });
 
+<<<<<<< HEAD
 $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
     e.preventDefault();       //This prevents the action to move to other page.
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
@@ -420,31 +421,10 @@ $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for
                      if($.isEmptyObject(data.url)) {
                   
                       
+=======
 
-                  }
+>>>>>>> parent of 881bc9e... displaying only
 
-                  else {
-                    window.setTimeout(function(){
-                      window.location.href = data.url;  
-                    }, 1000);
-                  }
-        
-              }
-                  else{
-                    $.toast({
-                      heading: 'Error',
-                      text: data.error,
-                      position: 'top-right',
-                      loaderBg:'#ff6849',
-                      icon: 'error',
-                      hideAfter: 3500
-                      
-                    });
-                  }
-                $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
-              }
-          });   
-  });
 
 
 });

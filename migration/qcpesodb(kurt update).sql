@@ -1,16 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2018 at 06:43 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Generation Time: Nov 18, 2018 at 12:51 PM
+-- Server version: 10.1.24-MariaDB
+-- PHP Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
-
 SET time_zone = "+00:00";
 
 
@@ -22,68 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `qcpesodb`
 --
-CREATE DATABASE IF NOT EXISTS `qcpesodb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `qcpesodb`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `del_tbl_applicants_ofw`
---
-
-CREATE TABLE `del_tbl_applicants_ofw` (
-  `id` int(11) NOT NULL,
-  `ApplicantId` varchar(50) NOT NULL,
-  `dependentsIds` varchar(100) NOT NULL,
-  `locationOF` varchar(100) NOT NULL,
-  `statusOF` varchar(100) NOT NULL,
-  `repatriationReason` varchar(300) NOT NULL,
-  `isOwwaMember` tinyint(1) NOT NULL,
-  `isImmigrant` tinyint(1) NOT NULL,
-  `immigrationReason` varchar(200) NOT NULL,
-  `immigrationType` int(11) NOT NULL,
-  `yearsStayed` int(11) NOT NULL,
-  `servicesAvailed` text NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `del_tbl_applicants_ofw_conditions`
---
-
-CREATE TABLE `del_tbl_applicants_ofw_conditions` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `del_tbl_applicants_ofw_locations`
---
-
-CREATE TABLE `del_tbl_applicants_ofw_locations` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -241,26 +178,6 @@ CREATE TABLE `tbl_applicants_certificate_list` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_applicants_dependents`
---
-
-CREATE TABLE `tbl_applicants_dependents` (
-  `Id` int(11) NOT NULL,
-  `ApplicantId` varchar(50) NOT NULL,
-  `Name` varchar(100) NOT NULL,
-  `BirthDate` date NOT NULL,
-  `Relation` varchar(100) NOT NULL,
-  `Description` varchar(300) NOT NULL,
-  `CreatedById` varchar(50) NOT NULL,
-  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ModifiedById` varchar(50) NOT NULL,
-  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `IsActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_applicants_disabilities`
 --
 
@@ -329,18 +246,10 @@ INSERT INTO `tbl_applicants_employment_status` (`Id`, `Name`, `Description`, `Cr
 (75, '[Del-1542348639]~19', 'ewqewqewq', 'ADMIN', '2018-11-10 16:32:18', 'ADMIN', '2018-11-16 10:41:51', 2, 0),
 (76, '[Del-1542336116]~55', '55', 'ADMIN', '2018-11-10 17:32:04', 'ADMIN', '2018-11-10 17:32:12', 2, 0),
 (77, '[Del-1542336849]~dsa', 'dsa', 'ADMIN', '2018-11-16 10:40:18', 'ADMIN', '2018-11-16 10:40:18', 1, 0),
-(78, '[Del-1542784924]~qwe', 'ewqdsadsa', 'ADMIN', '2018-11-16 10:41:40', 'ADMIN', '2018-11-16 10:42:26', 2, 0),
+(78, 'qwe', 'ewqdsadsa', 'ADMIN', '2018-11-16 10:41:40', 'ADMIN', '2018-11-16 10:42:26', 2, 1),
 (79, '[Del-1542349145]~refdsfd', 'fdsfs', 'ADMIN', '2018-11-16 12:37:41', 'ADMIN', '2018-11-16 12:37:41', 1, 0),
-(80, '[Del-1542784731]~dsa', 'dsadsa', 'ADMIN', '2018-11-16 14:08:53', 'ADMIN', '2018-11-16 14:08:53', 1, 0),
-(81, '[Del-1542784738]~gfdgf', 'marvin', 'ADMIN', '2018-11-16 14:16:39', 'ADMIN', '2018-11-16 14:23:09', 2, 0),
-(82, '[Del-1542785855]~ALPHA', 'asdasdasda', '', '2018-11-21 15:19:07', '', '2018-11-21 15:20:40', 2, 0),
-(83, '[Del-1542787403]~asdasdasda', 'asdasdasdas', '', '2018-11-21 15:19:41', '', '2018-11-21 15:19:41', 1, 0),
-(84, 'BRAVO', 'AFASFASFASFA', '', '2018-11-21 15:36:00', '', '2018-11-21 15:36:00', 1, 1),
-(85, 'CHARLIE', 'ASDASDASDASDA', '', '2018-11-21 15:38:46', '', '2018-11-21 15:38:46', 1, 1),
-(86, 'DELTA', 'SADASDASDAS', '', '2018-11-21 15:40:21', '', '2018-11-21 15:40:21', 1, 1),
-(87, 'ECHO', 'ASFASFASFASFAS', '', '2018-11-21 15:42:42', '', '2018-11-21 15:42:42', 1, 1),
-(88, 'ASDSADAS', 'ASDSADASDSA', '', '2018-11-21 15:46:45', '', '2018-11-21 15:46:45', 1, 1),
-(89, 'FOX', 'ASDSADASDASD', '', '2018-11-21 16:03:14', '', '2018-11-21 16:03:14', 1, 1);
+(80, 'dsa', 'dsadsa', 'ADMIN', '2018-11-16 14:08:53', 'ADMIN', '2018-11-16 14:08:53', 1, 1),
+(81, 'gfdgf', 'marvin', 'ADMIN', '2018-11-16 14:16:39', 'ADMIN', '2018-11-16 14:23:09', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -409,26 +318,48 @@ CREATE TABLE `tbl_applicants_job_applications` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_applicants_kasambahay`
+--
+
+CREATE TABLE `tbl_applicants_kasambahay` (
+  `id` int(11) NOT NULL,
+  `jobDesc` varchar(100) NOT NULL,
+  `employerName` varchar(200) NOT NULL,
+  `employerWork` varchar(100) NOT NULL,
+  `employerAddress` varchar(500) NOT NULL,
+  `salary` varchar(100) NOT NULL,
+  `stayInOut` varchar(100) NOT NULL,
+  `yearOfService` decimal(8,2) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_applicants_languages`
 --
 
 CREATE TABLE `tbl_applicants_languages` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(100) NOT NULL,
-  `Description` varchar(300) NOT NULL,
-  `CreatedById` varchar(50) NOT NULL,
-  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ModifiedById` varchar(50) NOT NULL,
-  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `VersionNo` int(11) NOT NULL DEFAULT '1',
-  `IsActive` tinyint(1) NOT NULL
+  `isActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_applicants_languages`
 --
 
-INSERT INTO `tbl_applicants_languages` (`Id`, `Name`, `Description`, `CreatedById`, `CreatedAt`, `ModifiedById`, `ModifiedAt`, `VersionNo`, `IsActive`) VALUES
+INSERT INTO `tbl_applicants_languages` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `VersionNo`, `isActive`) VALUES
 (1, '[Del-1541924182]~English', 'English', 'ADMIN', '2018-11-10 17:13:01', 'ADMIN', '2018-11-10 17:13:01', 1, 0),
 (2, 'xcv', 'xcv', 'ADMIN', '2018-11-12 09:55:58', 'ADMIN', '2018-11-12 09:55:58', 1, 1),
 (3, 'dsa', 'dsa', '', '2018-11-16 09:45:55', '', '2018-11-16 09:45:55', 1, 1);
@@ -440,22 +371,22 @@ INSERT INTO `tbl_applicants_languages` (`Id`, `Name`, `Description`, `CreatedByI
 --
 
 CREATE TABLE `tbl_applicants_levels` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(100) NOT NULL,
-  `Description` varchar(300) NOT NULL,
-  `CreatedById` varchar(50) NOT NULL,
-  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ModifiedById` varchar(50) NOT NULL,
-  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `VersionNo` int(11) NOT NULL DEFAULT '1',
-  `IsActive` tinyint(1) NOT NULL
+  `isActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_applicants_levels`
 --
 
-INSERT INTO `tbl_applicants_levels` (`Id`, `Name`, `Description`, `CreatedById`, `CreatedAt`, `ModifiedById`, `ModifiedAt`, `VersionNo`, `IsActive`) VALUES
+INSERT INTO `tbl_applicants_levels` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `VersionNo`, `isActive`) VALUES
 (55, '1', '1', 'ADMIN', '2018-11-10 14:02:42', 'ADMIN', '2018-11-10 14:02:42', 0, 0),
 (56, '2', '2', 'ADMIN', '2018-11-10 14:04:05', 'ADMIN', '2018-11-10 14:04:05', 0, 0),
 (57, '3', '3', 'ADMIN', '2018-11-10 14:05:25', 'ADMIN', '2018-11-10 14:05:25', 0, 0),
@@ -489,16 +420,118 @@ INSERT INTO `tbl_applicants_levels` (`Id`, `Name`, `Description`, `CreatedById`,
 --
 
 CREATE TABLE `tbl_applicants_licenses` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(100) NOT NULL,
-  `VersionNo` tinyint(1) NOT NULL DEFAULT '1',
-  `Description` varchar(300) NOT NULL,
-  `CreatedById` varchar(50) NOT NULL,
-  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ModifiedById` varchar(50) NOT NULL,
-  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `IsActive` tinyint(1) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `eligibilityTitle` varchar(10) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_applicants_ofw`
+--
+
+CREATE TABLE `tbl_applicants_ofw` (
+  `id` int(11) NOT NULL,
+  `ApplicantId` varchar(50) NOT NULL,
+  `dependentsIds` varchar(100) NOT NULL,
+  `locationOF` varchar(100) NOT NULL,
+  `statusOF` varchar(100) NOT NULL,
+  `repatriationReason` varchar(300) NOT NULL,
+  `isOwwaMember` tinyint(1) NOT NULL,
+  `isImmigrant` tinyint(1) NOT NULL,
+  `immigrationReason` varchar(200) NOT NULL,
+  `immigrationType` int(11) NOT NULL,
+  `yearsStayed` int(11) NOT NULL,
+  `servicesAvailed` text NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_applicants_ofw_conditions`
+--
+
+CREATE TABLE `tbl_applicants_ofw_conditions` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_applicants_ofw_dependents`
+--
+
+CREATE TABLE `tbl_applicants_ofw_dependents` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_applicants_ofw_locations`
+--
+
+CREATE TABLE `tbl_applicants_ofw_locations` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_applicants_positions`
+--
+
+CREATE TABLE `tbl_applicants_positions` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isActive` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_applicants_positions`
+--
+
+INSERT INTO `tbl_applicants_positions` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `isActive`) VALUES
+(1, 'Software Engineer', '', 'ADMIN', '2018-10-22 17:21:21', 'ADMIN', '2018-10-22 17:21:21', 1),
+(2, 'Network Engineer', 'Sample Desc', 'ADMIN', '2018-10-22 17:21:21', 'ADMIN', '2018-10-22 17:21:21', 0);
 
 -- --------------------------------------------------------
 
@@ -750,114 +783,19 @@ CREATE TABLE `tbl_establistments_categories` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_group_masterlist`
---
-
-CREATE TABLE `tbl_group_masterlist` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(100) NOT NULL,
-  `Description` varchar(300) NOT NULL,
-  `CreatedById` varchar(50) NOT NULL,
-  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ModifiedById` varchar(50) NOT NULL,
-  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `VersionNo` int(11) NOT NULL DEFAULT '1',
-  `IsActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_group_masterlist`
---
-
-INSERT INTO `tbl_group_masterlist` (`Id`, `Name`, `Description`, `CreatedById`, `CreatedAt`, `ModifiedById`, `ModifiedAt`, `VersionNo`, `IsActive`) VALUES
-(55, '1', '1', 'ADMIN', '2018-11-10 14:02:42', 'ADMIN', '2018-11-10 14:02:42', 0, 0),
-(56, '2', '2', 'ADMIN', '2018-11-10 14:04:05', 'ADMIN', '2018-11-10 14:04:05', 0, 0),
-(57, '3', '3', 'ADMIN', '2018-11-10 14:05:25', 'ADMIN', '2018-11-10 14:05:25', 0, 0),
-(58, '4', '4', 'ADMIN', '2018-11-10 14:05:56', 'ADMIN', '2018-11-10 14:05:56', 0, 0),
-(59, '5', '5', 'ADMIN', '2018-11-10 14:07:27', 'ADMIN', '2018-11-10 14:07:27', 0, 0),
-(60, '[Del-]+name', '6', 'ADMIN', '2018-11-10 14:07:47', 'ADMIN', '2018-11-10 14:07:47', 0, 0),
-(61, '[Del-]+name', '7', 'ADMIN', '2018-11-10 14:12:31', 'ADMIN', '2018-11-10 14:12:31', 0, 0),
-(62, '[Del-]+name', '8', 'ADMIN', '2018-11-10 14:13:03', 'ADMIN', '2018-11-10 14:13:03', 0, 0),
-(63, '9', '9', 'ADMIN', '2018-11-10 14:15:17', 'ADMIN', '2018-11-10 14:15:17', 0, 0),
-(64, '99', '9', 'ADMIN', '2018-11-10 14:16:31', 'ADMIN', '2018-11-10 14:16:31', 0, 0),
-(65, '10', '10', 'ADMIN', '2018-11-10 14:17:02', 'ADMIN', '2018-11-10 14:17:02', 0, 0),
-(66, '[Del-1541832405]+name', '11', 'ADMIN', '2018-11-10 14:22:42', 'ADMIN', '2018-11-10 14:22:42', 0, 0),
-(67, '[Del-1541832852]~13', '13', 'ADMIN', '2018-11-10 14:51:08', 'ADMIN', '2018-11-10 14:51:08', 0, 0),
-(68, '[Del-1541832894]~14', '14', 'ADMIN', '2018-11-10 14:54:42', 'ADMIN', '2018-11-10 14:54:42', 0, 0),
-(69, '[Del-1541832924]~15', '15', 'ADMIN', '2018-11-10 14:55:17', 'ADMIN', '2018-11-10 14:55:17', 0, 0),
-(70, '[Del-1541832958]~16', '16', 'ADMIN', '2018-11-10 14:55:53', 'ADMIN', '2018-11-10 14:55:53', 0, 0),
-(71, '[Del-1541832985]~16', '16', 'ADMIN', '2018-11-10 14:56:18', 'ADMIN', '2018-11-10 14:56:18', 0, 0),
-(72, '[Del-1542784933]~OFW', 'Overseas Filipino Workers', 'ADMIN', '2018-11-10 14:56:31', 'ADMIN', '2018-11-10 15:56:17', 4, 0),
-(73, '[Del-1542336088]~17', '17', 'ADMIN', '2018-11-10 15:09:34', 'ADMIN', '2018-11-10 16:43:46', 4, 0),
-(74, '[Del-1542349003]~18', '18', 'ADMIN', '2018-11-10 15:33:27', 'ADMIN', '2018-11-10 15:33:27', 0, 0),
-(75, '[Del-1542348639]~19', 'ewqewqewq', 'ADMIN', '2018-11-10 16:32:18', 'ADMIN', '2018-11-16 10:41:51', 2, 0),
-(76, '[Del-1542336116]~55', '55', 'ADMIN', '2018-11-10 17:32:04', 'ADMIN', '2018-11-10 17:32:12', 2, 0),
-(77, '[Del-1542336849]~dsa', 'dsa', 'ADMIN', '2018-11-16 10:40:18', 'ADMIN', '2018-11-16 10:40:18', 1, 0),
-(78, '[Del-1542784924]~qwe', 'ewqdsadsa', 'ADMIN', '2018-11-16 10:41:40', 'ADMIN', '2018-11-16 10:42:26', 2, 0),
-(79, '[Del-1542349145]~refdsfd', 'fdsfs', 'ADMIN', '2018-11-16 12:37:41', 'ADMIN', '2018-11-16 12:37:41', 1, 0),
-(80, '[Del-1542784731]~dsa', 'dsadsa', 'ADMIN', '2018-11-16 14:08:53', 'ADMIN', '2018-11-16 14:08:53', 1, 0),
-(81, '[Del-1542784738]~gfdgf', 'marvin', 'ADMIN', '2018-11-16 14:16:39', 'ADMIN', '2018-11-16 14:23:09', 2, 0),
-(82, '[Del-1542785855]~ALPHA', 'asdasdasda', '', '2018-11-21 15:19:07', '', '2018-11-21 15:20:40', 2, 0),
-(83, '[Del-1542787403]~asdasdasda', 'asdasdasdas', '', '2018-11-21 15:19:41', '', '2018-11-21 15:19:41', 1, 0),
-(84, 'BRAVO', 'AFASFASFASFA', '', '2018-11-21 15:36:00', '', '2018-11-21 15:36:00', 1, 1),
-(85, 'CHARLIE', 'ASDASDASDASDA', '', '2018-11-21 15:38:46', '', '2018-11-21 15:38:46', 1, 1),
-(86, 'DELTA', 'SADASDASDAS', '', '2018-11-21 15:40:21', '', '2018-11-21 15:40:21', 1, 1),
-(87, 'ECHO', 'ASFASFASFASFAS', '', '2018-11-21 15:42:42', '', '2018-11-21 15:42:42', 1, 1),
-(88, '[Del-1542788007]~ASDSADAS', 'ASDSADASDSA', '', '2018-11-21 15:46:45', '', '2018-11-21 15:46:45', 1, 0),
-(89, 'FOX', 'ASDSADASDASD', '', '2018-11-21 16:03:14', '', '2018-11-21 16:03:14', 1, 1),
-(90, 'ALPHA', 'ASASDASDASDAS', '', '2018-11-21 16:13:38', '', '2018-11-21 16:13:38', 1, 1);
-
--- --------------------------------------------------------
-
--- Table structure for table `tbl_masterlist_positions`
---
-
-CREATE TABLE `tbl_masterlist_positions` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(100) NOT NULL,
-  `Description` varchar(300) NOT NULL,
-  `CreatedById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ModifiedById` varchar(50) NOT NULL,
-  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `VersionNo` tinyint(1) NOT NULL DEFAULT '1',
-  `IsActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_masterlist_positions`
---
-
-INSERT INTO `tbl_masterlist_positions` (`Id`, `Name`, `Description`, `CreatedById`, `createdAt`, `ModifiedById`, `ModifiedAt`, `VersionNo`, `IsActive`) VALUES
-(1, 'Software Engineer', '', 'ADMIN', '2018-10-22 17:21:21', 'ADMIN', '2018-10-22 17:21:21', 1, 1),
-(2, 'Network Engineer', 'Sample Desc', 'ADMIN', '2018-10-22 17:21:21', 'ADMIN', '2018-10-22 17:21:21', 1, 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_school_course_list`
 --
 
 CREATE TABLE `tbl_school_course_list` (
-
-  `Id` int(11) NOT NULL,
-  `Name` varchar(100) NOT NULL,
-  `Description` varchar(300) NOT NULL,
-  `CreatedById` varchar(50) NOT NULL,
-  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ModifiedById` varchar(50) NOT NULL,
-  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `IsActive` tinyint(1) NOT NULL,
-  `VersionNo` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `createdById` varchar(50) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedById` varchar(50) NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_school_course_list`
---
-
-INSERT INTO `tbl_school_course_list` (`Id`, `Name`, `Description`, `CreatedById`, `CreatedAt`, `ModifiedById`, `ModifiedAt`, `IsActive`, `VersionNo`) VALUES
-(1, '[Del-1542788783]~QCPU', 'QCPU', '', '2018-11-21 16:22:21', '', '2018-11-21 16:22:21', 0, 0),
-(2, 'PUP Manila', 'PUP', '', '2018-11-21 16:26:35', '', '2018-11-21 16:26:50', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -943,22 +881,22 @@ CREATE TABLE `tbl_web_post_tags` (
 --
 
 CREATE TABLE `tbl_web_post_types` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `createdById` varchar(50) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modifiedById` varchar(50) NOT NULL,
-  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Description` varchar(300) NOT NULL,
+  `CreatedById` varchar(50) NOT NULL,
+  `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifiedById` varchar(50) NOT NULL,
+  `ModifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `VersionNo` int(11) NOT NULL DEFAULT '1',
-  `isActive` tinyint(1) NOT NULL
+  `IsActive` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_web_post_types`
 --
 
-INSERT INTO `tbl_web_post_types` (`id`, `name`, `description`, `createdById`, `createdAt`, `modifiedById`, `modifiedAt`, `VersionNo`, `isActive`) VALUES
+INSERT INTO `tbl_web_post_types` (`Id`, `Name`, `Description`, `CreatedById`, `CreatedAt`, `ModifiedById`, `ModifiedAt`, `VersionNo`, `IsActive`) VALUES
 (1, '[Del-1542388013]~Blind', 'Blind', 'ADMIN', '2018-11-10 17:18:20', 'ADMIN', '2018-11-10 17:39:07', 3, 0),
 (2, 'dsadafds', 'dsadsaf', '', '2018-11-17 01:06:48', '', '2018-11-17 01:06:48', 1, 1),
 (3, 'kurt', 'khalifa', '', '2018-11-17 01:09:05', '', '2018-11-17 01:09:05', 1, 1),
@@ -1002,30 +940,6 @@ CREATE TABLE `tbl_web_settings` (
 --
 
 --
--- Indexes for table `del_tbl_applicants_ofw`
---
-ALTER TABLE `del_tbl_applicants_ofw`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `del_tbl_applicants_ofw_conditions`
---
-ALTER TABLE `del_tbl_applicants_ofw_conditions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `del_tbl_applicants_ofw_locations`
---
-ALTER TABLE `del_tbl_applicants_ofw_locations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tbl_applicants`
---
-ALTER TABLE `tbl_applicants`
-  ADD PRIMARY KEY (`Id`);
-
---
 -- Indexes for table `tbl_applicants_categories`
 --
 ALTER TABLE `tbl_applicants_categories`
@@ -1041,12 +955,6 @@ ALTER TABLE `tbl_applicants_certificates`
 -- Indexes for table `tbl_applicants_certificate_list`
 --
 ALTER TABLE `tbl_applicants_certificate_list`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `tbl_applicants_dependents`
---
-ALTER TABLE `tbl_applicants_dependents`
   ADD PRIMARY KEY (`Id`);
 
 --
@@ -1074,22 +982,58 @@ ALTER TABLE `tbl_applicants_job_applications`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Indexes for table `tbl_applicants_kasambahay`
+--
+ALTER TABLE `tbl_applicants_kasambahay`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_applicants_languages`
 --
 ALTER TABLE `tbl_applicants_languages`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_applicants_levels`
 --
 ALTER TABLE `tbl_applicants_levels`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_applicants_licenses`
 --
 ALTER TABLE `tbl_applicants_licenses`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_applicants_ofw`
+--
+ALTER TABLE `tbl_applicants_ofw`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_applicants_ofw_conditions`
+--
+ALTER TABLE `tbl_applicants_ofw_conditions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_applicants_ofw_dependents`
+--
+ALTER TABLE `tbl_applicants_ofw_dependents`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_applicants_ofw_locations`
+--
+ALTER TABLE `tbl_applicants_ofw_locations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_applicants_positions`
+--
+ALTER TABLE `tbl_applicants_positions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_applicants_prefer_locations`
@@ -1139,22 +1083,11 @@ ALTER TABLE `tbl_establishment_industries`
 ALTER TABLE `tbl_establistments_categories`
   ADD PRIMARY KEY (`id`);
 
-
--- Indexes for table `tbl_group_masterlist`
---
-ALTER TABLE `tbl_group_masterlist`
-  ADD PRIMARY KEY (`Id`);
-
--- Indexes for table `tbl_masterlist_positions`
---
-ALTER TABLE `tbl_masterlist_positions`
-  ADD PRIMARY KEY (`Id`);
-
 --
 -- Indexes for table `tbl_school_course_list`
 --
 ALTER TABLE `tbl_school_course_list`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_security_users`
@@ -1179,7 +1112,7 @@ ALTER TABLE `tbl_web_post_tags`
 -- Indexes for table `tbl_web_post_types`
 --
 ALTER TABLE `tbl_web_post_types`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `tbl_web_services`
@@ -1198,181 +1131,155 @@ ALTER TABLE `tbl_web_settings`
 --
 
 --
--- AUTO_INCREMENT for table `del_tbl_applicants_ofw`
---
-ALTER TABLE `del_tbl_applicants_ofw`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `del_tbl_applicants_ofw_conditions`
---
-ALTER TABLE `del_tbl_applicants_ofw_conditions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `del_tbl_applicants_ofw_locations`
---
-ALTER TABLE `del_tbl_applicants_ofw_locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tbl_applicants_categories`
 --
 ALTER TABLE `tbl_applicants_categories`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
-
 --
 -- AUTO_INCREMENT for table `tbl_applicants_certificates`
 --
 ALTER TABLE `tbl_applicants_certificates`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_applicants_certificate_list`
 --
 ALTER TABLE `tbl_applicants_certificate_list`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_applicants_dependents`
---
-ALTER TABLE `tbl_applicants_dependents`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_applicants_disabilities`
 --
 ALTER TABLE `tbl_applicants_disabilities`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tbl_applicants_employment_status`
 --
 ALTER TABLE `tbl_applicants_employment_status`
-
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
-
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 --
 -- AUTO_INCREMENT for table `tbl_applicants_employment_types`
 --
 ALTER TABLE `tbl_applicants_employment_types`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
-
 --
 -- AUTO_INCREMENT for table `tbl_applicants_job_applications`
 --
 ALTER TABLE `tbl_applicants_job_applications`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
+--
+-- AUTO_INCREMENT for table `tbl_applicants_kasambahay`
+--
+ALTER TABLE `tbl_applicants_kasambahay`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_applicants_languages`
 --
 ALTER TABLE `tbl_applicants_languages`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_applicants_levels`
 --
 ALTER TABLE `tbl_applicants_levels`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 --
 -- AUTO_INCREMENT for table `tbl_applicants_licenses`
 --
 ALTER TABLE `tbl_applicants_licenses`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_applicants_ofw`
+--
+ALTER TABLE `tbl_applicants_ofw`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_applicants_ofw_conditions`
+--
+ALTER TABLE `tbl_applicants_ofw_conditions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_applicants_ofw_dependents`
+--
+ALTER TABLE `tbl_applicants_ofw_dependents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_applicants_ofw_locations`
+--
+ALTER TABLE `tbl_applicants_ofw_locations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_applicants_positions`
+--
+ALTER TABLE `tbl_applicants_positions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_applicants_prefer_locations`
 --
 ALTER TABLE `tbl_applicants_prefer_locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_applicants_schools_attended`
 --
 ALTER TABLE `tbl_applicants_schools_attended`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_applicants_sydp`
 --
 ALTER TABLE `tbl_applicants_sydp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_applicants_work_history`
 --
 ALTER TABLE `tbl_applicants_work_history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_establishments_jobposts`
 --
 ALTER TABLE `tbl_establishments_jobposts`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_establishments_rep`
 --
 ALTER TABLE `tbl_establishments_rep`
   MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_establishment_industries`
 --
 ALTER TABLE `tbl_establishment_industries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
 --
 -- AUTO_INCREMENT for table `tbl_establistments_categories`
 --
 ALTER TABLE `tbl_establistments_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `tbl_group_masterlist`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
-
---
--- AUTO_INCREMENT for table `tbl_masterlist_positions`
---
-ALTER TABLE `tbl_masterlist_positions`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-  
 --
 -- AUTO_INCREMENT for table `tbl_school_course_list`
 --
 ALTER TABLE `tbl_school_course_list`
-
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_web_posts`
 --
 ALTER TABLE `tbl_web_posts`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_web_post_tags`
 --
 ALTER TABLE `tbl_web_post_tags`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_web_post_types`
 --
 ALTER TABLE `tbl_web_post_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_web_services`
 --
 ALTER TABLE `tbl_web_services`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_web_settings`
 --
 ALTER TABLE `tbl_web_settings`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
