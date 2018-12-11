@@ -34,7 +34,6 @@
                                                    <option>Out-of-School Youth</option>
                                                    <option>Kasambahay</option>
                                                    <option>PWD</option>
-
                                                </select>
                                            </div>
                                        </div>

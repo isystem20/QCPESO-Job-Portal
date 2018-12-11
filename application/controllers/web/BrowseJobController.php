@@ -9,33 +9,46 @@ function __construct() {
          $this->load->model('web/BrowseJobModel','browsmod');
          $this->load->model('web/EstablishmentModel','estmod');
           $this->load->model('admin/CategoriesModel','categmod');
+          $this->load->model('admin/SkillsModel','skimod');
+          $this->load->model('admin/ApplicantLevelModel','levelmod');
      }
 public function BrowseJob()
+	
 	{
 
 		$str = null;
 		// $category = null;
 		$postdata = $this->input->post();
-		if (!empty($postdata['searchtext'])) {
+		
+		if  (!empty($postdata['searchtext'])) {
 			$str = $postdata['searchtext'];
 			// $category = $postdata['searchtext'];
 			// /$str = null;
 		
 		}
-		$category = null;
-		$postdata = $this->input->post();
-		if (!empty($postdata['searchtextcat'])) {
-			// $str = $postdata['searchtext']
-			$category = $postdata['searchtextcat'];
+		print_r($postdata);
+		// $category = null;
+		// $postdata = $this->input->post();
+		// if (!empty($postdata['searchtextcat'])) {
+		// 	// $str = $postdata['searchtext']
+		// 	$category = $postdata['searchtextcat'];
 		
-		}
+		// }
 		
 
-		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($str, $category);
+		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($postdata);
+
 		$data['browsejob1'] = $this->browsmod->MostRecentJobs();
 		$data['estabpost'] = $this->estmod->LoadMasterlist();
-		$data['skills'] = $this->categmod->LoadCategoryMasterlist();
-		$layout = array('transparentwrapper' => TRUE, 'pagetitle'=>'BrowseJob');
+		
+		$data['categori'] = $this->categmod->LoadCategoryMasterlist();
+
+		$data['skills'] = $this->skimod->LoadMasterlist();
+
+		$data['applevel'] = $this->levelmod->LoadMasterlist();
+
+		$data['criteria'] = $postdata;
+		$layout = array('transparentwrapper' => TRUE,'addons'=>TRUE, 'pagetitle'=>'BrowseJob');
 		$this->load->view('layout/web/1_head',$layout);
 		$this->load->view('layout/web/2_preloader',$layout);
 		$this->load->view('layout/web/3_header',$layout);

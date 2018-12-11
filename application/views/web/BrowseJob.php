@@ -40,56 +40,129 @@
 
                                 <!-- Search widget-->
                                 <aside class="widget widget-search">
+                                    <div class="form-group">
                                     <form action="#" method="POST">
-                                        <input class="form-control" type="search" name="searchtext" placeholder="Job Title">
+                                        <input class="form-control" type="search" name="searchtext" placeholder="Job Title" value="<?php echo set_value('searchtext', ''); ?>" >
                                         <button class="search-button" type="submit"><span class="fas fa-search"></span></button>
-                                    </form>
+                                        </div>
+                                    
                                 <!--  <div class="form-group">
                                      <form action="#" method="POST">
                                         <input class="form-control" type="search" name="searchtextcat" placeholder="Categories">
                                         <button class="search-button" type="submit"><span class="fas fa-search"></span></button>
                                     </form> -->
 
-                                    <label class="control-label">Categories</label>
                                     
-                                    <select name="speci" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
-                                        <?php
-                                            if ($skills->num_rows() > 0) {
-                                                foreach ($skills->result() as $row) { ?>
-                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
-                                        <?php
-                                            }
-                                        }
-                                        ?> 
-                                    </select>
-                                    <div class="form-group">
-                                    <label class="control-label">Specialization</label>
-                                    
-                                    <select name="speci" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
-                                        <?php
-                                            if ($skills->num_rows() > 0) {
-                                                foreach ($skills->result() as $row) { ?>
-                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
-                                        <?php
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
+                                   
                                  <div class="form-group">
-                                    <label class="control-label">Employment Level</label>
-                                    
-                                    <select name="speci" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
-                                        <?php
-                                            if ($skills->num_rows() > 0) {
-                                                foreach ($skills->result() as $row) { ?>
-                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
-                                        <?php
-                                            }
-                                        }
-                                        ?>
+                                    <?php
+                                    if (!empty($criteria->Categories)) {
+                                        print_r($criteria->Categories);
+                                     } ; 
+                                     ?>
+
+                                            <label class="control-label">Categories </label>
+                                            <select name="Categories[]"  class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" dat-placeholder="ategories" ">
+                                                
+                                                <?php
+                                            
+                                                     if ($categori->num_rows() > 0) {
+                                                    foreach ($categori->result() as $row) {
+                                                           if (in_array($row->Id, $criteria['Categories'])) {
+                                                    ?>
+                                                        <option selected value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                    }
+                                                    else
+                                                    {
+                                                    ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                            } 
+                                                                                             
+                                                    }
+                                                }
+                                                ?>
+
+
                                     </select>
+
+
                                 </div>
+                                <div class="form-group">
+                                                <label class="control-label">Specialization</label>
+                                                <select name="Specialization[]" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                               
+                                                 <?php
+                                            
+                                                     if ($skills->num_rows() > 0) {
+                                                    foreach ($skills->result() as $row) {
+                                                           if (in_array($row->Id, $criteria['Specialization'])) {
+                                                    ?>
+                                                        <option selected value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                    }
+                                                    else
+                                                    {
+                                                    ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                            } 
+                                                                                             
+                                                    }
+                                                }
+                                                ?>
+
+
+
+                                                <!-- <?php
+                                                     if ($skills->num_rows() > 0) {
+                                                    foreach ($skills->result() as $row) { ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                <?php
+                                                    }
+                                                }
+                                                ?> -->
+                                    </select>
+                                    
+                                </div>
+                                <div class="form-group">
+                                                <label class="control-label">Employment Level</label>
+                                                <select name="EmploymentLevel[]" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" placeholder="Choose">
+                                               
+
+                                                     <?php
+                                            
+                                                     if ($applevel->num_rows() > 0) {
+                                                    foreach ($applevel->result() as $row) {
+                                                           if (in_array($row->Id, $criteria['EmploymentLevel'])) {
+                                                    ?>
+                                                        <option selected value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                    }
+                                                    else
+                                                    {
+                                                    ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                            } 
+                                                                                             
+                                                    }
+                                                }
+                                                ?>
+
+
+                                               <!--  <?php
+                                                    if ($applevel->num_rows() > 0) {
+                                                    foreach ($applevel->result() as $row) { ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name;?></option>
+                                                <?php
+                                                    }
+                                                }
+                                                ?> -->
+                                    </select>   
+                                </div>
+                                </form>
                 </aside>
 
                                 <!-- Categories widget-->
@@ -98,14 +171,10 @@
                                         <h6>Companies</h6>
                                     </div>
                                     <ul>
-  <?php
+                                        <?php
                                         if ($estabpost->num_rows() > 0) {
                                             foreach ($estabpost->result() as $row) { ?>
-                                            
- 
                                         <li><a href="#"><?=$row->CompanyName;?><span class="float-right">10</span></a></li>
-
-
                                         <?php
                                             }
                                         }
@@ -129,8 +198,6 @@
                                         <?php
                                         if ($browsejob1->num_rows() > 0) {
                                             foreach ($browsejob1->result() as $row ) { ?>
-
-
                                         <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/1.jpg" alt=""></a></div>
