@@ -115,7 +115,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Jobs */ 
             /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';       
             /* View Jobs */                 $route['manage/do/jobs/view-list'] = 'admin/JobsController/ViewJobs';  
-            /* Pending Job Posting */       $route['manage/do/jobs/pending-job-posts'] = 'admin/JobController/PendingJobMasterlist';      
+            /* Pending Job Posting */       $route['manage/do/jobs/pending-job-posts'] = 'admin/JobsController/PendingJobs';      
 
     /* REPORTS */
         /* Applicants Masterlist */         $route['manage/reports/applicants'] = 'admin/ReportController/ApplicantReport'; 
@@ -410,3 +410,14 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/surveyandratings/edit'] = 'admin/SurveyAndRatingsController/Update'; // POST to edit
         $route['admin/surveyandratings/del'] = 'admin/SurveyAndRatingsController/Delete'; // POST to delete
         $route['admin/surveyandratings/read'] = 'admin/SurveyAndRatingsController/Read'; // POST to view
+
+
+        $route['manage/do/jobs/update/(:any)'] = 'admin/JobsController/NewJob/$1';
+        $route['manage/do/jobs/update/(:any)/(:any)'] = 'admin/JobsController/NewJob/$1/$2';
+        $route['admin/jobposts/edit'] = 'admin/JobsController/Update';
+
+        //register page
+
+        $route['web/register'] = 'web/RegisterController/register';
+
+        

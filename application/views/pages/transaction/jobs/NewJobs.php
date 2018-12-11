@@ -72,7 +72,7 @@ if (!empty($jobposts)) {
                                               'id' => $row->Id,
                                             );
                                             ?>
-                                            <?php echo form_open_multipart('manage/do/jobs/addnewjob','id="jobpost-form"', $hidden); ?>
+                                            <?php echo form_open_multipart('admin/jobposts/edit','id="jobpost-form"', $hidden); ?>
 
                                                 <div class="form-group">
                                                     <label class="control-label">Job Title</label>
@@ -486,7 +486,7 @@ else { ?>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" id="add-jobposts" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                         <a href="<?=base_url('manage/do/jobs/add');?>" class="btn btn-danger">Cancel</a>                                
                                     </div>
 
                                 <!--  -->

@@ -36,7 +36,7 @@
                                 </form>
                             </div>
                             <div class="m-b-20">
-                                <p><small>Dont have an account yet? <a href="#">Create account</a> <br>
+                                <p><small>Dont have an account yet? <a href="<?php echo base_url(); ?>web/register">Create account</a> <br>
                                         Forgot your username or password? <a href="#">Recover account</a></small></p>
                             </div>
                         </div>

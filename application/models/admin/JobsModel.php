@@ -30,10 +30,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			// $this->db->set('Salary',"'".$data['Salary']."'",FALSE);
 
 			
+			$data['Specialization'] = json_encode($data['Specialization']);
+			$data['Category'] = json_encode($data['Category']);
 
-			// $data['Specialization'] = json_encode($data['Specialization']);
-			// $data['Category'] = json_encode($data['Category']);
-
+			
 			
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
@@ -64,6 +64,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				FALSE;
 			}
 
+		}
+
+
+		
+		public function Update($id, $data) {
+		    $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
+		    $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
+		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
+		    $this->db->where('Id', $id);
+		    $query = $this->db->update($this->tbl,$data);
+			$update = $this->db->affected_rows();
+			if ($update > 0) {
+				$result = $this->LoadMasterlist($id);
+				return $result;
+			}
+			else {
+				return FALSE;
+			}
 		}
 
 }

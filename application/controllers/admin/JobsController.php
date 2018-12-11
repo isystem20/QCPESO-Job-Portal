@@ -87,6 +87,29 @@
 
  	}
 
+  public function PendingJobs()
+  {
+
+ 
+    $layout = array('tables'=>TRUE,);
+    $data['jobposts'] = $this->jobsmod->LoadMasterlist();
+    $data['class'] = 'jobposts';
+
+
+
+    $this->load->view('layout/admin/1_css');
+    $this->load->view('layout/admin/2_preloader');
+    $this->load->view('layout/admin/3_topbar');
+    $this->load->view('layout/admin/4_leftsidebar');
+    $this->load->view('pages/transaction/jobs/PendingJobs', $data);
+    $this->load->view('layout/admin/6_js',$layout);   
+        $this->load->view('layout/admin/7_modals',$layout);
+
+        // $json = json_encode($data['categories']); //log
+        // $this->logger->log('Load Jobs','Jobs',$json); //Log  
+
+  }
+
  	public function AddNewJob() {
   
             $this->form_validation->set_rules('JobTitle','Job Title','required');
@@ -124,7 +147,7 @@
 
           $postdata = $this->input->post();
             $postdata['JobImage']=$imagepath;
-            unset($postdata['_wysihtml5_mode']);
+            // unset($postdata['_wysihtml5_mode']);
           $inserted = $this->jobsmod->Add($postdata);
           // echo json_encode(['success'=>TRUE]);
           if ($inserted != FALSE) {         
