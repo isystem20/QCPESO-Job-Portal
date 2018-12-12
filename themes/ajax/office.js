@@ -576,9 +576,9 @@ $('#empform').submit(function(e){
                       hideAfter: 3500, 
                       stack: 6
                     });
-                      window.setTimeout(function(){
-                      window.location.href = data.url;  
-                    }, 1000);
+                    //   window.setTimeout(function(){
+                    //    window.location.href = data.url; 
+                    // }, 1000);
               }
                   else{
                     $.toast({

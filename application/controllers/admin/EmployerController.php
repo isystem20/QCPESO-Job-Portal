@@ -75,7 +75,7 @@
      public function PendingRequest()
     {
  
-        $layout = array('tables'=>TRUE,'pagetitle'=>'List of All Web Posts');
+        $layout = array('tables'=>TRUE,'pagetitle'=>'List of Pending Request');
         $data['emppost'] = $this->empmod->PendingRequest();
         $data['class'] = 'emppost';
 
@@ -94,7 +94,27 @@
     public function Create() {
 
         $this->form_validation->set_rules('CompanyName','Company Name','required');
-
+        $this->form_validation->set_rules('TIN','TIN','required');
+        $this->form_validation->set_rules('PermitIssuedDate','Permit Issued Date','required');
+        $this->form_validation->set_rules('EstablismentType','Establisment Type','required');
+        $this->form_validation->set_rules('IndustryType','Industry Type','required');
+        $this->form_validation->set_rules('CompanyAddress','Company Address','required');
+        $this->form_validation->set_rules('LandlineNum','Landline Number','required');
+        $this->form_validation->set_rules('CompanyEmail','Company Email','required');
+        $this->form_validation->set_rules('OwnerName','Owner Name','required');
+        $this->form_validation->set_rules('Designation','Designation','required');
+        $this->form_validation->set_rules('ContactPerson','Contact Person','required');
+        $this->form_validation->set_rules('ContactPersonDesignation','Contact Person Designation','required');
+        $this->form_validation->set_rules('ContactPersonMobile','Contact Person Mobile','required');
+        $this->form_validation->set_rules('DoleRegistrationDateIssued','Dole Registration Date Issued','required');
+        $this->form_validation->set_rules('DoleRegistrationExpiration','Dole Registration Expiration','required');
+        $this->form_validation->set_rules('PoeaLicenseDateIssued','Poea License Date Issued','required');
+        $this->form_validation->set_rules('PoeaLicenseExpiration','Poea License Expiration','required');
+        $this->form_validation->set_rules('WorkingHours','Working Hours','required');
+        $this->form_validation->set_rules('Benefits','Benefits','required');
+        $this->form_validation->set_rules('DressCode','Dress Code','required');
+        $this->form_validation->set_rules('SpokenLanguage','Spoken Language','required');
+                        
         if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              // $this->logger->log('Error Form Create','Categories',$errors); //LoggerModel
@@ -118,7 +138,7 @@
     }
  
     public function Update() {
-         $this->form_validation->set_rules('id', 'Item Record', 'required',
+         $this->form_validation->set_rules('Id', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
                 ));
@@ -129,12 +149,12 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $id = $postdata['id'];
-            unset($postdata['id']);
+            $id = $postdata['Id'];
+            unset($postdata['Id']);
             unset($postdata['_wysihtml5_mode']);
             $postdata = array_filter($postdata, 'strlen');
 
-            $result = $this->webpostmod->Update($id,$postdata);
+            $result = $this->empmod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                 echo $json;

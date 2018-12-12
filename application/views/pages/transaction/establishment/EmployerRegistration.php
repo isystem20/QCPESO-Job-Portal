@@ -82,7 +82,7 @@ if (!empty($emppost)) {
                     <div class="col-md-8">
                         <div class="form-group">
                             <label class="control-label">Address</label>
-                            <input type="text" <?=$attr?> name="CompanyAddress" value="<?=$row->CompanyAddress;?>" class="form-control">
+                            <input type="email" <?=$attr?> name="CompanyAddress" value="<?=$row->CompanyAddress;?>" class="form-control">
                         </div>
                     </div>
 
@@ -97,14 +97,52 @@ if (!empty($emppost)) {
                     <div class="col-md-4">
                         <div class="form-group">
                                  <label class="control-label ">Industry Type</label>
-                                    <input type="text" <?=$attr?> name="CompanyEmail"  value="<?=$row->CompanyEmail;?>"class="form-control">
+                                    <select class="form-control custom-select" <?=$attr?>  name="IndustryType">
+                                                <?php $str="";
+                                                    if ($industry->num_rows() > 0) {
+                                                        foreach ($industry->result() as $types) { 
+                                                            if ($row->IndustryType==$types->Id){
+                                                              $str="Selected";
+                                                            }
+                                                            else {
+                                                                $str="";
+
+                                                            }
+                                                            ?>
+                                                        <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?> 
+                                               
+                                               
+                                            </select>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="form-group">
                                  <label class="control-label ">Establishment Type</label>
-                                  <input type="text" <?=$attr?> name="EstablismentType"  value="<?=$row->EstablismentType;?>"class="form-control">
+                                  <select class="form-control custom-select" <?=$attr?>  name="EstablismentType">
+                                                <?php $str="";
+                                                    if ($industry->num_rows() > 0) {
+                                                        foreach ($industry->result() as $types) { 
+                                                            if ($row->EstablismentType==$types->Id){
+                                                              $str="Selected";
+                                                            }
+                                                            else {
+                                                                $str="";
+
+                                                            }
+                                                            ?>
+                                                        <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?> 
+                                               
+                                               
+                                            </select>
                         </div>
                     </div>
 
@@ -242,7 +280,24 @@ if (!empty($emppost)) {
                         <div class="form-group">
                             <label class="control-label">Dress Code</label>
                              <select class="form-control custom-select" <?=$attr?>  name="DressCode">
-                                            
+                                                <?php $str="";
+                                                    if ($dresscode->num_rows() > 0) {
+                                                        foreach ($dresscode->result() as $types) { 
+                                                            if ($row->DressCode==$types->Id){
+                                                              $str="Selected";
+                                                            }
+                                                            else {
+                                                                $str="";
+
+                                                            }
+                                                            ?>
+                                                        <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?> 
+                                               
+                                               
                                             </select>
                         </div>
                     </div>
@@ -251,8 +306,26 @@ if (!empty($emppost)) {
                         <div class="form-group">
                             <label class="control-label">Spoken Language</label>
                              <select class="form-control custom-select" <?=$attr?>  name="SpokenLanguage">
-                                                <option value="<?=$row->SpokenLanguage;?>"></option>
+                                                <?php $str="";
+                                                    if ($language->num_rows() > 0) {
+                                                        foreach ($language->result() as $types) { 
+                                                            if ($row->SpokenLanguage==$types->Id){
+                                                              $str="Selected";
+                                                            }
+                                                            else {
+                                                                $str="";
+
+                                                            }
+                                                            ?>
+                                                        <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?> 
+                                               
+                                               
                                             </select>
+
                         </div>
                     </div>
 
@@ -364,7 +437,7 @@ else { ?>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">Email</label>
-                            <input type="text" name="CompanyEmail"  value=""class="form-control">
+                            <input type="email" name="CompanyEmail"  value=""class="form-control">
                         </div>
                     </div>
 

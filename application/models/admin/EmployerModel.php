@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function Update($id, $data) {
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
-            $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
+            // $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
             $this->db->where('Id', $id);
             $query = $this->db->update($this->tbl,$data);
             $update = $this->db->affected_rows();
