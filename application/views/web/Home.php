@@ -17,7 +17,7 @@
                             <!-- <p><a class="btn btn-lg btn-circle btn-brand" href="#">Get Started</a></p> -->
 
                             <div class="col-md-12" style="background: rgba(20,105,170,0.8); height: 100px;padding:20px;">
-                                <form action="web/browsejob" method="POST">
+                                <form action="browsejob" method="POST">
                                    <div class="row">
                                        <div class="col-md-5">
                                            <div class="form-group">
