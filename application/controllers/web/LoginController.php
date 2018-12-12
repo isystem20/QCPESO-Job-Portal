@@ -55,7 +55,7 @@ class LoginController extends Public_Controller {
         		}
         		else {
 	        		$session_data = array(
-	        			'userid' => $login->id,
+	        			'userid' => $login->Id,
 	        			'lastname' => $login->lastName,
 	        			'firstname'=> $login->firstName,
 	        			'status' => $login->applicantstatus,
