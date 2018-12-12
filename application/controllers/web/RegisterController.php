@@ -22,7 +22,7 @@ class RegisterController extends CI_Controller {
 	}
 	
 	public function VerifyEmail() {
-		$layout = array('transparentwrapper' => TRUE,'pagetitle'='Verification of Email' );
+		$layout = array('transparentwrapper' => TRUE,'pagetitle'=>'Verification of Email' );
 		$this->load->view('layout/web/1_head',$layout);
 		$this->load->view('layout/web/2_preloader',$layout);
 		$this->load->view('layout/web/3_header', $layout);
@@ -34,8 +34,8 @@ class RegisterController extends CI_Controller {
 	//POST Function to create new applicant
 	public function CreateApplicant() {
 
-        $this->form_validation->set_rules('firstName', 'First Name', 'required');
-        $this->form_validation->set_rules('lastName', 'Last Name', 'required'); 
+        $this->form_validation->set_rules('firstName', 'First Name', 'required|alpha');
+        $this->form_validation->set_rules('lastName', 'Last Name', 'required|alpha'); 
         $this->form_validation->set_rules('emailAddress', 'Email', 'required|valid_email'); 
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]'); 
         $this->form_validation->set_rules('password2', 'Confirm Password', 'required|matches[password]'); 
@@ -56,8 +56,6 @@ class RegisterController extends CI_Controller {
         	}
 
         }
-
-
 
 	}
 
