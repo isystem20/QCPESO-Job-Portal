@@ -32,5 +32,18 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/ltr/vertical-static/assets/pages/pnotify/notify.css">
 
 
+    
+    <?php
+    if (!empty($addons)) { ?>
 
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+    <?php
+        }
+    ?>
     </head>
