@@ -354,11 +354,19 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['manage/settings/update-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
         $route['manage/settings/update-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
 
-        //browseJob
+
+
         $route['web/browsejob'] = 'web/browsejobcontroller/browsejob';
+      $route['admin/job-applications/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
+
+
+
+        //Dialect
+        $route['admin/dialect/add'] = 'admin/DialectController/Create'; //POST to create
         $route['admin/dialect/edit'] = 'admin/DialectController/Update'; // POST to edit
         $route['admin/dialect/del'] = 'admin/DialectController/Delete'; // POST to delete
         $route['admin/dialect/read'] = 'admin/DialectController/Read'; // POST to view
+
 
       // jobposts
 
@@ -373,8 +381,8 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/emppost/del'] = 'admin/EmployerController/Delete'; // POST to delete
         $route['admin/emppost/read'] = 'admin/EmployerController/Read'; // POST to view
 
-//browsejobdescription
- $route['web/JobDescription'] = 'web/BrowseJobDescriptionController/BrowseJobDescription';
+        /* Modules */ $route['manage/modules'] = 'admin/ModulesController/Modules';
+
         $route['admin/modules/add'] = 'admin/ModulesController/Create'; //POST to create
         $route['admin/modules/edit'] = 'admin/ModulesController/Update'; // POST to edit
         $route['admin/modules/del'] = 'admin/ModulesController/Delete'; // POST to delete
