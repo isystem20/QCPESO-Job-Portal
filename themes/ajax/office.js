@@ -11,7 +11,7 @@ $(document).ready(function() {
     $('.viewing').hide();
     $('form input.form-control').prop('readonly',false);
     $('form textarea.form-control').prop('readonly',false);
-    $('form select.form-control').prop('readonly',false);
+    $('form select.form-control').prop('disabled',false);
 
 
     $('.modal-footer').show();
@@ -164,6 +164,7 @@ $(document).ready(function() {
     $('input[name=exname]').val($(this).data('name'));
     $('#del-form').attr('action',$('#myTable').data('action')+'del');
     $('#del-modal').modal();
+    $('.modal-footer').show();
   });
 
 // DELETE FORM
@@ -229,7 +230,7 @@ $(document).ready(function() {
     $('.viewing').hide();
     $('form input.form-control').prop('readonly',false);
     $('form textarea.form-control').prop('readonly',false);
-    $('form select.form-control').prop('readonly',false);
+    $('form select.form-control').prop('disabled',false);
     $('.modal-footer').show();
     $('#add-modal').modal();
   });
@@ -247,7 +248,7 @@ $(document).ready(function() {
 
     $('form input.form-control').prop('readonly',true);
     $('form textarea.form-control').prop('readonly',true);
-    $('form select.form-control').prop('readonly',true);
+    $('form select.form-control').prop('disabled',true);
 
     $('#add-form').attr('action','');
     $('.viewing').show();
