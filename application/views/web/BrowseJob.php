@@ -7,44 +7,136 @@
                                     <!-- Post-->
                                     <?php
                                         if ($browsejob->num_rows() > 0) {
-                                            foreach ($browsejob->result() as $row) { ?>
-                                            
-                                        <article class="post">
+                                        foreach ($browsejob->result() as $row) { ?>     
+                                            <article class="post">
                                             <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/images/blog/1.jpg" alt=""></a></div>
                                             <div class="post-wrapper">
                                                 <div class="post-header">
                                                     <h2 class="post-title"><a href="blog-single.html"> <?php echo $row->JobTitle; ?></a></h2>
                                                 </div>
-                                                <div class="card-body">
-                                                    <p><?php echo $row->JobDescription; ?></p>
-                                                    <p><a href="#">Read more</a></p>
+                                            <div class="card-body">
+                                                <p><?php echo $row->JobDescription; ?></p>
+                                                <p><a href="JobDescription">Read more</a></p>
                                                 </div>
                                             </div>
                                         </article>
-
-
                                         <?php
                                             }
                                         }
                                         ?>
-
-
-
-
-                                   
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 order-lg-1">
                             <div class="sidebar">
-
                                 <!-- Search widget-->
                                 <aside class="widget widget-search">
+                                    <div class="form-group">
                                     <form action="#" method="POST">
-                                        <input class="form-control" type="search" name="searchtext" placeholder="Job Title">
+                                        <input class="form-control" type="search" name="searchtext" placeholder="Job Title" value="<?php echo set_value('searchtext', ''); ?>" >
                                         <button class="search-button" type="submit"><span class="fas fa-search"></span></button>
-                                    </form>
-                                </aside>
+                                        </div>
+                                    
+                                 <div class="form-group">
+                                   <!--  <?php
+                                    if (!empty($criteria->Categories)) {
+                                        print_r($criteria->Categories);
+                                     } ; 
+                                     ?> -->
+                                            <label class="control-label">Categories </label>
+                                            <select name="Categories[]"  class="select2 m-b-10 select2-multiple" style="width: 100%" multiple=" multiple" dat-placeholder="ategories" "> 
+                                                <?php
+                                            
+                                                     if ($categori->num_rows() > 0) {
+                                                    foreach ($categori->result() as $row) {
+                                                           if (in_array($row->Id, $criteria['Categories'])) {
+                                                ?>
+                                                        <option selected value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                    }
+                                                    else
+                                                    {
+                                                    ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                         }                                    
+                                                    }
+                                                }
+                                                ?>
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                                <label class="control-label">Specialization</label>
+                                                <select name="Specialization[]" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                               
+                                                 <?php
+                                            
+                                                     if ($skills->num_rows() > 0) {
+                                                    foreach ($skills->result() as $row) {
+                                                           if (in_array($row->Id, $criteria['Specialization'])) {
+                                                    ?>
+                                                        <option selected value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                    }
+                                                    else
+                                                    {
+                                                    ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                            } 
+                                                                                             
+                                                    }
+                                                }
+                                                ?>
+
+                                                <!-- <?php
+                                                     if ($skills->num_rows() > 0) {
+                                                    foreach ($skills->result() as $row) { ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                <?php
+                                                    }
+                                                }
+                                                ?> -->
+                                    </select>
+                                    
+                                </div>
+                                <div class="form-group">
+                                                <label class="control-label">Employment Level</label>
+                                                <select name="EmploymentLevel[]" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" placeholder="Choose">
+                                               
+
+                                                     <?php
+                                            
+                                                     if ($applevel->num_rows() > 0) {
+                                                    foreach ($applevel->result() as $row) {
+                                                           if (in_array($row->Id, $criteria['EmploymentLevel'])) {
+                                                    ?>
+                                                        <option selected value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                    }
+                                                    else
+                                                    {
+                                                    ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                            } 
+                                                                                             
+                                                    }
+                                                }
+                                                ?>
+                                               <!--  <?php
+                                                    if ($applevel->num_rows() > 0) {
+                                                    foreach ($applevel->result() as $row) { ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name;?></option>
+                                                <?php
+                                                    }
+                                                }
+                                                ?> -->
+                                    </select>   
+                                </div>
+                                </form>
+                </aside>
 
                                 <!-- Categories widget-->
                                 <aside class="widget widget-categories">
@@ -52,24 +144,15 @@
                                         <h6>Companies</h6>
                                     </div>
                                     <ul>
-  <?php
+                                        <?php
                                         if ($estabpost->num_rows() > 0) {
                                             foreach ($estabpost->result() as $row) { ?>
-                                            
- 
                                         <li><a href="#"><?=$row->CompanyName;?><span class="float-right">10</span></a></li>
-
-
                                         <?php
                                             }
                                         }
                                         ?>                                          
 
-                                        <!-- <li><a href="#">Jolibee<span class="float-right">100</span></a></li>
-                                        <li><a href="#">McDO <span class="float-right">50</span></a></li>
-                                        <li><a href="#">Mang Inasal <span class="float-right">40</span></a></li>
-                                        <li><a href="#">Healthy Shabu <span class="float-right">30</span></a></li>
-                                        <li><a href="#">Kuya J <span class="float-right">18</span></a></li> -->
                                     </ul>
                                 </aside>
 
@@ -79,21 +162,22 @@
                                         <h6>Recent Jobs</h6>
                                     </div>
                                     <ul>
+
+                                        <?php
+                                        if ($browsejob1->num_rows() > 0) {
+                                            foreach ($browsejob1->result() as $row ) { ?>
                                         <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
+                                            <div class="wb"><a href="#"><?=$row->JobDescription;?></span></div>
                                         </li>
-                                        <li class="clearfix">
-                                            <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/widgets/2.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/widgets/3.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
-                                        </li>
+
+                                        <?php
+                                            }
+                                        }
+                                        ?>                                          
+
+                                       <!--  <li class="clearfix">
                                     </ul>
                                 </aside>
 
