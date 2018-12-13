@@ -418,3 +418,9 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/surveyandratings/edit'] = 'admin/SurveyAndRatingsController/Update'; // POST to edit
         $route['admin/surveyandratings/del'] = 'admin/SurveyAndRatingsController/Delete'; // POST to delete
         $route['admin/surveyandratings/read'] = 'admin/SurveyAndRatingsController/Read'; // POST to view
+
+        //
+         $route['web/JobDescription/(:any)'] = 'web/BrowseJobController/BrowseJobDescription/$1';
+
+//ERROR 404
+$route['404'] = 'admin/SiteErrorController/Error404';
