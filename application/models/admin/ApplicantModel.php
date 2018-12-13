@@ -23,13 +23,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function Add($data) {
             
-        
+            $this->db->trans_start();
+            $id = $this->uuid->v4();
+            $this->db->set('Id',"'".$id."'",FALSE);
+            $code = rand(100000, 999999);
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);    
         
 
             $this->db->insert($this->tbl,$data);
-
+            $this->db->flush_cache();
+            $uid = $this->uuid->v4();
             $added = $this->db->insert_id();
 
             if ($added > 0) {
