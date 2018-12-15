@@ -28,6 +28,7 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/users-masterlist"> Users </a></li> 
                                 <li><a href="<?php echo base_url(); ?>manage/user-groups/"> Groups </a> </li>
+                                <li><a href="<?php echo base_url(); ?>manage/modules"> Modules </a> </li>
                             </ul>
                         </li>
  
@@ -62,15 +63,17 @@
                                  <li><a href="<?php echo base_url(); ?>manage/maintenance/region"> Regions</a></li>
                                   <li><a href="<?php echo base_url(); ?>manage/maintenance/cities"> Cities</a></li>
 
+                                  <li><a href="<?php echo base_url(); ?>manage/maintenance/dialect"> Dialect</a></li>
+
                             </ul>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Survey and Ratings</span></a></li>
-
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/maintenance/SurveyAndRatings" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Survey and Ratings</span></a>
+                        </li>
                         <li class="nav-small-cap">TRANSACTIONS</li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Applicants</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="<?php echo base_url(); ?>manage/do/applicants/add" data-i18n="nav.json-form.simple-form">Add Walk-in</a></li>
-                                <li><a href="<?php echo base_url(); ?>manage/do/applicants/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
+                                <li><a href="<?php echo base_url(); ?>manage/applicant/add" data-i18n="nav.json-form.simple-form">Add Walk-in</a></li>
+                                <li><a href="<?php echo base_url(); ?>manage/applicant/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
                                  <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.clubs-view">Job Application</a></li>
                                  
                                
@@ -86,7 +89,7 @@
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Jobs</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/do/jobs/add" data-i18n="nav.json-form.simple-form">Add New</a></li>
-                                <li><a href="<?php echo base_url(); ?>manage/do/jobs/view-list" data-i18n="nav.json-form.clubs-view">View Jobs</a></li>
+                                <li><a href="<?php echo base_url(); ?>manage/do/jobs/view" data-i18n="nav.json-form.clubs-view">ViewJobs</a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/do/jobs/pending-job-posts">Pending Job Posting</a></li>
                             </ul>
                         </li>
