@@ -379,7 +379,7 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
           });   
   });
 
-<<<<<<< HEAD
+
 $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
     e.preventDefault();       //This prevents the action to move to other page.
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
@@ -406,7 +406,7 @@ $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for
               processData:false,  
               success: function(data) {
                 console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
-                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                           if($.isEmptyObject(data.error)){      //Checking if the data.error has value
                     
 
                      $.toast({
@@ -418,16 +418,28 @@ $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for
                       hideAfter: 3500, 
                       stack: 6
                     });
-                     if($.isEmptyObject(data.url)) {
-                  
+                 }
+                  else {
+                     $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
                       
-=======
-
->>>>>>> parent of 881bc9e... displaying only
-
-
-
-});
+                    });
+                    window.setTimeout(function(){
+                      window.location.href = data.url;  
+                    }, 1000);
+                  }
+        
+             
+        
+                $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
+              }
+          });   
+  });
 
 
 // add jobpost :)
@@ -568,9 +580,9 @@ $('#empform').submit(function(e){
               }
           }); 
 
-
+ });
        
- // $("#save-jobpost").prop("disabled", false);   
+//  // $("#save-jobpost").prop("disabled", false);   
 $('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
     e.preventDefault();       //This prevents the action to move to other page.
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
@@ -609,21 +621,9 @@ $('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID
                       hideAfter: 3500, 
                       stack: 6
                     });
-                     if($.isEmptyObject(data.url)) {
-                  
-                      
-
-                  }
-
+                 }
                   else {
-                    window.setTimeout(function(){
-                      window.location.href = data.url;  
-                    }, 1000);
-                  }
-        
-              }
-                  else{
-                    $.toast({
+                     $.toast({
                       heading: 'Error',
                       text: data.error,
                       position: 'top-right',
@@ -632,11 +632,20 @@ $('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID
                       hideAfter: 3500
                       
                     });
+                    window.setTimeout(function(){
+                      window.location.href = data.url;  
+                    }, 1000);
                   }
+        
+             
+        
                 $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
               }
           });   
   });
+
+
+
 
     });
 
