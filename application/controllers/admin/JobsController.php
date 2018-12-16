@@ -18,7 +18,7 @@
  	public function NewJob($id = null,$mode= null)
  	{
       $css = array('addons' => True, );
-      $layout = array('addons'=>TRUE, 'pagetitle'=>'Adding New Job Posts','uploadfile'=>TRUE);
+      $layout = array('addons'=>TRUE,'pagetitle'=>'Adding New Job Posts','uploadfile'=>TRUE);
       $data['emptypes'] = $this->emptypemod->LoadMasterlist();
       $data['applev'] = $this->applevmod->LoadMasterlist();
       $data['skills'] = $this->skimod->LoadMasterlist();
@@ -92,7 +92,7 @@
 
  
     $layout = array('tables'=>TRUE,);
-    $data['jobposts'] = $this->jobsmod->LoadMasterlist();
+    $data['jobposts'] = $this->jobsmod->LoadMasterlistPending();
     $data['class'] = 'jobposts';
 
 
@@ -103,7 +103,7 @@
     $this->load->view('layout/admin/4_leftsidebar');
     $this->load->view('pages/transaction/jobs/PendingJobs', $data);
     $this->load->view('layout/admin/6_js',$layout);   
-        $this->load->view('layout/admin/7_modals',$layout);
+    $this->load->view('layout/admin/7_modals',$layout);
 
         // $json = json_encode($data['categories']); //log
         // $this->logger->log('Load Jobs','Jobs',$json); //Log  
@@ -121,6 +121,8 @@
 
          elseif (empty($_FILES["JobImage"]["name"])) {
             $errors = "Image File Needed.";
+            echo json_encode(['error'=>$errors]);
+
            
         }
   

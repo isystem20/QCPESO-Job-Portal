@@ -31,6 +31,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/bower_components/pnotify/dist/pnotify.mobile.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/ltr/vertical-static/assets/pages/pnotify/notify.css">
 
-
+        <style type="text/css">
+            
+        </style>
 
     </head>

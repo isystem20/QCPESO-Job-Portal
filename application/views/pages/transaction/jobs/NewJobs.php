@@ -255,6 +255,7 @@ if (!empty($jobposts)) {
 
                                                                 <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
                                                                 <option <?php if($row->IsActive=="2"){ echo "Selected";}?> value="2">Inactive</option>
+                                                                <option <?php if($row->IsActive=="3"){ echo "Selected";}?> value="2">Pending</option>
                                                              
                                                                 </select>
                                                         </div>
@@ -389,7 +390,7 @@ else { ?>
                                                 <div class="form-group">
                                                     <label class="control-label">Specialization</label>
                                                     
-                                                    <select name="Specialization" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                    <select name="Specialization[]" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php
                                                             if ($skills->num_rows() > 0) {
                                                                 foreach ($skills->result() as $row) { ?>
@@ -406,7 +407,7 @@ else { ?>
                                                 <div class="form-group">
                                                     <label class="control-label">Category</label>
                                                     
-                                                    <select name="Category" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                    <select name="Category[]" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php
                                                             if ($categories->num_rows() > 0) {
                                                                 foreach ($categories->result() as $row) { ?>
@@ -483,7 +484,7 @@ else { ?>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Job Image</label>
-                                                        <input type="file" id="JobImage" name="JobImage" class="dropify"   >
+                                                        <input type="file" name="JobImage" class="dropify" />
                                                     </div>
                                                 </div>
                                         </div>
@@ -506,6 +507,8 @@ else { ?>
                                                     <select class="form-control" id="stat" name="IsActive">
                                                         <option value="1">Active</option>
                                                         <option value="2">Inactive</option>
+                                                        <option value="3">Pending</option>
+                                                         
                                                        
                                                         
                                                     </select>
