@@ -105,8 +105,8 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
 
     /* TRANSACTIONS */
         /* Applicants */ 
-            /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
-            /* View List */                 $route['manage/do/applicants/view-list'] = 'admin/ApplicantController/Masterlist';
+            // /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
+            //  View List                  $route['manage/do/applicants/view-list'] = 'admin/ApplicantController/Masterlist';
             /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
             /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
@@ -354,11 +354,19 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['manage/settings/update-services/(:any)'] = 'admin/ServicesController/AddServices/$1';
         $route['manage/settings/update-services/(:any)/(:any)'] = 'admin/ServicesController/AddServices/$1/$2';
 
+
+
+        $route['web/browsejob'] = 'web/browsejobcontroller/browsejob';
+      $route['admin/job-applications/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
+
+
+
         //Dialect
         $route['admin/dialect/add'] = 'admin/DialectController/Create'; //POST to create
         $route['admin/dialect/edit'] = 'admin/DialectController/Update'; // POST to edit
         $route['admin/dialect/del'] = 'admin/DialectController/Delete'; // POST to delete
         $route['admin/dialect/read'] = 'admin/DialectController/Read'; // POST to view
+
 
       // jobposts
 
@@ -421,3 +429,16 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['web/register'] = 'web/RegisterController/register';
 
         
+ $route['manage/transactions/add-applicant'] = 'admin/ApplicantController/AddNewApplicant'; 
+        $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
+        $route['manage/transactions/applicant'] = 'admin/ApplicantController/AllApplicants';
+        $route['admin/applicant/add'] = 'admin/ApplicantController/Create'; //POST to create
+        $route['admin/applicant/edit'] = 'admin/ApplicantController/Update'; // POST to edit
+        $route['admin/applicant/del'] = 'admin/ApplicantController/Delete'; // POST to delete
+        $route['admin/applicant/read'] = 'admin/ApplicantController/Read'; // POST to view
+        $route['manage/transactions/view-applicant/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1';
+        $route['manage/transactions/add-applicant/(:any)/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1/$2';
+        $route['manage/transactions/update-applicant/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1';
+        $route['manage/transactions/update-applicant/(:any)/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1/$2';
+        $route['manage/applicant/add'] = 'admin/ApplicantController/AddNewApplicant';
+        $route['manage/applicant/view-list'] = 'admin/ApplicantController/AllApplicants';
