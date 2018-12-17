@@ -82,7 +82,7 @@ if (!empty($emppost)) {
                     <div class="col-md-8">
                         <div class="form-group">
                             <label class="control-label">Address</label>
-                            <input type="email" <?=$attr?> name="CompanyAddress" value="<?=$row->CompanyAddress;?>" class="form-control">
+                            <input type="text" <?=$attr?> name="CompanyAddress" value="<?=$row->CompanyAddress;?>" class="form-control">
                         </div>
                     </div>
 
@@ -90,7 +90,7 @@ if (!empty($emppost)) {
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">Email</label>
-                            <input type="text" <?=$attr?> name="CompanyEmail"  value="<?=$row->CompanyEmail;?>"class="form-control">
+                            <input type="email" <?=$attr?> name="CompanyEmail"  value="<?=$row->CompanyEmail;?>"class="form-control">
                         </div>
                     </div>
 
