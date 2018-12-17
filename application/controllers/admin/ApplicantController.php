@@ -14,6 +14,7 @@
          $this->load->model('admin/LocationModel','locmod');
          $this->load->model('admin/EmploymentStatusModel','empmod');
          $this->load->model('admin/JobtitlesModel','jobtimod');
+         $this->load->model('admin/DialectModel','Diamod');
      }
  
   public function AddNewApplicant($id = null,$mode= null)
@@ -28,6 +29,7 @@
          $data['location'] = $this->locmod->LoadMasterlist();
          $data['status'] = $this->empmod->LoadMasterlist();
          $data['titles'] = $this->jobtimod->LoadMasterlist();
+         $data['dialect'] = $this->Diamod->LoadMasterlist();
          $data['class'] = 'applicant';
 
              
@@ -83,12 +85,21 @@
    
     public function Create() {
 
-     $this->form_validation->set_rules('LastName','Last Name','required',
-                array(
-                'required'      => 'You have not provided %s.'
-                
-                )
-            );
+      $this->form_validation->set_rules('LastName','Last Name','required');    
+      // $this->form_validation->set_rules('FirstName','First Name','required');
+      // $this->form_validation->set_rules('Birthdate','Birth date','required');
+      // $this->form_validation->set_rules('HouseNum','House Number','required');
+      // $this->form_validation->set_rules('StreetName','Street Name','required');
+      // $this->form_validation->set_rules('EmailAddress','Email Address','required');
+      // $this->form_validation->set_rules('MobileNum','Mobile Number','required');
+      // $this->form_validation->set_rules('HouseNum','House Number','required');
+      // $this->form_validation->set_rules('LanguageSpoken','Laguange Spoken','required');
+      // $this->form_validation->set_rules('LanguageRead','Language Read','required');
+      // $this->form_validation->set_rules('LanguageWritten','Language Written','required');
+      // $this->form_validation->set_rules('Dialect','Dialect','required');
+      // $this->form_validation->set_rules('PreferredJobs','Preferred Jobs','required');
+      // $this->form_validation->set_rules('PreferredLocations','PreferredLocations','required');
+      // $this->form_validation->set_rules('Remarks','Remarks','required');
         if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);

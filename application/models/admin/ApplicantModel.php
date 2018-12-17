@@ -29,10 +29,27 @@ function __construct() {
            $this->load->library('Uuid');
             $id = $this->uuid->v4();
             $this->db->set('Id',"'".$id."'",FALSE);
-            $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
+            if (!empty($data["LanguageSpoken"])) {
+                 $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
+                 unset($data["LanguageSpoken"]);  
+            }
+            if (!empty($data["LanguageSpoken"])) {
+                 $this->db->set('LanguageRead',"'".json_encode($data["LanguageRead"])."'",FALSE);
+                 unset($data["LanguageRead"]);   
+            }
+            // $this->db->set('LanguageRead',"'".json_encode($data["LanguageRead"])."'",FALSE);
+            // $this->db->set('LanguageWritten',"'".json_encode($data["LanguageWritten"])."'",FALSE);
+            // $this->db->set('Dialect',"'".json_encode($data["Dialect"])."'",FALSE);
+            // $this->db->set('PreferredJobs',"'".json_encode($data["PreferredJobs"])."'",FALSE);
+            // $this->db->set('PreferredWorkLocations',"'".json_encode($data["PreferredWorkLocations"])."'",FALSE);
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);  
-            unset($data["LanguageSpoken"]);  
+            // unset($data["LanguageSpoken"]);  
+            // unset($data["LanguageRead"]); 
+            // unset($data["LanguageWritten"]);
+            // unset($data["Dialect"]);
+            // unset($data["PreferredJobs"]);
+            // unset($data["PreferredWorkLocations"]);
            $this->db->insert('tbl_applicants',$data);
             $added = $this->db->affected_rows();
             $this->db->flush_cache();
@@ -64,9 +81,24 @@ function __construct() {
 
 
         public function Update($id, $data) {
+             $this->load->library('Uuid');
+            $id = $this->uuid->v4();
+            $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
+            $this->db->set('LanguageRead',"'".json_encode($data["LanguageRead"])."'",FALSE);
+            $this->db->set('LanguageWritten',"'".json_encode($data["LanguageWritten"])."'",FALSE);
+            $this->db->set('Dialect',"'".json_encode($data["Dialect"])."'",FALSE);
+            $this->db->set('PreferredJobs',"'".json_encode($data["PreferredJobs"])."'",FALSE);
+            $this->db->set('PreferredWorkLocations',"'".json_encode($data["PreferredWorkLocations"])."'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
             $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
+            unset($data["LanguageSpoken"]);  
+            unset($data["LanguageSpoken"]);  
+            unset($data["LanguageRead"]); 
+            unset($data["LanguageWritten"]);
+            unset($data["Dialect"]);
+            unset($data["PreferredJobs"]);
+            unset($data["PreferredWorkLocations"]);
             $this->db->where('Id', $id);
             $query = $this->db->update($this->tbl,$data);
             $update = $this->db->affected_rows();
