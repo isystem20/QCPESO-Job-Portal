@@ -96,7 +96,7 @@
                         <li class="nav-small-cap">REPORTS</li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Applicants</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="<?php echo base_url();?>manage/reports/reportsmasterlist">Masterlist</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/applicants">Masterlist</a></li>
                                 <li><a href="<?php echo base_url();?>manage/reports/reportsapplications">Applications</a></li>
                                 <li><a href="<?php echo base_url();?>manage/reports/reportscustom">Custom Report</a></li>
                             </ul>
