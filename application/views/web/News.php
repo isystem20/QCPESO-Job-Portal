@@ -1,21 +1,13 @@
 <div class="wrapper">
             <!-- Hero-->
-<section class="module-cover parallax text-center" data-background="<?php echo base_url(); ?>banners/SERVICES.png" data-overlay="0.3" style="background-image: none; z-index: 0;" data-jarallax-original-styles="background-image: url(<?php echo base_url(); ?>banners/SERVICES.png)">
+            <section class="module-cover parallax text-center fullscreen" data-background="<?php echo base_url(); ?>banners/NEWS.png" data-overlay="0.6">
                 <div class="container">
                     <div class="row">
-
-                        <div class="col-md-12" style="color:#fff !important;">
-                            <h1 class="m-b-20" style="color:#fff !important;">
-                                <strong>Articles</strong>
-                            </h1>
-
+                        <div class="col-md-6">
+                            <h1 class="m-b-20"><strong>NEWS</strong></h1>
+                            <h5 class="m-b-40">See how your users experience your website in realtime or view  <br> trends to see any changes in performance over time.</h5>
                             
-
-                            <div class="col-md-12" style=" height: 100px;padding:20px;">
-                                <h5>Sub Title</h5>                 
-                            </div>
-
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </section>
