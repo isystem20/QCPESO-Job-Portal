@@ -127,6 +127,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Survey Summary */                $route['manage/reports/survey-summary'] = 'admin/ReportController/SurverSummary'; 
         /* Add Posts */                     $route['manage/settings/add-web-post'] = 'admin/WebPostsController/AddWebPosts'; 
         /* Post Types */                    $route['manage/settings/add-post-types'] = 'admin/WebPostsTypesController/PostTypes';
+        /* Activity Logs */                 $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';
 
         
 // $route['manage/do/jobs/view-list'] = 'PostController/JobPost';
