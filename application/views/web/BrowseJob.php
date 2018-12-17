@@ -36,11 +36,11 @@
                                             <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/images/blog/1.jpg" alt=""></a></div>
                                             <div class="post-wrapper">
                                                 <div class="post-header">
-                                                    <h2 class="post-title"><a href="blog-single.html"> <?php echo $row->JobTitle; ?></a></h2>
+                                                    <h2 class="post-title"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"> <?php echo $row->JobTitle; ?></a></h2>
                                                 </div>
                                             <div class="card-body">
                                                 <p><?php echo $row->JobDescription; ?></p>
-                                                <p><a href="JobDescription">Read more</a></p>
+                                                <p><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>">Read more</a></p>
                                                 </div>
                                             </div>
                                         </article>

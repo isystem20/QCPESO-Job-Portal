@@ -2,7 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
     class ApplicantModel extends CI_Model {
-
+function __construct() {
+        parent::__construct();
+        $this->load->library('Uuid');
+    }
 
         public $tbl = 'tbl_applicants';
 
@@ -10,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->select('*');
             $this->db->from($this->tbl);
             if (!empty($id)) {
-                $this->db->where('id',$id);
+                $this->db->where('Id',$id);
                 return $this->db->get()->result();
             }else {
                 $this->db->where('isActive','1');
@@ -23,17 +26,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function Add($data) {
             
-        
+           $this->load->library('Uuid');
+            $id = $this->uuid->v4();
+            $this->db->set('Id',"'".$id."'",FALSE);
+            $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
-            $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);    
-        
-
-            $this->db->insert($this->tbl,$data);
-
-            $added = $this->db->insert_id();
-
+            $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);  
+            unset($data["LanguageSpoken"]);  
+           $this->db->insert('tbl_applicants',$data);
+            $added = $this->db->affected_rows();
+            $this->db->flush_cache();
             if ($added > 0) {
-                $inserted = $this->LoadMasterlist($added);
+                $inserted = $this->LoadMasterlist($id);
                 return $inserted;
             }
             else {
