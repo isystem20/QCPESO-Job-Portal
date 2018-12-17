@@ -105,8 +105,8 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
 
     /* TRANSACTIONS */
         /* Applicants */ 
-            /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
-            /* View List */                 $route['manage/do/applicants/view-list'] = 'admin/ApplicantController/Masterlist';
+            // /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
+            //  View List                  $route['manage/do/applicants/view-list'] = 'admin/ApplicantController/Masterlist';
             /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
             /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
@@ -115,7 +115,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Jobs */ 
             /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';       
             /* View Jobs */                 $route['manage/do/jobs/view-list'] = 'admin/JobsController/ViewJobs';  
-            /* Pending Job Posting */       $route['manage/do/jobs/pending-job-posts'] = 'admin/JobController/PendingJobMasterlist';      
+            /* Pending Job Posting */       $route['manage/do/jobs/pending-job-posts'] = 'admin/JobsController/PendingJobs';      
 
     /* REPORTS */
         /* Applicants Masterlist */         $route['manage/reports/applicants'] = 'admin/ReportController/ApplicantReport'; 
@@ -143,12 +143,12 @@ $route['web/login/applicant'] = 'web/LoginController/authenticate';
 
 
 $route['web/logout'] = 'WebController/logout';
-
+$route['logout'] = 'WebController/logout';
 
 
 //ERRORS
 
-$route['403'] = 'admin/SiteErrorController/Error403';
+$route['403'] = 'SiteErrorController/Error403';
 $route['admin/login/auth'] = 'admin/AuthenticationController/AuthenticateAdmin';
 $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
@@ -419,8 +419,32 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/surveyandratings/del'] = 'admin/SurveyAndRatingsController/Delete'; // POST to delete
         $route['admin/surveyandratings/read'] = 'admin/SurveyAndRatingsController/Read'; // POST to view
 
-        //
+
          $route['web/JobDescription/(:any)'] = 'web/BrowseJobController/BrowseJobDescription/$1';
 
 //ERROR 404
 $route['404'] = 'admin/SiteErrorController/Error404';
+
+        $route['manage/do/jobs/update/(:any)'] = 'admin/JobsController/NewJob/$1';
+        $route['manage/do/jobs/update/(:any)/(:any)'] = 'admin/JobsController/NewJob/$1/$2';
+        $route['admin/jobposts/edit'] = 'admin/JobsController/Update';
+
+        //register page
+
+        $route['web/register'] = 'web/RegisterController/register';
+
+        
+ $route['manage/transactions/add-applicant'] = 'admin/ApplicantController/AddNewApplicant'; 
+        $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
+        $route['manage/transactions/applicant'] = 'admin/ApplicantController/AllApplicants';
+        $route['admin/applicant/add'] = 'admin/ApplicantController/Create'; //POST to create
+        $route['admin/applicant/edit'] = 'admin/ApplicantController/Update'; // POST to edit
+        $route['admin/applicant/del'] = 'admin/ApplicantController/Delete'; // POST to delete
+        $route['admin/applicant/read'] = 'admin/ApplicantController/Read'; // POST to view
+        $route['manage/transactions/view-applicant/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1';
+        $route['manage/transactions/add-applicant/(:any)/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1/$2';
+        $route['manage/transactions/update-applicant/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1';
+        $route['manage/transactions/update-applicant/(:any)/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1/$2';
+        $route['manage/applicant/add'] = 'admin/ApplicantController/AddNewApplicant';
+        $route['manage/applicant/view-list'] = 'admin/ApplicantController/AllApplicants';
+

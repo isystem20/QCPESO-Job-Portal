@@ -261,7 +261,7 @@ else { ?>
 
                                 <div class="row p-t-20 ">
                                     <div class="col-md-6 ">
-                                        <div class="form-group has-success "">
+                                        <div class="form-group has-success ">
                             <label class="control-label">Add Tags</label>
                             <div class="tags-default">
                                 <input type="text" name="Tags" data-role="tagsinput"  value="" placeholder="Add New Search Tags" /> </div>
