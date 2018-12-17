@@ -1,11 +1,21 @@
 <div class="wrapper">
             <!-- Hero-->
-            <section class="module-cover parallax text-center" data-background="assets/images/module-9.jpg" data-overlay="0.2">
+<section class="module-cover parallax text-center" data-background="<?php echo base_url(); ?>banners/SERVICES.png" data-overlay="0.3" style="background-image: none; z-index: 0;" data-jarallax-original-styles="background-image: url(<?php echo base_url(); ?>banners/SERVICES.png)">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
-                            <h2>Articles</h2>
-                        </div>
+
+                        <div class="col-md-12" style="color:#fff !important;">
+                            <h1 class="m-b-20" style="color:#fff !important;">
+                                <strong>Articles</strong>
+                            </h1>
+
+                            
+
+                            <div class="col-md-12" style=" height: 100px;padding:20px;">
+                                <h5>Sub Title</h5>                 
+                            </div>
+
+                        </div> 
                     </div>
                 </div>
             </section>
