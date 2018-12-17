@@ -1,4 +1,28 @@
-            <section class="module">
+<div class="wrapper">
+            <!-- Hero-->
+
+             <section class="module-cover parallax text-center" data-background="<?php echo base_url(); ?>banners/SERVICES.png" data-overlay="0.3" style="background-image: none; z-index: 0;" data-jarallax-original-styles="background-image: url(<?php echo base_url(); ?>banners/SERVICES.png)">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-12" style="color:#fff !important;">
+                            <h1 class="m-b-20" style="color:#fff !important;">
+                                <strong>Looking for Job?</strong>
+                            </h1>
+
+                            <div class="col-md-12" style="height: 100px;padding:20px;">
+                                                             
+                            </div>
+
+                        </div> 
+                    </div>
+                </div>
+            </section>
+            <!-- Hero end-->
+
+
+           
+<section class="module">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 order-lg-2">
@@ -7,44 +31,136 @@
                                     <!-- Post-->
                                     <?php
                                         if ($browsejob->num_rows() > 0) {
-                                            foreach ($browsejob->result() as $row) { ?>
-                                            
-                                        <article class="post">
+                                        foreach ($browsejob->result() as $row) { ?>     
+                                            <article class="post">
                                             <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/images/blog/1.jpg" alt=""></a></div>
                                             <div class="post-wrapper">
                                                 <div class="post-header">
-                                                    <h2 class="post-title"><a href="blog-single.html"> <?php echo $row->JobTitle; ?></a></h2>
+                                                    <h2 class="post-title"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"> <?php echo $row->JobTitle; ?></a></h2>
                                                 </div>
-                                                <div class="card-body">
-                                                    <p><?php echo $row->JobDescription; ?></p>
-                                                    <p><a href="#">Read more</a></p>
+                                            <div class="card-body">
+                                                <p><?php echo $row->JobDescription; ?></p>
+                                                <p><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>">Read more</a></p>
                                                 </div>
                                             </div>
                                         </article>
-
-
                                         <?php
                                             }
                                         }
                                         ?>
-
-
-
-
-                                   
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 order-lg-1">
                             <div class="sidebar">
-
                                 <!-- Search widget-->
                                 <aside class="widget widget-search">
+                                    <div class="form-group">
                                     <form action="#" method="POST">
-                                        <input class="form-control" type="search" name="searchtext" placeholder="Job Title">
+                                        <input class="form-control" type="search" name="searchtext" placeholder="Job Title" value="<?php echo set_value('searchtext', ''); ?>" >
                                         <button class="search-button" type="submit"><span class="fas fa-search"></span></button>
-                                    </form>
-                                </aside>
+                                        </div>
+                                    
+                                 <div class="form-group">
+                                   <!--  <?php
+                                    if (!empty($criteria->Categories)) {
+                                        print_r($criteria->Categories);
+                                     } ; 
+                                     ?> -->
+                                            <label class="control-label">Categories </label>
+                                            <select name="Categories[]"  class="select2 m-b-10 select2-multiple" style="width: 100%" multiple=" multiple" dat-placeholder="ategories" "> 
+                                                <?php
+                                            
+                                                     if ($categori->num_rows() > 0) {
+                                                    foreach ($categori->result() as $row) {
+                                                           if (in_array($row->Id, $criteria['Categories'])) {
+                                                ?>
+                                                        <option selected value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                    }
+                                                    else
+                                                    {
+                                                    ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                         }                                    
+                                                    }
+                                                }
+                                                ?>
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                                <label class="control-label">Specialization</label>
+                                                <select name="Specialization[]" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                               
+                                                 <?php
+                                            
+                                                     if ($skills->num_rows() > 0) {
+                                                    foreach ($skills->result() as $row) {
+                                                           if (in_array($row->Id, $criteria['Specialization'])) {
+                                                    ?>
+                                                        <option selected value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                    }
+                                                    else
+                                                    {
+                                                    ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                            } 
+                                                                                             
+                                                    }
+                                                }
+                                                ?>
+
+                                                <!-- <?php
+                                                     if ($skills->num_rows() > 0) {
+                                                    foreach ($skills->result() as $row) { ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                <?php
+                                                    }
+                                                }
+                                                ?> -->
+                                    </select>
+                                    
+                                </div>
+                                <div class="form-group">
+                                                <label class="control-label">Employment Level</label>
+                                                <select name="EmploymentLevel[]" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" placeholder="Choose">
+                                               
+
+                                                     <?php
+                                            
+                                                     if ($applevel->num_rows() > 0) {
+                                                    foreach ($applevel->result() as $row) {
+                                                           if (in_array($row->Id, $criteria['EmploymentLevel'])) {
+                                                    ?>
+                                                        <option selected value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                    }
+                                                    else
+                                                    {
+                                                    ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                    <?php
+                                                            } 
+                                                                                             
+                                                    }
+                                                }
+                                                ?>
+                                               <!--  <?php
+                                                    if ($applevel->num_rows() > 0) {
+                                                    foreach ($applevel->result() as $row) { ?>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name;?></option>
+                                                <?php
+                                                    }
+                                                }
+                                                ?> -->
+                                    </select>   
+                                </div>
+                                </form>
+                </aside>
 
                                 <!-- Categories widget-->
                                 <aside class="widget widget-categories">
@@ -52,24 +168,15 @@
                                         <h6>Companies</h6>
                                     </div>
                                     <ul>
-  <?php
+                                        <?php
                                         if ($estabpost->num_rows() > 0) {
                                             foreach ($estabpost->result() as $row) { ?>
-                                            
- 
                                         <li><a href="#"><?=$row->CompanyName;?><span class="float-right">10</span></a></li>
-
-
                                         <?php
                                             }
                                         }
                                         ?>                                          
 
-                                        <!-- <li><a href="#">Jolibee<span class="float-right">100</span></a></li>
-                                        <li><a href="#">McDO <span class="float-right">50</span></a></li>
-                                        <li><a href="#">Mang Inasal <span class="float-right">40</span></a></li>
-                                        <li><a href="#">Healthy Shabu <span class="float-right">30</span></a></li>
-                                        <li><a href="#">Kuya J <span class="float-right">18</span></a></li> -->
                                     </ul>
                                 </aside>
 
@@ -79,21 +186,22 @@
                                         <h6>Recent Jobs</h6>
                                     </div>
                                     <ul>
+
+                                        <?php
+                                        if ($browsejob1->num_rows() > 0) {
+                                            foreach ($browsejob1->result() as $row ) { ?>
                                         <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
+                                            <div class="wb"><a href="#"><?=$row->JobDescription;?></span></div>
                                         </li>
-                                        <li class="clearfix">
-                                            <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/widgets/2.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/widgets/3.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
-                                        </li>
+
+                                        <?php
+                                            }
+                                        }
+                                        ?>                                          
+
+                                       <!--  <li class="clearfix">
                                     </ul>
                                 </aside>
 
@@ -118,5 +226,90 @@
                 </div>
             </section>
             <!-- Blog end-->
+
+            
+            <!-- Footer-->
+            <footer class="footer">
+                <div class="footer-widgets">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <!-- Text widget-->
+                                <aside class="widget widget-text">
+                                    <div class="widget-title">
+                                        <h6>About Us</h6>
+                                    </div>
+                                    <div class="textwidget">
+                                        <p>Quezon City Public Employment Service Office</p>
+                                        <p>
+                                            Location: 4th Floor, Civic Center <br>
+                                            Building A, City Hall Compound <br>
+                                            E-mail: isystem20@gmail.com<br>
+                                            Phone: +63123453456<br>
+                                        </p>
+                                        <ul class="social-icons">
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </aside>
+                            </div>
+                            <div class="col-md-3">
+                                <!-- Recent entries widget-->
+                                <aside class="widget widget-recent-entries">
+                                    <div class="widget-title">
+                                        <h6>Recent Posts</h6>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2018</span></li>
+                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">April 7, 2018</span></li>
+                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">September 7, 2018</span></li>
+                                    </ul>
+                                </aside>
+                            </div>
+                            <div class="col-md-3">
+                                <!-- Twitter widget-->
+                                <aside class="widget twitter-feed-widget">
+                                    <div class="widget-title">
+                                        <h6>Twitter Feed</h6>
+                                    </div>
+                                    <div class="twitter-feed" data-twitter="345170787868762112" data-number="1" id="twitter-1"></div>
+                                </aside>
+                            </div>
+                            <div class="col-md-3">
+                                <!-- Recent works-->
+                                <aside class="widget widget-recent-works">
+                                    <div class="widget-title">
+                                        <h6>Portfolio</h6>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#"><img src="assets/images/widgets/1.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/widgets/2.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/widgets/3.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/widgets/7.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/widgets/8.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/widgets/6.jpg" alt=""></a></li>
+                                    </ul>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>© 2018 Quezon City PESO, All Rights Reserved. Design with love by <a href="#">SIGMA</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer end-->
+        </div>
 
             

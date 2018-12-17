@@ -66,20 +66,20 @@ if (!empty($jobposts)) {
                                         </div>
                                         <div class="row p-t-20">
                                             
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                             <?php
                                             $hidden = array(
                                               'id' => $row->Id,
                                             );
                                             ?>
-                                            <?php echo form_open_multipart('manage/do/jobs/addnewjob','id="jobpost-form"', $hidden); ?>
+                                            <?php echo form_open_multipart('admin/jobposts/edit','id="jobpost-form"', $hidden); ?>
 
                                                 <div class="form-group">
                                                     <label class="control-label">Job Title</label>
                                                     <input style="background-color: #fff; color: black;" type="text"  <?=$attr?> value="<?=$row->JobTitle;?>" id="jtitle" name="JobTitle"  class="form-control" >
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Specialization</label>
 
@@ -92,6 +92,36 @@ if (!empty($jobposts)) {
                                                                     foreach($skills->result() as $types) {
                                                                         $str = "";
                                                                         foreach($skillset as $key) {
+                                                                            if($key == $types->Id) {
+                                                                                $str = "selected";
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                                        <?php
+                                                                         
+                                                                    }
+
+                                                                }
+                                                            
+                                                            ?> 
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Category</label>
+
+                                                    
+                                                    <select name="Specialization"   <?=$attr?> id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                        <?php $str="";
+                                                            if ($categories->num_rows() > 0) {
+
+                                                                $categoryset = json_decode($row->Category,true);
+                                                                    foreach($categories->result() as $types) {
+                                                                        $str = "";
+                                                                        foreach($categoryset as $key) {
                                                                             if($key == $types->Id) {
                                                                                 $str = "selected";
                                                                             }
@@ -184,18 +214,27 @@ if (!empty($jobposts)) {
                                         </div>
 
                                         <div class="row">
-                                                <div class="col-12">
+                                                <div class="col-6">
                                                     <label class="control-label">Job Description</label>  
                                                     <div class="form-group">
-                                                        <textarea  style="background-color: #fff; color: black;"  class="textarea_editor form-control"  <?=$attr?> id="jobdesc" name="JobDescription" rows="5" placeholder="Enter text ..."><?=$row->JobDescription;?></textarea>
+                                                        <textarea  style="background-color: #fff; color: black;"  class="textarea_editor form-control"  <?=$attr?> id="jobdesc" name="JobDescription" rows="8" placeholder="Enter text ..."><?=$row->JobDescription;?></textarea>
                                                     </div>
-                                                                            
                                                 </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Job Image</label>
+                                                        <input type="file"  <?=$attr?> name="JobImage" class="dropify" data-default-file="<?php echo base_url().$row->JobImage?>"/>
+                                                    </div>
+                                                </div>
+
+                                                                            
+                                                
                                         </div>
 
 
                                         <div class="row p-t-20">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Salary</label>
                                                     <input  style="background-color: #fff; color: black;" type="text" <?=$attr?>  value="<?=$row->Salary;?>" id="salary" name="Salary" class="form-control" placeholder="Salary">
@@ -203,14 +242,8 @@ if (!empty($jobposts)) {
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">Job Image</label>
-                                                    <input  style="background-color: #fff; color: black;" type="file"  <?=$attr?> name="image" class="form-control" data-default-file="<?php echo base_url().$row->JobImage?>" >
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4">
+                                            
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                         <label class="control-label ">Status</label>
 
@@ -222,6 +255,7 @@ if (!empty($jobposts)) {
 
                                                                 <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
                                                                 <option <?php if($row->IsActive=="2"){ echo "Selected";}?> value="2">Inactive</option>
+                                                                <option <?php if($row->IsActive=="3"){ echo "Selected";}?> value="2">Pending</option>
                                                              
                                                                 </select>
                                                         </div>
@@ -242,7 +276,7 @@ if (!empty($jobposts)) {
                                         ?>
                                     <div class="form-group">
                                         <button type="submit" id="add-jobposts" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                        <button href="<?php echo base_url();?>manage/do/jobs/view-list" type="button" class="btn btn-danger">Cancel</button>
                                     </div>
 
                                     <?php
@@ -349,14 +383,14 @@ else { ?>
 
                                                 <div class="form-group">
                                                     <label class="control-label">Job Title</label>
-                                                    <input type="text" id="jtitle" name="JobTitle" class="form-control" placeholder="Job title">
+                                                    <input type="text" name="JobTitle" class="form-control" placeholder="Job title">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Specialization</label>
                                                     
-                                                    <select name="Specialization" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                    <select name="Specialization[]" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php
                                                             if ($skills->num_rows() > 0) {
                                                                 foreach ($skills->result() as $row) { ?>
@@ -373,7 +407,7 @@ else { ?>
                                                 <div class="form-group">
                                                     <label class="control-label">Category</label>
                                                     
-                                                    <select name="Category" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                    <select name="Category[]" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php
                                                             if ($categories->num_rows() > 0) {
                                                                 foreach ($categories->result() as $row) { ?>
@@ -450,7 +484,7 @@ else { ?>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Job Image</label>
-                                                        <input type="file" name="image" class=" dropify"  >
+                                                        <input type="file" name="JobImage" class="dropify" />
                                                     </div>
                                                 </div>
                                         </div>
@@ -473,6 +507,8 @@ else { ?>
                                                     <select class="form-control" id="stat" name="IsActive">
                                                         <option value="1">Active</option>
                                                         <option value="2">Inactive</option>
+                                                        <option value="3">Pending</option>
+                                                         
                                                        
                                                         
                                                     </select>
@@ -486,7 +522,7 @@ else { ?>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" id="add-jobposts" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                         <a href="<?=base_url('manage/do/jobs/view-list');?>" class="btn btn-danger">Cancel</a>                                
                                     </div>
 
                                 <!--  -->

@@ -35,6 +35,8 @@
                 )
             );
 
+        
+
             if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              $this->logger->log('Error Form Create','CourseList',$errors); //LoggerModel

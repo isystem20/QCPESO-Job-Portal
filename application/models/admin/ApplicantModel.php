@@ -2,7 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
     class ApplicantModel extends CI_Model {
-
+function __construct() {
+        parent::__construct();
+        $this->load->library('Uuid');
+    }
 
         public $tbl = 'tbl_applicants';
 
@@ -22,17 +25,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         public function Add($data) {
-            $this->load->library('Uuid');
+            
+           $this->load->library('Uuid');
             $id = $this->uuid->v4();
-
             $this->db->set('Id',"'".$id."'",FALSE);
-            $this->db->set('createdById',"'".$this->session->userdata('userid')."'",FALSE);
-            $this->db->set('modifiedById',"'".$this->session->userdata('userid')."'",FALSE);    
-
-            $this->db->insert($this->tbl,$data);
-
+            if (!empty($data["LanguageSpoken"])) {
+                 $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
+                 unset($data["LanguageSpoken"]);  
+            }
+            if (!empty($data["LanguageRead"])) {
+                 $this->db->set('LanguageRead',"'".json_encode($data["LanguageRead"])."'",FALSE);
+                 unset($data["LanguageRead"]);   
+            }
+             if (!empty($data["Dialect"])) {
+                 $this->db->set('Dialect',"'".json_encode($data["Dialect"])."'",FALSE);
+                 unset($data["Dialect"]);   
+            }
+             if (!empty($data["LanguageWritten"])) {
+                 $this->db->set('LanguageWritten',"'".json_encode($data["LanguageWritten"])."'",FALSE);
+                 unset($data["LanguageWritten"]);   
+            }
+             if (!empty($data["PreferredJobs"])) {
+                 $this->db->set('PreferredJobs',"'".json_encode($data["PreferredJobs"])."'",FALSE);
+                 unset($data["PreferredJobs"]);   
+            }
+              if (!empty($data["PreferredWorkLocations"])) {
+                 $this->db->set('PreferredWorkLocations',"'".json_encode($data["PreferredWorkLocations"])."'",FALSE);
+                 unset($data["PreferredWorkLocations"]);   
+            }
+           
+            $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
+            $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);  
+          
+           $this->db->insert('tbl_applicants',$data);
             $added = $this->db->affected_rows();
-
+            $this->db->flush_cache();
             if ($added > 0) {
                 $inserted = $this->LoadMasterlist($id);
                 return $inserted;
@@ -40,15 +67,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             else {
                 return FALSE;
             }
-
         }
 
 
         public function Delete($data) {
             //filerecord = [Del-1234567890]filerecord
-            $this->db->set('lastName','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
-            $this->db->set('isActive','"0"',FALSE);
-            $this->db->where('id', $data['id']);
+            $this->db->set('LastName','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
+            $this->db->set('IsActive','"0"',FALSE);
+            $this->db->where('Id', $data['id']);
             $this->db->update($this->tbl);
             $deleted = $this->db->affected_rows();
             if ($deleted > 0) {
@@ -62,14 +88,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         public function Update($id, $data) {
-            $this->db->set('modifiedById',"'".$this->session->userdata('userid')."'",FALSE);
-            $this->db->set('modifiedAt','CURRENT_TIMESTAMP',FALSE);
-            $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
-            $this->db->set('name', '"'.$data['name'].'"', FALSE); 
-            $this->db->set('description', '"'.$data['description'].'"', FALSE); 
-            $this->db->set('isActive', '"'.$data['status'].'"', FALSE);
-            $this->db->where('id', $id);
-            $query = $this->db->update($this->tbl);
+             
+           if (!empty($data["LanguageSpoken"])) {
+                 $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
+                 unset($data["LanguageSpoken"]);  
+            }
+            if (!empty($data["LanguageRead"])) {
+                 $this->db->set('LanguageRead',"'".json_encode($data["LanguageRead"])."'",FALSE);
+                 unset($data["LanguageRead"]);   
+            }
+             if (!empty($data["Dialect"])) {
+                 $this->db->set('Dialect',"'".json_encode($data["Dialect"])."'",FALSE);
+                 unset($data["Dialect"]);   
+            }
+             if (!empty($data["LanguageWritten"])) {
+                 $this->db->set('LanguageWritten',"'".json_encode($data["LanguageWritten"])."'",FALSE);
+                 unset($data["LanguageWritten"]);   
+            }
+             if (!empty($data["PreferredJobs"])) {
+                 $this->db->set('PreferredJobs',"'".json_encode($data["PreferredJobs"])."'",FALSE);
+                 unset($data["PreferredJobs"]);   
+            }
+              if (!empty($data["PreferredWorkLocations"])) {
+                 $this->db->set('PreferredWorkLocations',"'".json_encode($data["PreferredWorkLocations"])."'",FALSE);
+                 unset($data["PreferredWorkLocations"]);   
+            }
+            $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
+            $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
+            $this->db->set('VersionNum', 'VersionNum+1', FALSE);  
+            $this->db->where('Id', $id);
+            $query = $this->db->update($this->tbl,$data);
             $update = $this->db->affected_rows();
             if ($update > 0) {
                 $result = $this->LoadMasterlist($id);
