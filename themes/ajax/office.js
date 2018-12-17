@@ -542,8 +542,8 @@ $('#empform').submit(function(e){
                 'PoeaLicenseExpiration' : $('input[name=PoeaLicenseExpiration]').val(),
                 'WorkingHours' : $('input[name=WorkingHours]').val(),
                 'Benefits' : $('input[name=Benefits]').val(),
-                'DressCode' : $('input[name=DressCode]').val(),
-                'SpokenLanguage' : $('input[name=SpokenLanguage]').val(),
+                'DressCode' : $('select[name=DressCode]').val(),
+                'SpokenLanguage' : $('select[name=SpokenLanguage]').val(),
             }
         console.log(newData);  
          $.ajax({
@@ -565,9 +565,9 @@ $('#empform').submit(function(e){
                       hideAfter: 3500, 
                       stack: 6
                     });
-                      window.setTimeout(function(){
-                      window.location.href = data.url;  
-                    }, 1000);
+                    //   window.setTimeout(function(){
+                    //    window.location.href = data.url; 
+                    // }, 1000);
               }
                   else{
                     $.toast({
