@@ -1021,7 +1021,7 @@ else { ?>
                                                 <div class="col-md-6">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Languages Spoken</label>
-                                                    <select  class="select2 form-control custom-select"  multiple="multiple" name="LanguageSpoken" style="width: 100%" >
+                                                    <select  class="select2 form-control custom-select"  multiple="multiple" name="LanguageSpoken[]" style="width: 100%" >
                                                          <?php
                                                             if ($language->num_rows() > 0) {
                                                                 foreach ($language->result() as $row) { ?>
