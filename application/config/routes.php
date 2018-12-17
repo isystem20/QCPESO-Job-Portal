@@ -420,6 +420,11 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/surveyandratings/read'] = 'admin/SurveyAndRatingsController/Read'; // POST to view
 
 
+         $route['web/JobDescription/(:any)'] = 'web/BrowseJobController/BrowseJobDescription/$1';
+
+//ERROR 404
+$route['404'] = 'admin/SiteErrorController/Error404';
+
         $route['manage/do/jobs/update/(:any)'] = 'admin/JobsController/NewJob/$1';
         $route['manage/do/jobs/update/(:any)/(:any)'] = 'admin/JobsController/NewJob/$1/$2';
         $route['admin/jobposts/edit'] = 'admin/JobsController/Update';
@@ -442,3 +447,4 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['manage/transactions/update-applicant/(:any)/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1/$2';
         $route['manage/applicant/add'] = 'admin/ApplicantController/AddNewApplicant';
         $route['manage/applicant/view-list'] = 'admin/ApplicantController/AllApplicants';
+
