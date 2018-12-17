@@ -448,9 +448,11 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['manage/applicant/add'] = 'admin/ApplicantController/AddNewApplicant';
         $route['manage/applicant/view-list'] = 'admin/ApplicantController/AllApplicants';
 
- //Reports
+
+        //Reports
          // Applicants
-         /* Masterlist*/        $route['manage/reports/reportsmasterlist'] = 'reports/ReportsMasterlistController/ReportsMasterlist';
+         /* Masterlist*/        $route['manage/reports/applicants'] = 'reports/ReportsMasterlistController/ReportsMasterlist';
+
          /* Applications*/      $route['manage/reports/reportsapplications'] = 'reports/ReportsApplicationsController/ReportsApplications';
          /* Custom Reports*/    $route['manage/reports/reportscustom'] = 'reports/ReportsCustomController/ReportsCustom';
          // Establishments
@@ -463,6 +465,4 @@ $route['404'] = 'admin/SiteErrorController/Error404';
          /* Access list*/       $route['manage/reports/reportsaccountsaccesslist'] = 'reports/ReportsAccountsAccesslistController/ReportsAccountsAccesslist';
          /* Custom Reports*/    $route['manage/reports/reportsaccountscustom'] = 'reports/ReportsAccountsCustomController/ReportsAccountsCustom';
         /* Activity Logs */     $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';
- 
-
 
