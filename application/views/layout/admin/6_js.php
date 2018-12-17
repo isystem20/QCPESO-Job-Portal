@@ -13,8 +13,8 @@
 <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/waves.js"></script>
 
 <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/sidebarmenu.js"></script>
-<script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/custom.min.js"></script>
-
+<!-- <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/custom.min.js"></script>
+ -->
 
 
 
@@ -602,7 +602,7 @@ $('#to-recover').on("click", function() {
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
    
-<!--     <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/custom.min.js"></script> -->
+
   
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/dropify/dist/js/dropify.min.js"></script>
     <script>
@@ -649,6 +649,9 @@ $('#to-recover').on("click", function() {
    
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 <?php } ?>
+
+<script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/custom.min.js"></script>
+
 
 
 <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/js/jquery.toast.js"></script>

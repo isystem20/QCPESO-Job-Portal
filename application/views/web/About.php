@@ -1,14 +1,24 @@
 <div class="wrapper">
             <!-- Hero-->
-            <section class="module-cover parallax text-center" data-background="" data-overlay="0" style="background-image: none; z-index: 0;" data-jarallax-original-styles="background-image: url(&quot;themes/boomerang/assets/images/about.jpg"&quot;);">
+<section class="module-cover parallax text-center" data-background="<?php echo base_url(); ?>banners/ABOUT.png" data-overlay="0.3" style="background-image: none; z-index: 0;" data-jarallax-original-styles="background-image: url(<?php echo base_url(); ?>banners/ABOUT.png)">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
-                            <h1>About Us</h1>
-                        </div>
+
+                        <div class="col-md-12" style="color:#fff !important;">
+                            <h1 class="m-b-20" style="color:#fff !important;">
+                                <strong>About Us</strong>
+                            </h1>
+
+                            
+
+                            <div class="col-md-12" style=" height: 100px;padding:20px;">
+                                <h5>Quezon City PESO provides services for people looking for jobs and companies that have manpower needs.</h5>                 
+                            </div>
+
+                        </div> 
                     </div>
                 </div>
-            <div class="overlay-background" style="opacity: 0.1;"></div><div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: -100;"><div style="background-position: 50% 50%; background-size: cover; background-repeat: no-repeat; background-image: url(&quot;file:///C:/xampp/htdocs/qcpesomis/themes/boomerang/assets/images/about.jpg"&quot;); position: fixed; top: 0px; left: 0px; width: 448px; height: 501.2px; overflow: hidden; pointer-events: none; margin-top: 62.4px; transform: translate3d(0px, -226.8px, 0px);"></div></div></section>
+            </section>
             <!-- Hero end-->
 
             <!-- Portfolio Single-->
