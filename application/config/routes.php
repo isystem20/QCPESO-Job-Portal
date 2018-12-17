@@ -448,3 +448,21 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['manage/applicant/add'] = 'admin/ApplicantController/AddNewApplicant';
         $route['manage/applicant/view-list'] = 'admin/ApplicantController/AllApplicants';
 
+ //Reports
+         // Applicants
+         /* Masterlist*/        $route['manage/reports/reportsmasterlist'] = 'reports/ReportsMasterlistController/ReportsMasterlist';
+         /* Applications*/      $route['manage/reports/reportsapplications'] = 'reports/ReportsApplicationsController/ReportsApplications';
+         /* Custom Reports*/    $route['manage/reports/reportscustom'] = 'reports/ReportsCustomController/ReportsCustom';
+         // Establishments
+         /* Masterlist*/        $route['manage/reports/reportsestablishmentsmasterlist'] = 'reports/ReportsEstablishmentsMasterlistController/ReportsEstablishmentsMasterlist';
+         /* Post Jobs*/         $route['manage/reports/reportsestablishmentspostedjobs'] = 'reports/ReportsEstablishmentsPostedJobsController/ReportsEstablishmentsPostedJobs';
+         /* Reviw and Ratings*/ $route['manage/reports/reportsestablishmentreviewandratings'] = 'reports/ReportsEstablishmentsReviewController/ReportsEstablishmentsReview';
+         /* Custom Reports*/    $route['manage/reports/reportsestablishmentcustom'] = 'reports/ReportsEstablishmentsCustomController/ReportsEstablishmentsCustom';
+         // Applicants
+         /* Masterlist*/        $route['manage/reports/reportsaccountsmasterlist'] = 'reports/ReportsAccountsMasterlistController/ReportsAccountsMasterlist';
+         /* Access list*/       $route['manage/reports/reportsaccountsaccesslist'] = 'reports/ReportsAccountsAccesslistController/ReportsAccountsAccesslist';
+         /* Custom Reports*/    $route['manage/reports/reportsaccountscustom'] = 'reports/ReportsAccountsCustomController/ReportsAccountsCustom';
+        /* Activity Logs */     $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';
+ 
+
+
