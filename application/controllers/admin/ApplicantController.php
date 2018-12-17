@@ -15,6 +15,8 @@
          $this->load->model('admin/EmploymentStatusModel','empmod');
          $this->load->model('admin/JobtitlesModel','jobtimod');
          $this->load->model('admin/DialectModel','Diamod');
+          $this->load->model('admin/RegionModel','regmod');
+
      }
  
   public function AddNewApplicant($id = null,$mode= null)
@@ -30,6 +32,7 @@
          $data['status'] = $this->empmod->LoadMasterlist();
          $data['titles'] = $this->jobtimod->LoadMasterlist();
          $data['dialect'] = $this->Diamod->LoadMasterlist();
+          $data['region'] = $this->regmod->LoadMasterlist();
          $data['class'] = 'applicant';
 
              
@@ -86,20 +89,14 @@
     public function Create() {
 
       $this->form_validation->set_rules('LastName','Last Name','required');    
-      // $this->form_validation->set_rules('FirstName','First Name','required');
-      // $this->form_validation->set_rules('Birthdate','Birth date','required');
-      // $this->form_validation->set_rules('HouseNum','House Number','required');
-      // $this->form_validation->set_rules('StreetName','Street Name','required');
-      // $this->form_validation->set_rules('EmailAddress','Email Address','required');
-      // $this->form_validation->set_rules('MobileNum','Mobile Number','required');
-      // $this->form_validation->set_rules('HouseNum','House Number','required');
-      // $this->form_validation->set_rules('LanguageSpoken','Laguange Spoken','required');
-      // $this->form_validation->set_rules('LanguageRead','Language Read','required');
-      // $this->form_validation->set_rules('LanguageWritten','Language Written','required');
-      // $this->form_validation->set_rules('Dialect','Dialect','required');
-      // $this->form_validation->set_rules('PreferredJobs','Preferred Jobs','required');
-      // $this->form_validation->set_rules('PreferredLocations','PreferredLocations','required');
-      // $this->form_validation->set_rules('Remarks','Remarks','required');
+      $this->form_validation->set_rules('FirstName','First Name','required');
+      $this->form_validation->set_rules('BirthDate','Birth date','required');
+      $this->form_validation->set_rules('HouseNum','House Number','required');
+      $this->form_validation->set_rules('StreetName','Street Name','required');
+      $this->form_validation->set_rules('EmailAddress','Email Address','required');
+      $this->form_validation->set_rules('MobileNum','Mobile Number','required');
+      $this->form_validation->set_rules('HouseNum','House Number','required');
+      $this->form_validation->set_rules('Remarks','Remarks','required');
         if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
@@ -164,8 +161,7 @@
             $id = $postdata['id'];
             unset($postdata['id']);
             unset($postdata['_wysihtml5_mode']);
-            $postdata = array_filter($postdata, 'strlen');
-
+            // $postdata = array_filter($postdata, 'strlen');
             $result = $this->applimod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             

@@ -435,7 +435,6 @@ $route['404'] = 'admin/SiteErrorController/Error404';
 
         
  $route['manage/transactions/add-applicant'] = 'admin/ApplicantController/AddNewApplicant'; 
-        $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
         $route['manage/transactions/applicant'] = 'admin/ApplicantController/AllApplicants';
         $route['admin/applicant/add'] = 'admin/ApplicantController/Create'; //POST to create
         $route['admin/applicant/edit'] = 'admin/ApplicantController/Update'; // POST to edit
@@ -448,3 +447,4 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['manage/applicant/add'] = 'admin/ApplicantController/AddNewApplicant';
         $route['manage/applicant/view-list'] = 'admin/ApplicantController/AllApplicants';
 
+        $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
