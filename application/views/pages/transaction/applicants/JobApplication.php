@@ -48,8 +48,8 @@
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-                                                <th>Applicant Id</th>
-                                                <th>Job Post Id</th>
+                                                <th>Applicant</th>
+                                                <th>Job Post</th>
                                                 <th>Application Letter</th>
                                                 <th>Resume</th>
                                                 <th>Application Date</th>
@@ -57,9 +57,20 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Applicant</th>
+                                                <th>Job Post</th>
+                                                <th>Application Letter</th>
+                                                <th>Resume</th>
+                                                <th>Application Date</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
                                         <?php
-                                        if ($masterlist->num_rows() > 0) {
-                                            foreach ($masterlist->result() as $row) { ?>
+                                        if ($jobapplication->num_rows() > 0) {
+                                            foreach ($jobapplication->result() as $row) { ?>
                                             <tr Id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->ApplicantId; ?></td>
                                                 <td><?php echo $row->JobPostId; ?></td>
