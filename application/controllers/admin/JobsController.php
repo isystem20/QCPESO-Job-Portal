@@ -18,7 +18,7 @@
  	public function NewJob($id = null,$mode= null)
  	{
       $css = array('addons' => True, );
-      $layout = array('addons'=>TRUE, 'pagetitle'=>'Adding New Job Posts','uploadfile'=>TRUE);
+      $layout = array('addons'=>TRUE,'pagetitle'=>'Adding New Job Posts','uploadfile'=>TRUE);
       $data['emptypes'] = $this->emptypemod->LoadMasterlist();
       $data['applev'] = $this->applevmod->LoadMasterlist();
       $data['skills'] = $this->skimod->LoadMasterlist();
@@ -87,9 +87,32 @@
 
  	}
 
+  public function PendingJobs()
+  {
+
+ 
+    $layout = array('tables'=>TRUE,);
+    $data['jobposts'] = $this->jobsmod->LoadMasterlistPending();
+    $data['class'] = 'jobposts';
+
+
+
+    $this->load->view('layout/admin/1_css');
+    $this->load->view('layout/admin/2_preloader');
+    $this->load->view('layout/admin/3_topbar');
+    $this->load->view('layout/admin/4_leftsidebar');
+    $this->load->view('pages/transaction/jobs/PendingJobs', $data);
+    $this->load->view('layout/admin/6_js',$layout);   
+    $this->load->view('layout/admin/7_modals',$layout);
+
+        // $json = json_encode($data['categories']); //log
+        // $this->logger->log('Load Jobs','Jobs',$json); //Log  
+
+  }
+
  	public function AddNewJob() {
   
-            $this->form_validation->set_rules('JobTitle','Job Title','required');
+        $this->form_validation->set_rules('JobTitle','Job Title','required');
        if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
@@ -98,6 +121,8 @@
 
          elseif (empty($_FILES["JobImage"]["name"])) {
             $errors = "Image File Needed.";
+            echo json_encode(['error'=>$errors]);
+
            
         }
   
@@ -124,7 +149,7 @@
 
           $postdata = $this->input->post();
             $postdata['JobImage']=$imagepath;
-            unset($postdata['_wysihtml5_mode']);
+            // unset($postdata['_wysihtml5_mode']);
           $inserted = $this->jobsmod->Add($postdata);
           // echo json_encode(['success'=>TRUE]);
           if ($inserted != FALSE) {         

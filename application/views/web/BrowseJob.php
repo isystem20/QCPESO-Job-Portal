@@ -1,4 +1,22 @@
-            <section class="module">
+<div class="wrapper">
+            <!-- Hero-->
+
+            <section class="module-cover parallax text-center fullscreen" data-background="<?php echo base_url(); ?>banners/BROWSEJOB1.png" data-overlay="0.6">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <h1 class="m-b-20"><strong>Browse Job</strong></h1>
+                            <h5 class="m-b-40">See how your users experience your website in realtime or view  <br> trends to see any changes in performance over time.</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Hero end-->
+
+
+           
+<section class="module">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 order-lg-2">
@@ -202,5 +220,90 @@
                 </div>
             </section>
             <!-- Blog end-->
+
+            
+            <!-- Footer-->
+            <footer class="footer">
+                <div class="footer-widgets">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <!-- Text widget-->
+                                <aside class="widget widget-text">
+                                    <div class="widget-title">
+                                        <h6>About Us</h6>
+                                    </div>
+                                    <div class="textwidget">
+                                        <p>Quezon City Public Employment Service Office</p>
+                                        <p>
+                                            Location: 4th Floor, Civic Center <br>
+                                            Building A, City Hall Compound <br>
+                                            E-mail: isystem20@gmail.com<br>
+                                            Phone: +63123453456<br>
+                                        </p>
+                                        <ul class="social-icons">
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </aside>
+                            </div>
+                            <div class="col-md-3">
+                                <!-- Recent entries widget-->
+                                <aside class="widget widget-recent-entries">
+                                    <div class="widget-title">
+                                        <h6>Recent Posts</h6>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2018</span></li>
+                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">April 7, 2018</span></li>
+                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">September 7, 2018</span></li>
+                                    </ul>
+                                </aside>
+                            </div>
+                            <div class="col-md-3">
+                                <!-- Twitter widget-->
+                                <aside class="widget twitter-feed-widget">
+                                    <div class="widget-title">
+                                        <h6>Twitter Feed</h6>
+                                    </div>
+                                    <div class="twitter-feed" data-twitter="345170787868762112" data-number="1" id="twitter-1"></div>
+                                </aside>
+                            </div>
+                            <div class="col-md-3">
+                                <!-- Recent works-->
+                                <aside class="widget widget-recent-works">
+                                    <div class="widget-title">
+                                        <h6>Portfolio</h6>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#"><img src="assets/images/widgets/1.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/widgets/2.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/widgets/3.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/widgets/7.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/widgets/8.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/widgets/6.jpg" alt=""></a></li>
+                                    </ul>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>© 2018 Quezon City PESO, All Rights Reserved. Design with love by <a href="#">SIGMA</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer end-->
+        </div>
 
             

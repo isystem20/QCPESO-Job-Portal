@@ -1,14 +1,20 @@
 <div class="wrapper">
             <!-- Hero-->
-            <section class="module-cover parallax text-center" data-background="" data-overlay="0" style="background-image: none; z-index: 0;" data-jarallax-original-styles="background-image: url(&quot;themes/boomerang/assets/images/about.jpg"&quot;);">
+
+            <section class="module-cover parallax text-center fullscreen" data-background="<?php echo base_url(); ?>banners/ABOUT.png" data-overlay="0.6">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
-                            <h1>About Us</h1>
+                        <div class="col-md-6">
+                            <h1 class="m-b-20"><strong>About QC PESO</strong></h1>
+                            <h5 class="m-b-40">See how your users experience your website in realtime or view  <br> trends to see any changes in performance over time.</h5>
+                            
                         </div>
                     </div>
                 </div>
-            <div class="overlay-background" style="opacity: 0.1;"></div><div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: -100;"><div style="background-position: 50% 50%; background-size: cover; background-repeat: no-repeat; background-image: url(&quot;file:///C:/xampp/htdocs/qcpesomis/themes/boomerang/assets/images/about.jpg"&quot;); position: fixed; top: 0px; left: 0px; width: 448px; height: 501.2px; overflow: hidden; pointer-events: none; margin-top: 62.4px; transform: translate3d(0px, -226.8px, 0px);"></div></div></section>
+            </section>
+
+
+        
             <!-- Hero end-->
 
             <!-- Portfolio Single-->

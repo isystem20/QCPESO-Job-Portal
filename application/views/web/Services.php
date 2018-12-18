@@ -1,15 +1,18 @@
 <div class="wrapper">
             <!-- Hero-->
-            <section class="module-cover parallax text-center" data-background="assets/images/module-17.jpg" data-overlay="0.3" style="background-image: none; z-index: 0;" data-jarallax-original-styles="background-image: url(&quot;assets/images/module-17.jpg&quot;);">
+            <section class="module-cover parallax text-center fullscreen" data-background="<?php echo base_url(); ?>banners/SERVICES.jpg" data-overlay="0.6">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
-                            <h2>Services</h2>
-                            <p>Quezon City PESO provides services for people looking for jobs and companies that have manpower needs.</p>
+                        <div class="col-md-6 ">
+                            <h1 class="m-b-20"><strong>SERVICES</strong></h1>
+                            <h5 class="m-b-40">See how your users experience your website in realtime or view  <br> trends to see any changes in performance over time.</h5>
+                            
                         </div>
                     </div>
                 </div>
-            <div class="overlay-background" style="opacity: 0.3;"></div><div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: -100;"><div style="background-position: 50% 50%; background-size: cover; background-repeat: no-repeat; background-image: url(&quot;file:///C:/xampp/htdocs/qcpesomis/themes/boomerang/Boomerang/assets/images/module-17.jpg&quot;); position: fixed; top: 0px; left: 0px; width: 448px; height: 510px; overflow: hidden; pointer-events: none; margin-top: 58px; transform: translate3d(0px, -148.4px, 0px);"></div></div></section>
+            </section>
+
+       
             <!-- Hero end-->
 
             <!-- Blog-->
