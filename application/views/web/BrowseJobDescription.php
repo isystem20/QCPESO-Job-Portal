@@ -93,9 +93,10 @@
                                         <h6>Position Level</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">  <?=$browsejob[0]['CompanyName']  ?><span class="float-right">1</span></a></li>
+                                        <li><a href="#">  <?=$browsejob[0]['Name']  ?><span class="float-right">1</span></a></li>
                                     </ul>
                                 </aside>
+                                
                             </div>
                         </div>
                     </div>
