@@ -27,8 +27,8 @@
          $data['language'] = $this->langmod->LoadMasterlist();
          $data['location'] = $this->locmod->LoadMasterlist();
          $data['status'] = $this->empmod->LoadMasterlist();
-        $data['titles'] = $this->jobtimod->LoadMasterlist();
-        $data['class'] = 'applicant';
+         $data['titles'] = $this->jobtimod->LoadMasterlist();
+         $data['class'] = 'applicant';
 
              
 

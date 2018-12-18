@@ -111,7 +111,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Establishment */ 
             /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
             /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EmployerController/EstablishmentMasterlist';
-            /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/AccreditationController/AccreditationRequest';   
+            /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/EmployerController/PendingRequest';    
         /* Jobs */ 
             /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';       
             /* View Jobs */                 $route['manage/do/jobs/view-list'] = 'admin/JobsController/ViewJobs';  
@@ -448,3 +448,24 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['manage/applicant/add'] = 'admin/ApplicantController/AddNewApplicant';
         $route['manage/applicant/view-list'] = 'admin/ApplicantController/AllApplicants';
 
+        $route['admin/emppost/edit/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1'; 
+        $route['admin/emppost/edit/(:any)/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1/$2';
+        $route['admin/emppost/read/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1';
+
+
+        //Reports
+         // Applicants
+         /* Masterlist*/        $route['manage/reports/applicants'] = 'reports/ReportsMasterlistController/ReportsMasterlist';
+
+         /* Applications*/      $route['manage/reports/reportsapplications'] = 'reports/ReportsApplicationsController/ReportsApplications';
+         /* Custom Reports*/    $route['manage/reports/reportscustom'] = 'reports/ReportsCustomController/ReportsCustom';
+         // Establishments
+         /* Masterlist*/        $route['manage/reports/reportsestablishmentsmasterlist'] = 'reports/ReportsEstablishmentsMasterlistController/ReportsEstablishmentsMasterlist';
+         /* Post Jobs*/         $route['manage/reports/reportsestablishmentspostedjobs'] = 'reports/ReportsEstablishmentsPostedJobsController/ReportsEstablishmentsPostedJobs';
+         /* Reviw and Ratings*/ $route['manage/reports/reportsestablishmentreviewandratings'] = 'reports/ReportsEstablishmentsReviewController/ReportsEstablishmentsReview';
+         /* Custom Reports*/    $route['manage/reports/reportsestablishmentcustom'] = 'reports/ReportsEstablishmentsCustomController/ReportsEstablishmentsCustom';
+         // Applicants
+         /* Masterlist*/        $route['manage/reports/reportsaccountsmasterlist'] = 'reports/ReportsAccountsMasterlistController/ReportsAccountsMasterlist';
+         /* Access list*/       $route['manage/reports/reportsaccountsaccesslist'] = 'reports/ReportsAccountsAccesslistController/ReportsAccountsAccesslist';
+         /* Custom Reports*/    $route['manage/reports/reportsaccountscustom'] = 'reports/ReportsAccountsCustomController/ReportsAccountsCustom';
+        /* Activity Logs */     $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';

@@ -405,7 +405,7 @@ $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for
               processData:false,  
               success: function(data) {
                 console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
-                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                           if($.isEmptyObject(data.error)){      //Checking if the data.error has value
                     
 
                      $.toast({
@@ -417,21 +417,9 @@ $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for
                       hideAfter: 3500, 
                       stack: 6
                     });
-                     if($.isEmptyObject(data.url)) {
-                  
-                      
-
-                  }
-
+                 }
                   else {
-                    window.setTimeout(function(){
-                      window.location.href = data.url;  
-                    }, 1000);
-                  }
-        
-              }
-                  else{
-                    $.toast({
+                     $.toast({
                       heading: 'Error',
                       text: data.error,
                       position: 'top-right',
@@ -440,15 +428,15 @@ $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for
                       hideAfter: 3500
                       
                     });
-                  }
+                    window.setTimeout(function(){
+                      window.location.href = data.url;  
+                    }, 1000);
+                  }  
+        
                 $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
               }
           });   
   });
-
-
-});
-
 
 // add jobpost :)
 
@@ -564,8 +552,8 @@ $('#empform').submit(function(e){
                 'PoeaLicenseExpiration' : $('input[name=PoeaLicenseExpiration]').val(),
                 'WorkingHours' : $('input[name=WorkingHours]').val(),
                 'Benefits' : $('input[name=Benefits]').val(),
-                'DressCode' : $('input[name=DressCode]').val(),
-                'SpokenLanguage' : $('input[name=SpokenLanguage]').val(),
+                'DressCode' : $('select[name=DressCode]').val(),
+                'SpokenLanguage' : $('select[name=SpokenLanguage]').val(),
             }
         console.log(newData);  
          $.ajax({
@@ -587,9 +575,9 @@ $('#empform').submit(function(e){
                       hideAfter: 3500, 
                       stack: 6
                     });
-                      window.setTimeout(function(){
-                      window.location.href = data.url;  
-                    }, 1000);
+                    //   window.setTimeout(function(){
+                    //    window.location.href = data.url; 
+                    // }, 1000);
               }
                   else{
                     $.toast({
@@ -606,9 +594,9 @@ $('#empform').submit(function(e){
               }
           }); 
 
-
+ });
        
- // $("#save-jobpost").prop("disabled", false);   
+//  // $("#save-jobpost").prop("disabled", false);   
 $('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
     e.preventDefault();       //This prevents the action to move to other page.
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
@@ -647,21 +635,9 @@ $('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID
                       hideAfter: 3500, 
                       stack: 6
                     });
-                     if($.isEmptyObject(data.url)) {
-                  
-                      
-
-                  }
-
+                 }
                   else {
-                    window.setTimeout(function(){
-                      window.location.href = data.url;  
-                    }, 1000);
-                  }
-        
-              }
-                  else{
-                    $.toast({
+                     $.toast({
                       heading: 'Error',
                       text: data.error,
                       position: 'top-right',
@@ -670,11 +646,20 @@ $('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID
                       hideAfter: 3500
                       
                     });
+                    window.setTimeout(function(){
+                      window.location.href = data.url;  
+                    }, 1000);
                   }
+        
+             
+        
                 $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
               }
           });   
   });
+
+
+
 
     });
 
