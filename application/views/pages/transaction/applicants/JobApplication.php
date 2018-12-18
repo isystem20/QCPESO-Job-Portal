@@ -42,10 +42,10 @@
                                 
 
        
-                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+                                <button type="button" id="add-btn-jobapp" class="btn waves-effect waves-light btn-success">Add</button>
 
                                 <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
+                                    <table id="myTable-jobapp" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
                                                 <th>Applicant</th>
@@ -89,7 +89,7 @@
                                                 </td>
                                                <td class="actions">
                                             
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->ApplicantId; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/jobapplications/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->ApplicantId; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
                                         <?php

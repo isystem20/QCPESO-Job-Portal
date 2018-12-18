@@ -103,19 +103,19 @@
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
-            $this->logger->log('Error Form Create','Categories',$errors); //Log
+            // $this->logger->log('Error Form Create','Categories',$errors); //Log
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->categmod->Delete($postdata);
+            $result = $this->jobappmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);
-                $this->logger->log('Delete','Categories',$json); //Log           
+                // $this->logger->log('Delete','Categories',$json); //Log           
                 echo $json;
             }
             else {
                 $json = json_encode($postdata); // encode postdata
-                $this->logger->log('Error Delete','Categories',$json); //Log
+                // $this->logger->log('Error Delete','Categories',$json); //Log
                 echo json_encode(['error'=>'Update Unsuccessful.']);
             }
 
