@@ -14,7 +14,9 @@
                                          <li><?=$browsejob[0]['CreatedAt']  ?></li>
                                     </div>
                                     <div class="post-content">
-                                        <h6>Category: <?=$browsejob[0]['Category']  ?> </h6>
+                                        <h6>Category: <div class="post-tags"> <?php  foreach ($browsejob[0]['CategList'] as $row) {
+                                            echo '<a>'.$row->Name.'</a>';
+                                        } ?> </div> </h6>
                                         
                                         <br>
                                     </div>
@@ -53,10 +55,10 @@
                                 <!-- Categories widget-->
                                 <aside class="widget widget-categories">
                                     <div class="widget-title">
-                                        <h6>Companies</h6>
+                                        <h6>Company</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">  <?=$browsejob[0]['JobTitle']  ?><span class="float-right">1</span></a></li>
+                                        <li><a href="#">  <?=$browsejob[0]['CompanyName']  ?><span class="float-right">1</span></a></li>
                                     </ul>
                                 </aside>
 
@@ -86,11 +88,13 @@
                                 
 
                                 <!-- Tags widget-->
-                                <aside class="widget widget-tag-cloud">
+                               <aside class="widget widget-categories">
                                     <div class="widget-title">
-                                        <h6>Tags</h6>
+                                        <h6>Position Level</h6>
                                     </div>
-                                    <div class="tag-cloud"><a href="#">e-commerce</a><a href="#">portfolio</a><a href="#">responsive</a><a href="#">bootstrap</a><a href="#">business</a><a href="#">corporate</a></div>
+                                    <ul>
+                                        <li><a href="#">  <?=$browsejob[0]['CompanyName']  ?><span class="float-right">1</span></a></li>
+                                    </ul>
                                 </aside>
                             </div>
                         </div>
