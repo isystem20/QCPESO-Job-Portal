@@ -107,11 +107,11 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Applicants */ 
             // /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
             //  View List                  $route['manage/do/applicants/view-list'] = 'admin/ApplicantController/Masterlist';
-            /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/JobApplication';
+            /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
             /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
             /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EmployerController/EstablishmentMasterlist';
-            /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/EmployerController/PendingRequest';    
+            /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/AccreditationController/AccreditationRequest';   
         /* Jobs */ 
             /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';       
             /* View Jobs */                 $route['manage/do/jobs/view-list'] = 'admin/JobsController/ViewJobs';  
@@ -435,7 +435,6 @@ $route['404'] = 'admin/SiteErrorController/Error404';
 
         
  $route['manage/transactions/add-applicant'] = 'admin/ApplicantController/AddNewApplicant'; 
-        $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
         $route['manage/transactions/applicant'] = 'admin/ApplicantController/AllApplicants';
         $route['admin/applicant/add'] = 'admin/ApplicantController/Create'; //POST to create
         $route['admin/applicant/edit'] = 'admin/ApplicantController/Update'; // POST to edit
@@ -451,12 +450,9 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['admin/emppost/edit/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1'; 
         $route['admin/emppost/edit/(:any)/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1/$2';
         $route['admin/emppost/read/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1';
-
-
         //Reports
          // Applicants
          /* Masterlist*/        $route['manage/reports/applicants'] = 'reports/ReportsMasterlistController/ReportsMasterlist';
-
          /* Applications*/      $route['manage/reports/reportsapplications'] = 'reports/ReportsApplicationsController/ReportsApplications';
          /* Custom Reports*/    $route['manage/reports/reportscustom'] = 'reports/ReportsCustomController/ReportsCustom';
          // Establishments
@@ -469,3 +465,5 @@ $route['404'] = 'admin/SiteErrorController/Error404';
          /* Access list*/       $route['manage/reports/reportsaccountsaccesslist'] = 'reports/ReportsAccountsAccesslistController/ReportsAccountsAccesslist';
          /* Custom Reports*/    $route['manage/reports/reportsaccountscustom'] = 'reports/ReportsAccountsCustomController/ReportsAccountsCustom';
         /* Activity Logs */     $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';
+
+        $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';

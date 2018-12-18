@@ -5,8 +5,8 @@
 
 <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/popper.min.js"></script>
 <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-<script type="text/javascript" src="<?php echo base_url();?>themes/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- 
+<script type="text/javascript" src="<?php echo base_url();?>themes/bower_components/jquery/dist/jquery.min.js"></script> -->
 <script type="text/javascript" src="<?php echo base_url();?>themes/bower_components/jquery-ui/jquery-ui.min.js"></script>
 
 <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/perfect-scrollbar.jquery.min.js"></script>

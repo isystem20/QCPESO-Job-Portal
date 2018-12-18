@@ -29,10 +29,34 @@ function __construct() {
            $this->load->library('Uuid');
             $id = $this->uuid->v4();
             $this->db->set('Id',"'".$id."'",FALSE);
-            $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
+            if (!empty($data["LanguageSpoken"])) {
+                 $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
+                 unset($data["LanguageSpoken"]);  
+            }
+            if (!empty($data["LanguageRead"])) {
+                 $this->db->set('LanguageRead',"'".json_encode($data["LanguageRead"])."'",FALSE);
+                 unset($data["LanguageRead"]);   
+            }
+             if (!empty($data["Dialect"])) {
+                 $this->db->set('Dialect',"'".json_encode($data["Dialect"])."'",FALSE);
+                 unset($data["Dialect"]);   
+            }
+             if (!empty($data["LanguageWritten"])) {
+                 $this->db->set('LanguageWritten',"'".json_encode($data["LanguageWritten"])."'",FALSE);
+                 unset($data["LanguageWritten"]);   
+            }
+             if (!empty($data["PreferredJobs"])) {
+                 $this->db->set('PreferredJobs',"'".json_encode($data["PreferredJobs"])."'",FALSE);
+                 unset($data["PreferredJobs"]);   
+            }
+              if (!empty($data["PreferredWorkLocations"])) {
+                 $this->db->set('PreferredWorkLocations',"'".json_encode($data["PreferredWorkLocations"])."'",FALSE);
+                 unset($data["PreferredWorkLocations"]);   
+            }
+           
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);  
-            unset($data["LanguageSpoken"]);  
+          
            $this->db->insert('tbl_applicants',$data);
             $added = $this->db->affected_rows();
             $this->db->flush_cache();
@@ -64,9 +88,34 @@ function __construct() {
 
 
         public function Update($id, $data) {
+             
+           if (!empty($data["LanguageSpoken"])) {
+                 $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
+                 unset($data["LanguageSpoken"]);  
+            }
+            if (!empty($data["LanguageRead"])) {
+                 $this->db->set('LanguageRead',"'".json_encode($data["LanguageRead"])."'",FALSE);
+                 unset($data["LanguageRead"]);   
+            }
+             if (!empty($data["Dialect"])) {
+                 $this->db->set('Dialect',"'".json_encode($data["Dialect"])."'",FALSE);
+                 unset($data["Dialect"]);   
+            }
+             if (!empty($data["LanguageWritten"])) {
+                 $this->db->set('LanguageWritten',"'".json_encode($data["LanguageWritten"])."'",FALSE);
+                 unset($data["LanguageWritten"]);   
+            }
+             if (!empty($data["PreferredJobs"])) {
+                 $this->db->set('PreferredJobs',"'".json_encode($data["PreferredJobs"])."'",FALSE);
+                 unset($data["PreferredJobs"]);   
+            }
+              if (!empty($data["PreferredWorkLocations"])) {
+                 $this->db->set('PreferredWorkLocations',"'".json_encode($data["PreferredWorkLocations"])."'",FALSE);
+                 unset($data["PreferredWorkLocations"]);   
+            }
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
-            $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
+            $this->db->set('VersionNum', 'VersionNum+1', FALSE);  
             $this->db->where('Id', $id);
             $query = $this->db->update($this->tbl,$data);
             $update = $this->db->affected_rows();
