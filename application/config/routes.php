@@ -107,7 +107,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Applicants */ 
             // /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
             //  View List                  $route['manage/do/applicants/view-list'] = 'admin/ApplicantController/Masterlist';
-            /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/JobApplication';
+            /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
         /* Establishment */ 
             /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
             /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EmployerController/EstablishmentMasterlist';
@@ -419,7 +419,7 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/surveyandratings/del'] = 'admin/SurveyAndRatingsController/Delete'; // POST to delete
         $route['admin/surveyandratings/read'] = 'admin/SurveyAndRatingsController/Read'; // POST to view
 
-        //
+
          $route['web/JobDescription/(:any)'] = 'web/BrowseJobController/BrowseJobDescription/$1';
 
 //ERROR 404
@@ -447,3 +447,4 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['manage/transactions/update-applicant/(:any)/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1/$2';
         $route['manage/applicant/add'] = 'admin/ApplicantController/AddNewApplicant';
         $route['manage/applicant/view-list'] = 'admin/ApplicantController/AllApplicants';
+
