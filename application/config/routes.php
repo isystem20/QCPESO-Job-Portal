@@ -466,3 +466,10 @@ $route['404'] = 'admin/SiteErrorController/Error404';
          /* Custom Reports*/    $route['manage/reports/reportsaccountscustom'] = 'reports/ReportsAccountsCustomController/ReportsAccountsCustom';
         /* Activity Logs */     $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';
 
+         // System
+         /* Security*/                  $route['manage/system/security'] = 'admin/SecurityController/Security';
+         /* Server and Database*/       $route['manage/system/serveranddatabase'] = 'admin/ServerandDatabaseController/ServerandDatabase';
+         /* Notification*/              $route['manage/system/notification'] = 'admin/NotificationController/Notification';
+
+         /* Change Logs*/              $route['manage/settings/changelogs'] = 'admin/ChangeLogsController/ChangeLogs';
+
