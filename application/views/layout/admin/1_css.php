@@ -23,7 +23,6 @@
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/style.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard4.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
@@ -77,6 +76,7 @@
         }
     </style>
 
+    <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/style.css" rel="stylesheet">
 
 
     <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
