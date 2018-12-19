@@ -645,9 +645,77 @@ $('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID
   });
 
 
+// job application
+
+$('.applyjob').click(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+    e.preventDefault();       //This prevents the action to move to other page.
+        $(this).prop("disabled", true);   //Disables the submit button after click 
+        $(this).text("Processing...");
+
+        var btn = $(this);
+        var newURL = $(this).data('action');   
+        
+        var newData  = {
+                'ApplicantId' : $('#Applicant').val(), //List of data you want to post
+                'JobId' : $(this).data('id'),
+            }
+            console.log(newData);
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              // contentType: false,
+              // cache: false,  
+              // processData:false,  
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+
+                    // $(this).prop("disabled", true);   //Disables the submit button after click 
+                    btn.text("Applied");
+                     
+                }
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+
+                   btn.prop("disabled", false);   //Disables the submit button after click 
+                    btn.text("Apply");
+                  }
+                      
+              }
+          });   
+  });
+
+
+
+
 
 
 
     });
+
+
+
 
 

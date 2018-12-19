@@ -3,12 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class BrowseJobModel extends CI_Model {
 
-		public function  BrowseJobModelMasterlist($data = null, $id = null) {
-			$this->db->select('ej.* ,"" as CategList, "" as Skills,e.CompanyName,a.Name  ');
-
+		public function  BrowseJobModelMasterlist($data = null, $id = null, $userid = null) {
+			$this->db->select('ej.* ,"" as CategList, "" as Skills,e.CompanyName,a.Name, (select count(Id) from tbl_applicants_job_applications where JobPostId = ej.Id and ApplicantId = "'.$userid.'" ) as AppliedJob');
 			$this->db->from('tbl_establishments_jobposts ej');
 			$this->db->join('tbl_establishments e', 'e.Id = ej.EstablishmentId', 'left outer');
 			$this->db->join('tbl_applicants_positions a', 'a.Id = ej.PositionLevelId', 'left outer');
+
 			
 			if (!empty($data['searchtext'])) {
 				$this->db->like('ej.JobTitle',$data['searchtext']);
