@@ -284,7 +284,7 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
               processData:false,  
               success: function(data) {
                 console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
-                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                 if($.isEmptyObject(data.error)){      //Checking if the data.error has value
                     
 
                      $.toast({
@@ -296,17 +296,7 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
                       hideAfter: 3500, 
                       stack: 6
                     });
-                     if($.isEmptyObject(data.url)) {
-                  
-                      
-
-                  }
-
-                  else {
-                    window.setTimeout(function(){
-                      window.location.href = data.url;  
-                    }, 1000);
-                  }
+               
         
               }
                   else{
@@ -552,8 +542,8 @@ $('#empform').submit(function(e){
                 'PoeaLicenseExpiration' : $('input[name=PoeaLicenseExpiration]').val(),
                 'WorkingHours' : $('input[name=WorkingHours]').val(),
                 'Benefits' : $('input[name=Benefits]').val(),
-                'DressCode' : $('input[name=DressCode]').val(),
-                'SpokenLanguage' : $('input[name=SpokenLanguage]').val(),
+                'DressCode' : $('select[name=DressCode]').val(),
+                'SpokenLanguage' : $('select[name=SpokenLanguage]').val(),
             }
         console.log(newData);  
          $.ajax({
@@ -575,9 +565,9 @@ $('#empform').submit(function(e){
                       hideAfter: 3500, 
                       stack: 6
                     });
-                      window.setTimeout(function(){
-                      window.location.href = data.url;  
-                    }, 1000);
+                    //   window.setTimeout(function(){
+                    //    window.location.href = data.url; 
+                    // }, 1000);
               }
                   else{
                     $.toast({
@@ -623,7 +613,7 @@ $('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID
               processData:false,  
               success: function(data) {
                 console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
-                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                 if($.isEmptyObject(data.error)){      //Checking if the data.error has value
                     
 
                      $.toast({
@@ -635,9 +625,11 @@ $('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID
                       hideAfter: 3500, 
                       stack: 6
                     });
-                 }
-                  else {
-                     $.toast({
+               
+        
+              }
+                  else{
+                    $.toast({
                       heading: 'Error',
                       text: data.error,
                       position: 'top-right',
@@ -646,17 +638,12 @@ $('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID
                       hideAfter: 3500
                       
                     });
-                    window.setTimeout(function(){
-                      window.location.href = data.url;  
-                    }, 1000);
                   }
-        
-             
-        
                 $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
               }
           });   
   });
+
 
 
 

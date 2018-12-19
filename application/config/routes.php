@@ -435,7 +435,6 @@ $route['404'] = 'admin/SiteErrorController/Error404';
 
         
  $route['manage/transactions/add-applicant'] = 'admin/ApplicantController/AddNewApplicant'; 
-        $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
         $route['manage/transactions/applicant'] = 'admin/ApplicantController/AllApplicants';
         $route['admin/applicant/add'] = 'admin/ApplicantController/Create'; //POST to create
         $route['admin/applicant/edit'] = 'admin/ApplicantController/Update'; // POST to edit
@@ -448,11 +447,12 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['manage/applicant/add'] = 'admin/ApplicantController/AddNewApplicant';
         $route['manage/applicant/view-list'] = 'admin/ApplicantController/AllApplicants';
 
-
+        $route['admin/emppost/edit/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1'; 
+        $route['admin/emppost/edit/(:any)/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1/$2';
+        $route['admin/emppost/read/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1';
         //Reports
          // Applicants
          /* Masterlist*/        $route['manage/reports/applicants'] = 'reports/ReportsMasterlistController/ReportsMasterlist';
-
          /* Applications*/      $route['manage/reports/reportsapplications'] = 'reports/ReportsApplicationsController/ReportsApplications';
          /* Custom Reports*/    $route['manage/reports/reportscustom'] = 'reports/ReportsCustomController/ReportsCustom';
          // Establishments
@@ -466,10 +466,14 @@ $route['404'] = 'admin/SiteErrorController/Error404';
          /* Custom Reports*/    $route['manage/reports/reportsaccountscustom'] = 'reports/ReportsAccountsCustomController/ReportsAccountsCustom';
         /* Activity Logs */     $route['manage/reports/reportsactivitylog'] = 'reports/ReportsActivitylogController/ReportsActivitylog';
 
+
          // System
          /* Security*/                  $route['manage/system/security'] = 'admin/SecurityController/Security';
          /* Server and Database*/       $route['manage/system/serveranddatabase'] = 'admin/ServerandDatabaseController/ServerandDatabase';
          /* Notification*/              $route['manage/system/notification'] = 'admin/NotificationController/Notification';
 
          /* Change Logs*/              $route['manage/settings/changelogs'] = 'admin/ChangeLogsController/ChangeLogs';
+
+
+        $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
 

@@ -17,12 +17,16 @@
                             <!-- <p><a class="btn btn-lg btn-circle btn-brand" href="#">Get Started</a></p> -->
 
                             <div class="col-md-12" style="background: rgba(20,105,170,0.8); height: 100px;padding:20px;">
-                                <form action="browsejob" method="POST">
+                                <form action="web/browsejob" method="POST">
                                    <div class="row">
                                        <div class="col-md-5">
                                            <div class="form-group">
-                                               <input class="form-control" type="search" name="searchtext" placeholder="Write Job Name">
+                                               <input class="form-control" type="search" name="searchtext" placeholder="Write Job Name" value="<?php echo set_value('searchtext', ''); ?>" >
+                                               <!--  <form action="#" method="POST">
+                                        <input class="form-control" type="search" name="searchtext" placeholder="Job Title" value="<?phpecho set_value('searchtext', ''); ?>" > -->
                                            </div>
+
+
                                        </div>
                                        <div class="col-md-5">
                                            <div class="form-group">

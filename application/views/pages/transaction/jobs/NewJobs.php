@@ -484,7 +484,7 @@ else { ?>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Job Image</label>
-                                                        <input type="file" name="JobImage" class="dropify" />
+                                                        <input type="file" name="JobImage"  />
                                                     </div>
                                                 </div>
                                         </div>
