@@ -107,7 +107,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
         /* Applicants */ 
             // /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
             //  View List                  $route['manage/do/applicants/view-list'] = 'admin/ApplicantController/Masterlist';
-            /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/ApplicationMasterList';
+            /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/JobApplication';
         /* Establishment */ 
             /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
             /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EmployerController/EstablishmentMasterlist';
@@ -397,10 +397,10 @@ $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
         $route['admin/surveyandratings/read'] = 'admin/SurveyAndRatingsController/Read'; // POST to view
 
         //JobApplication
-        $route['admin/jobapplications/add'] = 'admin/JobApplicationController/Create'; //POST to create
-        $route['admin/jobapplications/edit'] = 'admin/JobApplicationController/Update'; // POST to edit
-        $route['admin/jobapplications/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
-        $route['admin/jobapplications/read'] = 'admin/JobApplicationController/Read'; // POST to view
+        $route['admin/jobapplication/add'] = 'admin/JobApplicationController/Create'; //POST to create
+        $route['admin/jobapplication/edit'] = 'admin/JobApplicationController/Update'; // POST to edit
+        $route['admin/jobapplication/del'] = 'admin/JobApplicationController/Delete'; // POST to delete
+        $route['admin/jobapplication/read'] = 'admin/JobApplicationController/Read'; // POST to view
 
        /* Applicants Masterlist */         $route['manage/maintenance/dialect'] = 'admin/DialectController/Dialect'; 
 
