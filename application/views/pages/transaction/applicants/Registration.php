@@ -281,20 +281,95 @@ if (!empty($applicant)) {
                              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#dependents" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Dependents</span></a> </li>
                             <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#remarks" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Remarks</span></a> </li>
                         </ul>
-                        <div class="tab-content">
+                          <div class="tab-content">
                             <div class="tab-pane active" id="employmenthistory" role="tabpanel">
                                 <div class="p-20">
                                     <h3>Employment History</h3>
                                     
+                               <a href="" class="btn waves-effect waves-light btn-success">Add</a>
+                                <div class="table-responsive m-t-40">
+                                    <table id="" class="table table-bordered table-striped" data-action="">
+                                        <thead>
+                                            <tr>
+                                                <th>Company Name</th>
+                                                <th>Held Position</th>
+                                                <th>Company Address</th>
+                                                <th>Inclusive Date From</th>
+                                                <th>Inclusive Date To</th>
+                                                <th>Action</th>
+                                            
+                                                
+                                            </tr>
+                                        </thead>
+                                            <tr id="">
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                
 
+                                       
+                                                <td class="actions">
+                                                    <a href="" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="" > <i class="fas fa-info-circle"></i> </a>
+
+
+                                                    <a href="" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="" > <i class="far fa-edit" ></i> </a>
+
+
+
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="" data-id="" data-name=""> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+                                            </tr>
+                                       
+                                    </table>
                                 </div>
                             </div>
-                              <div class="tab-pane" id="skills" role="tabpanel">
+                        </div>
+                               <div class="tab-pane" id="skills" role="tabpanel">
                                 <div class="p-20">
                                     <h3>Skills</h3>
-                                  
-                        </div>
-                    </div>
+                                     <a href="" class="btn waves-effect waves-light btn-success">Add</a>
+                                <div class="table-responsive m-t-40">
+                                    <table id="" class="table table-bordered table-striped" data-action="">
+                                        <thead>
+                                            <tr>
+                                                <th>Skills</th>
+                                                <th>Held Position</th>
+                                                <th>Company Address</th>
+                                                <th>Inclusive Date From</th>
+                                                <th>Inclusive Date To</th>
+                                                <th>Action</th>
+                                            
+                                                
+                                            </tr>
+                                        </thead>
+                                            <tr id="">
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                
+
+                                       
+                                                <td class="actions">
+                                                    <a href="" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="" > <i class="fas fa-info-circle"></i> </a>
+
+
+                                                    <a href="" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="" > <i class="far fa-edit" ></i> </a>
+
+
+
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="" data-id="" data-name=""> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+                                            </tr>
+                                       
+                                    </table>
+                                </div>
+                            </div>
+                      </div>
+
                             <div class="tab-pane" id="disability" role="tabpanel">
                                 <div class="p-20">
                                     <h3>Disability</h3>
@@ -659,12 +734,49 @@ if (!empty($applicant)) {
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="dependents" role="tabpanel">
+                     <div class="tab-pane" id="dependents" role="tabpanel">
                                 <div class="p-20">
                                     <h3>Dependents</h3>
-                                  
-                        </div>
-                    </div>
+                            <a href="" class="btn waves-effect waves-light btn-success">Add</a>
+                                <div class="table-responsive m-t-40">
+                                    <table id="" class="table table-bordered table-striped" data-action="">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Created By</th>
+                                                <th>Created At</th>
+                                                <th>Action</th>
+                                            
+                                                
+                                            </tr>
+                                        </thead>
+                                            <tr id="">
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                        
+                                                
+
+                                       
+                                                <td class="actions">
+                                                    <a href="" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="" > <i class="fas fa-info-circle"></i> </a>
+
+
+                                                    <a href="" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="" > <i class="far fa-edit" ></i> </a>
+
+
+
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="" data-id="" data-name=""> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+                                            </tr>
+                                       
+                                    </table>
+                                </div>
+                            </div>
+                      </div>      
+                       
                      <div class="tab-pane" id="remarks" role="tabpanel">
                                 <div class="p-20">
                                     <h3>Remarks</h3>
@@ -991,15 +1103,92 @@ else { ?>
                                 <div class="p-20">
                                     <h3>Employment History</h3>
                                     
+                               <a href="" class="btn waves-effect waves-light btn-success">Add</a>
+                                <div class="table-responsive m-t-40">
+                                    <table id="" class="table table-bordered table-striped" data-action="">
+                                        <thead>
+                                            <tr>
+                                                <th>Company Name</th>
+                                                <th>Held Position</th>
+                                                <th>Company Address</th>
+                                                <th>Inclusive Date From</th>
+                                                <th>Inclusive Date To</th>
+                                                <th>Action</th>
+                                            
+                                                
+                                            </tr>
+                                        </thead>
+                                            <tr id="">
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                
 
+                                       
+                                                <td class="actions">
+                                                    <a href="" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="" > <i class="fas fa-info-circle"></i> </a>
+
+
+                                                    <a href="" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="" > <i class="far fa-edit" ></i> </a>
+
+
+
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="" data-id="" data-name=""> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+                                            </tr>
+                                       
+                                    </table>
                                 </div>
                             </div>
+                        </div>
+
+                                
                             <div class="tab-pane" id="skills" role="tabpanel">
                                 <div class="p-20">
                                     <h3>Skills</h3>
-                                  
-                        </div>
-                    </div>
+                                     <a href="" class="btn waves-effect waves-light btn-success">Add</a>
+                                <div class="table-responsive m-t-40">
+                                    <table id="" class="table table-bordered table-striped" data-action="">
+                                        <thead>
+                                            <tr>
+                                                <th>Skills</th>
+                                                <th>Held Position</th>
+                                                <th>Company Address</th>
+                                                <th>Inclusive Date From</th>
+                                                <th>Inclusive Date To</th>
+                                                <th>Action</th>
+                                            
+                                                
+                                            </tr>
+                                        </thead>
+                                            <tr id="">
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                
+
+                                       
+                                                <td class="actions">
+                                                    <a href="" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="" > <i class="fas fa-info-circle"></i> </a>
+
+
+                                                    <a href="" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="" > <i class="far fa-edit" ></i> </a>
+
+
+
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="" data-id="" data-name=""> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+                                            </tr>
+                                       
+                                    </table>
+                                </div>
+                            </div>
+                      </div>
+
                             <div class="tab-pane" id="disability" role="tabpanel">
                                 <div class="p-20">
                                     <h3>Disability</h3>
@@ -1288,9 +1477,46 @@ else { ?>
                     <div class="tab-pane" id="dependents" role="tabpanel">
                                 <div class="p-20">
                                     <h3>Dependents</h3>
-                                  
-                        </div>
-                    </div>
+                            <a href="" class="btn waves-effect waves-light btn-success">Add</a>
+                                <div class="table-responsive m-t-40">
+                                    <table id="" class="table table-bordered table-striped" data-action="">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Created By</th>
+                                                <th>Created At</th>
+                                                <th>Action</th>
+                                            
+                                                
+                                            </tr>
+                                        </thead>
+                                            <tr id="">
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                        
+                                                
+
+                                       
+                                                <td class="actions">
+                                                    <a href="" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="" > <i class="fas fa-info-circle"></i> </a>
+
+
+                                                    <a href="" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="" > <i class="far fa-edit" ></i> </a>
+
+
+
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="" data-id="" data-name=""> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+                                            </tr>
+                                       
+                                    </table>
+                                </div>
+                            </div>
+                      </div>      
+                       
                      <div class="tab-pane" id="remarks" role="tabpanel">
                                 <div class="p-20">
                                     <h3>Remarks</h3>
