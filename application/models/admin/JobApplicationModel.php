@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->db->where('id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('isActive','1');
+				$this->db->where('IsActive','1');
 				$this->db->or_where('isActive','2');
 				return $this->db->get();
 			}
@@ -27,6 +27,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			// /$this->db->set('createdById',"'".$this->session->userdata('userid')."'",FALSE);
 			// /$this->db->set('modifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
 			// /$this->db->set('isActive',"'".$data['status']."'",FALSE);
+
+			$this->db->set('ApplicantId',"'".$data['ApplicantId']."'",FALSE);
+			$this->db->set('JobPostId',"'".$data['JobId']."'",FALSE);
 
 			$this->db->insert($this->tbl);
 
@@ -46,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function Delete($data) {
 			//filerecord = [Del-1234567890]filerecord
 			$this->db->set('ApplicantId','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
-			$this->db->set('isActive','"0"',FALSE);
+			$this->db->set('IsActive','"0"',FALSE);
 			$this->db->where('id', $data['id']);
 			$this->db->update($this->tbl);
 			$deleted = $this->db->affected_rows();

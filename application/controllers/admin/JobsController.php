@@ -24,11 +24,8 @@
       $data['skills'] = $this->skimod->LoadMasterlist();
       $data['estabs'] = $this->establishmentmod->LoadMasterlist();
       $data['categories'] = $this->categmod->LoadCategoryMasterlist();
-
-        
-        
-        
-      $data['class'] = 'jobposts';
+       
+      $data['class'] = 'jobapplication';
  		// $data['categories'] = $this->categmod->LoadCategoryMasterlist();
    //      $data['class'] = 'categories';
 
@@ -143,8 +140,6 @@
                 $imagedata = $this->upload->data();
                 $imagepath =  'uploads/'.$imagedata['file_name'];   
             }
-
-
 
 
           $postdata = $this->input->post();

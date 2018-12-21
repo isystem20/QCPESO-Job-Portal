@@ -96,7 +96,7 @@
                         <li class="nav-small-cap">REPORTS</li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Applicants</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="<?php echo base_url();?>manage/reports/reportsmasterlist">Masterlist</a></li>
+                                <li><a href="<?php echo base_url();?>manage/reports/applicants">Masterlist</a></li>
                                 <li><a href="<?php echo base_url();?>manage/reports/reportsapplications">Applications</a></li>
                                 <li><a href="<?php echo base_url();?>manage/reports/reportscustom">Custom Report</a></li>
                             </ul>
@@ -147,12 +147,12 @@
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">System</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Security</a></li>
-                                <li><a href="#">Server and Database</a></li>
-                                <li><a href="#">Notifications</a></li>
+                                <li><a href="<?php echo base_url();?>manage/system/security">Security</a></li>
+                                <li><a href="<?php echo base_url();?>manage/system/serveranddatabase">Server and Database</a></li>
+                                <li><a href="<?php echo base_url();?>manage/system/notification">Notifications</a></li>
                             </ul>
                         </li>                        
-                        <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Change Logs</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>manage/settings/changelogs" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Change Logs</span></a></li>
 
 
                     </ul>

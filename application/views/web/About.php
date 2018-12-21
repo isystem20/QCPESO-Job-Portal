@@ -1,24 +1,20 @@
 <div class="wrapper">
             <!-- Hero-->
-<section class="module-cover parallax text-center" data-background="<?php echo base_url(); ?>banners/ABOUT.png" data-overlay="0.3" style="background-image: none; z-index: 0;" data-jarallax-original-styles="background-image: url(<?php echo base_url(); ?>banners/ABOUT.png)">
+
+            <section class="module-cover parallax text-center fullscreen" data-background="<?php echo base_url(); ?>banners/ABOUT.png" data-overlay="0.6">
                 <div class="container">
                     <div class="row">
-
-                        <div class="col-md-12" style="color:#fff !important;">
-                            <h1 class="m-b-20" style="color:#fff !important;">
-                                <strong>About Us</strong>
-                            </h1>
-
+                        <div class="col-md-6">
+                            <h1 class="m-b-20"><strong>About QC PESO</strong></h1>
+                            <h5 class="m-b-40">See how your users experience your website in realtime or view  <br> trends to see any changes in performance over time.</h5>
                             
-
-                            <div class="col-md-12" style=" height: 100px;padding:20px;">
-                                <h5>Quezon City PESO provides services for people looking for jobs and companies that have manpower needs.</h5>                 
-                            </div>
-
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </section>
+
+
+        
             <!-- Hero end-->
 
             <!-- Portfolio Single-->
