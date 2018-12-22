@@ -1,6 +1,6 @@
 <div class="wrapper">
             <!-- Hero-->
-            <section class="module-cover parallax text-center fullscreen" data-background="<?php echo base_url(); ?>banners/SERVICES.jpg" data-overlay="0.6">
+            <section class="module-cover parallax text-center fullscreen" data-background="<?php echo base_url(); ?>banners/SERVICES.png" data-overlay="0.6">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 ">

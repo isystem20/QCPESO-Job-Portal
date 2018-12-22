@@ -3,14 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class BrowseJobModel extends CI_Model {
 
-		public function  BrowseJobModelMasterlist($data = null, $id = null) {
-			$this->db->select('ej.* ,"" as CategList, "" as SkillReq,e.CompanyName,a.Name app_position,b.Name app_level');
-
+		public function  BrowseJobModelMasterlist($data = null, $id = null, $userid = null) {
+			$this->db->select('ej.* ,"" as CategList, "" as Skills,e.CompanyName,a.Name, (select count(Id) from tbl_applicants_job_applications where JobPostId = ej.Id and ApplicantId = "'.$userid.'" ) as AppliedJob');
 			$this->db->from('tbl_establishments_jobposts ej');
 			$this->db->join('tbl_establishments e', 'e.Id = ej.EstablishmentId', 'left outer');
 			$this->db->join('tbl_applicants_positions a', 'a.Id = ej.PositionLevelId', 'left outer');
-			$this->db->join('tbl_applicants_levels b', 'b.Id = ej.EmpTypeId', 'left outer');
 
+			
 			if (!empty($data['searchtext'])) {
 				$this->db->like('ej.JobTitle',$data['searchtext']);
 			}
@@ -29,7 +28,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				}
 				$this->db->group_end();
 			}
-
 			if (!empty($data['Specialization'])) {
 				$this->db->group_start();
 				$c = 0 ;
@@ -69,18 +67,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$result = $query->result();
 				foreach ($result as &$object) {
 					$object->CategList = $this->GetMultipleData('tbl_applicants_categories', json_decode($object->Category));
-					$object->SkillReq = $this->GetMultipleData('tbl_applicants_skills', json_decode($object->Specialization));
+
+
 				}
+
+
 			}
-			// $query = $this->db->get(); 
-			// if ($query->num_rows() > 0 && !empty($id)  ) {
-			// 	$result = $query->result();
-			// 	foreach ($result as &$object) {
-			// 		$object->Skilllist = $this->GetMultipleData('tbl_applicants_skills', json_decode($object->Specialization));
-			// 		//$object->Skills = $this->GetMultipleData('tbl_applicants_skills', json_decode($object->Specialization));
-			// 	}
-			// }
-			
 			return $query;
 			
 		}
@@ -91,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $this->db->where('IsActive', 1);
 			 $this->db->group_start();
 			 foreach ($array as $value) {
-			 $this->db->or_where('Id', $value);
+			 	$this->db->or_where('Id', $value);
 			 }
 			 	$this->db->group_end();
 			 	return $this->db->get()->result();
@@ -109,3 +101,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		}
+
+
+	
+// public function  BrowseJobModelMasterlist($str = null, $category = null) {
+// 			$this->db->select('*');
+// 			$this->db->from('tbl_establishments_jobposts');
+// 			if (!empty($str)) {
+// 				$this->db->like('JobTitle',$str, $category);
+// 			}
+// 			return $this->db->get();
+
+// 		}
