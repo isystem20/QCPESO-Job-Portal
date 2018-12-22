@@ -686,7 +686,8 @@ $('.applyjob').click(function(e){ //Input the form's ID or CLASS, use # for ID a
 
                     // $(this).prop("disabled", true);   //Disables the submit button after click 
                     btn.text("Applied");
-                     
+                    btn.css("background-color", "red");
+                    btn.css("border", "red");
                 }
                   else{
                     $.toast({
