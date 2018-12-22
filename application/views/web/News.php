@@ -21,7 +21,7 @@
                             <div class="row row-post-thumbnail">
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/1.jpg" alt=""></a></div>
                                     </div>
                                     <div class="col-md-7">
@@ -42,7 +42,7 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/3.jpg" alt=""></a></div>
                                     </div>
                                     <div class="col-md-7">
@@ -63,7 +63,7 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/5.jpg" alt=""></a></div>
                                     </div>
                                     <div class="col-md-7">
@@ -84,7 +84,7 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/7.jpg" alt=""></a></div>
                                     </div>
                                     <div class="col-md-7">
@@ -105,7 +105,7 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/1.jpg" alt=""></a></div>
                                     </div>
                                     <div class="col-md-7">
@@ -126,7 +126,7 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/3.jpg" alt=""></a></div>
                                     </div>
                                     <div class="col-md-7">
@@ -147,7 +147,7 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/5.jpg" alt=""></a></div>
                                     </div>
                                     <div class="col-md-7">
@@ -168,7 +168,7 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/7.jpg" alt=""></a></div>
                                     </div>
                                     <div class="col-md-7">
@@ -218,19 +218,7 @@
                                 </aside>
 
                                 <!-- Categories widget-->
-                                <aside class="widget widget-categories">
-                                    <div class="widget-title">
-                                        <h6>Categories</h6>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#">Journey <span class="float-right">112</span></a></li>
-                                        <li><a href="#">Development <span class="float-right">86</span></a></li>
-                                        <li><a href="#">Sport <span class="float-right">10</span></a></li>
-                                        <li><a href="#">Photography <span class="float-right">144</span></a></li>
-                                        <li><a href="#">Symphony <span class="float-right">18</span></a></li>
-                                    </ul>
-                                </aside>
-
+                                
                                 <!-- Recent entries widget-->
                                 <aside class="widget widget-recent-entries-custom">
                                     <div class="widget-title">
@@ -253,20 +241,9 @@
                                 </aside>
 
                                 <!-- Twitter widget-->
-                                <aside class="widget twitter-feed-widget">
-                                    <div class="widget-title">
-                                        <h6>Twitter Feed</h6>
-                                    </div>
-                                    <div class="twitter-feed" data-twitter="345170787868762112" data-number="2"></div>
-                                </aside>
-
+                               
                                 <!-- Tags widget-->
-                                <aside class="widget widget-tag-cloud">
-                                    <div class="widget-title">
-                                        <h6>Tags</h6>
-                                    </div>
-                                    <div class="tag-cloud"><a href="#">e-commerce</a><a href="#">portfolio</a><a href="#">responsive</a><a href="#">bootstrap</a><a href="#">business</a><a href="#">corporate</a></div>
-                                </aside>
+                                
                             </div>
                         </div>
                     </div>
