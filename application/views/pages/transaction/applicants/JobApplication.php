@@ -44,11 +44,22 @@
                                 
                                  <div class="form-group">
                                     <label class="control-label">Applicant Name</label>
-                                    <select class="select2 form-control custom-select" name="Applicant" id="Applicant">
+
+
+                                    <select class="select2 form-control custom-select" name="Applicant" id="Applicant" >
+                                        <option>Select Applicant</option>
                                         <?php
                                             if ($applicant->num_rows() > 0) {
-                                                foreach ($applicant->result() as $row) { ?>
-                                                <option value="<?=$row->Id; ?>"><?php echo $row->FirstName.' '.$row->LastName; ?></option>
+                                                foreach ($applicant->result() as $row) { 
+                                                    if ($row->Id==$search['Applicant']){
+                                                          $str="Selected";
+                                                        }
+                                                        else {
+                                                            $str="";
+
+                                                        }
+                                                    ?>
+                                                <option <?=$str ?> value="<?=$row->Id; ?>"><?php echo $row->FirstName.' '.$row->LastName; ?></option>
                                         <?php
                                             }
                                         }
@@ -57,19 +68,30 @@
                                     <small class="form-control-feedback">Type and select applicant Name.</small>
                                 </div>
 
+                                 
                                 <div class="form-group">
                                     <label class="control-label">Job Title</label>
-                                    <input type="text" name="searchtext" class="form-control" placeholder="Job title">
+                                    
+                                    <input value="<?php if(!empty($search['searchtext'])){ echo $search['searchtext']; }?>" type="text" name="searchtext" class="form-control" placeholder="Job title">
+                                    
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label">Category</label>
                                     
                                     <select name="Category[]" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
-                                        <?php
+                                       <?php
                                             if ($categories->num_rows() > 0) {
-                                                foreach ($categories->result() as $row) { ?>
-                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                foreach ($categories->result() as $row) { 
+                                                    if ($row->Id==$search['Category[]']){
+                                                          $str="Selected";
+                                                        }
+                                                        else {
+                                                            $str="";
+
+                                                        }
+                                                    ?>
+                                                <option <?=$str ?> value="<?=$row->Id; ?>"><?php echo $row->Name?></option>
                                         <?php
                                             }
                                         }
@@ -99,8 +121,16 @@
                                     <select class="select2 form-control custom-select" name="EmpTypeId">
                                         <?php
                                             if ($emptypes->num_rows() > 0) {
-                                                foreach ($emptypes->result() as $row) { ?>
-                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                foreach ($emptypes->result() as $row) { 
+                                                    if ($row->Id==$search['EmpTypeId']){
+                                                          $str="Selected";
+                                                        }
+                                                        else {
+                                                            $str="";
+
+                                                        }
+                                                    ?>
+                                                <option <?=$str; ?> value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
                                         <?php
                                             }
                                         }
@@ -142,6 +172,10 @@
                                             </tr>
                                         </tfoot>
                                         <?php
+                                            if (!empty($jobposts)) {
+                                                
+                                            
+
                                         if ($jobposts->num_rows() > 0) {
                                             foreach ($jobposts->result() as $row) { ?>
                                             <tr Id="row<?=$row->Id; ?>">
@@ -166,11 +200,12 @@
                                                 
                                                 <td class="actions">
                                                     
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm applyjob" data-toggle="tooltip" data-placement="top" title="" data-original-title="Apply" type="button" data-action="<?=base_url('admin/jobapplication/add'); ?>" data-id="<?php echo $row->Id; ?>" <?php if($row->AppliedJob == 0){ echo '  > Apply '.$row->AppliedJob; } else{  echo ' disabled > Applied ';} ?>  </button>
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm applyjob" data-toggle="tooltip" data-placement="top" title="" data-original-title="Apply" type="button" data-action="<?=base_url('admin/jobapplication/add'); ?>" data-id="<?php echo $row->Id; ?>" <?php if($row->AppliedJob == 0){ echo '  > Apply '; } else{  echo ' disabled style="background-color: red; border: red;" > Applied ';} ?>  </button>
                                                                                                
                                                 </td>
                                             </tr>
                                         <?php
+                                                }
                                             }
                                         }
                                         ?>

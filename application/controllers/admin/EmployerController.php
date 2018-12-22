@@ -94,13 +94,13 @@
     public function Create() {
 
         $this->form_validation->set_rules('CompanyName','Company Name','required');
-        $this->form_validation->set_rules('TIN','TIN','required');
+        $this->form_validation->set_rules('TIN','TIN','required|max_length[9]|numeric');
         $this->form_validation->set_rules('PermitIssuedDate','Permit Issued Date','required');
         $this->form_validation->set_rules('EstablismentType','Establisment Type','required');
         $this->form_validation->set_rules('IndustryType','Industry Type','required');
         $this->form_validation->set_rules('CompanyAddress','Company Address','required');
         $this->form_validation->set_rules('LandlineNum','Landline Number','required');
-        $this->form_validation->set_rules('CompanyEmail','Company Email','required');
+        $this->form_validation->set_rules('CompanyEmail','Company Email','required|valid_email');
         $this->form_validation->set_rules('OwnerName','Owner Name','required');
         $this->form_validation->set_rules('Designation','Designation','required');
         $this->form_validation->set_rules('ContactPerson','Contact Person','required');

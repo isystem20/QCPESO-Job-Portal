@@ -653,6 +653,8 @@ $('#to-recover').on("click", function() {
 
 <script src="<?php echo base_url(); ?>themes/ajax/office.js"></script>
 
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
+
 </body>
 
 </html>
