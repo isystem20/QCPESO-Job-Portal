@@ -44,7 +44,7 @@
 
         $data['jobposts'] =$this->browsmod->BrowseJobModelMasterlist($postdata, null, $postdata['Applicant']);
         }
-        print_r($data['jobposts']->result());
+        // print_r($data['jobposts']->result());
 
         
         $data['skills'] = $this->skimod->LoadMasterlist();
