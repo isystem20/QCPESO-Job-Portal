@@ -11,16 +11,16 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 name="header-text" class="text-themecolor" >Establishment</h3>
-                    <h6 class="text-muted">Masterlist of All Active Employer</h6>
+                    <h3 class="text-themecolor">Notification</h3>
+                    <h6 class="text-muted">Settings of Notification</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Transaction</li>
-                        <li class="breadcrumb-item active">Establishment</li>
-                        <li class="breadcrumb-item active">Masterlist</li>
+                        <li class="breadcrumb-item">Settings</li>
+                        <li class="breadcrumb-item">System</li>
+                        <li class="breadcrumb-item active">Notification</li>
                     </ol>
                 </div>
                 <div>
@@ -39,46 +39,8 @@
 
                         <div class="card">
                             <div class="card-body">
-                               <a href="<?=base_url('manage/do/establishments/add');?>" class="btn waves-effect waves-light btn-success">Add</a>
-                                <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
-                                        <thead>
-                                            <tr>
-                                                <th>CompanyName</th>
-                                                 <th>Acronym</th>
-                                                <th>Industry Type</th>
-                                                <th>Email</th>
-                                                <th>Action</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <?php
-                                        if ($emppost->num_rows() > 0) {
-                                            foreach ($emppost->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo character_limiter($row->CompanyName, 30); ?></td>
-                                                <td><?php echo character_limiter($row->CompanyNameAcronym, 10); ?></td>
-                                                <td><?php echo character_limiter($row->IndustryType, 30); ?></td>
-                                                <td><?php echo character_limiter($row->CompanyEmail, 30); ?></td>
-        
-                                                
-                                                <td class="actions">
-                                                    <a href="<?=base_url('admin/emppost/read/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
-
-
-                                                    <a href="<?=base_url('admin/emppost/edit/'.$row->Id.'/edit');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
-
-
-
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/emppost/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->CompanyName; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
-                                                </td>
-                                            </tr>
-                                        <?php
-                                            }
-                                        }
-                                        ?>
-                                    </table>
-                                </div>
+                              
+                                
                             </div>
                         </div>
                     </div>

@@ -15,7 +15,7 @@ function __construct() {
 public function BrowseJob()
 				{
 						$str = null;
-						// $category = null;
+						
 						$postdata = $this->input->post();
 
 						if  (!empty($postdata['searchtext'])) {
@@ -40,4 +40,36 @@ public function BrowseJob()
 			$this->load->view('layout/web/6_footer',$layout);
 
 	}
+public function BrowseJobDescription($id = NULL){
+
+
+	if (!empty($id)) {
+		
+		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist(null,$id);
+		$data['browsejob1'] = $this->browsmod->MostRecentJobs();
+		$data['estabpost'] = $this->estmod->LoadMasterlist();		
+		$data['categori'] = $this->categmod->LoadCategoryMasterlist();
+		$data['skills'] = $this->skimod->LoadMasterlist();
+		$data['applevel'] = $this->levelmod->LoadMasterlist();
+
+		if ($data['browsejob']->num_rows() > 0) {
+			$data['browsejob'] = $data['browsejob']->result_array();
+
+				$layout = array('transparentwrapper' => TRUE,'addons'=>TRUE, 'pagetitle'=>'BrowseJobDescription');
+				$this->load->view('layout/web/1_head',$layout);
+				$this->load->view('layout/web/2_preloader',$layout);
+				$this->load->view('layout/web/3_header',$layout);
+				$this->load->view('web/BrowseJobDescription',$data);
+				$this->load->view('layout/web/5_rightbar',$layout);
+				$this->load->view('layout/web/6_footer',$layout);
+		}
+		else{
+			return redirect(base_url('404'));
+
+		}
+
+	}
+	
+	}
+
 }

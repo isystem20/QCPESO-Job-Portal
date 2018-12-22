@@ -79,6 +79,8 @@ if (!empty($jobposts)) {
                                                     <input style="background-color: #fff; color: black;" type="text"  <?=$attr?> value="<?=$row->JobTitle;?>" id="jtitle" name="JobTitle"  class="form-control" >
                                                 </div>
                                             </div>
+
+
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Specialization</label>
@@ -114,7 +116,7 @@ if (!empty($jobposts)) {
                                                     <label class="control-label">Category</label>
 
                                                     
-                                                    <select name="Specialization"   <?=$attr?> id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                    <select name="Category"   <?=$attr?> id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php $str="";
                                                             if ($categories->num_rows() > 0) {
 
@@ -484,7 +486,7 @@ else { ?>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Job Image</label>
-                                                        <input type="file" name="JobImage" class="dropify" />
+                                                        <input type="file" name="JobImage"  />
                                                     </div>
                                                 </div>
                                         </div>

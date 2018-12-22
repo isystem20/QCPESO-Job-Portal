@@ -4,30 +4,35 @@
                         <div class="col-lg-8 order-lg-2">
                             <!-- Post-->
                             <article class="post">
-                                <div class="post-preview"><img src="assets/images/blog/1.jpg" alt=""></div>
+                              <img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+
+
                                 <div class="post-wrapper">
+                                    <br>
                                     <div class="post-header">
-                                        <h1 class="post-title">Minimalist Chandelier</h1>
-                                        
+                                        <h1 class="post-title"><?=$browsejob[0]['JobTitle']  ?> </h1>
+                                         <li><?=$browsejob[0]['CreatedAt']  ?></li>
                                     </div>
                                     <div class="post-content">
-                                        <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Seitan High Life reprehenderit consectetur cupidatat kogi about me. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica. Salvia esse nihil, flexitarian Truffaut synth art party deep v chillwave. Seitan High Life reprehenderit consectetur cupidatat kogi.</p>
-                                        <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
-                                        <blockquote class="blockquote">
-                                            <p>To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.</p>
-                                            <footer class="blockquote-footer">Amanda Pollock, Google Inc.</footer>
-                                        </blockquote>
-                                        <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Seitan High Life reprehenderit consectetur cupidatat kogi about me. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
-                                        <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Seitan High Life reprehenderit consectetur cupidatat kogi about me. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica. Salvia esse nihil, flexitarian Truffaut synth art party deep v chillwave. Seitan High Life reprehenderit consectetur cupidatat kogi.</p>
-                                        <ol>
-                                            <li>Digital Strategy</li>
-                                            <li>Software Development</li>
-                                            <li>Interaction Design</li>
-                                        </ol>
-                                        <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Seitan High Life reprehenderit consectetur cupidatat kogi about me. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
-                                        <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
+                                        <h6>Category: <div class="post-tags"> <?php  foreach ($browsejob[0]['CategList'] as $row) {
+                                            echo '<a>'.$row->Name.'</a>';
+                                        } ?> </div> </h6>
+                                        
+                                        <br>
                                     </div>
-                                    <div class="post-footer">
+                                    <br>
+                                     <div class="post-content">
+                                        <h5> JOB DESCRIPTION:</h5>
+                                         <?=$browsejob[0]['JobDescription']  ?>
+                                    </div>
+                                    <br>
+                                     <div class="post-content"><h5>WORK LOCATION:</h5></div>
+                                     <br>
+                                     <div class="post-content"><h5> COMPANY OVERVIEW:</h5></div>
+                                      <br>    
+                                     <div class="post-content"><h5> COMPANY PHOTOS:</h5></div>
+                                        
+                                        <div class="post-footer">
                                         <div class="post-tags"><a href="#">Lifestyle</a><a href="#">Music</a><a href="#">News</a><a href="#">Travel</a></div>
                                     </div>
                                 </div>
@@ -50,48 +55,48 @@
                                 <!-- Categories widget-->
                                 <aside class="widget widget-categories">
                                     <div class="widget-title">
-                                        <h6>Categories</h6>
+                                        <h6>Company</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">Journey <span class="float-right">112</span></a></li>
-                                        <li><a href="#">Development <span class="float-right">86</span></a></li>
-                                        <li><a href="#">Sport <span class="float-right">10</span></a></li>
-                                        <li><a href="#">Photography <span class="float-right">144</span></a></li>
-                                        <li><a href="#">Symphony <span class="float-right">18</span></a></li>
+                                        <li><a href="#">  <?=$browsejob[0]['CompanyName']  ?><span class="float-right">1</span></a></li>
                                     </ul>
                                 </aside>
 
                                 <!-- Recent entries widget-->
-                                <aside class="widget widget-recent-entries-custom">
+                              <aside class="widget widget-recent-entries-custom">
                                     <div class="widget-title">
-                                        <h6>Recent Posts</h6>
+                                        <h6>Recent Jobs</h6>
                                     </div>
                                     <ul>
+
+                                        <?php
+                                        if ($browsejob1->num_rows() > 0) {
+                                            foreach ($browsejob1->result() as $row ) { ?>
                                         <li class="clearfix">
-                                            <div class="wi"><a href="#"><img src="assets/images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
+                                            <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
+/images/widgets/1.jpg" alt=""></a></div>
+                                            <div class="wb"><a href="#"><?=$row->JobDescription;?></span></div>
                                         </li>
-                                        <li class="clearfix">
-                                            <div class="wi"><a href="#"><img src="assets/images/widgets/2.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <div class="wi"><a href="#"><img src="assets/images/widgets/3.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2016</span></div>
-                                        </li>
-                                    </ul>
+
+                                        <?php
+                                            }
+                                        }
+                                        ?>           
                                 </aside>
 
                                 <!-- Twitter widget-->
                                 
 
                                 <!-- Tags widget-->
-                                <aside class="widget widget-tag-cloud">
+                               <aside class="widget widget-categories">
                                     <div class="widget-title">
-                                        <h6>Tags</h6>
+                                        <h6>Position Level</h6>
                                     </div>
-                                    <div class="tag-cloud"><a href="#">e-commerce</a><a href="#">portfolio</a><a href="#">responsive</a><a href="#">bootstrap</a><a href="#">business</a><a href="#">corporate</a></div>
+                                    <ul>
+                                        <li><a href="#">  <?=$browsejob[0]['Name']  ?><span class="float-right">1</span></a></li>
+                                    </ul>
                                 </aside>
+                                
                             </div>
                         </div>
                     </div>

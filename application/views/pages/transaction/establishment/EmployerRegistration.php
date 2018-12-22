@@ -1,7 +1,7 @@
 <?php 
-if (!empty($webposts)) {
+if (!empty($emppost)) {
     $attr="";
-   foreach ($webposts as $row) 
+   foreach ($emppost as $row) 
     { 
         if ($mode=="view") {
             $attr="disabled readonly";
@@ -9,60 +9,307 @@ if (!empty($webposts)) {
         }
 
         ?>
-<div class="page-wrapper">
+
+    <div class="page-wrapper">
 
     <div class="container-fluid">
 
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h3 class="text-themecolor">Web Posts</h3>
-                <h6 class="text-muted">Web Posts Information</h6>
+                <h3 class="text-themecolor">View Employer</h3>
+                <h6 class="text-muted">View</h6>
 
             </div>
             <div class="col-md-7 align-self-center">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item">Settings</li>
-                    <li class="breadcrumb-item active">View Web Posts</li>
+                    <li class="breadcrumb-item">Transaction</li>
+                    <li class="breadcrumb-item">Establishment</li>
+                    <li class="breadcrumb-item active">View Employer</li>
                 </ol>
             </div>
             <div>
                 <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                 <?php
+
+                <?php
             $hidden = array(
               'id' => $row->Id,
             );
             ?>
-            <?php echo form_open_multipart('admin/webposts/edit','id="webpostform"',$hidden); ?>
+
+
+        <?php echo form_open_multipart('admin/emppost/edit','id="empform"',$hidden); ?>
+
+
+             <h5>Company Details</h5>
                 <div class="row p-t-20">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="control-label">Company</label>
-                            <input type="text" <?=$attr?> name="PostTitle" value="<?=$row->PostTitle;?>" class="form-control" >
+                            <label class="control-label">Name</label>
+                            <input type="text" <?=$attr?> name="CompanyName" value="<?=$row->CompanyName;?>" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">Acronym</label>
+                            <input type="text" <?=$attr?> name="CompanyNameAcronym"  value="<?=$row->CompanyNameAcronym;?>"class="form-control">
+                        </div>
+                    </div>
+
+                       <div class="col-md-4 ">
+                                        <?php 
+                                        $usertype = $this->session->userdata('usertype');
+                                        if ($usertype == 'ADMIN') {
+                                        ?>
+                                    <div class="form-group">
+                                        <label class="control-label ">Status</label>
+                                            <select class="form-control custom-select " <?=$attr?>
+                                            name="IsActive">
+
+                                                <option  value="1">Active</option>
+                                                <option  value="2">Inactive</option>
+                                             
+                                            </select>
+                                    </div>
+
+
+                                        <?php
+                                         }
+                                        ?>  
+                            </div>
+
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label class="control-label">Address</label>
+                            <input type="text" <?=$attr?> name="CompanyAddress" value="<?=$row->CompanyAddress;?>" class="form-control">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <input type="email" <?=$attr?> name="CompanyEmail"  value="<?=$row->CompanyEmail;?>"class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                                 <label class="control-label ">Industry Type</label>
+                                    <select class="form-control custom-select" <?=$attr?>  name="IndustryType">
+                                                <?php $str="";
+                                                    if ($industry->num_rows() > 0) {
+                                                        foreach ($industry->result() as $types) { 
+                                                            if ($row->IndustryType==$types->Id){
+                                                              $str="Selected";
+                                                            }
+                                                            else {
+                                                                $str="";
+
+                                                            }
+                                                            ?>
+                                                        <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?> 
+                                               
+                                               
+                                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                                 <label class="control-label ">Establishment Type</label>
+                                  <select class="form-control custom-select" <?=$attr?>  name="EstablismentType">
+                                                <?php $str="";
+                                                    if ($industry->num_rows() > 0) {
+                                                        foreach ($industry->result() as $types) { 
+                                                            if ($row->EstablismentType==$types->Id){
+                                                              $str="Selected";
+                                                            }
+                                                            else {
+                                                                $str="";
+
+                                                            }
+                                                            ?>
+                                                        <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?> 
+                                               
+                                               
+                                            </select>
+                        </div>
+                    </div>
+
+                     <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">TIN</label>
+                            <input type="text" <?=$attr?> name="TIN"  value="<?=$row->TIN;?>"class="form-control">
+                        </div>
+                    </div>
+
+                         
+
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Permit Issued Date</label>
+                            <input type="date" <?=$attr?> name="PermitIssuedDate"  value="<?=$row->PermitIssuedDate;?>"class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Landline Number</label>
+                            <input type="text" <?=$attr?> name="LandlineNum"  value="<?=$row->LandlineNum;?>"class="form-control">
+                        </div>
+                    </div>
+
+                     <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Fax Number</label>
+                            <input type="text" <?=$attr?> name="FaxNum"  value="<?=$row->FaxNum;?>"class="form-control">
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="control-label">Post Description</label>
-                            <input type="text" <?=$attr?> name="PostDescription"  value="<?=$row->PostDescription;?>"class="form-control">
+                            <label class="control-label">Owner Name</label>
+                            <input type="text" <?=$attr?> name="OwnerName"  value="<?=$row->OwnerName;?>"class="form-control">
                         </div>
                     </div>
+
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Designation</label>
+                            <input type="text" <?=$attr?> name="Designation"  value="<?=$row->Designation;?>"class="form-control">
+                        </div>
+                    </div>
+
                 </div>
 
+                <h5>Contact Person</h5>
                 <div class="row p-t-20">
                     <div class="col-md-6">
                         <div class="form-group">
-                                            <label class="control-label ">Post Type</label>
-                                            <select class="form-control custom-select" <?=$attr?>  name="PostTypeId">
+                            <label class="control-label">Name</label>
+                            <input type="text" <?=$attr?> name="ContactPerson" value="<?=$row->ContactPerson;?>" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Designation</label>
+                            <input type="text" <?=$attr?> name="ContactPersonDesignation"  value="<?=$row->ContactPersonDesignation;?>"class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Landline</label>
+                            <input type="text" <?=$attr?> name="ContactPersonLandline" value="<?=$row->ContactPersonLandline;?>" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Mobile</label>
+                            <input type="text" <?=$attr?> name="ContactPersonMobile"  value="<?=$row->ContactPersonMobile;?>"class="form-control">
+                        </div>
+                    </div>
+
+                </div>
+
+                <h5>Others</h5>
+                <div class="row p-t-20">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Dole Registration</label>
+                            <input type="text" name="DoleRegistration" <?=$attr?> value="<?=$row->DoleRegistration;?>" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">DateIssued</label>
+                            <input type="date" name="DoleRegistrationDateIssued" <?=$attr?> value="<?=$row->DoleRegistrationDateIssued;?>"class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Expiration</label>
+                            <input type="date" name="DoleRegistrationExpiration" <?=$attr?> value="<?=$row->DoleRegistrationExpiration;?>" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">PoeaLicenseDateIssued</label>
+                            <input type="date" name="PoeaLicenseDateIssued" <?=$attr?> value="<?=$row->PoeaLicenseDateIssued;?>"class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">PoeaLicenseExpiration</label>
+                            <input type="date" name="PoeaLicenseExpiration" <?=$attr?> value="<?=$row->PoeaLicenseExpiration;?>" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">WorkingHours</label>
+                            <input type="text" name="WorkingHours" <?=$attr?> value="<?=$row->WorkingHours;?>"class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Benefits</label>
+                            <input type="text" name="Benefits" <?=$attr?> value="<?=$row->Benefits;?>" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Dress Code</label>
+                             <select class="form-control custom-select" <?=$attr?>  name="DressCode">
                                                 <?php $str="";
-                                                    if ($posttypes->num_rows() > 0) {
-                                                        foreach ($posttypes->result() as $types) { 
-                                                            if ($row->PostTypeId==$types->Id){
+                                                    if ($dresscode->num_rows() > 0) {
+                                                        foreach ($dresscode->result() as $types) { 
+                                                            if ($row->DressCode==$types->Id){
+                                                              $str="Selected";
+                                                            }
+                                                            else {
+                                                                $str="";
+
+                                                            }
+                                                            ?>
+                                                        <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?> 
+                                               
+                                               
+                                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Spoken Language</label>
+                             <select class="form-control custom-select" <?=$attr?>  name="SpokenLanguage">
+                                                <?php $str="";
+                                                    if ($language->num_rows() > 0) {
+                                                        foreach ($language->result() as $types) { 
+                                                            if ($row->SpokenLanguage==$types->Id){
                                                               $str="Selected";
                                                             }
                                                             else {
@@ -79,78 +326,18 @@ if (!empty($webposts)) {
                                                
                                             </select>
 
-                                         </div>
-                                    </div>
-
-                                    <div class="col-md-6 ">
-                                        <?php 
-                                        $usertype = $this->session->userdata('usertype');
-                                        if ($usertype == 'ADMIN') {
-                                        ?>
-                                            <div class="form-group">
-                                            <label class="control-label ">Status</label>
-                                            <select class="form-control custom-select "
-                                            name="IsActive" <?=$attr?> >
-
-                                            <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
-                                            <option <?php if($row->IsActive=="2"){ echo "Selected";}?> value="2">Inactive</option>
-                                         
-                                            </select>
-                                    </div>
-
-
-                                        <?php
-                                         }
-                                        ?>
-
-
-                                     
-                                    </div>
-                                </div>
-
-                                <div class="row p-t-20 ">
-                                    <div class="col-md-6 ">
-                                        <div class="form-group has-success "">
-                            <label class="control-label">Add Tags</label>
-                            <div class="tags-default">
-                                <input type="text" <?=$attr?> name="Tags" data-role="tagsinput"  value="<?=$row->Tags;?>"/> </div>
-
                         </div>
                     </div>
-                      <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                 <label class="control-label">Add Image</label>
-                                <input type="file"  <?=$attr?> name="WebImage" class="dropify" data-default-file="<?php echo base_url().$row->WebImage?>"/>
-                            </div>
-                        </div>
-                      
-                    </div>
+
+
                 </div>
 
-                <div class="row">
-                    <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Post Content</h3>
-                    </div>
-
-                    <div class="">
-                        <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12">
-
-                        
-                            <div class="form-group">
-                                <textarea class="textarea_editor form-control" <?=$attr?> name="PostContent" rows="15" > <?=$row->PostContent;?></textarea>
-                            </div>
-                            <?php
+                <?php
                             if ($mode=="edit") {
                                 ?>
                             <div class="form-actions">
                               <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                <a href="<?php echo base_url();?>manage/settings/all-web-post" class="btn btn-inverse">Cancel</a>
+                                <a href="<?php echo base_url();?>manage/do/establishments/view-list" class="btn btn-inverse">Cancel</a>
                             </div>
                                 <?php
                             }
@@ -164,6 +351,14 @@ if (!empty($webposts)) {
         </div>
 
     </div>
+    
+                    
+
+
+
+
+
+
 <?php
    }
 }
@@ -242,7 +437,7 @@ else { ?>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">Email</label>
-                            <input type="text" name="CompanyEmail"  value=""class="form-control">
+                            <input type="email" name="CompanyEmail"  value=""class="form-control">
                         </div>
                     </div>
 
@@ -267,7 +462,14 @@ else { ?>
                         <div class="form-group">
                                  <label class="control-label ">Establishment Type</label>
                                     <select class="form-control custom-select"  name="EstablismentType">
-                                       
+                                                  <?php
+                                                            if ($industry->num_rows() > 0) {
+                                                                foreach ($industry->result() as $row) { ?>
+                                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
                                     </select>
                         </div>
                     </div>
@@ -405,7 +607,7 @@ else { ?>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">Dress Code</label>
-                            <select class="form-control custom-select"  name="IndustryType">
+                            <select class="form-control custom-select"  name="DressCode">
                                                   <?php
                                                             if ($dresscode->num_rows() > 0) {
                                                                 foreach ($dresscode->result() as $row) { ?>
