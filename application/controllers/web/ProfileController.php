@@ -21,7 +21,7 @@ class ProfileController extends Applicant_Controller {
 
 public function ShowProfile()
 	{
-		$layout = array ('transparentwrapper' => TRUE,'pagetitle'=>'Profile')
+	 	$layout = array('datepicker'=>TRUE, 'addons'=>TRUE,'uploadfile'=>TRUE, 'pagetitle'=>'Profile')
 		$this->load->view('layout/web/1_head',$layout);
 		$this->load->view('layout/web/2_preloader',$layout);
 		$this->load->view('layout/web/3_header_login',$layout);

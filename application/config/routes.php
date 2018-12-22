@@ -447,7 +447,7 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['manage/transactions/update-applicant/(:any)/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1/$2';
         $route['manage/applicant/add'] = 'admin/ApplicantController/AddNewApplicant';
         $route['manage/applicant/view-list'] = 'admin/ApplicantController/AllApplicants';
-
+        $route['account/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1';
         $route['admin/emppost/edit/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1'; 
         $route['admin/emppost/edit/(:any)/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1/$2';
         $route['admin/emppost/read/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1';

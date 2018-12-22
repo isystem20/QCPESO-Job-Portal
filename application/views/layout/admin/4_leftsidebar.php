@@ -154,7 +154,16 @@
                         </li>                        
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>manage/settings/changelogs" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Change Logs</span></a></li>
 
-
+                            <li class="nav-small-cap">APPLICANT</li>
+                            <li> <a class="waves-effect waves-dark" href="<?php echo base_url('account/profile');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Profile</span></a></li>
+                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
+                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Browse Jobs</span></a></li>
+                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">My Applications</span></a></li>
+                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">My Alerts</span></a></li> 
+                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Notifications</span></a></li>
+                            <li> <a class="waves-effect waves-dark" href="<?php echo base_url('logout');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Logout</span></a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
