@@ -56,11 +56,11 @@
                                         </div>
                                     
                                  <div class="form-group">
-                                   <!--  <?php
+                                     <?php
                                     if (!empty($criteria->Categories)) {
                                         print_r($criteria->Categories);
                                      } ; 
-                                     ?> -->
+                                     ?> 
                                             <label class="control-label">Categories </label>
                                             <select name="Categories[]"  class="select2 m-b-10 select2-multiple" style="width: 100%" multiple=" multiple" dat-placeholder="ategories" "> 
                                                 <?php
@@ -200,19 +200,19 @@
                                 </aside>
 
                                 <!-- Twitter widget-->
-                                <aside class="widget twitter-feed-widget">
+                                <!-- <aside class="widget twitter-feed-widget">
                                     <div class="widget-title">
                                         <h6>Employee</h6>
                                     </div>
                                     <div class="twitter-feed" data-twitter="345170787868762112" data-number="2"></div>
                                 </aside>
 
-                                <!-- Tags widget-->
+                                 Tags widget
                                 <aside class="widget widget-tag-cloud">
                                     <div class="widget-title">
                                         <h6>Tags</h6>
                                     </div>
-                                    <div class="tag-cloud"><a href="#">e-commerce</a><a href="#">portfolio</a><a href="#">responsive</a><a href="#">bootstrap</a><a href="#">business</a><a href="#">corporate</a></div>
+                                    <div class="tag-cloud"><a href="#">e-commerce</a><a href="#">portfolio</a><a href="#">responsive</a><a href="#">boo --><!-- tstrap</a><a href="#">business</a><a href="#">corporate</a></div> -->
                                 </aside>
                             </div>
                         </div>
