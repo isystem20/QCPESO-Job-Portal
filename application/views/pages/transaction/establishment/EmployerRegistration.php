@@ -477,7 +477,7 @@ else { ?>
                      <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">TIN</label>
-                            <input type="text" name="TIN" placeholder="XXX-XX-XXXX"  value=""class="form-control">
+                            <input type="text" name="TIN" placeholder="XXX-XX-XXXX"  value=""class="form-control" maxlength="10">
                         </div>
                     </div>
 
