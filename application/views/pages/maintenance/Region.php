@@ -18,7 +18,7 @@
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Maintenance</li>
+                        <li class="breadcrumb-item"Maintenance</li>
                         <li class="breadcrumb-item active">Regions</li>
                     </ol>
                 </div>
