@@ -21,10 +21,10 @@
                             <div class="row row-post-thumbnail">
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/1.jpg" alt=""></a></div>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-11">
                                         <div class="post-wrapper">
                                             <div class="post-header">
                                                 <h2 class="post-title"><a href="blog-single.html">Build Build Build | Jobs Jobs Jobs</a></h2>
@@ -42,10 +42,10 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/3.jpg" alt=""></a></div>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-11">
                                         <div class="post-wrapper">
                                             <div class="post-header">
                                                 <h2 class="post-title"><a href="blog-single.html">JOBS JOBS JOBS: Construction sector posts 4M jobs</a></h2>
@@ -63,10 +63,10 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/5.jpg" alt=""></a></div>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-11">
                                         <div class="post-wrapper">
                                             <div class="post-header">
                                                 <h2 class="post-title"><a href="blog-single.html">BLE and regional implementers strengthen strategies for optimum delivery of DOLE programs through SPES, GIP and PESO</a></h2>
@@ -84,10 +84,10 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/7.jpg" alt=""></a></div>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-11">
                                         <div class="post-wrapper">
                                             <div class="post-header">
                                                 <h2 class="post-title"><a href="blog-single.html">BLE and the LGUs of Luzon towards nation-wide PESO institutionalization</a></h2>
@@ -105,10 +105,10 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/1.jpg" alt=""></a></div>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-11">
                                         <div class="post-wrapper">
                                             <div class="post-header">
                                                 <h2 class="post-title"><a href="blog-single.html">More displaced college workers find reemployment through the K to 12 DOLE AMP</a></h2>
@@ -126,10 +126,10 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/3.jpg" alt=""></a></div>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-11">
                                         <div class="post-wrapper">
                                             <div class="post-header">
                                                 <h2 class="post-title"><a href="blog-single.html">Baking for better lives through JobStart: Ariel Amadhay</a></h2>
@@ -147,10 +147,10 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/5.jpg" alt=""></a></div>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-11">
                                         <div class="post-wrapper">
                                             <div class="post-header">
                                                 <h2 class="post-title"><a href="blog-single.html">Baking for better lives through JobStart: Ramie Losaria</a></h2>
@@ -168,10 +168,10 @@
                                 <!-- Post end-->
                                 <!-- Post-->
                                 <article class="post row align-items-center">
-                                    <div class="col-md-5">
+                                    <div class="col-md-1">
                                         <div class="post-preview"><a href="#"><img src="assets/images/blog/7.jpg" alt=""></a></div>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-11">
                                         <div class="post-wrapper">
                                             <div class="post-header">
                                                 <h2 class="post-title"><a href="blog-single.html">Baking for better lives through JobStart: Joseph Baltar</a></h2>
