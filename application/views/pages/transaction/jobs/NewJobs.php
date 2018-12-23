@@ -76,7 +76,7 @@ if (!empty($jobposts)) {
 
                                                 <div class="form-group">
                                                     <label class="control-label">Job Title</label>
-                                                    <input style="background-color: #fff; color: black;" type="text"  <?=$attr?> value="<?=$row->JobTitle;?>" id="jtitle" name="JobTitle"  class="form-control" >
+                                                    <input style="background-color: #fff; color: black;" type="text"  <?=$attr?> value="<?=$row->JobTitle;?>" name="JobTitle"  class="form-control" >
                                                 </div>
                                             </div>
 
@@ -86,7 +86,7 @@ if (!empty($jobposts)) {
                                                     <label class="control-label">Specialization</label>
 
                                                     
-                                                    <select name="Specialization"   <?=$attr?> id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                    <select name="Specialization[]" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php $str="";
                                                             if ($skills->num_rows() > 0) {
 
@@ -116,7 +116,7 @@ if (!empty($jobposts)) {
                                                     <label class="control-label">Category</label>
 
                                                     
-                                                    <select name="Category"   <?=$attr?> id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                   <select name="Category[]" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php $str="";
                                                             if ($categories->num_rows() > 0) {
 
@@ -247,25 +247,27 @@ if (!empty($jobposts)) {
                                             
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                        <label class="control-label ">Status</label>
 
                                                          <?php 
+
+                                                            $attribute = "";
                                                             $usertype = $this->session->userdata('usertype');
-                                                            if ($usertype == 'ADMIN') {
+                                                            if ($usertype == 'EMPLOYER') {
+
+                                                                $attribute = "disabled";
+                                                            }
+                                                            else{
+                                                                $attribute = "";
+                                                            }                                                            
                                                             ?>
-                                                                <select  style="background-color: #fff; color: black;" <?=$attr?>  class="form-control name="IsActive" >
+                                                    <label class="control-label">Status</label>
+                                                    <select <?=$attribute ?> class="form-control" id="stat" name="IsActive">
+                                                        <option value="1">Pending</option>
+                                                        <option value="0">Active</option>
+                                                        <option value="2">Inactive</option>                                                         
 
-                                                                <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
-                                                                <option <?php if($row->IsActive=="2"){ echo "Selected";}?> value="2">Inactive</option>
-                                                                <option <?php if($row->IsActive=="3"){ echo "Selected";}?> value="2">Pending</option>
-                                                             
-                                                                </select>
-                                                        </div>
-
-
-                                                            <?php
-                                                             }
-                                                            ?>
+                                          
+                                                        
                                                     </select>
                                                 </div>
                                             </div>
@@ -278,7 +280,7 @@ if (!empty($jobposts)) {
                                         ?>
                                     <div class="form-group">
                                         <button type="submit" id="add-jobposts" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                        <button href="<?php echo base_url();?>manage/do/jobs/view-list" type="button" class="btn btn-danger">Cancel</button>
+                                        <button  href="<?=base_url('manage/do/jobs/view-list');?>" type="button" class="btn btn-danger">Cancel</button>
                                     </div>
 
                                     <?php
@@ -486,7 +488,7 @@ else { ?>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Job Image</label>
-                                                        <input type="file" name="JobImage"  />
+                                                        <input type="file" name="JobImage"  >
                                                     </div>
                                                 </div>
                                         </div>
@@ -505,13 +507,26 @@ else { ?>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
+
+                                                         <?php 
+
+                                                            $attribute = "";
+                                                            $usertype = $this->session->userdata('usertype');
+                                                            if ($usertype == 'EMPLOYER') {
+
+                                                                $attribute = "disabled";
+                                                            }
+                                                            else{
+                                                                $attribute = "";
+                                                            }                                                            
+                                                            ?>
                                                     <label class="control-label">Status</label>
-                                                    <select class="form-control" id="stat" name="IsActive">
-                                                        <option value="1">Active</option>
-                                                        <option value="2">Inactive</option>
-                                                        <option value="3">Pending</option>
-                                                         
-                                                       
+                                                    <select <?=$attribute ?> class="form-control" id="stat" name="IsActive">
+                                                        <option value="1">Pending</option>
+                                                        <option value="0">Active</option>
+                                                        <option value="2">Inactive</option>                                                         
+
+                                          
                                                         
                                                     </select>
                                                 </div>
@@ -617,6 +632,8 @@ else { ?>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
+
+  
 
 <?php    
 }
