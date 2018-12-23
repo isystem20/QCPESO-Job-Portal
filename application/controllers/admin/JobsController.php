@@ -132,7 +132,7 @@
             }       
             else {
                 $imagedata = $this->upload->data();
-                $imagepath =  'uploadss/'.$imagedata['file_name'];   
+                $imagepath =  'uploads/'.$imagedata['file_name'];   
             }
 
 
