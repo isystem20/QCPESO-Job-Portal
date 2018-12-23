@@ -25,7 +25,7 @@ public function BrowseJob()
 		
 
 		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($postdata);
-		$data['browsejob1'] = $this->browsmod->MostRecentJobs();
+		$data['mostrecentjob'] = $this->browsmod->MostRecentJobs();
 		$data['estabpost'] = $this->estmod->LoadMasterlist();		
 		$data['categori'] = $this->categmod->LoadCategoryMasterlist();
 		$data['skills'] = $this->skimod->LoadMasterlist();
@@ -45,8 +45,14 @@ public function BrowseJobDescription($id = NULL){
 
 	if (!empty($id)) {
 		
+
+		
 		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist(null,$id);
-		$data['browsejob1'] = $this->browsmod->MostRecentJobs();
+		
+		//CompanyRecentJobs
+		// print_r($JobPostResult = $data['browsejob']->result_array());
+		// $data['Recent'] = $this->browsmod->CompanyRecentJobs($JobPostResult[0]['EstablishmentId']);
+		$data['Recent'] = $this->browsmod->MostRecentJobs();
 		$data['estabpost'] = $this->estmod->LoadMasterlist();		
 		$data['categori'] = $this->categmod->LoadCategoryMasterlist();
 		$data['skills'] = $this->skimod->LoadMasterlist();

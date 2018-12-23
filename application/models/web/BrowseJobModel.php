@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	class BrowseJobModel extends CI_Model {
 
 		public function  BrowseJobModelMasterlist($data = null, $id = null, $userid = null) {
-			$this->db->select('ej.* ,"" as CategList, "" as SkillReq,e.CompanyName,a.Name app_position,b.Name app_level,(select count(Id) from tbl_applicants_job_applications where JobPostId = ej.Id and ApplicantId = "'.$userid.'" ) as AppliedJob');
+			$this->db->select('ej.* ,"" as CategList, "" as SkillReq,estab.CompanyName,a.Name app_position,b.Name app_level,(select count(Id) from tbl_applicants_job_applications where JobPostId = ej.Id and ApplicantId = "'.$userid.'" ) as AppliedJob');
 			$this->db->from('tbl_establishments_jobposts ej');
-			$this->db->join('tbl_establishments e', 'e.Id = ej.EstablishmentId', 'left outer');
+			$this->db->join('tbl_establishments estab', 'estab.Id = ej.EstablishmentId', 'left outer');
 			$this->db->join('tbl_applicants_positions a', 'a.Id = ej.PositionLevelId', 'left outer');
 			$this->db->join('tbl_applicants_levels b', 'b.Id = ej.EmpTypeId', 'left outer');
 			
@@ -91,12 +91,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 	return $this->db->get()->result();
 		}
 
+		public function  CompanyRecentJobs($Id = null) {
+			 $this->db->select('*');
+  			$this->db->order_by('Id', 'DESC');  
+			$this->db->from('tbl_establishments_jobposts');
+			$this->db->limit('3');
+			$this->db->where('IsActive','1');
+			$this->db->where('EstablishmentId', $Id);
+
+			return $this->db->get();
+
+		}
 		public function  MostRecentJobs() {
 			 $this->db->select('*');
   			$this->db->order_by('Id', 'DESC');  
 			$this->db->from('tbl_establishments_jobposts');
 			$this->db->limit('3');
 			$this->db->where('IsActive', 1);
+			//$this->db->where('EstablishmentId', $Id);
 
 			return $this->db->get();
 

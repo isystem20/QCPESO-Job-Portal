@@ -182,8 +182,8 @@
                                     <ul>
 
                                         <?php
-                                        if ($browsejob1->num_rows() > 0) {
-                                            foreach ($browsejob1->result() as $row ) { ?>
+                                        if ($mostrecentjob->num_rows() > 0) {
+                                            foreach ($mostrecentjob->result() as $row ) { ?>
                                         <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/1.jpg" alt=""></a></div>
@@ -257,9 +257,15 @@
                                         <h6>Recent Posts</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">April 7, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">September 7, 2018</span></li>
+                                         <?php
+                                        if ($mostrecentjob->num_rows() > 0) {
+                                            foreach ($mostrecentjob->result() as $row ) { ?>
+                                        <li><a href="#"><div class="wb"><a href="#"><?=$row->JobDescription;?></span></div></a><span class="post-date">May 8, 2018</span></li>
+                                         <?php
+                                            }
+                                        }
+                                        ?>                                          
+
                                     </ul>
                                 </aside>
                             </div>

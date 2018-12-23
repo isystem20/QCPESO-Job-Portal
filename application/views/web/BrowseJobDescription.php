@@ -67,7 +67,7 @@
                                     <ul>
                                         <li><a href="#">  <?=$browsejob[0]['CompanyName']  ?><span class="float-right">1</span></a></li>
                                     </ul>
-                                </aside>
+                                </aside>    
 
                                 <!-- Recent entries widget-->
                               <aside class="widget widget-recent-entries-custom">
@@ -75,19 +75,29 @@
                                         <h6>Recent Jobs</h6>
                                     </div>
                                     <ul>
-
-                                        <?php
-                                        if ($browsejob1->num_rows() > 0) {
-                                            foreach ($browsejob1->result() as $row ) { ?>
+                                             <?php
+                                        if ($Recent->num_rows() > 0) {
+                                            foreach ($Recent->result() as $row ) { ?>
                                         <li class="clearfix">
-                                            <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/images/widgets/1.jpg" alt=""></a></div>
+                                            <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
+/images/widgets/1.jpg" alt=""></a></div>
                                             <div class="wb"><a href="#"><?=$row->JobDescription;?></span></div>
                                         </li>
 
                                         <?php
                                             }
                                         }
-                                        ?>           
+                                        ?>                
+                                       <!-- 
+                                        <li class="clearfix">
+                                            <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/images/widgets/1.jpg" alt=""></a></div>
+                                           <?php  
+                                           foreach ($browsejob[0]['CompanyName'] as $row) {
+                                            echo '<a>'.$row->Name.'</a>';
+                                            } ?>
+                                        </li> -->
+
+                                               
                                 </aside>
 
                                 <!-- Twitter widget-->
