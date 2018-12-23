@@ -653,6 +653,12 @@ $('#to-recover').on("click", function() {
 
 <script src="<?php echo base_url(); ?>themes/ajax/office.js"></script>
 
+
+
+
+
+<script type="text/javascript" src="<?php echo base_url(); ?>themes/ajax/webportal.js"></script>  
+
 </body>
 
 </html>
