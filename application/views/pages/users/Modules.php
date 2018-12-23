@@ -38,7 +38,7 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+                                <button type="button" id="modu-btn" class="btn waves-effect waves-light btn-success">Add</button>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
