@@ -11,15 +11,14 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Modules</h3>
-                    <h6 class="text-muted">List of Modules</h6>
+                    <h3 class="text-themecolor">Browse Jobs</h3>
+                    <h6 class="text-muted"></h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Manage</li>
-                        <li class="breadcrumb-item active">Modules</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Applicant</a></li>
+                        <li class="breadcrumb-item active">Browse Jobs</li>
                     </ol>
                 </div>
                 <div>
@@ -33,68 +32,7 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-12">
-
-                        <div class="card">
-                            <div class="card-body">
-                                <button type="button" id="modu-btn" class="btn waves-effect waves-light btn-success">Add</button>
-                                <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Url</th>
-                                                <th>Parent</th>
-                                                <th>Description</th>
-                                                <th>Modified By</th>
-                                                <th>Last Modified</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <?php
-                                        if ($modules->num_rows() > 0) {
-                                            foreach ($modules->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo $row->Name; ?></td>
-                                                <td><?php echo character_limiter($row->Url, 30); ?></td>
-                                                <td><?php echo character_limiter($row->Parent, 30); ?></td>
-                                                <td><?php echo character_limiter($row->Description, 30); ?></td>
-                                                <td><?php echo $row->ModifiedById; ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
-                                                <td>
-                                                    <?php 
-                                                    if ($row->IsActive == '1') {
-                                                        echo '<label class="label label-success">Active</label>';
-                                                    }
-                                                    else {
-                                                        echo '<span class="label label-light-inverse">Inactive</span>';
-                                                    }
-                                                    ?>
-                                                </td>
-                                                <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>"
-                                                    data-url="<?=$row->Url; ?>" data-parent="<?=$row->Parent;?>"data-desc="<?=$row->Description; ?>" data-createdby="<?=$row->CreatedBy; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
-
-
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-url="<?=$row->Url; ?>" data-parent="<?=$row->Parent;?>" data-desc="<?=$row->Description; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
-
-
-
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
-                                                </td>
-                                            </tr>
-                                        <?php
-                                            }
-                                        }
-                                        ?>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
