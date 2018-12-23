@@ -24,7 +24,7 @@
                         </li>
                         <li class="nav-small-cap">MANAGE</li>
 
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Accounts and Access</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Accounts and Access</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/users-masterlist"> Users </a></li> 
                                 <li><a href="<?php echo base_url(); ?>manage/user-groups/"> Groups </a> </li>
@@ -32,7 +32,7 @@
                             </ul>
                         </li>
  
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Maintenance</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Maintenance</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/languages"> Language </a></li> 
                                 <li><a href="<?php echo base_url(); ?>manage/maintenance/licenses"> Licenses </a> </li>
@@ -67,10 +67,10 @@
 
                             </ul>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/maintenance/SurveyAndRatings" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Survey and Ratings</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/maintenance/SurveyAndRatings" aria-expanded="false"><i class="mdi mdi-star-half"></i><span class="hide-menu">Survey and Ratings</span></a>
                         </li>
                         <li class="nav-small-cap">TRANSACTIONS</li>
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Applicants</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Applicants</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/applicant/add" data-i18n="nav.json-form.simple-form">Add Walk-in</a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/applicant/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
@@ -79,14 +79,14 @@
                                
                             </ul>
                         </li>
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Establishment</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-city"></i><span class="hide-menu">Establishment</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/do/establishments/add" data-i18n="nav.json-form.simple-form">Add New</a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/do/establishments/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/do/establishments/pending-accreditation">Pending Accreditation</a></li>
                             </ul>
                         </li>
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Jobs</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-briefcase"></i><span class="hide-menu">Jobs</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url(); ?>manage/do/jobs/add" data-i18n="nav.json-form.simple-form">Add New</a></li>
                                 <li><a href="<?php echo base_url(); ?>manage/do/jobs/view-list" data-i18n="nav.json-form.clubs-view">ViewJobs</a></li>
@@ -101,7 +101,7 @@
                                 <li><a href="<?php echo base_url();?>manage/reports/reportscustom">Custom Report</a></li>
                             </ul>
                         </li>
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Establishments</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bank"></i><span class="hide-menu">Establishments</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url();?>manage/reports/reportsestablishmentsmasterlist">Masterlist</a></li>
                                 <li><a href="<?php echo base_url();?>manage/reports/reportsestablishmentspostedjobs">Posted Jobs</a></li>
@@ -109,21 +109,21 @@
                                 <li><a href="<?php echo base_url();?>manage/reports/reportsestablishmentcustom">Custom Report</a></li>
                             </ul>
                         </li>
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Accounts</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Accounts</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url();?>manage/reports/reportsaccountsmasterlist">Masterlist</a></li>
                                 <li><a href="<?php echo base_url();?>manage/reports/reportsaccountsaccesslist">Access List</a></li>
                                 <li><a href="<?php echo base_url();?>manage/reports/reportsaccountscustom">Custom Report</a></li>
                             </ul>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>manage/reports/reportsactivitylog" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Activity Logs</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>manage/reports/reportsactivitylog" aria-expanded="false"><i class="mdi mdi-clipboard-text"></i><span class="hide-menu">Activity Logs</span></a></li>
 
                         <li class="nav-small-cap">SETTINGS</li>
 
-                        <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Administration</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-circle"></i><span class="hide-menu">Administration</span></a></li>
                       
 
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Website</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-monitor-multiple"></i><span class="hide-menu">Website</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="#">Basic Settings</a></li>
                                 <li> <a class="has-arrow" href="#" aria-expanded="false">Posts</a>
@@ -145,14 +145,14 @@
                             </ul>
                         </li>
 
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">System</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-settings"></i><span class="hide-menu">System</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo base_url();?>manage/system/security">Security</a></li>
                                 <li><a href="<?php echo base_url();?>manage/system/serveranddatabase">Server and Database</a></li>
                                 <li><a href="<?php echo base_url();?>manage/system/notification">Notifications</a></li>
                             </ul>
                         </li>                        
-                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>manage/settings/changelogs" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Change Logs</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>manage/settings/changelogs" aria-expanded="false"><i class="mdi mdi-information"></i><span class="hide-menu">Change Logs</span></a></li>
 
 
                     </ul>

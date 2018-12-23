@@ -555,7 +555,7 @@
                             <div class="pricing-body">
                                 <p>What are the requirements?<br>How to apply?<br>Need assistance to find job?</p>
                             </div>
-                            <div class="pricing-footer"><a class="btn btn-circle btn-brand" href="#">Read More</a></div>
+                            <br>
                         </div>
                         <div class="col-md-6 pricing-wrapper pricing-popular">
                             <div class="pricing-header">
@@ -567,7 +567,7 @@
                             <div class="pricing-body">
                                 <p>How to register?<br>What are the requirements?<br>How to post jobs?</p>
                             </div>
-                            <div class="pricing-footer"><a class="btn btn-circle btn-brand" href="#">Read More</a></div>
+                             <br>
                         </div>
        <!--                  <div class="col-md-4 pricing-wrapper pricing-popular">
                             <div class="pricing-header">
@@ -838,10 +838,7 @@
                                             Phone: +63123453456<br>
                                         </p>
                                         <ul class="social-icons">
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            <li><a href="https://www.facebook.com/QuezonCityPESO/"><i class="fab fa-facebook-f"></i></a></li> 
                                         </ul>
                                     </div>
                                 </aside>
@@ -859,15 +856,7 @@
                                     </ul>
                                 </aside>
                             </div>
-                            <div class="col-md-4">
-                                <!-- Twitter widget-->
-                                <aside class="widget twitter-feed-widget">
-                                    <div class="widget-title">
-                                        <h6>Twitter Feed</h6>
-                                    </div>
-                                    <div class="twitter-feed" data-twitter="345170787868762112" data-number="1"></div>
-                                </aside>
-                            </div>
+                            
                 <!--             <div class="col-md-3">
                                 <aside class="widget widget-recent-works">
                                     <div class="widget-title">

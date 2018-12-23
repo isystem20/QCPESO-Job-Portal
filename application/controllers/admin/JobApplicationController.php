@@ -32,17 +32,26 @@
         }
 
         // print_r($postdata);
- 
+
+        
+
         $layout = array('tables'=>TRUE,'pagetitle'=>'Job Application', 'addons' => TRUE);
         $data['jobapplication'] = $this->jobappmod->LoadMasterlist();
         $data['applicant'] = $this->applimod->LoadMasterlist();
-        $data['jobposts'] =$this->browsmod->BrowseJobModelMasterlist($postdata, null, $postdata['Applicant']);
         $data['categories'] = $this->categmod->LoadCategoryMasterlist();
+
+        if  (!empty($postdata['Applicant'])) {
+
+        $data['jobposts'] =$this->browsmod->BrowseJobModelMasterlist($postdata, null, $postdata['Applicant']);
+        }
+        // print_r($data['jobposts']->result());
+
+        
         $data['skills'] = $this->skimod->LoadMasterlist();
         $data['emptypes'] = $this->emptypemod->LoadMasterlist();
         $data['estabs'] = $this->establishmentmod->LoadMasterlist();
 
-
+        $data['search'] = $postdata;
 
         $data['class'] = 'jobapplication';
         $this->load->view('layout/admin/1_css',$layout);
