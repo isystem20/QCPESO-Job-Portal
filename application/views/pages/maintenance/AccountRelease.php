@@ -79,7 +79,7 @@
 
                                                      <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->id; ?>" data-name="<?=$row->name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
-                                        <thead>
+                                        <tfoot>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Description</th>
@@ -88,7 +88,7 @@
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
-                                        </thead>
+                                        </tfoot>
                                             </tr>
                                         <?php
                                             }
@@ -167,7 +167,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2018 Admin Pro by wrappixel.com </footer>
+            <footer class="footer"><p>© 2018 Quezon City PESO, All Rights Reserved. Design with love by <a href="#">SIGMA</a></p></footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
