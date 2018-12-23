@@ -585,32 +585,212 @@ $('#empform').submit(function(e){
           }); 
 
  });
-       
-//  // $("#save-jobpost").prop("disabled", false);   
-$('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
-    e.preventDefault();       //This prevents the action to move to other page.
+$('#applicant').submit(function(e) {
+    e.preventDefault();
+
+    var CompanyName = new Array();
+    $("input[name=CompanyName]").each(function() {
+      if ($(this).val() == '') {
+        CompanyName.push('-');
+      }
+      else {
+       CompanyName.push($(this).val());
+      }
+    });
+    var HeldPosition = new Array();
+    $("input[name=HeldPosition]").each(function() {
+      if ($(this).val() == '') {
+        HeldPosition.push('-');
+      }
+      else {
+       HeldPosition.push($(this).val());
+      }
+    });
+    var CompanyAddress = new Array();
+    $("input[name=CompanyAddress]").each(function() {
+      if ($(this).val() == '') {
+        CompanyAddress.push('-');
+      }
+      else {
+       CompanyAddress.push($(this).val());
+     }
+    });
+
+    var InclusiveDateFrom = new Array();
+    $("input[name=InclusiveDateFrom]").each(function() {
+      if ($(this).val() == '') {
+        InclusiveDateFrom.push('-');
+      }
+      else {
+       InclusiveDateFrom.push($(this).val());
+     }
+    });
+     var InclusiveDateTo = new Array();
+    $("input[name=InclusiveDateTo]").each(function() {
+      if ($(this).val() == '') {
+        InclusiveDateTo.push('-');
+      }
+      else {
+       InclusiveDateTo.push($(this).val());
+     }
+    });
+     var Name = new Array();
+    $("input[name=Name]").each(function() {
+      if ($(this).val() == '') {
+        Name.push('-');
+      }
+      else {
+       Name.push($(this).val());
+     }
+    });
+     var Description = new Array();
+    $("input[name=Description]").each(function() {
+      if ($(this).val() == '') {
+        Description.push('-');
+      }
+      else {
+       Description.push($(this).val());
+     }
+    });
+     var SchoolName = new Array();
+    $("input[name=SchoolName]").each(function() {
+      if ($(this).val() == '') {
+        SchoolName.push('-');
+      }
+      else {
+       SchoolName.push($(this).val());
+     }
+    });
+     var ProgramCourse = new Array();
+    $("input[name=ProgramCourse]").each(function() {
+      if ($(this).val() == '') {
+        ProgramCourse.push('-');
+      }
+      else {
+       ProgramCourse.push($(this).val());
+     }
+    });
+     var HighestLevel = new Array();
+    $("input[name=HighestLevel]").each(function() {
+      if ($(this).val() == '') {
+        HighestLevel.push('-');
+      }
+      else {
+       HighestLevel.push($(this).val());
+     }
+    });
+     var YearGraduated = new Array();
+    $("input[name=YearGraduated]").each(function() {
+      if ($(this).val() == '') {
+        YearGraduated.push('-');
+      }
+      else {
+       YearGraduated.push($(this).val());
+     }
+    });
+     var YearLastAttended = new Array();
+    $("input[name=YearLastAttended]").each(function() {
+      if ($(this).val() == '') {
+        YearLastAttended.push('-');
+      }
+      else {
+       YearLastAttended.push($(this).val());
+     }
+    });
+     var DependentName = new Array();
+    $("input[name=DependentName]").each(function() {
+      if ($(this).val() == '') {
+        DependentName.push('-');
+      }
+      else {
+       DependentName.push($(this).val());
+     }
+    });
+     var DependentDescription = new Array();
+    $("input[name=DependentDescription]").each(function() {
+      if ($(this).val() == '') {
+        DependentDescription.push('-');
+      }
+      else {
+       DependentDescription.push($(this).val());
+     }
+    });
+
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
         var newURL = $(this).attr('action');   
-         var newData = new FormData(this);   //Get the form action attribute value.
-        // var newData  = {
-        //         'Id' : $('input[name=id]').val(), //List of data you want to post
-        //         'PostTitle' : $('input[name=title]').val(),
-        //         'PostDescription' : $('input[name=description]').val(),
-        //         'PostTypeId' : $('select[name=type]').val(),
-        //         'Tags' : $('input[name=tags]').val(),
-        //         'IsActive' : $('select[name=status]').val(),
-        //         'PostContent' : $('textarea[name=textarea]').val(),
-        //         'WebImage' : $('input[name=file]').val(),
-        //     }
+     
+        var newData  = {
+                'Id' : $('input[name=Id]').val(), //List of data you want to post
+                'LastName' : $('input[name=LastName]').val(),
+                'FirstName' : $('input[name=FirstName]').val(),
+                'MiddleName' : $('input[name=MiddleName]').val(),
+                'Suffix' : $('select[name=Suffix]').val(),
+                'HouseNum' : $('input[name=HouseNum]').val(),
+                'StreetName' : $('input[name=StreetName]').val(),
+                'CityId' : $('select[name=CityId]').val(),
+                'ProvinceId' : $('select[name=ProvinceId]').val(),
+                'BirthDate' : $('date[name=BirthDate]').val(),
+                'BirthPlace' : $('select[name=BirthPlace]').val(),
+                'Age' : $('input[name=Age]').val(),
+                'Gender' : $('select[name=Gender]').val(),
+                'CivilStatus' : $('select[name=CivilStatus]').val(),
+                'Nationality' : $('select[name=Nationality]').val(),
+                'LandlineNum' : $('input[name=LandlineNum]').val(),
+                'MobileNum' : $('input[name=MobileNum]').val(),
+                'EmailAddress' : $('input[name=EmailAddress]').val(),
+                'EmploymentStatus' : $('select[name=EmploymentStatus]').val(),
+                'PreferredJobs' : $('select[name=PreferredJobs]').val(),
+                'PreferredWorkLocations' : $('select[name=PreferredWorkLocations]').val(),
+                'Disability' : $('select[name=Disability]').val(),
+                'DisabilityOthers' : $('input[name=DisabilityOthers]').val(),
+                'LanguangeSpoken' : $('select[name=LanguangeSpoken]').val(),
+                'LanguageRead' : $('select[name=LanguageRead]').val(),
+                'LanguageWritten' : $('select[name=LanguageWritten]').val(),
+                'Dialect' : $('select[name=Dialect]').val(),
+                'IsCurrrentlyStudying' : $('select[name=IsCurrrentlyStudying]').val(),
+                'LastSchoolLevel' : $('input[name=LastSchoolLevel]').val(),
+                'NonStudentReason' : $('input[name=NonStudentReason]').val(),
+                'PreferredTrainingCourse' : $('input[name=PreferredTrainingCourse]').val(),
+                'IsOFW' : $('select[name=IsOFW]').val(),
+                'IsKasambahay' : $('select[name=IsKasambahay]').val(),
+                'VersionNum' : $('input[name=VersionNum]').val(),
+                'TIN' : $('input[name=TIN]').val(),
+                'SSS' : $('input[name=SSS]').val(),
+                'PHILHEALTH' : $('input[name=PHILHEALTH]').val(),
+                'PAGIBIG' : $('input[name=PAGIBIG]').val(),
+                'IsMigrated' : $('input[name=IsMigrated]').val(),
+                'Remarks' : $('textarea[name=Remarks]').val(),
+                'IsActive' : $('select[name=IsActive]').val(),
+                'company_name' : CompanyName,
+                'held_position' : HeldPosition,
+                'company_address' : CompanyAddress,
+                'inclusive_datefrom' : InclusiveDateFrom,
+                'inclusive_dateto' : InclusiveDateTo,
+                'skill_name' : Name,
+                'skill_description' : Description,
+                'school_name' : SchoolName,
+                'program_course' : ProgramCourse,
+                'highest_level' : HighestLevel,
+                'year_graduated' : YearGraduated,
+                'year_lastattended' : YearLastAttended,
+                'dependent_name' : DependentName,
+                'dependent_description' : DependentDescription,
+            } 
+            // 'PhotoPath' : $('input[name=file]').val(), 
+            // 'CreatedAt' : $('input[name=CreatedAt]').val(),
+            // 'CreatedBy' : $('input[name=CreatedBy]').val(),
+            // 'ModifiedById' : $('input[name=ModifiedById]').val(),
+            // 'ModifiedAt' : $('input[name=ModifiedAt]').val(),
             console.log(newData);
+          
           $.ajax({
               url: newURL,
               type:'POST',
               dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
               data: newData,
-              contentType: false,
-              cache: false,  
-              processData:false,  
+              // contentType: false,
+              // cache: false,  
+              // processData:false,  
               success: function(data) {
                 console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
                  if($.isEmptyObject(data.error)){      //Checking if the data.error has value
@@ -706,15 +886,196 @@ $('.applyjob').click(function(e){ //Input the form's ID or CLASS, use # for ID a
                       
               }
           });   
+});  
+if ($('#addemployment').length > 0) {
+  $('#addemployment').on("click", function() {
+    // alert ("test");
+    var c = $('#CompanyName');
+    var h =  $('#HeldPosition');
+    var g = $('#CompanyAddress');
+    var f = $('#InclusiveDateFrom');
+    var t = $('#InclusiveDateTo');
+    
+    if (c.val() == '' || h.val() == '') {
+     $.toast({
+                      heading: 'Error',
+                      text: 'Company Name and Position are required.',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    }); 
+        return false;
+    }
+    var str = '';
+    str = str + '<tr>';
+    str = str + '  <td><input type="text" placeholder="Can not be empty." readonly class="form-control CompanyName" name="CompanyName" value="'+ c.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control HeldPosition" name="HeldPosition" value="'+ h.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control CompanyAddress" name="CompanyAddress" value="'+ g.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control InclusiveDateFrom" name="InclusiveDateFrom" value="'+ g.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control InclusiveDateTo" name="InclusiveDateTo" value="'+ g.val() +'"></td>';
+    str = str + '  <td class="actions"><button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button></td>';
+    str = str + '</tr>';
+    $('#employ tbody').append(str);
+    c.val('');
+    h.val('');
+    g.val('');
+    f.val(''); 
+    t.val('');  
+    $.toast({
+                      heading: 'Success!',
+                      text: 'Employment History Successfully Added',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+    // toastr.info('Employment History Successfully Added', "");
   });
+}
+if ($('#addskill').length > 0) {
+  $('#addskill').on("click", function() {
+    var n = $('#Name');
+    var d =  $('#Description');
+    
+    if (n.val() == '' || d.val() == '') {
+         $.toast({
+                      heading: 'Error',
+                      text: 'Name and Description are required.',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    }); 
+        return false;
+    }
+    var str = '';
+    str = str + '<tr>';
+    str = str + '  <td><input type="text" placeholder="Can not be empty." readonly class="form-control Name" name="Name" value="'+ n.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control Description" name="Description" value="'+ d.val() +'"></td>';
+    str = str + '  <td class="actions"><button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button></td>';
+    str = str + '</tr>';
+    $('#skill tbody').append(str);
+    n.val('');
+    d.val('');
+      $.toast({
+                      heading: 'Success!',
+                      text: 'Skill Successfully Added',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+    // toastr.info('Skill Successfully Added', "");
+  });
+}
+if ($('#addeducation').length > 0) {
+  $('#addeducation').on("click", function() {
+    var s = $('#SchoolName');
+    var p =  $('#ProgramCourse');
+    var h = $('#HighestLevel');
+    var g = $('#YearGraduated');
+    var l = $('#YearLastAttended');
+    
+    if (s.val() == '' || p.val() == '') {
+         $.toast({
+                      heading: 'Error',
+                      text: 'School Name and Program Course are required.',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    }); 
+        return false;
+    }
+    var str = '';
+    str = str + '<tr>';
+    str = str + '  <td><input type="text" placeholder="Can not be empty." readonly class="form-control SchoolName" name="SchoolName" value="'+ s.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control ProgramCourse" name="ProgramCourse" value="'+ p.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control HighestLevel" name="HighestLevel" value="'+ h.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control YearGraduated" name="YearGraduated" value="'+ g.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control YearLastAttended" name="YearLastAttended" value="'+ l.val() +'"></td>';
+    str = str + '  <td class="actions"><button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button></td>';
+    str = str + '</tr>';
+    $('#educ tbody').append(str);
+    s.val('');
+    p.val('');
+    h.val('');
+    g.val(''); 
+    l.val('');  
+   
+     $.toast({
+                      heading: 'Success!',
+                      text: 'Education Successfully Added',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+    // toastr.info('Skill Successfully Added', "");
+  });
+}
+if ($('#adddepend').length > 0) {
+
+  $('#adddepend').on("click", function() {
+    
+    var m = $('#DependentName');
+    var k =  $('#DependentDescription');
+     
+    if (m.val() == '' || k.val() == '') {
+         $.toast({
+                      heading: 'Error',
+                      text: 'Name and Description are required.',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    }); 
+        return false;
+    }
+    // alert ("test");
+    var str = '';
+    str = str + '<tr>';
+    str = str + '  <td><input type="text" placeholder="Can not be empty." readonly class="form-control DependentName" name="DependentName" value="'+ m.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control DependentDescription" name="DependentDescription" value="'+ k.val() +'"></td>';
+    str = str + '  <td class="actions"><button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button></td>';
+    str = str + '</tr>';
+    $('#depends tbody').append(str);
+    m.val('');
+    k.val('');
+  
+    $.toast({
+                      heading: 'Success!',
+                      text: 'Dependent Successfully Added',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+    // toastr.info('Skill Successfully Added', "");
+  });
+}
+$('.table').delegate(".tr-remover", "click", function() {
+  var tr = $(this).closest('tr');
+  $(tr).remove();
+});
+
+
+});
+
+// });
 
 
 
-
-
-
-
-    });
 
 
 

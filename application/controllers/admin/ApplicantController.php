@@ -36,12 +36,16 @@
          $data['class'] = 'applicant';
 
              
-
+         $profile=FALSE;
        if (!empty($id)) {
-
+            if (strtolower($id) == 'profile') {
+              $id=$this->session->userdata('peopleid');
+              $profile=TRUE;
+            }
             $data['applicant'] = $this->applimod->LoadMasterlist($id);
 
-            // print_r($data['applicant']);
+
+            
 
             if (!empty($mode)) {
                 if ($mode == 'edit') {
@@ -58,6 +62,7 @@
                   $data['mode']="view";
             }
         }
+      // print_r($data['applicant']);
         $this->load->view('layout/admin/1_css',$layout);
         $this->load->view('layout/admin/2_preloader',$layout);
         $this->load->view('layout/admin/3_topbar',$layout);
@@ -87,20 +92,22 @@
 
    
     public function Create() {
-
+    
       $this->form_validation->set_rules('LastName','Last Name','required');    
-      $this->form_validation->set_rules('FirstName','First Name','required');
-      $this->form_validation->set_rules('BirthDate','Birth date','required');
-      $this->form_validation->set_rules('HouseNum','House Number','required');
-      $this->form_validation->set_rules('StreetName','Street Name','required');
-      $this->form_validation->set_rules('EmailAddress','Email Address','required');
-      $this->form_validation->set_rules('MobileNum','Mobile Number','required');
-      $this->form_validation->set_rules('HouseNum','House Number','required');
-      $this->form_validation->set_rules('Remarks','Remarks','required');
-        if ($this->form_validation->run() == FALSE){
+      // $this->form_validation->set_rules('FirstName','First Name','required');
+      // $this->form_validation->set_rules('BirthDate','Birth date','required');
+      // $this->form_validation->set_rules('HouseNum','House Number','required');
+      // $this->form_validation->set_rules('StreetName','Street Name','required');
+      // $this->form_validation->set_rules('EmailAddress','Email Address','required');
+      // $this->form_validation->set_rules('MobileNum','Mobile Number','required');
+      // $this->form_validation->set_rules('HouseNum','House Number','required');
+      // $this->form_validation->set_rules('Remarks','Remarks','required');
+       
+      if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
-
+            print_r($this->input->post());
+         die();
         }
 
         // elseif (empty($_FILES["PhotoPath"]["name"])) {
