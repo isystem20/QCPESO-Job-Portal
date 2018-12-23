@@ -11,6 +11,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
+
+    <meta name="google-signin-client_id" content="695408817379-9bfd5ft39pl37hjh273aq87tsdfl35cv.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script> 
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>themes/admin-pro/assets/assets/images/favicon.png">
     <title><?php if(empty($pagetitle)){ echo 'QCPESO'; } else {echo $pagetitle;} ?></title>
     <!-- Bootstrap Core CSS -->

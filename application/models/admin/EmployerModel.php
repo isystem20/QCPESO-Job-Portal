@@ -34,23 +34,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         public function Add($data) {
-            
-        
+            $this->db->trans_start();
+            $this->load->library('Uuid');
+            $EstablishmentId = $this->uuid->v4();
+            $code = rand(100000, 999999);
+
+            $this->db->set('Id',"'".$EstablishmentId."'",FALSE);
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);    
-        
-
+            
+            $UserId = $this->uuid->v4();
+               
             $this->db->insert($this->tbl,$data);
 
-            $added = $this->db->insert_id();
 
-            if ($added > 0) {
-                $inserted = $this->LoadMasterlist($added);
-                return $inserted;
+            $this->db->flush_cache();
+            $password = $data['DoleRegistration'];
+            $key = $this->config->item('encryption_key');
+            $salt1 = hash('sha512', $key . $password);
+            $salt2 = hash('sha512', $password . $key);
+            $hashed_password = hash('sha512', $salt1 . $password . $salt2);
+            // echo $data['password'] = $hashed_password;
+
+            $this->db->set('Id',"'".$UserId."'",FALSE);
+            $this->db->set('LoginName',"'".$data['CompanyEmail']."'",FALSE);
+            $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
+            $this->db->set('SecurityUserLevelId',"'2'",FALSE);
+            $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
+            $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
+            $this->db->set('UserType',"'EMPLOYER'",FALSE); 
+            $this->db->set('PeopleId',"'".$EstablishmentId."'",FALSE);           
+            $this->db->set('Email',"'".$data['CompanyEmail']."'",FALSE);
+            $this->db->insert('tbl_security_users');
+
+            $this->db->trans_complete();
+
+            if ($this->db->trans_status() === FALSE)
+            {
+                    $this->db->trans_rollback();
+                    return FALSE;
+
             }
-            else {
-                return FALSE;
+            else
+            {
+                    $this->db->trans_commit();
+
+                    return TRUE;
+
             }
+                 
         }
 
 
