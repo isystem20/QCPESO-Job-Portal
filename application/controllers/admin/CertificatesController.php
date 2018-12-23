@@ -64,7 +64,7 @@
                 'required'      => 'Cannot identify this record.',
                 ));
 
-        $postdata = $this->input->post();
+        $postdata = $this->input->post();       
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
             $this->logger->log('Error Form Create','CertificatesList',$errors); //Log
@@ -73,7 +73,7 @@
         else{
             $id = $postdata['itemid'];
             unset($postdata['itemid']);
-            $postdata = array_filter($postdata, 'strlen');
+            // $postdata = array_filter($postdata, 'strlen');
 
             $result = $this->certmod->Update($id,$postdata);
             if ($result != FALSE) {

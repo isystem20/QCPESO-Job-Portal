@@ -144,7 +144,7 @@ $(document).ready(function() {
                     
                      $.toast({
                       heading: 'Failed!',
-                      text: 'Login Failed',
+                      text: data.error,
                       position: 'top-right',
                       loaderBg:'#ff6849',
                       icon: 'error',
