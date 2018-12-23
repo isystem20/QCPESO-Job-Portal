@@ -385,31 +385,7 @@ if (!empty($applicant)) {
                                                                             <div class="col-md-4">
                                                                                 <div class="form-group has-success">
                                                                                     <label class="control-label">Preferred Jobs</label>
-                                                                                    <select class="select2 form-control custom-select" style="width: 100%" value="<?=$row->PreferredJobs;?>" name="PreferredJobs[]" multiple="multiple">
-                                                                                        <?php $str="";
-                                                            if ($titles->num_rows() > 0) {
-
-                                                                $jobtitles = json_decode($row->PreferredJobs,true);
-                                                                    foreach($titles->result() as $types) {
-                                                                        $str = "";
-                                                                        foreach($jobtitles as $key) {
-                                                                            if($key == $types->Id) {
-                                                                                $str = "selected";
-                                                                            }
-                                                                        }
-                                                                        ?>
-                                                                                            <option <?=$str?> value="
-                                                                                                <?=$types->Id?>">
-                                                                                                    <?=$types->Name?>
-                                                                                            </option>
-                                                                                            <?php
-
-                                                                    }
-
-                                                                }
-
-                                                            ?>
-                                                                                    </select>
+                                                                                    <input type="text" name="PreferredTrainingCourse" class="form-control form-control-danger" value="<?=$row->PreferredJobs;?>">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-4">
@@ -522,7 +498,7 @@ if (!empty($applicant)) {
                                                                                 <label class="control-label">Remarks</label>
                                                                                 <div class="form-group">
                                                                                     <textarea class="textarea_editor form-control" name="Remarks" rows="8">
-                                                                                        <?=$row->Remarks;?>
+                                                                                        <?php echo $row->Remarks;?>
                                                                                     </textarea>
                                                                                 </div>
 
@@ -1078,23 +1054,20 @@ else { ?>
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Disability</label>
                                                     <select class="form-control custom-select" name="Disability" value="<?=$row->Disability;?>">
-                                                        <?php $str="";
-                                                    if ($disability->num_rows() > 0) {
-                                                        foreach ($disability->result() as $types) { 
-                                                            if ($row->Disability==$types->Id){
-                                                              $str="Selected";
-                                                            }
-                                                            else {
-                                                                $str="";
+                                                          <?php $str="";
+                                        if ($disability->num_rows() > 0) {
+                                            foreach ($disability->result() as $types) { 
+                                                if ($types->Id==$row->Disability){
+                                                     $str ="Selected";
+                                                }
 
-                                                            }
-                                                            ?>
-                                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?>
-                                                            </option>
-                                                            <?php
-                                                        }
-                                                    }
-                                                    ?>
+                                                ?>
+                                                                    <option <?=$str ?> value="<?=$types->Id; ?>"><?php echo $types->Name; ?>
+                                                                    </option>
+                                                                    <?php
+                                            }
+                                        }
+                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -1172,17 +1145,7 @@ else { ?>
                                                     <div class="col-md-4">
                                                         <div class="form-group has-success">
                                                             <label class="control-label">Preferred Jobs</label>
-                                                            <select class="select2 form-control custom-select" multiple="multiple" name="PreferredJobs[]" style="width: 100%">
-                                                                <?php
-                                                            if ($titles->num_rows() > 0) {
-                                                                foreach ($titles->result() as $row) { ?>
-                                                                    <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?>
-                                                                    </option>
-                                                                    <?php
-                                                            }
-                                                        }
-                                                        ?>
-                                                            </select>
+                                                            <input type="text" name="PreferredJobs" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -1539,9 +1502,9 @@ else { ?>
                                         <div class="col-sm-9">
 
                                             <div class="input-group input-large" data-date="13/07/2013" data-date-format="mm/dd/yyyy">
-                                                <input type="text" class="form-control dpd1" id="InclusiveDateFrom">
+                                                <input type="date" class="form-control dpd1" id="InclusiveDateFrom">
                                                 <span class="input-group-addon">To</span>
-                                                <input type="text" class="form-control dpd2" id="InclusiveDateTo">
+                                                <input type="date" class="form-control dpd2" id="InclusiveDateTo">
                                             </div>
                                             <!-- <input type="text" class="form-control" placeholder="MM/YY-MM/YY" id="graduatedate"> -->
                                         </div>
