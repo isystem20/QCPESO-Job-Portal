@@ -74,6 +74,16 @@
                                 }
                                 ?>
                                         </tbody>
+                                <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Login Name</th>
+                                                <th>Usertype</th>
+                                                <th>Email Address</th>
+                                                 <th>Status</th>
+                                            
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
