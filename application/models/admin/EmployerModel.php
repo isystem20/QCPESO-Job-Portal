@@ -57,14 +57,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             // echo $data['password'] = $hashed_password;
 
             $this->db->set('Id',"'".$UserId."'",FALSE);
-            $this->db->set('LoginName',"'".$data['CompanyAddress']."'",FALSE);
+            $this->db->set('LoginName',"'".$data['CompanyEmail']."'",FALSE);
             $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
             $this->db->set('SecurityUserLevelId',"'2'",FALSE);
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('UserType',"'EMPLOYER'",FALSE); 
             $this->db->set('PeopleId',"'".$EstablishmentId."'",FALSE);           
-            $this->db->set('Email',"'".$data['CompanyAddress']."'",FALSE);
+            $this->db->set('Email',"'".$data['CompanyEmail']."'",FALSE);
             $this->db->insert('tbl_security_users');
 
             $this->db->trans_complete();
