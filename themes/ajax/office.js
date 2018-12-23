@@ -715,6 +715,10 @@ $('#applicant').submit(function(e) {
        DependentDescription.push($(this).val());
      }
     });
+        var PreferredLocations = new Array();
+      $('#PreferredLocations  > option:selected').each(function() {
+           PreferredLocations.push($(this).val());
+      });
 
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
         var newURL = $(this).attr('action');   
@@ -739,7 +743,7 @@ $('#applicant').submit(function(e) {
                 'MobileNum' : $('input[name=MobileNum]').val(),
                 'EmailAddress' : $('input[name=EmailAddress]').val(),
                 'EmploymentStatus' : $('select[name=EmploymentStatus]').val(),
-                'PreferredJobs' : $('select[name=PreferredJobs]').val(),
+                'PreferredJobs' : $('input[name=PreferredJobs]').val(),
                 'PreferredWorkLocations' : $('select[name=PreferredWorkLocations]').val(),
                 'Disability' : $('select[name=Disability]').val(),
                 'DisabilityOthers' : $('input[name=DisabilityOthers]').val(),
@@ -781,6 +785,7 @@ $('#applicant').submit(function(e) {
             // 'CreatedBy' : $('input[name=CreatedBy]').val(),
             // 'ModifiedById' : $('input[name=ModifiedById]').val(),
             // 'ModifiedAt' : $('input[name=ModifiedAt]').val(),
+            
             console.log(newData);
           
           $.ajax({
@@ -804,8 +809,11 @@ $('#applicant').submit(function(e) {
                       icon: 'success',
                       hideAfter: 3500, 
                       stack: 6
+
                     });
-               
+                    window.setTimeout(function(){
+                    window.location.href = data.url; 
+                  }, 1000);
         
               }
                   else{
@@ -913,8 +921,8 @@ if ($('#addemployment').length > 0) {
     str = str + '  <td><input type="text" placeholder="Can not be empty." readonly class="form-control CompanyName" name="CompanyName" value="'+ c.val() +'"></td>';
     str = str + '  <td><input type="text" class="form-control HeldPosition" name="HeldPosition" value="'+ h.val() +'"></td>';
     str = str + '  <td><input type="text" class="form-control CompanyAddress" name="CompanyAddress" value="'+ g.val() +'"></td>';
-    str = str + '  <td><input type="text" class="form-control InclusiveDateFrom" name="InclusiveDateFrom" value="'+ g.val() +'"></td>';
-    str = str + '  <td><input type="text" class="form-control InclusiveDateTo" name="InclusiveDateTo" value="'+ g.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control InclusiveDateFrom" name="InclusiveDateFrom" value="'+ f.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control InclusiveDateTo" name="InclusiveDateTo" value="'+ t.val() +'"></td>';
     str = str + '  <td class="actions"><button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button></td>';
     str = str + '</tr>';
     $('#employ tbody').append(str);
