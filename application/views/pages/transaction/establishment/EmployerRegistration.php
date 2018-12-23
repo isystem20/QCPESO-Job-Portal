@@ -477,7 +477,7 @@ else { ?>
                      <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">TIN</label>
-                            <input type="text" name="TIN"  value=""class="form-control">
+                            <input type="text" name="TIN" placeholder="XXX-XX-XXXX"  value=""class="form-control" maxlength="10">
                         </div>
                     </div>
 
@@ -649,7 +649,7 @@ else { ?>
                     <div class="col-12">
                             <div class="form-actions">
                                 <button type="submit" id="sub-btn-emp" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                <button type="button" class="btn btn-inverse">Cancel</button>
+                                <a href="<?=base_url('manage/do/establishments/view-list');?>" class="btn btn-danger">Cancel</a> 
                             </div>
                         </form>
                     </div>

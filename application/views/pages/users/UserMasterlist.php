@@ -35,6 +35,7 @@
                                 <h4 class="card-title">Description:</h4>
                                 <h6 class="card-subtitle">This is the Masterlist of all users.</h6>
                                 <div class="table-responsive m-t-40">
+                                    <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
