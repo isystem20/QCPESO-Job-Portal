@@ -478,3 +478,10 @@ $route['404'] = 'admin/SiteErrorController/Error404';
 
         $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
 
+
+
+        $route['applicant/BrowseJobs'] = 'applicant/ApplicantBrowseJobsController/ApplicantBrowseJobs';
+        $route['applicant/Dashboard'] = 'applicant/ApplicantDashboardController/ApplicantDashboard';
+        $route['applicant/Notification'] = 'applicant/ApplicantNotificationsController/ApplicantNotifications';
+        $route['applicant/MyAlerts'] = 'applicant/MyAlertsController/MyAlerts';
+        $route['applicant/MyApplication'] = 'applicant/MyApplicationController/MyApplication';
