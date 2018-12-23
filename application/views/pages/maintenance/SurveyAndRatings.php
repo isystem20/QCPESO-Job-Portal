@@ -80,7 +80,11 @@
                                                      <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
-                                        <tfoot>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    <tfoot>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Description</th>
@@ -90,10 +94,6 @@
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
-                                        <?php
-                                            }
-                                        }
-                                        ?>
                                     </table>
                                 </div>
                             </div>
