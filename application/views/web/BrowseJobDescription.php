@@ -11,7 +11,7 @@
                                     <br>
                                     <div class="post-header">
                                         <h1 class="post-title"><?=$browsejob[0]['JobTitle']  ?> </h1>
-                                         <li><?=$browsejob[0]['CreatedAt'];  ?></li>
+                                         
                                     </div>
                                     <div class="post-content">
                                         <h6>Category: <div class="post-tags"> <?php  foreach ($browsejob[0]['CategList'] as $row) {
@@ -81,7 +81,7 @@
                                         <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#"><?=$row->JobDescription;?></span></div>
+                                            <div class="wb"><a href="#"><?=$row->JobTitle;?></span></div>
                                         </li>
 
                                         <?php

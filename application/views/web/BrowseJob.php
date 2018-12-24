@@ -187,7 +187,7 @@
                                         <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#"><?=$row->JobDescription;?></span></div>
+                                            <div class="wb"><a href="#"><?=$row->JobTitle;?></span></div>
                                         </li>
 
                                         <?php
@@ -260,7 +260,7 @@
                                          <?php
                                         if ($mostrecentjob->num_rows() > 0) {
                                             foreach ($mostrecentjob->result() as $row ) { ?>
-                                        <li><a href="#"><div class="wb"><a href="#"><?=$row->JobDescription;?></span></div></a><span class="post-date">May 8, 2018</span></li>
+                                        <li><a href="#"><div class="wb"><a href="#"><?=$row->JobTitle;?></span></div></a><span class="post-date">May 8, 2018</span></li>
                                          <?php
                                             }
                                         }

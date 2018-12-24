@@ -92,12 +92,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function  CompanyRecentJobs($Id = null) {
+			
+			
+
 			 $this->db->select('*');
-  			$this->db->order_by('Id', 'DESC');  
+  			$this->db->order_by('EstablishmentId', 'DESC');  
 			$this->db->from('tbl_establishments_jobposts');
 			$this->db->limit('3');
-			$this->db->where('IsActive','1');
-			$this->db->where('EstablishmentId', $Id);
+			$this->db->where('EstablishmentId',$Id);
+			//$this->db->where('IsActive','');
+			
 
 			return $this->db->get();
 
