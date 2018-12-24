@@ -33,7 +33,7 @@
 
         // print_r($postdata);
 
-        
+        $data['search'] = $postdata;
 
         $layout = array('tables'=>TRUE,'pagetitle'=>'Job Application', 'addons' => TRUE);
         $data['jobapplication'] = $this->jobappmod->LoadMasterlist();
@@ -44,14 +44,14 @@
 
         $data['jobposts'] =$this->browsmod->BrowseJobModelMasterlist($postdata, null, $postdata['Applicant']);
         }
-        // print_r($data['jobposts']->result());
+            // print_r($data['jobposts']->result());
 
         
         $data['skills'] = $this->skimod->LoadMasterlist();
         $data['emptypes'] = $this->emptypemod->LoadMasterlist();
         $data['estabs'] = $this->establishmentmod->LoadMasterlist();
 
-        $data['search'] = $postdata;
+        
 
         $data['class'] = 'jobapplication';
         $this->load->view('layout/admin/1_css',$layout);
@@ -61,6 +61,8 @@
         $this->load->view('pages/transaction/applicants/JobApplication',$data);
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals',$layout);
+
+        // print_r($postdata);
 
         // $json = json_encode($data['JobApplication']); //log
         // $this->logger->log('Load Categories','Categories',$json); //Log
