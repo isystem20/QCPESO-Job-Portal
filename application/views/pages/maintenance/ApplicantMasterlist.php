@@ -49,15 +49,6 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                         <tfoot>
-                                            <tr>
-                                                <th>Lastname</th>
-                                                <th>Firstname</th>
-                                                <th>Email Address</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot>
                                         <?php
                                         if ($masterlist->num_rows() > 0) {
                                             foreach ($masterlist->result() as $row) { ?>
