@@ -51,6 +51,16 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Modified By</th>
+                                                <th>Last Modified</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
                                         <?php
                                         if ($categories->num_rows() > 0) {
                                             foreach ($categories->result() as $row) { ?>

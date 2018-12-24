@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->db->where('Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('IsActive','1');
+				$this->db->where('IsActive','0');
 				return $this->db->get();
 			}
 			
@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->db->where('Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('IsActive','3');
+				$this->db->where('IsActive','1');
 				
 				return $this->db->get();
 			}
@@ -34,20 +34,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function Add($data) {
-			// $this->db->set('JobTitle',"'".$data['JobTitle']."'",FALSE);
-			// $this->db->set('Specialization',"'".json_encode($data['Specialization'])."'",FALSE);
-			// $this->db->set('EstablishmentId',"'".$data['EstablishmentId']."'",FALSE);
-			// $this->db->set('EmpTypeId',"'".$data['EmpTypeId']."'",FALSE);
-			// $this->db->set('PositionLevelId',"'".$data['PositionLevelId']."'",FALSE);	
-			// $this->db->set('JobDescription',"'".$data['JobDescription']."'",FALSE);
-			// $this->db->set('Salary',"'".$data['Salary']."'",FALSE);
+
 
 			
 			$data['Specialization'] = json_encode($data['Specialization']);
-			$data['Category'] = json_encode($data['Category']);
+			$data['Category'] = json_encode($data['Category']);			
 
-			
-			
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
 
@@ -82,6 +74,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		
 		public function Update($id, $data) {
+
+			$data['Specialization'] = json_encode($data['Specialization']);
+			$data['Category'] = json_encode($data['Category']);
+
+
+
+
 		    $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
 		    $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
 		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
