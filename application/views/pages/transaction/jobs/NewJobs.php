@@ -216,19 +216,14 @@ if (!empty($jobposts)) {
                                         </div>
 
                                         <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <label class="control-label">Job Description</label>  
                                                     <div class="form-group">
                                                         <textarea  style="background-color: #fff; color: black;"  class="textarea_editor form-control"  <?=$attr?> id="jobdesc" name="JobDescription" rows="8" placeholder="Enter text ..."><?=$row->JobDescription;?></textarea>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Job Image</label>
-                                                        <input type="file"  <?=$attr?> name="JobImage" class="dropify" data-default-file="<?php echo base_url().$row->JobImage?>"/>
-                                                    </div>
-                                                </div>
+                                                
 
                                                                             
                                                 
@@ -236,7 +231,7 @@ if (!empty($jobposts)) {
 
 
                                         <div class="row p-t-20">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Salary</label>
                                                     <input  style="background-color: #fff; color: black;" type="text" <?=$attr?>  value="<?=$row->Salary;?>" id="salary" name="Salary" class="form-control" placeholder="Salary">
@@ -244,8 +239,15 @@ if (!empty($jobposts)) {
                                                 </div>
                                             </div>
 
+                                            <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Job Image</label>
+                                                        <input type="file"  <?=$attr?> name="JobImage" data-default-file="<?php echo base_url().$row->JobImage?>"/>
+                                                    </div>
+                                                </div>
+
                                             
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
 
                                                          <?php 
@@ -477,7 +479,7 @@ else { ?>
                                         </div>
 
                                         <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <label class="control-label">Job Description</label>  
                                                     <div class="form-group">
                                                         <textarea class="textarea_editor form-control" id="jobdesc" name="JobDescription" rows="8" placeholder="Please enter job description..."></textarea>
@@ -485,17 +487,12 @@ else { ?>
                                                                             
                                                 </div>
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Job Image</label>
-                                                        <input type="file" name="JobImage"  >
-                                                    </div>
-                                                </div>
+                                                
                                         </div>
 
 
                                         <div class="row p-t-20">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Salary</label>
                                                     <input type="text" id="salary" name="Salary" class="form-control" placeholder="Salary">
@@ -503,9 +500,15 @@ else { ?>
                                                 </div>
                                             </div>
 
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Job Image</label>
+                                                    <input type="file" name="JobImage"  >
+                                                </div>
+                                            </div>
                                             
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
 
                                                          <?php 

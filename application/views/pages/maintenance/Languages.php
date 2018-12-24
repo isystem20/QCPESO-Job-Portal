@@ -54,7 +54,7 @@
                                         <tfoot>
                                             <tr>
                                                 <th>Name</th>
-                                                <th>Description</th>
+                                                <th>Description</th> 
                                                 <th>Modified By</th>
                                                 <th>Last Modified</th>
                                                 <th>Status</th>
