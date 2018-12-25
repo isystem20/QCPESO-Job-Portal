@@ -51,16 +51,7 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Description</th>
-                                                <th>Modified By</th>
-                                                <th>Last Modified</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot>
+
                                         <?php
                                         if ($dresscode->num_rows() > 0) {
                                             foreach ($dresscode->result() as $row) { ?>
