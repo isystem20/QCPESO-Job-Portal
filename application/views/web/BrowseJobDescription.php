@@ -10,7 +10,7 @@
                                 <div class="post-wrapper">
                                     <br>
                                     <div class="post-header">
-                                        <h1 class="post-title"><?=$browsejob[0]['JobTitle']  ?> </h1>
+                                        <h1 class="post-title">Job Title:&nbsp<?=$browsejob[0]['JobTitle']  ?> </h1>
                                          
                                     </div>
                                     <div class="post-content">
@@ -48,21 +48,12 @@
                                             <button class="btn btn-dark" type="submit">Apply Job</button>
                                         </div>
                         </div>
+                       
                         <div class="col-lg-4 order-lg-1">
                             <div class="sidebar">
-
-                                <!-- Search widget-->
-                               <!--  <aside class="widget widget-search">
-                                    <form>
-                                        <input class="form-control" type="search" placeholder="Type Search Words">
-                                        <button class="search-button" type="submit"><span class="fas fa-search"></span></button>
-                                    </form>
-                                </aside> -->
-
-                                <!-- Categories widget-->
                                 <aside class="widget widget-categories">
                                     <div class="widget-title">
-                                        <h6>Company</h6>
+                                        <h6>Company:</h6>
                                     </div>
                                     <ul>
                                         <li><a href="#">  <?=$browsejob[0]['CompanyName']  ?><span class="float-right">1</span></a></li>
@@ -72,7 +63,7 @@
                                 <!-- Recent entries widget-->
                               <aside class="widget widget-recent-entries-custom">
                                     <div class="widget-title">
-                                        <h6>Recent Jobs</h6>
+                                        <h6>Recent Jobs:</h6>
                                     </div>
                                     <ul>
                                              <?php
@@ -96,30 +87,64 @@
                                             echo '<a>'.$row->Name.'</a>';
                                             } ?>
                                         </li> -->
-
-                                               
+                                        </aside>
+                                    <aside class="widget widget-categories">
+                                    <div class="widget-title">
+                                        <h6>Industry:</h6>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#">  <?=$browsejob[0]['Description']  ?></a></li>
+                                    </ul>
+                                </aside>
+                                 <aside class="widget widget-categories">
+                                    <div class="widget-title">
+                                        <h6>Dress Code:</h6>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#">  <?=$browsejob[0]['dresscode']  ?></a></li>
+                                    </ul>
+                                </aside>
+                                <aside class="widget widget-categories">
+                                    <div class="widget-title">
+                                        <h6>Employment Types:</h6>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#">  <?=$browsejob[0]['apptype']  ?></a></li>
+                                    </ul>
+                                </aside>
+                                <aside class="widget widget-categories">
+                                    <div class="widget-title">
+                                        <h6>Employment Level:</h6>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#">  <?=$browsejob[0]['applevel']  ?></a></li>
+                                    </ul>
+                                </aside>
+                                <aside class="widget widget-categories">
+                                    <div class="widget-title">
+                                        <h6>Salary:</h6>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#">  <?=$browsejob[0]['Salary']  ?></a></li>
+                                    </ul>
                                 </aside>
 
-                                <!-- Twitter widget-->
-                                
-
-                                <!-- Tags widget-->
-                               <aside class="widget widget-categories">
+                               <!-- <aside class="widget widget-categories">
                                     <div class="widget-title">
                                         <h6>Position Level</h6>
                                     </div>
                                     <ul>
                                         <li><a href="#">  <?=$browsejob[0]['app_position']  ?><span class="float-right">1</span></a></li>
                                     </ul>
-                                </aside>
-                                <aside class="widget widget-categories">
+                                </aside> -->
+                                <!-- <aside class="widget widget-categories">
                                     <div class="widget-title">
                                         <h6>Employment Level</h6>
                                     </div>
                                     <ul>
                                         <li><a href="#">  <?=$browsejob[0]['app_level']  ?><span class="float-right">1</span></a></li>
                                     </ul>
-                                </aside>
+                                </aside> -->
                                 
                             </div>
                         </div>
