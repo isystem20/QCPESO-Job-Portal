@@ -241,12 +241,12 @@
                     </div>
                 </div>
 
-       <!--          <div class="extra-nav">
+                <div class="extra-nav">
                     <ul>
-                        <li><a class="top-bar-cart" href="shop-cart-1.html"><span class="menu-item-span"><i class="ti-shopping-cart"></i><span>3</span></span></a></li>
+                        <li><a class="top-bar-cart" href="<?=base_url('manage'); ?>"><span class="menu-item-span" style="font-size:12px;">My Account</span></a></li>
                         <li><a class="off-canvas-open" href="#"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
                         <li class="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
                     </ul>
-                </div> -->
+                </div>
             </div>
         </header>
