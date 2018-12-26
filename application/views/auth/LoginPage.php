@@ -42,7 +42,10 @@
                             <div class="social">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <div class="fb-login-button" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>                                         
+                                            <fb:login-button 
+                                              scope="public_profile,email"
+                                              onlogin="checkLoginState();">
+                                            </fb:login-button>                                         
                                     </div>
                                     <div class="col-sm-6">
                                         <!-- <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fab fa-google-plus-g"></i> </a>  -->
