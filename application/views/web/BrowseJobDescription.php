@@ -88,14 +88,14 @@
                                             } ?>
                                         </li> -->
                                         </aside>
-                                   <!--  <aside class="widget widget-categories">
+                                    <aside class="widget widget-categories">
                                     <div class="widget-title">
                                         <h6>Industry:</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">  <?=$browsejob[0]['Description']  ?></a></li>
+                                        <li><a href="#">  <?=$browsejob[0]['industryname']  ?></a></li>
                                     </ul>
-                                </aside> -->
+                                </aside>
                                  <aside class="widget widget-categories">
                                     <div class="widget-title">
                                         <h6>Dress Code:</h6>
