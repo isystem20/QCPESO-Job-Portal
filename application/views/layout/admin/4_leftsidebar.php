@@ -120,12 +120,12 @@
 
                         <li class="nav-small-cap">SETTINGS</li>
 
-                        <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-circle"></i><span class="hide-menu">Administration</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>manage/settings/Administration" aria-expanded="false"><i class="mdi mdi-account-circle"></i><span class="hide-menu">Administration</span></a></li>
                       
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-monitor-multiple"></i><span class="hide-menu">Website</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Basic Settings</a></li>
+                                <li><a href="<?php echo base_url();?>manage/settings/BasicSettings">Basic Settings</a></li>
                                 <li> <a class="has-arrow" href="#" aria-expanded="false">Posts</a>
                                     <ul aria-expanded="false" class="collapse">
                                         <li><a href="<?php echo base_url();?>manage/settings/add-web-post">Add Posts</a></li>
@@ -140,8 +140,8 @@
                                         <li><a href="<?php echo base_url();?>manage/settings/all-services">All Services</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Maintenance</a></li>
-                                <li><a href="#">Design</a></li>
+                                <li><a href="<?php echo base_url();?>manage/settings/Maintenance">Maintenance</a></li>
+                                <li><a href="<?php echo base_url();?>manage/settings/Design">Design</a></li>
                             </ul>
                         </li>
 

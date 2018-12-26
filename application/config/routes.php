@@ -485,3 +485,8 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['applicant/Notification'] = 'applicant/ApplicantNotificationsController/ApplicantNotifications';
         $route['applicant/MyAlerts'] = 'applicant/MyAlertsController/MyAlerts';
         $route['applicant/MyApplication'] = 'applicant/MyApplicationController/MyApplication';
+
+        $route['manage/settings/Administration'] = 'admin/AdministrationSettingsController/Administration';
+	    $route['manage/settings/BasicSettings'] = 'admin/BasicSettingsController/BasicSettings';
+		$route['manage/settings/Maintenance'] = 'admin/MaintenanceController/Maintenance';
+        $route['manage/settings/Design'] = 'admin/DesignController/Design';
