@@ -84,10 +84,23 @@
                                                      <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/applicant/del'); ?>" data-id="<?php echo $row->Id; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
                                             </tr>
+                                        
                                         <?php
                                             }
                                         }
                                         ?>
+                                    <tfoot>
+                                            <tr>
+                                                <th>Last Name</th>
+                                                <th>First Name</th>
+                                                <th>Middle Name</th>
+                                                <th>Modified By</th>
+                                                <th>Modified At</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                                
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -162,7 +175,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
         
-    <footer class="footer"> © 2018 QCPESO </footer>
+    <footer class="footer"> <p>© 2018 Quezon City PESO, All Rights Reserved. Design with love by <a href="#">SIGMA</a></p></footer>
 
             <!-- ============================================================== -->
             <!-- End footer -->

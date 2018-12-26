@@ -56,11 +56,11 @@
                                         </div>
                                     
                                  <div class="form-group">
-                                   <!--  <?php
+                                     <?php
                                     if (!empty($criteria->Categories)) {
                                         print_r($criteria->Categories);
                                      } ; 
-                                     ?> -->
+                                     ?> 
                                             <label class="control-label">Categories </label>
                                             <select name="Categories[]"  class="select2 m-b-10 select2-multiple" style="width: 100%" multiple=" multiple" dat-placeholder="ategories" "> 
                                                 <?php
@@ -182,12 +182,12 @@
                                     <ul>
 
                                         <?php
-                                        if ($browsejob1->num_rows() > 0) {
-                                            foreach ($browsejob1->result() as $row ) { ?>
+                                        if ($mostrecentjob->num_rows() > 0) {
+                                            foreach ($mostrecentjob->result() as $row ) { ?>
                                         <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#"><?=$row->JobDescription;?></span></div>
+                                            <div class="wb"><a href="#"><?=$row->JobTitle;?></span></div>
                                         </li>
 
                                         <?php
@@ -200,19 +200,19 @@
                                 </aside>
 
                                 <!-- Twitter widget-->
-                                <aside class="widget twitter-feed-widget">
+                                <!-- <aside class="widget twitter-feed-widget">
                                     <div class="widget-title">
                                         <h6>Employee</h6>
                                     </div>
                                     <div class="twitter-feed" data-twitter="345170787868762112" data-number="2"></div>
                                 </aside>
 
-                                <!-- Tags widget-->
+                                 Tags widget
                                 <aside class="widget widget-tag-cloud">
                                     <div class="widget-title">
                                         <h6>Tags</h6>
                                     </div>
-                                    <div class="tag-cloud"><a href="#">e-commerce</a><a href="#">portfolio</a><a href="#">responsive</a><a href="#">bootstrap</a><a href="#">business</a><a href="#">corporate</a></div>
+                                    <div class="tag-cloud"><a href="#">e-commerce</a><a href="#">portfolio</a><a href="#">responsive</a><a href="#">boo --><!-- tstrap</a><a href="#">business</a><a href="#">corporate</a></div> -->
                                 </aside>
                             </div>
                         </div>
@@ -257,9 +257,15 @@
                                         <h6>Recent Posts</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">April 7, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">September 7, 2018</span></li>
+                                         <?php
+                                        if ($mostrecentjob->num_rows() > 0) {
+                                            foreach ($mostrecentjob->result() as $row ) { ?>
+                                        <li><a href="#"><div class="wb"><a href="#"><?=$row->JobTitle;?></span></div></a><span class="post-date">May 8, 2018</span></li>
+                                         <?php
+                                            }
+                                        }
+                                        ?>                                          
+
                                     </ul>
                                 </aside>
                             </div>

@@ -106,8 +106,8 @@
       if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
-            print_r($this->input->post());
-         die();
+         //    print_r($this->input->post());
+         // die();
         }
 
         // elseif (empty($_FILES["PhotoPath"]["name"])) {
@@ -141,7 +141,7 @@
             $postdata['PhotoPath']=$imagepath;
             unset($postdata['_wysihtml5_mode']);
             $inserted = $this->applimod->Add($postdata);
-            // echo json_encode(['success'=>TRUE]);
+           
             if ($inserted != FALSE) {           
                 
                 echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/transactions/all-applicant']);
