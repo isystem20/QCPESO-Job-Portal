@@ -10,7 +10,7 @@
                                 <div class="post-wrapper">
                                     <br>
                                     <div class="post-header">
-                                        <h1 class="post-title">Job Title:&nbsp<?=$browsejob[0]['JobTitle']  ?> </h1>
+                                        <h1 class="post-title"><?=$browsejob[0]['JobTitle']  ?> </h1>
                                          
                                     </div>
                                     <div class="post-content">
@@ -88,14 +88,14 @@
                                             } ?>
                                         </li> -->
                                         </aside>
-                                    <aside class="widget widget-categories">
+                                   <!--  <aside class="widget widget-categories">
                                     <div class="widget-title">
                                         <h6>Industry:</h6>
                                     </div>
                                     <ul>
                                         <li><a href="#">  <?=$browsejob[0]['Description']  ?></a></li>
                                     </ul>
-                                </aside>
+                                </aside> -->
                                  <aside class="widget widget-categories">
                                     <div class="widget-title">
                                         <h6>Dress Code:</h6>
@@ -123,7 +123,7 @@
                                 <aside class="widget widget-categories">
                                     <div class="widget-title">
                                         <h6>Salary:</h6>
-                                    </div>
+                                    </div>  
                                     <ul>
                                         <li><a href="#">  <?=$browsejob[0]['Salary']  ?></a></li>
                                     </ul>
