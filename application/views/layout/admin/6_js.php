@@ -41,8 +41,10 @@ $('#to-recover').on("click", function() {
     <!--morris JavaScript -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-js/dist/chartist.min.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard1.js"></script>
     <!-- Chart JS -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard4.js"></script>
+
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 <?php } ?>
 

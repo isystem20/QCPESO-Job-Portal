@@ -27,6 +27,7 @@
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <!-- Custom CSS -->
     <!-- Dashboard 1 Page CSS -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard1.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard4.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/colors/default.css" id="theme" rel="stylesheet">
