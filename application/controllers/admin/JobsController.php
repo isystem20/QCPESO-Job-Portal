@@ -18,7 +18,7 @@
  	public function NewJob($id = null,$mode= null)
  	{
       $css = array('addons' => True, );
-      $layout = array('addons'=>TRUE,'pagetitle'=>'Adding New Job Posts','uploadfile'=>TRUE);
+      $layout = array('editor'=>TRUE, 'addons'=>TRUE,'pagetitle'=>'Adding New Job Posts','uploadfile'=>TRUE);
       $data['emptypes'] = $this->emptypemod->LoadMasterlist();
       $data['applev'] = $this->applevmod->LoadMasterlist();
       $data['skills'] = $this->skimod->LoadMasterlist();
@@ -116,14 +116,8 @@
 
          }
 
-         elseif (empty($_FILES["JobImage"]["name"])) {
-            $errors = "Image File Needed.";
-            echo json_encode(['error'=>$errors]);
-
-           
-        }
   
-            else {
+        else {
             $imagepath="";
             $path = dirname(BASEPATH).'/uploads/';
             $config['upload_path'] = $path;
@@ -142,6 +136,8 @@
             }
 
 
+
+
           $postdata = $this->input->post();
             $postdata['JobImage']=$imagepath;
             // unset($postdata['_wysihtml5_mode']);
@@ -149,7 +145,7 @@
           // echo json_encode(['success'=>TRUE]);
           if ($inserted != FALSE) {         
             
-                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/do/jobs/view-list']);
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/do/jobs/pending-job-posts']);
           }
           else {
             echo json_encode(['error'=>'Update Unsuccessful.']);
@@ -171,8 +167,8 @@
         else{
             $id = $postdata['id'];
             unset($postdata['id']);
-            unset($postdata['_wysihtml5_mode']);
-            $postdata = array_filter($postdata, 'strlen');
+            // unset($postdata['_wysihtml5_mode']);
+            // $postdata = array_filter($postdata;
 
             $result = $this->jobsmod->Update($id,$postdata);
             if ($result != FALSE) {

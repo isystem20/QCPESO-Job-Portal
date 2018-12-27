@@ -76,7 +76,7 @@ if (!empty($jobposts)) {
 
                                                 <div class="form-group">
                                                     <label class="control-label">Job Title</label>
-                                                    <input style="background-color: #fff; color: black;" type="text"  <?=$attr?> value="<?=$row->JobTitle;?>" id="jtitle" name="JobTitle"  class="form-control" >
+                                                    <input style="background-color: #fff; color: black;" type="text"  <?=$attr?> value="<?=$row->JobTitle;?>" name="JobTitle"  class="form-control" >
                                                 </div>
                                             </div>
 
@@ -86,7 +86,7 @@ if (!empty($jobposts)) {
                                                     <label class="control-label">Specialization</label>
 
                                                     
-                                                    <select name="Specialization"   <?=$attr?> id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                    <select name="Specialization[]" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php $str="";
                                                             if ($skills->num_rows() > 0) {
 
@@ -116,7 +116,7 @@ if (!empty($jobposts)) {
                                                     <label class="control-label">Category</label>
 
                                                     
-                                                    <select name="Category"   <?=$attr?> id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                   <select name="Category[]" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php $str="";
                                                             if ($categories->num_rows() > 0) {
 
@@ -216,19 +216,14 @@ if (!empty($jobposts)) {
                                         </div>
 
                                         <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <label class="control-label">Job Description</label>  
                                                     <div class="form-group">
                                                         <textarea  style="background-color: #fff; color: black;"  class="textarea_editor form-control"  <?=$attr?> id="jobdesc" name="JobDescription" rows="8" placeholder="Enter text ..."><?=$row->JobDescription;?></textarea>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Job Image</label>
-                                                        <input type="file"  <?=$attr?> name="JobImage" class="dropify" data-default-file="<?php echo base_url().$row->JobImage?>"/>
-                                                    </div>
-                                                </div>
+                                                
 
                                                                             
                                                 
@@ -236,7 +231,7 @@ if (!empty($jobposts)) {
 
 
                                         <div class="row p-t-20">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Salary</label>
                                                     <input  style="background-color: #fff; color: black;" type="text" <?=$attr?>  value="<?=$row->Salary;?>" id="salary" name="Salary" class="form-control" placeholder="Salary">
@@ -244,28 +239,37 @@ if (!empty($jobposts)) {
                                                 </div>
                                             </div>
 
+                                            <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Job Image</label>
+                                                        <input type="file"  <?=$attr?> name="JobImage" data-default-file="<?php echo base_url().$row->JobImage?>"/>
+                                                    </div>
+                                                </div>
+
                                             
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                        <label class="control-label ">Status</label>
 
                                                          <?php 
+
+                                                            $attribute = "";
                                                             $usertype = $this->session->userdata('usertype');
-                                                            if ($usertype == 'ADMIN') {
+                                                            if ($usertype == 'EMPLOYER') {
+
+                                                                $attribute = "disabled";
+                                                            }
+                                                            else{
+                                                                $attribute = "";
+                                                            }                                                            
                                                             ?>
-                                                                <select  style="background-color: #fff; color: black;" <?=$attr?>  class="form-control name="IsActive" >
+                                                    <label class="control-label">Status</label>
+                                                    <select <?=$attribute ?> class="form-control" id="stat" name="IsActive">
+                                                        <option value="1">Pending</option>
+                                                        <option value="0">Active</option>
+                                                        <option value="2">Inactive</option>                                                         
 
-                                                                <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
-                                                                <option <?php if($row->IsActive=="2"){ echo "Selected";}?> value="2">Inactive</option>
-                                                                <option <?php if($row->IsActive=="3"){ echo "Selected";}?> value="2">Pending</option>
-                                                             
-                                                                </select>
-                                                        </div>
-
-
-                                                            <?php
-                                                             }
-                                                            ?>
+                                          
+                                                        
                                                     </select>
                                                 </div>
                                             </div>
@@ -278,7 +282,7 @@ if (!empty($jobposts)) {
                                         ?>
                                     <div class="form-group">
                                         <button type="submit" id="add-jobposts" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                        <button href="<?php echo base_url();?>manage/do/jobs/view-list" type="button" class="btn btn-danger">Cancel</button>
+                                        <button  href="<?=base_url('manage/do/jobs/view-list');?>" type="button" class="btn btn-danger">Cancel</button>
                                     </div>
 
                                     <?php
@@ -475,7 +479,7 @@ else { ?>
                                         </div>
 
                                         <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <label class="control-label">Job Description</label>  
                                                     <div class="form-group">
                                                         <textarea class="textarea_editor form-control" id="jobdesc" name="JobDescription" rows="8" placeholder="Please enter job description..."></textarea>
@@ -483,17 +487,12 @@ else { ?>
                                                                             
                                                 </div>
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Job Image</label>
-                                                        <input type="file" name="JobImage"  />
-                                                    </div>
-                                                </div>
+                                                
                                         </div>
 
 
                                         <div class="row p-t-20">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Salary</label>
                                                     <input type="text" id="salary" name="Salary" class="form-control" placeholder="Salary">
@@ -501,17 +500,36 @@ else { ?>
                                                 </div>
                                             </div>
 
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Job Image</label>
+                                                    <input type="file" name="JobImage"  >
+                                                </div>
+                                            </div>
                                             
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
+
+                                                         <?php 
+
+                                                            $attribute = "";
+                                                            $usertype = $this->session->userdata('usertype');
+                                                            if ($usertype == 'EMPLOYER') {
+
+                                                                $attribute = "disabled";
+                                                            }
+                                                            else{
+                                                                $attribute = "";
+                                                            }                                                            
+                                                            ?>
                                                     <label class="control-label">Status</label>
-                                                    <select class="form-control" id="stat" name="IsActive">
-                                                        <option value="1">Active</option>
-                                                        <option value="2">Inactive</option>
-                                                        <option value="3">Pending</option>
-                                                         
-                                                       
+                                                    <select <?=$attribute ?> class="form-control" id="stat" name="IsActive">
+                                                        <option value="1">Pending</option>
+                                                        <option value="0">Active</option>
+                                                        <option value="2">Inactive</option>                                                         
+
+                                          
                                                         
                                                     </select>
                                                 </div>
@@ -617,6 +635,8 @@ else { ?>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
+
+  
 
 <?php    
 }
