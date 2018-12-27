@@ -72,7 +72,7 @@
                                         <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#"><?=$row->JobTitle;?></span></div>
+                                            <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=$row->JobTitle;?></span></div>
                                         </li>
 
                                         <?php
