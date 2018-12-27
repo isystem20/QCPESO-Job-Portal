@@ -54,10 +54,10 @@ $(function () {
         bindto: '#visitor',
         data: {
             columns: [
-                ['Other', 30],
-                ['Desktop', 10],
-                ['Tablet', 40],
-                ['Mobile', 50],
+                ['Other', 85],
+                ['Desktop', 5],
+                ['Tablet', 5],
+                ['Mobile', 5],
             ],
             
             type : 'donut',
@@ -77,7 +77,7 @@ $(function () {
         legend: {
           hide: true
           //or hide: 'data1'
-          //or hide: ['data1', 'data2']
+          //or hide: ['data1', 'data2'].
         },
         color: {
               pattern: ['#eceff1', '#745af2', '#26c6da', '#1e88e5']
