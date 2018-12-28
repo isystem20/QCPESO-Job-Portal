@@ -1452,9 +1452,9 @@ else { ?>
                                                                 </div>
 
                                                                 <div class="form-actions">
-                                                                    <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                                                    <button type="button" class="btn btn-inverse">Cancel</button>
-                                                                </div>
+                                <button type="submit" id="sub-btn-emp" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                <a href="<?=base_url('manage/applicant/view-list');?>" class="btn btn-danger">Cancel</a>                                                                 
+                                </div>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -1481,25 +1481,25 @@ else { ?>
                                 <form class="form-horizontal" role="form">
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Company Name</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
                                             <input type="text" class="form-control" id="CompanyName">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Held Position</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
                                             <input type="text" class="form-control" id="HeldPosition">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Company Address</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
                                             <input type="text" class="form-control" id="CompanyAddress">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Inclusive Dates</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
 
                                             <div class="input-group input-large" data-date="13/07/2013" data-date-format="mm/dd/yyyy">
                                                 <input type="date" class="form-control dpd1" id="InclusiveDateFrom">
@@ -1532,13 +1532,13 @@ else { ?>
                                 <form class="form-horizontal" role="form">
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Skill</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
                                             <input type="text" class="form-control" id="Name">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Description</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
                                             <input type="text" class="form-control" id="Description">
                                         </div>
                                     </div>
@@ -1565,25 +1565,25 @@ else { ?>
                                 <form class="form-horizontal" role="form">
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">School Name</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
                                             <input type="text" class="form-control" id="SchoolName">
                                         </div>
                                     </div>
                                      <div class="form-group">
                                         <label class="col-sm-3 control-label">Program</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
                                             <input type="text" class="form-control" id="ProgramCourse">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Highest Level</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
                                             <input type="text" class="form-control" id="HighestLevel">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Year Graduated</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
 
                                             <div class="input-group input-large" data-date-format="mm/dd/yyyy">
                                                 <input type="text" class="form-control dpd1" id="YearGraduated">
@@ -1593,7 +1593,7 @@ else { ?>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Year Last Attended</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
 
                                             <div class="input-group input-large" data-date-format="mm/dd/yyyy">
                                                 <input type="text" class="form-control dpd1" id="YearLastAttended">
@@ -1623,13 +1623,13 @@ else { ?>
                                 <form class="form-horizontal" role="form">
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Name</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
                                             <input type="text" class="form-control" id="DependentName">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Description</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
                                             <input type="text" class="form-control" id="DependentDescription">
                                         </div>
                                     </div>
