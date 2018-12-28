@@ -258,14 +258,13 @@
                                     </div>
                                     <ul>
                                          <?php
-                                        if ($mostrecentjob->num_rows() > 0) {
-                                            foreach ($mostrecentjob->result() as $row ) { ?>
-                                        <li><a href="#"><div class="wb"><a href="#"><?=$row->JobTitle;?></span></div></a><span class="post-date">May 8, 2018</span></li>
-                                         <?php
+                                        if ($webpostmodel->num_rows() > 0) {
+                                            foreach ($webpostmodel->result() as $row ) { ?>
+                                        <li><a href="#"><?=$row->PostDescription;?></a><span class="post-date">May 8, 2018</span></li>
+                                          <?php
                                             }
                                         }
-                                        ?>                                          
-
+                                        ?>    
                                     </ul>
                                 </aside>
                             </div>
