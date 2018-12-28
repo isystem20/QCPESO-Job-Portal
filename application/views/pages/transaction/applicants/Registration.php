@@ -43,21 +43,21 @@ if (!empty($applicant)) {
                                         <div class="col-sm-4">
                                             <div class="form-group has-success">
                                                 <label class="control-label">First Name</label>
-                                                <input type="text" name="FirstName" value="<?=$row->FirstName;?>" class="form-control">
+                                                <input type="text" name="FirstName" <?=$attr?> value="<?=$row->FirstName;?>" class="form-control">
 
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group has-success">
                                                 <label class="control-label">Middle Name</label>
-                                                <input type="text" name="MiddleName" value="<?=$row->MiddleName;?>" class="form-control">
+                                                <input type="text" name="MiddleName" <?=$attr?> value="<?=$row->MiddleName;?>" class="form-control">
 
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group has-success">
                                                 <label class="control-label">Last Name</label>
-                                                <input type="text" name="LastName" value="<?=$row->LastName;?>" class="form-control">
+                                                <input type="text" name="LastName" <?=$attr?> value="<?=$row->LastName;?>" class="form-control">
 
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@ if (!empty($applicant)) {
                                 <div class="col-sm-2">
                                     <div class="form-group has-success">
                                         <label class="control-label">Suffix</label>
-                                        <select type="text" name="Suffix" value="<?=$row->Suffix;?>" class="form-control">
+                                        <select type="text" name="Suffix"  <?=$attr?> value="<?=$row->Suffix;?>" class="form-control">
                                             <option <?php if($row->Suffix=="N/A"){ echo "Selected";}?> value="N/A">N/A</option>
                                             <option <?php if($row->Suffix=="Jr"){ echo "Selected";}?> value="Jr">Jr.</option>
                                             <option <?php if($row->Suffix=="Sr"){ echo "Selected";}?> value="Sr">Sr.</option>
@@ -84,7 +84,7 @@ if (!empty($applicant)) {
                                         <div class="col-sm-2">
                                             <div class="form-group has-success">
                                                 <label class="control-label">Gender</label>
-                                                <select class="form-control custom-select" value="<?=$row->Gender;?>" name="Gender">
+                                                <select class="form-control custom-select" <?=$attr?> value="<?=$row->Gender;?>" name="Gender">
                                                     <div class="col-md-6 ">
                                                         <option <?php if($row->Gender=="Male"){ echo "Selected";}?> value="Male">Male</option>
                                                         <option <?php if($row->Gender=="Female"){ echo "Selected";}?> value="Female">Female</option>
@@ -96,21 +96,21 @@ if (!empty($applicant)) {
                                             <div class="col-sm-3">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Birthdate</label>
-                                                    <input type="date" class="form-control" value="<?=$row->BirthDate;?>" name="BirthDate">
+                                                    <input type="date" class="form-control" <?=$attr?> value="<?=$row->BirthDate;?>" name="BirthDate">
 
                                                 </div>
                                             </div>
                                             <div class="col-sm-1">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Age</label>
-                                                    <input type="text" name="Age" class="form-control" value="<?=$row->Age;?>">
+                                                    <input type="text" name="Age" <?=$attr?> class="form-control" value="<?=$row->Age;?>">
 
                                                 </div>
                                             </div>
                                             <div class="col-sm-2">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Birth Place</label>
-                                                    <select class="form-control custom-select" name="BirthPlace">
+                                                    <select class="form-control custom-select" <?=$attr?> name="BirthPlace">
                                                         <?php $str="";
                                                     if ($city->num_rows() > 0) {
                                                         foreach ($city->result() as $types) { 
@@ -137,7 +137,7 @@ if (!empty($applicant)) {
                                             <div class="col-sm-2">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Status</label>
-                                                    <select class="form-control custom-select" name="CivilStatus" value="<?=$row->CivilStatus;?>">
+                                                    <select class="form-control custom-select" name="CivilStatus" <?=$attr?> value="<?=$row->CivilStatus;?>">
                                                         <option <?php if($row->CivilStatus=="Single"){ echo "Selected";}?> value="Single">Single</option>
                                                         <option <?php if($row->CivilStatus=="Married"){ echo "Selected";}?> value="Married">Married</option>
                                                         <option <?php if($row->CivilStatus=="Separated"){ echo "Selected";}?> value="Separated">Separated</option>
@@ -149,7 +149,7 @@ if (!empty($applicant)) {
                                             <div class="col-sm-2">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Nationality</label>
-                                                    <select class="form-control custom-select" name="Nationality" value="<?=$row->Nationality;?>">
+                                                    <select class="form-control custom-select" name="Nationality" <?=$attr?>value="<?=$row->Nationality;?>">
                                                         <?php $str="";
                                                     if ($national->num_rows() > 0) {
                                                         foreach ($national->result() as $types) { 
@@ -184,20 +184,20 @@ if (!empty($applicant)) {
                                             <div class="col-sm-3">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">House No</label>
-                                                    <input type="text" name="HouseNum" class="form-control" value="<?=$row->HouseNum;?>">
+                                                    <input type="text" name="HouseNum" <?=$attr?> class="form-control" value="<?=$row->HouseNum;?>">
 
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Street Name</label>
-                                                    <input type="text" name="StreetName" class="form-control form-control-danger" value="<?=$row->StreetName;?>">
+                                                    <input type="text" name="StreetName" class="form-control form-control-danger" <?=$attr?> value="<?=$row->StreetName;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">City</label>
-                                                    <select class="form-control custom-select" name="CityId" value="<?=$row->CityId;?>">
+                                                    <select class="form-control custom-select" name="CityId" <?=$attr?> value="<?=$row->CityId;?>">
                                                         <?php $str="";
                                                     if ($city->num_rows() > 0) {
                                                         foreach ($city->result() as $types) { 
@@ -223,7 +223,7 @@ if (!empty($applicant)) {
                                             <div class="col-sm-3">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Province</label>
-                                                    <select class="form-control custom-select" name="ProvinceId" value="<?=$row->ProvinceId;?>">
+                                                    <select class="form-control custom-select" <?=$attr?> name="ProvinceId" value="<?=$row->ProvinceId;?>">
                                                         <option <?php if($row->ProvinceId=="0"){ echo "Selected";}?> value="0">N/A</option>
                                                         <?php $str="";
                                                     if ($region->num_rows() > 0) {
@@ -258,19 +258,19 @@ if (!empty($applicant)) {
                                             <div class="col-sm-6">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Email</label>
-                                                    <input type="text" class="form-control form-control-danger" placeholder="Email" name="EmailAddress" value="<?=$row->EmailAddress;?>">
+                                                    <input type="email" class="form-control form-control-danger"  name="EmailAddress" <?=$attr?> value="<?=$row->EmailAddress;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Mobile</label>
-                                                    <input type="text" name="MobileNum" class="form-control form-control-danger" value="<?=$row->MobileNum;?>">
+                                                    <input type="text" name="MobileNum" class="form-control form-control-danger" <?=$attr?> value="<?=$row->MobileNum;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Telephone</label>
-                                                    <input type="text" name="LandlineNum" class="form-control form-control-danger" value="<?=$row->LandlineNum;?>">
+                                                    <input type="text" name="LandlineNum" class="form-control form-control-danger" <?=$attr?> value="<?=$row->LandlineNum;?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -283,7 +283,7 @@ if (!empty($applicant)) {
                                             <div class="col-md-6">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Disability</label>
-                                                    <select class="form-control custom-select" name="Disability" value="<?=$row->Disability;?>">
+                                                    <select class="form-control custom-select" <?=$attr?> name="Disability" value="<?=$row->Disability;?>">
                                                         <option value="N/A">N/A</option>
                                                         <?php $str="";
                                                     if ($disability->num_rows() > 0) {
@@ -310,7 +310,7 @@ if (!empty($applicant)) {
                                             <div class="col-sm-6">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Others Please Specify</label>
-                                                    <input type="text" name="DisabilityOthers" value="<?=$row->DisabilityOthers;?>" class="form-control ">
+                                                    <input type="text" name="DisabilityOthers" <?=$attr?> value="<?=$row->DisabilityOthers;?>" class="form-control ">
                                                 </div>
                                             </div>
                                         </div>
@@ -323,7 +323,7 @@ if (!empty($applicant)) {
                                             <div class="col-sm-3">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Is Currently Studying</label>
-                                                    <select class="form-control custom-select" name="IsCurrentlyStudying" value="<?=$row->IsCurrentlyStudying;?>">
+                                                    <select class="form-control custom-select" name="IsCurrentlyStudying" <?=$attr?> value="<?=$row->IsCurrentlyStudying;?>">
                                                         <option <?php if($row->IsCurrentlyStudying=="1"){ echo "Selected";}?> value="Yes">Yes</option>
                                                         <option <?php if($row->IsCurrentlyStudying=="2"){ echo "Selected";}?> value="No">No</option>
 
@@ -334,19 +334,19 @@ if (!empty($applicant)) {
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Last School Level</label>
-                                                    <input type="text" name="LastSchoolLevel" class="form-control form-control-danger" value="<?=$row->LastSchoolLevel;?>">
+                                                    <input type="text" name="LastSchoolLevel" class="form-control form-control-danger" <?=$attr?> value="<?=$row->LastSchoolLevel;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Non Student Reason</label>
-                                                    <input type="text" name="NonStudentReason" class="form-control form-control-danger" value="<?=$row->NonStudentReason;?>">
+                                                    <input type="text" name="NonStudentReason" class="form-control form-control-danger" <?=$attr?> value="<?=$row->NonStudentReason;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Preferred Training Course</label>
-                                                    <input type="text" name="PreferredTrainingCourse" class="form-control form-control-danger" value="<?=$row->PreferredTrainingCourse;?>">
+                                                    <input type="text" name="PreferredTrainingCourse" class="form-control form-control-danger" <?=$attr?> value="<?=$row->PreferredTrainingCourse;?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -360,7 +360,7 @@ if (!empty($applicant)) {
                                             <div class="col-sm-4">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Employment Status</label>
-                                                    <select class="form-control custom-select" name="EmploymentStatus">
+                                                    <select class="form-control custom-select" <?=$attr?> name="EmploymentStatus">
                                                         <?php $str="";
                                                     if ($status->num_rows() > 0) {
                                                         foreach ($status->result() as $types) { 
@@ -387,13 +387,13 @@ if (!empty($applicant)) {
                                             <div class="col-md-4">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Preferred Jobs</label>
-                                                    <input type="text" name="PreferredTrainingCourse" class="form-control form-control-danger" value="<?=$row->PreferredJobs;?>">
+                                                    <input type="text" name="PreferredTrainingCourse" class="form-control form-control-danger" <?=$attr?> value="<?=$row->PreferredJobs;?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Preferred Locations</label>
-                                                    <select class="select2 form-control custom-select" id="PreferredWorkLocations" name="PreferredWorkLocations" style="width: 100%" multiple="multiple" value="<?=$row->PreferredWorkLocations;?>">
+                                                    <select class="select2 form-control custom-select" id="PreferredWorkLocations" name="PreferredWorkLocations" style="width: 100%" multiple="multiple" <?=$attr?> value="<?=$row->PreferredWorkLocations;?>">
                                                         <?php $str="";
                                                             if ($location->num_rows() > 0) {
 
@@ -429,7 +429,7 @@ if (!empty($applicant)) {
                                             <div class="col-sm-4">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Is OFW</label>
-                                                    <select class="form-control custom-select" name="IsOFW" value="<?=$row->IsOFW;?>">
+                                                    <select class="form-control custom-select" <?=$attr?> name="IsOFW" value="<?=$row->IsOFW;?>">
                                                         <option <?php if($row->IsOFW=="1"){ echo "Selected";}?> value="Yes">Yes</option>
                                                         <option <?php if($row->IsOFW=="2"){ echo "Selected";}?> value="No">No</option>
                                                     </select>
@@ -439,7 +439,7 @@ if (!empty($applicant)) {
                                             <div class="col-sm-4">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Is Kasambahay</label>
-                                                    <select class="form-control custom-select" name="IsKasambahay" value="<?=$row->IsKasambahay;?>">
+                                                    <select class="form-control custom-select" <?=$attr?> name="IsKasambahay" value="<?=$row->IsKasambahay;?>">
                                                         <option <?php if($row->IsKasambahay=="1"){ echo "Selected";}?> value="Yes">Yes</option>
                                                         <option <?php if($row->IsKasambahay=="2"){ echo "Selected";}?> value="No">No</option>
                                                     </select>
@@ -467,25 +467,25 @@ if (!empty($applicant)) {
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">T.I.N. </label>
-                                                    <input type="text" name="TIN" class="form-control form-control-danger" value="<?=$row->TIN;?>">
+                                                    <input type="text" name="TIN" <?=$attr?> minlength="9" maxlength="9" class="form-control form-control-danger" value="<?=$row->TIN;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">S.S.S. No.</label>
-                                                    <input type="text" name="SSS" class="form-control form-control-danger" value="<?=$row->SSS;?>">
+                                                    <input type="text" name="SSS" <?=$attr?> minlength="10" maxlength="10" class="form-control form-control-danger" value="<?=$row->SSS;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">PHILHEALTH No.</label>
-                                                    <input type="text" name="PHILHEALTH" class="form-control form-control-danger" value="<?=$row->PHILHEALTH;?>">
+                                                    <input type="text" name="PHILHEALTH" <?=$attr?> class="form-control form-control-danger" minlength="12" maxlength="12"value="<?=$row->PHILHEALTH;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">PAG-IBIG No.</label>
-                                                    <input type="text" name="PAGIBIG" class="form-control form-control-danger" value="<?=$row->PAGIBIG;?>">
+                                                    <input type="text" name="PAGIBIG" minlength="12" maxlength="12"<?=$attr?> class="form-control form-control-danger" value="<?=$row->PAGIBIG;?>">
                                                 </div>
                                             </div>
 
@@ -499,7 +499,7 @@ if (!empty($applicant)) {
                                             <div class="col-6">
                                                 <label class="control-label">Remarks</label>
                                                 <div class="form-group">
-                                                    <textarea class="textarea_editor form-control" name="Remarks" rows="8" ><?=$row->Remarks;?></textarea>
+                                                    <textarea class="textarea_editor form-control" name="Remarks" <?=$attr?> rows="8" ><?=$row->Remarks;?></textarea>
                                                 </div>
 
                                             </div>   
@@ -1059,7 +1059,7 @@ else { ?>
                                         <div class="col-sm-6">
                                             <div class="form-group has-success">
                                                 <label class="control-label">Email</label>
-                                                <input type="text" class="form-control " name="EmailAddress">
+                                                <input type="email" class="form-control " name="EmailAddress">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -1243,25 +1243,25 @@ else { ?>
                                                                 <div class="col-sm-3 ">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">T.I.N. </label>
-                                                                        <input type="text" name="TIN" class="form-control">
+                                                                        <input type="text" name="TIN" minlength="9" maxlength="9" class="form-control" >
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-3 ">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">S.S.S. No.</label>
-                                                                        <input type="text" name="SSS" class="form-control">
+                                                                        <input type="text" name="SSS" minlength="10" maxlength="10" class="form-control">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-3 ">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">PHILHEALTH No.</label>
-                                                                        <input type="text" name="PHILHEALTH" class="form-control ">
+                                                                        <input type="text" name="PHILHEALTH" minlength="12" maxlength="12" class="form-control ">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-3 ">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">PAG-IBIG No.</label>
-                                                                        <input type="text" name="PAGIBIG" class="form-control">
+                                                                        <input type="text" name="PAGIBIG" minlength="12" maxlength="12" class="form-control">
                                                                     </div>
                                                                 </div>
 
