@@ -587,6 +587,16 @@ $('#empform').submit(function(e){
  });
 $('#applicant').submit(function(e) {
     e.preventDefault();
+   var WorkDataId = new Array();
+    $("input[name=WorkDataId]").each(function() {
+      if ($(this).val() == '') {
+        WorkDataId.push('-');
+      }
+      else {
+       WorkDataId.push($(this).val());
+      }
+    });
+
 
     var CompanyName = new Array();
     $("input[name=CompanyName]").each(function() {
@@ -634,6 +644,15 @@ $('#applicant').submit(function(e) {
        InclusiveDateTo.push($(this).val());
      }
     });
+     var SkillId = new Array();
+    $("input[name=SkillId]").each(function() {
+      if ($(this).val() == '') {
+        SkillId.push('-');
+      }
+      else {
+       SkillId.push($(this).val());
+      }
+    });
      var Name = new Array();
     $("input[name=Name]").each(function() {
       if ($(this).val() == '') {
@@ -651,6 +670,15 @@ $('#applicant').submit(function(e) {
       else {
        Description.push($(this).val());
      }
+    });
+    var EducId = new Array();
+    $("input[name=EducId]").each(function() {
+      if ($(this).val() == '') {
+        EducId.push('-');
+      }
+      else {
+       EducId.push($(this).val());
+      }
     });
      var SchoolName = new Array();
     $("input[name=SchoolName]").each(function() {
@@ -697,6 +725,15 @@ $('#applicant').submit(function(e) {
        YearLastAttended.push($(this).val());
      }
     });
+    var DependentDataId = new Array();
+    $("input[name=DependentDataId]").each(function() {
+      if ($(this).val() == '') {
+        DependentDataId.push('-');
+      }
+      else {
+       DependentDataId.push($(this).val());
+     }
+    });
      var DependentName = new Array();
     $("input[name=DependentName]").each(function() {
       if ($(this).val() == '') {
@@ -741,7 +778,7 @@ $('#applicant').submit(function(e) {
         var newURL = $(this).attr('action');   
      
         var newData  = {
-                'Id' : $('input[name=Id]').val(), //List of data you want to post
+                'Id' : $('input[name=id]').val(), //List of data you want to post
                 'LastName' : $('input[name=LastName]').val(),
                 'FirstName' : $('input[name=FirstName]').val(),
                 'MiddleName' : $('input[name=MiddleName]').val(),
@@ -782,18 +819,22 @@ $('#applicant').submit(function(e) {
                 'IsMigrated' : $('input[name=IsMigrated]').val(),
                 'Remarks' : $('textarea[name=Remarks]').val(),
                 'IsActive' : $('select[name=IsActive]').val(),
+                'Work_DataId' : WorkDataId,
                 'company_name' : CompanyName,
                 'held_position' : HeldPosition,
                 'company_address' : CompanyAddress,
                 'inclusive_datefrom' : InclusiveDateFrom,
                 'inclusive_dateto' : InclusiveDateTo,
+                'Skill_Id' : SkillId,
                 'skill_name' : Name,
                 'skill_description' : Description,
+                'Educ_Id' : EducId,
                 'school_name' : SchoolName,
                 'program_course' : ProgramCourse,
                 'highest_level' : HighestLevel,
                 'year_graduated' : YearGraduated,
                 'year_lastattended' : YearLastAttended,
+                'Dependent_DataId' : DependentDataId,
                 'dependent_name' : DependentName,
                 'dependent_description' : DependentDescription,
             } 
@@ -935,7 +976,7 @@ if ($('#addemployment').length > 0) {
     }
     var str = '';
     str = str + '<tr>';
-    str = str + '  <td><input type="text" placeholder="Can not be empty." readonly class="form-control CompanyName" name="CompanyName" value="'+ c.val() +'"></td>';
+    str = str + '  <td> <input type="hidden" readonly class="form-control" name="WorkDataId" value=""><input type="text" placeholder="Can not be empty." readonly class="form-control CompanyName" name="CompanyName" value="'+ c.val() +'"></td>';
     str = str + '  <td><input type="text" class="form-control HeldPosition" name="HeldPosition" value="'+ h.val() +'"></td>';
     str = str + '  <td><input type="text" class="form-control CompanyAddress" name="CompanyAddress" value="'+ g.val() +'"></td>';
     str = str + '  <td><input type="text" class="form-control InclusiveDateFrom" name="InclusiveDateFrom" value="'+ f.val() +'"></td>';
@@ -980,7 +1021,7 @@ if ($('#addskill').length > 0) {
     }
     var str = '';
     str = str + '<tr>';
-    str = str + '  <td><input type="text" placeholder="Can not be empty." readonly class="form-control Name" name="Name" value="'+ n.val() +'"></td>';
+    str = str + '  <td> <input type="hidden" readonly class="form-control" name="SkillId" value=""><input type="text" placeholder="Can not be empty." readonly class="form-control Name" name="Name" value="'+ n.val() +'"></td>';
     str = str + '  <td><input type="text" class="form-control Description" name="Description" value="'+ d.val() +'"></td>';
     str = str + '  <td class="actions"><button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button></td>';
     str = str + '</tr>';
@@ -1021,7 +1062,7 @@ if ($('#addeducation').length > 0) {
     }
     var str = '';
     str = str + '<tr>';
-    str = str + '  <td><input type="text" placeholder="Can not be empty." readonly class="form-control SchoolName" name="SchoolName" value="'+ s.val() +'"></td>';
+    str = str + '  <td> <input type="hidden" readonly class="form-control" name="EducId" value=""><input type="text" placeholder="Can not be empty." readonly class="form-control SchoolName" name="SchoolName" value="'+ s.val() +'"></td>';
     str = str + '  <td><input type="text" class="form-control ProgramCourse" name="ProgramCourse" value="'+ p.val() +'"></td>';
     str = str + '  <td><input type="text" class="form-control HighestLevel" name="HighestLevel" value="'+ h.val() +'"></td>';
     str = str + '  <td><input type="text" class="form-control YearGraduated" name="YearGraduated" value="'+ g.val() +'"></td>';
@@ -1069,7 +1110,7 @@ if ($('#adddepend').length > 0) {
     // alert ("test");
     var str = '';
     str = str + '<tr>';
-    str = str + '  <td><input type="text" placeholder="Can not be empty." readonly class="form-control DependentName" name="DependentName" value="'+ m.val() +'"></td>';
+    str = str + '  <td> <input type="hidden" readonly class="form-control" name="DependentDataId" value=""><input type="text" placeholder="Can not be empty." readonly class="form-control DependentName" name="DependentName" value="'+ m.val() +'"></td>';
     str = str + '  <td><input type="text" class="form-control DependentDescription" name="DependentDescription" value="'+ k.val() +'"></td>';
     str = str + '  <td class="actions"><button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button></td>';
     str = str + '</tr>';
