@@ -9,12 +9,17 @@ class MY_Controller extends CI_Controller {
         parent::__construct();
         // $this->CI =& get_instance();
 
-        // $sess_id = $this->session->userdata('userid');
-        // if(empty($sess_id))
-        // {
-        //     return redirect(base_url().'?ref='.base_url(uri_string()));
+    // function __construct()
+    // {
+    //     parent::__construct();
 
-        // }
+        $userid = $this->session->userdata('userid');
+        $usertype = $this->session->userdata('usertype');
+        if (empty($userid)) {
+            return redirect(base_url().'admin/login');
+        }
+
+    // }
 
 
     }
@@ -35,20 +40,20 @@ class Public_Controller extends MY_Controller {
 
 class Applicant_Controller extends MY_Controller {
 
-    function __construct()
-    {
-        parent::__construct();
+    // function __construct()
+    // {
+    //     parent::__construct();
 
-        $userid = $this->session->userdata('userid');
-        $usertype = $this->session->userdata('usertype');
-        // if (!empty($userid) && $usertype == 'APPLICANT') {
-        //     return redirect(base_url().'403');
-        // }
-        if (empty($userid)) {
-            return redirect(base_url().'web/login/applicant');
-        }
+    //     $userid = $this->session->userdata('userid');
+    //     $usertype = $this->session->userdata('usertype');
+    //     // if (!empty($userid) && $usertype == 'APPLICANT') {
+    //     //     return redirect(base_url().'403');
+    //     // }
+    //     if (empty($userid)) {
+    //         return redirect(base_url().'web/login/applicant');
+    //     }
         
-    }
+    // }
 
 
 
@@ -92,20 +97,20 @@ class Manager_Controller extends MY_Controller {
 
 class Admin_Controller extends MY_Controller {
 
-    function __construct()
-    {
-        parent::__construct();
+    // function __construct()
+    // {
+    //     parent::__construct();
 
-        $userid = $this->session->userdata('userid');
-        $usertype = $this->session->userdata('usertype');
-        // if (!empty($userid) && $usertype != 'ADMIN') {
-        //     return redirect(base_url().'403');
-        // }else
-        if (empty($userid)) {
-            return redirect(base_url().'admin/login');
-        }
+    //     $userid = $this->session->userdata('userid');
+    //     $usertype = $this->session->userdata('usertype');
+    //     // if (!empty($userid) && $usertype != 'ADMIN') {
+    //     //     return redirect(base_url().'403');
+    //     // }else
+    //     if (empty($userid)) {
+    //         return redirect(base_url().'admin/login');
+    //     }
 
-    }
+    // }
 
 }
 

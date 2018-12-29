@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AuthenticationController extends Public_Controller {
+class AuthenticationController extends CI_Controller {
 
 
 	function __construct() {
@@ -14,11 +14,19 @@ class AuthenticationController extends Public_Controller {
 
 	public function LoginPage()
 	{
-		$layout = array('login' => TRUE,'pagetitle'=>'Login' );
-		$this->load->view('layout/admin/1_css',$layout);
-		$this->load->view('layout/admin/2_preloader',$layout);
-		$this->load->view('auth/LoginPage',$layout);
-		$this->load->view('layout/admin/6_js',$layout);
+        $user = $this->session->userdata('userid');
+        if (empty($user)) {
+            $layout = array('login' => TRUE,'pagetitle'=>'Login' );
+            $this->load->view('layout/admin/1_css',$layout);
+            $this->load->view('layout/admin/15_api',$layout);
+            $this->load->view('layout/admin/2_preloader',$layout);
+            $this->load->view('auth/LoginPage',$layout);
+            $this->load->view('layout/admin/6_js',$layout);
+        }
+        else {
+            return redirect(base_url('manage'));
+        }
+
 	}
 
 

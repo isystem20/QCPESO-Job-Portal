@@ -12,8 +12,8 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
 
-    <meta name="google-signin-client_id" content="695408817379-9bfd5ft39pl37hjh273aq87tsdfl35cv.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script> 
+        <meta name="google-signin-client_id" content="695408817379-9bfd5ft39pl37hjh273aq87tsdfl35cv.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>  
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>themes/admin-pro/assets/images/qcpeso.png">
     <title><?php if(empty($pagetitle)){ echo 'QCPESO'; } else {echo $pagetitle;} ?></title>
     <!-- Bootstrap Core CSS -->
@@ -81,34 +81,8 @@
     </style>
 
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/style.css" rel="stylesheet">
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
 
-
-    <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
-      <script>
-
-        // Enable pusher logging - don't include this in production
-        Pusher.logToConsole = true;
-
-        var pusher = new Pusher('b40201798c4cfcffea24', {
-          cluster: 'ap1',
-          forceTLS: true
-        });
-
-        var channel = pusher.subscribe('my-channel');
-        channel.bind('my-event', function(data) {
-         $.toast({
-          heading: 'Notification:',
-          text:data.message,
-          position: 'top-right',
-          loaderBg:'#ff6849',
-          icon: 'info',
-          hideAfter: 3500, 
-          stack: 6
-        }); 
-          // alert(JSON.stringify(data));
-        });
-      </script>
-
-
-
+<script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/js/jquery.toast.js"></script>
+    <?php $this->load->view('layout/admin/15_api'); ?>
 </head>
