@@ -11,6 +11,7 @@ function __construct() {
 			$this->load->model('admin/CategoriesModel','categmod');
 			$this->load->model('admin/SkillsModel','skimod');
 			$this->load->model('admin/ApplicantLevelModel','levelmod');
+			$this->load->model('admin/WebPostsModel','webpostmod');
      }
 public function BrowseJob()
 				{
@@ -31,6 +32,8 @@ public function BrowseJob()
 		$data['skills'] = $this->skimod->LoadMasterlist();
 		$data['applevel'] = $this->levelmod->LoadMasterlist();
 		$data['criteria'] = $postdata;
+		$data['webpostmodel'] = $this->webpostmod->LoadMasterlist();
+
 		$layout = array('transparentwrapper' => TRUE,'addons'=>TRUE, 'pagetitle'=>'BrowseJob');
 			$this->load->view('layout/web/1_head',$layout);
 			$this->load->view('layout/web/2_preloader',$layout);

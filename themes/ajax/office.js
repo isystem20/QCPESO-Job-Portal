@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 
-  $('#add-btn').click(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+	$('#add-btn').click(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
     $('#header-text').text('Add Entry');
     $('input[name=name]').val('');  
     $('textarea[name=description]').val('');
@@ -15,12 +15,12 @@ $(document).ready(function() {
 
 
     $('.modal-footer').show();
-    $('#add-modal').modal();
-  });
+		$('#add-modal').modal();
+	});
 
 
-  $('#add-form').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
-    e.preventDefault();       //This prevents the action to move to other page.
+	$('#add-form').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+		e.preventDefault();       //This prevents the action to move to other page.
         $("#add-submit").prop("disabled", true);   //Disables the submit button after click 
         var newURL = $(this).attr('action');      //Get the form action attribute value.
         var newData  = {
@@ -88,23 +88,23 @@ $(document).ready(function() {
 
                   }
                   else{
-                    $.toast({
-                      heading: 'Error',
-                      text: data.error,
-                      position: 'top-right',
-                      loaderBg:'#ff6849',
-                      icon: 'error',
-                      hideAfter: 3500
-                      
-                    });
+    			          $.toast({
+    			            heading: 'Error',
+    			            text: data.error,
+    			            position: 'top-right',
+    			            loaderBg:'#ff6849',
+    			            icon: 'error',
+    			            hideAfter: 3500
+    			            
+    			          });
                   }
                 $("#add-submit").prop("disabled", false);     //Reenable the submit button after the action   
                 $('input[name=name]').val('');  
                 $('textarea[name=description]').val('');
                 $('select[name=status]').val('1');      
               }
-          });   
-  });
+          }); 	
+	});
 
 
 // ADMIN / OFFICE LOGIN
@@ -715,9 +715,26 @@ $('#applicant').submit(function(e) {
        DependentDescription.push($(this).val());
      }
     });
-        var PreferredLocations = new Array();
-      $('#PreferredLocations  > option:selected').each(function() {
-           PreferredLocations.push($(this).val());
+        var PreferredWorkLocations = new Array();
+      $('#PreferredWorkLocations  > option:selected').each(function() {
+           PreferredWorkLocations.push($(this).val());
+      });
+       var LanguageSpoken = new Array();
+      $('#LanguageSpoken  > option:selected').each(function() {
+           LanguageSpoken.push($(this).val());
+      });
+      var LanguageRead = new Array();
+      $('#LanguageRead  > option:selected').each(function() {
+           LanguageRead.push($(this).val());
+      });
+
+       var LanguageWritten = new Array();
+      $('#LanguageWritten  > option:selected').each(function() {
+           LanguageWritten.push($(this).val());
+      });
+       var Dialect = new Array();
+      $('#Dialect  > option:selected').each(function() {
+           Dialect.push($(this).val());
       });
 
         $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
@@ -733,7 +750,7 @@ $('#applicant').submit(function(e) {
                 'StreetName' : $('input[name=StreetName]').val(),
                 'CityId' : $('select[name=CityId]').val(),
                 'ProvinceId' : $('select[name=ProvinceId]').val(),
-                'BirthDate' : $('date[name=BirthDate]').val(),
+                'BirthDate' : $('input[name=BirthDate]').val(),
                 'BirthPlace' : $('select[name=BirthPlace]').val(),
                 'Age' : $('input[name=Age]').val(),
                 'Gender' : $('select[name=Gender]').val(),
@@ -744,14 +761,14 @@ $('#applicant').submit(function(e) {
                 'EmailAddress' : $('input[name=EmailAddress]').val(),
                 'EmploymentStatus' : $('select[name=EmploymentStatus]').val(),
                 'PreferredJobs' : $('input[name=PreferredJobs]').val(),
-                'PreferredWorkLocations' : $('select[name=PreferredWorkLocations]').val(),
+                'PreferredWorkLocations' : PreferredWorkLocations,
                 'Disability' : $('select[name=Disability]').val(),
                 'DisabilityOthers' : $('input[name=DisabilityOthers]').val(),
-                'LanguangeSpoken' : $('select[name=LanguangeSpoken]').val(),
-                'LanguageRead' : $('select[name=LanguageRead]').val(),
-                'LanguageWritten' : $('select[name=LanguageWritten]').val(),
-                'Dialect' : $('select[name=Dialect]').val(),
-                'IsCurrrentlyStudying' : $('select[name=IsCurrrentlyStudying]').val(),
+                'LanguageSpoken' : LanguageSpoken,
+                'LanguageRead' : LanguageRead,
+                'LanguageWritten' : LanguageWritten,
+                'Dialect' : Dialect,
+                'IsCurrentlyStudying' : $('select[name=IsCurrentlyStudying]').val(),
                 'LastSchoolLevel' : $('input[name=LastSchoolLevel]').val(),
                 'NonStudentReason' : $('input[name=NonStudentReason]').val(),
                 'PreferredTrainingCourse' : $('input[name=PreferredTrainingCourse]').val(),
@@ -1088,165 +1105,4 @@ $('.table').delegate(".tr-remover", "click", function() {
 
 
 
-  
 
- //modules
-  $('#modu-btn').click(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
-    $('#header-modu-text').text('Add Entry');
-    $('input[name=name]').val('');
-    $('input[name=url]').val('');
-    $('input[name=parent]').val('');  
-    $('textarea[name=description]').val('');
-    $('select[name=status]').val('1');  
-    $('#modu-form').attr('action',$('#myTable').data('action')+'add');
-    $('input[name=itemid]').val('');  
-    $('.viewing').hide();
-    $('form input.form-control').prop('readonly',false);
-    $('form input.form-control').prop('readonly',false);
-    $('form input.form-control').prop('readonly',false);
-    $('form textarea.form-control').prop('readonly',false);
-    $('form select.form-control').prop('disabled',false);
-
-
-    $('.modal-footer').show();
-    $('#add-modu-modal').modal();
-  });
-
-  $('#modu-form').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
-    e.preventDefault();       //This prevents the action to move to other page.
-        $("#addmodu-submit").prop("disabled", true);   //Disables the submit button after click 
-        var newURL = $(this).attr('action');      //Get the form action attribute value.
-        var newData  = {
-                'itemid' : $('input[name=itemid]').val(),
-                'name' : $('input[name=name]').val(),
-                'url' : $('input[name=url]').val(),
-                'parent' : $('input[name=parent]').val(),     //List of data you want to post
-                'description' : $('textarea[name=description]').val(),
-                'status' : $('select[name=status]').val(),
-            }
-          console.log(newData);  
-          $.ajax({
-              url: newURL,
-              type:'POST',
-              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
-             
-              data: newData,
-              success: function(data) {
-                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
-                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
-                    $('#add-modu-modal').modal('hide');
-
-                     $.toast({
-                      heading: 'Success!',
-                      text: 'Record Updated',
-                      position: 'top-right',
-                      loaderBg:'#ff6849',
-                      icon: 'success',
-                      hideAfter: 3500, 
-                      stack: 6
-                    });
-
-
-                  if ($('input[name=itemid]').val() != '') {
-
-                      var Id = data[0].Id;
-                      var table = $('#myTable').DataTable();
-                      table.row($('#row'+data[0].Id))
-                      .remove()
-                      .draw();
-
-                  }
-
-
-
-                    var id = data[0].Id;
-                    var name = data[0].Name;
-                    var url = data[0].Url;
-                    var parent = data[0].Parent;
-                    var desc = data[0].Description.substr(0,30);
-                    var modby = data[0].ModifiedById;
-                    var modat = $.datepicker.formatDate('yy-dd-mm', new Date(data[0].modifiedAt));
-                    var modat = data[0].ModifiedAt;
-
-                    if (data[0].IsActive == '1') {
-                      var status = '<label class="label label-success">Active</label>';
-                    }else {
-                      var status = '<span class="label label-light-inverse">Inactive</span>';
-                    }
-
-                    var actions = '<button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'" data-desc="'+data[0].Description+'" data-createdby="'+data[0].CreatedById+'" data-createdat="'+data[0].CreatedAt+'" data-modifiedby="'+data[0].ModifiedById+'" data-modifiedat="'+data[0].ModifiedAt+'" data-version="'+data[0].VersionNo+'" data-status="'+data[0].IsActive+'"> <i class="fas fa-info-circle"></i> </button>'+
-                                  '<button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'" data-desc="'+desc+'" data-status="'+data[0].IsActive+'"> <i class="far fa-edit" ></i> </button>'+
-                                  '<button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'"> <i class="fas fa-trash-alt"></i></button>';
-
-                    var table = $('#myTable').DataTable();
-                    var row = table.row.add( [
-                      name,url,parent,desc,modby,modat,status,actions,
-                      ]).draw().node();
-                    $( row ).attr('id','row'+data[0].Id);
-
-                  }
-                  else{
-                    $.toast({
-                      heading: 'Error',
-                      text: data.error,
-                      position: 'top-right',
-                      loaderBg:'#ff6849',
-                      icon: 'error',
-                      hideAfter: 3500
-                      
-                    });
-                  }
-                $("#addmodu-submit").prop("disabled", false);     //Reenable the submit button after the action   
-                $('input[name=name]').val('');
-                $('input[name=url]').val('');
-                $('input[name=parent]').val('');  
-                $('textarea[name=description]').val('');
-                $('select[name=status]').val('1');      
-              }
-          });   
-  });
-// edit-modules
- $('#myTable').delegate(".edit-modu-btn", "click", function() {
-    $('#header-modu-text').text('Edit Entry');
-    $('input[name=id]').val($(this).data('id'));
-    $('input[name=name]').val($(this).data('name'));
-    $('input[name=url]').val($(this).data('url'));
-    $('input[name=parent]').val($(this).data('parent')); 
-    $('textarea[name=description]').val($(this).data('desc')); 
-    $('select[name=status]').val($(this).data('status'));     
-    $('#modu-form').attr('action',$('#myTable').data('action')+'edit');
-    $('.viewing').hide();
-    $('form input.form-control').prop('readonly',false);
-    $('form input.form-control').prop('readonly',false);
-    $('form input.form-control').prop('readonly',false);
-    $('form input.form-control').prop('readonly',false);
-    $('form textarea.form-control').prop('readonly',false);
-    $('form select.form-control').prop('disabled',false);
-    $('.modal-footer').show();
-    $('#add-modu-modal').modal();
-  });
-
- // view-modules
-  $('#myTable').delegate(".read-modu-btn", "click", function() {
-
-    $('#header-modu-text').text($(this).data('name'));
-    $('input[name=name]').val($(this).data('name'));
-    $('input[name=url]').val($(this).data('url')); 
-    $('input[name=parent]').val($(this).data('parent'));
-    $('textarea[name=description]').val($(this).data('desc')); 
-    $('input[name=created]').val($(this).data('createdby')+' ('+ $(this).data('createdat') +')'); 
-    $('input[name=modified]').val($(this).data('modifiedby')+' ('+ $(this).data('modifiedat') +')');     
-    $('select[name=status]').val($(this).data('status'));    
-    $('input[name=version]').val($(this).data('version')); 
-    $('form input.form-control').prop('readonly',true);
-    $('form input.form-control').prop('readonly',true);
-    $('form input.form-control').prop('readonly',true);
-    $('form textarea.form-control').prop('readonly',true);
-    $('form select.form-control').prop('disabled',true);
-    $('#modu-form').attr('action','');
-    $('.viewing').show();
-    $('.modal-footer').hide();
-    $('#add-modu-modal').modal();
-    // alert('Hi Im view');
-  });
- 
