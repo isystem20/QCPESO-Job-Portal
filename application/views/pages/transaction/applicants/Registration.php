@@ -1489,9 +1489,11 @@ else { ?>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="form-actions">
-                                                                <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                                                <button type="button" class="btn btn-inverse">Cancel</button>
+                                                                <div class="form-actions">
+                                <button type="submit" id="sub-btn-emp" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                <a href="<?=base_url('manage/applicant/view-list');?>" class="btn btn-danger">Cancel</a>                                                                 
+                                </div>
+                                                                </form>
                                                             </div>
                                                             </form>
                                                         </div>
@@ -1514,35 +1516,37 @@ else { ?>
                             <h4 class="modal-title">Add Employment History</h4>
                             <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
 
-                        </div>
-                        <div class="modal-body">
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Company Name</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="CompanyName">
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Company Name</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="CompanyName">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Held Position</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="HeldPosition">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Held Position</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="HeldPosition">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Company Address</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="CompanyAddress">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Company Address</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="CompanyAddress">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Inclusive Dates</label>
-                                    <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Inclusive Dates</label>
+                                        <div class="col-sm-12">
 
-                                        <div class="input-group input-large" data-date="13/07/2013" data-date-format="mm/dd/yyyy">
-                                            <input type="date" class="form-control dpd1" id="InclusiveDateFrom">
-                                            <span class="input-group-addon">To</span>
-                                            <input type="date" class="form-control dpd2" id="InclusiveDateTo">
+                                            <div class="input-group input-large" data-date="13/07/2013" data-date-format="mm/dd/yyyy">
+                                                <input type="date" class="form-control dpd1" id="InclusiveDateFrom">
+                                                <span class="input-group-addon">To</span>
+                                                <input type="date" class="form-control dpd2" id="InclusiveDateTo">
+                                            </div>
+                                            <!-- <input type="text" class="form-control" placeholder="MM/YY-MM/YY" id="graduatedate"> -->
                                         </div>
                                         <!-- <input type="text" class="form-control" placeholder="MM/YY-MM/YY" id="graduatedate"> -->
                                     </div>
@@ -1565,19 +1569,20 @@ else { ?>
                             <h4 class="modal-title">Add Skill</h4>
                             <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
 
-                        </div>
-                        <div class="modal-body">
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Skill</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="Name">
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Skill</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="Name">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Description</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="Description">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Description</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="Description">
+                                        </div>
                                     </div>
                                 </div>
 
@@ -1598,40 +1603,39 @@ else { ?>
                             <h4 class="modal-title">Add Education Background</h4>
                             <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
 
-                        </div>
-                        <div class="modal-body">
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">School Name</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="SchoolName">
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">School Name</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="SchoolName">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Program</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="ProgramCourse">
+                                     <div class="form-group">
+                                        <label class="col-sm-3 control-label">Program</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="ProgramCourse">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Highest Level</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="HighestLevel">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Highest Level</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="HighestLevel">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Year Graduated</label>
-                                    <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Year Graduated</label>
+                                        <div class="col-sm-12">
 
                                         <div class="input-group input-large" data-date-format="mm/dd/yyyy">
                                             <input type="text" class="form-control dpd1" id="YearGraduated">
                                         </div>
 
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Year Last Attended</label>
-                                    <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Year Last Attended</label>
+                                        <div class="col-sm-12">
 
                                         <div class="input-group input-large" data-date-format="mm/dd/yyyy">
                                             <input type="text" class="form-control dpd1" id="YearLastAttended">
@@ -1656,19 +1660,21 @@ else { ?>
                             <h4 class="modal-title">Add Dependent</h4>
                             <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
 
-                        </div>
-                        <div class="modal-body">
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Name</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="DependentName">
+
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Name</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="DependentName">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Description</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="DependentDescription">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Description</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="DependentDescription">
+                                        </div>
                                     </div>
                                 </div>
 
