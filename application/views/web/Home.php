@@ -850,9 +850,14 @@
                                         <h6>Recent Posts</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">April 7, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">September 7, 2018</span></li>
+                                         <?php
+                                        if ($webpostmodel->num_rows() > 0) {
+                                            foreach ($webpostmodel->result() as $row ) { ?>
+                                        <li><a href="#"><?=$row->PostDescription;?></a><span class="post-date">May 8, 2018</span></li>
+                                          <?php
+                                            }
+                                        }
+                                        ?>    
                                     </ul>
                                 </aside>
                             </div>
