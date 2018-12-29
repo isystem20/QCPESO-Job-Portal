@@ -149,7 +149,7 @@ $route['logout'] = 'WebController/logout';
 //ERRORS
 
 $route['403'] = 'SiteErrorController/Error403';
-$route['admin/login/auth'] = 'admin/AuthenticationController/AuthenticateAdmin';
+$route['admin/login/auth'] = 'web/LoginController/authenticate';
 $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
 

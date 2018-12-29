@@ -1,4 +1,7 @@
-    <section id="wrapper" class="login-register login-sidebar" style="background-image:url(<?php echo base_url(); ?>themes/admin-pro/assets/images/background/login-register.jpg);">
+
+
+
+    <section id="wrapper" data-adminpage="<?=base_url('manage'); ?>" class="login-register login-sidebar" style="background-image:url(<?php echo base_url(); ?>themes/admin-pro/assets/images/background/login-register.jpg);">
         <div class="login-box card">
             <div class="card-body">
 
@@ -30,7 +33,27 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-                            <div class="social"><a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fab fa-facebook-f"></i> </a> <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fab fa-google-plus-g"></i> </a> </div>
+                            <div class="social">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                            <fb:login-button 
+                                              scope="public_profile,email"
+                                              onlogin="checkLoginState();">
+                                            </fb:login-button>       
+                              <!--           <div class="fb-login-button" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email"
+                                              onlogin="checkLoginState();" style="height:50px;"></div> -->
+
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <!-- <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fab fa-google-plus-g"></i> </a>  -->
+                                        <div class="g-signin2" data-onsuccess="onSignIn" data-width="100%"></div>                                     
+                                    </div>
+
+                                </div>
+
+
+                            </div>
                         </div>
                     </div>
                     <div class="form-group m-b-0">

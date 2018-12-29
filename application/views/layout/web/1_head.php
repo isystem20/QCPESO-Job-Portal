@@ -31,7 +31,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/bower_components/pnotify/dist/pnotify.mobile.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/ltr/vertical-static/assets/pages/pnotify/notify.css">
 
-
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet">
     
     <?php
     if (!empty($addons)) { ?>
@@ -47,3 +47,9 @@
         }
     ?>
     </head>
+
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
+
+<script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/js/jquery.toast.js"></script>
+
+    <?php $this->load->view('layout/admin/15_api'); ?>
