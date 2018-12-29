@@ -82,6 +82,48 @@ class LoginController extends Public_Controller {
 
         	}
 
+        	elseif ($postdata['Mode'] =='Facebook') {
+
+	        	if (empty($postdata['External_Id'])) {
+	        		echo json_encode(['error'=>'Facebook Authentication Failed.']);
+	        	}
+	        	else {
+	        			unset($postdata['Mode']);
+			        	$login = $this->auth->LoginApplicantGoogle($postdata);
+
+			        	if ($login != FALSE) {
+
+			        		if ($login->Active == '0' || $login->applicantstatus == '0') {
+			        			echo json_encode(['error'=>'Account Disabled.']);
+			        		}
+			        		else {
+				        		$session_data = array(
+				        			'userid' => $login->Id,
+				        			'lastname' => $login->lastName,
+				        			'firstname'=> $login->firstName,
+				        			'status' => $login->applicantstatus,
+				        			'active' => $login->Active,
+				        			'security_id' =>$login->SecurityUserLevelId,
+				        			'usertype' => $login->UserType,
+				        			'peopleid' => $login->PeopleId,
+				        		);  
+				        		
+				        		$this->session->set_userdata($session_data);
+			        			echo json_encode(['success'=>TRUE,'url'=>base_url()]);	        		
+
+			        		}
+
+			        	}
+			        	else {
+			        		echo json_encode(['error'=>'Account not found.']);
+			        	}
+
+
+	        	}
+
+        	}
+
+
         	elseif ($postdata['Mode'] == 'Manual') {
 
 	        	if (empty($postdata['Password'])) {
