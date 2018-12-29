@@ -12,6 +12,8 @@
         $this->load->model('admin/SkillsModel','skimod');
         $this->load->model('admin/EstablishmentModel','establishmentmod'); 
         $this->load->model('admin/CategoriesModel','categmod');
+        $this->load->model('admin/UserModel','usermod');
+
         
      }
  
@@ -24,7 +26,8 @@
       $data['skills'] = $this->skimod->LoadMasterlist();
       $data['estabs'] = $this->establishmentmod->LoadMasterlist();
       $data['categories'] = $this->categmod->LoadCategoryMasterlist();
-       
+      $data['user'] = $this->usermod->Load_UserMasterlistModel_Masterlist();
+
       $data['class'] = 'jobapplication';
  		// $data['categories'] = $this->categmod->LoadCategoryMasterlist();
    //      $data['class'] = 'categories';
@@ -91,6 +94,7 @@
     $layout = array('tables'=>TRUE,);
     $data['jobposts'] = $this->jobsmod->LoadMasterlistPending();
     $data['class'] = 'jobposts';
+    $data['estabs'] = $this->establishmentmod->LoadMasterlist();
 
 
 

@@ -20,13 +20,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function LoadMasterlistPending($id = null) {
-			$this->db->select('*');
+			$this->db->select('tbl_establishments_jobposts.*, e.CompanyName as comname, tbl_establishments_jobposts.IsActive as Status');
 			$this->db->from($this->tbl);
+			$this->db->join('tbl_establishments e', 'tbl_establishments_jobposts.EstablishmentId = e.Id', 'left outer');			
+
 			if (!empty($id)) {
 				$this->db->where('Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('IsActive','1');
+				$this->db->where('e.IsActive','1');
 				
 				return $this->db->get();
 			}

@@ -34,10 +34,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         public function Add($data) {
+
             $this->db->trans_start();
             $this->load->library('Uuid');
             $EstablishmentId = $this->uuid->v4();
             $code = rand(100000, 999999);
+
+            $data['DressCode'] = json_encode($data['DressCode']);
+            $data['SpokenLanguage'] = json_encode($data['SpokenLanguage']);
+
 
             $this->db->set('Id',"'".$EstablishmentId."'",FALSE);
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
