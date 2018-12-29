@@ -26,8 +26,8 @@
         $json = json_encode($data['masterlist']); //log
         $this->logger->log('Load Licenses','Licenses',$json); //Log
 
-        $json = json_encode($data['masterlist']); //log
-        $this->logger->log('Load Masterlist','Licenses',$json); //Log
+        // $json = json_encode($data['masterlist']); //log
+        // $this->logger->log('Load Masterlist','Licenses',$json); //Log
 
     }
     public function Create() {
