@@ -853,7 +853,8 @@
                                          <?php
                                         if ($webpostmodel->num_rows() > 0) {
                                             foreach ($webpostmodel->result() as $row ) { ?>
-                                        <li><a href="#"><?=$row->PostDescription;?></a><span class="post-date">May 8, 2018</span></li>
+                                        <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=character_limiter($row->PostDescription, 200);?><br>
+                                                <span class="post-date"><?=date('D F d, Y H:i A',strtotime($row->CreatedAt));?></span></div>
                                           <?php
                                             }
                                         }
