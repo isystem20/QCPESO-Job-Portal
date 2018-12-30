@@ -75,7 +75,7 @@
      public function PendingRequest()
     {
  
-        $layout = array('tables'=>TRUE,'pagetitle'=>'List of Pending Request');
+        $layout = array('tables'=>TRUE,'pagetitle'=>'List of All Employers with Pending Accreditation');
         $data['emppost'] = $this->empmod->PendingRequest();
         $data['class'] = 'emppost';
 

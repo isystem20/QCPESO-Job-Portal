@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->db->where('id',$id);
                 return $this->db->get()->result();
             }else {
-                $this->db->where('isActive','2');
+                $this->db->where('IsActive','2');
                 return $this->db->get();
             }
             

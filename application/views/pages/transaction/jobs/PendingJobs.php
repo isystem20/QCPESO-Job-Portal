@@ -82,13 +82,13 @@
                                                 <td><?php echo character_limiter($row->Salary, 30); ?></td>
                                                 <td>
                                                     <?php 
-                                                    if ($row->Status == '1') {
+                                                    if ($row->PendingStatus == '0') {
                                                         echo '<label class="label label-warning">Pending</label>';
                                                     }
-                                                    elseif ($row->IsActive == '0') {
+                                                    elseif ($row->PendingStatus == '1') {
                                                         echo '<span class="label label-info">Active</span>';
                                                     }
-                                                    elseif ($row->IsActive == '2') {
+                                                    elseif ($row->PendingStatus == '2') {
                                                         echo '<span class="label label-light-reverse">Inactive</span>';
                                                     }
                                                     ?>

@@ -221,17 +221,23 @@ if (!empty($jobposts)) {
                                                     <div <?=$attr?> class="form-group">
                                                         <textarea  style="background-color: #fff; color: black;"  class="textarea_editor form-control"   id="jobdesc" name="JobDescription" rows="12" placeholder=""><?=$row->JobDescription;?></textarea>
                                                     </div>
+                                                </div>         
+                                        </div>
+
+                                        <div class="row p-t-20">
+                                            <div class="col-12">
+                                                <label class="control-label">Job Overview</label>  
+                                                <div class="form-group">
+                                                    <textarea class="textarea_editor form-control"  name="JobOverview" rows="5" placeholder="Please give an insight on what the job item is."></textarea>
                                                 </div>
-
                                                 
-
-                                                                            
-                                                
+                                                      
+                                            </div>
                                         </div>
 
 
                                         <div class="row p-t-20">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Salary</label>
                                                     <input  style="background-color: #fff; color: black;" type="text" <?=$attr?>  value="<?=$row->Salary;?>" id="salary" name="Salary" class="form-control" placeholder="Salary">
@@ -239,7 +245,15 @@ if (!empty($jobposts)) {
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Job Location</label>
+                                                    <input type="text" id="salary" name="JobLocation" class="form-control" placeholder="Job Location">
+                                                </div>
+                                                
+                                            </div>
+
+                                            <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label class="control-label">Job Image</label>
                                                         <input type="file"  <?=$attr?> name="JobImage" data-default-file="<?php echo base_url().$row->JobImage?>"/>
@@ -247,7 +261,7 @@ if (!empty($jobposts)) {
                                                 </div>
 
                                             
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
 
                                                          <?php 
@@ -264,8 +278,8 @@ if (!empty($jobposts)) {
                                                             ?>
                                                     <label class="control-label">Status</label>
                                                     <select <?=$attribute ?> class="form-control" id="stat" name="IsActive">
-                                                        <option value="1">Pending</option>
-                                                        <option value="0">Active</option>
+                                                        <option value="0">Pending</option>
+                                                        <option value="1">Active</option>
                                                         <option value="2">Inactive</option>                                                         
 
                                           
@@ -392,7 +406,7 @@ else { ?>
 
                                                 <div class="form-group">
                                                     <label class="control-label">Job Title</label>
-                                                    <input type="text" name="JobTitle" class="form-control" placeholder="E.g. Accountant">
+                                                    <input type="text" name="JobTitle" class="form-control" placeholder="E.g.: Accountant">
                                                     <small class="form-control-feedback">Specify the name of the job item.</small>
                                                 </div>
                                             </div>
@@ -401,6 +415,7 @@ else { ?>
                                                     <label class="control-label">Specialization</label>
                                                     
                                                     <select name="Specialization[]" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+
                                                         <?php
                                                             if ($skills->num_rows() > 0) {
                                                                 foreach ($skills->result() as $row) { ?>
@@ -539,7 +554,7 @@ else { ?>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Salary</label>
-                                                    <input type="text" id="salary" name="Salary" class="form-control" placeholder="Salary">
+                                                    <input type="text" id="salary" name="Salary" class="form-control" placeholder="E.g.: Minimum Wage">
                                                 </div>
                                                 
                                             </div>
@@ -577,8 +592,8 @@ else { ?>
                                                             ?>
                                                     <label class="control-label">Status</label>
                                                     <select <?=$attribute ?> class="form-control" id="stat" name="IsActive">
-                                                        <option value="1">Pending</option>
-                                                        <option value="0">Active</option>
+                                                        <option value="0">Pending</option>
+                                                        <option value="1">Active</option>
                                                         <option value="2">Inactive</option>                                                         
 
                                           

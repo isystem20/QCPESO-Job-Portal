@@ -228,31 +228,21 @@ if (!empty($emppost)) {
 
                    
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label class="control-label">PoeaLicenseExpiration</label>
                             <input type="date" name="PoeaLicenseExpiration" <?=$attr?> value="<?=$row->PoeaLicenseExpiration;?>" class="form-control">
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label class="control-label">WorkingHours</label>
                             <input type="text" name="WorkingHours" <?=$attr?> value="<?=$row->WorkingHours;?>"class="form-control">
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="control-label">Benefits</label>
-                            <input type="text" name="Benefits" <?=$attr?> value="<?=$row->Benefits;?>" class="form-control">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row p-t-20">
-                    
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label class="control-label">Dress Code</label>
                              <select name="DressCode" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
@@ -275,7 +265,7 @@ if (!empty($emppost)) {
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label class="control-label">Spoken Language</label>
                                 <select name="SpokenLanguage" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">                            
@@ -298,6 +288,25 @@ if (!empty($emppost)) {
                         </select>
                         </div>
                     </div>
+
+                    
+                </div>
+                <div class="row p-t-20">
+                    
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Benefits</label>
+                            <input type="text" name="Benefits" <?=$attr?> value="<?=$row->Benefits;?>" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Why Join your Company</label>
+                            <input type="text" name="Benefits" <?=$attr?> value="<?=$row->WhyJoinUs;?>" class="form-control">
+                        </div>
+                    </div>
+
                     <div class="col-md-4">
                         <?php 
                         $usertype = $this->session->userdata('usertype');
@@ -540,30 +549,22 @@ else { ?>
                         <div class="row p-t-20">
                             
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="control-label">POEA License Expiration</label>
                                     <input type="date" name="PoeaLicenseExpiration" value="" class="form-control">
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="control-label">Working Hours</label>
                                     <input type="text" name="WorkingHours"  value=""class="form-control">
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Benefits</label>
-                                    <input type="text" name="Benefits" value="" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row p-t-20">
                             
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="control-label">Dress Code</label>
                                     <select name="DressCode" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">                          
@@ -579,7 +580,7 @@ else { ?>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
 
                                 <div class="form-group">
                                     <label class="control-label">Spoken Language</label>
@@ -595,6 +596,23 @@ else { ?>
                                     }
                                     ?>
                                             </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-t-20">
+                            
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Benefits</label>
+                                    <input type="text" name="Benefits" value="" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Why Join your Company</label>
+                                    <input type="text" name="WhyJoinUs" value="" class="form-control">
                                 </div>
                             </div>
 

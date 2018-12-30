@@ -551,6 +551,7 @@ $('#empform').submit(function(e){
                 'PoeaLicenseExpiration' : $('input[name=PoeaLicenseExpiration]').val(),
                 'WorkingHours' : $('input[name=WorkingHours]').val(),
                 'Benefits' : $('input[name=Benefits]').val(),
+                'WhyJoinUs' : $('input[name=WhyJoinUs]').val(),
                 'DressCode' : $('select[name=DressCode]').val(),
                 'SpokenLanguage' : $('select[name=SpokenLanguage]').val(),
             }
