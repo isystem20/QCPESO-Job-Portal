@@ -31,15 +31,34 @@
                             <button class="btn btn-info btn-lg btn-block text-uppercase btn-rounded" type="submit" id="login-btn">Log In</button>
                         </div>
                     </div>
+                    </form>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
+
+
                             <div class="social">
                                 <div class="row">
                                     <div class="col-sm-6">
+
+
+                                            <?php
+                                            if (!empty($this->session->websettings)) {
+                                                $found = false;
+                                                foreach ($this->session->websettings as $row) {
+                                                    if ($row->Parameter == 'ENABLE_FACEBOOK_AUTH' && $row->Value == 'YES') { ?>
                                             <fb:login-button 
                                               scope="public_profile,email"
                                               onlogin="checkLoginState();">
-                                            </fb:login-button>       
+                                            </fb:login-button>   
+
+                                            <?php
+                                                    }
+                                                }
+                                            }
+
+                                            ?>
+
+    
                               <!--           <div class="fb-login-button" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email"
                                               onlogin="checkLoginState();" style="height:50px;"></div> -->
 
@@ -47,7 +66,24 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <!-- <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fab fa-google-plus-g"></i> </a>  -->
-                                        <div class="g-signin2" data-onsuccess="onSignIn" data-width="100%"></div>                                     
+
+
+                                            <?php
+                                            if (!empty($this->session->websettings)) {
+                                                $found = false;
+                                                foreach ($this->session->websettings as $row) {
+                                                    if ($row->Parameter == 'ENABLE_GOOGLE_AUTH' && $row->Value == 'YES') { ?>
+                                            <div class="g-signin2" data-onsuccess="onSignIn" data-width="100%"></div> 
+
+                                            <?php
+                                                    }
+                                                }
+                                            }
+
+                                            ?>
+
+
+                                                                             
                                     </div>
 
                                 </div>
@@ -61,7 +97,7 @@
                             Don't have an account? <a href="pages-register2.html" class="text-primary m-l-5"><b>Sign Up</b></a>
                         </div>
                     </div>
-                </form>
+
                 <form class="form-horizontal" id="recoverform" action="https://wrappixel.com/demos/admin-templates/admin-pro/minimal/index.html">
                     <div class="form-group ">
                         <div class="col-xs-12">

@@ -115,6 +115,7 @@ $(document).ready(function() {
         var newData  = {
                 'Email' : $('input[name=email]').val(),     //List of data you want to post
                 'Password' : $('input[name=password]').val(),
+                'Mode' : 'Manual',
             }
           $.ajax({
               url: newURL,
