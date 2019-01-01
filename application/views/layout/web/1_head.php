@@ -20,8 +20,18 @@
         <!-- Template core CSS-->
         <link href="<?php echo base_url(); ?>themes/boomerang/assets/css/template.css" rel="stylesheet">
         
-        <meta name="google-signin-client_id" content="695408817379-9bfd5ft39pl37hjh273aq87tsdfl35cv.apps.googleusercontent.com">
-        <script src="https://apis.google.com/js/platform.js" async defer></script>  
+        <?php
+        if (!empty($websetting) && !empty($websetting['ENABLE_GOOGLE_AUTH'])) {
+            if ($websetting['ENABLE_GOOGLE_AUTH'] == 'YES') { ?>
+
+            <meta name="google-signin-client_id" content="695408817379-9bfd5ft39pl37hjh273aq87tsdfl35cv.apps.googleusercontent.com">
+            <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <?php
+            }
+        }
+        ?>
+        
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/bower_components/pnotify/dist/pnotify.css">
@@ -48,8 +58,8 @@
     ?>
     </head>
 
-    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
 
 <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/js/jquery.toast.js"></script>
-
-    <?php $this->load->view('layout/admin/15_api'); ?>
+ -->
+    <?php //$this->load->view('layout/admin/15_api'); ?>

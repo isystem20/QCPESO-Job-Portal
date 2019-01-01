@@ -3,15 +3,20 @@
 class MY_Controller extends CI_Controller {
 
 
+    public $webs = 'This is a test';
+
     function __construct()
     {
 
         parent::__construct();
-        // $this->CI =& get_instance();
 
-    // function __construct()
-    // {
-    //     parent::__construct();
+        
+
+    // $this->CI =& get_instance();
+
+        // $this->db->flush_cache();
+        // $websettings = $this->db->get('tbl_websettings')->result();
+        // $this->session->set_userdata('websettings',$websettings);
 
         $userid = $this->session->userdata('userid');
         $usertype = $this->session->userdata('usertype');
@@ -19,7 +24,7 @@ class MY_Controller extends CI_Controller {
             return redirect(base_url().'admin/login');
         }
 
-    // }
+
 
 
     }
@@ -27,13 +32,48 @@ class MY_Controller extends CI_Controller {
 }
 
 
-class Public_Controller extends MY_Controller {
+class Public_Controller extends CI_Controller {
+
+
 
     function __construct()
     {
         parent::__construct();
-
         //Initialization code that affects Public controllers. Probably not much needed because everyone can access public.
+        $WEBSET = $this->LoadWebSettings();
+        if ($WEBSET['UNDER_CONSTRUCTION'] == 'YES') {
+            die('UNDER_CONSTRUCTION');
+        }
+    }
+
+
+    public function LoadWebSettings() {
+
+        $websettings_keys = array();
+        $websettings_val = array();
+
+        $this->db->flush_cache();
+        $get = $this->db->get('tbl_websettings');
+        $result = $get->result();
+
+        foreach ($result as $row) {
+            array_push($websettings_keys, strtoupper($row->Parameter));
+            array_push($websettings_val, strtoupper($row->Value));
+        }
+        return array_combine($websettings_keys, $websettings_val);          
+    }
+
+
+    public function CheckSiteUnderConstruction() {
+        $this->db->flush_cache();
+        $this->db->where('Parameter','UNDER_CONSTRUCTION');
+        $this->db->where('Value','YES');
+        $this->db->from('tbl_websettings');
+        $found = $this->db->count_all_results();
+        if ($found > 0) {
+           return TRUE;
+        }
+        return FALSE;
     }
 
 }

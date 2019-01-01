@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class WebController extends CI_Controller {
+class WebController extends Public_Controller {
 
 function __construct() {
 	parent::__construct();
@@ -10,7 +10,7 @@ function __construct() {
 
 	public function index() {
 
-
+		$websetting = $this->LoadWebSettings();
 
 
 		$logged_userid = $this->session->userdata('userid');
@@ -27,7 +27,7 @@ function __construct() {
 		// }
 		// else {
 			$data['webpostmodel'] = $this->webpostmod->LoadMasterlist();
-			$layout = array('transparentwrapper' => TRUE, 'site_title'=>'Quezon City PESO Web Portal');
+			$layout = array('transparentwrapper' => TRUE, 'site_title'=>'Quezon City PESO Web Portal','websetting'=>$websetting);
 			$this->load->view('layout/web/1_head',$layout);
 			$this->load->view('layout/web/2_preloader');
 			$this->load->view('layout/web/3_header',$layout);
