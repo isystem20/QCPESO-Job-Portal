@@ -15,7 +15,7 @@
   public function EmployerRegistration($id = null,$mode= null)
     {
  
-        $layout = array('editor'=>TRUE, 'tags'=>TRUE, 'pagetitle'=>'Adding New Web Employer','uploadfile'=>TRUE);
+        $layout = array( 'pagetitle'=>'Adding New Web Employer','addons'=>TRUE);
         $data['industry'] = $this->indmod->LoadMasterlist();
         $data['class'] = 'emppost';
         $data['dresscode'] = $this->dremod->LoadDresscodeMasterlist();
@@ -75,7 +75,7 @@
      public function PendingRequest()
     {
  
-        $layout = array('tables'=>TRUE,'pagetitle'=>'List of Pending Request');
+        $layout = array('tables'=>TRUE,'pagetitle'=>'List of All Employers with Pending Accreditation');
         $data['emppost'] = $this->empmod->PendingRequest();
         $data['class'] = 'emppost';
 
@@ -96,11 +96,17 @@
         $this->form_validation->set_rules('CompanyName','Company Name','required');
         $this->form_validation->set_rules('TIN','TIN','required|max_length[9]|numeric');
         $this->form_validation->set_rules('PermitIssuedDate','Permit Issued Date','required');
-        $this->form_validation->set_rules('EstablismentType','Establisment Type','required');
         $this->form_validation->set_rules('IndustryType','Industry Type','required');
         $this->form_validation->set_rules('CompanyAddress','Company Address','required');
         $this->form_validation->set_rules('LandlineNum','Landline Number','required');
-        $this->form_validation->set_rules('CompanyEmail','Company Email','required|valid_email');
+        $this->form_validation->set_rules('CompanyEmail','Company Email','required|valid_email|is_unique[tbl_establishments.CompanyEmail]|is_unique[tbl_security_users.Email]|is_unique[tbl_security_users.LoginName]',
+            array(
+                'required'      => 'You have not provided %s.',
+                'valid_email'     => 'This is not a valid email.',
+                'is_unique'     => 'The %s already exists.',
+                
+                )
+        );
         $this->form_validation->set_rules('OwnerName','Owner Name','required');
         $this->form_validation->set_rules('Designation','Designation','required');
         $this->form_validation->set_rules('ContactPerson','Contact Person','required');
@@ -111,9 +117,7 @@
         $this->form_validation->set_rules('PoeaLicenseDateIssued','Poea License Date Issued','required');
         $this->form_validation->set_rules('PoeaLicenseExpiration','Poea License Expiration','required');
         $this->form_validation->set_rules('WorkingHours','Working Hours','required');
-        $this->form_validation->set_rules('Benefits','Benefits','required');
-        $this->form_validation->set_rules('DressCode','Dress Code','required');
-        $this->form_validation->set_rules('SpokenLanguage','Spoken Language','required');
+        
                         
         if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
@@ -151,8 +155,8 @@
         else{
             $id = $postdata['Id'];
             unset($postdata['Id']);
-            unset($postdata['_wysihtml5_mode']);
-            $postdata = array_filter($postdata, 'strlen');
+            // unset($postdata['_wysihtml5_mode']);
+            // $postdata = array_filter($postdata, 'strlen');
 
             $result = $this->empmod->Update($id,$postdata);
             if ($result != FALSE) {

@@ -52,6 +52,16 @@
                                                 
                                             </tr>
                                         </thead>
+                                        <thead>
+                                            <tr>
+                                                <th>CompanyName</th>
+                                                 <th>Acronym</th>
+                                                <th>Industry Type</th>
+                                                <th>Email</th>
+                                                <th>Action</th>
+                                                
+                                            </tr>
+                                        </thead>
                                         <?php
                                         if ($emppost->num_rows() > 0) {
                                             foreach ($emppost->result() as $row) { ?>

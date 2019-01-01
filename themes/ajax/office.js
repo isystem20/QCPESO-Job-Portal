@@ -512,6 +512,16 @@ $('#jobpost-form').submit(function(e){ //Input the form's ID or CLASS, use # for
 //employer
 $('#empform').submit(function(e){
         e.preventDefault();
+
+      var DressCode = new Array();
+      $('#DressCode  > option:selected').each(function() {
+           DressCode.push($(this).val());
+      });
+      var SpokenLanguage = new Array();
+      $('#SpokenLanguage  > option:selected').each(function() {
+           SpokenLanguage.push($(this).val());
+      });
+
         $("#sub-btn-emp").prop("disabled", true); 
 
         var newURL = $(this).attr('action');  
@@ -523,7 +533,6 @@ $('#empform').submit(function(e){
                 'IsActive' : $('select[name=IsActive]').val(),
                 'TIN' : $('input[name=TIN]').val(),
                 'PermitIssuedDate' : $('input[name=PermitIssuedDate]').val(),
-                'EstablismentType' : $('select[name=EstablismentType]').val(),
                 'IndustryType' : $('select[name=IndustryType]').val(),
                 'CompanyAddress' : $('input[name=CompanyAddress]').val(),
                 'LandlineNum' : $('input[name=LandlineNum]').val(),
@@ -543,6 +552,7 @@ $('#empform').submit(function(e){
                 'PoeaLicenseExpiration' : $('input[name=PoeaLicenseExpiration]').val(),
                 'WorkingHours' : $('input[name=WorkingHours]').val(),
                 'Benefits' : $('input[name=Benefits]').val(),
+                'WhyJoinUs' : $('input[name=WhyJoinUs]').val(),
                 'DressCode' : $('select[name=DressCode]').val(),
                 'SpokenLanguage' : $('select[name=SpokenLanguage]').val(),
             }

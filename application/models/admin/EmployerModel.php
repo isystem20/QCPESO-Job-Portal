@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->db->where('id',$id);
                 return $this->db->get()->result();
             }else {
-                $this->db->where('isActive','1');
+                $this->db->where('IsActive','1');
                 return $this->db->get();
             }
             
@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->db->where('id',$id);
                 return $this->db->get()->result();
             }else {
-                $this->db->where('isActive','2');
+                $this->db->where('IsActive','2');
                 return $this->db->get();
             }
             
@@ -34,10 +34,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         public function Add($data) {
+
             $this->db->trans_start();
             $this->load->library('Uuid');
             $EstablishmentId = $this->uuid->v4();
             $code = rand(100000, 999999);
+
+            $data['DressCode'] = json_encode($data['DressCode']);
+            $data['SpokenLanguage'] = json_encode($data['SpokenLanguage']);
+
 
             $this->db->set('Id',"'".$EstablishmentId."'",FALSE);
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
@@ -104,6 +109,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         public function Update($id, $data) {
+
+            $data['SpokenLanguage'] = json_encode($data['SpokenLanguage']);
+            $data['DressCode'] = json_encode($data['DressCode']);
+
+
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
             // $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
