@@ -32,7 +32,7 @@
          $data['status'] = $this->empmod->LoadMasterlist();
          $data['titles'] = $this->jobtimod->LoadMasterlist();
          $data['dialect'] = $this->Diamod->LoadMasterlist();
-          $data['region'] = $this->regmod->LoadMasterlist();
+         $data['region'] = $this->regmod->LoadMasterlist();
          $data['class'] = 'applicant';
 
              
@@ -154,7 +154,7 @@
     }
  
     public function Update() {
-         $this->form_validation->set_rules('id', 'Item Record', 'required',
+         $this->form_validation->set_rules('Id', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
                 ));
@@ -165,14 +165,15 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $id = $postdata['id'];
-            unset($postdata['id']);
+            $id = $postdata['Id'];
+            unset($postdata['Id']);
             unset($postdata['_wysihtml5_mode']);
             // $postdata = array_filter($postdata, 'strlen');
             $result = $this->applimod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
-                echo $json;
+               
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/transactions/all-applicant']);
             }
             else {
                 echo json_encode(['error'=>'Update Unsuccessful.']);

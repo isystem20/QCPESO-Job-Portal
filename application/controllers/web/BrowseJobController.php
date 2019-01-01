@@ -63,6 +63,8 @@ public function BrowseJobDescription($id = NULL){
 
 		//die(print_r($data['browsejob']->result_array()));
 
+		
+
 		if ($data['browsejob']->num_rows() > 0) {
 			$data['browsejob'] = $data['browsejob']->result_array();
 
