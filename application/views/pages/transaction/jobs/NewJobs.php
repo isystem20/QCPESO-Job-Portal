@@ -228,7 +228,7 @@ if (!empty($jobposts)) {
                                             <div class="col-12">
                                                 <label class="control-label">Job Overview</label>  
                                                 <div class="form-group">
-                                                    <textarea class="textarea_editor form-control"  name="JobOverview" rows="5" placeholder="Please give an insight on what the job item is."></textarea>
+                                                    <textarea class="textarea_editor form-control"  name="JobOverview" rows="5" placeholder="Please give an insight on what the job item is."><?=$row->JobOverview;?></textarea>
                                                 </div>
                                                 
                                                       
@@ -248,7 +248,7 @@ if (!empty($jobposts)) {
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Job Location</label>
-                                                    <input type="text" id="salary" name="JobLocation" class="form-control" placeholder="Job Location">
+                                                    <input type="text" value="<?=$row->JobLocation;?>"  id="salary" name="JobLocation" class="form-control" placeholder="Job Location">
                                                 </div>
                                                 
                                             </div>
@@ -278,12 +278,9 @@ if (!empty($jobposts)) {
                                                             ?>
                                                     <label class="control-label">Status</label>
                                                     <select <?=$attribute ?> class="form-control" id="stat" name="IsActive">
-                                                        <option value="0">Pending</option>
-                                                        <option value="1">Active</option>
-                                                        <option value="2">Inactive</option>                                                         
-
-                                          
-                                                        
+                                                        <option <?php if($row->IsActive=="0"){ echo "Selected";}?> value="0">Pending</option>
+                                                        <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
+                                                        <option <?php if($row->IsActive=="2"){ echo "Selected";}?> value="2">Inactive</option>    
                                                     </select>
                                                 </div>
                                             </div>
@@ -562,7 +559,7 @@ else { ?>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Job Location</label>
-                                                    <input type="text" id="salary" name="JobLocation" class="form-control" placeholder="Job Location">
+                                                    <input type="text" id="salary" name="JobLocation" class="form-control" placeholder="E.g.: Quezon City">
                                                 </div>
                                                 
                                             </div>

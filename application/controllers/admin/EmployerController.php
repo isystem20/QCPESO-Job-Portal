@@ -155,8 +155,8 @@
         else{
             $id = $postdata['Id'];
             unset($postdata['Id']);
-            unset($postdata['_wysihtml5_mode']);
-            $postdata = array_filter($postdata, 'strlen');
+            // unset($postdata['_wysihtml5_mode']);
+            // $postdata = array_filter($postdata, 'strlen');
 
             $result = $this->empmod->Update($id,$postdata);
             if ($result != FALSE) {

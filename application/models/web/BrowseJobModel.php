@@ -4,16 +4,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	class BrowseJobModel extends CI_Model {
 
 		public function  BrowseJobModelMasterlist($data = null, $id = null, $userid = null) {
-			$this->db->select('ej.* ,"" as CategList, "" as SkillReq,estab.CompanyName,apposition.Name app_position,industry.Name industryname,dress.Name dresscode,appemtype.Name apptype,appemlevel.Description applevel,(select count(Id) from tbl_applicants_job_applications where JobPostId = ej.Id and ApplicantId = "'.$userid.'" ) as AppliedJob');
+			$this->db->select('ej.* ,"" as CategList, "" as SkillReq,estab.CompanyName,apposition.Name app_position,industry.Name industryname,dress.Name dresscode,appemtype.Name apptype,appemlevel.Description applevel,(select count(Id) from tbl_applicants_job_applications where JobPostId = ej.Id and ApplicantId = "'.$userid.'" ) as AppliedJob, aja.IsActive as ajaIsActive');
 			$this->db->from('tbl_establishments_jobposts ej');
 			$this->db->join('tbl_establishments estab', 'estab.Id = ej.EstablishmentId', 'left outer');
 			$this->db->join('tbl_applicants_positions apposition', 'apposition.Id = ej.PositionLevelId', 'left outer');
 			//$this->db->join('tbl_applicants_levels applevel', 'applevel.Id = ej.EmpTypeId', 'left outer');
 			$this->db->join('tbl_establishment_industries industry', 'industry.Id = estab.IndustryType', 'left outer');
-			$this->db->join('tbl_dresscodes dress', 'dress.Id = ej.DressCodeId', 'left outer');
+			$this->db->join('tbl_dresscodes dress', 'dress.Id = estab.DressCode', 'left outer');
 			$this->db->join('tbl_applicants_employment_types appemtype', 'appemtype.Id = ej.EmpTypeId', 'left outer');
-			$this->db->join('tbl_applicants_employment_level appemlevel', 'appemlevel.Id = ej.EmpLevelId', 'left outer');
-			
+			$this->db->join('tbl_applicants_employment_level appemlevel', 'appemlevel.Id = ej.PositionLevelId', 'left outer');
+			$this->db->join('tbl_applicants_job_applications aja', 'aja.JobPostId = ej.Id', 'left outer');
+
 			if (!empty($data['searchtext'])) {
 				$this->db->like('ej.JobTitle',$data['searchtext']);
 			}

@@ -49,9 +49,14 @@ if (!empty($emppost)) {
                     <div class="card-header bg-info">
                         <h4 class="m-b-0 text-white">Employer Registration Form</h4>
                     </div>
+                    <?php
+                    $hidden = array(
+                      'id' => $row->Id,
+                    );
+                    ?>
 
                     <div class="card-body">
-                    <?php echo form_open_multipart('admin/emppost/add','id="empform"'); ?>
+                   
                     <h5>Company Details</h5>
                     <hr/>
 
@@ -159,6 +164,7 @@ if (!empty($emppost)) {
                 </div>
                 
                 <h5>Contact Person</h5>
+
                 <hr/>
                 <div class="row p-t-20">  
                     <div class="col-md-6">
@@ -247,20 +253,25 @@ if (!empty($emppost)) {
                             <label class="control-label">Dress Code</label>
                              <select name="DressCode" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                 <?php $str="";
-                                    if ($dresscode->num_rows() > 0) {
-                                        foreach ($dresscode->result() as $types) { 
-                                            if ($row->DressCode==$types->Id){
-                                              $str="Selected";
-                                            }
-                                            else {
-                                                $str="";
+                                if ($dresscode->num_rows() > 0) {
+
+                                    $dresscodeset = json_decode($row->DressCode,true);
+                                        foreach($dresscode->result() as $types) {
+                                            $str = "";
+                                            foreach($dresscodeset as $key) {
+                                                if($key == $types->Id) {
+                                                    $str = "selected";
+                                                }
                                             }
                                             ?>
-                                        <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
-                                    <?php
+                                                <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                            <?php
+                                             
                                         }
+
                                     }
-                                    ?>
+                                
+                                ?> 
                             </select>
                         </div>
                     </div>
@@ -271,20 +282,24 @@ if (!empty($emppost)) {
                                 <select name="SpokenLanguage" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">                            
                              <?php $str="";
                                 if ($language->num_rows() > 0) {
-                                    foreach ($language->result() as $types) { 
-                                        if ($row->SpokenLanguage==$types->Id){
-                                          $str="Selected";
-                                        }
-                                        else {
-                                            $str="";
 
+                                    $languageset = json_decode($row->SpokenLanguage,true);
+                                        foreach($language->result() as $types) {
+                                            $str = "";
+                                            foreach($languageset as $key) {
+                                                if($key == $types->Id) {
+                                                    $str = "selected";
+                                                }
+                                            }
+                                            ?>
+                                                <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                            <?php
+                                             
                                         }
-                                        ?>
-                                    <option  <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
-                                <?php
+
                                     }
-                                }
-                                ?>                 
+                                
+                                ?>              
                         </select>
                         </div>
                     </div>
@@ -303,7 +318,7 @@ if (!empty($emppost)) {
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">Why Join your Company</label>
-                            <input type="text" name="Benefits" <?=$attr?> value="<?=$row->WhyJoinUs;?>" class="form-control">
+                            <input type="text" name="WhyJoinUs" <?=$attr?> value="<?=$row->WhyJoinUs;?>" class="form-control">
                         </div>
                     </div>
 
@@ -316,8 +331,9 @@ if (!empty($emppost)) {
                             <label class="control-label ">Status</label>
                                 <select class="form-control custom-select " <?=$attr?>
                                 name="IsActive">
-                                    <option  value="1">Active</option>
-                                    <option  value="2">Inactive</option>
+                                    <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
+                                    <option <?php if($row->IsActive=="0"){ echo "Selected";}?> value="0">Inactive</option>
+
                                 </select>
                         </div>
                         <?php
@@ -397,7 +413,7 @@ else { ?>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Name</label>
-                                    <input type="text" name="CompanyName" value="" class="form-control">
+                                    <input placeholder="" type="text" name="CompanyName" value="" class="form-control">
                                 </div>
                             </div>
 
@@ -485,6 +501,7 @@ else { ?>
                         
 
                         <h5>Contact Person</h5>
+                        <hr/>
                         <div class="row p-t-20">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -518,6 +535,7 @@ else { ?>
                         </div>
 
                         <h5>Others</h5>
+                        <hr/>
                         <div class="row p-t-20">
                             <div class="col-md-3">
                                 <div class="form-group">
