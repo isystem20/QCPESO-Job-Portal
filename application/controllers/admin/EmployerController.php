@@ -98,7 +98,13 @@
         $this->form_validation->set_rules('PermitIssuedDate','Permit Issued Date','required');
         $this->form_validation->set_rules('IndustryType','Industry Type','required');
         $this->form_validation->set_rules('CompanyAddress','Company Address','required');
-        $this->form_validation->set_rules('LandlineNum','Landline Number','required');
+        $this->form_validation->set_rules('LandlineNum','Landline Number','required ',
+            array(
+                'required'      => 'You have not provided %s.',
+                'is_natural'     => 'Invalid landline number.',
+                
+                )
+    );
         $this->form_validation->set_rules('CompanyEmail','Company Email','required|valid_email|is_unique[tbl_establishments.CompanyEmail]|is_unique[tbl_security_users.Email]|is_unique[tbl_security_users.LoginName]',
             array(
                 'required'      => 'You have not provided %s.',
@@ -111,7 +117,14 @@
         $this->form_validation->set_rules('Designation','Designation','required');
         $this->form_validation->set_rules('ContactPerson','Contact Person','required');
         $this->form_validation->set_rules('ContactPersonDesignation','Contact Person Designation','required');
-        $this->form_validation->set_rules('ContactPersonMobile','Contact Person Mobile','required');
+        $this->form_validation->set_rules('ContactPersonMobile','Contact Person Mobile','required|is_natural|exact_length[11]',
+            array(
+                'required'      => 'You have not provided %s.',
+                'is_natural'     => 'Invalid number number.',
+                'exact_length'     => 'Invalid mobile number.',
+                
+                )
+            );
         $this->form_validation->set_rules('DoleRegistrationDateIssued','Dole Registration Date Issued','required');
         $this->form_validation->set_rules('DoleRegistrationExpiration','Dole Registration Expiration','required');
         $this->form_validation->set_rules('PoeaLicenseDateIssued','Poea License Date Issued','required');

@@ -187,7 +187,7 @@
                                         </tfoot>
                                         <?php
 
-                                        print_r($jobposts->result());
+                                        
 
                                             if (!empty($jobposts)) {
                                                 

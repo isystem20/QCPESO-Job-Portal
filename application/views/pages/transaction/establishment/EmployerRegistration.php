@@ -204,14 +204,14 @@ if (!empty($emppost)) {
                     
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="control-label">Dole Registration</label>
+                            <label class="control-label">DOLE Registration</label>
                             <input type="text" name="DoleRegistration" <?=$attr?> value="<?=$row->DoleRegistration;?>" class="form-control">
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="control-label">DateIssued</label>
+                            <label class="control-label">Date Issued</label>
                             <input type="date" name="DoleRegistrationDateIssued" <?=$attr?> value="<?=$row->DoleRegistrationDateIssued;?>"class="form-control">
                         </div>
                     </div>
@@ -225,7 +225,7 @@ if (!empty($emppost)) {
 
                      <div class="col-md-3">
                         <div class="form-group">
-                            <label class="control-label">PoeaLicenseDateIssued</label>
+                            <label class="control-label">POEA License Date Issued</label>
                             <input type="date" name="PoeaLicenseDateIssued" <?=$attr?> value="<?=$row->PoeaLicenseDateIssued;?>"class="form-control">
                         </div>
                     </div>
@@ -236,14 +236,14 @@ if (!empty($emppost)) {
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="control-label">PoeaLicenseExpiration</label>
+                            <label class="control-label">POEA License Expiration</label>
                             <input type="date" name="PoeaLicenseExpiration" <?=$attr?> value="<?=$row->PoeaLicenseExpiration;?>" class="form-control">
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="control-label">WorkingHours</label>
+                            <label class="control-label">Working Hours</label>
                             <input type="text" name="WorkingHours" <?=$attr?> value="<?=$row->WorkingHours;?>"class="form-control">
                         </div>
                     </div>
@@ -466,7 +466,7 @@ else { ?>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Permit Issued Date</label>
-                                    <input type="date" name="PermitIssuedDate"  value=""class="form-control">
+                                    <input type="date" name="PermitIssuedDate" id="PermitIssuedDate"  value=""class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -528,7 +528,7 @@ else { ?>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Mobile</label>
-                                    <input type="text" name="ContactPersonMobile"  value=""class="form-control">
+                                    <input type="text" name="ContactPersonMobile" placeholder="E.g.: 09123456789" value=""class="form-control">
                                 </div>
                             </div>
 
@@ -539,7 +539,7 @@ else { ?>
                         <div class="row p-t-20">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="control-label">Dole Registration</label>
+                                    <label class="control-label">DOLE Registration</label>
                                     <input type="text" name="DoleRegistration" value="" class="form-control">
                                 </div>
                             </div>
@@ -547,7 +547,7 @@ else { ?>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="control-label">Date Issued</label>
-                                    <input type="date" name="DoleRegistrationDateIssued"  value=""class="form-control">
+                                    <input type="date" name="DoleRegistrationDateIssued" id="DoleRegistrationDateIssued"  value=""class="form-control">
                                 </div>
                             </div>
 
@@ -559,8 +559,8 @@ else { ?>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="control-label">PoeaLicenseDateIssued</label>
-                                    <input type="date" name="PoeaLicenseDateIssued"  value=""class="form-control">
+                                    <label class="control-label">POEA License Date Issued</label>
+                                    <input type="date" name="PoeaLicenseDateIssued" id="PoeaLicenseDateIssued"  value=""class="form-control">
                                 </div>
                             </div>
                         </div>
