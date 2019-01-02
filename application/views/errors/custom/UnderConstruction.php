@@ -1,62 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us" class="no-js">
 
 
-<!-- Mirrored from wrappixel.com/demos/admin-templates/admin-pro/minimal/pages-error-400.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Sep 2018 07:09:16 GMT -->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Page Error</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
-    <!-- page css -->
-    <link href="css/pages/error-pages.css" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
-    <link href="css/colors/default.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-</head>
+<meta charset="utf-8">
+<title>UnderConstruction QCPESO - SIGMA++</title>
+<meta name="description" content="Flat able 404 Error page design">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Phoenixcoded">
 
-<body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <section id="wrapper" class="error-page">
-        <div class="error-box">
-            <div class="error-body text-center">
-                <h1 class="text-info">MAINTENANCE</h1>
-                <h3 class="text-uppercase">Page is Underconstruction!</h3>
-                <p class="text-muted m-t-30 m-b-30">YOU SEEM TO BE TRYING TO FIND HIS WAY HOME</p>
-                <a href="index.html" class="btn btn-info btn-rounded waves-effect waves-light m-b-40">Back to home</a> </div>
-            <footer class="footer text-center">© 2019 Sigma.</footer>
-        </div>
-    </section>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!--Wave Effects -->
-    <script src="js/waves.js"></script>
+<link rel="shortcut icon" href="<?php echo base_url()?>themes/ltr/vertical-static/404/1/img/favicon.ico">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>themes/ltr/vertical-static/404/1/css/style.css" />
+</head>
+<body>
+<div class="image"></div>
+
+
+<div class="content">
+<div class="content-box">
+<div class="big-content">
+
+<div class="list-square">
+<span class="square"></span>
+<span class="square"></span>
+<span class="square"></span>
+</div>
+
+<div class="list-line">
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+</div>
+
+<i class="fa fa-search" aria-hidden="true"></i>
+
+<div class="clear"></div>
+</div>
+
+<h1>UNDERCONSTRUCTION!</h1>
+<p>Sorry, we're doing some work on the site.</p><br>
+<p>PLEASE CHECK BACK SOON.</p>
+</div>
+</div>
+<footer class="light">
+<ul>
+<li><a href="#">Home</a></li>>
+<li><a href="#">Help</a></li>
+<li><a href="#">Trust & Safety</a></li>
+<li><a href="#">Sitemap</a></li>
+<li><a href="https://www.facebook.com/QuezonCityPESO/"><i class="fa fa-facebook"></i></a></li>
+</ul>
+</footer>
+<script src="<?php echo base_url()?>themes/ltr/vertical-static/404/1/js/jquery.min.js"></script>
+<script src="<?php echo base_url()?>themes/ltr/vertical-static/404/1/js/bootstrap.min.js"></script>
 </body>
 
 
-<!-- Mirrored from wrappixel.com/demos/admin-templates/admin-pro/minimal/pages-error-400.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Sep 2018 07:09:16 GMT -->
 </html>
