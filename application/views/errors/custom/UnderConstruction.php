@@ -19,28 +19,17 @@
 <div class="content">
 <div class="content-box">
 <div class="big-content">
-
-<div class="list-square">
-<span class="square"></span>
-<span class="square"></span>
-<span class="square"></span>
+<div class=".imagecenter"
+<center>
+<img src="<?php echo base_url()?>themes/ltr/vertical-static/404/1/img/UnderConst.png" height="200" length="100">
+</center>
 </div>
-
-<div class="list-line">
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"></span>
-</div>
-
 <i class="fa fa-search" aria-hidden="true"></i>
 
 <div class="clear"></div>
 </div>
 
-<h1>UNDERCONSTRUCTION!</h1>
+<h1>UNDERCONSTRUCTION</h1>
 <p>Sorry, we're doing some work on the site.</p><br>
 <p>PLEASE CHECK BACK SOON.</p>
 </div>
