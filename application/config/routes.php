@@ -485,3 +485,5 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['applicant/Notification'] = 'applicant/ApplicantNotificationsController/ApplicantNotifications';
         $route['applicant/MyAlerts'] = 'applicant/MyAlertsController/MyAlerts';
         $route['applicant/MyApplication'] = 'applicant/MyApplicationController/MyApplication';
+
+        $route['Underconstruction'] = 'SiteErrorController/Underconstruction';
