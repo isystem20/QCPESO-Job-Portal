@@ -19,6 +19,7 @@ function __construct() {
 		$data["successhires"] = $this->dash->total_SuccessHires();
 		$data['query'] = $this->dash->load_Categories();
 		$data['recenthired'] = $this->dash->load_RecentHired();
+		//for table under the donut chart
 		$data['referrals'] = $this->dash->Referrals();
 		
 		
@@ -29,11 +30,11 @@ function __construct() {
 		$values_array = array();
 		
 		foreach ($this->dash->load_Dashboard1() as $row) {
-			// if ($key == 'Month') {
+			
 			array_push($keys_array, $row->Month);
 			array_push($values_array, $row->Days);
 			 	
-			// }
+			
 			
 		}
 		$data_array = array_combine($keys_array, $values_array);
@@ -44,11 +45,11 @@ function __construct() {
 		$values_array = array();
 		
 		foreach ($this->dash->load_Dashboard2() as $row) {
-			// if ($key == 'Month') {
+			
 			array_push($keys_array, $row->Month);
 			array_push($values_array, $row->Days);
 			 	
-			// }
+			
 			
 		}
 		$data_array = array_combine($keys_array, $values_array);
@@ -59,11 +60,11 @@ function __construct() {
 		$values_array = array();
 		
 		foreach ($this->dash->load_ReferredApplicants() as $row) {
-			// if ($key == 'Month') {
+			
 			array_push($keys_array, $row->TotalApplicants);
 			array_push($values_array, $row->ReferredApplicants);
 			 	
-			// }
+			
 			
 		}
 		$data_array = array_combine($keys_array, $values_array);

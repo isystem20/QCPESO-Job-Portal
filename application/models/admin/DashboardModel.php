@@ -95,10 +95,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             return $this->db->get();
        }
 
+       // Etong function ginamit ko sa donut chart, same lang sila ng code sa baba. 
        public function load_ReferredApplicants(){
          $query = $this->db->query("SELECT Count(ApplicantId) as ReferredApplicants, TotalApplicants from (Select ApplicantId from tbl_applicants_job_applications  Group by ApplicantId) xDerived, (Select Count(Id) as TotalApplicants from tbl_applicants) xDerived1");
          return $query->result();
 }
+        // This function ginamit ko sa table under the donut chart which produces 15 and 15 but it should be 3 and 5
         public function Referrals(){
             $this->db->select('Count(ApplicantId) as ReferredApplicants, Count(Id) as TotalApplicants');
          $this->db->from('(Select ApplicantId from tbl_applicants_job_applications Group By ApplicantId) xDerived');

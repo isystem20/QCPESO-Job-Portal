@@ -236,16 +236,20 @@
                                     </div>
                                 <table class="table vm font-14">
                                     <tbody>
+
+   <!-- Code for retrieving the number of total applicants and referred applicants  -->
                                     <?php 
                                         if ($referrals->num_rows() > 0){
                                             foreach ($referrals->result() as $row){ ?>
                                                  <tr>
                                                     <td class="b-0">Number of Referred Applicants</td>
                                                     <td class="text-right font-medium b-0"><?php echo $row->ReferredApplicants; ?></td>
+                                                <!-- This echo produces 15 but it should be 3 based on query -->
                                                 </tr>
                                                 <tr>
                                                     <td class="b-0">Number of Total Applicants</td>
                                                     <td class="text-right font-medium b-0"><?php echo $row->TotalApplicants; ?></td>
+                                                <!-- This produces 15 also but it should 5 based on query -->
                                                 </tr>
                                             
                                                 <?php
