@@ -149,7 +149,7 @@ $route['logout'] = 'WebController/logout';
 //ERRORS
 
 $route['403'] = 'SiteErrorController/Error403';
-$route['admin/login/auth'] = 'admin/AuthenticationController/AuthenticateAdmin';
+$route['admin/login/auth'] = 'web/LoginController/authenticate';
 $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
 
@@ -485,3 +485,5 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['applicant/Notification'] = 'applicant/ApplicantNotificationsController/ApplicantNotifications';
         $route['applicant/MyAlerts'] = 'applicant/MyAlertsController/MyAlerts';
         $route['applicant/MyApplication'] = 'applicant/MyApplicationController/MyApplication';
+
+        $route['Underconstruction'] = 'SiteErrorController/Underconstruction';

@@ -5,14 +5,15 @@
                             <!-- Post-->
                             <article class="post">
                               <div class="post-preview"><?=$browsejob[0]['JobImage']?></div>
-
-
                                 <div class="post-wrapper">
                                     <br>
                                     <div class="post-header">
                                         <h1 class="post-title"><?=$browsejob[0]['JobTitle']  ?> </h1>
-                                         
+                                        <span class="post-date">
+                                        <ul class="post-meta">
+                                            <li><?=date('D F d, Y H:i A',strtotime($browsejob[0]['CreatedAt']))   ?></li>
                                     </div>
+                                   
                                     <div class="post-content">
                                         <h6>Category: <div class="post-tags"> <?php  foreach ($browsejob[0]['CategList'] as $row) {
                                             echo '<a>'.$row->Name.'</a>';
@@ -72,7 +73,8 @@
                                         <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#"><?=$row->JobTitle;?></span></div>
+                                            <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=$row->JobTitle;?><br>
+                                                <span class="post-date"><?=date('D F d, Y H:i A',strtotime($row->CreatedAt));?></span></div>
                                         </li>
 
                                         <?php
