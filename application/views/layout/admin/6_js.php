@@ -9,6 +9,7 @@
 <script type="text/javascript" src="<?php echo base_url();?>themes/bower_components/jquery/dist/jquery.min.js"></script> -->
 <script type="text/javascript" src="<?php echo base_url();?>themes/bower_components/jquery-ui/jquery-ui.min.js"></script>
 
+
 <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/perfect-scrollbar.jquery.min.js"></script>
 <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/waves.js"></script>
 
@@ -41,11 +42,20 @@ $('#to-recover').on("click", function() {
     <!--morris JavaScript -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-js/dist/chartist.min.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard1.js"></script>
+     
+    <!--c3 JavaScript -->
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/d3/d3.min.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/c3-master/c3.min.js"></script>
+   
+    
     <!-- Chart JS -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard4.js"></script>
-
+    <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard1.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+
+    <!-- Chart JS -->
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/Chart.js/chartjs.init.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/Chart.js/Chart.min.js"></script>
 <?php } ?>
 
 <?php  if (!empty($datepicker)) { ?>
@@ -426,7 +436,7 @@ $('#to-recover').on("click", function() {
             });
         });
     });
-    $('#example23').DataTable({
+    $('#ReportTable').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
