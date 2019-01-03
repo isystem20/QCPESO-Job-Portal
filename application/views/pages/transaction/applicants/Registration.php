@@ -541,7 +541,13 @@ if (!empty($applicant)) {
                                                                             <th>Company Address</th>
                                                                             <th>Inclusive Date From</th>
                                                                             <th>Inclusive To</th>
+                                                                                <?php
+                            if ($mode=="edit") {
+                                ?>
                                                                             <th>Action</th>
+                                                                             <?php
+                            }
+                             ?>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -572,11 +578,15 @@ if (!empty($applicant)) {
                                                                                 <td>
                                                                                     <input type="text" class="form-control InclusiveDateTo" name="InclusiveDateTo" value="<?php echo $workhist->InclusiveDateTo; ?>">
                                                                                 </td>
-
+                                                                                 <?php
+                            if ($mode=="edit") {
+                                ?>
                                                                                 <td class="actions">
                                                                                     <button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button>
                                                                                 </td>
-
+                                                                                                      <?php
+                            }
+                             ?>
                                                                                 <tr>
 
                                                                                     <?php
@@ -605,7 +615,13 @@ if (!empty($applicant)) {
                                                                         <tr>
                                                                             <th>Skill Name</th>
                                                                             <th>Description</th>
+                                                                            <?php
+                            if ($mode=="edit") {
+                                ?>
                                                                             <th>Action</th>
+                                                                              <?php
+                            }
+                             ?>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -623,9 +639,15 @@ if (!empty($applicant)) {
                                                                                 <td>
                                                                                     <input type="text" class="form-control Description" name="Description" value="<?php echo $skills->Description; ?>">
                                                                                 </td>
+                                                                                 <?php
+                            if ($mode=="edit") {
+                                ?>
                                                                                 <td class="actions">
                                                                                     <button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button>
                                                                                 </td>
+                                                                                <?php
+                            }
+                             ?>
                                                                             </tr>
                                                                             <?php
                                             }
@@ -773,7 +795,13 @@ if (!empty($applicant)) {
                                                                             <th>Highest Level</th>
                                                                             <th>Year Graduated</th>
                                                                             <th>Last School Year Attended</th>
+                                                                            <?php
+                            if ($mode=="edit") {
+                                ?>
                                                                             <th>Action</th>
+                                                                               <?php
+                            }
+                             ?>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -800,10 +828,15 @@ if (!empty($applicant)) {
                                                                                 <td>
                                                                                     <input type="text" class="form-control YearLastAttended" name="YearLastAttended" value="<?php echo $educhist->YearLastAttended; ?>">
                                                                                 </td>
+                                                                                  <?php
+                            if ($mode=="edit") {
+                                ?>
                                                                                 <td class="actions">
                                                                                     <button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button>
                                                                                 </td>
-
+                                                                                  <?php
+                            }
+                             ?>
                                                                                 <tr>
 
                                                                                     <?php
@@ -833,7 +866,13 @@ if (!empty($applicant)) {
                                                                         <tr>
                                                                             <th>Name</th>
                                                                             <th>Description</th>
+                                                                              <?php
+                            if ($mode=="edit") {
+                                ?>
                                                                             <th>Action</th>
+                                                                             <?php
+                            }
+                             ?>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -850,9 +889,15 @@ if (!empty($applicant)) {
                                                                                 <td>
                                                                                     <input type="text" class="form-control Description" name="DependentDescription" value="<?php echo $depends->Description; ?>">
                                                                                 </td>
+                                                                                 <?php
+                            if ($mode=="edit") {
+                                ?>
                                                                                 <td class="actions">
                                                                                     <button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button>
                                                                                 </td>
+                                                                                 <?php
+                            }
+                             ?>
                                                                             </tr>
                                                                             <?php
                                             }
