@@ -19,7 +19,12 @@ function __construct() {
 		$data["successhires"] = $this->dash->total_SuccessHires();
 		$data['query'] = $this->dash->load_Categories();
 		$data['recenthired'] = $this->dash->load_RecentHired();
+		$data['referrals'] = $this->dash->Referrals();
 		
+		
+
+		
+		// 1st dashboard line chart //
 		$keys_array = array();
 		$values_array = array();
 		
@@ -33,7 +38,8 @@ function __construct() {
 		}
 		$data_array = array_combine($keys_array, $values_array);
 		$data['monthly_applicants'] = $data_array;
-		
+
+		// 2nd dashboard bar chart
 		$keys_array = array();
 		$values_array = array();
 		
@@ -47,6 +53,22 @@ function __construct() {
 		}
 		$data_array = array_combine($keys_array, $values_array);
 		$data['all_year'] = $data_array;
+
+		// 3rd donut chart
+		$keys_array = array();
+		$values_array = array();
+		
+		foreach ($this->dash->load_ReferredApplicants() as $row) {
+			// if ($key == 'Month') {
+			array_push($keys_array, $row->TotalApplicants);
+			array_push($values_array, $row->ReferredApplicants);
+			 	
+			// }
+			
+		}
+		$data_array = array_combine($keys_array, $values_array);
+		$data['monthly_referrals'] = $data_array;
+
 		
 		$layout = array('charts' => TRUE, 'pagetitle'=>'Dashboard');
 		$this->load->view('layout/admin/1_css',$layout);
