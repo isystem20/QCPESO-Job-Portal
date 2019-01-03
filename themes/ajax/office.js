@@ -297,9 +297,12 @@ $('#webpostform').submit(function(e){ //Input the form's ID or CLASS, use # for 
                       hideAfter: 3500, 
                       stack: 6
                     });
-               
+                      window.setTimeout(function(){
+                    window.location.href = data.url; 
+                  }, 1000);
         
               }
+               
                   else{
                     $.toast({
                       heading: 'Error',
