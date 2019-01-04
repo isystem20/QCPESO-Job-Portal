@@ -32,16 +32,20 @@
          $data['status'] = $this->empmod->LoadMasterlist();
          $data['titles'] = $this->jobtimod->LoadMasterlist();
          $data['dialect'] = $this->Diamod->LoadMasterlist();
-          $data['region'] = $this->regmod->LoadMasterlist();
+         $data['region'] = $this->regmod->LoadMasterlist();
          $data['class'] = 'applicant';
 
              
-
+         $profile=FALSE;
        if (!empty($id)) {
-
+            if (strtolower($id) == 'profile') {
+              $id=$this->session->userdata('peopleid');
+              $profile=TRUE;
+            }
             $data['applicant'] = $this->applimod->LoadMasterlist($id);
 
-            // print_r($data['applicant']);
+
+            
 
             if (!empty($mode)) {
                 if ($mode == 'edit') {
@@ -58,6 +62,7 @@
                   $data['mode']="view";
             }
         }
+      // print_r($data['applicant']);
         $this->load->view('layout/admin/1_css',$layout);
         $this->load->view('layout/admin/2_preloader',$layout);
         $this->load->view('layout/admin/3_topbar',$layout);
@@ -87,20 +92,22 @@
 
    
     public function Create() {
-
+    
       $this->form_validation->set_rules('LastName','Last Name','required');    
-      $this->form_validation->set_rules('FirstName','First Name','required');
-      $this->form_validation->set_rules('BirthDate','Birth date','required');
-      $this->form_validation->set_rules('HouseNum','House Number','required');
-      $this->form_validation->set_rules('StreetName','Street Name','required');
-      $this->form_validation->set_rules('EmailAddress','Email Address','required');
-      $this->form_validation->set_rules('MobileNum','Mobile Number','required');
-      $this->form_validation->set_rules('HouseNum','House Number','required');
-      $this->form_validation->set_rules('Remarks','Remarks','required');
-        if ($this->form_validation->run() == FALSE){
+      // $this->form_validation->set_rules('FirstName','First Name','required');
+      // $this->form_validation->set_rules('BirthDate','Birth date','required');
+      // $this->form_validation->set_rules('HouseNum','House Number','required');
+      // $this->form_validation->set_rules('StreetName','Street Name','required');
+      // $this->form_validation->set_rules('EmailAddress','Email Address','required');
+      // $this->form_validation->set_rules('MobileNum','Mobile Number','required');
+      // $this->form_validation->set_rules('HouseNum','House Number','required');
+      // $this->form_validation->set_rules('Remarks','Remarks','required');
+       
+      if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
-
+         //    print_r($this->input->post());
+         // die();
         }
 
         // elseif (empty($_FILES["PhotoPath"]["name"])) {
@@ -134,7 +141,7 @@
             $postdata['PhotoPath']=$imagepath;
             unset($postdata['_wysihtml5_mode']);
             $inserted = $this->applimod->Add($postdata);
-            // echo json_encode(['success'=>TRUE]);
+           
             if ($inserted != FALSE) {           
                 
                 echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/transactions/all-applicant']);
@@ -147,7 +154,7 @@
     }
  
     public function Update() {
-         $this->form_validation->set_rules('id', 'Item Record', 'required',
+         $this->form_validation->set_rules('Id', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
                 ));
@@ -158,14 +165,15 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $id = $postdata['id'];
-            unset($postdata['id']);
+            $id = $postdata['Id'];
+            unset($postdata['Id']);
             unset($postdata['_wysihtml5_mode']);
             // $postdata = array_filter($postdata, 'strlen');
             $result = $this->applimod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
-                echo $json;
+               
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/transactions/all-applicant']);
             }
             else {
                 echo json_encode(['error'=>'Update Unsuccessful.']);

@@ -149,7 +149,7 @@ $route['logout'] = 'WebController/logout';
 //ERRORS
 
 $route['403'] = 'SiteErrorController/Error403';
-$route['admin/login/auth'] = 'admin/AuthenticationController/AuthenticateAdmin';
+$route['admin/login/auth'] = 'web/LoginController/authenticate';
 $route['admin/login'] = 'admin/AuthenticationController/LoginPage';
 
 
@@ -447,7 +447,7 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['manage/transactions/update-applicant/(:any)/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1/$2';
         $route['manage/applicant/add'] = 'admin/ApplicantController/AddNewApplicant';
         $route['manage/applicant/view-list'] = 'admin/ApplicantController/AllApplicants';
-
+        $route['account/(:any)'] = 'admin/ApplicantController/AddNewApplicant/$1';
         $route['admin/emppost/edit/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1'; 
         $route['admin/emppost/edit/(:any)/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1/$2';
         $route['admin/emppost/read/(:any)'] = 'admin/EmployerController/EmployerRegistration/$1';
@@ -478,3 +478,12 @@ $route['404'] = 'admin/SiteErrorController/Error404';
 
         $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
 
+
+
+        $route['applicant/BrowseJobs'] = 'applicant/ApplicantBrowseJobsController/ApplicantBrowseJobs';
+        $route['applicant/Dashboard'] = 'applicant/ApplicantDashboardController/ApplicantDashboard';
+        $route['applicant/Notification'] = 'applicant/ApplicantNotificationsController/ApplicantNotifications';
+        $route['applicant/MyAlerts'] = 'applicant/MyAlertsController/MyAlerts';
+        $route['applicant/MyApplication'] = 'applicant/MyApplicationController/MyApplication';
+
+        $route['Underconstruction'] = 'SiteErrorController/Underconstruction';

@@ -12,6 +12,8 @@
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor">Job Posts</h3>
+                    <h5 class="text-muted">List of all available jobs</h3>
+                    
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
@@ -75,10 +77,13 @@
                                                 <td>
                                                     <?php 
                                                     if ($row->IsActive == '1') {
-                                                        echo '<label class="label label-success">Active</label>';
+                                                        echo '<label class="label label-warning">Pending</label>';
                                                     }
-                                                    else {
-                                                        echo '<span class="label label-light-inverse">Inactive</span>';
+                                                    elseif ($row->IsActive == '0') {
+                                                        echo '<span class="label label-info">Active</span>';
+                                                    }
+                                                    elseif ($row->IsActive == '2') {
+                                                        echo '<span class="label label-light-reverse">Inactive</span>';
                                                     }
                                                     ?>
                                                 </td>
@@ -97,6 +102,15 @@
                                             }
                                         }
                                         ?>
+                                    <tfoot>
+                                            <tr>
+                                                <th>Job Title</th>
+                                                <th>Job Description</th>
+                                                <th>Salary</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -174,7 +188,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer">
-                © 2018 Admin Pro by wrappixel.com
+                 <p>© 2018 Quezon City PESO, All Rights Reserved. Design with love by <a href="#">SIGMA</a></p>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

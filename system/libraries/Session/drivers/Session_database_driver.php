@@ -165,9 +165,10 @@ class CI_Session_database_driver extends CI_Session_driver implements SessionHan
 			{
 				$this->_db->where('ip_address', $_SERVER['REMOTE_ADDR']);
 			}
-
+			
 			if ( ! ($result = $this->_db->get()) OR ($result = $result->row()) === NULL)
 			{
+
 				// PHP7 will reuse the same SessionHandler object after
 				// ID regeneration, so we need to explicitly set this to
 				// FALSE instead of relying on the default ...
@@ -175,7 +176,8 @@ class CI_Session_database_driver extends CI_Session_driver implements SessionHan
 				$this->_fingerprint = md5('');
 				return '';
 			}
-
+				// print_r($result);
+				// die();
 			// PostgreSQL's variant of a BLOB datatype is Bytea, which is a
 			// PITA to work with, so we use base64-encoded data in a TEXT
 			// field instead.
@@ -208,6 +210,15 @@ class CI_Session_database_driver extends CI_Session_driver implements SessionHan
 		// Prevent previous QB calls from messing with our queries
 		$this->_db->reset_query();
 
+
+		$this->_db->reset_query();
+		$userid = '0';
+		if (isset($_SESSION['userid'])) {
+			$userid = $_SESSION['userid'];
+		}
+
+
+
 		// Was the ID regenerated?
 		if (isset($this->_session_id) && $session_id !== $this->_session_id)
 		{
@@ -226,10 +237,16 @@ class CI_Session_database_driver extends CI_Session_driver implements SessionHan
 
 		if ($this->_row_exists === FALSE)
 		{
+			// $userid = '';
+			// if (!empty($session_data['userid'])) {
+			// 	$userid = $session_data['userid'];
+			// }
+
 			$insert_data = array(
 				'id' => $session_id,
 				'ip_address' => $_SERVER['REMOTE_ADDR'],
 				'timestamp' => time(),
+				'userid' => $userid,
 				'data' => ($this->_platform === 'postgre' ? base64_encode($session_data) : $session_data)
 			);
 
@@ -242,7 +259,11 @@ class CI_Session_database_driver extends CI_Session_driver implements SessionHan
 
 			return $this->_fail();
 		}
+		// added for including userid to sessions
+		$this->_db->set('userid',"'".$userid."'",FALSE);
 
+
+		//
 		$this->_db->where('id', $session_id);
 		if ($this->_config['match_ip'])
 		{

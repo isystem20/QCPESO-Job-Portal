@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <title><?php if(!empty($site_title)){echo $site_title;} ?></title>
         <!-- Favicons-->
-        <link rel="shortcut icon" href="assets/images/favicon.png">
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>themes/admin-pro/assets/images/qcpeso.png">
         <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
         <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
         <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
@@ -20,8 +20,18 @@
         <!-- Template core CSS-->
         <link href="<?php echo base_url(); ?>themes/boomerang/assets/css/template.css" rel="stylesheet">
         
-        <meta name="google-signin-client_id" content="453639693637-8utkl362om0v1qad2jmgdbbhla6l9m5u.apps.googleusercontent.com">
-        <script src="https://apis.google.com/js/platform.js" async defer></script>  
+        <?php
+        if (!empty($websetting) && !empty($websetting['ENABLE_GOOGLE_AUTH'])) {
+            if ($websetting['ENABLE_GOOGLE_AUTH'] == 'YES') { ?>
+
+            <meta name="google-signin-client_id" content="695408817379-9bfd5ft39pl37hjh273aq87tsdfl35cv.apps.googleusercontent.com">
+            <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <?php
+            }
+        }
+        ?>
+        
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/bower_components/pnotify/dist/pnotify.css">
@@ -31,7 +41,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/bower_components/pnotify/dist/pnotify.mobile.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>themes/ltr/vertical-static/assets/pages/pnotify/notify.css">
 
-
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet">
     
     <?php
     if (!empty($addons)) { ?>
@@ -47,3 +57,9 @@
         }
     ?>
     </head>
+
+    <!-- <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
+
+<script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/js/jquery.toast.js"></script>
+ -->
+    <?php //$this->load->view('layout/admin/15_api'); ?>

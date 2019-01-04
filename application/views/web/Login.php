@@ -1,5 +1,5 @@
 
-        <div class="wrapper">
+        <div class="wrapper" id="maincontent" data-adminpage="<?=base_url('manage'); ?>">
             <section class="module-cover parallax fullscreen text-center" data-background="<?php echo base_url(); ?>banners/LOGIN1.png" data-overlay="0.65" data-gradient="">
                 <div class="container">
                    
@@ -12,7 +12,9 @@
                                 <h6>Sign into your account</h6> 
                             </div>
                             <div class="m-b-20">
-                                <form method="post" id="login-form" action="<?php echo base_url(); ?>web/login/applicant">
+                                <?php $hidden = array('Mode'=>'Manual'); ?>
+                                <?=form_open('web/login/applicant','id="login-form"',$hidden); ?>
+                                <form method="post" id="" action="<?php echo base_url(); ?>">
                                     <div class="form-group">
                                         <input class="form-control" name="email" type="email" placeholder="Email">
                                     </div>
@@ -27,7 +29,7 @@
                             
                             <div class="m-b-20">
                               <div class="g-signin2" data-onsuccess="onSignIn" data-width=""></div>
-                              <div class="g-signin2" data-onsuccess="onSignIn" data-width=""></div>
+                  <a href="#" class="grey-text text-darken-1" onclick="signOut();"> Logout</a>
 
                             </div>
 

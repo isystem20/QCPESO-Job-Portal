@@ -30,7 +30,12 @@
                                             <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/images/blog/1.jpg" alt=""></a></div>
                                             <div class="post-wrapper">
                                                 <div class="post-header">
-                                                    <h2 class="post-title"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"> <?php echo $row->JobTitle; ?></a></h2>
+                                                    <h2 class="post-title"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"> <?php echo $row->JobTitle; ?><br></a></h2>
+                                                    <ul class="post-meta">
+                                            <li><?php echo date('D F d, Y H:i A',strtotime($row->CreatedAt)); ?></li>
+                                            <li><a href="#"><?php echo $row->CompanyName; ?></a>,
+                                            <li><a href="#"><?php echo $row->industryname; ?></a></li>
+                                        </ul>
                                                 </div>
                                             <div class="card-body">
                                                 <p><?php echo $row->JobDescription; ?></p>
@@ -56,11 +61,11 @@
                                         </div>
                                     
                                  <div class="form-group">
-                                   <!--  <?php
+                                     <?php
                                     if (!empty($criteria->Categories)) {
                                         print_r($criteria->Categories);
                                      } ; 
-                                     ?> -->
+                                     ?> 
                                             <label class="control-label">Categories </label>
                                             <select name="Categories[]"  class="select2 m-b-10 select2-multiple" style="width: 100%" multiple=" multiple" dat-placeholder="ategories" "> 
                                                 <?php
@@ -182,12 +187,13 @@
                                     <ul>
 
                                         <?php
-                                        if ($browsejob1->num_rows() > 0) {
-                                            foreach ($browsejob1->result() as $row ) { ?>
+                                        if ($mostrecentjob->num_rows() > 0) {
+                                            foreach ($mostrecentjob->result() as $row ) { ?>
                                         <li class="clearfix">
                                             <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
 /images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#"><?=$row->JobDescription;?></span></div>
+                                            <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=$row->JobTitle;?><br>
+                                                <span class="post-date"><?=date('D F d, Y H:i A',strtotime($row->CreatedAt));?></span></div>
                                         </li>
 
                                         <?php
@@ -200,19 +206,19 @@
                                 </aside>
 
                                 <!-- Twitter widget-->
-                                <aside class="widget twitter-feed-widget">
+                                <!-- <aside class="widget twitter-feed-widget">
                                     <div class="widget-title">
                                         <h6>Employee</h6>
                                     </div>
                                     <div class="twitter-feed" data-twitter="345170787868762112" data-number="2"></div>
                                 </aside>
 
-                                <!-- Tags widget-->
+                                 Tags widget
                                 <aside class="widget widget-tag-cloud">
                                     <div class="widget-title">
                                         <h6>Tags</h6>
                                     </div>
-                                    <div class="tag-cloud"><a href="#">e-commerce</a><a href="#">portfolio</a><a href="#">responsive</a><a href="#">bootstrap</a><a href="#">business</a><a href="#">corporate</a></div>
+                                    <div class="tag-cloud"><a href="#">e-commerce</a><a href="#">portfolio</a><a href="#">responsive</a><a href="#">boo --><!-- tstrap</a><a href="#">business</a><a href="#">corporate</a></div> -->
                                 </aside>
                             </div>
                         </div>
@@ -221,7 +227,16 @@
             </section>
             <!-- Blog end-->
 
-            
+            <div class="col-md-12">
+                                    <nav>
+                                        <ul class="pagination justify-content-center">
+                                            <li class="page-item"><a class="page-link" href="#"><span class="fas fa-angle-left"></span></a></li>
+                                            <li class="page-item active"><a class="page-link" <a href="<?=base_url('web/JobDescription/'.$row->Id); ?>">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#"><span class="fas fa-angle-right"></span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
             <!-- Footer-->
             <footer class="footer">
                 <div class="footer-widgets">
@@ -257,9 +272,15 @@
                                         <h6>Recent Posts</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">April 7, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">September 7, 2018</span></li>
+                                         <?php
+                                        if ($webpostmodel->num_rows() > 0) {
+                                            foreach ($webpostmodel->result() as $row ) { ?>
+                                       <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=character_limiter($row->PostDescription, 100);?><br>
+                                                <span class="post-date"><?=date('D F d, Y H:i A',strtotime($row->CreatedAt));?></span></div>
+                                          <?php
+                                            }
+                                        }
+                                        ?>    
                                     </ul>
                                 </aside>
                             </div>

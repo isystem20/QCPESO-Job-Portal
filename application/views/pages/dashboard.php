@@ -117,7 +117,7 @@
                                             foreach($successhires->result() as $row)
                                             {
                                               ?>
-                                              <h2 class="m-t-0"><?php echo $this->db->count_all('tbl_applicants_job_applications'); ?></h2></div>
+                                              <h2 class="m-t-0"><?php echo $row->countsuccess; ?></h2></div>
                                               <?php  
                                             }
                                         }
@@ -142,7 +142,7 @@
                             <div class="card-body">
                                 <div class="d-flex no-block">
                                     <div>
-                                        <h3 class="card-title m-b-5"><span class="lstick"></span>Sales Overview </h3>
+                                        <h3 class="card-title m-b-5"><span class="lstick"></span>Applicants Per Year</h3>
                                     </div>
                                     <div class="ml-auto">
                                         <select class="custom-select b-0">
@@ -153,8 +153,11 @@
                                         </select>
                                     </div>
                                 </div>
+
+                                
                                 <!-- Charts for monthly Applicants -->
                                 <div id="sales-overview2" data-values='<?=json_encode($monthly_applicants); ?>' class="p-relative" style="height:360px;"></div>
+
                                 <div class="stats-bar">
                                     <div class="row text-center">
                                         <div class="col-lg-4 col-md-4">
@@ -185,7 +188,7 @@
                             <div class="card-body">
                                 <div class="d-flex no-block">
                                     <div>
-                                        <h3 class="card-title m-b-5"><span class="lstick"></span>Sales Overview </h3>
+                                        <h3 class="card-title m-b-5"><span class="lstick"></span>Employers Per Year</h3>
                                     </div>
                                     <div class="ml-auto">
                                         <select class="custom-select b-0">
@@ -196,7 +199,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div id="ct-sales3-chart" class="p-relative" style="height:360px;"></div>
+                                <div id="ct-sales3-chart" data-values='<?=json_encode($all_year); ?>' class="p-relative" style="height:360px;"></div>
                                 <div class="stats-bar">
                                     <div class="row text-center">
                                         <div class="col-lg-4 col-md-4">
@@ -226,22 +229,45 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex no-block">
-                                    <div>
-                                        <h3 class="card-title m-b-5"><span class="lstick"></span>Total Visits </h3>
+                            <!-- Visit Separation Donut Chart -->
+                           <div class="card-body">
+                             <h4 class="card-title"><span class="lstick"></span>Visit Separation</h4>
+                                <div id="visitor" data-values='<?=json_encode($monthly_referrals); ?>' style="height: 290px; width: 100%; max-height: 290px; position: relative;" class="c3">
                                     </div>
-                                    <div class="ml-auto">
-                                        <select class="custom-select b-0">
-                                            <option selected="">January 2017</option>
-                                            <option value="1">February 2017</option>
-                                            <option value="2">March 2017</option>
-                                            <option value="3">April 2017</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div id="visitfromworld" style="width:100%!important; height:415px"></div>
+                                <table class="table vm font-14">
+                                    <tbody>
+
+   <!-- Code for retrieving the number of total applicants and referred applicants  -->
+                                    <?php 
+                                        if ($referrals->num_rows() > 0){
+                                            foreach ($referrals->result() as $row){ ?>
+                                                 <tr>
+                                                    <td class="b-0">Number of Referred Applicants</td>
+                                                    <td class="text-right font-medium b-0"><?php echo $row->ReferredApplicants; ?></td>
+                                                <!-- This echo produces 15 but it should be 3 based on query -->
+                                                </tr>
+                                                <tr>
+                                                    <td class="b-0">Number of Total Applicants</td>
+                                                    <td class="text-right font-medium b-0"><?php echo $row->TotalApplicants; ?></td>
+                                                <!-- This produces 15 also but it should 5 based on query -->
+                                                </tr>
+                                            
+                                                <?php
+                                                }
+                                        }
+                                            else
+                                            {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <?php
+                                            } 
+                                                ?> 
+                                </tbody></table>
                             </div>
+                            <!-- End -->
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -296,81 +322,56 @@
                             <div class="card-body">
                                 <div class="d-flex no-block">
                                     <div>
-                                        <h4 class="card-title"><span class="lstick"></span>Projects of the Month</h4></div>
-                                    <div class="ml-auto">
-                                        <select class="custom-select b-0">
-                                            <option selected="">January 2017</option>
-                                            <option value="1">February 2017</option>
-                                            <option value="2">March 2017</option>
-                                            <option value="3">April 2017</option>
-                                        </select>
-                                    </div>
+                                        <h4 class="card-title"><span class="lstick"></span>Recently Employed Applicant</h4></div>
+                                  
                                 </div>
                                 <div class="table-responsive m-t-20">
                                     <table class="table vm no-th-brd pro-of-month">
                                         <thead>
                                             <tr>
-                                                <th colspan="2">Assigned</th>
-                                                <th>Name</th>
-                                                <th>Priority</th>
+                                                <th><b>Job Title</th>
+                                                <th><b>Last Name</th>
+                                                <th><b>First Name</th>
+                                                <th><b>Middle Name</th>
+                                                <th><b>Date Accepted</th>
                                             </tr>
+                                           
+                                                 <?php 
+                                            if ($recenthired->num_rows() > 0) {
+                                                foreach ($recenthired->result() as $row)  { ?>
+                                                    <tr>
+                                                        <td><?php echo $row->Jobtitle; ?></td>
+                                                        <td><?php echo $row->Lastname; ?></td>
+                                                        <td><?php echo $row->Firstname; ?></td>
+                                                        <td><?php echo $row->Middlename; ?></td>
+                                                        <td><?php echo $row->dateaccepted; ?></td>
+                                                        
+                                                       
+                                                    </tr>
+                                                     <?php
+                                                }
+                                            }
+                                            else
+                                            {
+                                                ?>
+
+                                                <tr>
+                                                    <td colspan="5"><center> <i>NO DATA FOUND</i></center></td>
+                                                </tr>
+                                                <?php
+                                             
+                                            }
+                                             ?>   
+                                          
+                                            
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td style="width:50px;"><span class="round"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/1.jpg" alt="user" width="50"></span></td>
-                                                <td>
-                                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small></td>
-                                                <td>Elite Admin</td>
-                                                <td><span class="label label-success label-rounded">Low</span></td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td><span class="round"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/2.jpg" alt="user" width="50"></span></td>
-                                                <td>
-                                                    <h6>Andrew</h6><small class="text-muted">Project Manager</small></td>
-                                                <td>Real Homes</td>
-                                                <td><span class="label label-info label-rounded">Medium</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-success"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/3.jpg" alt="user" width="50"></span></td>
-                                                <td>
-                                                    <h6>Bhavesh patel</h6><small class="text-muted">Developer</small></td>
-                                                <td>MedicalPro Theme</td>
-                                                <td><span class="label label-primary label-rounded">High</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-primary"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/4.jpg" alt="user" width="50"></span></td>
-                                                <td>
-                                                    <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small></td>
-                                                <td>Elite Admin</td>
-                                                <td><span class="label label-danger label-rounded">Low</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-warning"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/5.jpg" alt="user" width="50"></span></td>
-                                                <td>
-                                                    <h6>Micheal Doe</h6><small class="text-muted">Content Writer</small></td>
-                                                <td>Helping Hands</td>
-                                                <td><span class="label label-success label-rounded">High</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-danger"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/6.jpg" alt="user" width="50"></span></td>
-                                                <td>
-                                                    <h6>Johnathan</h6><small class="text-muted">Graphic</small></td>
-                                                <td>Digital Agency</td>
-                                                <td><span class="label label-info label-rounded">High</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-primary"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/4.jpg" alt="user" width="50"></span></td>
-                                                <td>
-                                                    <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small></td>
-                                                <td>Elite Admin</td>
-                                                <td><span class="label label-danger label-rounded">Low</span></td>
-                                            </tr>
-                                        </tbody>
+                                      
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <!-- ============================================================== -->
                     <!-- Activity widget find scss into widget folder-->
                     <!-- ============================================================== -->
@@ -378,7 +379,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <h4 class="card-title"><span class="lstick"></span>Activity</h4>
+                                    <h4 class="card-title"><span class="lstick"></span>Top Jobs</h4>
                                     <!-- <span class="badge badge-success">9</span> -->
                                     <div class="btn-group ml-auto m-t-10">
                                         <a href="JavaScript:void(0)" class="icon-options-vertical link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
@@ -525,10 +526,20 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2018 Admin Pro by wrappixel.com </footer>
+            <!-- <footer class="footer"> © 2018 Admin Pro by wrappixel.com </footer> -->
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
-        </div>
+       
+    
+
+
+
+
+
+
+
+
+                     </div>
 
 
