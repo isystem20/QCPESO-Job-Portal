@@ -388,7 +388,7 @@ $('#to-recover').on("click", function() {
     <!-- end - This is for export functionality only -->
     <script>
     $(document).ready(function() {
-        $('#myTable').DataTable();
+        $('#ReportsTable').DataTable();
         $(document).ready(function() {
             var table = $('#example').DataTable({
                 "columnDefs": [{
@@ -426,7 +426,7 @@ $('#to-recover').on("click", function() {
             });
         });
     });
-    $('#example23').DataTable({
+    $('#ReportsTable').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'

@@ -11,16 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Masterlist</h3>
-                    <h6 class="text-muted">Masterlist of All Applicant</h6>
+                    <h3 class="text-themecolor">Applicants</h3>
+                    <h6 class="text-muted">Masterlist of All Applicants</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Reports</li>
-                        <li class="breadcrumb-item">Applicants</li>
-                        <li class="breadcrumb-item active">Masterlist</li>
+                        <li class="breadcrumb-item">Transactions</li>
+                        <li class="breadcrumb-item active">Applicants</li>
                     </ol>
                 </div>
                 <div>
@@ -40,7 +39,71 @@
                         <div class="card">
                             <div class="card-body">
                                
-                                
+                               <a href="<?=base_url('manage/applicant/add');?>" class="btn waves-effect waves-light btn-success">Add</a>
+                                <div class="table-responsive m-t-40">
+                                    <table id="ReportsTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
+                                        <thead>
+                                            <tr>
+                                                <th>Last Name</th>
+                                                <th>First Name</th>
+                                                <th>Middle Name</th>
+                                                <th>Modified By</th>
+                                                <th>Modified At</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <?php
+                                        if ($masterlist->num_rows() > 0) {
+                                            foreach ($masterlist->result() as $row) { ?>
+                                            <tr id="row<?=$row->Id; ?>">
+                                                <td><?php echo character_limiter($row->LastName, 10); ?></td>
+                                                <td><?php echo character_limiter($row->FirstName, 10); ?></td>
+                                                <td><?php echo character_limiter($row->MiddleName, 10); ?></td>
+                                                <td><?php echo $row->ModifiedById; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
+                                                
+                                                <td>
+                                                    <?php 
+                                                    if ($row->IsActive == '1') {
+                                                        echo '<label class="label label-success">Active</label>';
+                                                    }
+                                                    else {
+                                                        echo '<span class="label label-light-inverse">Inactive</span>';
+                                                    }
+                                                    ?>
+                                                </td>
+                                                 <td class="actions">
+                                                    <a href="<?=base_url('manage/transactions/view-applicant/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
+
+
+                                                    <a href="<?=base_url('manage/transactions/update-applicant/'.$row->Id.'/edit');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
+
+
+
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/applicant/del'); ?>" data-id="<?php echo $row->Id; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+                                            </tr>
+                                        
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    <tfoot>
+                                            <tr>
+                                                <th>Last Name</th>
+                                                <th>First Name</th>
+                                                <th>Middle Name</th>
+                                                <th>Modified By</th>
+                                                <th>Modified At</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                                
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -112,7 +175,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"><p>© 2018 Quezon City PESO, All Rights Reserved. Design with love by <a href="#">SIGMA</a></p></footer>
+            <footer class="footer"> <p>© 2018 Quezon City PESO, All Rights Reserved. Design with love by <a href="#">SIGMA</a></p></footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

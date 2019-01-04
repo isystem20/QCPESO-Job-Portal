@@ -41,7 +41,7 @@
                                
                                <a href="<?=base_url('manage/applicant/add');?>" class="btn waves-effect waves-light btn-success">Add</a>
                                 <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
+                                    <table id="ReportsTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
                                                 <th>Last Name</th>
