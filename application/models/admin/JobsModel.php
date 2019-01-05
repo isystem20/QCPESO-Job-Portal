@@ -4,29 +4,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	class JobsModel extends CI_Model {
 
 
-		public $tbl = 'tbl_establishments_jobposts';
+				public $tbl = 'tbl_establishments_jobposts';
+
 
 		public function LoadMasterlist($id = null) {
-			$this->db->select('*');
-			$this->db->from($this->tbl);
+			$this->db->select('ej.*, ej.IsActive as ActiveStatus');
+			$this->db->from('tbl_establishments_jobposts ej');
 			if (!empty($id)) {
 				$this->db->where('Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('IsActive','0');
+				$this->db->where('IsActive','1');
 				return $this->db->get();
 			}
 			
 		}
 
 		public function LoadMasterlistPending($id = null) {
-			$this->db->select('*');
-			$this->db->from($this->tbl);
+			$this->db->select('ej.*, e.CompanyName as comname, ej.IsActive as PendingStatus');
+			$this->db->from('tbl_establishments_jobposts ej');
+			$this->db->join('tbl_establishments e', 'ej.EstablishmentId = e.Id', 'left outer');			
+
 			if (!empty($id)) {
 				$this->db->where('Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('IsActive','1');
+				$this->db->where('ej.IsActive','0');
 				
 				return $this->db->get();
 			}
@@ -35,13 +38,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function Add($data) {
 
-
-			
+			 
+		
 			$data['Specialization'] = json_encode($data['Specialization']);
 			$data['Category'] = json_encode($data['Category']);			
+			
 
+			
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
-			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
+			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
+
 
 			$this->db->insert($this->tbl,$data);
 
