@@ -436,7 +436,7 @@ $('#to-recover').on("click", function() {
             });
         });
     });
-    $('#ReportTable').DataTable({
+    $('#ReportsTable').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'

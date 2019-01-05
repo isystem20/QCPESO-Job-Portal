@@ -2,93 +2,93 @@
  defined('BASEPATH') OR exit('No direct script access allowed');
  
  class ApplicantController extends CI_Controller {
- 
-    function __construct() {
-         parent::__construct();
-         $this->load->model('admin/ApplicantModel','applimod');
-         $this->load->model('admin/CitiesModel','citymod');
-         $this->load->model('admin/NationalityModel','nationalmod');
-         $this->load->model('admin/JobsModel','jobsmod');
-         $this->load->model('admin/DisabilityModel','dismod');
-         $this->load->model('admin/LanguageModel','langmod');
-         $this->load->model('admin/LocationModel','locmod');
-         $this->load->model('admin/EmploymentStatusModel','empmod');
-         $this->load->model('admin/JobtitlesModel','jobtimod');
-         $this->load->model('admin/DialectModel','Diamod');
-          $this->load->model('admin/RegionModel','regmod');
+   
+      function __construct() {
+           parent::__construct();
+           $this->load->model('admin/ApplicantModel','applimod');
+           $this->load->model('admin/CitiesModel','citymod');
+           $this->load->model('admin/NationalityModel','nationalmod');
+           $this->load->model('admin/JobsModel','jobsmod');
+           $this->load->model('admin/DisabilityModel','dismod');
+           $this->load->model('admin/LanguageModel','langmod');
+           $this->load->model('admin/LocationModel','locmod');
+           $this->load->model('admin/EmploymentStatusModel','empmod');
+           $this->load->model('admin/JobtitlesModel','jobtimod');
+           $this->load->model('admin/DialectModel','Diamod');
+            $this->load->model('admin/RegionModel','regmod');
 
-     }
- 
-  public function AddNewApplicant($id = null,$mode= null)
-    {
- 
-        $layout = array('datepicker'=>TRUE, 'addons'=>TRUE, 'uploadfile'=>TRUE,'pagetitle'=>'Adding New Applicant');
-         $data['city'] = $this->citymod->LoadMasterlist();
-         $data['national'] = $this->nationalmod->LoadMasterlist();
-         $data['jobs'] = $this->jobsmod->LoadMasterlist();
-         $data['disability'] = $this->dismod->LoadMasterlist();
-         $data['language'] = $this->langmod->LoadMasterlist();
-         $data['location'] = $this->locmod->LoadMasterlist();
-         $data['status'] = $this->empmod->LoadMasterlist();
-         $data['titles'] = $this->jobtimod->LoadMasterlist();
-         $data['dialect'] = $this->Diamod->LoadMasterlist();
-         $data['region'] = $this->regmod->LoadMasterlist();
-         $data['class'] = 'applicant';
+       }
+   
+    public function AddNewApplicant($id = null,$mode= null)
+      {
+   
+          $layout = array('datepicker'=>TRUE, 'addons'=>TRUE, 'uploadfile'=>TRUE,'pagetitle'=>'Adding New Applicant');
+           $data['city'] = $this->citymod->LoadMasterlist();
+           $data['national'] = $this->nationalmod->LoadMasterlist();
+           $data['jobs'] = $this->jobsmod->LoadMasterlist();
+           $data['disability'] = $this->dismod->LoadMasterlist();
+           $data['language'] = $this->langmod->LoadMasterlist();
+           $data['location'] = $this->locmod->LoadMasterlist();
+           $data['status'] = $this->empmod->LoadMasterlist();
+           $data['titles'] = $this->jobtimod->LoadMasterlist();
+           $data['dialect'] = $this->Diamod->LoadMasterlist();
+           $data['region'] = $this->regmod->LoadMasterlist();
+           $data['class'] = 'applicant';
 
-             
-         $profile=FALSE;
-       if (!empty($id)) {
-            if (strtolower($id) == 'profile') {
-              $id=$this->session->userdata('peopleid');
-              $profile=TRUE;
-            }
-            $data['applicant'] = $this->applimod->LoadMasterlist($id);
+               
+           $profile=FALSE;
+         if (!empty($id)) {
+              if (strtolower($id) == 'profile') {
+                $id=$this->session->userdata('peopleid');
+                $profile=TRUE;
+              }
+              $data['applicant'] = $this->applimod->LoadMasterlist($id);
 
 
-            
+              
 
-            if (!empty($mode)) {
-                if ($mode == 'edit') {
-                    $data['mode']="edit";
-                }
-                elseif ($mode == 'view') {
+              if (!empty($mode)) {
+                  if ($mode == 'edit') {
+                      $data['mode']="edit";
+                  }
+                  elseif ($mode == 'view') {
+                      $data['mode']="view";
+                  }
+                  else {
+                      die('Invalid Mode');
+                  }
+              }
+              else {
                     $data['mode']="view";
-                }
-                else {
-                    die('Invalid Mode');
-                }
-            }
-            else {
-                  $data['mode']="view";
-            }
-        }
-      // print_r($data['applicant']);
-        $this->load->view('layout/admin/1_css',$layout);
-        $this->load->view('layout/admin/2_preloader',$layout);
-        $this->load->view('layout/admin/3_topbar',$layout);
-        $this->load->view('layout/admin/4_leftsidebar',$layout);
-        $this->load->view('pages/transaction/applicants/Registration',$data);
-        $this->load->view('layout/admin/6_js',$layout);
-     
-    }
- 
-      public function AllApplicants()
-    {
- 
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'pagetitle'=>'Applicant Masterlist');
-        $data['applicant'] = $this->applimod->LoadMasterlist();
-        $data['class'] = 'applicant';
+              }
+          }
+        // print_r($data['applicant']);
+          $this->load->view('layout/admin/1_css',$layout);
+          $this->load->view('layout/admin/2_preloader',$layout);
+          $this->load->view('layout/admin/3_topbar',$layout);
+          $this->load->view('layout/admin/4_leftsidebar',$layout);
+          $this->load->view('pages/transaction/applicants/Registration',$data);
+          $this->load->view('layout/admin/6_js',$layout);
+       
+      }
+   
+        public function AllApplicants()
+      {
+   
+          $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'pagetitle'=>'Applicant Masterlist');
+          $data['applicant'] = $this->applimod->LoadMasterlist();
+          $data['class'] = 'applicant';
 
-        $this->load->view('layout/admin/1_css',$layout);
-        $this->load->view('layout/admin/2_preloader',$layout);
-        $this->load->view('layout/admin/3_topbar',$layout);
-        $this->load->view('layout/admin/4_leftsidebar',$layout);
-        $this->load->view('pages/transaction/applicants/ApplicantMasterlist',$data);
-        $this->load->view('layout/admin/6_js',$layout);     
-        $this->load->view('layout/admin/7_modals'); 
-      
+          $this->load->view('layout/admin/1_css',$layout);
+          $this->load->view('layout/admin/2_preloader',$layout);
+          $this->load->view('layout/admin/3_topbar',$layout);
+          $this->load->view('layout/admin/4_leftsidebar',$layout);
+          $this->load->view('pages/transaction/applicants/ApplicantMasterlist',$data);
+          $this->load->view('layout/admin/6_js',$layout);     
+          $this->load->view('layout/admin/7_modals'); 
+        
 
-    }
+      }
 
    
     public function Create() {

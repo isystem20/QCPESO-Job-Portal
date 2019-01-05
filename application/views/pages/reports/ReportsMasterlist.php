@@ -27,6 +27,7 @@
                     <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
                 </div>
             </div>
+
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -34,13 +35,129 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
+               <div class="row p-t-20">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group has-success">
+                                                <label class="control-label">Name</label>
+                                                <input type="text" name="Name" value="" class="form-control">
+
+                                            </div>
+                                        </div>
+
+                            
+                                        <div class="col-sm-3">
+                                            <div class="form-group has-success">
+                                                <label class="control-label">Categories</label>
+                                    <select class="form-control" name="Categories">
+                                                <?php
+                                                            if ($categories->num_rows() > 0) {
+                                                                foreach ($categories->result() as $row) { ?>
+                                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                               
+                                               
+                                            </select>
+                        </div>
+                    </div>
+
+
+                                        <div class="col-sm-2">
+                                                <div class="form-group has-success">
+                                                    <label class="control-label">CreatedAt</label>
+                                                    <input type="date" class="form-control" value="" name="CreatedAt">
+
+                                                </div>
+                                            </div>
+                                         <div class="col-sm-2">
+                                                <div class="form-group has-success">
+                                                    <label class="control-label">ModifiedAt</label>
+                                                    <input type="date" class="form-control" value=">" name="ModifiedAt">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group has-success">
+                                                                            <label class="control-label ">Status</label>
+                                                                            <select class="form-control " name="IsActive">
+
+                                                                                <option value="1">Active</option>
+                                                                                <option value="2">Inactive</option>
+
+                                                                            </select>
+                                                </div>                      
+                                            </div>
+                                              <div class="col-sm-2">
+                                                <div class="form-group has-success">
+                                                   <button type="submit" id="sub-btn" class="btn btn-success">  Generate</button>
+
+                                                </div>
+                                           
+                                        </div>
+                                </div>
+
+        <div class="row">
                     <div class="col-12">
 
                         <div class="card">
                             <div class="card-body">
                                
-                                
+                              
+                                <div class="table-responsive m-t-40">
+                                    <table id="ReportsTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
+                                        <thead>
+                                            <tr>
+                                                <th>Full Name</th>
+                                                <th>Employment Status</th>
+                                                <th>Modified At</th>
+                                                <th>Created At</th>
+                                                <th>Status</th>
+
+                                                
+                                                
+                                            </tr>
+                                        </thead>
+                                        <?php
+                                        if ($reports->num_rows() > 0) {
+                                            foreach ($reports->result() as $row) { ?>
+                                            <tr id="row<?=$row->Id; ?>">
+                                                <td><?php echo ($row->LastName); ?>,&nbsp <?php echo ($row->FirstName); ?> &nbsp <?php echo ($row->MiddleName); ?> </td>
+                                                <td><?php echo $row->EmploymentStatus; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->CreatedAt)); ?></td>
+                                                
+                                                <td>
+                                                    <?php 
+                                                    if ($row->IsActive == '1') {
+                                                        echo '<label class="label label-success">Active</label>';
+                                                    }
+                                                    else {
+                                                        echo '<span class="label label-light-inverse">Inactive</span>';
+                                                    }
+                                                    ?>
+                                                </td>
+                                                
+                                            </tr>
+                                        
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    <tfoot>
+                                            <tr>
+                                                <th>Full Name</th>
+                                                <th>Employment Status</th>
+                                                <th>Modified At</th>
+                                                <th>Status</th>
+                                                
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
