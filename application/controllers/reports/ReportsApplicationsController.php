@@ -11,11 +11,11 @@
  
  	public function ReportsApplications()
  	{
- 		$postdata = $this->input->post();
+ 		$postdata=$this->input->post();
  		$data['categories'] = $this->catmod->LoadCategoryMasterlist();
- 
+ 		// die(print_r($postdata));
  		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
- 		$data['applications'] = $this->appmod->LoadReportsApplications();
+ 		$data['applications'] = $this->appmod->LoadReportsApplications(null,$postdata);
         $data['class'] = 'applications';
  		$this->load->view('layout/admin/1_css');
  		$this->load->view('layout/admin/2_preloader');

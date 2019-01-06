@@ -14,12 +14,22 @@ class ReportsApplicationsModel extends CI_Model {
     public $educ ='tbl_applicants_schools_attended';
     public $dependent ='tbl_applicants_dependents';
     public $applications ='tbl_applicants_job_applications';
+    public $industries = 'tbl_establishment_industries';
 
     public function LoadReportsApplications($id = null) {
-        $this->db->select('a.*,u.*,a.Id as Id, U.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as DependentTbl');
-        $this->db->from($this->tbl.
-            ' a');
-        $this->db->join('tbl_security_users u', 'u.PeopleId = a.Id', 'left outer');
+         $this->db->select('*');
+            $this->db->from($this->applications);
+            if (!empty($id)) {
+                $this->db->where('id',$id);
+                return $this->db->get()->result();
+            }else {
+                $this->db->where('isActive','1');
+                return $this->db->get();
+            }
+        // $this->db->select('a.*,u.*,a.Id as Id, U.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as DependentTbl');
+        // $this->db->from($this->tbl.
+        //     ' a');
+        // $this->db->join('tbl_security_users u', 'u.PeopleId = a.Id', 'left outer');
         if (!empty($id)) {
             $this->db->where('a.Id', $id);
             $query = $this->db->get();
@@ -57,11 +67,22 @@ class ReportsApplicationsModel extends CI_Model {
              }
              return $query->result();
         } else {
+          if (!empty($filter)) {
+             $this->db->like('a.ApplicantId', $filter['applicantid']);
+             $this->db->like('a.CreatedAt', $filter['CreatedAt']);
+
+
+          }
+          else
+          {
             $this->db->where('a.isActive', '1');
             $this->db->or_where('a.isActive', '2');
+          }
+            
             $query = $this->db->get();
+
         }
-       
+       // die($this->db->last_query());
         return $query;
     }
 
