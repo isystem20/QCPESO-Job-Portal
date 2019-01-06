@@ -144,11 +144,7 @@
     }
     ?>
 
-    
-
-
-
-
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/js/jquery.toast.js"></script>
         
     </body>
 
