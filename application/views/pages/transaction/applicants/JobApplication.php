@@ -1,4 +1,4 @@
-
+    
 
         <div class="page-wrapper">
             
@@ -186,6 +186,9 @@
                                             </tr>
                                         </tfoot>
                                         <?php
+
+                                        
+
                                             if (!empty($jobposts)) {
                                                 
                                             

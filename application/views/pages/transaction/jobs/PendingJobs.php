@@ -53,6 +53,8 @@
                                             <tr>
                                                 <th>Job Title</th>
                                                 <th>Job Description</th>
+                                                <th>Employer</th>
+                                                
                                                 <th>Salary</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -62,6 +64,7 @@
                                             <tr>
                                                 <th>Job Title</th>
                                                 <th>Job Description</th>
+                                                <th>Employer</th>
                                                 <th>Salary</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -69,20 +72,23 @@
                                         </tfoot>
                                         <?php
                                         if ($jobposts->num_rows() > 0) {
-                                            foreach ($jobposts->result() as $row) { ?>
+                                            foreach ($jobposts->result() as $row) {?>
                                             <tr id="row<?=$row->Id; ?>">
+
                                                 <td><?php echo character_limiter($row->JobTitle, 10); ?></td>
                                                 <td><?php echo character_limiter($row->JobDescription, 30); ?></td>
+                                                <td><?php echo character_limiter($row->comname, 30); ?></td>
+                                            
                                                 <td><?php echo character_limiter($row->Salary, 30); ?></td>
                                                 <td>
                                                     <?php 
-                                                    if ($row->IsActive == '1') {
+                                                    if ($row->PendingStatus == '0') {
                                                         echo '<label class="label label-warning">Pending</label>';
                                                     }
-                                                    elseif ($row->IsActive == '0') {
+                                                    elseif ($row->PendingStatus == '1') {
                                                         echo '<span class="label label-info">Active</span>';
                                                     }
-                                                    elseif ($row->IsActive == '2') {
+                                                    elseif ($row->PendingStatus == '2') {
                                                         echo '<span class="label label-light-reverse">Inactive</span>';
                                                     }
                                                     ?>
@@ -99,6 +105,8 @@
                                                 </td>
                                             </tr>
                                         <?php
+
+                                        
                                             }
                                         }
                                         ?>
