@@ -21,6 +21,7 @@
    
     public function AddNewApplicant($id = null,$mode= null)
       {
+
    
           $layout = array('datepicker'=>TRUE, 'addons'=>TRUE, 'uploadfile'=>TRUE,'pagetitle'=>'Adding New Applicant');
            $data['city'] = $this->citymod->LoadMasterlist();
@@ -28,13 +29,14 @@
            $data['jobs'] = $this->jobsmod->LoadMasterlist();
            $data['disability'] = $this->dismod->LoadMasterlist();
            $data['language'] = $this->langmod->LoadMasterlist();
+           
            $data['location'] = $this->locmod->LoadMasterlist();
            $data['status'] = $this->empmod->LoadMasterlist();
            $data['titles'] = $this->jobtimod->LoadMasterlist();
            $data['dialect'] = $this->Diamod->LoadMasterlist();
            $data['region'] = $this->regmod->LoadMasterlist();
            $data['class'] = 'applicant';
-
+          // die('asdasd');
                
            $profile=FALSE;
          if (!empty($id)) {
