@@ -45,15 +45,17 @@
         	$inserted = $this->modmod->Add($postdata);
         	// echo json_encode(['success'=>TRUE]);
          	if ($inserted != FALSE) {
-	        	$json = json_encode($inserted);       		
-        		$this->logger->log('Create','Modules',$json); //Log
+	        	$json = json_encode($inserted);
+                return redirect(base_url('manage/modules'));       		
+        		//$this->logger->log('Create','Modules',$json); //Log
 
                 echo $json;
             }
             else {
                 $json = json_encode($postdata); // encode postdata
-                $this->logger->log('Error Create','Modules',$json); //Log 
-        		echo json_encode(['error'=>'Update Unsuccessful.']);
+                return redirect(base_url('manage/modules'));
+                //$this->logger->log('Error Create','Modules',$json); //Log 
+        		//echo json_encode(['error'=>'Update Unsuccessful.']);
         	}
          }
  
@@ -78,14 +80,16 @@
 
             $result = $this->modmod->Update($id,$postdata);
             if ($result != FALSE) {
-                $json = json_encode($result);             
-                 $this->logger->log('Update','Modules',$json); //Log           
-                echo $json;
+                $json = json_encode($result);
+                return redirect(base_url('manage/modules'));             
+                //$this->logger->log('Update','Modules',$json); //Log           
+                //echo $json;
             }
             else {
                 $json = json_encode($postdata); // encode postdata
-                $this->logger->log('Error Update','Modules',$json); //Log 
-                echo json_encode(['error'=>'Update Unsuccessful.']);
+                return redirect(base_url('manage/modules'));
+                //$this->logger->log('Error Update','Modules',$json); //Log 
+                //echo json_encode(['error'=>'Update Unsuccessful.']);
             }
         }
 

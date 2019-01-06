@@ -189,7 +189,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 id="header-modu-text" class="modal-title">Add New Category</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">—</button>
             </div>
             <div class="modal-body">
             <?php
@@ -197,7 +197,7 @@
               'itemid' => '',
             );
             ?>
-            <?php echo form_open('manage/modules','id="add-modu-form"',$hidden); ?>
+            <?php echo form_open('manage/modules','id="modu-form"',$hidden); ?>
                 <div class="form-group row">
                     <label for="recipient-name" class="col-2 control-label">Name: </label>
                     <div class="col-10">

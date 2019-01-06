@@ -725,7 +725,7 @@ $('#applicant').submit(function(e){ //Input the form's ID or CLASS, use # for ID
                     var name = data[0].Name;
                     var url = data[0].Url;
                     var parent = data[0].Parent;
-                    var desc = data[0].Description.substr(0,30);
+                    var description = data[0].Description.substr(0,30);
                     var modby = data[0].ModifiedById;
                     var modat = $.datepicker.formatDate('yy-dd-mm', new Date(data[0].modifiedAt));
                     var modat = data[0].ModifiedAt;
