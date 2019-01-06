@@ -141,7 +141,7 @@
                                                 <td><?php echo ($row->Id); ?></td>
                                                 <td><?php echo ($row->ApplicantId); ?></td>
                                                 <td><?php echo ($row->JobPostId); ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->ApplicationDate)); ?></td>
+                                                <td><?php echo ($row->ApplicationDate); ?></td>
                                                 <td><?php echo date('Y-m-d',strtotime($row->ModifiedDate)); ?></td>
                                                 
                                 

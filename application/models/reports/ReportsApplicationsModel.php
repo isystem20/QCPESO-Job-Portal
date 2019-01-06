@@ -7,8 +7,8 @@ class ReportsApplicationsModel extends CI_Model {
         parent::__construct();
         $this->load->library('Uuid');
     }
-    public $categories = 'tbl_applicants_categories';
-    public $tbl = 'tbl_applicants';
+    public $categories ='tbl_applicants_categories';
+    public $tbl ='tbl_applicants';
     public $work ='tbl_applicants_work_history';
     public $skill ='tbl_applicants_skills';
     public $educ ='tbl_applicants_schools_attended';
@@ -52,6 +52,7 @@ class ReportsApplicationsModel extends CI_Model {
                    $this->db->where('ApplicantId', $id);
                    $row->DependentTbl = $this->db->get();
 
+                  
                 }
              }
              return $query->result();
