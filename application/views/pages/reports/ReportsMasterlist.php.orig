@@ -11,16 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Application</h3>
-                    <h6 class="text-muted">Masterlist of All Applications</h6>
+                    <h3 class="text-themecolor">Applicants</h3>
+                    <h6 class="text-muted">Masterlist of All Applicants</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Reports</li>
-                        <li class="breadcrumb-item">Applicants</li>
-                        <li class="breadcrumb-item active">Application</li>
+                        <li class="breadcrumb-item">Transactions</li>
+                        <li class="breadcrumb-item active">Applicants</li>
                     </ol>
                 </div>
                 <div>
@@ -38,33 +37,19 @@
                <div class="row p-t-20">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-sm-2">
-                                            <div class="form-group has-success">
-                                                <label class="control-label">Industry Type</label>
-                                                <input type="text" name="industrytype" value="" class="form-control" placeholder="Name">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-2">
-                                            <div class="form-group has-success">
-                                                <label class="control-label">Company Name</label>
-                                                <input type="text" name="companyname" value="" class="form-control"placeholder="Name">
-                                            </div>
-                                        </div>
-
-                                         <div class="col-sm-2">
+                                        <div class="col-sm-3">
                                             <div class="form-group has-success">
                                                 <label class="control-label">Name</label>
-                                                <input type="text" name="nohired" value="" class="form-control" placeholder="No. of Hired">
+                                                <input type="text" name="Name" value="" class="form-control">
 
                                             </div>
                                         </div>
 
-                                        <!-- <div class="col-sm-2">
+                            
+                                        <div class="col-sm-3">
                                             <div class="form-group has-success">
                                                 <label class="control-label">Categories</label>
-                                                <select class="form-control" name="Categories">
-                                                <option value="">All</option>
+                                    <select class="form-control" name="Categories">
                                                 <?php
                                                             if ($categories->num_rows() > 0) {
                                                                 foreach ($categories->result() as $row) { ?>
@@ -76,20 +61,21 @@
                                                
                                                
                                             </select>
-                                            </div>
-                                        </div> -->
+                        </div>
+                    </div>
+
 
                                         <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                    <label class="control-label">Application Date</label>
-                                                    <input type="date" class="form-control" value="" name="ApplicationDate">
+                                                    <label class="control-label">CreatedAt</label>
+                                                    <input type="date" class="form-control" value="" name="CreatedAt">
 
                                                 </div>
                                             </div>
                                          <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                    <label class="control-label">Modified Date</label>
-                                                    <input type="date" class="form-control" value=">" name="ModifiedDate">
+                                                    <label class="control-label">ModifiedAt</label>
+                                                    <input type="date" class="form-control" value=">" name="ModifiedAt">
 
                                                 </div>
                                             </div>
@@ -98,17 +84,14 @@
                                                                             <label class="control-label ">Status</label>
                                                                             <select class="form-control " name="IsActive">
 
-                                                                                <option value="1">Hired</option>
-                                                                                <option value="2">Rejected</option>
+                                                                                <option value="1">Active</option>
+                                                                                <option value="2">Inactive</option>
 
                                                                             </select>
                                                 </div>                      
                                             </div>
-                                           
-
                                               <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                    <label class="control-label"></label>
                                                    <button type="submit" id="sub-btn" class="btn btn-success">  Generate</button>
 
                                                 </div>
@@ -121,40 +104,80 @@
 
                         <div class="card">
                             <div class="card-body">
+                               
+<<<<<<< HEAD
+                               <a href="<?=base_url('manage/applicant/add');?>" class="btn waves-effect waves-light btn-success">Add</a>
+=======
+                              
+>>>>>>> dd66e4298cdbc6d3b8138bcdbc80b571339a52ec
                                 <div class="table-responsive m-t-40">
                                     <table id="ReportsTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Industry Type</th>
-                                                <th>Company Name</th>
-                                                <th>Application Date</th>
+<<<<<<< HEAD
+                                                <th>Last Name</th>
+                                                <th>First Name</th>
+                                                <th>Middle Name</th>
+                                                <th>Modified By</th>
                                                 <th>Modified At</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
+=======
+                                                <th>Full Name</th>
+                                                <th>Employment Status</th>
+                                                <th>Modified At</th>
+                                                <th>Created At</th>
+                                                <th>Status</th>
+
+                                                
+>>>>>>> dd66e4298cdbc6d3b8138bcdbc80b571339a52ec
                                                 
                                             </tr>
                                         </thead>
                                         <?php
-                                        if ($applications->num_rows() > 0) {
-                                            foreach ($applications->result() as $row) { ?>
+<<<<<<< HEAD
+                                        if ($masterlist->num_rows() > 0) {
+                                            foreach ($masterlist->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo ($row->Id); ?></td>
-                                                <td><?php echo ($row->ApplicantId); ?></td>
-                                                <td><?php echo ($row->JobPostId); ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->ApplicationDate)); ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedDate)); ?></td>
+                                                <td><?php echo character_limiter($row->LastName, 10); ?></td>
+                                                <td><?php echo character_limiter($row->FirstName, 10); ?></td>
+                                                <td><?php echo character_limiter($row->MiddleName, 10); ?></td>
+                                                <td><?php echo $row->ModifiedById; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
+=======
+                                        if ($reports->num_rows() > 0) {
+                                            foreach ($reports->result() as $row) { ?>
+                                            <tr id="row<?=$row->Id; ?>">
+                                                <td><?php echo ($row->LastName); ?>,&nbsp <?php echo ($row->FirstName); ?> &nbsp <?php echo ($row->MiddleName); ?> </td>
+                                                <td><?php echo $row->EmploymentStatus; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->CreatedAt)); ?></td>
+>>>>>>> dd66e4298cdbc6d3b8138bcdbc80b571339a52ec
                                                 
-                                
                                                 <td>
                                                     <?php 
                                                     if ($row->IsActive == '1') {
-                                                        echo '<label class="label label-success">Hired</label>';
+                                                        echo '<label class="label label-success">Active</label>';
                                                     }
                                                     else {
-                                                        echo '<span class="label label-light-inverse">Rejected</span>';
+                                                        echo '<span class="label label-light-inverse">Inactive</span>';
                                                     }
                                                     ?>
                                                 </td>
+<<<<<<< HEAD
+                                                 <td class="actions">
+                                                    <a href="<?=base_url('manage/transactions/view-applicant/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
+
+
+                                                    <a href="<?=base_url('manage/transactions/update-applicant/'.$row->Id.'/edit');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
+
+
+
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/applicant/del'); ?>" data-id="<?php echo $row->Id; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+=======
+                                                
+>>>>>>> dd66e4298cdbc6d3b8138bcdbc80b571339a52ec
                                             </tr>
                                         
                                         <?php
@@ -163,12 +186,20 @@
                                         ?>
                                     <tfoot>
                                             <tr>
+<<<<<<< HEAD
                                                 <th>Last Name</th>
                                                 <th>First Name</th>
                                                 <th>Middle Name</th>
                                                 <th>Modified By</th>
                                                 <th>Modified At</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
+=======
+                                                <th>Full Name</th>
+                                                <th>Employment Status</th>
+                                                <th>Modified At</th>
+                                                <th>Status</th>
+>>>>>>> dd66e4298cdbc6d3b8138bcdbc80b571339a52ec
                                                 
                                             </tr>
                                         </tfoot>
@@ -204,6 +235,33 @@
                                 <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
                                 <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
                                 <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
+                            </ul>
+                            <ul class="m-t-20 chatonline">
+                                <li><b>Chat option</b></li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                                </li>
                             </ul>
                         </div>
                     </div>

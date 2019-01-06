@@ -6,10 +6,13 @@
  	function __construct() {
          parent::__construct();
          $this->load->model('reports/ReportsApplicationsModel','appmod');
+         $this->load->model('admin/CategoriesModel','catmod');
      }
  
  	public function ReportsApplications()
  	{
+ 		$postdata = $this->input->post();
+ 		$data['categories'] = $this->catmod->LoadCategoryMasterlist();
  
  		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
  		$data['applications'] = $this->appmod->LoadReportsApplications();
@@ -21,6 +24,5 @@
  		$this->load->view('pages/reports/ReportsApplications',$data);
  		$this->load->view('layout/admin/6_js',$layout);		
         $this->load->view('layout/admin/7_modals'); 
-
  	}
  }
