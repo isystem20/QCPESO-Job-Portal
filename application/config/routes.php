@@ -487,3 +487,5 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['applicant/MyApplication'] = 'applicant/MyApplicationController/MyApplication';
 
         $route['Underconstruction'] = 'SiteErrorController/Underconstruction';
+
+        $route['admin/myapplication/del'] = 'applicant/MyApplicationController/Delete';

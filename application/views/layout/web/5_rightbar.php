@@ -12,11 +12,11 @@
                         </div>
                     </aside> -->
                     <!-- Recent portfolio widget-->
-                    <aside class="widget widget-recent-works">
+                    <aside class="">
                         <ul>
                             <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Browse Jobs</a></li>
+                            <li><a href="<?php echo base_url(); ?>web/browsejob">Profile</a></li>
+                            <li><a href="<?php echo base_url(); ?>web/browsejob">Browse Jobs</a></li>
                             <li><a href="#">My Applications</a></li>
                             <li><a href="#">My Alerts</a></li>
                             <li><a href="#">Logout</a></li>

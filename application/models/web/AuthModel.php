@@ -19,6 +19,15 @@ class AuthModel extends CI_Model {
 			unset($data['External_Id']);
 		}
 
+		if (!empty($data['Password'])) {
+			$password = $data['Password'];
+			unset($data['Password']);
+			unset($data['Password2']);			
+		}else {
+			$password = $code;
+		}
+
+
 		$this->db->set('Id',"'".$id."'",FALSE);
 		$this->db->set('CreatedById',"'".$id."'",FALSE);
 		$this->db->set('ModifiedById',"'".$id."'",FALSE);			
@@ -26,11 +35,7 @@ class AuthModel extends CI_Model {
 
 		$this->db->flush_cache();
 		
-		if (!empty($data['Password'])) {
-			$password = $data['Password'];
-		}else {
-			$password = $code;
-		}
+
 
 		$uid = $this->uuid->v4();
         $key = $this->config->item('encryption_key');
@@ -39,9 +44,13 @@ class AuthModel extends CI_Model {
         $hashed_password = hash('sha512', $salt1 . $password . $salt2);
         // echo $data['password'] = $hashed_password;
 
-		$this->db->set('id',"'".$uid."'",FALSE);
+		$this->db->set('id',"'".$id."'",FALSE);
 		if (!empty($ext)) {
 			$this->db->set('External_Id',"'".$ext."'",FALSE);
+			$this->db->set('Activated',"'1'",FALSE);
+		}
+		else {
+			$this->db->set('Activated',"'0'",FALSE);
 		}
 		$this->db->set('LoginName',"'".$data['EmailAddress']."'",FALSE);
 		$this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
@@ -65,6 +74,18 @@ class AuthModel extends CI_Model {
 		else
 		{
 		        $this->db->trans_commit();
+        		$session_data = array(
+        			'userid' => $uid,
+        			'lastname' => $data['LastName'],
+        			'firstname'=> $data['FirstName'],
+        			'status' => '1',
+        			'active' => '1',
+        			'security_id' =>'1',
+        			'usertype' => 'APPLICANT',
+        			'peopleid' => $id,
+        		);  
+        		
+        		$this->session->set_userdata($session_data);
 
 		        return TRUE;
 

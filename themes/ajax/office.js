@@ -111,6 +111,7 @@ $(document).ready(function() {
   $('#loginform').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
      e.preventDefault();       //This prevents the action to move to other page.
         $("#login-btn").prop("disabled", true);   //Disables the submit button after click 
+        $("#login-btn").text("Loading...");
         var newURL = $(this).attr('action');      //Get the form action attribute value.
         var newData  = {
                 'Email' : $('input[name=email]').val(),     //List of data you want to post
@@ -154,7 +155,8 @@ $(document).ready(function() {
                     });
 
                   }
-                $("#login-btn").prop("disabled", false);     //Reenable the submit button after the action           
+                $("#login-btn").prop("disabled", false);     //Reenable the submit button after the action   
+                 $("#login-btn").text("Login");        
               }
           });   
   });
