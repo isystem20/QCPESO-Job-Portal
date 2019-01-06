@@ -487,7 +487,9 @@ $route['404'] = 'admin/SiteErrorController/Error404';
         $route['applicant/MyApplication'] = 'applicant/MyApplicationController/MyApplication';
 
         $route['Underconstruction'] = 'SiteErrorController/Underconstruction';
-
         // jobposts approve
 
         $route['admin/jobposts/approve'] = 'admin/JobsController/Approve';
+
+        $route['admin/myapplication/del'] = 'applicant/MyApplicationController/Delete';
+

@@ -121,7 +121,7 @@
 
 </style>
 
-// modules
+
  <div id="add-modu-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

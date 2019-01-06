@@ -478,7 +478,7 @@ if (!empty($applicant)) {
                                             <div class="col-6">
 
                                                 <div class="form-group">
-                                                    <textarea class="textarea_editor form-control" name="Remarks" rows="8"><?=$row->Remarks;?>
+                                                    <textarea class="textarea_editor form-control"  <?=$attr?> name="Remarks" rows="8"><?=$row->Remarks;?>
                                                     </textarea>
                                                 </div>
 
@@ -560,7 +560,7 @@ if (!empty($applicant)) {
                                                                                 <td>
                                                                                     <input type="hidden" readonly class="form-control" name="WorkDataId" value="<?php echo $workhist->Id; ?>">
 
-                                                                                    <input type="text" placeholder="Can not be empty." readonly class="form-control CompanyName" name="CompanyName" value="<?php echo $workhist->CompanyAddress; ?>">
+                                                                                    <input type="text" placeholder="Can not be empty." readonly class="form-control CompanyName" name="CompanyName" value="<?php echo $workhist->CompanyName; ?>">
                                                                                 </td>
 
                                                                                 <td>
