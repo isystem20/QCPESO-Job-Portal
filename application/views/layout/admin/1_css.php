@@ -30,10 +30,14 @@
     <!-- This page CSS -->
     <!-- Vector CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- Chart css -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/Chart.js/dist/chart.min.css" rel="stylesheet">
     <!-- chartist CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <!-- Custom CSS -->
+    <!--c3 CSS -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/c3-master/c3.min.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard1.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard4.css" rel="stylesheet">

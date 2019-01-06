@@ -74,10 +74,10 @@
                                                 <td><?php echo character_limiter($row->Salary, 30); ?></td>
                                                 <td>
                                                     <?php 
-                                                    if ($row->IsActive == '1') {
+                                                    if ($row->IsActive == '0') {
                                                         echo '<label class="label label-warning">Pending</label>';
                                                     }
-                                                    elseif ($row->IsActive == '0') {
+                                                    elseif ($row->IsActive == '1') {
                                                         echo '<span class="label label-info">Active</span>';
                                                     }
                                                     elseif ($row->IsActive == '2') {
@@ -108,6 +108,7 @@
                                             }
                                         }
                                         ?>
+
                                     <tfoot>
                                             <tr>
                                                 <th>Job Title</th>
@@ -124,6 +125,7 @@
                                         ?>             
                                             </tr>
                                         </tfoot>
+
                                     </table>
                                 </div>
                             </div>

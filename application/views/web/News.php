@@ -294,10 +294,7 @@
                                             Phone: +63123453456<br>
                                         </p>
                                         <ul class="social-icons">
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            <li><a href="https://www.facebook.com/QuezonCityPESO/""><i class="fab fa-facebook-f"></i></a></li>
                                         </ul>
                                     </div>
                                 </aside>

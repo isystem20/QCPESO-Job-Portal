@@ -86,7 +86,7 @@ if (!empty($jobposts)) {
                                                     <label class="control-label">Specialization</label>
 
                                                     
-                                                    <select name="Specialization[]" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                    <select <?=$attr?> name="Specialization[]" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose" >
                                                         <?php $str="";
                                                             if ($skills->num_rows() > 0) {
 
@@ -116,7 +116,7 @@ if (!empty($jobposts)) {
                                                     <label class="control-label">Category</label>
 
                                                     
-                                                   <select name="Category[]" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                   <select <?=$attr?> name="Category[]" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                                         <?php $str="";
                                                             if ($categories->num_rows() > 0) {
 
@@ -219,27 +219,41 @@ if (!empty($jobposts)) {
                                                 <div class="col-12">
                                                     <label class="control-label">Job Description</label>  
                                                     <div class="form-group">
-                                                        <textarea  style="background-color: #fff; color: black;"  class="textarea_editor form-control"  <?=$attr?> id="jobdesc" name="JobDescription" rows="8" placeholder="Enter text ..."><?=$row->JobDescription;?></textarea>
+                                                        <textarea <?=$attr?>  style="background-color: #fff; color: black;"  class="textarea_editor form-control"   id="jobdesc" name="JobDescription" rows="12" placeholder=""><?=$row->JobDescription;?></textarea>
                                                     </div>
+                                                </div>         
+                                        </div>
+
+                                        <div class="row p-t-20">
+                                            <div class="col-12">
+                                                <label class="control-label">Job Overview</label>  
+                                                <div class="form-group">
+                                                    <textarea <?=$attr?> class="textarea_editor form-control"  name="JobOverview" rows="5" placeholder="Please give an insight on what the job item is."><?=$row->JobOverview;?></textarea>
                                                 </div>
-
                                                 
-
-                                                                            
-                                                
+                                                      
+                                            </div>
                                         </div>
 
 
                                         <div class="row p-t-20">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
+                                            <div class="col-md-3">
+                                                <div  class="form-group">
                                                     <label class="control-label">Salary</label>
-                                                    <input  style="background-color: #fff; color: black;" type="text" <?=$attr?>  value="<?=$row->Salary;?>" id="salary" name="Salary" class="form-control" placeholder="Salary">
+                                                    <input <?=$attr?> style="background-color: #fff; color: black;" type="text"   value="<?=$row->Salary;?>" id="salary" name="Salary" class="form-control" placeholder="Salary">
                                                     
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
+                                                <div  class="form-group">
+                                                    <label class="control-label">Job Location</label>
+                                                    <input <?=$attr?> type="text" value="<?=$row->JobLocation;?>"  id="salary" name="JobLocation" class="form-control" placeholder="Job Location">
+                                                </div>
+                                                
+                                            </div>
+
+                                            <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label class="control-label">Job Image</label>
                                                         <input type="file"  <?=$attr?> name="JobImage" data-default-file="<?php echo base_url().$row->JobImage?>"/>
@@ -247,7 +261,7 @@ if (!empty($jobposts)) {
                                                 </div>
 
                                             
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
 
                                                          <?php 
@@ -263,13 +277,10 @@ if (!empty($jobposts)) {
                                                             }                                                            
                                                             ?>
                                                     <label class="control-label">Status</label>
-                                                    <select <?=$attribute ?> class="form-control" id="stat" name="IsActive">
-                                                        <option value="1">Pending</option>
-                                                        <option value="0">Active</option>
-                                                        <option value="2">Inactive</option>                                                         
-
-                                          
-                                                        
+                                                    <select <?=$attr?> <?=$attribute ?> class="form-control" id="stat" name="IsActive">
+                                                        <option <?php if($row->IsActive=="0"){ echo "Selected";}?> value="0">Pending</option>
+                                                        <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
+                                                        <option <?php if($row->IsActive=="2"){ echo "Selected";}?> value="2">Inactive</option>    
                                                     </select>
                                                 </div>
                                             </div>
@@ -341,6 +352,8 @@ else { ?>
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor">Job Posts</h3>
+                    <h6 class="text-muted">New Job Item</h6>
+
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
@@ -374,6 +387,7 @@ else { ?>
                         <div class="card">
                             <div class="card-header bg-info">
                                 <h4 class="m-b-0 text-white">Job Post Form</h4>
+
                             </div>
                             <div class="card-body">
                                     <div class="form-body">
@@ -389,7 +403,8 @@ else { ?>
 
                                                 <div class="form-group">
                                                     <label class="control-label">Job Title</label>
-                                                    <input type="text" name="JobTitle" class="form-control" placeholder="Job title">
+                                                    <input type="text" name="JobTitle" class="form-control" placeholder="E.g.: Accountant">
+                                                    <small class="form-control-feedback">Specify the name of the job item.</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -397,6 +412,7 @@ else { ?>
                                                     <label class="control-label">Specialization</label>
                                                     
                                                     <select name="Specialization[]" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+
                                                         <?php
                                                             if ($skills->num_rows() > 0) {
                                                                 foreach ($skills->result() as $row) { ?>
@@ -406,7 +422,7 @@ else { ?>
                                                         }
                                                         ?>
                                                     </select>
-                                                    <small class="form-control-feedback">Please select skills required.</small>
+                                                    <small class="form-control-feedback">Please select  the skills required.</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -423,7 +439,7 @@ else { ?>
                                                         }
                                                         ?>
                                                     </select>
-                                                    <small class="form-control-feedback">Please select the category.</small>
+                                                    <small class="form-control-feedback">Please select one or more category.</small>
                                                 </div>
                                             </div>
                                         </div> 
@@ -431,18 +447,47 @@ else { ?>
                                         <div class="row p-t-20">
                                             <div class="col-md-4">
                                                 <div class="form-group">
+
+                                                     <?php 
+
+                                                            $attribut = "";
+                                                            
+                                                            $usertype = $this->session->userdata('usertype');
+                                                            if ($usertype == 'EMPLOYER') {
+
+                                                                $attribute = "disabled";
+                                                            }
+                                                            else{
+                                                                $attribute = "";
+                                                            }     
+
+                                                            ?>
+
                                                     <label class="control-label">Establishment</label>
-                                                    <select class="select2 form-control custom-select" name="EstablishmentId" id="EstablishmentId">
+                                                    <select   class="select2 form-control custom-select" name="EstablishmentId" id="EstablishmentId"  <?=$attribute; ?> >
+
+
                                                         <?php
+                                                         $pplid = $this->session->userdata('peopleid');
+                                                            $uid = $this->session->userdata('userid');
                                                             if ($estabs->num_rows() > 0) {
-                                                                foreach ($estabs->result() as $row) { ?>
-                                                                <option value="<?=$row->Id; ?>"><?php echo $row->CompanyName; ?></option>
+                                                                foreach ($estabs->result() as $row) { 
+                                                                    if ($row->Id==$pplid) {
+                                                                        $attribute1 = "Selected";
+                                                                    }
+                                                                    else{
+                                                                        $attribute1 = "";
+                                                                    }
+
+                                                                    ?>
+                                                                <option <?=$attribute1 ?> value="<?=$row->Id; ?>"><?php echo $row->CompanyName; ?></option>
                                                         <?php
                                                             }
                                                         }
                                                         ?>
                                                     </select>
-                                                    <small class="form-control-feedback">Please select type of establishment.</small>
+
+                                                    <small class="form-control-feedback">Name of the employer</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -458,6 +503,7 @@ else { ?>
                                                         }
                                                         ?>
                                                     </select>
+                                                    <small class="form-control-feedback">Select the type of employment.</small>
                                                 </div>
                                             </div>
 
@@ -474,6 +520,7 @@ else { ?>
                                                         }
                                                         ?>
                                                     </select>
+                                                    <small class="form-control-feedback">Select the position level.</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -482,25 +529,42 @@ else { ?>
                                                 <div class="col-12">
                                                     <label class="control-label">Job Description</label>  
                                                     <div class="form-group">
-                                                        <textarea class="textarea_editor form-control" id="jobdesc" name="JobDescription" rows="8" placeholder="Please enter job description..."></textarea>
+                                                        <textarea class="textarea_editor form-control" id="jobdesc" name="JobDescription" rows="12" placeholder="Please indicate  the job description and the job qualifications."></textarea>
                                                     </div>
-                                                                            
+                                                    
+                                                          
                                                 </div>
-
                                                 
                                         </div>
 
-
                                         <div class="row p-t-20">
-                                            <div class="col-md-4">
+                                            <div class="col-12">
+                                                <label class="control-label">Job Overview</label>  
+                                                <div class="form-group">
+                                                    <textarea class="textarea_editor form-control"  name="JobOverview" rows="5" placeholder="Please give an insight on what the job item is."></textarea>
+                                                </div>
+                                                
+                                                      
+                                            </div>
+                                        </div>
+                                        <div class="row p-t-20">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Salary</label>
-                                                    <input type="text" id="salary" name="Salary" class="form-control" placeholder="Salary">
-                                                    
+                                                    <input type="text" id="salary" name="Salary" class="form-control" placeholder="E.g.: Minimum Wage">
                                                 </div>
+                                                
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Job Location</label>
+                                                    <input type="text" id="salary" name="JobLocation" class="form-control" placeholder="E.g.: Quezon City">
+                                                </div>
+                                                
+                                            </div>
+
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Job Image</label>
                                                     <input type="file" name="JobImage"  >
@@ -508,7 +572,7 @@ else { ?>
                                             </div>
                                             
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
 
                                                          <?php 
@@ -525,8 +589,8 @@ else { ?>
                                                             ?>
                                                     <label class="control-label">Status</label>
                                                     <select <?=$attribute ?> class="form-control" id="stat" name="IsActive">
-                                                        <option value="1">Pending</option>
-                                                        <option value="0">Active</option>
+                                                        <option value="0">Pending</option>
+                                                        <option value="1">Active</option>
                                                         <option value="2">Inactive</option>                                                         
 
                                           

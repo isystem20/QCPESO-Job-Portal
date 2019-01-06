@@ -30,4 +30,9 @@ class SiteErrorController extends CI_Controller {
 	{
 		$this->load->view('errors/custom/Error500');
 	}
+
+	public function UnderConstruction()
+	{
+		$this->load->view('errors/custom/UnderConstruction');
+	}
 }
