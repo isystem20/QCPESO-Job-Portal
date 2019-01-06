@@ -1,5 +1,9 @@
 
 
+
+
+
+
         <div class="page-wrapper">
             
             <!-- ============================================================== -->
@@ -25,6 +29,70 @@
                     <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
                 </div>
             </div>
+             <div class="row">
+                    <div class="col-12">
+
+                        <div class="card">
+                            <div class="card-body">
+                               
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
+                                        <thead>
+                                            
+                                            <tr>
+                                                
+                                                <th>Job Post Id</th>
+                                                <th>Applied Date</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                                
+                                            </tr>
+                                        </thead> 
+                                        <?php
+                                        if ($myapplication->num_rows() > 0) {
+                                            foreach ($myapplication->result() as $row) { ?>
+                                            <tr id="row<?=$row->Id; ?>">
+                                                <td><?php echo $row->JobPostId; ?></td>
+                                              
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedDate)); ?></td>
+                                                
+                                                <td>
+                                                    <?php 
+                                                    if ($row->IsActive == '1') {
+                                                        echo '<label class="label label-success">Active</label>';
+                                                    }
+                                                    else {
+                                                        echo '<span class="label label-light-inverse">Inactive</span>';
+                                                    }
+                                                    ?>
+                                                </td>
+                                                 <td class="actions">
+
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/myapplication/del'); ?>" data-id="<?php echo $row->Id; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+                                            </tr>
+                                           
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    <tfoot>
+                                            <tr>
+                                                
+                                                <th>Modified By</th>
+                                                <th>Modified At</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                                
+                                            </tr>
+                                        
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->

@@ -171,7 +171,7 @@ class ApplicantModel extends CI_Model {
           
 
 
-            $this->db->set('Id',"'".$UserId."'",FALSE);
+            $this->db->set('Id',"'".$id."'",FALSE);
              if (!empty($data['EmailAddress'])) {
                  $this->db->set('LoginName',"'".$data['EmailAddress']."'",FALSE);  
                  $this->db->set('Email',"'".$data['EmailAddress']."'",FALSE);
@@ -187,7 +187,7 @@ class ApplicantModel extends CI_Model {
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('UserType',"'APPLICANT'",FALSE); 
-            $this->db->set('PeopleId',"'".$UserId."'",FALSE);           
+            $this->db->set('PeopleId',"'".$id."'",FALSE);           
           
             $this->db->insert('tbl_security_users');
 
