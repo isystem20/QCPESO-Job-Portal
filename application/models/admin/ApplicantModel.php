@@ -159,7 +159,38 @@ class ApplicantModel extends CI_Model {
 
         $this->db->insert('tbl_applicants', $data);
 
+            $UserId = $this->uuid->v4();
         
+         $this->db->flush_cache();
+            $password = $data['SSS'];
+            $key = $this->config->item('encryption_key');
+            $salt1 = hash('sha512', $key . $password);
+            $salt2 = hash('sha512', $password . $key);
+            $hashed_password = hash('sha512', $salt1 . $password . $salt2);
+            // echo $data['password'] = $hashed_password;
+          
+
+
+            $this->db->set('Id',"'".$UserId."'",FALSE);
+             if (!empty($data['EmailAddress'])) {
+                 $this->db->set('LoginName',"'".$data['EmailAddress']."'",FALSE);  
+                 $this->db->set('Email',"'".$data['EmailAddress']."'",FALSE);
+            }
+             else
+             {
+                $this->db->set('LoginName',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
+                $this->db->set('Email',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
+             }
+           
+            $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
+            $this->db->set('SecurityUserLevelId',"'1'",FALSE);
+            $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
+            $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
+            $this->db->set('UserType',"'APPLICANT'",FALSE); 
+            $this->db->set('PeopleId',"'".$UserId."'",FALSE);           
+          
+            $this->db->insert('tbl_security_users');
+
         // die($this->db->last_query());
 
         $this->db->trans_complete();
