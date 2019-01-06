@@ -11,11 +11,11 @@
  
  	public function ReportsMasterlist()
  	{
-
+ 		$postdata=$this->input->post();
  		$data['categories'] = $this->catmod->LoadCategoryMasterlist();
- 
+ 		// die(print_r($postdata));
  		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
- 		$data['reports'] = $this->reportsmasmod->LoadReportsMasterlist();
+ 		$data['reports'] = $this->reportsmasmod->LoadReportsMasterlist(null,$postdata);
         $data['class'] = 'reports';
  		$this->load->view('layout/admin/1_css');
  		$this->load->view('layout/admin/2_preloader');
@@ -27,4 +27,5 @@
 
 
  	}
- }
+
+  }
