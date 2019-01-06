@@ -50,14 +50,27 @@ $(function () {
     // Visitor
     // ============================================================== 
     
+    var monthly_referrals = $('#visitor').data('values');
+
+    var labels1 = [], madata1=[], a ;
+
+     for (var key in monthly_referrals) {
+            var value = monthly_referrals[key];
+            console.log(key, value);
+            labels1.push(key);
+            madata1.push(value);
+            
+        }
+
+        a = labels1 - madata1;
     var chart = c3.generate({
         bindto: '#visitor',
         data: {
             columns: [
-                ['Other', 30],
-                ['Desktop', 10],
-                ['Tablet', 40],
-                ['Mobile', 50],
+               
+                ['Unreferred Applicants', a],
+                ['Number of Referrals', madata1],
+                
             ],
             
             type : 'donut',
@@ -77,7 +90,7 @@ $(function () {
         legend: {
           hide: true
           //or hide: 'data1'
-          //or hide: ['data1', 'data2']
+          //or hide: ['data1', 'data2'].
         },
         color: {
               pattern: ['#eceff1', '#745af2', '#26c6da', '#1e88e5']
@@ -142,14 +155,14 @@ $(function () {
     // ============================================================== 
     // This is for the popup message while page load
     // ============================================================== 
-        $.toast({
-            heading: 'Welcome to Adminpro',
-            text: 'Most powerfull and elegant design with tons of elements.',
-            position: 'top-right',
-            loaderBg: '#f33c49',
-            icon: 'info',
-            hideAfter: 6000,
-            stack: 6
-        })
+        // $.toast({
+        //     heading: 'Welcome to Adminpros',
+        //     text: 'Most powerfull and elegant design with tons of elements.',
+        //     position: 'top-right',
+        //     loaderBg: '#f33c49',
+        //     icon: 'info',
+        //     hideAfter: 6000,
+        //     stack: 6
+        // })
     
 });

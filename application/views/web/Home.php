@@ -3,8 +3,8 @@
         <!-- Wrapper-->
         <div class="wrapper">
             <!-- Hero-->
-            <!-- <section class="module-cover parallax fullscreen text-center" id="home" data-background="<?php echo base_url(); ?>themes/boomerang/assets/images/module-2.jpg" data-jarallax-video="https://www.youtube.com/watch?v=3eVWQHRDtws" data-overlay="0.6"> -->
-            <section class="module-cover parallax2 fullscreen text-center" id="home" data-background="<?php echo base_url(); ?>themes/boomerang/assets/images/module-2.jpg" data-jarallax-video="mp4:<?php echo base_url(); ?>themes/boomerang/assets/videos/banner_v2.mp4,webm:assets/video/video.webm,ogv:assets/video/video.ogv" data-overlay="0.1">                
+            <section class="module-cover parallax fullscreen text-center" id="home" data-background="<?php echo base_url(); ?>themes/boomerang/assets/images/module-2.jpg" data-jarallax-video="https://www.youtube.com/watch?v=3eVWQHRDtws" data-overlay="0.6">
+            <!-- <section class="module-cover parallax2 fullscreen text-center" id="home" data-background="<?php echo base_url(); ?>themes/boomerang/assets/images/module-2.jpg" data-jarallax-video="mp4:<?php echo base_url(); ?>themes/boomerang/assets/videos/banner_v2.mp4,webm:assets/video/video.webm,ogv:assets/video/video.ogv" data-overlay="0.1">                 -->
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12" style="color:#fff !important;">
@@ -23,7 +23,7 @@
                                            <div class="form-group">
                                                <input class="form-control" type="search" name="searchtext" placeholder="Write Job Name" value="<?php echo set_value('searchtext', ''); ?>" >
                                                <!--  <form action="#" method="POST">
-                                        <input class="form-control" type="search" name="searchtext" placeholder="Job Title" value="<?phpecho set_value('searchtext', ''); ?>" > -->
+                                        <input class="form-control" type="search" name="searchtext" placeholder="Job Title" value="" > -->
                                            </div>
 
 
@@ -555,7 +555,7 @@
                             <div class="pricing-body">
                                 <p>What are the requirements?<br>How to apply?<br>Need assistance to find job?</p>
                             </div>
-                            <div class="pricing-footer"><a class="btn btn-circle btn-brand" href="#">Read More</a></div>
+                            <br>
                         </div>
                         <div class="col-md-6 pricing-wrapper pricing-popular">
                             <div class="pricing-header">
@@ -567,7 +567,7 @@
                             <div class="pricing-body">
                                 <p>How to register?<br>What are the requirements?<br>How to post jobs?</p>
                             </div>
-                            <div class="pricing-footer"><a class="btn btn-circle btn-brand" href="#">Read More</a></div>
+                             <br>
                         </div>
        <!--                  <div class="col-md-4 pricing-wrapper pricing-popular">
                             <div class="pricing-header">
@@ -838,10 +838,7 @@
                                             Phone: +63123453456<br>
                                         </p>
                                         <ul class="social-icons">
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            <li><a href="https://www.facebook.com/QuezonCityPESO/"><i class="fab fa-facebook-f"></i></a></li> 
                                         </ul>
                                     </div>
                                 </aside>
@@ -853,21 +850,19 @@
                                         <h6>Recent Posts</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">April 7, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">September 7, 2018</span></li>
+                                         <?php
+                                        if ($webpostmodel->num_rows() > 0) {
+                                            foreach ($webpostmodel->result() as $row ) { ?>
+                                        <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=character_limiter($row->PostDescription, 200);?><br>
+                                                <span class="post-date"><?=date('D F d, Y H:i A',strtotime($row->CreatedAt));?></span></div>
+                                          <?php
+                                            }
+                                        }
+                                        ?>    
                                     </ul>
                                 </aside>
                             </div>
-                            <div class="col-md-4">
-                                <!-- Twitter widget-->
-                                <aside class="widget twitter-feed-widget">
-                                    <div class="widget-title">
-                                        <h6>Twitter Feed</h6>
-                                    </div>
-                                    <div class="twitter-feed" data-twitter="345170787868762112" data-number="1"></div>
-                                </aside>
-                            </div>
+                            
                 <!--             <div class="col-md-3">
                                 <aside class="widget widget-recent-works">
                                     <div class="widget-title">

@@ -8,11 +8,11 @@ $(document).ready(function() {
 
         var newURL = $(this).attr('action');
         var newData  = {
-                'firstName' : $('input[name=firstname]').val(),
-                'lastName' : $('input[name=lastname]').val(),
-                'emailAddress' : $('input[name=email]').val(),
-                'password' : $('input[name=password]').val(),
-                'password2' : $('input[name=password2]').val(),
+                'FirstName' : $('input[name=firstname]').val(),
+                'LastName' : $('input[name=lastname]').val(),
+                'EmailAddress' : $('input[name=email]').val(),
+                'Password' : $('input[name=password]').val(),
+                'Password2' : $('input[name=password2]').val(),
             }
           $.ajax({
               url: newURL,
@@ -71,14 +71,14 @@ $(document).ready(function() {
                             type: 'success'
                         });
                     window.setTimeout(function(){
-                      window.location.href = data.url;  
+                      window.location.href = $('#maincontent').data('adminpage');  
                     }, 1000);
 
 
                   }
                   else{
                        new PNotify({  //This is to activate the PNotify API when the post has failed
-                            title: 'Success!',
+                            title: 'Error!',
                             text: 'data.error',
                             icon: 'icofont icofont-info-circle',
                             type: 'error'
@@ -91,16 +91,7 @@ $(document).ready(function() {
   });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 });
+
+
+

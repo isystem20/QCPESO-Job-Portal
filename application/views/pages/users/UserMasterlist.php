@@ -35,6 +35,7 @@
                                 <h4 class="card-title">Description:</h4>
                                 <h6 class="card-subtitle">This is the Masterlist of all users.</h6>
                                 <div class="table-responsive m-t-40">
+                                    <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -73,6 +74,16 @@
                                 }
                                 ?>
                                         </tbody>
+                                <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Login Name</th>
+                                                <th>Usertype</th>
+                                                <th>Email Address</th>
+                                                 <th>Status</th>
+                                            
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -145,7 +156,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2018 Admin Pro by wrappixel.com </footer>
+            <footer class="footer"> <p>© 2018 Quezon City PESO, All Rights Reserved. Design with love by <a href="#">SIGMA</a></p></footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

@@ -3,12 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class BrowseJobModel extends CI_Model {
 
-		public function  BrowseJobModelMasterlist($data = null, $id = null) {
-			$this->db->select('ej.* ,"" as CategList, "" as Skills,e.CompanyName,a.Name  ');
+		public function  BrowseJobModelMasterlist($data = null, $id = null, $userid = null) {
+			$this->db->select('ej.* ,"" as CategList, "" as SkillReq,estab.CompanyName,apposition.Name app_position,industry.Name industryname,dress.Name dresscode,appemtype.Name apptype,appemlevel.Description applevel,(select count(Id) from tbl_applicants_job_applications where JobPostId = ej.Id and ApplicantId = "'.$userid.'" ) as AppliedJob');
+			
+			
 
 			$this->db->from('tbl_establishments_jobposts ej');
-			$this->db->join('tbl_establishments e', 'e.Id = ej.EstablishmentId', 'left outer');
-			$this->db->join('tbl_applicants_positions a', 'a.Id = ej.PositionLevelId', 'left outer');
+			$this->db->join('tbl_establishments estab', 'estab.Id = ej.EstablishmentId', 'left outer');
+			$this->db->join('tbl_applicants_positions apposition', 'apposition.Id = ej.PositionLevelId', 'left outer');
+			//$this->db->join('tbl_applicants_levels applevel', 'applevel.Id = ej.EmpTypeId', 'left outer');
+			$this->db->join('tbl_establishment_industries industry', 'industry.Id = estab.IndustryType', 'left outer');
+			$this->db->join('tbl_dresscodes dress', 'dress.Id = ej.DressCodeId', 'left outer');
+			$this->db->join('tbl_applicants_employment_types appemtype', 'appemtype.Id = ej.EmpTypeId', 'left outer');
+			$this->db->join('tbl_applicants_employment_level appemlevel', 'appemlevel.Id = ej.EmpLevelId', 'left outer');
+
+			
+			
 			
 			if (!empty($data['searchtext'])) {
 				$this->db->like('ej.JobTitle',$data['searchtext']);
@@ -62,11 +72,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->db->where('ej.Id',$id);
 			}
 
-			$query = $this->db->get(); 
+			$query = $this->db->get();  
+			//die($this->db->last_query());
 			if ($query->num_rows() > 0 && !empty($id)  ) {
 				$result = $query->result();
 				foreach ($result as &$object) {
 					$object->CategList = $this->GetMultipleData('tbl_applicants_categories', json_decode($object->Category));
+					$object->SkillReq = $this->GetMultipleData('tbl_applicants_skills', json_decode($object->Specialization));
+
 
 
 				}
@@ -89,16 +102,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 	return $this->db->get()->result();
 		}
 
+		public function  CompanyRecentJobs($Id = null) {
+			
+			 $this->db->select('*');
+  			$this->db->order_by('Id', 'DESC');  
+			$this->db->from('tbl_establishments_jobposts');
+			$this->db->limit('3');
+			$this->db->where('EstablishmentId',$Id);
+			$this->db->where('IsActive', 1);
+			
+
+			return $this->db->get();
+
+		}
 		public function  MostRecentJobs() {
 			 $this->db->select('*');
   			$this->db->order_by('Id', 'DESC');  
 			$this->db->from('tbl_establishments_jobposts');
 			$this->db->limit('3');
 			$this->db->where('IsActive', 1);
+			//$this->db->where('EstablishmentId', $Id);
 
 			return $this->db->get();
 
 		}
+		// public function  MostRecentCompanies() {
+		// 	 $this->db->select('*');
+  // 			$this->db->order_by('Id', 'DESC');  
+		// 	$this->db->from('tbl_establishments');
+		// 	$this->db->limit('3');
+		// 	$this->db->where('IsActive', 1);
+		// 	//$this->db->where('EstablishmentId', $Id);
+
+		// 	return $this->db->get();
+
+		// }
 
 		}
 

@@ -18,7 +18,7 @@
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Maintenenace</li>
+                        <li class="breadcrumb-item">Maintenance</li>
                         <li class="breadcrumb-item active">Locations</li>
                     </ol>
                 </div>
@@ -51,6 +51,7 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
+
                                         <?php
                                         if ($masterlist->num_rows() > 0) {
                                             foreach ($masterlist->result() as $row) { ?>
@@ -84,6 +85,16 @@
                                             }
                                         }
                                         ?>
+                                    <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Modified By</th>
+                                                <th>Last Modified</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                    </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -157,7 +168,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2018 Admin Pro by wrappixel.com </footer>
+            <footer class="footer"> <p>© 2018 Quezon City PESO, All Rights Reserved. Design with love by <a href="#">SIGMA</a></p></footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
