@@ -478,7 +478,7 @@ if (!empty($applicant)) {
                                             <div class="col-6">
 
                                                 <div class="form-group">
-                                                    <textarea class="textarea_editor form-control" name="Remarks" rows="8"><?=$row->Remarks;?>
+                                                    <textarea class="textarea_editor form-control"  <?=$attr?> name="Remarks" rows="8"><?=$row->Remarks;?>
                                                     </textarea>
                                                 </div>
 
