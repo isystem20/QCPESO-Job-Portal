@@ -37,11 +37,14 @@
                 <!-- ============================================================== -->
                <div class="row p-t-20">
                                 <div class="col-md-12">
+                                   <form action="<?php echo base_url().'reports/ReportsMasterlistController/ReportsMasterlist'; ?>" method="post"> 
                                     <div class="row">
+                                        
+                                    
                                         <div class="col-sm-3">
                                             <div class="form-group has-success">
                                                 <label class="control-label">Name</label>
-                                                <input type="text" name="Name" value="" class="form-control">
+                                                <input type="text" name="fullname" id="fullname" class="form-control">
 
                                             </div>
                                         </div>
@@ -51,6 +54,7 @@
                                             <div class="form-group has-success">
                                                 <label class="control-label">Categories</label>
                                     <select class="form-control" name="Categories">
+                                                <option value="">All</option>
                                                 <?php
                                                             if ($categories->num_rows() > 0) {
                                                                 foreach ($categories->result() as $row) { ?>
@@ -68,14 +72,14 @@
 
                                         <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                    <label class="control-label">CreatedAt</label>
+                                                    <label class="control-label">Date From:</label>
                                                     <input type="date" class="form-control" value="" name="CreatedAt">
 
                                                 </div>
                                             </div>
                                          <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                    <label class="control-label">ModifiedAt</label>
+                                                    <label class="control-label">To:</label>
                                                     <input type="date" class="form-control" value=">" name="ModifiedAt">
 
                                                 </div>
@@ -91,12 +95,13 @@
                                                                             </select>
                                                 </div>                      
                                             </div>
-                                              <div class="col-sm-2">
+                                            <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                   <button type="submit" id="sub-btn" class="btn btn-success">  Generate</button>
-
-                                                </div>
-                                           
+                                        
+    
+                                        <button type="submit" id="sub-btn" class="btn btn-info"  >Search</button>
+                                                </form>
+                                           </div>
                                         </div>
                                 </div>
 
