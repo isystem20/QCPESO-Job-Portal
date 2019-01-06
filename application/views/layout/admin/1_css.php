@@ -103,4 +103,6 @@
     } 
     ?>
     <?php $this->load->view('layout/admin/15_api',['websetting'=>$webset]); ?>
+
+    
 </head>

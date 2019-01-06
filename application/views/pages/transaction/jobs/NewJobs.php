@@ -1,4 +1,4 @@
-<?php 
+    <?php 
 if (!empty($jobposts)) {
     $attr="";
    foreach ($jobposts as $row) 
@@ -225,18 +225,22 @@ if (!empty($jobposts)) {
                                         </div>
 
                                         <div class="row p-t-20">
-                                            <div class="col-12">
-                                                <label class="control-label">Job Overview</label>  
-                                                <div class="form-group">
-                                                    <textarea <?=$attr?> class="textarea_editor form-control"  name="JobOverview" rows="5" placeholder="Please give an insight on what the job item is."><?=$row->JobOverview;?></textarea>
+                                            <div class="col-md-3">
+                                                <div  class="form-group">
+                                                    <label class="control-label">Required Number of Male</label>
+                                                    <input <?=$attr?> style="background-color: #fff; color: black;" type="text"   value="<?=$row->RequiredMale;?>" id="salary" name="RequiredMale" class="form-control" placeholder="Salary">
+                                                    
                                                 </div>
-                                                
-                                                      
                                             </div>
-                                        </div>
 
+                                            <div class="col-md-3">
+                                                <div  class="form-group">
+                                                    <label class="control-label">Required Number of Female</label>
+                                                    <input <?=$attr?> style="background-color: #fff; color: black;" type="text"   value="<?=$row->RequiredFemale;?>" id="salary" name="RequiredFemale" class="form-control" placeholder="Salary">
+                                                    
+                                                </div>
+                                            </div>
 
-                                        <div class="row p-t-20">
                                             <div class="col-md-3">
                                                 <div  class="form-group">
                                                     <label class="control-label">Salary</label>
@@ -244,8 +248,20 @@ if (!empty($jobposts)) {
                                                     
                                                 </div>
                                             </div>
-
                                             <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">End Date of Hiring</label>
+                                                    <input type="date" value="<?=$row->EndDate;?>"  name="EndDate" class="form-control" >
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row p-t-20">
+                                            
+
+                                            <div class="col-md-4">
                                                 <div  class="form-group">
                                                     <label class="control-label">Job Location</label>
                                                     <input <?=$attr?> type="text" value="<?=$row->JobLocation;?>"  id="salary" name="JobLocation" class="form-control" placeholder="Job Location">
@@ -253,7 +269,7 @@ if (!empty($jobposts)) {
                                                 
                                             </div>
 
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="control-label">Job Image</label>
                                                         <input type="file"  <?=$attr?> name="JobImage" data-default-file="<?php echo base_url().$row->JobImage?>"/>
@@ -261,7 +277,7 @@ if (!empty($jobposts)) {
                                                 </div>
 
                                             
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
 
                                                          <?php 
@@ -538,25 +554,37 @@ else { ?>
                                         </div>
 
                                         <div class="row p-t-20">
-                                            <div class="col-12">
-                                                <label class="control-label">Job Overview</label>  
+                                            <div class="col-3">
+                                                <label class="control-label">Male Vacancies</label>  
+                                                 <div class="form-group">
+                                                   <input type="number" id="salary" name="RequiredMale" class="form-control" placeholder="E.g.: 20">
+                                                 </div> 
+                                            </div>
+                                            <div class="col-3">
+                                                <label class="control-label">Female Vacancies</label>  
+                                                 <div class="form-group">
+                                                    <input type="number" id="salary" name="RequiredFemale" class="form-control" placeholder="E.g.: 20">
+                                                 </div> 
+                                            </div>
+                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <textarea class="textarea_editor form-control"  name="JobOverview" rows="5" placeholder="Please give an insight on what the job item is."></textarea>
+                                                    <label class="control-label">Salary (Philippine Peso)</label>
+                                                    <input type="text" id="salary" name="Salary" class="form-control" placeholder="E.g.: 18,000">
                                                 </div>
                                                 
-                                                      
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">End Date of Hiring</label>
+                                                    <input type="date" id="EndDate" name="EndDate" class="form-control" >
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div class="row p-t-20">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label">Salary</label>
-                                                    <input type="text" id="salary" name="Salary" class="form-control" placeholder="E.g.: Minimum Wage">
-                                                </div>
-                                                
-                                            </div>
+                                           
 
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Job Location</label>
                                                     <input type="text" id="salary" name="JobLocation" class="form-control" placeholder="E.g.: Quezon City">
@@ -564,7 +592,7 @@ else { ?>
                                                 
                                             </div>
 
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Job Image</label>
                                                     <input type="file" name="JobImage"  >
@@ -572,7 +600,7 @@ else { ?>
                                             </div>
                                             
 
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
 
                                                          <?php 

@@ -52,41 +52,35 @@
                                         <thead>
                                             <tr>
                                                 <th>Job Title</th>
-                                                <th>Job Description</th>
+                                                <th>Employer</th>
+                                                <th>Required Male</th>
+                                                <th>Required Female</th>
                                                 <th>Salary</th>
-                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
                                                 <th>Job Title</th>
-                                                <th>Job Description</th>
+                                                <th>Employer</th>
+                                                <th>Required Male</th>
+                                                <th>Required Female</th>
                                                 <th>Salary</th>
-                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
                                         <?php
+
+
                                         if ($jobposts->num_rows() > 0) {
                                             foreach ($jobposts->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
                                                 <td><?php echo character_limiter($row->JobTitle, 10); ?></td>
-                                                <td><?php echo character_limiter($row->JobDescription, 30); ?></td>
+                                                <td><?php echo character_limiter($row->CompanyName, 30); ?></td>
+                                                <td><?php echo character_limiter($row->RequiredMale, 30); ?></td>
+                                                <td><?php echo character_limiter($row->RequiredFemale, 30); ?></td>
                                                 <td><?php echo character_limiter($row->Salary, 30); ?></td>
-                                                <td>
-                                                    <?php 
-                                                    if ($row->IsActive == '0') {
-                                                        echo '<label class="label label-warning">Pending</label>';
-                                                    }
-                                                    elseif ($row->IsActive == '1') {
-                                                        echo '<span class="label label-info">Active</span>';
-                                                    }
-                                                    elseif ($row->IsActive == '2') {
-                                                        echo '<span class="label label-light-reverse">Inactive</span>';
-                                                    }
-                                                    ?>
-                                                </td>
+                                                
                                                 <td class="actions">
                                                     <a href="<?=base_url('manage/do/jobs/add/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
 
