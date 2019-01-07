@@ -51,8 +51,8 @@
                                     
                                         <div class="col-sm-3">
                                             <div class="form-group has-success">
-                                                <label class="control-label">Applicant Name</label>
-                                                <input type="text" name="fullname" id="fullname" class="form-control">
+                                                <label class="control-label">JobPostId</label>
+                                                <input type="text" name="jobpostid" id="jobpostid" class="form-control">
 
                                             </div>
                                         </div>
@@ -62,8 +62,8 @@
 
                                         <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                    <label class="control-label">Application Date:</label>
-                                                    <input type="date" class="form-control" value="" name="CreatedAt">
+                                                    <label class="control-label">ApplicationDate:</label>
+                                                    <input type="date" class="form-control" value="" name="applicationdate">
 
                                                 </div>
                                             </div>
@@ -104,6 +104,7 @@
                                     <table id="ReportsTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
+                                                <th>Id</th>
                                                 <th>Applicant Id</th>
                                                 <th>Job Post Id</th>
                                                 <th>Application Date</th>
@@ -116,6 +117,7 @@
                                         if ($applications->num_rows() > 0) {
                                             foreach ($applications->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
+                                                <td><?php echo ($row->Id); ?></td>
                                                 <td><?php echo ($row->ApplicantId); ?></td>
                                                 <td><?php echo ($row->JobPostId); ?></td>
                                                 <td><?php echo ($row->ApplicationDate); ?></td>
@@ -141,13 +143,12 @@
                                         ?>
                                     <tfoot>
                                             <tr>
-                                                <th>Last Name</th>
-                                                <th>First Name</th>
-                                                <th>Middle Name</th>
-                                                <th>Modified By</th>
-                                                <th>Modified At</th>
+                                                <th>ID</th>
+                                                <th>Application Id</th>
+                                                <th>JobPost Id</th>
+                                                <th>Application Date</th>
+                                                <th>Modified Date</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
                                                 
                                             </tr>
                                         </tfoot>

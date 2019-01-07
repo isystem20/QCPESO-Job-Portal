@@ -127,8 +127,8 @@
                                             </tr>
                                         </thead>
                                         <?php
-                                        if ($masterlist->num_rows() > 0) {
-                                            foreach ($masterlist->result() as $row) { ?>
+                                        if ($reports->num_rows() > 0) {
+                                            foreach ($reports->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
                                                 <td><?php echo character_limiter($row->LastName, 10); ?></td>
                                                 <td><?php echo character_limiter($row->FirstName, 10); ?></td>

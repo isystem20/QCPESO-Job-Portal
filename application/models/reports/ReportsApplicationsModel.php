@@ -8,7 +8,7 @@ class ReportsApplicationsModel extends CI_Model {
         $this->load->library('Uuid');
     }
     public $categories ='tbl_applicants_categories';
-    public $tbl ='tbl_applicants';
+    public $tbl ='tbl_applicants_job_applications';
     public $work ='tbl_applicants_work_history';
     public $skill ='tbl_applicants_skills';
     public $educ ='tbl_applicants_schools_attended';
@@ -26,10 +26,11 @@ class ReportsApplicationsModel extends CI_Model {
                 $this->db->where('isActive','1');
                 return $this->db->get();
             }
-        // $this->db->select('a.*,u.*,a.Id as Id, U.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as DependentTbl');
-        // $this->db->from($this->tbl.
-        //     ' a');
-        // $this->db->join('tbl_security_users u', 'u.PeopleId = a.Id', 'left outer');
+
+        $this->db->select('a.*,u.*,a.Id as Id, U.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as DependentTbl',"a.ApplicationId");
+        $this->db->from($this->tbl.
+            ' a');
+        $this->db->join('tbl_security_users u', 'u.PeopleId = a.Id', 'left outer');
         if (!empty($id)) {
             $this->db->where('a.Id', $id);
             $query = $this->db->get();
@@ -69,8 +70,9 @@ class ReportsApplicationsModel extends CI_Model {
         } else {
           if (!empty($filter)) {
              $this->db->like('a.ApplicantId', $filter['applicantid']);
+             $this->db->like('a.JobPostId', $filter['jobpostid']);
+             $this->db->like('a.ApplicationDate', $filter['applicationdate']);
              $this->db->like('a.CreatedAt', $filter['CreatedAt']);
-
 
           }
           else
@@ -96,6 +98,7 @@ class ReportsApplicationsModel extends CI_Model {
                 $this->db->where('isActive','1');
                 return $this->db->get();
             }
+            
             
         }
 
