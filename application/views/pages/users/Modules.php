@@ -12,14 +12,14 @@
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor">Modules</h3>
-                    <h6 class="text-muted">List of Modules</h6>
+                    <!-- <h6 class="text-muted">Masterlist of All Jobtitles</h6> -->
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Manage</li>
-                        <li class="breadcrumb-item active">Modules</li>
+                        <li class="breadcrumb-item">Maintenance</li>
+                        <li class="breadcrumb-item active">Languages</li>
                     </ol>
                 </div>
                 <div>
@@ -38,7 +38,7 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" id="modu-btn" class="btn waves-effect waves-light btn-success">Add</button>
+                                <button type="button" data-toggle="modal" data-target="#add-modu-modal" class="btn waves-effect waves-light btn-success">Add</button>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
@@ -46,23 +46,21 @@
                                                 <th>Name</th>
                                                 <th>Url</th>
                                                 <th>Parent</th>
-                                                <th>Description</th>
-                                                <th>Modified By</th>
-                                                <th>Last Modified</th>
+                                                <th>Category</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
+
                                         <?php
-                                        if ($modules->num_rows() > 0) {
-                                            foreach ($modules->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
+                                        if ($masterlist->num_rows() > 0) {
+                                            foreach ($masterlist->result() as $row) { ?>
+                                            <tr Id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->Name; ?></td>
-                                                <td><?php echo character_limiter($row->Url, 30); ?></td>
-                                                <td><?php echo character_limiter($row->Parent, 30); ?></td>
-                                                <td><?php echo character_limiter($row->Description, 30); ?></td>
-                                                <td><?php echo $row->ModifiedById; ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
+                                                <td><?php echo $row->Url; ?></td>
+                                                <td><?php echo $row->Parentname; ?></td>
+                                                <td><?php echo $row->Category; ?></td>
+                                
                                                 <td>
                                                     <?php 
                                                     if ($row->IsActive == '1') {
@@ -74,21 +72,31 @@
                                                     ?>
                                                 </td>
                                                 <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>"
-                                                    data-url="<?=$row->Url; ?>" data-parent="<?=$row->Parent;?>"data-desc="<?=$row->Description; ?>" data-createdby="<?=$row->CreatedBy; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-name="<?=$row->Url; ?>" data-name="<?=$row->Parentname; ?>"  data-createdby="<?=$row->CreatedBy; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
 
 
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-url="<?=$row->Url; ?>" data-parent="<?=$row->Parent;?>" data-desc="<?=$row->Description; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-name="<?=$row->Url; ?>" data-name="<?=$row->Parent; ?>" data-desc="<?=$row->Description; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
 
 
 
                                                      <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
+                 
                                             </tr>
                                         <?php
                                             }
                                         }
                                         ?>
+                                    <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Url</th>
+                                                <th>Parent</th>
+                                                <th>Category</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                    </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -162,9 +170,88 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"><p>© 2018 Quezon City PESO, All Rights Reserved. Design with love by <a href="#">SIGMA</a></p></footer>
+            <footer class="footer"> <p>© 2018 Quezon City PESO, All Rights Reserved. Design with love by <a href="#">SIGMA</a></p></footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
+
+
+
+
+
+
+        <div id="add-modu-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="header-modu-text" class="modal-title">Add New Module</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body">
+            <?php
+            $hidden = array(
+              'itemid' => '',
+            );
+            ?>
+            <?php echo form_open('admin/modules/add','id="add-modu-form"',$hidden); ?>
+                <div class="form-group row">
+                    <label for="recipient-name" class="col-2 control-label">Name: </label>
+                    <div class="col-10">
+                        <input type="text" name="name" class="form-control" placeholder="A unique name for this category">                        
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label for="recipient-name" class="col-2 control-label">Url: </label>
+                    <div class="col-10">
+                        <input type="text" name="url" class="form-control" placeholder="Url">                        
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label for="recipient-name" class="col-2 control-label">Parent: </label>
+                    <div class="col-10">
+                      
+                        <select class="form-control" name="parent"
+                                                        <?php
+                                                            if ($masterlist->num_rows() > 0) {
+                                                                foreach ($masterlist->result() as $row) { ?>
+                                                                <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>                        
+                    </div>
+                </div>
+              <!--   <div class="form-group row">
+                    <label for="message-text" class="col-2 control-label">Description:</label>
+                    <div class="col-10">
+                        <textarea name="description" class="form-control" placeholder="Short description"></textarea>
+                    </div>
+                </div> -->
+                  <div class="form-group row">
+                    <label for="message-text" class="col-2 control-label">Category:</label>
+                    <div class="col-10">
+                        <input name="category" class="form-control" placeholder="Short Category"></input>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="recipient-name" class="col-2 control-label">Visible: </label>
+                    <div class="col-10">
+                        <select name="visible" class="form-control">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                <button type="submit" id="addmodu-submit" class="btn btn-info waves-effect waves-light">Save changes</button>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
 

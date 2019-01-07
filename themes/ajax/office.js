@@ -18,6 +18,26 @@ $(document).ready(function() {
 		$('#add-modal').modal();
 	});
 
+  //MODULES
+  $('#add-btn-mod').click(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+    $('#header-text').text('Add Entry');
+    $('input[name=name]').val('');
+    $('input[name=url]').val('');
+    $('input[name=parent]').val('');    
+    $('textarea[name=description]').val('');
+    $('select[name=status]').val('1');  
+    $('#add-form').attr('action',$('#myTable').data('action')+'add');
+    $('input[name=itemid]').val('');  
+    $('.viewing').hide();
+    $('form input.form-control').prop('readonly',false);
+    $('form textarea.form-control').prop('readonly',false);
+    $('form select.form-control').prop('disabled',false);
+
+
+    $('.modal-footer').show();
+    $('#add-modal').modal();
+  });
+
 
 	$('#add-form').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
 		e.preventDefault();       //This prevents the action to move to other page.
