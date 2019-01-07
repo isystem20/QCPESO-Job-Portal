@@ -82,7 +82,7 @@ $(function () {
             label: {
                 show: false
               },
-            title:"Visits",
+            title:"Referrals",
             width:20,
             
         },
