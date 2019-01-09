@@ -22,9 +22,7 @@ public function BrowseJob()
 						if  (!empty($postdata['searchtext'])) {
 							$str = $postdata['searchtext'];
 				}
-		
-		
-
+	
 		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($postdata);
 		$data['mostrecentjob'] = $this->browsmod->MostRecentJobs();
 		$data['estabpost'] = $this->estmod->LoadMasterlist();		
