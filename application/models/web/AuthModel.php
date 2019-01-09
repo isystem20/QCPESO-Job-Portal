@@ -43,11 +43,12 @@ class AuthModel extends CI_Model {
         $salt2 = hash('sha512', $password . $key);
         $hashed_password = hash('sha512', $salt1 . $password . $salt2);
         // echo $data['password'] = $hashed_password;
-
+        $activated = 0;
 		$this->db->set('id',"'".$id."'",FALSE);
 		if (!empty($ext)) {
 			$this->db->set('External_Id',"'".$ext."'",FALSE);
 			$this->db->set('Activated',"'1'",FALSE);
+			$activated = 1;
 		}
 		else {
 			$this->db->set('Activated',"'0'",FALSE);
@@ -73,6 +74,15 @@ class AuthModel extends CI_Model {
 		}
 		else
 		{
+
+				$this->load->model('notifications/Email','email');
+				$notifdata = array('userid'=>$id,'r_fname'=>$data['FirstName'],'r_email' => $data['EmailAddress'], 'r_name'=>$data['FirstName'].' '.$data['LastName']);
+				$send = $this->email->send_email_verification_code($code,$notifdata);
+				$sent = 0;
+				if ($send == true) {
+					$sent = 1;
+				}
+
 		        $this->db->trans_commit();
         		$session_data = array(
         			'userid' => $uid,
@@ -83,6 +93,8 @@ class AuthModel extends CI_Model {
         			'security_id' =>'1',
         			'usertype' => 'APPLICANT',
         			'peopleid' => $id,
+        			'activated' => $activated,
+        			'sent' => $sent,
         		);  
         		
         		$this->session->set_userdata($session_data);
