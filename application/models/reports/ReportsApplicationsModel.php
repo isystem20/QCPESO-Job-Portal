@@ -16,7 +16,7 @@ class ReportsApplicationsModel extends CI_Model {
     public $applications ='tbl_applicants_job_applications';
     public $industries = 'tbl_establishment_industries';
 
-    public function LoadReportsApplications($id = null) {
+    public function LoadReportsApplications($id = null, $filter = null) {
          $this->db->select('*');
             $this->db->from($this->applications);
             if (!empty($id)) {
@@ -27,10 +27,9 @@ class ReportsApplicationsModel extends CI_Model {
                 return $this->db->get();
             }
 
-        $this->db->select('a.*,u.*,a.Id as Id, U.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as DependentTbl',"a.ApplicationId");
-        $this->db->from($this->tbl.
-            ' a');
-        $this->db->join('tbl_security_users u', 'u.PeopleId = a.Id', 'left outer');
+        $this->db->select('a.*,u.*,a.Id as Id, U.Id as UId, a.Remarks as Remarks, a.ModifiedDate as ModifiedDate, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as DependentTbl',"a.ApplicantId");
+        $this->db->from($this->applications.' a');
+        $this->db->join('tbl_applicants_job_applications', 'u.PeopleId = a.Id', 'left outer');
         if (!empty($id)) {
             $this->db->where('a.Id', $id);
             $query = $this->db->get();
@@ -53,13 +52,13 @@ class ReportsApplicationsModel extends CI_Model {
 
                    $this->db->flush_cache();
                    $this->db->select('*');
-                   $this->db->from($this->educ);
+                   $this->db->from($this->applications);
                    $this->db->where('ApplicantId', $id);
                    $row->EducTbl = $this->db->get();
 
                   $this->db->flush_cache();
                    $this->db->select('*');
-                   $this->db->from($this->dependent);
+                   $this->db->from($this->industries);
                    $this->db->where('ApplicantId', $id);
                    $row->DependentTbl = $this->db->get();
 

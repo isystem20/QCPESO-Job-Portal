@@ -87,9 +87,8 @@
                                             </div>
                                             <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                        
-    
-                                        <button type="submit" id="sub-btn" class="btn btn-info">Generate</button>
+                                        <button type="submit" id="sub-btn" class="btn btn-success">
+                                        <i class = "fa fa-check"></i>Generate</button>
                                                 </form>
                                            </div>
                                         </div>
