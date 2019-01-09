@@ -24,13 +24,21 @@
                                 <div class="col-md-12 post-item" style="position: absolute; left: 0px; top: 10px;">
                                     <!-- Post-->
                                     <?php
+
+                                    // print_r($browsejob->result());
                                         if ($browsejob->num_rows() > 0) {
                                         foreach ($browsejob->result() as $row) { ?>     
                                             <article class="post">
-                                            <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/images/blog/1.jpg" alt=""></a></div>
+                                                
+                                            <div class="post-preview">
+                                                <a href="#"><img src="
+                                                    <?php 
+                                                    echo base_url(); ?><?=$row->JobImage?>
+                                                    " alt="">
+                                                </a></div>
                                             <div class="post-wrapper">
                                                 <div class="post-header">
-                                                    <h2 class="post-title"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"> <?php echo $row->JobTitle; ?><br></a></h2>
+                                                    <h2 class="post-title"><a href="<?=base_url('web/JobDescription/'.$row->Id.'/#'.$row->JobTitle); ?>"> <?php echo $row->JobTitle; ?><br></a></h2>
                                                     <ul class="post-meta">
                                             <li><?php echo date('D F d, Y H:i A',strtotime($row->CreatedAt)); ?></li>
                                             <li><a href="#"><?php echo $row->CompanyName; ?></a>,
@@ -39,7 +47,8 @@
                                                 </div>
                                             <div class="card-body">
                                                 <p><?php echo $row->JobDescription; ?></p>
-                                                <p><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>">Read more</a></p>
+                                                <p>
+            <a href="<?=base_url('web/JobDescription/'.$row->Id.'/#'.$row->JobTitle); ?>"/>Read more</a></p>
                                                 </div>
                                             </div>
                                         </article>
@@ -190,9 +199,14 @@
                                         if ($mostrecentjob->num_rows() > 0) {
                                             foreach ($mostrecentjob->result() as $row ) { ?>
                                         <li class="clearfix">
-                                            <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=$row->JobTitle;?><br>
+                                            <div class="wi">
+                                                <a href="#"><img src="
+                                                    <?php 
+                                                    echo base_url(); ?><?=$row->JobImage?>
+                                                    " alt="">
+                                                </a>
+                                            </div>
+                                            <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id.'/#'.$row->JobTitle); ?>"><?=$row->JobTitle;?><br>
                                                 <span class="post-date"><?=date('D F d, Y H:i A',strtotime($row->CreatedAt));?></span></div>
                                         </li>
 
