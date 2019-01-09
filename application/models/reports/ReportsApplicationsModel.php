@@ -70,7 +70,8 @@ class ReportsApplicationsModel extends CI_Model {
         // else {
           if (!empty($filter)) {
              $this->db->like('a.Id', $filter['id']);
-             // $this->db->like('a.JobPostId', $filter['jobpostid']);
+             $this->db->like('ApplicantId', $filter['applicantid']);
+             $this->db->like('a.JobPostId', $filter['jobpostid']);
              // $this->db->like('a.ApplicationDate', $filter['applicationdate']);
              // $this->db->like('a.CreatedAt', $filter['CreatedAt']);
           }
