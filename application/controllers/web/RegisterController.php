@@ -34,8 +34,8 @@ class RegisterController extends CI_Controller {
 	//POST Function to create new applicant
 	public function CreateApplicant() {
 
-        $this->form_validation->set_rules('FirstName', 'First Name', 'required|alpha');
-        $this->form_validation->set_rules('LastName', 'Last Name', 'required|alpha'); 
+        $this->form_validation->set_rules('FirstName', 'First Name', 'required');
+        $this->form_validation->set_rules('LastName', 'Last Name', 'required'); 
         $this->form_validation->set_rules('EmailAddress', 'Email', 'required|valid_email'); 
         $this->form_validation->set_rules('Password', 'Password', 'required|min_length[6]'); 
         $this->form_validation->set_rules('Password2', 'Confirm Password', 'required|matches[Password]'); 
