@@ -1293,6 +1293,79 @@ $(function(){
 });
 
 
+// approve
+
+  $('#myTable').delegate(".approve-item-btn", "click", function() {
+    $('input[name=id]').val($(this).data('id'));
+    $('#approve-form').attr('action',$('#myTable').data('action')+'approve');
+    $('#approve-modal').modal();
+    $('.modal-footer').show();
+  });
+
+
+  // DELETE FORM
+  $('#approve-form').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+    e.preventDefault();       //This prevents the action to move to other page.
+        $("#approve-submit").prop("disabled", true);   //Disables the submit button after click 
+        var newURL = $(this).attr('action');      //Get the form action attribute value.
+        var newData  = {
+                'id' : $('input[name=id]').val(),     //List of data you want to post
+                
+            }
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    $('#approve-modal').modal('hide');
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+                  var Id = data.id;
+                  var table = $('#myTable').DataTable();
+                  table.row($('#row'+data.id))
+                  .remove()
+                  .draw();
+
+                  }
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+                  }
+                $("#approve-submit").prop("disabled", false);     //Reenable the submit button after the action           
+              }
+          });   
+  });
+
+
+
+  // js disable previous dates
+
+
+
+
+
+
+
+
 });
 
 // });

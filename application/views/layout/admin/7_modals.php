@@ -197,3 +197,36 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade"  id="approve-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+
+            <?php
+            $hidden = array(
+              'id' => '',
+              
+            );
+            ?>
+            <?php echo form_open('admin/jobposts/approve','id="approve-form"',$hidden); ?>
+
+            <div class="modal-header" style="background-color: #ffc04c;">
+                <h4 class="modal-title" id="mySmallModalLabel">Confirmation</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body"> 
+                <center>
+                You are about to approve this job item. <br><b>Are you sure?</b>                  
+                </center>
+            </div>
+
+            <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                  <button class="btn btn-warning" id="approve-submit" type="submit"> Confirm</button>
+            </div>      
+             <?php echo form_close(); ?>     
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

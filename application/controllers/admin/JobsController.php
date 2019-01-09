@@ -157,6 +157,8 @@
          }
  
   }
+
+  
   public function Update() {
          $this->form_validation->set_rules('id', 'Item Record', 'required',
                 array(
@@ -205,6 +207,34 @@
         }
         else{
             $result = $this->jobsmod->Delete($postdata);
+            if ($result != FALSE) {
+
+                $json = json_encode($result);              
+                echo $json;
+            }
+            else {
+                echo json_encode(['error'=>'Update Unsuccessful.']);
+
+            }
+
+        }
+
+}
+
+public function Approve() {
+ 
+         $this->form_validation->set_rules('id', 'Item Record', 'required',
+                array(
+                'required'      => 'Cannot identify this record.',
+                ));
+
+        $postdata = $this->input->post();
+        if ($this->form_validation->run() == FALSE){
+            $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
+        }
+        else{
+            $result = $this->jobsmod->Approve($postdata);
             if ($result != FALSE) {
 
                 $json = json_encode($result);              
