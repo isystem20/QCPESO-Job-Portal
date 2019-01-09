@@ -131,6 +131,7 @@ $(document).ready(function() {
   $('#loginform').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
      e.preventDefault();       //This prevents the action to move to other page.
         $("#login-btn").prop("disabled", true);   //Disables the submit button after click 
+        $("#login-btn").text("Loading...");
         var newURL = $(this).attr('action');      //Get the form action attribute value.
         var newData  = {
                 'Email' : $('input[name=email]').val(),     //List of data you want to post
@@ -174,7 +175,8 @@ $(document).ready(function() {
                     });
 
                   }
-                $("#login-btn").prop("disabled", false);     //Reenable the submit button after the action           
+                $("#login-btn").prop("disabled", false);     //Reenable the submit button after the action   
+                 $("#login-btn").text("Login");        
               }
           });   
   });
@@ -535,6 +537,16 @@ $('#jobpost-form').submit(function(e){ //Input the form's ID or CLASS, use # for
 //employer
 $('#empform').submit(function(e){
         e.preventDefault();
+
+      var DressCode = new Array();
+      $('#DressCode  > option:selected').each(function() {
+           DressCode.push($(this).val());
+      });
+      var SpokenLanguage = new Array();
+      $('#SpokenLanguage  > option:selected').each(function() {
+           SpokenLanguage.push($(this).val());
+      });
+
         $("#sub-btn-emp").prop("disabled", true); 
 
         var newURL = $(this).attr('action');  
@@ -546,7 +558,6 @@ $('#empform').submit(function(e){
                 'IsActive' : $('select[name=IsActive]').val(),
                 'TIN' : $('input[name=TIN]').val(),
                 'PermitIssuedDate' : $('input[name=PermitIssuedDate]').val(),
-                'EstablismentType' : $('select[name=EstablismentType]').val(),
                 'IndustryType' : $('select[name=IndustryType]').val(),
                 'CompanyAddress' : $('input[name=CompanyAddress]').val(),
                 'LandlineNum' : $('input[name=LandlineNum]').val(),
@@ -566,6 +577,7 @@ $('#empform').submit(function(e){
                 'PoeaLicenseExpiration' : $('input[name=PoeaLicenseExpiration]').val(),
                 'WorkingHours' : $('input[name=WorkingHours]').val(),
                 'Benefits' : $('input[name=Benefits]').val(),
+                'WhyJoinUs' : $('input[name=WhyJoinUs]').val(),
                 'DressCode' : $('select[name=DressCode]').val(),
                 'SpokenLanguage' : $('select[name=SpokenLanguage]').val(),
             }
@@ -1199,6 +1211,105 @@ $('.table').delegate(".tr-remover", "click", function() {
   var tr = $(this).closest('tr');
   $(tr).remove();
 });
+
+
+
+
+
+
+
+$(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+    $('#PoeaLicenseDateIssued').attr('max', maxDate);
+
+    $('#DoleRegistrationDateIssued').attr('max', maxDate);
+    $('#PermitIssuedDate').attr('max', maxDate);
+    
+    
+});
+
+
+// approve
+
+  $('#myTable').delegate(".approve-item-btn", "click", function() {
+    $('input[name=id]').val($(this).data('id'));
+    $('#approve-form').attr('action',$('#myTable').data('action')+'approve');
+    $('#approve-modal').modal();
+    $('.modal-footer').show();
+  });
+
+
+  // DELETE FORM
+  $('#approve-form').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+    e.preventDefault();       //This prevents the action to move to other page.
+        $("#approve-submit").prop("disabled", true);   //Disables the submit button after click 
+        var newURL = $(this).attr('action');      //Get the form action attribute value.
+        var newData  = {
+                'id' : $('input[name=id]').val(),     //List of data you want to post
+                
+            }
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    $('#approve-modal').modal('hide');
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+                  var Id = data.id;
+                  var table = $('#myTable').DataTable();
+                  table.row($('#row'+data.id))
+                  .remove()
+                  .draw();
+
+                  }
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+                  }
+                $("#approve-submit").prop("disabled", false);     //Reenable the submit button after the action           
+              }
+          });   
+  });
+
+
+
+  // js disable previous dates
+
+
+
+
+
+
 
 
 });

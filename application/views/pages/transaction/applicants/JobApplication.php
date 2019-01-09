@@ -1,4 +1,4 @@
-
+    
 
         <div class="page-wrapper">
             
@@ -46,21 +46,30 @@
                                     <label class="control-label">Applicant Name</label>
 
 
-                                    <select class="select2 form-control custom-select" name="Applicant" id="Applicant" >
-                                        <option>Select Applicant</option>
+                                    <select required  class="select2 form-control custom-select" name="Applicant" id="Applicant" >
+                                        <option value="" >Select Applicant</option>
                                         <?php
-                                            if ($applicant->num_rows() > 0) {
-                                                foreach ($applicant->result() as $row) { 
-                                                    if ($row->Id==$search['Applicant']){
+                                        
+                                        if ($applicant->num_rows() > 0) {
+                                            foreach ($applicant->result() as $row) {
+                                                $ApplicantId = "";
+
+                                                if (!empty($search['Applicant'])) {
+                                                    $ApplicantId = $search['Applicant'];
+                                                 }
+
+                                                    if ($row->Id==$ApplicantId){
                                                           $str="Selected";
                                                         }
                                                         else {
                                                             $str="";
 
                                                         }
+
                                                     ?>
                                                 <option <?=$str ?> value="<?=$row->Id; ?>"><?php echo $row->FirstName.' '.$row->LastName; ?></option>
                                         <?php
+                                                
                                             }
                                         }
                                         ?>
@@ -82,9 +91,16 @@
                                     <select name="Category[]" id="cate" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                        <?php
                                             
-                                                     if ($categories->num_rows() > 0) {
-                                                    foreach ($categories->result() as $row) {
-                                                           if (in_array($row->Id, $search['Category'])) {
+                                        if ($categories->num_rows() > 0) {
+                                            foreach ($categories->result() as $row) {
+
+                                                $Id = array();
+
+                                                if (!empty($search['Category'])) {
+                                                    $Id = $search['Category'];
+                                                }
+                                                
+                                                if (in_array($row->Id, $Id)) {
                                                 ?>
                                                         <option selected value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
                                                     <?php
@@ -108,9 +124,17 @@
                                     <select name="Specialization[]" id="speci" class="select2 m-b-10 select2-multiple" style="width: 100%" multiple="multiple" data-placeholder="Choose">
                                         <?php
                                             
-                                                     if ($skills->num_rows() > 0) {
-                                                    foreach ($skills->result() as $row) {
-                                                           if (in_array($row->Id, $search['Specialization'])) {
+                                        if ($skills->num_rows() > 0) {
+                                        
+                                        foreach ($skills->result() as $row) {
+
+                                            $Id = array();
+
+                                                if (!empty($search['Specialization'])) {
+                                                    $Id = $search['Specialization'];
+                                                }
+                                                
+                                                if (in_array($row->Id, $Id)) {
                                                 ?>
                                                         <option selected value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
                                                     <?php
@@ -133,8 +157,13 @@
                                     <select class="select2 form-control custom-select" name="EmpTypeId">
                                         <?php
                                             if ($emptypes->num_rows() > 0) {
-                                                foreach ($emptypes->result() as $row) { 
-                                                    if ($row->Id==$search['EmpTypeId']){
+                                                foreach ($emptypes->result() as $row) {
+                                                $Id = "";
+
+                                                if (!empty($search['EmpTypeId'])) {
+                                                    $Id = $search['EmpTypeId'];
+                                                } 
+                                                    if ($row->Id==$Id){
                                                           $str="Selected";
                                                         }
                                                         else {
@@ -171,8 +200,8 @@
                                                 <th>Employer</th>
                                                 <th>Salary</th>
                                                 
-                                                <th>Action</th>
                                                 <th>Status</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -181,11 +210,14 @@
                                                 <th>Employer</th>
                                                 <th>Salary</th>
                                                
-                                                <th>Action</th>
                                                 <th>Status</th>
+                                                
                                             </tr>
                                         </tfoot>
                                         <?php
+
+                                        
+
                                             if (!empty($jobposts)) {
                                                 
                                             
@@ -213,21 +245,39 @@
                                                 <td><?php echo $row->Salary; ?></td>
                                                 
                                                 <td class="actions">
-                                                    
+
+                                                    <?php 
+                                                        if ($row->AppliedJob == 0) {
+                                                            
+                                                    ?>
                                                     <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm applyjob" data-toggle="tooltip" data-placement="top" title="" data-original-title="Apply" type="button" data-action="<?=base_url('admin/jobapplication/add'); ?>" data-id="<?php echo $row->Id; ?>" <?php if($row->AppliedJob == 0){ echo '  > Apply '; } else{  echo ' disabled style="background-color: red; border: red;" > Applied ';} ?>  </button>
+                                                    <?php
+                                                        }
+                                                        else{
+                                                            echo "<label class='label ";
+                                                            if ($row->ajaStatus == 0) {
+                                                                echo "label-danger'>Rejected";
+                                                            }
+                                                            elseif ($row->ajaStatus == 1) {
+                                                                echo "label-warning'>Pending";
+                                                            }
+                                                            elseif ($row->ajaStatus == 2) {
+                                                                echo "label-hired'>Processed";
+                                                            }
+                                                            elseif($row->ajaStatus == 3){
+                                                                echo "label-success'>Hired";
+                                                            }
+                                                            else{
+                                                                echo "label-danger'>Error";
+                                                            }
+                                                            echo "</label>";
+                                                        }
+                                                    ?>
+                                                    
+                                                   
                                                                                                
                                                 </td>
-                                                <td><?php 
-                                                    if ($row->ajaIsActive == '1') {
-                                                        echo '<label class="label badge-warning">Pending</label>';
-                                                    }
-                                                    elseif ($row->ajaIsActive == '0') {
-                                                        echo '<span class="label badge-secondary">Rejected</span>';
-                                                    }
-                                                    elseif ($row->ajaIsActive == '2') {
-                                                        echo '<span class="label badge-info">Hired</span>';
-                                                    }
-                                                    ?></td>
+                                    
                                             </tr>
                                         <?php
                                                 }
@@ -239,6 +289,8 @@
                             </div>
                         </div>
                     </div>
+
+
                 </div>
 
             </div>
