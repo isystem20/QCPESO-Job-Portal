@@ -79,22 +79,25 @@ class AuthModel extends CI_Model {
 				$notifdata = array('userid'=>$id,'r_fname'=>$data['FirstName'],'r_email' => $data['EmailAddress'], 'r_name'=>$data['FirstName'].' '.$data['LastName']);
 				$send = $this->email->send_email_verification_code($code,$notifdata);
 				$sent = 0;
-				if ($send == true) {
+				if ($send === true) {
 					$sent = 1;
 				}
 
 		        $this->db->trans_commit();
         		$session_data = array(
-        			'userid' => $uid,
+        			'userid' => $id,
         			'lastname' => $data['LastName'],
         			'firstname'=> $data['FirstName'],
         			'status' => '1',
+        			'username' => $data['EmailAddress'],
+        			'email' => $data['EmailAddress'],
         			'active' => '1',
         			'security_id' =>'1',
         			'usertype' => 'APPLICANT',
         			'peopleid' => $id,
         			'activated' => $activated,
         			'sent' => $sent,
+        			'profile' => '0',
         		);  
         		
         		$this->session->set_userdata($session_data);

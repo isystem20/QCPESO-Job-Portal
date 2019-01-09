@@ -25,7 +25,7 @@ $(document).ready(function() {
 
                      $.toast({
                       heading: 'Success!',
-                      text: 'Record Updated',
+                      text: 'Registration Successful',
                       position: 'top-right',
                       loaderBg:'#ff6849',
                       icon: 'success',

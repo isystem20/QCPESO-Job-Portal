@@ -26,7 +26,7 @@ class Email extends CI_Model {
 
 		$variables['code'] = $code;
 		$variables['firstname'] = $data['r_fname'];
-		$variables['activationlink'] = base_url('/activate/'.$data['userid'].'/'.$hashed_code);
+		$variables['activationlink'] = base_url('activate/'.$data['userid'].'/'.$hashed_code);
 
 		$template = read_file(APPPATH.'templates/email/send_verification_code/send_verification_code.html');
 
@@ -68,13 +68,12 @@ class Email extends CI_Model {
 			return true;
 		}
 		 catch (phpmailerException $e) {
-		 	echo $e->errorMessage();
-		 	$this->session->set_flashdata('response', 'Update Failed: '.$e->errorMessage());
-		 	return false;
+		 	// echo $e->errorMessage();
+		 	return $e->errorMessage();
 		 }catch (Exception $e) {
-		  echo $e->getMessage();
-		  $this->session->set_flashdata('response', 'Update Failed: '.$e->getMessage());
-		  return false;
+		  // echo $e->getMessage();
+		  // $this->session->set_flashdata('response', 'Update Failed: '.$e->getMessage());
+		  return $e->errorMessage();
 		}
 
 		}
