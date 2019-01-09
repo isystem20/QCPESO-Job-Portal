@@ -30,10 +30,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->set('Name',"'".$data['name']."'",FALSE);
 			$this->db->set('Url',"'".$data['url']."'",FALSE);
 			$this->db->set('Parent',"'".$data['parent']."'",FALSE);
-<<<<<<< HEAD
 			$this->db->set('Description',"'".$data['description']."'",FALSE);
-=======
->>>>>>> 51a1100072dd8e67281e7c19c39fd338194549ed
+
 			$this->db->set('CreatedBy',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
 			$this->db->set('IsActive',"'".$data['visible']."'",FALSE);
@@ -74,19 +72,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    $this->db->set('modifiedById',"'".$this->session->userdata('userid')."'",FALSE);
 		    $this->db->set('modifiedAt','CURRENT_TIMESTAMP',FALSE);
 		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
-<<<<<<< HEAD
+
 		    $this->db->set('Name', '"'.$data['name'].'"', FALSE);
 		    $this->db->set('Url', '"'.$data['url'].'"', FALSE);
 		    $this->db->set('Parent', '"'.$data['parent'].'"', FALSE); 
 		    $this->db->set('Description', '"'.$data['description'].'"', FALSE); 
 		    $this->db->set('IsActive', '"'.$data['status'].'"', FALSE);
 		    $this->db->where('Id', $id);
-=======
+
 		    $this->db->set('name', '"'.$data['name'].'"', FALSE); 
 		    $this->db->set('description', '"'.$data['description'].'"', FALSE); 
 		    $this->db->set('isActive', '"'.$data['status'].'"', FALSE);
 		    $this->db->where('id', $id);
->>>>>>> 51a1100072dd8e67281e7c19c39fd338194549ed
+
 		    $query = $this->db->update($this->tbl);
 			$update = $this->db->affected_rows();
 			if ($update > 0) {

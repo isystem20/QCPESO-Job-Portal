@@ -41,7 +41,7 @@
              echo json_encode(['error'=>$errors]);
          }
         else {
-<<<<<<< HEAD
+
         	$postdata = $this->input->post();
         	$inserted = $this->modmod->Add($postdata);
         	// echo json_encode(['success'=>TRUE]);
@@ -58,7 +58,7 @@
                 //$this->logger->log('Error Create','Modules',$json); //Log 
         		//echo json_encode(['error'=>'Update Unsuccessful.']);
         	}
-=======
+
             $postdata = $this->input->post();
             $inserted = $this->modmod->Add($postdata);
             // echo json_encode(['success'=>TRUE]);
@@ -74,7 +74,6 @@
                 //$this->logger->log('Error Create','Jobtitles',$json); //Log
                 //echo json_encode(['error'=>'Update Unsuccessful.']);
             }
->>>>>>> 51a1100072dd8e67281e7c19c39fd338194549ed
          }
  
     }
@@ -99,7 +98,7 @@
             $result = $this->modmod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);
-<<<<<<< HEAD
+
                 return redirect(base_url('manage/modules'));             
                 //$this->logger->log('Update','Modules',$json); //Log           
                 //echo $json;
@@ -109,7 +108,6 @@
                 return redirect(base_url('manage/modules'));
                 //$this->logger->log('Error Update','Modules',$json); //Log 
                 //echo json_encode(['error'=>'Update Unsuccessful.']);
-=======
                 //$this->logger->log('Update','Jobtitles',$json); //Log            
                 echo $json;
             }
@@ -117,7 +115,7 @@
                 $json = json_encode($postdata); // encode postdata
                 //$this->logger->log('Error Update','Jobtitles',$json); //Log  
                 echo json_encode(['error'=>'Update Unsuccessful.']);
->>>>>>> 51a1100072dd8e67281e7c19c39fd338194549ed
+
             }
         }
     }
