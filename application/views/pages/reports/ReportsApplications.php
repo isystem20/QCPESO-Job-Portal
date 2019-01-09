@@ -42,8 +42,8 @@
                                         
                                          <div class="col-sm-3">
                                             <div class="form-group has-success">
-                                                <label class="control-label">ApplicantId</label>
-                                                <input type="text" name="applicantid" id="applicantid" class="form-control">
+                                                <label class="control-label">Id</label>
+                                                <input type="number" name="id" id="id" class="form-control">
 
                                             </div>
                                         </div>
@@ -52,7 +52,7 @@
                                         <div class="col-sm-3">
                                             <div class="form-group has-success">
                                                 <label class="control-label">JobPostId</label>
-                                                <input type="text" name="jobpostid" id="jobpostid" class="form-control">
+                                                <input type="number" name="jobpostid" id="jobpostid" class="form-control">
 
                                             </div>
                                         </div>
@@ -62,15 +62,15 @@
 
                                         <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                    <label class="control-label">ApplicationDate:</label>
+                                                    <label class="control-label">ApplicationDate</label>
                                                     <input type="date" class="form-control" value="" name="applicationdate">
 
                                                 </div>
                                             </div>
                                          <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                    <label class="control-label">Modified Date:</label>
-                                                    <input type="date" class="form-control" value=">" name="ModifiedAt">
+                                                    <label class="control-label">ModifiedDate</label>
+                                                    <input type="date" class="form-control" value=">" name="modifieddate">
 
                                                 </div>
                                             </div>
@@ -88,7 +88,7 @@
                                             <div class="col-sm-2">
                                                 <div class="form-group has-success">
                                         <button type="submit" id="sub-btn" class="btn btn-success">
-                                        <i class = "fa fa-check"></i>Generate</button>
+                                        <i class = "fa fa-check">&nbsp</i>Generate</button>
                                                 </form>
                                            </div>
                                         </div>
@@ -116,11 +116,11 @@
                                         if ($applications->num_rows() > 0) {
                                             foreach ($applications->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo ($row->Id); ?></td>
+                                                <td><?php echo $row->Id; ?></td>
                                                 <td><?php echo ($row->ApplicantId); ?></td>
                                                 <td><?php echo ($row->JobPostId); ?></td>
                                                 <td><?php echo ($row->ApplicationDate); ?></td>
-                                                <td><?php echo $row->ModifiedDate; ?></td>
+                                                <td><?php echo ($row->ModifiedDate); ?></td>
                                                
                                                 
                                 
@@ -153,15 +153,6 @@
                                         </tfoot>
                                     </table>
                                 </div>
-                                    <tfoot>
-                                            <tr>
-                                                <th>Full Name</th>
-                                                <th>Employment Status</th>
-                                                <th>Modified At</th>
-                                                <th>Status</th>
-                                                
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
