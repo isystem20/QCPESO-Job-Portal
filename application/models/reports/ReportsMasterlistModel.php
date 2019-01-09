@@ -14,7 +14,7 @@ class ReportsMasterlistModel extends CI_Model {
     public $educ ='tbl_applicants_schools_attended';
     public $dependent ='tbl_applicants_dependents';
 
-    public function LoadReportsMasterlist($id = null, $filter=null) {
+    public function LoadReportsMasterlist($id = null, $filter = null) {
         $this->db->select('a.*,u.*,a.Id as Id, U.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as DependentTbl');
         $this->db->from($this->tbl.
             ' a');
@@ -56,13 +56,21 @@ class ReportsMasterlistModel extends CI_Model {
              return $query->result();
         } else {
           if (!empty($filter)) {
-             $this->db->like('a.FirstName', $filter['fullname']);
-             $this->db->like('a.CreatedAt', $filter['CreatedAt']);
+            $this->db->group_start();
+             $this->db->like('concat(a.FirstName," ",a.LastName," ",a.MiddleName)',$filter['fullname']);
+            //  $this->db->like('a.ModifiedAt',date('Y-m-d',strtotime($filter['ModifiedAt'])));
+
+            // $this->db->like('a.IsActive', $filter['IsActive']);
+             $this->db->group_end();
+             
+            
+
 
 
           }
           else
           {
+
             $this->db->where('a.isActive', '1');
             $this->db->or_where('a.isActive', '2');
           }
