@@ -233,20 +233,26 @@
                             <li><a href="<?php echo base_url(); ?>"><span class="menu-item-span">Home</span></a></li>
                             <li><a href="<?php echo base_url(); ?>web/AboutController/about"><span class="menu-item-span">About</span></a></li>
                             <li><a href="<?php echo base_url(); ?>web/ServicesController/services"><span class="menu-item-span">Services</span></a></li>
-                            <li><a href="<?php echo base_url(); ?>web/BrowseJobController/browsejob"><span class="menu-item-span">Browse Jobs</span></a></li>
+                            <li><a href="<?php echo base_url(); ?>web/browsejob"><span class="menu-item-span">Browse Jobs</span></a></li>
                             <li><a href="<?php echo base_url(); ?>web/NewsController/news"><span class="menu-item-span">News</span></a></li>                        
                             <li><a href="<?php echo base_url(); ?>admin/login"><span class="menu-item-span">Login</span></a></li>
                             <li><a href="<?php echo base_url(); ?>web/RegisterController/Register"><span class="menu-item-span">Register</span></a></li>
                         </ul>
                     </div>
                 </div>
-
+                <?php 
+                if (!empty($this->session->userdata('userid'))) { ?>
                 <div class="extra-nav">
                     <ul>
                         <li><a class="top-bar-cart" href="<?=base_url('manage'); ?>"><span class="menu-item-span" style="font-size:12px;">My Account</span></a></li>
                         <li><a class="off-canvas-open" href="#"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
                         <li class="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
                     </ul>
-                </div>
+                </div>  
+                <?php
+                }
+
+                ?>
+
             </div>
         </header>

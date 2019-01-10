@@ -10,17 +10,17 @@
                 <li class="user-profile">
                     <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/profile.png" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="javascript:void()">My Profile </a></li>
-                        <li><a href="javascript:void()">My Balance</a></li>
-                        <li><a href="javascript:void()">Inbox</a></li>
+                        <li><a href="javascript:void()">Switch to Admin </a></li>
+                        <li><a href="javascript:void()">Switch to Employer</a></li>
+                        <li><a href="javascript:void()">Switch to Applicant</a></li>
                         <li><a href="javascript:void()">Account Setting</a></li>
-                        <li><a href="javascript:void()">Logout</a></li>
+                        <li><a href="<?=base_url('logout'); ?>">Logout</a></li>
                     </ul>
                 </li>
-                <?php 
-                                            $usertype = $this->session->userdata('usertype');
-                                            if ($usertype == 'ADMIN') {
-                                            ?>
+                    <?php 
+                    $usertype = $this->session->userdata('usertype');
+                    if ($usertype == 'ADMIN') {
+                    ?>
                     <li class="nav-devider"></li>
 
                     <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>

@@ -52,41 +52,35 @@
                                         <thead>
                                             <tr>
                                                 <th>Job Title</th>
-                                                <th>Job Description</th>
+                                                <th>Employer</th>
+                                                <th>Required Male</th>
+                                                <th>Required Female</th>
                                                 <th>Salary</th>
-                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
                                                 <th>Job Title</th>
-                                                <th>Job Description</th>
+                                                <th>Employer</th>
+                                                <th>Required Male</th>
+                                                <th>Required Female</th>
                                                 <th>Salary</th>
-                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
                                         <?php
                                         if ($jobposts->num_rows() > 0) {
-                                            foreach ($jobposts->result() as $row) { ?>
+                                            foreach ($jobposts->result() as $row) {?>
                                             <tr id="row<?=$row->Id; ?>">
+
                                                 <td><?php echo character_limiter($row->JobTitle, 10); ?></td>
-                                                <td><?php echo character_limiter($row->JobDescription, 30); ?></td>
+                                                <td><?php echo character_limiter($row->comname, 30); ?></td>
+                                                <td><?php echo character_limiter($row->RequiredMale, 30); ?></td>
+                                            
+                                                <td><?php echo character_limiter($row->RequiredFemale, 30); ?></td>
                                                 <td><?php echo character_limiter($row->Salary, 30); ?></td>
-                                                <td>
-                                                    <?php 
-                                                    if ($row->IsActive == '1') {
-                                                        echo '<label class="label label-warning">Pending</label>';
-                                                    }
-                                                    elseif ($row->IsActive == '0') {
-                                                        echo '<span class="label label-info">Active</span>';
-                                                    }
-                                                    elseif ($row->IsActive == '2') {
-                                                        echo '<span class="label label-light-reverse">Inactive</span>';
-                                                    }
-                                                    ?>
-                                                </td>
+                                                
                                                 <td class="actions">
                                                     <a href="<?=base_url('manage/do/jobs/add/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
 
@@ -95,10 +89,30 @@
 
 
 
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/jobposts/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->JobTitle; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/jobposts/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->JobTitle; ?>"> <i class="fas fa-trash-alt"></i></button>
+
+                                                    <?php
+                                                    $usertype = $this->session->userdata('usertype');
+                                                    if ($usertype == 'ADMIN') 
+                                                    {
+
+                                                    ?>
+
+                                                    <button class="approve-item-btn btn btn-warning waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Approve" type="button" data-action="<?=base_url('admin/jobposts/approve'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->JobTitle; ?>"> <i class=" fas fa-check-circle"></i></button>
+                                                    <?php                                                 
+                                                    }
+                                                    else
+                                                    {
+
+                                                    }
+
+
+                                                    ?>                                                  
                                                 </td>
                                             </tr>
                                         <?php
+
+                                        
                                             }
                                         }
                                         ?>

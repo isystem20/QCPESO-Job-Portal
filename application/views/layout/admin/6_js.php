@@ -42,6 +42,13 @@ $('#to-recover').on("click", function() {
     <!--morris JavaScript -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-js/dist/chartist.min.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard3.js"></script>
+
+    <!--Morris JavaScript -->
+    <script src="<?php echo base_url(); ?>themes/assets/plugins/raphael/raphael-min.js"></script>
+    <script src="<?php echo base_url(); ?>themes/assets/plugins/morrisjs/morris.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/morris-data.js"></script>
+
      
     <!--c3 JavaScript -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/d3/d3.min.js"></script>
@@ -50,7 +57,10 @@ $('#to-recover').on("click", function() {
     
     <!-- Chart JS -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard4.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard2.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard3.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/minimal/js/dashboard1.js"></script>
+
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 
     <!-- Chart JS -->
@@ -436,7 +446,7 @@ $('#to-recover').on("click", function() {
             });
         });
     });
-    $('#example23').DataTable({
+    $('#ReportsTable').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'

@@ -12,17 +12,14 @@
                         </div>
                     </aside> -->
                     <!-- Recent portfolio widget-->
-                    <aside class="widget widget-recent-works">
+                    <aside class="">
                         <ul>
                             <li><a href="#">Dashboard</a></li>
-                            <li><a href="#"></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/3.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/4.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/5.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/6.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/7.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/8.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/9.jpg" alt=""></a></li>
+                            <li><a href="<?php echo base_url(); ?>web/browsejob">Profile</a></li>
+                            <li><a href="<?php echo base_url(); ?>web/browsejob">Browse Jobs</a></li>
+                            <li><a href="#">My Applications</a></li>
+                            <li><a href="#">My Alerts</a></li>
+                            <li><a href="#">Logout</a></li>
                         </ul>
                     </aside>
                     <!-- Social Icons-->
