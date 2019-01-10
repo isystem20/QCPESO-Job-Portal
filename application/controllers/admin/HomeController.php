@@ -20,7 +20,7 @@ function __construct() {
 		$data['query'] = $this->dash->load_Categories();
 		$data['recenthired'] = $this->dash->load_RecentHired();
 		//for table under the donut chart
-		$data['referrals'] = $this->dash->Referrals();
+		$data['referrals'] = $this->dash->load_ReferredApplicants();
 		
 		
 
@@ -59,7 +59,7 @@ function __construct() {
 		$keys_array = array();
 		$values_array = array();
 		
-		foreach ($this->dash->load_ReferredApplicants() as $row) {
+		foreach ($this->dash->load_ReferredApplicants()->result() as $row) {
 			
 			array_push($keys_array, $row->TotalApplicants);
 			array_push($values_array, $row->ReferredApplicants);
