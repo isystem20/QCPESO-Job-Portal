@@ -42,8 +42,8 @@
                                         
                                          <div class="col-sm-3">
                                             <div class="form-group has-success">
-                                                <label class="control-label">Id</label>
-                                                <input type="number" name="id" id="id" class="form-control">
+                                                <label class="control-label">ApplicantId</label>
+                                                <input type="number" name="applicantid" id="applicantid" class="form-control">
 
                                             </div>
                                         </div>
@@ -113,8 +113,8 @@
                                             </tr>
                                         </thead>
                                         <?php
-                                        if ($applications->num_rows() > 0) {
-                                            foreach ($applications->result() as $row) { ?>
+                                        if ($tbl->num_rows() > 0) {
+                                            foreach ($tbl->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->Id; ?></td>
                                                 <td><?php echo ($row->ApplicantId); ?></td>

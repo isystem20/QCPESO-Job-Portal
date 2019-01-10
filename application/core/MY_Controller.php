@@ -22,9 +22,9 @@ class MY_Controller extends CI_Controller {
         $usertype = $this->session->userdata('usertype');
         $activated = $this->session->userdata('activated');
         $profile = $this->session->userdata('profile');
-        if (empty($userid)) {
-            return redirect(base_url().'admin/login');
-        }
+        // if (empty($userid)) {
+        //     return redirect(base_url().'admin/login');
+        // }
         // elseif ($activated != '1') {
         //     return redirect(base_url().'manage/verify');
         // }

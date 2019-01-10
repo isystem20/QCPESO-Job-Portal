@@ -13,14 +13,14 @@ class ReportsApplicationsModel extends CI_Model {
     // public $skill ='tbl_applicants_skills';
     // public $educ ='tbl_applicants_schools_attended';
     // public $dependent ='tbl_applicants_dependents';
-    public $applications ='tbl_applicants_job_applications';
+    public $tbl ='tbl_applicants_job_applications';
     // public $industries = 'tbl_establishment_industries';
 
     public function LoadReportsApplications($id = null, $filter = null) {
          $this->db->select('*');
-            $this->db->from($this->applications);
+            $this->db->from($this->tbl);
             if (!empty($id)) {
-                $this->db->where('id',$id);
+                $this->db->where('Id',$id);
                 return $this->db->get()->result();
             }else {
                 $this->db->where('isActive','1');

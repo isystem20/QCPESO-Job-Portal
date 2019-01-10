@@ -6,17 +6,17 @@
  	function __construct() {
          parent::__construct();
          $this->load->model('reports/ReportsApplicationsModel','appmod');
-         $this->load->model('admin/CategoriesModel','catmod');
+         // $this->load->model('admin/CategoriesModel','catmod');
      }
  
  	public function ReportsApplications()
  	{
- 		$postdata=$this->input->post();
- 		$data['categories'] = $this->catmod->LoadCategoryMasterlist();
+ 		$postdata = $this->input->post();
+ 		// $data['categories'] = $this->catmod->LoadCategoryMasterlist();
  		// die(print_r($postdata));
  		$layout = array('tables'=>TRUE, 'datepicker'=>TRUE);
- 		$data['applications'] = $this->appmod->LoadReportsApplications(null,$postdata);
-        $data['class'] = 'applications';
+ 		$data['tbl'] = $this->appmod->LoadReportsApplications(null,$postdata);
+        $data['class'] = 'tbl';
  		$this->load->view('layout/admin/1_css');
  		$this->load->view('layout/admin/2_preloader');
  		$this->load->view('layout/admin/3_topbar');
