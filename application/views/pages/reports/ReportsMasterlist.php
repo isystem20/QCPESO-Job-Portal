@@ -73,14 +73,14 @@
                                         <div class="col-sm-2">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Date From:</label>
-                                                    <input type="date" class="form-control" value="" name="CreatedAt">
+                                                    <input type="date" class="form-control" value="" name="ModifiedAt">
 
                                                 </div>
                                             </div>
                                          <div class="col-sm-2">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">To:</label>
-                                                    <input type="date" class="form-control" value=">" name="ModifiedAt">
+                                                    <input type="date" class="form-control" value=">" name="CreatedAt">
 
                                                 </div>
                                             </div>
@@ -99,7 +99,7 @@
                                                 <div class="form-group has-success">
                                         
     
-                                        <button type="submit" id="sub-btn" class="btn btn-info"  >Search</button>
+                                        <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i>Search</button>
                                                 </form>
                                            </div>
                                         </div>
@@ -120,9 +120,12 @@
                                                 <th>First Name</th>
                                                 <th>Middle Name</th>
                                                 <th>Modified By</th>
+                                                <th>Email Address</th>
                                                 <th>Modified At</th>
+                                                <th>Created At</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+
+                                                
                                                 
                                             </tr>
                                         </thead>
@@ -134,8 +137,9 @@
                                                 <td><?php echo character_limiter($row->FirstName, 10); ?></td>
                                                 <td><?php echo character_limiter($row->MiddleName, 10); ?></td>
                                                 <td><?php echo $row->ModifiedById; ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
-                                                
+                                                <td><?php echo $row->EmailAddress; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?> </td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->CreatedAt)); ?></td>
                                 
                                                 <td>
                                                     <?php 
@@ -179,8 +183,8 @@
                                 </div>
                                     <tfoot>
                                             <tr>
-                                                <th>Full Name</th>
                                                 <th>Employment Status</th>
+                                                <th>Email Address</th>
                                                 <th>Modified At</th>
                                                 <th>Status</th>
                                                 

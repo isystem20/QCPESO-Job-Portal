@@ -18,8 +18,9 @@
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Transactions</li>
-                        <li class="breadcrumb-item active">Applicants</li>
+                        <li class="breadcrumb-item">Reports</li>
+                        <li class="breadcrumb-item">Applicants</li>
+                        <li class="breadcrumb-item active">Masterlist</li>
                     </ol>
                 </div>
                 <div>
@@ -36,11 +37,14 @@
                 <!-- ============================================================== -->
                <div class="row p-t-20">
                                 <div class="col-md-12">
+                                   <form action="<?php echo base_url().'reports/ReportsMasterlistController/ReportsMasterlist'; ?>" method="post"> 
                                     <div class="row">
+                                        
+                                    
                                         <div class="col-sm-3">
                                             <div class="form-group has-success">
                                                 <label class="control-label">Name</label>
-                                                <input type="text" name="Name" value="" class="form-control">
+                                                <input type="text" name="fullname" id="fullname" class="form-control">
 
                                             </div>
                                         </div>
@@ -50,6 +54,7 @@
                                             <div class="form-group has-success">
                                                 <label class="control-label">Categories</label>
                                     <select class="form-control" name="Categories">
+                                                <option value="">All</option>
                                                 <?php
                                                             if ($categories->num_rows() > 0) {
                                                                 foreach ($categories->result() as $row) { ?>
@@ -67,15 +72,15 @@
 
                                         <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                    <label class="control-label">CreatedAt</label>
-                                                    <input type="date" class="form-control" value="" name="CreatedAt">
+                                                    <label class="control-label">Date From:</label>
+                                                    <input type="date" class="form-control" value="" name="ModifiedAt">
 
                                                 </div>
                                             </div>
                                          <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                    <label class="control-label">ModifiedAt</label>
-                                                    <input type="date" class="form-control" value=">" name="ModifiedAt">
+                                                    <label class="control-label">To:</label>
+                                                    <input type="date" class="form-control" value=">" name="CreatedAt">
 
                                                 </div>
                                             </div>
@@ -90,12 +95,13 @@
                                                                             </select>
                                                 </div>                      
                                             </div>
-                                              <div class="col-sm-2">
+                                            <div class="col-sm-2">
                                                 <div class="form-group has-success">
-                                                   <button type="submit" id="sub-btn" class="btn btn-success">  Generate</button>
-
-                                                </div>
-                                           
+                                        
+    
+                                        <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i>Search</button>
+                                                </form>
+                                           </div>
                                         </div>
                                 </div>
 
@@ -105,55 +111,46 @@
                         <div class="card">
                             <div class="card-body">
                                
-<<<<<<< HEAD
                                <a href="<?=base_url('manage/applicant/add');?>" class="btn waves-effect waves-light btn-success">Add</a>
-=======
-                              
->>>>>>> dd66e4298cdbc6d3b8138bcdbc80b571339a52ec
                                 <div class="table-responsive m-t-40">
                                     <table id="ReportsTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-<<<<<<< HEAD
                                                 <th>Last Name</th>
                                                 <th>First Name</th>
                                                 <th>Middle Name</th>
+<<<<<<< HEAD
                                                 <th>Modified By</th>
                                                 <th>Modified At</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
 =======
-                                                <th>Full Name</th>
                                                 <th>Employment Status</th>
+                                                <th>Email Address</th>
                                                 <th>Modified At</th>
-                                                <th>Created At</th>
                                                 <th>Status</th>
-
-                                                
->>>>>>> dd66e4298cdbc6d3b8138bcdbc80b571339a52ec
+                                               
+>>>>>>> b358af953e078f6b9a47375221e3f3a8eaa010aa
                                                 
                                             </tr>
                                         </thead>
                                         <?php
-<<<<<<< HEAD
-                                        if ($masterlist->num_rows() > 0) {
-                                            foreach ($masterlist->result() as $row) { ?>
+                                        if ($reports->num_rows() > 0) {
+                                            foreach ($reports->result() as $row) { ?>
                                             <tr id="row<?=$row->Id; ?>">
                                                 <td><?php echo character_limiter($row->LastName, 10); ?></td>
                                                 <td><?php echo character_limiter($row->FirstName, 10); ?></td>
                                                 <td><?php echo character_limiter($row->MiddleName, 10); ?></td>
+<<<<<<< HEAD
                                                 <td><?php echo $row->ModifiedById; ?></td>
                                                 <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
 =======
-                                        if ($reports->num_rows() > 0) {
-                                            foreach ($reports->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo ($row->LastName); ?>,&nbsp <?php echo ($row->FirstName); ?> &nbsp <?php echo ($row->MiddleName); ?> </td>
                                                 <td><?php echo $row->EmploymentStatus; ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->CreatedAt)); ?></td>
->>>>>>> dd66e4298cdbc6d3b8138bcdbc80b571339a52ec
+                                                <td><?php echo $row->EmailAddress; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?> </td>
+>>>>>>> b358af953e078f6b9a47375221e3f3a8eaa010aa
                                                 
+                                
                                                 <td>
                                                     <?php 
                                                     if ($row->IsActive == '1') {
@@ -164,7 +161,6 @@
                                                     }
                                                     ?>
                                                 </td>
-<<<<<<< HEAD
                                                  <td class="actions">
                                                     <a href="<?=base_url('manage/transactions/view-applicant/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
 
@@ -175,9 +171,6 @@
 
                                                      <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/applicant/del'); ?>" data-id="<?php echo $row->Id; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
-=======
-                                                
->>>>>>> dd66e4298cdbc6d3b8138bcdbc80b571339a52ec
                                             </tr>
                                         
                                         <?php
@@ -186,20 +179,28 @@
                                         ?>
                                     <tfoot>
                                             <tr>
-<<<<<<< HEAD
                                                 <th>Last Name</th>
                                                 <th>First Name</th>
                                                 <th>Middle Name</th>
+<<<<<<< HEAD
                                                 <th>Modified By</th>
                                                 <th>Modified At</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
-=======
+                                                
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                    <tfoot>
+                                            <tr>
                                                 <th>Full Name</th>
+=======
+>>>>>>> b358af953e078f6b9a47375221e3f3a8eaa010aa
                                                 <th>Employment Status</th>
+                                                <th>Email Address</th>
                                                 <th>Modified At</th>
                                                 <th>Status</th>
->>>>>>> dd66e4298cdbc6d3b8138bcdbc80b571339a52ec
                                                 
                                             </tr>
                                         </tfoot>

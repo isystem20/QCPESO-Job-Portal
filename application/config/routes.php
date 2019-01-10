@@ -56,7 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 /* Applicant View */
 
-
+    $route['dev/switch/usertype/(:any)'] = 'admin/DevController/ChangeUserType/$1';
     /* Log in */                            $route['login'] = 'admin/HomeController/UserLogin';
     /* Home (Profile) */                    $route['profile'] = 'admin/LoggedUserController/UserHome';
     /* Search */                            $route['search/jobs'] = 'admin/LoggedUserController/SearchJobs';
