@@ -56,7 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 /* Applicant View */
 
-
+    $route['dev/switch/usertype/(:any)'] = 'admin/DevController/ChangeUserType/$1';
     /* Log in */                            $route['login'] = 'admin/HomeController/UserLogin';
     /* Home (Profile) */                    $route['profile'] = 'admin/LoggedUserController/UserHome';
     /* Search */                            $route['search/jobs'] = 'admin/LoggedUserController/SearchJobs';
@@ -66,14 +66,14 @@ $route['translate_uri_dashes'] = FALSE;
     /* My Alerts */                         $route['job-alerts'] = 'admin/LoggedUserController/UserAlerts';
     /* Ask PESO */                          $route['askPESO'] = 'admin/LoggedUserController/AskPeso';
     /* Settings */                          $route['account-settings'] = 'admin/LoggedUserController/Settings';
-                                    
-
-
+$route['activate/processor'] = 'WebController/Processor';/* Log in */                                
+$route['activate/sendcode'] = 'WebController/SendCode';/* Log in */   
+$route['activate/account'] = 'WebController/ActivationPage';/* Log in */   
 /* Management View */
-
+$route['manage/verify'] = 'WebController/ActivationPage';/* Log in */    
 $route['manage/login'] = 'admin/HomeController/AdminEmployeeLogin';/* Log in */                                
 $route['manage'] = 'admin/HomeController/Dashboard';    /* Dashboard */                         
-    /* MANAGE */                        
+$route['activate/(:any)/(:any)'] = 'WebController/Processor/$1/$2';/* Log in */                       
 $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';        /* User Masterlist */               
         /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
         /* Manage Courses */                 $route['manage/maintenace/user-courses'] = 'admin/CourselistController/Courselist';

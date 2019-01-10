@@ -65,6 +65,11 @@ class LoginController extends Public_Controller {
 				        			'security_id' =>$login->SecurityUserLevelId,
 				        			'usertype' => $login->UserType,
 				        			'peopleid' => $login->PeopleId,
+				        			'activated' => $login->Activated,
+				        			'sent' => $login->EmailSent,
+				        			'username' => $login->LoginName,
+				        			'email' => $login->Email,
+				        			'profile' => $login->ProfileProgress,
 				        		);  
 				        		
 				        		$this->session->set_userdata($session_data);
@@ -106,7 +111,12 @@ class LoginController extends Public_Controller {
 				        			'security_id' =>$login->SecurityUserLevelId,
 				        			'usertype' => $login->UserType,
 				        			'peopleid' => $login->PeopleId,
-				        		);  
+				        			'activated' => $login->Activated,
+				        			'sent' => $login->EmailSent,
+				        			'username' => $login->LoginName,
+				        			'email' => $login->Email,
+				        			'profile' => $login->ProfileProgress,
+				        		); 
 				        		
 				        		$this->session->set_userdata($session_data);
 			        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	        		
@@ -157,7 +167,12 @@ class LoginController extends Public_Controller {
 				        			'security_id' =>$login->SecurityUserLevelId,
 				        			'usertype' => $login->UserType,
 				        			'peopleid' => $login->PeopleId,
-				        		);  
+				        			'activated' => $login->Activated,
+				        			'sent' => $login->EmailSent,
+				        			'username' => $login->LoginName,
+				        			'email' => $login->Email,
+				        			'profile' => $login->ProfileProgress,
+				        		); 
 				        		
 				        		$this->session->set_userdata($session_data);
 			        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	        		
