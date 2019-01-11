@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->where($where);
             $this->db->group_by("description");
             $this->db->order_by('description ASC');
-            $this->db->limit(8);
+            $this->db->limit(7);
             $query = $this->db->get();
             return $query;
         }
@@ -64,20 +64,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         // public function load_RecentHired(){
 
 
-        //     $query = $this->db->query("SELECT 
-        //         t1.ApplicantId as Apptbl, 
-        //         t2.Id as Ajatbl,
-        //         t2.LastName as Lastname, 
-        //         t2.FirstName as Firstname, 
-        //         t3.JobTitle as Jobtitle, 
-        //         t1.IsActive as Isactive,
-        //         t1.ModifiedDate as dateaccepted 
-        //         From tbl_applicants_job_applications t1 
-        //         Left Join tbl_applicants t2 on t2.id = t1.ApplicantId 
-        //         Left join tbl_establishments_jobposts t3 on t3.Id = t1.JobPostId
-        //          where t1.IsActive ='2'
-        //          GRoup By Apptbl 
-        //          Order by dateaccepted desc");
+            // $query = $this->db->query("SELECT 
+            //     t1.ApplicantId as Apptbl, 
+            //     t2.Id as Ajatbl,
+            //     t2.LastName as Lastname, 
+            //     t2.FirstName as Firstname, 
+            //     t3.JobTitle as Jobtitle, 
+            //     t1.IsActive as Isactive,
+            //     t1.ModifiedDate as dateaccepted 
+            //     From tbl_applicants_job_applications t1 
+            //     Left Join tbl_applicants t2 on t2.id = t1.ApplicantId 
+            //     Left join tbl_establishments_jobposts t3 on t3.Id = t1.JobPostId
+            //      where t1.IsActive ='2'
+            //      GRoup By Apptbl 
+            //      Order by dateaccepted desc");
 
         //     return $query->get();
         // }
@@ -95,19 +95,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             return $this->db->get();
        }
 
-       // Etong function ginamit ko sa donut chart, same lang sila ng code sa baba. 
+       
        public function load_ReferredApplicants(){
          $query = $this->db->query("SELECT Count(ApplicantId) as ReferredApplicants, TotalApplicants from (Select ApplicantId from tbl_applicants_job_applications  Group by ApplicantId) xDerived, (Select Count(Id) as TotalApplicants from tbl_applicants) xDerived1");
-         return $query->result();
+         return $query;
 }
-        // This function ginamit ko sa table under the donut chart which produces 15 and 15 but it should be 3 and 5
-        public function Referrals(){
-            $this->db->select('Count(ApplicantId) as ReferredApplicants, Count(Id) as TotalApplicants');
-         $this->db->from('(Select ApplicantId from tbl_applicants_job_applications Group By ApplicantId) xDerived');
-         $this->db->from('(Select Id from tbl_applicants) xDerived1');
-         return $this->db->get(); 
-       }
-
+       
+    
        
 
         }

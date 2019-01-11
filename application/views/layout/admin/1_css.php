@@ -35,11 +35,21 @@
     <!-- chartist CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+ <!-- Bootstrap Core CSS -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--This page css - Morris CSS -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/morrisjs/morris.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/css/style.css" rel="stylesheet">
+
+
     <!-- Custom CSS -->
     <!--c3 CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/c3-master/c3.min.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard1.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard2.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard3.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard4.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/colors/default.css" id="theme" rel="stylesheet">

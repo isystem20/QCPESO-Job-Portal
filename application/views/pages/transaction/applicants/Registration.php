@@ -13,7 +13,14 @@ if (!empty($applicant)) {
 
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Applicant Registration</h3>
+                    <?php
+                    if (!empty($this->session->tempdata('caption'))) { ?>
+                       <h3 class="text-themecolor"><?=$this->session->tempdata('caption'); ?></h3>
+                    <?php } else { ?>
+                        <h3 class="text-themecolor">Applicant Registration</h3>
+                    <?php }
+                    ?>
+                    
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">

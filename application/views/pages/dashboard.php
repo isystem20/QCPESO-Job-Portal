@@ -231,7 +231,7 @@
                         <div class="card">
                             <!-- Visit Separation Donut Chart -->
                            <div class="card-body">
-                             <h4 class="card-title"><span class="lstick"></span>Visit Separation</h4>
+                             <h4 class="card-title"><span class="lstick"></span>Referrals Per Month</h4>
                                 <div id="visitor" data-values='<?=json_encode($monthly_referrals); ?>' style="height: 290px; width: 100%; max-height: 290px; position: relative;" class="c3">
                                     </div>
                                 <table class="table vm font-14">
@@ -242,7 +242,7 @@
                                         if ($referrals->num_rows() > 0){
                                             foreach ($referrals->result() as $row){ ?>
                                                  <tr>
-                                                    <td class="b-0">Number of Referred Applicants</td>
+                                                    <td class="b-0">Number of Applicants with Referrals</td>
                                                     <td class="text-right font-medium b-0"><?php echo $row->ReferredApplicants; ?></td>
                                                 <!-- This echo produces 15 but it should be 3 based on query -->
                                                 </tr>

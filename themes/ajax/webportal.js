@@ -5,7 +5,7 @@ $(document).ready(function() {
 		 e.preventDefault();
 
         $("#applicant-register-btn").prop("disabled", true);
-
+        $("#applicant-register-btn").text("Loading...");
         var newURL = $(this).attr('action');
         var newData  = {
                 'FirstName' : $('input[name=firstname]').val(),
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
                      $.toast({
                       heading: 'Success!',
-                      text: 'Record Updated',
+                      text: 'Registration Successful',
                       position: 'top-right',
                       loaderBg:'#ff6849',
                       icon: 'success',
@@ -49,7 +49,8 @@ $(document).ready(function() {
                     });
 
                   }
-                $("#applicant-register-btn").prop("disabled", false);                   
+                $("#applicant-register-btn").prop("disabled", false);
+                $("#applicant-register-btn").text("SIGN UP");                
 
               }
               

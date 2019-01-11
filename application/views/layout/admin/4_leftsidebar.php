@@ -10,9 +10,10 @@
                 <li class="user-profile">
                     <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/profile.png" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="javascript:void()">Switch to Admin </a></li>
-                        <li><a href="javascript:void()">Switch to Employer</a></li>
-                        <li><a href="javascript:void()">Switch to Applicant</a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/ADMIN'); ?>">Switch to Admin </a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/EMPLOYER'); ?>">Switch to Employer</a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/CLERK'); ?>">Switch to Clerk</a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/APPLICANT'); ?>">Switch to Applicant</a></li>
                         <li><a href="javascript:void()">Account Setting</a></li>
                         <li><a href="<?=base_url('logout'); ?>">Logout</a></li>
                     </ul>

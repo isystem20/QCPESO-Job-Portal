@@ -54,6 +54,7 @@ $route['404_override'] = 'errors/cli/error_404';
 $route['translate_uri_dashes'] = FALSE;
 
 
+<<<<<<< HEAD
 /* ----------------------------Applicant View---------------------------------- */
 
 /* Log in */ 
@@ -80,6 +81,70 @@ $route['account-settings'] = 'admin/LoggedUserController/Settings';
 
 
 /* ----------------------------Management View--------------------------------- */
+=======
+/* Applicant View */
+
+    $route['dev/switch/usertype/(:any)'] = 'admin/DevController/ChangeUserType/$1';
+    /* Log in */                            $route['login'] = 'admin/HomeController/UserLogin';
+    /* Home (Profile) */                    $route['profile'] = 'admin/LoggedUserController/UserHome';
+    /* Search */                            $route['search/jobs'] = 'admin/LoggedUserController/SearchJobs';
+        /* Job Details */
+    /* Saved Jobs */                        $route['saved-jobs'] = 'admin/LoggedUserController/SavedJobs';
+    /* My Applications */                   $route['applied-jobs'] = 'admin/LoggedUserController/UserApplications';
+    /* My Alerts */                         $route['job-alerts'] = 'admin/LoggedUserController/UserAlerts';
+    /* Ask PESO */                          $route['askPESO'] = 'admin/LoggedUserController/AskPeso';
+    /* Settings */                          $route['account-settings'] = 'admin/LoggedUserController/Settings';
+$route['activate/processor'] = 'WebController/Processor';/* Log in */                                
+$route['activate/sendcode'] = 'WebController/SendCode';/* Log in */   
+$route['activate/account'] = 'WebController/ActivationPage';/* Log in */   
+/* Management View */
+$route['manage/verify'] = 'WebController/ActivationPage';/* Log in */    
+$route['manage/login'] = 'admin/HomeController/AdminEmployeeLogin';/* Log in */                                
+$route['manage'] = 'admin/HomeController/Dashboard';    /* Dashboard */                         
+$route['activate/(:any)/(:any)'] = 'WebController/Processor/$1/$2';/* Log in */                       
+$route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';        /* User Masterlist */               
+        /* Manage Groups */                 $route['manage/user-groups'] = 'admin/GroupController/Group';
+        /* Manage Courses */                 $route['manage/maintenace/user-courses'] = 'admin/CourselistController/Courselist';
+        /* Manage Employment Status */                 $route['manage/maintenance/user-status'] = 'admin/EmploymentStatusController/EmploymentStatus';
+         /* Manage Account Release */                 $route['manage/account-release'] = 'admin/AccountReleaseController/AccountRelease';
+        /* Maintenance */
+            /* Language */                  $route['manage/maintenance/languages'] = 'admin/LanguageController/Languages';
+            /* Licenses */                  $route['manage/maintenance/licenses'] = 'admin/LicenseController/Licenses';
+            /* Certificates */              $route['manage/maintenance/certificates'] = 'admin/CertificatesController/CertificatesList';
+            /* Disabilities */              $route['manage/maintenance/disabilities'] = 'admin/DisabilitiesController/Disabilities';
+            /* Dress Code */                $route['manage/maintenance/dresscode'] = 'admin/DresscodeController/Dresscode';
+            
+            /* Preferred Locations */       $route['manage/maintenance/preferred-locations'] = 'admin/LocationController/Location';
+            /* Job titles */                $route['manage/maintenance/job-titles'] = 'admin/JobtitlesController/Jobtitles';
+            /* Categories */                $route['manage/maintenance/applicant-categories'] = 'admin/CategoriesController/Categories';
+
+            /* Applicant Level */           $route['manage/maintenance/applicant-level'] = 'admin/ApplicantLevelController/ApplicantLevel';
+
+            /* Employment Types */           $route['manage/maintenance/employment-types'] = 'admin/EmploymentTypesController/EmploymentTypes';
+
+            /* Skills */                     $route['manage/maintenance/skills'] = 'admin/SkillsController/Skills';
+
+
+             /* Industries */                $route['manage/maintenance/industries'] = 'admin/IndustriesController/Industries';
+
+        /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
+        /* Surveys */                       $route['manage/surveys'] = 'admin/SurveyController/Survey';
+
+
+    /* TRANSACTIONS */
+        /* Applicants */ 
+            // /* Add walk-in */               $route['manage/do/applicants/add'] = 'admin/ApplicantController/ApplicantInfo';
+            //  View List                  $route['manage/do/applicants/view-list'] = 'admin/ApplicantController/Masterlist';
+            /* Job Applications */          $route['manage/do/applicants/job-applications'] = 'admin/JobApplicationController/JobApplication';
+        /* Establishment */ 
+            /* Add new */                   $route['manage/do/establishments/add'] = 'admin/EmployerController/EmployerRegistration';
+            /* View List */                 $route['manage/do/establishments/view-list'] = 'admin/EmployerController/EstablishmentMasterlist';
+            /* Pending Accreditation */     $route['manage/do/establishments/pending-accreditation'] = 'admin/EmployerController/PendingRequest';   
+        /* Jobs */ 
+            /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';       
+            /* View Jobs */                 $route['manage/do/jobs/view-list'] = 'admin/JobsController/ViewJobs';  
+            /* Pending Job Posting */       $route['manage/do/jobs/pending-job-posts'] = 'admin/JobsController/PendingJobs';      
+>>>>>>> b358af953e078f6b9a47375221e3f3a8eaa010aa
 
 /* Log in */
 $route['manage/login'] = 'admin/HomeController/AdminEmployeeLogin';  
