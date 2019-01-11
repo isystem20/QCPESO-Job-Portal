@@ -106,7 +106,7 @@
                                                 <th>Modified By</th>
                                                 <th>Last Modified</th>
                                                 <th>Status</th>
-                                                < <?php 
+                                                 <?php 
                                             $usertype = $this->session->userdata('usertype');
                                             if ($usertype != 'EMPLOYER') {
                                             ?>

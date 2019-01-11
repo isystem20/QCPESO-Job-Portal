@@ -11,14 +11,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		public function LoadCategoryMasterlist($id = null) {
-			$this->db->select('*');
-			$this->db->from('tbl_applicants_categories');
+			$this->db->select('c.*,u.FirstName as ModFirstName,u.LastName as ModLastName');
+			$this->db->from('tbl_applicants_categories c');
+			$this->db->join('tbl_employees u', 'u.Id = c.ModifiedById', 'left outer ' );
 			if (!empty($id)) {
-				$this->db->where('Id',$id);
+				$this->db->where('c.Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('isActive','1');
-				$this->db->or_where('isActive','2');
+				$this->db->where('c.isActive','1');
+				$this->db->or_where('c.isActive','2');
 				return $this->db->get();
 			}
 			
