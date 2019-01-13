@@ -54,7 +54,7 @@ $route['404_override'] = 'errors/cli/error_404';
 $route['translate_uri_dashes'] = FALSE;
 
 
-<<<<<<< HEAD
+
 /* ----------------------------Applicant View---------------------------------- */
 
 /* Log in */ 
@@ -81,7 +81,7 @@ $route['account-settings'] = 'admin/LoggedUserController/Settings';
 
 
 /* ----------------------------Management View--------------------------------- */
-=======
+
 /* Applicant View */
 
     $route['dev/switch/usertype/(:any)'] = 'admin/DevController/ChangeUserType/$1';
@@ -144,7 +144,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
             /* Add new */                   $route['manage/do/jobs/add'] = 'admin/JobsController/NewJob';       
             /* View Jobs */                 $route['manage/do/jobs/view-list'] = 'admin/JobsController/ViewJobs';  
             /* Pending Job Posting */       $route['manage/do/jobs/pending-job-posts'] = 'admin/JobsController/PendingJobs';      
->>>>>>> b358af953e078f6b9a47375221e3f3a8eaa010aa
+
 
 /* Log in */
 $route['manage/login'] = 'admin/HomeController/AdminEmployeeLogin';  
