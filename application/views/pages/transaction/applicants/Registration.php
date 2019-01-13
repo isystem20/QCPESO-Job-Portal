@@ -22,13 +22,13 @@ if (!empty($applicant)) {
                     ?>
                     
                 </div>
-                <div class="col-md-7 align-self-center">
+            <!--     <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Transactions</a></li>
                         <li class="breadcrumb-item">Applicants</li>
                         <li class="breadcrumb-item active">Registration</li>
                     </ol>
-                </div>
+                </div> -->
                 <div class="">
                     <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
                 </div>

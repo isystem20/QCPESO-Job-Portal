@@ -56,7 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 /* Applicant View */
 
-    $route['dev/switch/usertype/(:any)'] = 'admin/DevController/ChangeUserType/$1';
+    $route['dev/switch/(:any)/(:any)'] = 'admin/DevController/Devmode/$1/$2';
     /* Log in */                            $route['login'] = 'admin/HomeController/UserLogin';
     /* Home (Profile) */                    $route['profile'] = 'admin/LoggedUserController/UserHome';
     /* Search */                            $route['search/jobs'] = 'admin/LoggedUserController/SearchJobs';
@@ -101,7 +101,7 @@ $route['manage/users-masterlist'] = 'admin/UserController/UserMasterlist';      
 
         /* Reviews and Ratings */           $route['manage/reviews-and-ratings'] = 'admin/RnrController/ReviewAndRatings';
         /* Surveys */                       $route['manage/surveys'] = 'admin/SurveyController/Survey';
-
+            $route['manage/do/applicants/job-applications-masterlist'] = 'admin/JobApplicationController/Read';
 
     /* TRANSACTIONS */
         /* Applicants */ 

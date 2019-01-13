@@ -43,6 +43,7 @@
               if (strtolower($id) == 'profile') {
                 $id=$this->session->userdata('peopleid');
                 $profile=TRUE;
+                $this->session->set_tempdata('caption', 'Update Profile', 300);
               }
               $data['applicant'] = $this->applimod->LoadMasterlist($id);
 

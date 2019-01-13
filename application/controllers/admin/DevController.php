@@ -9,9 +9,9 @@
          $this->load->model('LoggerModel','logger'); //Include LoggerModel
      }
  
- 	public function ChangeUserType($usertype)
+ 	public function Devmode($session,$value)
  	{
- 		$this->session->set_userdata('usertype',$usertype);
+ 		$this->session->set_userdata($session,$value);
 
  		return redirect($_SERVER['HTTP_REFERER']);		
 
