@@ -14,6 +14,8 @@
                         <li><a href="<?=base_url('dev/switch/usertype/EMPLOYER'); ?>">Switch to Employer</a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/CLERK'); ?>">Switch to Clerk</a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/APPLICANT'); ?>">Switch to Applicant</a></li>
+                        <li><a href="<?=base_url('dev/switch/profile/100'); ?>">Bypass Incomplete Profile</a></li>
+
                         <li><a href="javascript:void()">Account Setting</a></li>
                         <li><a href="<?=base_url('logout'); ?>">Logout</a></li>
                     </ul>
@@ -69,14 +71,15 @@
 
                         </ul>
                     </li>
-                    <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/maintenance/SurveyAndRatings" aria-expanded="false"><i class="mdi mdi-star-half"></i><span class="hide-menu">Survey and Ratings</span></a>
-                    </li>
+             <!--        <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/maintenance/SurveyAndRatings" aria-expanded="false"><i class="mdi mdi-star-half"></i><span class="hide-menu">Survey and Ratings</span></a>
+                    </li> -->
                     <li class="nav-small-cap">TRANSACTIONS</li>
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Applicants</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="<?php echo base_url(); ?>manage/applicant/add" data-i18n="nav.json-form.simple-form">Add Walk-in</a></li>
                             <li><a href="<?php echo base_url(); ?>manage/applicant/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
-                            <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.clubs-view">Job Application</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.clubs-view">Browse Job</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications-masterlist" data-i18n="nav.json-form.clubs-view">Applications</a></li>
 
                         </ul>
                     </li>
@@ -96,7 +99,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-small-cap">REPORTS</li>
+              <!--       <li class="nav-small-cap">REPORTS</li>
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Applicants</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="<?php echo base_url();?>manage/reports/applicants">Masterlist</a></li>
@@ -111,14 +114,14 @@
                             <li><a href="<?php echo base_url();?>manage/reports/reportsestablishmentreviewandratings">Review and Ratings</a></li>
                             <li><a href="<?php echo base_url();?>manage/reports/reportsestablishmentcustom">Custom Report</a></li>
                         </ul>
-                    </li>
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Accounts</span></a>
+                    </li> -->
+               <!--      <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Accounts</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="<?php echo base_url();?>manage/reports/reportsaccountsmasterlist">Masterlist</a></li>
                             <li><a href="<?php echo base_url();?>manage/reports/reportsaccountsaccesslist">Access List</a></li>
                             <li><a href="<?php echo base_url();?>manage/reports/reportsaccountscustom">Custom Report</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>manage/reports/reportsactivitylog" aria-expanded="false"><i class="mdi mdi-clipboard-text"></i><span class="hide-menu">Activity Logs</span></a></li>
 
                     <li class="nav-small-cap">SETTINGS</li>
@@ -165,9 +168,9 @@
                             <li class="nav-small-cap">APPLICANT</li>
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url('account/profile');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Profile</span></a></li>
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/Dashboard" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
-                            <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/BrowseJobs" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Browse Jobs</span></a></li>
+                            <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>web/browsejob" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Browse Jobs</span></a></li>
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/MyApplication" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">My Applications</span></a></li>
-                            <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/MyAlerts" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">My Alerts</span></a></li>
+                           <!--  <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/MyAlerts" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">My Alerts</span></a></li> -->
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/Notification" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Notifications</span></a></li>
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url('logout');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Logout</span></a></li>
             </ul>

@@ -14,7 +14,7 @@ class ApplicantModel extends CI_Model {
     public $dependent ='tbl_applicants_dependents';
 
     public function LoadMasterlist($id = null) {
-        $this->db->select('a.*,u.*,a.Id as Id, U.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as DependentTbl');
+        $this->db->select('a.*,u.*,a.Id as Id, u.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as DependentTbl');
         $this->db->from($this->tbl.
             ' a');
         $this->db->join('tbl_security_users u', 'u.PeopleId = a.Id', 'left outer');
