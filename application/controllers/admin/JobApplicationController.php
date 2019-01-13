@@ -75,7 +75,7 @@
     public function Create() {
         
         $this->form_validation->set_rules('JobId','Job Title','required');
-        $this->form_validation->set_rules('ApplicantId','Job Title','required');
+        // $this->form_validation->set_rules('ApplicantId','Job Title','required');
 
        if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
@@ -84,8 +84,11 @@
          }
 
         else {
-        $postdata = $this->input->post();
-        $inserted = $this->jobappmod->Add($postdata);
+                $postdata = $this->input->post();
+                if (empty($postdata['ApplicantId'])) {
+                   $postdata['ApplicantId'] = $this->session->userdata('userid');
+                }
+                $inserted = $this->jobappmod->Add($postdata);
               // echo json_encode(['success'=>TRUE]);
               if ($inserted != FALSE) {         
                 

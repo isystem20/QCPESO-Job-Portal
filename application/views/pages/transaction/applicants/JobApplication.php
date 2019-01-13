@@ -218,7 +218,7 @@
 
                                         
 
-                                            if (!empty($jobposts)) {
+                                         if (!empty($jobposts)) {
                                                 
                                             
 

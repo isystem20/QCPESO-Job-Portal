@@ -86,9 +86,47 @@
                     </div>
                 </article>
                 <center>
-                     <div class="form-submit col-md-12">
+                <?php
+                // print_r($browsejob[0]['AppliedJob']);
+                // print_r($this->session->userdata('userid'));
+                // print_r($browsejob->result());
+                // print_r($browsejob[0]);
+                if ($browsejob[0]['AppliedJob'] == 0) {
+                   // echo "hi";
+                
+                ?>
+                <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm applyjob" data-toggle="tooltip" data-placement="top" title="" data-original-title="Apply" type="button" data-action="<?=base_url('admin/jobapplication/add'); ?>" data-id="<?php echo $browsejob[0]['Id']; ?>" <?php if($browsejob[0]['AppliedJob'] == 0){ echo '  > Apply '; } else{  echo ' disabled style="background-color: red; border: red;" > Applied ';} ?>  </button>
+                    <?php
+
+                        }
+                        else{
+                            echo "<label class='label ";
+                            if ($browsejob[0]['AppliedJob'] == 0) {
+                                echo "label-danger'>Rejected";
+                            }
+                            elseif ($browsejob[0]['AppliedJob'] == 1) {
+                                echo "label-warning'>Pending";
+                            }
+                            elseif ($browsejob[0]['AppliedJob'] == 2) {
+                                echo "label-hired'>Processed";
+                            }
+                            elseif($browsejob[0]['AppliedJob'] == 3){
+                                echo "label-success'>Hired";
+                            }
+                            else{
+                                echo "label-danger'>Error";
+                            }
+                            echo "</label>";
+                        }
+                    ?>
+
+
+                <?php 
+
+                ?>
+                     <!-- <div class="form-submit col-md-12">
                         <button class="btn btn-dark" type="submit">Apply Job</button>
-                    </div>
+                    </div> -->
                 </center>
             </div>
            
