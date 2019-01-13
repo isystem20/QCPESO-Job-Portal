@@ -741,31 +741,49 @@ $('#applicant').submit(function(e) {
        YearLastAttended.push($(this).val());
      }
     });
-    var DependentDataId = new Array();
-    $("input[name=DependentDataId]").each(function() {
+    var CharacterDataId = new Array();
+    $("input[name=CharacterDataId]").each(function() {
       if ($(this).val() == '') {
-        DependentDataId.push('-');
+        CharacterDataId.push('-');
       }
       else {
-       DependentDataId.push($(this).val());
+       CharacterDataId.push($(this).val());
      }
     });
-     var DependentName = new Array();
-    $("input[name=DependentName]").each(function() {
+     var CharacterReferenceName = new Array();
+    $("input[name=CharacterReferenceName]").each(function() {
       if ($(this).val() == '') {
-        DependentName.push('-');
+        CharacterReferenceName.push('-');
       }
       else {
-       DependentName.push($(this).val());
+       CharacterReferenceName.push($(this).val());
      }
     });
-     var DependentDescription = new Array();
-    $("input[name=DependentDescription]").each(function() {
+     var CharacterReferencePosition = new Array();
+    $("input[name=CharacterReferencePosition]").each(function() {
       if ($(this).val() == '') {
-        DependentDescription.push('-');
+        CharacterReferencePosition.push('-');
       }
       else {
-       DependentDescription.push($(this).val());
+       CharacterReferencePosition.push($(this).val());
+     }
+    });
+    var CharacterReferenceCompany = new Array();
+    $("input[name=CharacterReferenceCompany]").each(function() {
+      if ($(this).val() == '') {
+        CharacterReferenceCompany.push('-');
+      }
+      else {
+       CharacterReferenceCompany.push($(this).val());
+     }
+    });
+    var CharacterReferenceContact = new Array();
+    $("input[name=CharacterReferenceContact]").each(function() {
+      if ($(this).val() == '') {
+        CharacterReferenceContact.push('-');
+      }
+      else {
+       CharacterReferenceContact.push($(this).val());
      }
     });
         var PreferredWorkLocations = new Array();
@@ -850,9 +868,11 @@ $('#applicant').submit(function(e) {
                 'highest_level' : HighestLevel,
                 'year_graduated' : YearGraduated,
                 'year_lastattended' : YearLastAttended,
-                'Dependent_DataId' : DependentDataId,
-                'dependent_name' : DependentName,
-                'dependent_description' : DependentDescription,
+                'Character_DataId' : CharacterDataId,
+                'Character_name' : CharacterReferenceName,
+                'Character_position' : CharacterReferencePosition,
+                'Character_Company' : CharacterReferenceCompany,
+                'Character_Contact' : CharacterReferenceContact,
             } 
             // 'PhotoPath' : $('input[name=file]').val(), 
             // 'CreatedAt' : $('input[name=CreatedAt]').val(),
@@ -1104,17 +1124,19 @@ if ($('#addeducation').length > 0) {
     // toastr.info('Skill Successfully Added', "");
   });
 }
-if ($('#adddepend').length > 0) {
+if ($('#addcharacter').length > 0) {
 
-  $('#adddepend').on("click", function() {
+  $('#addcharacter').on("click", function() {
     
-    var m = $('#DependentName');
-    var k =  $('#DependentDescription');
+    var m = $('#CharacterReferenceName');
+    var k =  $('#CharacterReferencePosition');
+    var c =  $('#CharacterReferenceCompany');
+    var t =  $('#CharacterReferenceContact');
      
     if (m.val() == '' || k.val() == '') {
          $.toast({
                       heading: 'Error',
-                      text: 'Name and Description are required.',
+                      text: 'Name and Position are required.',
                       position: 'top-right',
                       loaderBg:'#ff6849',
                       icon: 'error',
@@ -1126,17 +1148,21 @@ if ($('#adddepend').length > 0) {
     // alert ("test");
     var str = '';
     str = str + '<tr>';
-    str = str + '  <td> <input type="hidden" readonly class="form-control" name="DependentDataId" value=""><input type="text" placeholder="Can not be empty." readonly class="form-control DependentName" name="DependentName" value="'+ m.val() +'"></td>';
-    str = str + '  <td><input type="text" class="form-control DependentDescription" name="DependentDescription" value="'+ k.val() +'"></td>';
+    str = str + '  <td> <input type="hidden" readonly class="form-control" name="CharacterDataId" value=""><input type="text" placeholder="Can not be empty." readonly class="form-control CharacterReferenceName" name="CharacterReferenceName" value="'+ m.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control CharacterReferencePosition" name="CharacterReferencePosition" value="'+ k.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control CharacterReferenceCompany" name="CharacterReferenceCompany" value="'+ c.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control CharacterReferenceContact" name="CharacterReferenceContact" value="'+ t.val() +'"></td>';
     str = str + '  <td class="actions"><button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button></td>';
     str = str + '</tr>';
-    $('#depends tbody').append(str);
+    $('#characs tbody').append(str);
     m.val('');
     k.val('');
+    c.val('');
+    t.val('');
   
     $.toast({
                       heading: 'Success!',
-                      text: 'Dependent Successfully Added',
+                      text: 'Character Reference Successfully Added',
                       position: 'top-right',
                       loaderBg:'#ff6849',
                       icon: 'success',
@@ -1423,6 +1449,68 @@ $(function(){
 
 
 
+$('#employee').submit(function(e) {
+    e.preventDefault();
+  
+
+        $("#sub").prop("disabled", true);   //Disables the submit button after click 
+        var newURL = $(this).attr('action');   
+     
+        var newData  = {
+                'Id' : $('input[name=id]').val(), //List of data you want to post
+                'LastName' : $('input[name=LastName]').val(),
+                'FirstName' : $('input[name=FirstName]').val(),
+                'Remarks' : $('textarea[name=Remarks]').val(),
+                'IsActive' : $('select[name=IsActive]').val(),
+                'LoginName' : $('input[name=LoginName]').val(),
+                'Password' : $('input[name=Password]').val(),
+            } 
+          
+            console.log(newData);
+          
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              // contentType: false,
+              // cache: false,  
+              // processData:false,  
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                 if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+
+                    });
+                    window.setTimeout(function(){
+                    window.location.href = data.url; 
+                  }, 1000);
+        
+              }
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+                  }
+                $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
+              }
+          });   
+  });
 
 
 
