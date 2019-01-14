@@ -1,41 +1,22 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class ApplicantController extends CI_Controller {
+ class EmployeesController extends CI_Controller {
    
       function __construct() {
            parent::__construct();
-           $this->load->model('admin/ApplicantModel','applimod');
-           $this->load->model('admin/CitiesModel','citymod');
-           $this->load->model('admin/NationalityModel','nationalmod');
-           $this->load->model('admin/JobsModel','jobsmod');
-           $this->load->model('admin/DisabilityModel','dismod');
-           $this->load->model('admin/LanguageModel','langmod');
-           $this->load->model('admin/LocationModel','locmod');
-           $this->load->model('admin/EmploymentStatusModel','empmod');
-           $this->load->model('admin/JobtitlesModel','jobtimod');
-           $this->load->model('admin/DialectModel','Diamod');
-            $this->load->model('admin/RegionModel','regmod');
+           $this->load->model('admin/EmployeesModel','employmod');
+         
 
        }
    
-    public function AddNewApplicant($id = null,$mode= null)
+    public function AddNewEmployees($id = null,$mode= null)
       {
 
    
-          $layout = array('datepicker'=>TRUE, 'addons'=>TRUE, 'uploadfile'=>TRUE,'pagetitle'=>'Adding New Applicant');
-           $data['city'] = $this->citymod->LoadMasterlist();
-           $data['national'] = $this->nationalmod->LoadMasterlist();
-           $data['jobs'] = $this->jobsmod->LoadMasterlist();
-           $data['disability'] = $this->dismod->LoadMasterlist();
-           $data['language'] = $this->langmod->LoadMasterlist();
+          $layout = array('pagetitle'=>'Adding New Employee');
            
-           $data['location'] = $this->locmod->LoadMasterlist();
-           $data['status'] = $this->empmod->LoadMasterlist();
-           $data['titles'] = $this->jobtimod->LoadMasterlist();
-           $data['dialect'] = $this->Diamod->LoadMasterlist();
-           $data['region'] = $this->regmod->LoadMasterlist();
-           $data['class'] = 'applicant';
+           $data['class'] = 'employee';
           // die('asdasd');
                
            $profile=FALSE;
@@ -45,7 +26,7 @@
                 $profile=TRUE;
                 $this->session->set_tempdata('caption', 'Update Profile', 300);
               }
-              $data['applicant'] = $this->applimod->LoadMasterlist($id);
+              $data['employee'] = $this->employmod->LoadMasterlist($id);
 
 
               
@@ -70,23 +51,23 @@
           $this->load->view('layout/admin/2_preloader',$layout);
           $this->load->view('layout/admin/3_topbar',$layout);
           $this->load->view('layout/admin/4_leftsidebar',$layout);
-          $this->load->view('pages/transaction/applicants/Registration',$data);
+          $this->load->view('pages/employee/AddEmployee',$data);
           $this->load->view('layout/admin/6_js',$layout);
        
       }
    
-        public function AllApplicants()
+        public function AllEmployees()
       {
    
-          $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'pagetitle'=>'Applicant Masterlist');
-          $data['applicant'] = $this->applimod->LoadMasterlist();
-          $data['class'] = 'applicant';
+          $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'pagetitle'=>'Employee Masterlist');
+          $data['employee'] = $this->employmod->LoadMasterlist();
+          $data['class'] = 'employee';
 
           $this->load->view('layout/admin/1_css',$layout);
           $this->load->view('layout/admin/2_preloader',$layout);
           $this->load->view('layout/admin/3_topbar',$layout);
           $this->load->view('layout/admin/4_leftsidebar',$layout);
-          $this->load->view('pages/transaction/applicants/ApplicantMasterlist',$data);
+          $this->load->view('pages/employee/EmployeeMasterlist',$data);
           $this->load->view('layout/admin/6_js',$layout);     
           $this->load->view('layout/admin/7_modals'); 
         
@@ -101,29 +82,15 @@
       // $this->form_validation->set_rules('BirthDate','Birth date','required');
       // $this->form_validation->set_rules('HouseNum','House Number','required');
       // $this->form_validation->set_rules('StreetName','Street Name','required');
+      // $this->form_validation->set_rules('EmailAddress','Email Address','required');
+      // $this->form_validation->set_rules('MobileNum','Mobile Number','required');
       // $this->form_validation->set_rules('HouseNum','House Number','required');
-      // $this->form_validation->set_rules('Remarks','Remarks','required');  
-      $this->form_validation->set_rules('EmailAddress','Email Address','is_unique[tbl_applicants.EmailAddress]',
-         array(
-                'is_unique'     => 'This %s already exists.'
-                )
-            );
-      $this->form_validation->set_rules('MobileNum','Mobile Number','required|is_unique[tbl_applicants.MobileNum]',
-       array(
-                'required'      => 'You have not provided %s.',
-                'is_unique'     => 'This %s already exists.'
-                )
-            );
-      $this->form_validation->set_rules('SSS','SSS','required|is_unique[tbl_applicants.SSS]',
-       array(
-                'required'      => 'You have not provided %s.',
-                'is_unique'     => 'This %s already exists.'
-                )
-            ); 
+      // $this->form_validation->set_rules('Remarks','Remarks','required');
+       
       if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
-         //    print_r($this->input->post());
+            print_r($this->input->post());
          // die();
         }
 
@@ -131,37 +98,20 @@
         //     $errors = "Image File Needed.";
         //       echo json_encode(['error'=>$errors]);
            
-        // }
+
   
         else {
-            $imagepath="";
-            $path = dirname(BASEPATH).'/uploads/';
-            $config['upload_path'] = $path;
-            $config['allowed_types'] = 'gif|jpg|png';
-            $config['max_size'] = '100000';
-            $senderror = FALSE;
-            $this->load->library('upload', $config);
-
-        if (!$this->upload->do_upload('PhotoPath')) {
-                $errors = $this->upload->display_errors();
-                $senderror = TRUE;
-            }       
-        else {
-                $imagedata = $this->upload->data();
-                $imagepath =  'uploads/'.$imagedata['file_name'];   
-            }
-
+            
 
 
 
             $postdata = $this->input->post();
-            $postdata['PhotoPath']=$imagepath;
-            unset($postdata['_wysihtml5_mode']);
-            $inserted = $this->applimod->Add($postdata);
+           
+            $inserted = $this->employmod->Add($postdata);
            
             if ($inserted != FALSE) {           
                 
-                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/transactions/all-applicant']);
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/users-masterlist']);
             }
             else {
                 echo json_encode(['error'=>'Update Unsuccessful.']);
@@ -186,11 +136,11 @@
             unset($postdata['Id']);
             unset($postdata['_wysihtml5_mode']);
             // $postdata = array_filter($postdata, 'strlen');
-            $result = $this->applimod->Update($id,$postdata);
+            $result = $this->employmod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
                
-                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/transactions/all-applicant']);
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/users-masterlist']);
             }
             else {
                 echo json_encode(['error'=>'Update Unsuccessful.']);
@@ -215,7 +165,7 @@
             echo json_encode(['error'=>$errors]);
         }
         else{
-            $result = $this->applimod->Delete($postdata);
+            $result = $this->employmod->Delete($postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);              
                 echo $json;

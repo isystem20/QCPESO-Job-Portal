@@ -22,13 +22,13 @@ if (!empty($applicant)) {
                     ?>
                     
                 </div>
-                <div class="col-md-7 align-self-center">
+            <!--     <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Transactions</a></li>
                         <li class="breadcrumb-item">Applicants</li>
                         <li class="breadcrumb-item active">Registration</li>
                     </ol>
-                </div>
+                </div> -->
                 <div class="">
                     <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
                 </div>
@@ -525,7 +525,7 @@ if (!empty($applicant)) {
                                             <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#skills" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Skills</span></a> </li>
                                             <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#languages" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Languages</span></a> </li>
                                             <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#education" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Education History</span></a> </li>
-                                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#dependents" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Dependents</span></a> </li>
+                                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#characterreference" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Character Reference</span></a> </li>
 
                                         </ul>
                                         <div class="tab-content">
@@ -857,22 +857,24 @@ if (!empty($applicant)) {
                                                 </div>
                                             </div>
 
-                                            <div class="tab-pane" id="dependents" role="tabpanel">
+                                            <div class="tab-pane" id="characterreference" role="tabpanel">
                                                 <div class="p-20">
-                                                    <h3>Dependents</h3>
+                                                    <h3>Character Reference</h3>
                                                     <?php
                             if ($mode=="edit") {
                                 ?>
-                                                        <a data-toggle="modal" data-target="#dependentsmodal" class="btn waves-effect waves-light btn-success">Add</a>
+                                                        <a data-toggle="modal" data-target="#characterreferencemodal" class="btn waves-effect waves-light btn-success">Add</a>
                                                         <?php
                             }
                              ?>
                                                             <div class="table-responsive m-t-40">
-                                                                <table id="depends" class="table table-bordered table-striped" data-action="">
+                                                                <table id="characs" class="table table-bordered table-striped" data-action="">
                                                                     <thead>
                                                                         <tr>
                                                                             <th>Name</th>
-                                                                            <th>Description</th>
+                                                                            <th>Position</th>
+                                                                            <th>Company</th>
+                                                                            <th>Contact Details</th>
                                                                               <?php
                             if ($mode=="edit") {
                                 ?>
@@ -885,16 +887,22 @@ if (!empty($applicant)) {
                                                                     <tbody>
                                                                         <?php
                                                                          // print_r($row->WorkTbl->result_array());
-                                                                    if ($row->DependentTbl->num_rows() > 0) {
-                                                                    foreach ($row->DependentTbl->result() as $depends) { ?>
-                                                                            <tr id="row<?=$depends->ApplicantId; ?>">
+                                                                    if ($row->CharacterTbl->num_rows() > 0) {
+                                                                    foreach ($row->CharacterTbl->result() as $characs) { ?>
+                                                                            <tr id="row<?=$characs->ApplicantId; ?>">
 
                                                                                 <td>
-                                                                                    <input type="hidden" readonly class="form-control" name="DependentDataId" value="<?php echo $depends->Id; ?>">
-                                                                                    <input type="text" placeholder="Can not be empty." readonly class="form-control Name" name="DependentName" value="<?php echo $depends->Name; ?>">
+                                                                                    <input type="hidden" readonly class="form-control" name="CharacterDataId" value="<?php echo $characs->Id; ?>">
+                                                                                    <input type="text" placeholder="Can not be empty." readonly class="form-control CharacterReferenceName" name="CharacterReferenceName" value="<?php echo $characs->CharacterReferenceName; ?>">
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="text" class="form-control Description" name="DependentDescription" value="<?php echo $depends->Description; ?>">
+                                                                                    <input type="text" class="form-control CharacterReferencePosition" name="CharacterReferencePosition" value="<?php echo $characs->CharacterReferencePosition; ?>">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="text" class="form-control CharacterReferenceCompany" name="CharacterReferenceCompany" value="<?php echo $characs->CharacterReferenceCompany; ?>">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="text" class="form-control CharacterReferenceContact" name="CharacterReferenceContact" value="<?php echo $characs->CharacterReferenceContact; ?>">
                                                                                 </td>
                                                                                  <?php
                             if ($mode=="edit") {
@@ -1426,7 +1434,7 @@ else { ?>
                                                             <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#skills" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Skills</span></a> </li>
                                                             <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#languages" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Languages</span></a> </li>
                                                             <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#education" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Education History</span></a> </li>
-                                                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#dependents" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Dependents</span></a> </li>
+                                                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#characterreference" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Character Reference</span></a> </li>
 
                                                         </ul>
                                                         <div class="tab-content">
@@ -1581,16 +1589,18 @@ else { ?>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="tab-pane" id="dependents" role="tabpanel">
+                                                            <div class="tab-pane" id="characterreference" role="tabpanel">
                                                                 <div class="p-20">
-                                                                    <h3>Dependents</h3>
-                                                                    <a data-toggle="modal" data-target="#dependentsmodal" class="btn waves-effect waves-light btn-success">Add</a>
+                                                                    <h3>Character Reference</h3>
+                                                                    <a data-toggle="modal" data-target="#characterreferencemodal" class="btn waves-effect waves-light btn-success">Add</a>
                                                                     <div class="table-responsive m-t-40">
-                                                                        <table id="depends" class="table table-bordered table-striped" data-action="">
+                                                                        <table id="characs" class="table table-bordered table-striped" data-action="">
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th>Name</th>
-                                                                                    <th>Description</th>
+                                                                                    <th>Position</th>
+                                                                                    <th>Company</th>
+                                                                                    <th>Contact Details</th>
                                                                                     <th>Action</th>
                                                                                 </tr>
                                                                             </thead>
@@ -1766,11 +1776,11 @@ else { ?>
                         </div>
                     </div>
                 </div>
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="dependentsmodal" class="modal fade">
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="characterreferencemodal" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Add Dependent</h4>
+                                <h4 class="modal-title">Add Character Reference</h4>
                                 <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
 
                             </div>
@@ -1779,19 +1789,31 @@ else { ?>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Name</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="DependentName">
+                                            <input type="text" class="form-control" id="CharacterReferenceName">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Description</label>
+                                        <label class="col-sm-3 control-label">Position</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="DependentDescription">
+                                            <input type="text" class="form-control" id="CharacterReferencePosition">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Company</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="CharacterReferenceCompany">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Contact Details</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="CharacterReferenceContact">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">
-                                            <button type="button" class="btn btn-info btn-sm" id="adddepend">Add</button>
+                                            <button type="button" class="btn btn-info btn-sm" id="addcharacter">Add</button>
                                         </div>
                                     </div>
                                 </form>
