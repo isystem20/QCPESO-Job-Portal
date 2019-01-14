@@ -23,7 +23,7 @@
 
                             <!-- Post-->
                             <article class="post">
-                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/employment.jpg" width="350" alt=""></a></div>
+                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/referrals.png" width="350" alt=""></a></div>
                                 <div class="post-wrapper">
                                     <div class="post-header">
                                         <h2 class="post-title"><a href="blog-single.html">Referrals for Employment</a></h2>
@@ -49,7 +49,7 @@
 
                             <!-- Post-->
                             <article class="post">
-                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/pwd-pic.jpg" width="350" alt=""></div>
+                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/PersonWithDisability.png" width="350" alt=""></div>
                                 <div class="post-wrapper">
                                     <div class="post-header">
                                         <h2 class="post-title"><a href="blog-single.html">Person with Disability</a></h2>
@@ -70,7 +70,7 @@
 
                             <!-- Post-->
                             <article class="post">
-                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/recruitment-pic.jpg" width="350" alt=""></div>
+                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/RECRUITMENT.png" width="350" alt=""></div>
                                 <div class="post-wrapper">
                                     <div class="post-header">
                                         <h2 class="post-title"><a href="blog-single.html">Recruitment</a></h2>
@@ -87,7 +87,7 @@
 
                             <!-- Post-->
                             <article class="post">
-                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/summer.jpg" width="350" alt=""></div>
+                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/summerjob.png" width="350" alt=""></div>
                                 <div class="post-wrapper">
                                     <div class="post-header">
                                         <h2 class="post-title"><a href="blog-single.html">Summer Jobs</a></h2>
