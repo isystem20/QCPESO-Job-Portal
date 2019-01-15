@@ -73,7 +73,7 @@
                                         <div class="col-sm-2">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Date From:</label>
-                                                    <input type="date" class="form-control" value="" name="ModifiedAt">
+                                                    <input type="date" class="form-control" value="" name="ModifiedAt" id="ModifiedAt">
 
                                                 </div>
                                             </div>
@@ -99,7 +99,7 @@
                                                 <div class="form-group has-success">
                                         
     
-                                        <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i>Search</button>
+                                        <button type="submit" id="sub-btn" class="btn btn-success"> <i class=""></i>Search</button>
                                                 </form>
                                            </div>
                                         </div>

@@ -31,44 +31,36 @@
                     <li class="nav-small-cap">MANAGE</li>
 
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Accounts and Access</span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="<?php echo base_url(); ?>manage/users-masterlist"> Users </a></li>
+                        <ul aria-expanded="false" class="collapse">                       
                             <li><a href="<?php echo base_url(); ?>manage/user-groups/"> Groups </a> </li>
                             <li><a href="<?php echo base_url(); ?>manage/modules"> Modules </a> </li>
+                            <li><a href="<?php echo base_url(); ?>manage/users-masterlist"> Users </a></li>
                         </ul>
                     </li>
 
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Maintenance</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/languages"> Language </a></li>
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/licenses"> Licenses </a> </li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-level"> Applicant Level </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-categories"> Categories </a></li>
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/certificates"> Certificates </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/cities"> Cities</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/countries"> Country List</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenace/user-courses"> Course List </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/dialect"> Dialect</a></li>
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/disabilities"> Disabilities </a></li>
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/dresscode"> Dress Code </a></li>
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/preferred-locations"> Preferred Locations </a></li>
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/job-titles"> Job Titles </a></li>
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-categories"> Categories </a></li>
-
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-level"> Applicant Level </a></li>
-
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/industries"> Industries </a></li>
-                            <li><a href="<?php echo base_url(); ?>manage/maintenace/user-courses"> Course List </a></li>
-
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li>
-
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/countries"> Country List</a></li>
-
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/user-status"> Employment Status</a></li>
-
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/skills"> Skills</a></li>
-
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li>
+                           <!--  <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li> -->
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/industries"> Industries </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/job-titles"> Job Titles </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/languages"> Language </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/licenses"> Licenses </a> </li>
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/nationality"> Nationalities</a></li>
-
+                            <!-- <li><a href="<?php echo base_url(); ?>manage/maintenance/industries"> Industries </a></li> -->
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/preferred-locations"> Preferred Locations </a></li>
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/region"> Regions</a></li>
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/cities"> Cities</a></li>
-
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/dialect"> Dialect</a></li>
-
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/skills"> Skills</a></li>
                         </ul>
                     </li>
              <!--        <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/maintenance/SurveyAndRatings" aria-expanded="false"><i class="mdi mdi-star-half"></i><span class="hide-menu">Survey and Ratings</span></a>
@@ -188,7 +180,7 @@
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/job-titles"> Job Titles </a></li>
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-categories"> Categories </a></li>
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-level"> Applicant Level </a></li>
-                            <li><a href="<?php echo base_url(); ?>manage/maintenance/industries"> Industries </a></li>
+                            
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li>
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/skills"> Skills</a></li>
                         </ul>

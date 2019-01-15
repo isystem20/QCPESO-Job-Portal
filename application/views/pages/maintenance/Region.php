@@ -58,7 +58,7 @@
                                             <tr id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->Name; ?></td>
                                                 <td><?php echo character_limiter($row->Description, 30); ?></td>
-                                                <td><?php echo $row->ModifiedById; ?></td>
+                                                <td><?php echo $row->ModFirstName.' '.$row->ModLastName ; ?></td>
                                                 <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
                                                 <td>
                                                     <?php 
