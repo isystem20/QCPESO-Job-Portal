@@ -67,13 +67,24 @@ $(function() {
     // ============================================================== 
     // Sales overview 2
     // ============================================================== 
+
+    var all_year = $('#ct-sales3-chart').data('values');
+
+    var labels1 = [], madata1=[], highest = 0 ;
+
+
+    for (var key in all_year) {
+        var value = all_year[key];
+        console.log(key, value);
+        labels1.push(key);
+        madata1.push(value);
+        if (value > highest) {
+            highest = value;
+        }
+    }
     new Chartist.Bar('#ct-sales3-chart', {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        series: [
-            [400, 120, 140, 130, 200, 150, 140, 130, 300, 120, 140, 150],
-            [200, 188, 242, 300, 200, 400, 230, 300, 200, 400, 180, 300],
-            [100, 200, 400, 600, 100, 200, 400, 370, 240, 200, 280, 330]
-        ]
+        labels: labels1,
+        series: [madata1]
     }, {
         stackBars: true,
         axisX: {
@@ -94,6 +105,9 @@ $(function() {
             });
         }
     });
+
+
+    
     // ============================================================== 
     // world map
     // ==============================================================
@@ -161,4 +175,13 @@ $(function() {
             alert(message);
         }
     });
+       // $.toast({
+        //     heading: 'Welcome to Adminpros',
+        //     text: 'Most powerfull and elegant design with tons of elements.',
+        //     position: 'top-right',
+        //     loaderBg: '#f33c49',
+        //     icon: 'info',
+        //     hideAfter: 6000,
+        //     stack: 6
+        // })
 });

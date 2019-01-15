@@ -1,16 +1,33 @@
 <div class="wrapper">
             <!-- Hero-->
 
-            <section class="module-cover parallax text-center fullscreen" data-background="<?php echo base_url(); ?>banners/BROWSEJOB1.png" data-overlay="0.6">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 ">
-                            <h1 class="m-b-20"><strong>Browse Job</strong></h1>
-                            <h5 class="m-b-40">See how your users experience your website in realtime or view  <br> trends to see any changes in performance over time.</h5>
-                            
+            <section class="module-cover parallax text-center fullscreen" data-background="<?php echo base_url(); ?>banners/BROWSEJOB1.png" data-overlay="0.6" style="">
+                <?php
+                if (!empty($post)) { ?>
+
+                <style type="text/css">
+                    .fullscreen {
+                        height:70px;
+                    }
+                </style>
+
+                <?php
+                } else { ?>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <h1 class="m-b-20"><strong>Browse Job</strong></h1>
+                                    <h5 class="m-b-40">See how your users experience your website in realtime or view  <br> trends to see any changes in performance over time.</h5>
+                                    
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
+
+
             </section>
             <!-- Hero end-->
 
@@ -24,17 +41,31 @@
                                 <div class="col-md-12 post-item" style="position: absolute; left: 0px; top: 10px;">
                                     <!-- Post-->
                                     <?php
+
+                                    // print_r($browsejob->result());
                                         if ($browsejob->num_rows() > 0) {
                                         foreach ($browsejob->result() as $row) { ?>     
                                             <article class="post">
-                                            <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/images/blog/1.jpg" alt=""></a></div>
+                                                
+                                            <div class="post-preview">
+                                                <a href="#"><img src="
+                                                    <?php 
+                                                    echo base_url(); ?><?=$row->JobImage?>
+                                                    " alt="">
+                                                </a></div>
                                             <div class="post-wrapper">
                                                 <div class="post-header">
-                                                    <h2 class="post-title"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"> <?php echo $row->JobTitle; ?></a></h2>
+                                                    <h2 class="post-title"><a href="<?=base_url('web/JobDescription/'.$row->Id.'/#'.$row->JobTitle); ?>"> <?php echo $row->JobTitle; ?><br></a></h2>
+                                                    <ul class="post-meta">
+                                            <li><?php echo date('D F d, Y H:i A',strtotime($row->CreatedAt)); ?></li>
+                                            <li><a href="#"><?php echo $row->CompanyName; ?></a>,
+                                            <li><a href="#"><?php echo $row->industryname; ?></a></li>
+                                        </ul>
                                                 </div>
                                             <div class="card-body">
                                                 <p><?php echo $row->JobDescription; ?></p>
-                                                <p><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>">Read more</a></p>
+                                                <p>
+            <a href="<?=base_url('web/JobDescription/'.$row->Id.'/#'.$row->JobTitle); ?>"/>Read more</a></p>
                                                 </div>
                                             </div>
                                         </article>
@@ -185,9 +216,15 @@
                                         if ($mostrecentjob->num_rows() > 0) {
                                             foreach ($mostrecentjob->result() as $row ) { ?>
                                         <li class="clearfix">
-                                            <div class="wi"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/
-/images/widgets/1.jpg" alt=""></a></div>
-                                            <div class="wb"><a href="#"><?=$row->JobTitle;?></span></div>
+                                            <div class="wi">
+                                                <a href="#"><img src="
+                                                    <?php 
+                                                    echo base_url(); ?><?=$row->JobImage?>
+                                                    " alt="">
+                                                </a>
+                                            </div>
+                                            <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id.'/#'.$row->JobTitle); ?>"><?=$row->JobTitle;?><br>
+                                                <span class="post-date"><?=date('D F d, Y H:i A',strtotime($row->CreatedAt));?></span></div>
                                         </li>
 
                                         <?php
@@ -221,7 +258,16 @@
             </section>
             <!-- Blog end-->
 
-            
+            <div class="col-md-12">
+                                    <nav>
+                                        <ul class="pagination justify-content-center">
+                                            <li class="page-item"><a class="page-link" href="#"><span class="fas fa-angle-left"></span></a></li>
+                                            <li class="page-item active"><a class="page-link" <a href="<?=base_url('web/JobDescription/'.$row->Id); ?>">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#"><span class="fas fa-angle-right"></span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
             <!-- Footer-->
             <footer class="footer">
                 <div class="footer-widgets">
@@ -258,14 +304,14 @@
                                     </div>
                                     <ul>
                                          <?php
-                                        if ($mostrecentjob->num_rows() > 0) {
-                                            foreach ($mostrecentjob->result() as $row ) { ?>
-                                        <li><a href="#"><div class="wb"><a href="#"><?=$row->JobTitle;?></span></div></a><span class="post-date">May 8, 2018</span></li>
-                                         <?php
+                                        if ($webpostmodel->num_rows() > 0) {
+                                            foreach ($webpostmodel->result() as $row ) { ?>
+                                       <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=character_limiter($row->PostDescription, 100);?><br>
+                                                <span class="post-date"><?=date('D F d, Y H:i A',strtotime($row->CreatedAt));?></span></div>
+                                          <?php
                                             }
                                         }
-                                        ?>                                          
-
+                                        ?>    
                                     </ul>
                                 </aside>
                             </div>

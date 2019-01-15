@@ -850,9 +850,15 @@
                                         <h6>Recent Posts</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">April 7, 2018</span></li>
-                                        <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">September 7, 2018</span></li>
+                                         <?php
+                                        if ($webpostmodel->num_rows() > 0) {
+                                            foreach ($webpostmodel->result() as $row ) { ?>
+                                        <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=character_limiter($row->PostDescription, 200);?><br>
+                                                <span class="post-date"><?=date('D F d, Y H:i A',strtotime($row->CreatedAt));?></span></div>
+                                          <?php
+                                            }
+                                        }
+                                        ?>    
                                     </ul>
                                 </aside>
                             </div>

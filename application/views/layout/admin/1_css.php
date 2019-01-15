@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from wrappixel.com/demos/admin-templates/admin-pro/minimal/index4.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Sep 2018 06:00:35 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +10,19 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
 
-    <meta name="google-signin-client_id" content="695408817379-9bfd5ft39pl37hjh273aq87tsdfl35cv.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script> 
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>themes/admin-pro/assets/assets/images/favicon.png">
+    <?php
+    if (!empty($websetting) && !empty($websetting['ENABLE_GOOGLE_AUTH'])) {
+        if ($websetting['ENABLE_GOOGLE_AUTH'] == 'YES') { ?>
+
+        <meta name="google-signin-client_id" content="695408817379-9bfd5ft39pl37hjh273aq87tsdfl35cv.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <?php
+        }
+    }
+    ?>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>themes/admin-pro/assets/images/qcpeso.png">
     <title><?php if(empty($pagetitle)){ echo 'QCPESO'; } else {echo $pagetitle;} ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,11 +30,26 @@
     <!-- This page CSS -->
     <!-- Vector CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- Chart css -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/Chart.js/dist/chart.min.css" rel="stylesheet">
     <!-- chartist CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+ <!-- Bootstrap Core CSS -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--This page css - Morris CSS -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/morrisjs/morris.css" rel="stylesheet">
     <!-- Custom CSS -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/css/style.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <!--c3 CSS -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/c3-master/c3.min.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard1.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard2.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard3.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/dashboard4.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/colors/default.css" id="theme" rel="stylesheet">
@@ -80,34 +103,16 @@
     </style>
 
     <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/style.css" rel="stylesheet">
+ <!--    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/jquery/jquery.min.js"></script>
 
+<script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/js/jquery.toast.js"></script> -->
+    <?php 
+    $webset = '';
+    if (!empty($websetting)) {
+        $webset = $websetting;
+    } 
+    ?>
+    <?php $this->load->view('layout/admin/15_api',['websetting'=>$webset]); ?>
 
-    <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
-      <script>
-
-        // Enable pusher logging - don't include this in production
-        Pusher.logToConsole = true;
-
-        var pusher = new Pusher('b40201798c4cfcffea24', {
-          cluster: 'ap1',
-          forceTLS: true
-        });
-
-        var channel = pusher.subscribe('my-channel');
-        channel.bind('my-event', function(data) {
-         $.toast({
-          heading: 'Notification:',
-          text:data.message,
-          position: 'top-right',
-          loaderBg:'#ff6849',
-          icon: 'info',
-          hideAfter: 3500, 
-          stack: 6
-        }); 
-          // alert(JSON.stringify(data));
-        });
-      </script>
-
-
-
+    
 </head>

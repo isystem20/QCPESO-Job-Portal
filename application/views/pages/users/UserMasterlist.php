@@ -32,10 +32,11 @@
                 <!-- ============================================================== -->
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Description:</h4>
-                                <h6 class="card-subtitle">This is the Masterlist of all users.</h6>
+                               
+                                <h6 class="card-subtitle">This is the Masterlist of all Employees.</h6>
                                 <div class="table-responsive m-t-40">
-                                    <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+                                   <a href="<?=base_url('manage/employee/add');?>" class="btn waves-effect waves-light btn-success">Add Employee</a>
+                                     <a href="<?=base_url('manage/employees-masterlist');?>" class="btn waves-effect waves-light btn-success">Masterlist of Employees</a>
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>

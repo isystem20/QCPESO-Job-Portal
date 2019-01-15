@@ -44,7 +44,11 @@
 
         $data['jobposts'] =$this->browsmod->BrowseJobModelMasterlist($postdata, null, $postdata['Applicant']);
         }
+
+        else{
+            
             // print_r($data['jobposts']->result());
+        }
 
         
         $data['skills'] = $this->skimod->LoadMasterlist();
@@ -163,7 +167,19 @@
     }
  
     public function Read() {
- 
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE,'pagetitle'=>'Categories Masterlist');
+        $data['list'] = $this->jobappmod->LoadApplicationsMasterlist();
+        $data['class'] = 'jobapplications';
+        $this->load->view('layout/admin/1_css',$layout);
+        $this->load->view('layout/admin/2_preloader',$layout);
+        $this->load->view('layout/admin/3_topbar',$layout);
+        $this->load->view('layout/admin/4_leftsidebar',$layout);
+        $this->load->view('pages/transaction/applicants/JobApplicationList',$data);
+        $this->load->view('layout/admin/6_js',$layout);     
+        $this->load->view('layout/admin/7_modals',$layout);
+
+        // $json = json_encode($data['categories']); //log
+        // $this->logger->log('Load Categories','Categories',$json); //Log
     }
  
  

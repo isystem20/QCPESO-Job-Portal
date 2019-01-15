@@ -4,29 +4,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	class JobsModel extends CI_Model {
 
 
-		public $tbl = 'tbl_establishments_jobposts';
+				public $tbl = 'tbl_establishments_jobposts';
+
 
 		public function LoadMasterlist($id = null) {
-			$this->db->select('*');
-			$this->db->from($this->tbl);
+			$this->db->select(' estab.*, ej.*, ej.IsActive as ejStatus');
+			$this->db->from('tbl_establishments_jobposts ej');
+			$this->db->join('tbl_establishments estab', 'estab.Id = ej.EstablishmentId', 'left outer');
+
 			if (!empty($id)) {
-				$this->db->where('Id',$id);
+				$this->db->where('ej.Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('IsActive','0');
+				$this->db->where('ej.IsActive','1');
 				return $this->db->get();
 			}
 			
 		}
 
 		public function LoadMasterlistPending($id = null) {
-			$this->db->select('*');
-			$this->db->from($this->tbl);
+			$this->db->select('ej.*, e.CompanyName as comname, ej.IsActive as PendingStatus');
+			$this->db->from('tbl_establishments_jobposts ej');
+			$this->db->join('tbl_establishments e', 'ej.EstablishmentId = e.Id', 'left outer');			
+
 			if (!empty($id)) {
 				$this->db->where('Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('IsActive','1');
+				$this->db->where('ej.IsActive','0');
 				
 				return $this->db->get();
 			}
@@ -35,13 +40,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function Add($data) {
 
-
-			
+			 
+		
 			$data['Specialization'] = json_encode($data['Specialization']);
 			$data['Category'] = json_encode($data['Category']);			
+			
 
+			
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
-			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
+			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
+
 
 			$this->db->insert($this->tbl,$data);
 
@@ -79,13 +87,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['Category'] = json_encode($data['Category']);
 
 
-
-
 		    $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
 		    $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
 		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
 		    $this->db->where('Id', $id);
+
+
 		    $query = $this->db->update($this->tbl,$data);
+
+		    die($this->db->last_query());
+
 			$update = $this->db->affected_rows();
 			if ($update > 0) {
 				$result = $this->LoadMasterlist($id);
@@ -94,6 +105,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else {
 				return FALSE;
 			}
+		}
+
+		public function Approve($data) {
+			//filerecord = [Del-1234567890]filerecord
+			$this->db->set('IsActive','"1"',FALSE);
+			$this->db->where('Id', $data['id']);
+			$this->db->update($this->tbl);
+			$deleted = $this->db->affected_rows();
+			if ($deleted > 0) {
+				return $data;
+			}else {
+				FALSE;
+			}
+
 		}
 
 }
