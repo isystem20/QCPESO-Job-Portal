@@ -73,9 +73,11 @@
 
     }
     public function Create() {
+
+        $data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($this->session->userdata('userid'));
         
         $this->form_validation->set_rules('JobId','Job Title','required');
-        // $this->form_validation->set_rules('ApplicantId','Job Title','required');
+        // $this->form_validation->set_rules('ApplicantId','Applicant Id','required');
 
        if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();

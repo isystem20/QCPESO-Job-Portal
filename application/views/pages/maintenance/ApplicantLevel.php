@@ -65,7 +65,7 @@
                                             <tr Id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->Name; ?></td>
                                                 <td><?php echo character_limiter($row->Description, 30); ?></td>
-                                                <td><?php echo $row->ModifiedById; ?></td>
+                                                <td><?php echo $row->ModFirstName.' '.$row->ModLastName ; ?></td>
                                                 <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
                                                 <td>
                                                     <?php 
@@ -106,7 +106,7 @@
                                                 <th>Modified By</th>
                                                 <th>Last Modified</th>
                                                 <th>Status</th>
-                                                < <?php 
+                                                 <?php 
                                             $usertype = $this->session->userdata('usertype');
                                             if ($usertype != 'EMPLOYER') {
                                             ?>

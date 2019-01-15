@@ -216,7 +216,7 @@
                                         </tfoot>
                                         <?php
 
-                                        
+                                        // print_r($jobposts->result());
 
                                          if (!empty($jobposts)) {
                                                 
@@ -226,22 +226,7 @@
                                             foreach ($jobposts->result() as $row) { ?>
                                             <tr Id="row<?=$row->Id; ?>">
                                                 <td><?php echo character_limiter($row->JobTitle, 10); ?></td>
-                                                <td><?php $str="";
-                                                            if ($estabs->num_rows() > 0) {
-                                                                foreach ($estabs->result() as $types) { 
-                                                                    if ($row->EstablishmentId==$types->Id){
-                                                                      $str="Selected";
-                                                                    }
-                                                                    else {
-                                                                        $str="";
-
-                                                                    }
-                                                                    ?>
-                                                                <option  <?=$str?> value="<?=$types->Id?>"><?=$types->CompanyName?></option>
-                                                            <?php
-                                                                }
-                                                            }
-                                                            ?> </td>
+                                                <td><?php echo character_limiter($row->estabCompanyName, 10); ?></td>
                                                 <td><?php echo $row->Salary; ?></td>
                                                 
                                                 <td class="actions">
