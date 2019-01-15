@@ -50,7 +50,7 @@ public function BrowseJobDescription($id = NULL){
 		
 
 		
-		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist(null,$id);
+		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist(null,$id,$this->session->userdata('userid'));
 		
 		
 		$JobPostResult = $data['browsejob']->result_array()	;
