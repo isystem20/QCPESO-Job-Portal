@@ -1457,13 +1457,20 @@ $('#employee').submit(function(e) {
         var newURL = $(this).attr('action');   
      
         var newData  = {
-                'Id' : $('input[name=id]').val(), //List of data you want to post
+                'Id' : $('input[name=Id]').val(), //List of data you want to post
                 'LastName' : $('input[name=LastName]').val(),
                 'FirstName' : $('input[name=FirstName]').val(),
+                'MiddleName' : $('input[name=MiddleName]').val(),
+                'Suffix' : $('select[name=Suffix]').val(),
+                'LandlineNum' : $('input[name=LandlineNum]').val(),
+                'MobileNum' : $('input[name=MobileNum]').val(),
+                'EmailAddress' : $('input[name=EmailAddress]').val(),
+                'TIN' : $('input[name=TIN]').val(),
+                'SSS' : $('input[name=SSS]').val(),
+                'PHILHEALTH' : $('input[name=PHILHEALTH]').val(),
+                'PAGIBIG' : $('input[name=PAGIBIG]').val(), 
                 'Remarks' : $('textarea[name=Remarks]').val(),
                 'IsActive' : $('select[name=IsActive]').val(),
-                'LoginName' : $('input[name=LoginName]').val(),
-                'Password' : $('input[name=Password]').val(),
             } 
           
             console.log(newData);
