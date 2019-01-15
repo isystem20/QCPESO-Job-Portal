@@ -108,9 +108,10 @@ class AuthModel extends CI_Model {
 	}
 
 	public function LoginApplicant($data,$ext = FALSE) {
-		$this->db->select('user.*, app.lastName, app.firstName,app.isActive as applicantstatus, app.PreferredJobs, app.PreferredWorkLocations');
-		$this->db->from('tbl_security_users user');
-		$this->db->join('tbl_applicants app','app.Id = user.PeopleId','left outer');
+		//app.lastName, app.firstName,app.isActive as applicantstatus, app.PreferredJobs, app.PreferredWorkLocations
+		$this->db->select('*, "" as lastName, "" as firstName, "" as applicantstatus, "" as PreferredJobs, "" as PreferredWorkLocations');
+		$this->db->from('tbl_security_users');
+		// $this->db->join('tbl_applicants app','app.Id = user.PeopleId','left outer');
 		$this->db->where('user.LoginName',$data['Email']);
 		if ($ext == TRUE) {
 			$this->db->where('user.External_Id', $data['External_Id']);
@@ -122,6 +123,11 @@ class AuthModel extends CI_Model {
 		else {
 			return FALSE;
 		}
+
+	}
+
+
+	function LoginEmployer($data,$ext) {
 
 	}
 
