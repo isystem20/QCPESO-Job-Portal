@@ -116,7 +116,7 @@
 
                             <!-- Post-->
                             <article class="post">
-                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/youth.jpg" width="350" alt=""></div>
+                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/Outofschoolyouth.jpg" width="350" alt=""></div>
                                 <div class="post-wrapper">
                                     <div class="post-header">
                                         <h2 class="post-title"><a href="blog-single.html">Out of School Youth</a></h2>
@@ -140,7 +140,7 @@
 
                             <!-- Post-->
                             <article class="post">
-                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/jobfair-pic.jpg" width="350" alt=""></div>
+                                <div class="post-preview"><a href="#"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/jobfair.jpg" width="350" alt=""></div>
                                 <div class="post-wrapper">
                                     <div class="post-header">
                                         <h2 class="post-title"><a href="blog-single.html">Job Fairs</a></h2>
