@@ -9,7 +9,7 @@ $(function () {
     // ============================================================== 
     // Sales overview
     // ============================================================== 
-     new Chartist.Line('#sales-overview2', {
+     new Chartist.Line('#sales-overview7', {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
         , series: [
           {meta:"Earning ($)", data: [0, 150, 110, 240, 200, 200, 300]}
@@ -50,7 +50,7 @@ $(function () {
     // ============================================================== 
     
     var chart = c3.generate({
-        bindto: '#visitor',
+        bindto: '#visitors',
         data: {
             columns: [
                 ['Other', 30],
@@ -137,4 +137,16 @@ $(function () {
             'stop-color': 'rgba(38, 198, 218, 1)'
           });
         });
+        // ============================================================== 
+    // This is for the popup message while page load
+    // ============================================================== 
+        // $.toast({
+        //     heading: 'Welcome to Adminpros',
+        //     text: 'Most powerfull and elegant design with tons of elements.',
+        //     position: 'top-right',
+        //     loaderBg: '#f33c49',
+        //     icon: 'info',
+        //     hideAfter: 6000,
+        //     stack: 6
+        // })
 });

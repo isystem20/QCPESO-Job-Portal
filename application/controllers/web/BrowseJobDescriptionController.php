@@ -11,26 +11,28 @@ function __construct() {
           $this->load->model('admin/CategoriesModel','categmod');
           $this->load->model('admin/SkillsModel','skimod');
           $this->load->model('admin/ApplicantLevelModel','levelmod');
+
      }
-public function BrowseJobDescription()
-	
-			{
+	public function BrowseJobDescription(){
 
-				$str = null;
+		$logged_userid = $this->session->userdata('userid');
+		// die($logged_userid);
+		$str = null;
 
-				$postdata = $this->input->post();
+		$postdata = $this->input->post();
 
-				if  (!empty($postdata['searchtext'])) {
+		if  (!empty($postdata['searchtext'])) {
 					$str = $postdata['searchtext'];
 			}
 		
-		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($postdata);
+		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($postdata, null, $logged_userid);
 		$data['browsejob1'] = $this->browsmod->MostRecentJobs();
 		$data['estabpost'] = $this->estmod->LoadMasterlist();		
 		$data['categori'] = $this->categmod->LoadCategoryMasterlist();
 		$data['skills'] = $this->skimod->LoadMasterlist();
 		$data['applevel'] = $this->levelmod->LoadMasterlist();
 		$data['criteria'] = $postdata;
+		$data = $this->session->userdata('userid');
 		$layout = array('transparentwrapper' => TRUE,'addons'=>TRUE, 'pagetitle'=>'BrowseJobDescription');
 				$this->load->view('layout/web/1_head',$layout);
 				$this->load->view('layout/web/2_preloader',$layout);

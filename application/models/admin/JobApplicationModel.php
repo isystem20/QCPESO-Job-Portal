@@ -20,8 +20,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 		}
 
+		function LoadApplicationsMasterlist() {
+			$this->db->select('ja.*,ja.IsActive as ApplicationStatus,ja.ApplicationDate,a.*, a.Id as ApplicantId, a.IsActive as ApplicantStatus, j.*, j.Id as JobId, e.*, e.Id as EstablishmentId');
+			$this->db->from('tbl_applicants_job_applications ja');
+			$this->db->join('tbl_applicants a','a.Id = ja.ApplicantId', 'left outer');
+			$this->db->join('tbl_establishments_jobposts j','j.Id = ja.JobPostId','left outer');
+			$this->db->join('tbl_establishments e','e.Id = j.EstablishmentId','left outer');
+			$get = $this->db->get();
+			// die($this->db->last_query());
+			return $get;
+		}
 
-		public function Add($data) {
+
+		public function  Add($data) {
 			// /$this->db->set('name',"'".$data['name']."'",FALSE);
 			// /$this->db->set('description',"'".$data['description']."'",FALSE);
 			// /$this->db->set('createdById',"'".$this->session->userdata('userid')."'",FALSE);
