@@ -1793,7 +1793,7 @@ $('.applyjo').click(function(e){ //Input the form's ID or CLASS, use # for ID an
     $('#header-text').text($(this).data('name'));
     $('input[name=name]').val($(this).data('name')); 
     $('input[name=url]').val($(this).data('url'));
-    $('se[name=parent]').val($(this).data('parent'));  
+    $('select[name=parent]').val($(this).data('parent'));  
     $('textarea[name=description]').val($(this).data('desc'));
     $('select[name=category]').val($(this).data('category'));  
     $('input[name=created]').val($(this).data('createdby')+' ('+ $(this).data('createdat') +')'); 

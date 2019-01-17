@@ -164,7 +164,7 @@
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/MyApplication" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">My Applications</span></a></li>
                            <!--  <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/MyAlerts" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">My Alerts</span></a></li> -->
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/Notification" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Notifications</span></a></li>
-                            <li> <a class="waves-effect waves-dark" href="<?php echo base_url('logout');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Logout</span></a></li>
+                        
             </ul>
             <?php
                                          }
@@ -244,7 +244,7 @@
                             <li><a href="<?php echo base_url(); ?>manage/do/establishments/pending-accreditation">Pending Accreditation</a></li>
                         </ul>
                     </li>
-                            <li> <a class="waves-effect waves-dark" href="<?php echo base_url('logout');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Logout</span></a></li>  
+                        
              <?php
                                          }
                                         ?>
