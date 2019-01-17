@@ -7,14 +7,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public $tbl = 'tbl_license_list';
 
 		public function LoadMasterlist($id = null) {
-			$this->db->select('*');
-			$this->db->from($this->tbl);
+			$this->db->select('c.*,u.FirstName as ModFirstName,u.LastName as ModLastName');
+			$this->db->from('tbl_license_list c');
+			$this->db->join('tbl_employees u', 'u.Id = c.ModifiedById', 'left outer ' );
 			if (!empty($id)) {
-				$this->db->where('Id',$id);
+				$this->db->where('c.Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('IsActive','1');
-				$this->db->or_where('IsActive','2');
+				$this->db->where('c.IsActive','1');
+				$this->db->or_where('c.IsActive','2');
 				return $this->db->get();
 			}
 			

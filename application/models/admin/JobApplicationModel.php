@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 
-		public function Add($data) {
+		public function  Add($data) {
 			// /$this->db->set('name',"'".$data['name']."'",FALSE);
 			// /$this->db->set('description',"'".$data['description']."'",FALSE);
 			// /$this->db->set('createdById',"'".$this->session->userdata('userid')."'",FALSE);
