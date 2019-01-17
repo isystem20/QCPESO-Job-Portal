@@ -11,10 +11,10 @@ class ApplicantModel extends CI_Model {
     public $work ='tbl_applicants_work_history';
     public $skill ='tbl_applicants_skills';
     public $educ ='tbl_applicants_schools_attended';
-    public $dependent ='tbl_applicants_dependents';
+    public $character ='tbl_applicants_characterreference';
 
     public function LoadMasterlist($id = null) {
-        $this->db->select('a.*,u.*,a.Id as Id, U.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as DependentTbl');
+        $this->db->select('a.*,u.*,a.Id as Id, u.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as CharacterTbl');
         $this->db->from($this->tbl.
             ' a');
         $this->db->join('tbl_security_users u', 'u.PeopleId = a.Id', 'left outer');
@@ -46,9 +46,9 @@ class ApplicantModel extends CI_Model {
 
                   $this->db->flush_cache();
                    $this->db->select('*');
-                   $this->db->from($this->dependent);
+                   $this->db->from($this->character);
                    $this->db->where('ApplicantId', $id);
-                   $row->DependentTbl = $this->db->get();
+                   $row->CharacterTbl = $this->db->get();
 
                 }
              }
@@ -109,8 +109,8 @@ class ApplicantModel extends CI_Model {
         if (!empty($data["Educ_Id"])) {
             unset($data["Educ_Id"]);
         }
-         if (!empty($data["Dependent_DataId"])) {
-            unset($data["Dependent_DataId"]);
+         if (!empty($data["Character_DataId"])) {
+            unset($data["Character_DataId"]);
         }
 
 
@@ -146,17 +146,21 @@ class ApplicantModel extends CI_Model {
             unset($data['year_graduated']);
             unset($data['year_lastattended']);
         }
-        if (!empty($data["dependent_name"])) {
-            $dp_name = $data['dependent_name'];
-            $dp_desc = $data['dependent_description'];
-            unset($data['dependent_name']);
-            unset($data['dependent_description']);
+        if (!empty($data["Character_name"])) {
+            $ch_name = $data['Character_name'];
+            $ch_pos = $data['Character_position'];
+            $ch_com = $data['Character_Company'];
+            $ch_cont = $data['Character_Contact'];
+            unset($data['Character_name']);
+            unset($data['Character_position']);
+            unset($data['Character_Company']);
+            unset($data['Character_Contact']);
         }
         $this->db->set('CreatedById', "'".$this->session->userdata('userid').
             "'", FALSE);
         $this->db->set('ModifiedById', "'".$this->session->userdata('userid').
             "'", FALSE);
-
+          $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
         $this->db->insert('tbl_applicants', $data);
 
             $UserId = $this->uuid->v4();
@@ -186,6 +190,7 @@ class ApplicantModel extends CI_Model {
             $this->db->set('SecurityUserLevelId',"'1'",FALSE);
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
+            $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
             $this->db->set('UserType',"'APPLICANT'",FALSE); 
             $this->db->set('PeopleId',"'".$id."'",FALSE);           
           
@@ -233,12 +238,12 @@ class ApplicantModel extends CI_Model {
                     $ctr++;
                 }
             }
-            if (!empty($dp_name)) {
+            if (!empty($ch_name)) {
                 $ctr = 0;
-                foreach($dp_name as $dependentname) {
-                    $dependentdata = array('ApplicantId' => $id, 'Name' => $dependentname, 'Description' => $dp_desc[$ctr]);
+                foreach($ch_name as $charactername) {
+                    $characterdata = array('ApplicantId' => $id, 'CharacterReferenceName' => $charactername, 'CharacterReferencePosition' => $ch_pos[$ctr], 'CharacterReferenceCompany' => $ch_com[$ctr], 'CharacterReferenceContact' => $ch_cont[$ctr]);
 
-                    $this->AddDependent($dependentdata);
+                    $this->AddCharacter($characterdata);
                     $ctr++;
                 }
             }
@@ -268,6 +273,7 @@ class ApplicantModel extends CI_Model {
     }
 
     public function Update($id, $data) {
+        
          if (!empty($data["LanguageSpoken"])) {
          $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
          unset($data["LanguageSpoken"]);  
@@ -328,25 +334,28 @@ class ApplicantModel extends CI_Model {
             unset($data['year_graduated']);
             unset($data['year_lastattended']);
         }
-        if (!empty($data["dependent_name"])) {
-            $dp_id = $data['Dependent_DataId'];
-            $dp_name = $data['dependent_name'];
-            $dp_desc = $data['dependent_description'];
-            unset($data['Dependent_DataId']);
-            unset($data['dependent_name']);
-            unset($data['dependent_description']);
+       if (!empty($data["Character_name"])) {
+            $ch_id = $data['Character_DataId'];
+            $ch_name = $data['Character_name'];
+            $ch_pos = $data['Character_position'];
+            $ch_com = $data['Character_Company'];
+            $ch_cont = $data['Character_Contact'];
+            unset($data['Character_DataId']);
+            unset($data['Character_name']);
+            unset($data['Character_position']);
+            unset($data['Character_Company']);
+            unset($data['Character_Contact']);
         }
-        $this->db->set('CreatedById', "'".$this->session->userdata('userid').
-            "'", FALSE);
+  
         $this->db->set('ModifiedById', "'".$this->session->userdata('userid').
             "'", FALSE);
 
-        $this->db->set('ModifiedById', "'".$this->session->userdata('userid').
-            "'", FALSE);
+       
         $this->db->set('ModifiedAt', 'CURRENT_TIMESTAMP', FALSE);
         $this->db->set('VersionNum', 'VersionNum+1', FALSE);
         $this->db->where('Id', $id);
         $query = $this->db->update($this->tbl, $data);
+         
         $update = $this->db->affected_rows();
         if ($update > 0) {
          $this->DeleteWorkHistory($id);
@@ -384,24 +393,53 @@ class ApplicantModel extends CI_Model {
                     $ctr++;
                 }
             }
-            $this->DeleteDependent($id);
-            if (!empty($dp_name)) {
+              $this->DeleteCharacter($id);
+            if (!empty($ch_name)) {
                 $ctr = 0;
-                
-                foreach($dp_name as $dependentname) {
-                    $dependentdata = array('ApplicantId' => $id, 'Name' => $dependentname, 'Description' => $dp_desc[$ctr]);
+                foreach($ch_name as $charactername) {
+                    $characterdata = array('ApplicantId' => $id, 'CharacterReferenceName' => $charactername, 'CharacterReferencePosition' => $ch_pos[$ctr], 'CharacterReferenceCompany' => $ch_com[$ctr], 'CharacterReferenceContact' => $ch_cont[$ctr]);
 
-                    $this->AddDependent($dependentdata);
+                    $this->AddCharacter($characterdata);
                     $ctr++;
                 }
             }
+           
+          
          
             return TRUE;
         } else {
             return FALSE;
         }
 
+         $UserId = $this->uuid->v4();
         
+         $this->db->flush_cache();
+            $password = $data['SSS'];
+            $key = $this->config->item('encryption_key');
+            $salt1 = hash('sha512', $key . $password);
+            $salt2 = hash('sha512', $password . $key);
+            $hashed_password = hash('sha512', $salt1 . $password . $salt2);
+            // echo $data['password'] = $hashed_password;
+          
+
+
+            $this->db->set('Id',"'".$id."'",FALSE);
+             if (!empty($data['EmailAddress'])) {
+                 $this->db->set('LoginName',"'".$data['EmailAddress']."'",FALSE);  
+                 $this->db->set('Email',"'".$data['EmailAddress']."'",FALSE);
+            }
+             else
+             {
+                $this->db->set('LoginName',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
+                $this->db->set('Email',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
+             }
+           
+            $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
+
+            $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
+            $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);        
+            $this->db->where('Id', $id);
+            $this->db->update('tbl_security_users');
        
 
        
@@ -434,12 +472,12 @@ class ApplicantModel extends CI_Model {
 
     }
 
-    function AddDependent($data) {
+    function AddCharacter($data) {
          $this->db->set('CreatedById', "'".$this->session->userdata('userid').
             "'", FALSE);
         $this->db->set('ModifiedById', "'".$this->session->userdata('userid').
             "'", FALSE);
-        $this->db->insert('tbl_applicants_dependents', $data);
+        $this->db->insert('tbl_applicants_characterreference', $data);
 
     }
      function DeleteWorkHistory($id) {
@@ -460,10 +498,10 @@ class ApplicantModel extends CI_Model {
         $this->db->where('ApplicantId', $id);
         $this->db->delete('tbl_applicants_schools_attended');
     }
-     function DeleteDependent($id) {
+     function DeleteCharacter($id) {
   
         $this->db->where('ApplicantId', $id);
-        $this->db->delete('tbl_applicants_dependents');
+        $this->db->delete('tbl_applicants_characterreference');
     }
 
 }

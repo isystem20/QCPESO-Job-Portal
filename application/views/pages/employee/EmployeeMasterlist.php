@@ -1,4 +1,5 @@
 
+
         <div class="page-wrapper">
             
             <!-- ============================================================== -->
@@ -10,13 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">User Masterlist</h3>
+                    <h3 class="text-themecolor">Employee</h3>
+                    <h6 class="text-muted">Masterlist of All Employees</h6>
+                
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Manage</li>
-                        <li class="breadcrumb-item active">UserMasterlist</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Manage</a></li>
+                        <li class="breadcrumb-item">Employee</li>
+                        <li class="breadcrumb-item active">All Employees</li>
                     </ol>
                 </div>
                 <div>
@@ -30,66 +33,78 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+
                         <div class="card">
                             <div class="card-body">
                                
-                                <h6 class="card-subtitle">This is the Masterlist of all Employees.</h6>
+                               <a href="<?=base_url('manage/employee/add');?>" class="btn waves-effect waves-light btn-success">Add</a>
                                 <div class="table-responsive m-t-40">
-                                   <a href="<?=base_url('manage/employee/add');?>" class="btn waves-effect waves-light btn-success">Add Employee</a>
-                                     <a href="<?=base_url('manage/employees-masterlist');?>" class="btn waves-effect waves-light btn-success">Masterlist of Employees</a>
-                                    <table id="myTable" class="table table-bordered table-striped">
+                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Login Name</th>
-                                                <th>Usertype</th>
-                                                <th>Email Address</th>
-                                                 <th>Status</th>
-                                            
+                                                <th>Last Name</th>
+                                                <th>First Name</th>
+                                                <th>Modified By</th>
+                                                <th>Modified At</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                                
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <?php
-                                if ($usermasterlist->num_rows() > 0 ) {
-                                    foreach ($usermasterlist->result() as $row) { ?>
-                                <tr>
-                                    <td></td>
-                                    <td><?php echo $row->LoginName; ?></td>
-                                    <td><?php echo $row->UserType; ?></td>
-                                    <td><?php echo $row->Email; ?></td> 
-                                    <td>
-                                        <?php 
-                                        if ($row->Active == '1' ) {
-                                            echo '<label class="label
-                                                label-success">Active</label>';
-                                        }
-                                        else {
-                                            echo '<label class="label
-                                                label-default">Inactive</label>';
+                                        <?php
+                                        if ($employee->num_rows() > 0) {
+                                            foreach ($employee->result() as $row) { ?>
+                                            <tr id="row<?=$row->Id; ?>">
+                                                <td><?php echo character_limiter($row->LastName, 10); ?></td>
+                                                <td><?php echo character_limiter($row->FirstName, 10); ?></td>
+                                                <td><?php echo $row->ModifiedById; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
+                                                
+                                                <td>
+                                                    <?php 
+                                                    if ($row->IsActive == '1') {
+                                                        echo '<label class="label label-success">Active</label>';
+                                                    }
+                                                    else {
+                                                        echo '<span class="label label-light-inverse">Inactive</span>';
+                                                    }
+                                                    ?>
+                                                </td>
+                                                 <td class="actions">
+                                                    <a href="<?=base_url('manage/employee/view-employee/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
+
+
+                                                    <a href="<?=base_url('manage/employee/update-employee/'.$row->Id.'/edit');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
+
+
+
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/employee/del'); ?>" data-id="<?php echo $row->Id; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
+                                                </td>
+                                            </tr>
+                                        
+                                        <?php
+                                            }
                                         }
                                         ?>
-                                    </td>
-                                </tr>
-                                <?php
-                                    }
-                                }
-                                ?>
-                                        </tbody>
-                                <tfoot>
+                                    <tfoot>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Login Name</th>
-                                                <th>Usertype</th>
-                                                <th>Email Address</th>
-                                                 <th>Status</th>
-                                            
+                                                <th>Last Name</th>
+                                                <th>First Name</th>
+                                                <th>Modified By</th>
+                                                <th>Modified At</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                                
                                             </tr>
                                         </tfoot>
                                     </table>
                                 </div>
                             </div>
                         </div>
- 
+                    </div>
+                </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -162,3 +177,4 @@
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
+

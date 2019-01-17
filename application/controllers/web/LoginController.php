@@ -70,6 +70,8 @@ class LoginController extends Public_Controller {
 				        			'username' => $login->LoginName,
 				        			'email' => $login->Email,
 				        			'profile' => $login->ProfileProgress,
+				        			'pref_job' => $login->PreferredJobs,
+				        			'pref_loc' => json_decode($login->PreferredWorkLocations),
 				        		);  
 				        		
 				        		$this->session->set_userdata($session_data);
@@ -116,6 +118,8 @@ class LoginController extends Public_Controller {
 				        			'username' => $login->LoginName,
 				        			'email' => $login->Email,
 				        			'profile' => $login->ProfileProgress,
+				        			'pref_job' => $login->PreferredJobs,
+				        			'pref_loc' => json_decode($login->PreferredWorkLocations),
 				        		); 
 				        		
 				        		$this->session->set_userdata($session_data);
@@ -172,6 +176,8 @@ class LoginController extends Public_Controller {
 				        			'username' => $login->LoginName,
 				        			'email' => $login->Email,
 				        			'profile' => $login->ProfileProgress,
+				        			'pref_job' => $login->PreferredJobs,
+				        			'pref_loc' => json_decode($login->PreferredWorkLocations),
 				        		); 
 				        		
 				        		$this->session->set_userdata($session_data);
