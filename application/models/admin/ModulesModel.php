@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
 		    $this->db->set('Name', '"'.$data['name'].'"', FALSE);
 		    $this->db->set('Url', '"'.$data['url'].'"', FALSE);
-		    $this->db->set('Parent', '"'.$data['parent'].'"', FALSE); 
+		    $this->db->set('Parent','"'.$data['parent'].'"', FALSE); 
 		    $this->db->set('Description', '"'.$data['description'].'"', FALSE); 
 		    $this->db->set('Category','"'.$data['category'].'"',FALSE);
 		    $this->db->set('IsActive', '"'.$data['status'].'"', FALSE);

@@ -61,7 +61,7 @@
                                                 <td><?php echo character_limiter($row->Parent, 30); ?></td>
                                                 <td><?php echo character_limiter($row->Description, 30); ?></td>
                                                 <td><?php echo $row->Category;
-
+                                                
                                                  ?></td>
                                                 <td>
                                                     <?php 
