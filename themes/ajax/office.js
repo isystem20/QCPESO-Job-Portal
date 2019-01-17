@@ -18,6 +18,26 @@ $(document).ready(function() {
 		$('#add-modal').modal();
 	});
 
+  //MODULES
+  $('#add-btn-mod').click(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+    $('#header-text').text('Add Entry');
+    $('input[name=name]').val('');
+    $('input[name=url]').val('');
+    $('input[name=parent]').val('');    
+    $('textarea[name=description]').val('');
+    $('select[name=status]').val('1');  
+    $('#add-form').attr('action',$('#myTable').data('action')+'add');
+    $('input[name=itemid]').val('');  
+    $('.viewing').hide();
+    $('form input.form-control').prop('readonly',false);
+    $('form textarea.form-control').prop('readonly',false);
+    $('form select.form-control').prop('disabled',false);
+
+
+    $('.modal-footer').show();
+    $('#add-modal').modal();
+  });
+
 
 	$('#add-form').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
 		e.preventDefault();       //This prevents the action to move to other page.
@@ -966,11 +986,52 @@ $('.applyjob').click(function(e){ //Input the form's ID or CLASS, use # for ID a
                     });
 
 
+<<<<<<< HEAD
+                  if ($('input[name=itemid]').val() != '') {
+
+                      var Id = data[0].Id;
+                      var table = $('#myTable').DataTable();
+                      table.row($('#row'+data[0].Id))
+                      .remove()
+                      .draw();
+
+                  }
+
+
+
+                    var id = data[0].Id;
+                    var name = data[0].Name;
+                    var url = data[0].Url;
+                    var parent = data[0].Parent;
+                    var description = data[0].Description.substr(0,30);
+                    var modby = data[0].ModifiedById;
+                    var modat = $.datepicker.formatDate('yy-dd-mm', new Date(data[0].modifiedAt));
+                    var modat = data[0].ModifiedAt;
+
+                    if (data[0].IsActive == '1') {
+                      var status = '<label class="label label-success">Active</label>';
+                    }else {
+                      var status = '<span class="label label-light-inverse">Inactive</span>';
+                    }
+
+                    var actions = '<button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'" data-desc="'+data[0].Description+'" data-createdby="'+data[0].CreatedById+'" data-createdat="'+data[0].CreatedAt+'" data-modifiedby="'+data[0].ModifiedById+'" data-modifiedat="'+data[0].ModifiedAt+'" data-version="'+data[0].VersionNo+'" data-status="'+data[0].IsActive+'"> <i class="fas fa-info-circle"></i> </button>'+
+                                  '<button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'" data-desc="'+desc+'" data-status="'+data[0].IsActive+'"> <i class="far fa-edit" ></i> </button>'+
+                                  '<button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'"> <i class="fas fa-trash-alt"></i></button>';
+
+                    var table = $('#myTable').DataTable();
+                    var row = table.row.add( [
+                      name,url,parent,desc,modby,modat,status,actions,
+                      ]).draw().node();
+                    $( row ).attr('id','row'+data[0].Id);
+
+                  }
+=======
                     // $(this).prop("disabled", true);   //Disables the submit button after click 
                     
                     btn.replaceWith("<label class='label label-warning'>Pending</label>");
                     
                 }
+>>>>>>> 51a1100072dd8e67281e7c19c39fd338194549ed
                   else{
                     $.toast({
                       heading: 'Error',
