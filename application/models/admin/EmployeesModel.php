@@ -136,9 +136,10 @@ class EmployeesModel extends CI_Model {
         $this->db->set('ModifiedAt', 'CURRENT_TIMESTAMP', FALSE);
        
         $this->db->where('Id', $id);
+       
         $query = $this->db->update($this->tbl, $data);
-         
-        $update = $this->db->affected_rows();
+          // die($this->db->last_query());
+        // $update = $this->db->affected_rows();
        
          $UserId = $this->uuid->v4();
         

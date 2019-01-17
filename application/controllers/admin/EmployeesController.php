@@ -155,6 +155,7 @@
             unset($postdata['_wysihtml5_mode']);
             // $postdata = array_filter($postdata, 'strlen');
             $result = $this->employmod->Update($id,$postdata);
+            // die($this->db->last_query());
             if ($result != FALSE) {
                 $json = json_encode($result);             
                

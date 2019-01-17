@@ -185,7 +185,7 @@ if (!empty($employee)) {
                                     if ($mode=="edit") {
                                         ?>
                                                 <div class="form-actions">
-                                                    <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                                    <button type="submit" id="sub" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
                                                     <a href="<?php echo base_url();?>manage/employees-masterlist" class="btn btn-inverse">Cancel</a>
                                                 </div>
                                                 <?php
@@ -385,7 +385,7 @@ else { ?>
                                               
 
                                                             <div class="form-actions">
-                                                                <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                                                <button type="submit" id="sub" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
                                                                  <a href="<?php echo base_url();?>manage/employees-masterlist" class="btn btn-inverse">Cancel</a>
                                                             </div>
                                                             </form>
