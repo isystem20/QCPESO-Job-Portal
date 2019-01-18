@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" id="maincontent" data-adminpage="<?=base_url('manage'); ?>">
             <section class="module-cover parallax fullscreen text-center" data-background="<?php echo base_url(); ?>banners/LOGIN1.png" data-overlay="0.65" data-gradient="">
                 <div class="container">
                     <div class="row">

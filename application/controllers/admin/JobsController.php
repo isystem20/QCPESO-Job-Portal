@@ -12,6 +12,8 @@
         $this->load->model('admin/SkillsModel','skimod');
         $this->load->model('admin/EstablishmentModel','establishmentmod'); 
         $this->load->model('admin/CategoriesModel','categmod');
+        $this->load->model('admin/UserModel','usermod');
+
         
      }
  
@@ -24,7 +26,8 @@
       $data['skills'] = $this->skimod->LoadMasterlist();
       $data['estabs'] = $this->establishmentmod->LoadMasterlist();
       $data['categories'] = $this->categmod->LoadCategoryMasterlist();
-       
+      $data['user'] = $this->usermod->Load_UserMasterlistModel_Masterlist();
+
       $data['class'] = 'jobapplication';
  		// $data['categories'] = $this->categmod->LoadCategoryMasterlist();
    //      $data['class'] = 'categories';
@@ -91,6 +94,7 @@
     $layout = array('tables'=>TRUE,);
     $data['jobposts'] = $this->jobsmod->LoadMasterlistPending();
     $data['class'] = 'jobposts';
+    $data['estabs'] = $this->establishmentmod->LoadMasterlist();
 
 
 
@@ -153,6 +157,8 @@
          }
  
   }
+
+  
   public function Update() {
          $this->form_validation->set_rules('id', 'Item Record', 'required',
                 array(
@@ -201,6 +207,34 @@
         }
         else{
             $result = $this->jobsmod->Delete($postdata);
+            if ($result != FALSE) {
+
+                $json = json_encode($result);              
+                echo $json;
+            }
+            else {
+                echo json_encode(['error'=>'Update Unsuccessful.']);
+
+            }
+
+        }
+
+}
+
+public function Approve() {
+ 
+         $this->form_validation->set_rules('id', 'Item Record', 'required',
+                array(
+                'required'      => 'Cannot identify this record.',
+                ));
+
+        $postdata = $this->input->post();
+        if ($this->form_validation->run() == FALSE){
+            $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
+        }
+        else{
+            $result = $this->jobsmod->Approve($postdata);
             if ($result != FALSE) {
 
                 $json = json_encode($result);              

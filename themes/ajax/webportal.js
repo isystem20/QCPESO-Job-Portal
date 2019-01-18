@@ -5,7 +5,7 @@ $(document).ready(function() {
 		 e.preventDefault();
 
         $("#applicant-register-btn").prop("disabled", true);
-
+        $("#applicant-register-btn").text("Loading...");
         var newURL = $(this).attr('action');
         var newData  = {
                 'FirstName' : $('input[name=firstname]').val(),
@@ -22,23 +22,35 @@ $(document).ready(function() {
               success: function(data) {
                 console.log(data);
                 if($.isEmptyObject(data.error)){
-					new PNotify({
-			            title: 'Success!',
-			            text: '',
-			            icon: 'icofont icofont-info-circle',
-			            type: 'success'
-			        });
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Registration Successful',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+                    window.setTimeout(function(){
+                      window.location.href = $('#maincontent').data('adminpage');  
+                    }, 1000);
                   }
                   else{
-					new PNotify({
-			            title: 'Error!',
-			            text: data.error,
-			            icon: 'icofont icofont-info-circle',
-			            type: 'error'
-			        });
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
 
                   }
-                $("#applicant-register-btn").prop("disabled", false);                   
+                $("#applicant-register-btn").prop("disabled", false);
+                $("#applicant-register-btn").text("SIGN UP");                
 
               }
               
@@ -50,7 +62,9 @@ $(document).ready(function() {
 
   $('#login-form').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
      e.preventDefault();       //This prevents the action to move to other page.
-        $("#login-btn").prop("disabled", true);   //Disables the submit button after click 
+        $("#login-btn").prop("disabled", true);
+        $("#login-btn").text("Loading...");
+          //Disables the submit button after click 
         var newURL = $(this).attr('action');      //Get the form action attribute value.
         var newData  = {
                 'Email' : $('input[name=email]').val(),     //List of data you want to post
@@ -85,7 +99,8 @@ $(document).ready(function() {
                                   
                         });
                   }
-                $("#login-btn").prop("disabled", false);     //Reenable the submit button after the action           
+                $("#login-btn").prop("disabled", false);     //Reenable the submit button after the action  
+                $("#login-btn").text("Login");         
               }
           });   
   });

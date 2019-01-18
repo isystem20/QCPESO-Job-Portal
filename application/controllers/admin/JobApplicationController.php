@@ -44,7 +44,11 @@
 
         $data['jobposts'] =$this->browsmod->BrowseJobModelMasterlist($postdata, null, $postdata['Applicant']);
         }
+
+        else{
+            
             // print_r($data['jobposts']->result());
+        }
 
         
         $data['skills'] = $this->skimod->LoadMasterlist();
@@ -69,9 +73,11 @@
 
     }
     public function Create() {
+
+        $data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($this->session->userdata('userid'));
         
         $this->form_validation->set_rules('JobId','Job Title','required');
-        $this->form_validation->set_rules('ApplicantId','Job Title','required');
+        // $this->form_validation->set_rules('ApplicantId','Applicant Id','required');
 
        if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
@@ -80,8 +86,11 @@
          }
 
         else {
-        $postdata = $this->input->post();
-        $inserted = $this->jobappmod->Add($postdata);
+                $postdata = $this->input->post();
+                if (empty($postdata['ApplicantId'])) {
+                   $postdata['ApplicantId'] = $this->session->userdata('userid');
+                }
+                $inserted = $this->jobappmod->Add($postdata);
               // echo json_encode(['success'=>TRUE]);
               if ($inserted != FALSE) {         
                 
@@ -163,7 +172,19 @@
     }
  
     public function Read() {
- 
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE,'pagetitle'=>'Categories Masterlist');
+        $data['list'] = $this->jobappmod->LoadApplicationsMasterlist();
+        $data['class'] = 'jobapplications';
+        $this->load->view('layout/admin/1_css',$layout);
+        $this->load->view('layout/admin/2_preloader',$layout);
+        $this->load->view('layout/admin/3_topbar',$layout);
+        $this->load->view('layout/admin/4_leftsidebar',$layout);
+        $this->load->view('pages/transaction/applicants/JobApplicationList',$data);
+        $this->load->view('layout/admin/6_js',$layout);     
+        $this->load->view('layout/admin/7_modals',$layout);
+
+        // $json = json_encode($data['categories']); //log
+        // $this->logger->log('Load Categories','Categories',$json); //Log
     }
  
  

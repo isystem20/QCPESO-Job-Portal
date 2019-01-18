@@ -19,6 +19,15 @@ class AuthModel extends CI_Model {
 			unset($data['External_Id']);
 		}
 
+		if (!empty($data['Password'])) {
+			$password = $data['Password'];
+			unset($data['Password']);
+			unset($data['Password2']);			
+		}else {
+			$password = $code;
+		}
+
+
 		$this->db->set('Id',"'".$id."'",FALSE);
 		$this->db->set('CreatedById',"'".$id."'",FALSE);
 		$this->db->set('ModifiedById',"'".$id."'",FALSE);			
@@ -26,11 +35,7 @@ class AuthModel extends CI_Model {
 
 		$this->db->flush_cache();
 		
-		if (!empty($data['Password'])) {
-			$password = $data['Password'];
-		}else {
-			$password = $code;
-		}
+
 
 		$uid = $this->uuid->v4();
         $key = $this->config->item('encryption_key');
@@ -38,10 +43,15 @@ class AuthModel extends CI_Model {
         $salt2 = hash('sha512', $password . $key);
         $hashed_password = hash('sha512', $salt1 . $password . $salt2);
         // echo $data['password'] = $hashed_password;
-
-		$this->db->set('id',"'".$uid."'",FALSE);
+        $activated = 0;
+		$this->db->set('id',"'".$id."'",FALSE);
 		if (!empty($ext)) {
 			$this->db->set('External_Id',"'".$ext."'",FALSE);
+			$this->db->set('Activated',"'1'",FALSE);
+			$activated = 1;
+		}
+		else {
+			$this->db->set('Activated',"'0'",FALSE);
 		}
 		$this->db->set('LoginName',"'".$data['EmailAddress']."'",FALSE);
 		$this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
@@ -64,7 +74,33 @@ class AuthModel extends CI_Model {
 		}
 		else
 		{
+
+				$this->load->model('notifications/Email','email');
+				$notifdata = array('userid'=>$id,'r_fname'=>$data['FirstName'],'r_email' => $data['EmailAddress'], 'r_name'=>$data['FirstName'].' '.$data['LastName']);
+				$send = $this->email->send_email_verification_code($code,$notifdata);
+				$sent = 0;
+				if ($send === true) {
+					$sent = 1;
+				}
+
 		        $this->db->trans_commit();
+        		$session_data = array(
+        			'userid' => $id,
+        			'lastname' => $data['LastName'],
+        			'firstname'=> $data['FirstName'],
+        			'status' => '1',
+        			'username' => $data['EmailAddress'],
+        			'email' => $data['EmailAddress'],
+        			'active' => '1',
+        			'security_id' =>'1',
+        			'usertype' => 'APPLICANT',
+        			'peopleid' => $id,
+        			'activated' => $activated,
+        			'sent' => $sent,
+        			'profile' => '0',
+        		);  
+        		
+        		$this->session->set_userdata($session_data);
 
 		        return TRUE;
 
@@ -72,7 +108,7 @@ class AuthModel extends CI_Model {
 	}
 
 	public function LoginApplicant($data,$ext = FALSE) {
-		$this->db->select('user.*, app.lastName, app.firstName,app.isActive as applicantstatus');
+		$this->db->select('user.*, app.lastName, app.firstName,app.isActive as applicantstatus, app.PreferredJobs, app.PreferredWorkLocations');
 		$this->db->from('tbl_security_users user');
 		$this->db->join('tbl_applicants app','app.Id = user.PeopleId','left outer');
 		$this->db->where('user.LoginName',$data['Email']);

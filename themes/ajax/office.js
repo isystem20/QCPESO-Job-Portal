@@ -131,6 +131,7 @@ $(document).ready(function() {
   $('#loginform').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
      e.preventDefault();       //This prevents the action to move to other page.
         $("#login-btn").prop("disabled", true);   //Disables the submit button after click 
+        $("#login-btn").text("Loading...");
         var newURL = $(this).attr('action');      //Get the form action attribute value.
         var newData  = {
                 'Email' : $('input[name=email]').val(),     //List of data you want to post
@@ -174,7 +175,8 @@ $(document).ready(function() {
                     });
 
                   }
-                $("#login-btn").prop("disabled", false);     //Reenable the submit button after the action           
+                $("#login-btn").prop("disabled", false);     //Reenable the submit button after the action   
+                 $("#login-btn").text("Login");        
               }
           });   
   });
@@ -535,6 +537,16 @@ $('#jobpost-form').submit(function(e){ //Input the form's ID or CLASS, use # for
 //employer
 $('#empform').submit(function(e){
         e.preventDefault();
+
+      var DressCode = new Array();
+      $('#DressCode  > option:selected').each(function() {
+           DressCode.push($(this).val());
+      });
+      var SpokenLanguage = new Array();
+      $('#SpokenLanguage  > option:selected').each(function() {
+           SpokenLanguage.push($(this).val());
+      });
+
         $("#sub-btn-emp").prop("disabled", true); 
 
         var newURL = $(this).attr('action');  
@@ -546,7 +558,6 @@ $('#empform').submit(function(e){
                 'IsActive' : $('select[name=IsActive]').val(),
                 'TIN' : $('input[name=TIN]').val(),
                 'PermitIssuedDate' : $('input[name=PermitIssuedDate]').val(),
-                'EstablismentType' : $('select[name=EstablismentType]').val(),
                 'IndustryType' : $('select[name=IndustryType]').val(),
                 'CompanyAddress' : $('input[name=CompanyAddress]').val(),
                 'LandlineNum' : $('input[name=LandlineNum]').val(),
@@ -566,6 +577,7 @@ $('#empform').submit(function(e){
                 'PoeaLicenseExpiration' : $('input[name=PoeaLicenseExpiration]').val(),
                 'WorkingHours' : $('input[name=WorkingHours]').val(),
                 'Benefits' : $('input[name=Benefits]').val(),
+                'WhyJoinUs' : $('input[name=WhyJoinUs]').val(),
                 'DressCode' : $('select[name=DressCode]').val(),
                 'SpokenLanguage' : $('select[name=SpokenLanguage]').val(),
             }
@@ -749,31 +761,49 @@ $('#applicant').submit(function(e) {
        YearLastAttended.push($(this).val());
      }
     });
-    var DependentDataId = new Array();
-    $("input[name=DependentDataId]").each(function() {
+    var CharacterDataId = new Array();
+    $("input[name=CharacterDataId]").each(function() {
       if ($(this).val() == '') {
-        DependentDataId.push('-');
+        CharacterDataId.push('-');
       }
       else {
-       DependentDataId.push($(this).val());
+       CharacterDataId.push($(this).val());
      }
     });
-     var DependentName = new Array();
-    $("input[name=DependentName]").each(function() {
+     var CharacterReferenceName = new Array();
+    $("input[name=CharacterReferenceName]").each(function() {
       if ($(this).val() == '') {
-        DependentName.push('-');
+        CharacterReferenceName.push('-');
       }
       else {
-       DependentName.push($(this).val());
+       CharacterReferenceName.push($(this).val());
      }
     });
-     var DependentDescription = new Array();
-    $("input[name=DependentDescription]").each(function() {
+     var CharacterReferencePosition = new Array();
+    $("input[name=CharacterReferencePosition]").each(function() {
       if ($(this).val() == '') {
-        DependentDescription.push('-');
+        CharacterReferencePosition.push('-');
       }
       else {
-       DependentDescription.push($(this).val());
+       CharacterReferencePosition.push($(this).val());
+     }
+    });
+    var CharacterReferenceCompany = new Array();
+    $("input[name=CharacterReferenceCompany]").each(function() {
+      if ($(this).val() == '') {
+        CharacterReferenceCompany.push('-');
+      }
+      else {
+       CharacterReferenceCompany.push($(this).val());
+     }
+    });
+    var CharacterReferenceContact = new Array();
+    $("input[name=CharacterReferenceContact]").each(function() {
+      if ($(this).val() == '') {
+        CharacterReferenceContact.push('-');
+      }
+      else {
+       CharacterReferenceContact.push($(this).val());
      }
     });
         var PreferredWorkLocations = new Array();
@@ -858,9 +888,11 @@ $('#applicant').submit(function(e) {
                 'highest_level' : HighestLevel,
                 'year_graduated' : YearGraduated,
                 'year_lastattended' : YearLastAttended,
-                'Dependent_DataId' : DependentDataId,
-                'dependent_name' : DependentName,
-                'dependent_description' : DependentDescription,
+                'Character_DataId' : CharacterDataId,
+                'Character_name' : CharacterReferenceName,
+                'Character_position' : CharacterReferencePosition,
+                'Character_Company' : CharacterReferenceCompany,
+                'Character_Contact' : CharacterReferenceContact,
             } 
             // 'PhotoPath' : $('input[name=file]').val(), 
             // 'CreatedAt' : $('input[name=CreatedAt]').val(),
@@ -955,9 +987,9 @@ $('.applyjob').click(function(e){ //Input the form's ID or CLASS, use # for ID a
 
 
                     // $(this).prop("disabled", true);   //Disables the submit button after click 
-                    btn.text("Applied");
-                    btn.css("background-color", "red");
-                    btn.css("border", "red");
+                    
+                    btn.replaceWith("<label class='label label-warning'>Pending</label>");
+                    
                 }
                   else{
                     $.toast({
@@ -971,7 +1003,7 @@ $('.applyjob').click(function(e){ //Input the form's ID or CLASS, use # for ID a
                     });
 
                    btn.prop("disabled", false);   //Disables the submit button after click 
-                    btn.text("Apply");
+                  btn.text("Apply");
                   }
                       
               }
@@ -1112,17 +1144,19 @@ if ($('#addeducation').length > 0) {
     // toastr.info('Skill Successfully Added', "");
   });
 }
-if ($('#adddepend').length > 0) {
+if ($('#addcharacter').length > 0) {
 
-  $('#adddepend').on("click", function() {
+  $('#addcharacter').on("click", function() {
     
-    var m = $('#DependentName');
-    var k =  $('#DependentDescription');
+    var m = $('#CharacterReferenceName');
+    var k =  $('#CharacterReferencePosition');
+    var c =  $('#CharacterReferenceCompany');
+    var t =  $('#CharacterReferenceContact');
      
     if (m.val() == '' || k.val() == '') {
          $.toast({
                       heading: 'Error',
-                      text: 'Name and Description are required.',
+                      text: 'Name and Position are required.',
                       position: 'top-right',
                       loaderBg:'#ff6849',
                       icon: 'error',
@@ -1134,17 +1168,21 @@ if ($('#adddepend').length > 0) {
     // alert ("test");
     var str = '';
     str = str + '<tr>';
-    str = str + '  <td> <input type="hidden" readonly class="form-control" name="DependentDataId" value=""><input type="text" placeholder="Can not be empty." readonly class="form-control DependentName" name="DependentName" value="'+ m.val() +'"></td>';
-    str = str + '  <td><input type="text" class="form-control DependentDescription" name="DependentDescription" value="'+ k.val() +'"></td>';
+    str = str + '  <td> <input type="hidden" readonly class="form-control" name="CharacterDataId" value=""><input type="text" placeholder="Can not be empty." readonly class="form-control CharacterReferenceName" name="CharacterReferenceName" value="'+ m.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control CharacterReferencePosition" name="CharacterReferencePosition" value="'+ k.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control CharacterReferenceCompany" name="CharacterReferenceCompany" value="'+ c.val() +'"></td>';
+    str = str + '  <td><input type="text" class="form-control CharacterReferenceContact" name="CharacterReferenceContact" value="'+ t.val() +'"></td>';
     str = str + '  <td class="actions"><button class="btn btn-danger btn-xs tr-remover">Remove<i class="fa fa-trash-o "></i></button></td>';
     str = str + '</tr>';
-    $('#depends tbody').append(str);
+    $('#characs tbody').append(str);
     m.val('');
     k.val('');
+    c.val('');
+    t.val('');
   
     $.toast({
                       heading: 'Success!',
-                      text: 'Dependent Successfully Added',
+                      text: 'Character Reference Successfully Added',
                       position: 'top-right',
                       loaderBg:'#ff6849',
                       icon: 'success',
@@ -1160,14 +1198,411 @@ $('.table').delegate(".tr-remover", "click", function() {
 });
 
 
+
+// SEND VERIFICATION CODE
+  $('#SendCode').click(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+     e.preventDefault();       //This prevents the action to move to other page.
+        $(this).prop("disabled", true);   //Disables the submit button after click 
+        $(this).text("Sending...");
+        var sendbtn = $(this);
+        var newURL = $(this).data('action');      //Get the form action attribute value.
+        var newData  = {
+                'valid' : 1,     //List of data you want to post
+            }
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){ 
+                     //Checking if the data.error has value
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Sending Verification Successful!. Please check your inbox or spam',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+                  }
+                  else{
+                    
+                     $.toast({
+                      heading: 'Failed!',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+                  }
+                sendbtn.prop("disabled", false);     //Reenable the submit button after the action   
+                 sendbtn.text("Resend");        
+              }
+          });   
+  });
+
+
+// SEND VERIFICATION CODE
+  $('#activateaccount').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+     e.preventDefault();       //This prevents the action to move to other page.
+
+        var sendbtn = $('#verifybtn');
+        sendbtn.prop("disabled", true);   //Disables the submit button after click 
+        sendbtn.text("CHECKING...");        
+        var newURL = $(this).attr('action');      //Get the form action attribute value.
+        var newData  = {
+                'code' : $('#code').val(),     //List of data you want to post
+                'userid' : $('input[name=userid]').val(),
+            }
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){ 
+                     //Checking if the data.error has value
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Account Verification Successful!',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+
+                  window.setTimeout(function(){
+                    window.location.href = data.url; 
+                  }, 1000);
+
+
+                  }
+                  else{
+                    
+                     $.toast({
+                      heading: 'Failed!',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+                  }
+                sendbtn.prop("disabled", false);     //Reenable the submit button after the action   
+                 sendbtn.text("VERIFY");        
+              }
+          });   
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+    $('#PoeaLicenseDateIssued').attr('max', maxDate);
+
+    $('#DoleRegistrationDateIssued').attr('max', maxDate);
+    $('#PermitIssuedDate').attr('max', maxDate);
+    
+    
+});
+
+
+// approve
+
+  $('#myTable').delegate(".approve-item-btn", "click", function() {
+    $('input[name=id]').val($(this).data('id'));
+    $('#approve-form').attr('action',$('#myTable').data('action')+'approve');
+    $('#approve-modal').modal();
+    $('.modal-footer').show();
+  });
+
+
+  // DELETE FORM
+  $('#approve-form').submit(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+    e.preventDefault();       //This prevents the action to move to other page.
+        $("#approve-submit").prop("disabled", true);   //Disables the submit button after click 
+        var newURL = $(this).attr('action');      //Get the form action attribute value.
+        var newData  = {
+                'id' : $('input[name=id]').val(),     //List of data you want to post
+                
+            }
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    $('#approve-modal').modal('hide');
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+                  var Id = data.id;
+                  var table = $('#myTable').DataTable();
+                  table.row($('#row'+data.id))
+                  .remove()
+                  .draw();
+
+                  }
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+                  }
+                $("#approve-submit").prop("disabled", false);     //Reenable the submit button after the action           
+              }
+          });   
+  });
+
+
+
+  // js disable previous dates
+
+//DELETE BUTTON IN ITEMS
+  $('#myTable').delegate(".process-job-app", "click", function() {
+    e.preventDefault();       //This prevents the action to move to other page.
+        // $("#approve-submit").prop("disabled", true);   //Disables the submit button after click 
+        var newURL = $(this).attr('action');      //Get the form action attribute value.
+        var newData  = {
+                'id' : $('input[name=id]').val(),     //List of data you want to post
+                
+            }
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    $('#approve-modal').modal('hide');
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+                  var Id = data.id;
+                  var table = $('#myTable').DataTable();
+                  table.row($('#row'+data.id))
+                  .remove()
+                  .draw();
+
+                  }
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+                  }
+                $("#approve-submit").prop("disabled", false);     //Reenable the submit button after the action           
+              }
+          });   
+
+  });
+
+
+
+
+
+
 });
 
 // });
 
 
 
+$('#employee').submit(function(e) {
+    e.preventDefault();
+  
+
+        $("#sub").prop("disabled", true);   //Disables the submit button after click 
+        var newURL = $(this).attr('action');   
+     
+        var newData  = {
+                'Id' : $('input[name=Id]').val(), //List of data you want to post
+                'LastName' : $('input[name=LastName]').val(),
+                'FirstName' : $('input[name=FirstName]').val(),
+                'MiddleName' : $('input[name=MiddleName]').val(),
+                'Suffix' : $('select[name=Suffix]').val(),
+                'LandlineNum' : $('input[name=LandlineNum]').val(),
+                'MobileNum' : $('input[name=MobileNum]').val(),
+                'EmailAddress' : $('input[name=EmailAddress]').val(),
+                'TIN' : $('input[name=TIN]').val(),
+                'SSS' : $('input[name=SSS]').val(),
+                'PHILHEALTH' : $('input[name=PHILHEALTH]').val(),
+                'PAGIBIG' : $('input[name=PAGIBIG]').val(), 
+                'Remarks' : $('textarea[name=Remarks]').val(),
+                'IsActive' : $('select[name=IsActive]').val(),
+            } 
+          
+            console.log(newData);
+          
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              // contentType: false,
+              // cache: false,  
+              // processData:false,  
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                 if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+
+                    });
+                    window.setTimeout(function(){
+                    window.location.href = data.url; 
+                  }, 1000);
+        
+              }
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+                  }
+                $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
+              }
+          });   
 
 
 
+    
+  });
 
+
+
+$('.applyjo').click(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+    e.preventDefault();       //This prevents the action to move to other page.
+        $(this).prop("disabled", true);   //Disables the submit button after click 
+        $(this).text("Processing...");
+
+        var btn = $(this);
+        var newURL = $(this).data('action');   
+        
+        var newData  = {
+                'ApplicantId' : $('#Applicant').val(), //List of data you want to post
+                'JobId' : $(this).data('id'),
+            }
+            console.log(newData);
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              // contentType: false,
+              // cache: false,  
+              // processData:false,  
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Job Application has been sent',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+
+
+                    // $(this).prop("disabled", true);   //Disables the submit button after click 
+                    
+                    btn.replaceWith("<button class='btn  btn-circle btn-outline-warning' disabled style='cursor: default;'>Job application <br> has been sent</button>");
+                    
+                }
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+
+                   btn.prop("disabled", false);   //Disables the submit button after click 
+                  btn.text("Apply");
+                  }
+                      
+              }
+          });   
+});
 

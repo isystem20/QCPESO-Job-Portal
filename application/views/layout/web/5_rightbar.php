@@ -12,14 +12,14 @@
                         </div>
                     </aside> -->
                     <!-- Recent portfolio widget-->
-                    <aside class="widget widget-recent-works">
+                    <aside class="">
                         <ul>
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Browse Jobs</a></li>
-                            <li><a href="#">My Applications</a></li>
-                            <li><a href="#">My Alerts</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="<?php echo base_url();?>applicant/Dashboard">Dashboard</a></li>
+                            <li><a href="<?php echo base_url('account/profile');?>">Profile</a></li>
+                            <li><a href="<?php echo base_url(); ?>web/browsejob">Browse Jobs</a></li>
+                            <li><a href="<?php echo base_url();?>applicant/MyApplication">My Applications</a></li>
+                            <!-- <li><a href="#">My Alerts</a></li> -->
+                            <li><a href="<?php echo base_url('logout');?>">Logout</a></li>
                         </ul>
                     </aside>
                     <!-- Social Icons-->
