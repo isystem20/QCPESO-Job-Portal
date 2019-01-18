@@ -27,7 +27,7 @@ public function BrowseJob()
 
 		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($postdata);
 		$data['mostrecentjob'] = $this->browsmod->MostRecentJobs();
-		$data['estabpost'] = $this->estmod->LoadMasterlist();		
+		$data['estabpost'] = $this->estmod->MostRecentCompany();		
 		$data['categori'] = $this->categmod->LoadCategoryMasterlist();
 		$data['skills'] = $this->skimod->LoadMasterlist();
 		$data['applevel'] = $this->levelmod->LoadMasterlist();

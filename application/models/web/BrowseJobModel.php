@@ -126,6 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $this->db->get();
 
 		}
+		
 		// public function  MostRecentCompanies() {
 		// 	 $this->db->select('*');
   // 			$this->db->order_by('Id', 'DESC');  
