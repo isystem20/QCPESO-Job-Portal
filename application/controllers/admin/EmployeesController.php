@@ -48,7 +48,7 @@
                     $data['mode']="view";
               }
           }
-        // print_r($data['applicant']);
+        // print_r($data['employee']);
           $this->load->view('layout/admin/1_css',$layout);
           $this->load->view('layout/admin/2_preloader',$layout);
           $this->load->view('layout/admin/3_topbar',$layout);
@@ -155,6 +155,8 @@
             unset($postdata['_wysihtml5_mode']);
             // $postdata = array_filter($postdata, 'strlen');
             $result = $this->employmod->Update($id,$postdata);
+             // print_r($result);
+             // die;
             // die($this->db->last_query());
             if ($result != FALSE) {
                 $json = json_encode($result);             

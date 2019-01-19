@@ -137,7 +137,7 @@ class EmployeesModel extends CI_Model {
        
         $this->db->where('Id', $id);
        
-        $query = $this->db->update($this->tbl, $data);
+        $this->db->update($this->tbl, $data);
           // die($this->db->last_query());
         // $update = $this->db->affected_rows();
        
