@@ -174,6 +174,8 @@
                                         $usertype = $this->session->userdata('usertype');
                                         if ($usertype == 'EMPLOYER') {
                                         ?>
+                    <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/employerdashboard" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
+                    </li>
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Maintenance</span></a>
                         <ul aria-expanded="false" class="collapse">
 

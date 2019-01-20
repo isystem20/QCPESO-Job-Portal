@@ -626,4 +626,4 @@ $route['manage/employee/add-employee/(:any)/(:any)'] = 'admin/EmployeesControlle
 $route['manage/employee/update-employee/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1';
 $route['manage/employee/update-employee/(:any)/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1/$2';
 $route['manage/employees-masterlist'] = 'admin/EmployeesController/AllEmployees';
-
+$route['manage/employerdashboard'] = 'employer/EmployerController/Employer';
