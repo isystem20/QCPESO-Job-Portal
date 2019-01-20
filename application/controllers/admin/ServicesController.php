@@ -143,7 +143,7 @@
             $result = $this->servmod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
-                echo $json;
+             echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/settings/all-services']);
             }
             else {
                 echo json_encode(['error'=>'Update Unsuccessful.']);

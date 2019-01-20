@@ -45,6 +45,7 @@ class EmployeesModel extends CI_Model {
         $this->load->library('Uuid');
         $id = $this->uuid->v4();
         $this->db->set('Id', "'".$id."'", FALSE);
+      
         $this->db->set('CreatedById', "'".$this->session->userdata('userid').
             "'", FALSE);
          $this->db->set('CreatedAt','CURRENT_TIMESTAMP',FALSE);
@@ -66,15 +67,10 @@ class EmployeesModel extends CI_Model {
 
 
             $this->db->set('Id',"'".$id."'",FALSE);
-             if (!empty($data['EmailAddress'])) {
-                 $this->db->set('LoginName',"'".$data['EmailAddress']."'",FALSE);  
-                 $this->db->set('Email',"'".$data['EmailAddress']."'",FALSE);
-            }
-             else
-             {
-                $this->db->set('LoginName',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
-                $this->db->set('Email',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
-             }
+          
+                $this->db->set('LoginName',"'".$data['EmailAddress']."@qcpeso.com'",FALSE);
+                $this->db->set('Email',"'".$data['EmailAddress']."@qcpeso.com'",FALSE);
+             
            
             $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
             $this->db->set('SecurityUserLevelId',"'3'",FALSE);
@@ -126,20 +122,6 @@ class EmployeesModel extends CI_Model {
     }
 
     public function Update($id, $data) {
-        
-        
-  
-        $this->db->set('ModifiedById', "'".$this->session->userdata('userid').
-            "'", FALSE);
-
-       
-        $this->db->set('ModifiedAt', 'CURRENT_TIMESTAMP', FALSE);
-       
-        $this->db->where('Id', $id);
-        $query = $this->db->update($this->tbl, $data);
-         
-        $update = $this->db->affected_rows();
-       
          $UserId = $this->uuid->v4();
         
          $this->db->flush_cache();
@@ -153,15 +135,9 @@ class EmployeesModel extends CI_Model {
 
 
             $this->db->set('Id',"'".$id."'",FALSE);
-             if (!empty($data['EmailAddress'])) {
-                 $this->db->set('LoginName',"'".$data['EmailAddress']."'",FALSE);  
-                 $this->db->set('Email',"'".$data['EmailAddress']."'",FALSE);
-            }
-             else
-             {
-                $this->db->set('LoginName',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
-                $this->db->set('Email',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
-             }
+           $this->db->set('LoginName',"'".$data['EmailAddress']."@qcpeso.com'",FALSE);
+                $this->db->set('Email',"'".$data['EmailAddress']."@qcpeso.com'",FALSE);
+             
            
             $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
 
@@ -169,6 +145,26 @@ class EmployeesModel extends CI_Model {
             $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);        
             $this->db->where('Id', $id);
             $this->db->update('tbl_security_users');
+        
+  
+        $this->db->set('ModifiedById', "'".$this->session->userdata('userid').
+            "'", FALSE);
+
+       
+        $this->db->set('ModifiedAt', 'CURRENT_TIMESTAMP', FALSE);
+       
+        $this->db->where('Id', $id);
+       
+        $this->db->update($this->tbl, $data);
+          // die($this->db->last_query());
+        $update = $this->db->affected_rows();
+       if ($update > 0) {
+           return TRUE;
+        } else {
+            return FALSE;
+        }
+
+        
      
 
        
