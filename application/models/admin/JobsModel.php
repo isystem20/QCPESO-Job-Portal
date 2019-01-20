@@ -3,7 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class JobsModel extends CI_Model {
 
-
+    function __construct() {
+        parent::__construct();
+		$this->load->model('notifications/PushNotif','push');
+    }
 				public $tbl = 'tbl_establishments_jobposts';
 
 
@@ -114,11 +117,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->update($this->tbl);
 			$deleted = $this->db->affected_rows();
 			if ($deleted > 0) {
+
+				$jobtitle = $this->getJobtitle($data['id']);
+				if ($jobtitle != FALSE) {
+					$recipients = $this->getRecipients($jobtitle);
+					$this->push->SentJobAlert($recipients,$jobtitle,$data['id']);
+				}
 				return $data;
 			}else {
 				FALSE;
 			}
 
+		}
+
+
+
+	    function getRecipients($str) {
+	    	$this->db->select('Id');
+	    	$this->db->from('tbl_applicants');
+	    	$this->db->like('lower(PreferredJobs)',$str);
+	    	$get = $this->db->get();
+	    	if ($get->num_rows() > 0) {
+	    		return $get->result();
+	    	}else {
+	    		return FALSE;
+	    	}
+	    }
+
+
+		function getJobtitle($id) {
+			$this->db->select('JobTitle');
+			$this->db->from($this->tbl);
+			$this->db->where('Id',$id);
+			$get = $this->db->get();
+			if ($get->num_rows() > 0) {
+				$jobtitle = '';
+				foreach ($get->result() as $row) {
+					$jobtitle = $row->JobTitle;
+				}
+				return $jobtitle;
+			}else {
+				return false;
+			}
 		}
 
 }

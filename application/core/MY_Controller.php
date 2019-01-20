@@ -25,13 +25,13 @@ class MY_Controller extends CI_Controller {
         if (empty($userid)) {
             return redirect(base_url().'admin/login');
         }
-        // elseif ($activated != '1') {
-        //     return redirect(base_url().'manage/verify');
-        // }
-        // elseif ($profile == 0) {
-        //     $this->session->set_tempdata('caption', 'Update Profile', 300);
-        //     return redirect(base_url().'account/profile');
-        // }
+        elseif ($activated != '1') {
+            return redirect(base_url().'manage/verify');
+        }
+        elseif ($profile == 0) {
+            $this->session->set_tempdata('caption', 'Update Profile', 300);
+            return redirect(base_url().'account/profile');
+        }
     }
 
 }
