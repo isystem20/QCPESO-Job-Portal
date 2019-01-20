@@ -9,10 +9,24 @@ $(function () {
     // ============================================================== 
     // Sales overview
     // ============================================================== 
-     new Chartist.Line('#sales-overview2', {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    var emp_all_applicants = $('#sales-overview3').data('values');
+
+    var labels = [], madata=[], highest = 0 ;
+
+
+    for (var key in emp_all_applicants) {
+        var value = emp_all_applicants[key];
+        console.log(key, value);
+        labels.push(key);
+        madata.push(value);
+        if (value > highest) {
+            highest = value;
+        }
+    }
+     new Chartist.Line('#sales-overview3', {
+        labels: labels
         , series: [
-          {meta:"Earning ($)", data: [0, 150, 110, 240, 200, 200, 300, 200, 380, 300, 400, 380]}
+          {meta: "Monthly Applicant Registration", data: madata}
       ]
     }, {
         low: 0
@@ -48,15 +62,27 @@ $(function () {
      // ============================================================== 
     // Visitor
     // ============================================================== 
-    
+    var empjobsbystatus = $('#visitors1').data('values');
+
+    var labels1 = [], madata1=[], a ;
+
+     for (var key in empjobsbystatus) {
+            var value = empjobsbystatus[key];
+            console.log(key, value);
+            labels1.push(key);
+            madata1.push(value);
+
+            
+        }
+
+       
     var chart = c3.generate({
-        bindto: '#visitor',
+        bindto: '#visitors1',
         data: {
             columns: [
-                ['Other', 30],
-                ['Desktop', 10],
-                ['Tablet', 40],
-                ['Mobile', 50],
+                ['Pending Jobs', labels1],
+                ['Active Jobs', madata1],
+                
             ],
             
             type : 'donut',
@@ -68,7 +94,7 @@ $(function () {
             label: {
                 show: false
               },
-            title:"Visits",
+            title:"Status",
             width:20,
             
         },
