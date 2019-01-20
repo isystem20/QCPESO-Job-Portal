@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	class BrowseJobModel extends CI_Model {
 
 		public function  BrowseJobModelMasterlist($data = null, $id = null, $userid = null) {
-			$this->db->select('ej.* ,"" as CategList, "" as SkillReq,estab.CompanyName,apposition.Name app_position,industry.Name industryname,dress.Name dresscode,appemtype.Name apptype,appemlevel.Description applevel,(select count(Id) from tbl_applicants_job_applications where JobPostId = ej.Id and ApplicantId = "'.$userid.'" ) as AppliedJob, aja.IsActive as ajaIsActive, (select IsActive from tbl_applicants_job_applications where JobPostId = ej.Id and ApplicantId = "'.$userid.'" ) as ajaStatus, estab.WhyJoinUs as estabWhyJoinUs');
+			$this->db->select('ej.* ,"" as CategList, "" as SkillReq,estab.CompanyName,apposition.Name app_position,industry.Name industryname,dress.Name dresscode,appemtype.Name apptype,appemlevel.Description applevel,(select count(Id) from tbl_applicants_job_applications where JobPostId = ej.Id and ApplicantId = "'.$userid.'" ) as AppliedJob, aja.IsActive as ajaIsActive, (select IsActive from tbl_applicants_job_applications where JobPostId = ej.Id and ApplicantId = "'.$userid.'" ) as ajaStatus, estab.WhyJoinUs as estabWhyJoinUs,"'.$userid.'" as currentuser, estab.CompanyName as estabCompanyName, ');
 			$this->db->from('tbl_establishments_jobposts ej');
 			$this->db->join('tbl_establishments estab', 'estab.Id = ej.EstablishmentId', 'left outer');
 			$this->db->join('tbl_applicants_positions apposition', 'apposition.Id = ej.PositionLevelId', 'left outer');
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 
 			$query = $this->db->get();  
-			//die($this->db->last_query());
+			// die($this->db->last_query());
 			if ($query->num_rows() > 0 && !empty($id)  ) {
 				$result = $query->result();
 				foreach ($result as &$object) {
@@ -81,6 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 			}
+			// die($this->db->last_query());
 			return $query;
 			
 		}

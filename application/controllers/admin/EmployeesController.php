@@ -6,7 +6,9 @@
       function __construct() {
            parent::__construct();
            $this->load->model('admin/EmployeesModel','employmod');
-         
+        
+
+          
 
        }
    
@@ -14,7 +16,7 @@
       {
 
    
-          $layout = array('pagetitle'=>'Adding New Employee');
+          $layout = array('datepicker'=>TRUE, 'addons'=>TRUE, 'uploadfile'=>TRUE,'pagetitle'=>'Adding New employee');
            
            $data['class'] = 'employee';
           // die('asdasd');
@@ -82,15 +84,29 @@
       // $this->form_validation->set_rules('BirthDate','Birth date','required');
       // $this->form_validation->set_rules('HouseNum','House Number','required');
       // $this->form_validation->set_rules('StreetName','Street Name','required');
-      // $this->form_validation->set_rules('EmailAddress','Email Address','required');
-      // $this->form_validation->set_rules('MobileNum','Mobile Number','required');
       // $this->form_validation->set_rules('HouseNum','House Number','required');
-      // $this->form_validation->set_rules('Remarks','Remarks','required');
-       
+      // $this->form_validation->set_rules('Remarks','Remarks','required');  
+      $this->form_validation->set_rules('EmailAddress','Email Address','is_unique[tbl_employees.EmailAddress]',
+         array(
+                'is_unique'     => 'This %s already exists.'
+                )
+            );
+      $this->form_validation->set_rules('MobileNum','Mobile Number','required|is_unique[tbl_employees.MobileNum]',
+       array(
+                'required'      => 'You have not provided %s.',
+                'is_unique'     => 'This %s already exists.'
+                )
+            );
+      $this->form_validation->set_rules('SSS','SSS','required|is_unique[tbl_employees.SSS]',
+       array(
+                'required'      => 'You have not provided %s.',
+                'is_unique'     => 'This %s already exists.'
+                )
+            ); 
       if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
-            print_r($this->input->post());
+         //    print_r($this->input->post());
          // die();
         }
 
@@ -98,20 +114,22 @@
         //     $errors = "Image File Needed.";
         //       echo json_encode(['error'=>$errors]);
            
-
+        // }
   
         else {
-            
+          
+
 
 
 
             $postdata = $this->input->post();
-           
+            
+            unset($postdata['_wysihtml5_mode']);
             $inserted = $this->employmod->Add($postdata);
            
             if ($inserted != FALSE) {           
                 
-                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/users-masterlist']);
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/employees-masterlist']);
             }
             else {
                 echo json_encode(['error'=>'Update Unsuccessful.']);
@@ -125,7 +143,7 @@
                 array(
                 'required'      => 'Cannot identify this record.',
                 ));
-
+// die($this->db->last_query());
         $postdata = $this->input->post();
         if ($this->form_validation->run() == FALSE){
             $errors = validation_errors();
@@ -140,7 +158,7 @@
             if ($result != FALSE) {
                 $json = json_encode($result);             
                
-                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/users-masterlist']);
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/employees-masterlist']);
             }
             else {
                 echo json_encode(['error'=>'Update Unsuccessful.']);

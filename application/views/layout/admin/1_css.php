@@ -40,7 +40,7 @@
     <!--This page css - Morris CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/morrisjs/morris.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<?php echo base_url(); ?>themes/admin-pro/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/style.css" rel="stylesheet">
 
 
     <!-- Custom CSS -->
