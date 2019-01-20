@@ -45,6 +45,7 @@ class EmployeesModel extends CI_Model {
         $this->load->library('Uuid');
         $id = $this->uuid->v4();
         $this->db->set('Id', "'".$id."'", FALSE);
+      
         $this->db->set('CreatedById', "'".$this->session->userdata('userid').
             "'", FALSE);
          $this->db->set('CreatedAt','CURRENT_TIMESTAMP',FALSE);
@@ -66,15 +67,10 @@ class EmployeesModel extends CI_Model {
 
 
             $this->db->set('Id',"'".$id."'",FALSE);
-             if (!empty($data['EmailAddress'])) {
-                 $this->db->set('LoginName',"'".$data['EmailAddress']."'",FALSE);  
-                 $this->db->set('Email',"'".$data['EmailAddress']."'",FALSE);
-            }
-             else
-             {
-                $this->db->set('LoginName',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
-                $this->db->set('Email',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
-             }
+          
+                $this->db->set('LoginName',"'".$data['EmailAddress']."@qcpeso.com'",FALSE);
+                $this->db->set('Email',"'".$data['EmailAddress']."@qcpeso.com'",FALSE);
+             
            
             $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
             $this->db->set('SecurityUserLevelId',"'3'",FALSE);
@@ -139,15 +135,9 @@ class EmployeesModel extends CI_Model {
 
 
             $this->db->set('Id',"'".$id."'",FALSE);
-             if (!empty($data['EmailAddress'])) {
-                 $this->db->set('LoginName',"'".$data['EmailAddress']."'",FALSE);  
-                 $this->db->set('Email',"'".$data['EmailAddress']."'",FALSE);
-            }
-             else
-             {
-                $this->db->set('LoginName',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
-                $this->db->set('Email',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
-             }
+           $this->db->set('LoginName',"'".$data['EmailAddress']."@qcpeso.com'",FALSE);
+                $this->db->set('Email',"'".$data['EmailAddress']."@qcpeso.com'",FALSE);
+             
            
             $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
 

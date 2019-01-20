@@ -1523,7 +1523,7 @@ $('#employee').submit(function(e) {
                 'Suffix' : $('select[name=Suffix]').val(),
                 'LandlineNum' : $('input[name=LandlineNum]').val(),
                 'MobileNum' : $('input[name=MobileNum]').val(),
-                'EmailAddress' : $('input[name=EmailAddress]').val(),
+                'EmailAddress' : $('input[name=UserName]').val(),
                 'TIN' : $('input[name=TIN]').val(),
                 'SSS' : $('input[name=SSS]').val(),
                 'PHILHEALTH' : $('input[name=PHILHEALTH]').val(),
@@ -1573,10 +1573,11 @@ $('#employee').submit(function(e) {
                       
                     });
                   }
-                $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
+                 $("#sub").prop("disabled", false);//Reenable the submit button after the action           
               }
-          });   
 
+          });   
+    
 
 
     

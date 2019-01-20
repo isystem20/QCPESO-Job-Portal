@@ -86,14 +86,9 @@
       // $this->form_validation->set_rules('StreetName','Street Name','required');
       // $this->form_validation->set_rules('HouseNum','House Number','required');
       // $this->form_validation->set_rules('Remarks','Remarks','required');  
-      $this->form_validation->set_rules('EmailAddress','Email Address','is_unique[tbl_employees.EmailAddress]',
+      $this->form_validation->set_rules('EmailAddress','User Name','required|is_unique[tbl_employees.EmailAddress]',
          array(
-                'is_unique'     => 'This %s already exists.'
-                )
-            );
-      $this->form_validation->set_rules('MobileNum','Mobile Number','required|is_unique[tbl_employees.MobileNum]',
-       array(
-                'required'      => 'You have not provided %s.',
+          'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
                 )
             );
