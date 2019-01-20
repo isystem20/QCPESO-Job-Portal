@@ -18,7 +18,7 @@ if (!empty($employee)) {
                     if (!empty($this->session->tempdata('caption'))) { ?>
                        <h3 class="text-themecolor"><?=$this->session->tempdata('caption'); ?></h3>
                     <?php } else { ?>
-                        <h3 class="text-themecolor">Employee Registration</h3>
+                        <h3 class="text-themecolor">Office Staff Registration</h3>
                     <?php }
                     ?>
                     
@@ -91,8 +91,8 @@ if (!empty($employee)) {
 
                                             <div class="col-sm-6">
                                                 <div class="form-group has-success">
-                                                    <label class="control-label">Email</label>
-                                                    <input type="text" class="form-control form-control-danger" placeholder="Email" name="EmailAddress" value="<?=$row->EmailAddress;?>">
+                                                    <label class="control-label">Username</label>
+                                                    <input type="text" class="form-control form-control-danger" name="UserName" value="<?=$row->EmailAddress;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
@@ -185,7 +185,7 @@ if (!empty($employee)) {
                                     if ($mode=="edit") {
                                         ?>
                                                 <div class="form-actions">
-                                                    <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                                    <button type="submit" id="sub" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
                                                     <a href="<?php echo base_url();?>manage/employees-masterlist" class="btn btn-inverse">Cancel</a>
                                                 </div>
                                                 <?php
@@ -224,7 +224,7 @@ else { ?>
 
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Applicant Registration</h3>
+                        <h3 class="text-themecolor">Office Staff Registration</h3>
                     </div>
                     <div class="col-md-7 align-self-center">
                         <ol class="breadcrumb">
@@ -290,8 +290,8 @@ else { ?>
 
                                         <div class="col-sm-6">
                                             <div class="form-group has-success">
-                                                <label class="control-label">Email</label>
-                                                <input type="text" class="form-control " name="EmailAddress">
+                                                <label class="control-label">Username</label>
+                                                <input type="text" class="form-control " name="UserName">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -385,7 +385,7 @@ else { ?>
                                               
 
                                                             <div class="form-actions">
-                                                                <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                                                <button type="submit" id="sub" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
                                                                  <a href="<?php echo base_url();?>manage/employees-masterlist" class="btn btn-inverse">Cancel</a>
                                                             </div>
                                                             </form>

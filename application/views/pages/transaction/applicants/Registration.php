@@ -126,10 +126,7 @@ if (!empty($applicant)) {
                                                                 $str="";
                                                             }
                                                             ?>
-                                                            <option <?=$str?> value="
-                                                                <?=$types->Id?>">
-                                                                    <?=$types->Name?>
-                                                            </option>
+                                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
                                                             <?php
                                                         }
                                                     }
@@ -164,10 +161,7 @@ if (!empty($applicant)) {
                                                                 $str="";
                                                             }
                                                             ?>
-                                                            <option <?=$str?> value="
-                                                                <?=$types->Id?>">
-                                                                    <?=$types->Name?>
-                                                            </option>
+                                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
                                                             <?php
                                                         }
                                                     }
@@ -211,9 +205,7 @@ if (!empty($applicant)) {
                                                                 $str="";
                                                             }
                                                             ?>
-                                                            <option <?=$str?> value="
-                                                                <?=$types->Id?>">
-                                                                    <?=$types->Name?>
+                                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?>
                                                             </option>
                                                             <?php
                                                         }
@@ -237,9 +229,7 @@ if (!empty($applicant)) {
                                                                 $str="";
                                                             }
                                                             ?>
-                                                            <option <?=$str?> value="
-                                                                <?=$types->Id?>">
-                                                                    <?=$types->Name?>
+                                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?>
                                                             </option>
                                                             <?php
                                                         }
@@ -296,10 +286,7 @@ if (!empty($applicant)) {
                                                                 $str="";
                                                             }
                                                             ?>
-                                                            <option <?=$str?> value="
-                                                                <?=$types->Id?>">
-                                                                    <?=$types->Name?>
-                                                            </option>
+                                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
                                                             <?php
                                                         }
                                                     }
@@ -324,8 +311,8 @@ if (!empty($applicant)) {
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Is Currently Studying</label>
                                                     <select class="form-control custom-select" name="IsCurrentlyStudying" value="<?=$row->IsCurrentlyStudying;?>">
-                                                        <option <?php if($row->IsCurrentlyStudying=="1"){ echo "Selected";}?> value="Yes">Yes</option>
-                                                        <option <?php if($row->IsCurrentlyStudying=="2"){ echo "Selected";}?> value="No">No</option>
+                                                        <option <?php if($row->IsCurrentlyStudying=="1"){ echo "Selected";}?> value="1">Yes</option>
+                                                        <option <?php if($row->IsCurrentlyStudying=="2"){ echo "Selected";}?> value="2">No</option>
 
                                                     </select>
 
@@ -358,9 +345,9 @@ if (!empty($applicant)) {
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <div class="form-group has-success">
+                                                  <div class="form-group has-success">
                                                     <label class="control-label">Employment Status</label>
-                                                    <select class="form-control custom-select" name="EmploymentStatus">
+                                                    <select class="form-control custom-select" name="EmploymentStatus" value="<?=$row->EmploymentStatus;?>">
                                                         <?php $str="";
                                                     if ($status->num_rows() > 0) {
                                                         foreach ($status->result() as $types) { 
@@ -371,16 +358,13 @@ if (!empty($applicant)) {
                                                                 $str="";
                                                             }
                                                             ?>
-                                                            <option <?=$str?> value="
-                                                                <?=$types->Id?>">
-                                                                    <?=$types->Name?>
-                                                            </option>
+                                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
                                                             <?php
                                                         }
                                                     }
                                                     ?>
-
                                                     </select>
+
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -404,10 +388,7 @@ if (!empty($applicant)) {
                                                                             }
                                                                         }
                                                                         ?>
-                                                            <option <?=$str?> value="
-                                                                <?=$types->Id?>">
-                                                                    <?=$types->Name?>
-                                                            </option>
+                                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
                                                             <?php
                                                                     }
                                                                 }
@@ -422,25 +403,29 @@ if (!empty($applicant)) {
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <div class="form-group has-success">
-                                                    <label class="control-label">Is OFW</label>
-                                                    <select class="form-control custom-select" name="IsOFW" value="<?=$row->IsOFW;?>">
-                                                        <option <?php if($row->IsOFW=="1"){ echo "Selected";}?> value="Yes">Yes</option>
-                                                        <option <?php if($row->IsOFW=="2"){ echo "Selected";}?> value="No">No</option>
+                                               <div class="form-group has-success">
+                                                    <label class="control-label">Employment Category</label>
+                                                    <select class="form-control custom-select" name="Category" value="<?=$row->Category;?>">
+                                                        <?php $str="";
+                                                    if ($category->num_rows() > 0) {
+                                                        foreach ($category->result() as $types) { 
+                                                            if ($row->Category==$types->Id){
+                                                              $str="Selected";
+                                                            }
+                                                            else {
+                                                                $str="";
+                                                            }
+                                                            ?>
+                                                            <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
                                                     </select>
 
                                                 </div>
                                             </div>
-                                            <div class="col-sm-4">
-                                                <div class="form-group has-success">
-                                                    <label class="control-label">Is Kasambahay</label>
-                                                    <select class="form-control custom-select" name="IsKasambahay" value="<?=$row->IsKasambahay;?>">
-                                                        <option <?php if($row->IsKasambahay=="1"){ echo "Selected";}?> value="Yes">Yes</option>
-                                                        <option <?php if($row->IsKasambahay=="2"){ echo "Selected";}?> value="No">No</option>
-                                                    </select>
-
-                                                </div>
-                                            </div>
+                                          
 
                                         </div>
 
@@ -677,9 +662,9 @@ if (!empty($applicant)) {
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">Languages Spoken</label>
                                                                         <select class="select2 form-control custom-select" multiple="multiple" name="LanguageSpoken[]" style="width: 100%" value="<?=$row->LanguageSpoken;?>">
-                                                                            <?php $str="";
-                                                            if ($language->num_rows() > 0) {
-                                                                $lang = json_decode($row->LanguageSpoken,true);
+                                                                <?php $str="";
+                                                    if ($language->num_rows() > 0) {
+                                                              $lang = json_decode($row->LanguageSpoken,true);
                                                                     foreach($language->result() as $types) {
                                                                         $str = "";
                                                                         foreach($lang as $key) {
@@ -688,10 +673,7 @@ if (!empty($applicant)) {
                                                                             }
                                                                         }
                                                                         ?>
-                                                                                <option <?=$str?> value="
-                                                                                    <?=$types->Id?>">
-                                                                                        <?=$types->Name?>
-                                                                                </option>
+                                                    <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
                                                                                 <?php
                                                                     }
                                                                 }
@@ -714,10 +696,7 @@ if (!empty($applicant)) {
                                                                             }
                                                                         }
                                                                         ?>
-                                                                                <option <?=$str?> value="
-                                                                                    <?=$types->Id?>">
-                                                                                        <?=$types->Name?>
-                                                                                </option>
+                                                     <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
                                                                                 <?php
                                                                     }
                                                                 }
@@ -740,10 +719,7 @@ if (!empty($applicant)) {
                                                                             }
                                                                         }
                                                                         ?>
-                                                                                <option <?=$str?> value="
-                                                                                    <?=$types->Id?>">
-                                                                                        <?=$types->Name?>
-                                                                                </option>
+                                                 <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
                                                                                 <?php
                                                                     }
                                                                 }
@@ -766,10 +742,7 @@ if (!empty($applicant)) {
                                                                             }
                                                                         }
                                                                         ?>
-                                                                                <option <?=$str?> value="
-                                                                                    <?=$types->Id?>">
-                                                                                        <?=$types->Name?>
-                                                                                </option>
+                                                 <option <?=$str?> value="<?=$types->Id?>"><?=$types->Name?></option>
                                                                                 <?php
                                                                     }
                                                                 }
@@ -1064,10 +1037,7 @@ else { ?>
                                                      $str ="Selected";
                                                 }
                                                 ?>
-                                                        <option <?=$str ?> value="
-                                                            <?=$types->Id; ?>">
-                                                                <?php echo $types->Name; ?>
-                                                        </option>
+                                                        <option <?=$str ?> value="<?=$types->Id; ?>"><?php echo $types->Name; ?></option>
                                                         <?php
                                             }
                                         }
@@ -1098,10 +1068,7 @@ else { ?>
                                                      $str ="Selected";
                                                 }
                                                 ?>
-                                                        <option <?=$str ?> value="
-                                                            <?=$types->Id; ?>">
-                                                                <?php echo $types->Name; ?>
-                                                        </option>
+                                                        <option <?=$str ?> value="<?=$types->Id; ?>"><?php echo $types->Name; ?></option>
                                                         <?php
                                             }
                                         }
@@ -1142,10 +1109,7 @@ else { ?>
                                                      $str ="Selected";
                                                 }
                                                 ?>
-                                                        <option <?=$str ?> value="
-                                                            <?=$types->Id; ?>">
-                                                                <?php echo $types->Name; ?>
-                                                        </option>
+                                                        <option <?=$str ?> value="<?=$types->Id; ?>"><?php echo $types->Name; ?></option>
                                                         <?php
                                             }
                                         }
@@ -1165,10 +1129,7 @@ else { ?>
                                                      $str ="Selected";
                                                 }
                                                 ?>
-                                                        <option <?=$str ?> value="
-                                                            <?=$types->Id; ?>">
-                                                                <?php echo $types->Name; ?>
-                                                        </option>
+                                                        <option <?=$str ?> value="<?=$types->Id; ?>"><?php echo $types->Name; ?></option>
                                                         <?php
                                             }
                                         }
@@ -1222,10 +1183,7 @@ else { ?>
                                                      $str ="Selected";
                                                 }
                                                 ?>
-                                                        <option <?=$str ?> value="
-                                                            <?=$types->Id; ?>">
-                                                                <?php echo $types->Name; ?>
-                                                        </option>
+                                                        <option <?=$str ?> value="<?=$types->Id; ?>"><?php echo $types->Name; ?></option>
                                                         <?php
                                             }
                                         }
@@ -1283,28 +1241,27 @@ else { ?>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="row">
-                                                <div class="col-sm-3">
-                                                    <div class="form-group has-success">
-                                                        <label class="control-label">Employment Status</label>
-                                                        <select class="form-control custom-select" name="EmploymentStatus">
-                                                            <?php $str="";
+                                                  <div class="col-sm-4">
+                                            <div class="form-group has-success">
+                                                <label class="control-label">Employment Status</label>
+                                                <select class="form-control custom-select" name="EmploymentStatus">
+                                                    <?php $str="";
                                         if ($status->num_rows() > 0) {
                                             foreach ($status->result() as $types) { 
                                                 if ($types->Id==$row->EmploymentStatus){
                                                      $str ="Selected";
                                                 }
                                                 ?>
-                                                                <option <?=$str ?> value="
-                                                                    <?=$types->Id; ?>">
-                                                                        <?php echo $types->Name; ?>
-                                                                </option>
-                                                                <?php
+                                                        <option <?=$str ?> value="<?=$types->Id; ?>"><?php echo $types->Name; ?></option>
+                                                        <?php
                                             }
                                         }
                                         ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                               
                                                 <div class="col-md-4">
                                                     <div class="form-group has-success">
                                                         <label class="control-label">Preferred Jobs</label>
@@ -1318,8 +1275,7 @@ else { ?>
                                                             <?php
                                                             if ($location->num_rows() > 0) {
                                                                 foreach ($location->result() as $row) { ?>
-                                                                    <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?>
-                                                                                                </option>
+                                                                    <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
                                                                                                 <?php
                                                             }
                                                         }
@@ -1334,27 +1290,27 @@ else { ?>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="form-group has-success">
-                                                        <label class="control-label">Is OFW</label>
-                                                        <select class="form-control custom-select" name="IsOFW">
-                                                            <option value="1">Yes</option>
-                                                            <option value="2">No</option>
-                                                        </select>
+                                                  <div class="col-sm-4">
+                                            <div class="form-group has-success">
+                                                <label class="control-label">Employment Category</label>
+                                                <select class="form-control custom-select" name="Category">
+                                                    <?php $str="";
+                                        if ($category->num_rows() > 0) {
+                                            foreach ($category->result() as $types) { 
+                                                if ($types->Id==$row->Category){
+                                                     $str ="Selected";
+                                                }
+                                                ?>
+                                                        <option <?=$str ?> value="<?=$types->Id; ?>"><?php echo $types->Name; ?></option>
+                                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                                </select>
 
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group has-success">
-                                                        <label class="control-label">Is Kasambahay</label>
-                                                        <select class="form-control custom-select" name="IsKasambahay">
-                                                            <option value="1">Yes</option>
-                                                            <option value="2">No</option>
-                                                        </select>
-
-                                                    </div>
-                                                </div>
-
+                                            </div>
+                                        </div>
+                                               
                                                 <div class="p-20">
                                                     <h3>Account No. Information</h3>
                                                     <div class="row">
@@ -1498,9 +1454,7 @@ else { ?>
                                                                                             <?php
                                                             if ($language->num_rows() > 0) {
                                                                 foreach ($language->result() as $row) { ?>
-                                                                                                <option value="<?=$row->Id; ?>">
-                                                                                                    <?php echo $row->Name; ?>
-                                                                                                </option>
+                                                     <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
                                                                                                 <?php
                                                             }
                                                         }
@@ -1515,9 +1469,7 @@ else { ?>
                                                                                             <?php
                                                             if ($language->num_rows() > 0) {
                                                                 foreach ($language->result() as $row) { ?>
-                                                                                                <option value="<?=$row->Id; ?>">
-                                                                                                    <?php echo $row->Name; ?>
-                                                                                                </option>
+                                                     <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
                                                                                                 <?php
                                                             }
                                                         }
@@ -1532,9 +1484,7 @@ else { ?>
                                                                                             <?php
                                                             if ($language->num_rows() > 0) {
                                                                 foreach ($language->result() as $row) { ?>
-                                                                                                <option value="<?=$row->Id; ?>">
-                                                                                                    <?php echo $row->Name; ?>
-                                                                                                </option>
+                                                        <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
                                                                                                 <?php
                                                             }
                                                         }
@@ -1549,9 +1499,7 @@ else { ?>
                                                                                             <?php
                                                             if ($dialect->num_rows() > 0) {
                                                                 foreach ($dialect->result() as $row) { ?>
-                                                                                                <option value="<?=$row->Id; ?>">
-                                                                                                    <?php echo $row->Name; ?>
-                                                                                                </option>
+                                                  <option value="<?=$row->Id; ?>"><?php echo $row->Name; ?></option>
                                                                                                 <?php
                                                             }
                                                         }

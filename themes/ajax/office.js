@@ -433,6 +433,9 @@ $('#servicesform').submit(function(e){ //Input the form's ID or CLASS, use # for
                       hideAfter: 3500, 
                       stack: 6
                     });
+                      window.setTimeout(function(){
+                    window.location.href = data.url; 
+                  }, 1000);
                  }
                   else {
                      $.toast({
@@ -863,8 +866,7 @@ $('#applicant').submit(function(e) {
                 'LastSchoolLevel' : $('input[name=LastSchoolLevel]').val(),
                 'NonStudentReason' : $('input[name=NonStudentReason]').val(),
                 'PreferredTrainingCourse' : $('input[name=PreferredTrainingCourse]').val(),
-                'IsOFW' : $('select[name=IsOFW]').val(),
-                'IsKasambahay' : $('select[name=IsKasambahay]').val(),
+                'Category' : $('select[name=Category]').val(),
                 'VersionNum' : $('input[name=VersionNum]').val(),
                 'TIN' : $('input[name=TIN]').val(),
                 'SSS' : $('input[name=SSS]').val(),
@@ -925,9 +927,9 @@ $('#applicant').submit(function(e) {
                       stack: 6
 
                     });
-                    window.setTimeout(function(){
-                    window.location.href = data.url; 
-                  }, 1000);
+                  //   window.setTimeout(function(){
+                  //   window.location.href = data.url; 
+                  // }, 1000);
         
               }
                   else{
@@ -1485,7 +1487,7 @@ $('#employee').submit(function(e) {
                 'Suffix' : $('select[name=Suffix]').val(),
                 'LandlineNum' : $('input[name=LandlineNum]').val(),
                 'MobileNum' : $('input[name=MobileNum]').val(),
-                'EmailAddress' : $('input[name=EmailAddress]').val(),
+                'EmailAddress' : $('input[name=UserName]').val(),
                 'TIN' : $('input[name=TIN]').val(),
                 'SSS' : $('input[name=SSS]').val(),
                 'PHILHEALTH' : $('input[name=PHILHEALTH]').val(),
@@ -1535,10 +1537,11 @@ $('#employee').submit(function(e) {
                       
                     });
                   }
-                $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
+                 $("#sub").prop("disabled", false);//Reenable the submit button after the action           
               }
-          });   
 
+          });   
+    
 
 
     
