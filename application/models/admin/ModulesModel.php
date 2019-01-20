@@ -2,10 +2,31 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class ModulesModel extends CI_Model {
-
-		public $tbl = 'tbl_security_modules';
-
+		public $tbl = 'tbl_security_modules sm';
 		public function LoadModuleslist($id = null) {
+			$this->db->select('sm.*,secmod.Name Parent');
+			//$this->db->select('*');
+			
+			//$this->db->from($this->tbl);
+			$this->db->from($this->tbl);
+			$this->db->join('tbl_security_modules secmod','secmod.Id = sm.Parent', 'left outer');
+
+			if (!empty($id)) {
+				$this->db->where('sm.id',$id);
+				return $this->db->get()->result();
+			}else {
+				$this->db->where('sm.isActive','1');
+				$this->db->or_where('sm.isActive','2');
+				return $this->db->get();
+			}
+				
+		
+
+		/*public $tbl = 'tbl_security_modules';
+
+		public function LoadModuleslist($id = null) {\
+
+
 			$this->db->select('*');
 			$this->db->from($this->tbl);
 			if (!empty($id)) {
@@ -15,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->db->where('IsActive','1');
 				$this->db->or_where('IsActive','2');
 				return $this->db->get();
-			}
+			}*/
 			
 		}
 
@@ -24,7 +45,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->set('Name',"'".$data['name']."'",FALSE);
 			$this->db->set('Url',"'".$data['url']."'",FALSE);
 			$this->db->set('Parent',"'".$data['parent']."'",FALSE);
-			$this->db->set('Description',"'".$data['desc']."'",FALSE);
+			$this->db->set('Description',"'".$data['description']."'",FALSE);
+			$this->db->set('Category',"'".$data['category']."'",FALSE);
 			$this->db->set('CreatedBy',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
 			$this->db->set('IsActive',"'".$data['status']."'",FALSE);
@@ -67,8 +89,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
 		    $this->db->set('Name', '"'.$data['name'].'"', FALSE);
 		    $this->db->set('Url', '"'.$data['url'].'"', FALSE);
-		    $this->db->set('Parent', '"'.$data['parent'].'"', FALSE); 
-		    $this->db->set('Description', '"'.$data['desc'].'"', FALSE); 
+		    $this->db->set('Parent','"'.$data['parent'].'"', FALSE); 
+		    $this->db->set('Description', '"'.$data['description'].'"', FALSE); 
+		    $this->db->set('Category','"'.$data['category'].'"',FALSE);
 		    $this->db->set('IsActive', '"'.$data['status'].'"', FALSE);
 		    $this->db->where('Id', $id);
 		    $query = $this->db->update($this->tbl);
