@@ -866,8 +866,7 @@ $('#applicant').submit(function(e) {
                 'LastSchoolLevel' : $('input[name=LastSchoolLevel]').val(),
                 'NonStudentReason' : $('input[name=NonStudentReason]').val(),
                 'PreferredTrainingCourse' : $('input[name=PreferredTrainingCourse]').val(),
-                'IsOFW' : $('select[name=IsOFW]').val(),
-                'IsKasambahay' : $('select[name=IsKasambahay]').val(),
+                'Category' : $('select[name=Category]').val(),
                 'VersionNum' : $('input[name=VersionNum]').val(),
                 'TIN' : $('input[name=TIN]').val(),
                 'SSS' : $('input[name=SSS]').val(),
@@ -928,9 +927,9 @@ $('#applicant').submit(function(e) {
                       stack: 6
 
                     });
-                    window.setTimeout(function(){
-                    window.location.href = data.url; 
-                  }, 1000);
+                  //   window.setTimeout(function(){
+                  //   window.location.href = data.url; 
+                  // }, 1000);
         
               }
                   else{
