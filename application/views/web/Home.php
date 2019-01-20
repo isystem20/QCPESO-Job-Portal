@@ -843,25 +843,24 @@
                                     </div>
                                 </aside>
                             </div>
-                            <div class="col-md-4">
+                             <div class="col-md-3">
                                 <!-- Recent entries widget-->
                                 <aside class="widget widget-recent-entries">
                                     <div class="widget-title">
-                                        <h6>Recent Posts</h6>
+                                         <h6>Recent News</h6>
                                     </div>
                                     <ul>
-                                         <?php
-                                        if ($webpostmodel->num_rows() > 0) {
-                                            foreach ($webpostmodel->result() as $row ) { ?>
-                                        <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=character_limiter($row->PostDescription, 200);?><br>
+                                    <?php
+                                        if ($webpost->num_rows() > 0) {
+                                            foreach ($webpost->result() as $row ) { ?>
+                                       <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=character_limiter($row->PostDescription, 100);?><br>
                                                 <span class="post-date"><?=date('D F d, Y H:i A',strtotime($row->CreatedAt));?></span></div>
                                           <?php
                                             }
                                         }
-                                        ?>    
+                                        ?>     
                                     </ul>
                                 </aside>
-                            </div>
                             
                 <!--             <div class="col-md-3">
                                 <aside class="widget widget-recent-works">
