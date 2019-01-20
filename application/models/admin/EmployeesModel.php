@@ -126,21 +126,6 @@ class EmployeesModel extends CI_Model {
     }
 
     public function Update($id, $data) {
-        
-        
-  
-        $this->db->set('ModifiedById', "'".$this->session->userdata('userid').
-            "'", FALSE);
-
-       
-        $this->db->set('ModifiedAt', 'CURRENT_TIMESTAMP', FALSE);
-       
-        $this->db->where('Id', $id);
-       
-        $this->db->update($this->tbl, $data);
-          // die($this->db->last_query());
-        // $update = $this->db->affected_rows();
-       
          $UserId = $this->uuid->v4();
         
          $this->db->flush_cache();
@@ -170,6 +155,26 @@ class EmployeesModel extends CI_Model {
             $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);        
             $this->db->where('Id', $id);
             $this->db->update('tbl_security_users');
+        
+  
+        $this->db->set('ModifiedById', "'".$this->session->userdata('userid').
+            "'", FALSE);
+
+       
+        $this->db->set('ModifiedAt', 'CURRENT_TIMESTAMP', FALSE);
+       
+        $this->db->where('Id', $id);
+       
+        $this->db->update($this->tbl, $data);
+          // die($this->db->last_query());
+        $update = $this->db->affected_rows();
+       if ($update > 0) {
+           return TRUE;
+        } else {
+            return FALSE;
+        }
+
+        
      
 
        
