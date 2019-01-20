@@ -58,11 +58,16 @@
                                             <tr id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->Name; ?></td>
                                                 <td><?php echo character_limiter($row->Url, 30); ?></td>
-                                                <td><?php echo character_limiter($row->Parent, 30); ?></td>
+                                                <td><?php echo $row->Parent ?></td>
                                                 <td><?php echo character_limiter($row->Description, 30); ?></td>
-                                                <td><?php echo $row->Category;
+                                                <td><?php
+                                                 if ($row->Category == '1'){
+                                                    echo '<label class="label label-success">Manage</label>';
+                                                    }
                                                 
-                                                 ?></td>
+                                                 ?>
+                                                     
+                                                 </td>
                                                 <td>
                                                     <?php 
                                                     if ($row->IsActive == '1') {

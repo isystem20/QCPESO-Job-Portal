@@ -186,10 +186,18 @@
                  <div class="form-group row">
                     <label for="recipient-name" class="col-2 control-label">Parent: </label>
                     <div class="col-10">
-                        <select name="status" class="form-control">
-                            <option value="<?php echo $get->$this->$id; ?>"></option>
-                            <option value=""></option>
-                            <option value=""></option>
+                        <select name="parent" class="form-control">
+                            <?php
+                            $a = 1;
+                                        if ($modules->num_rows() > 0) {
+                                            foreach ($modules->result() as $row) { ?>               
+                            <option value="a"><?php echo $row->Name; ?></option>
+                            a++;
+                     <?php
+                        }
+                        }
+                        ?>
+                           
                         </select>                      
                     </div>
                 </div>
@@ -203,9 +211,10 @@
                     <label for="recipient-name" class="col-2 control-label">Category: </label>
                     <div class="col-10">
                         <select name="status" class="form-control">
-                            <option value="">Manage</option>
-                            <option value="">Transaction</option>
-                            <option value="">Setting</option>
+                            <option value="1">Manage</option>
+                            <option value="2">Maintenane</option>
+                            <option value="3">Transaction</option>
+                            <option value="4">Setting</option>
                         </select>
                     </div>
                 </div>
