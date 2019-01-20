@@ -627,3 +627,6 @@ $route['manage/employee/update-employee/(:any)'] = 'admin/EmployeesController/Ad
 $route['manage/employee/update-employee/(:any)/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1/$2';
 $route['manage/employees-masterlist'] = 'admin/EmployeesController/AllEmployees';
 
+//JobApplication Process 
+        $route['admin/jobapplication/process'] = 'admin/JobApplicationController/Update1'; 
+   
