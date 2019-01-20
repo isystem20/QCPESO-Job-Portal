@@ -108,10 +108,9 @@ class AuthModel extends CI_Model {
 	}
 
 	public function LoginApplicant($data,$ext = FALSE) {
-		//app.lastName, app.firstName,app.isActive as applicantstatus, app.PreferredJobs, app.PreferredWorkLocations
-		$this->db->select('*, "" as lastName, "" as firstName, "" as applicantstatus, "" as PreferredJobs, "" as PreferredWorkLocations');
-		$this->db->from('tbl_security_users');
-		// $this->db->join('tbl_applicants app','app.Id = user.PeopleId','left outer');
+		$this->db->select('user.*, app.lastName, app.firstName,app.isActive as applicantstatus, app.PreferredJobs, app.PreferredWorkLocations');
+		$this->db->from('tbl_security_users user');
+		$this->db->join('tbl_applicants app','app.Id = user.PeopleId','left outer');
 		$this->db->where('user.LoginName',$data['Email']);
 		if ($ext == TRUE) {
 			$this->db->where('user.External_Id', $data['External_Id']);
@@ -121,15 +120,45 @@ class AuthModel extends CI_Model {
 			return $query->row();
 		}
 		else {
+			if ($ext == FALSE) {
+				$this->LoginAdmin($data);
+			}
 			return FALSE;
 		}
 
 	}
 
 
-	function LoginEmployer($data,$ext) {
 
+	public function LoginAdmin($data,$ext = FALSE) {
+		$this->db->select('user.*, app.LastName, app.FirstName,app.IsActive as applicantstatus, app.EmailAddress');
+		$this->db->from('tbl_security_users user');
+		$this->db->join('tbl_employees app','app.Id = user.PeopleId','left outer');
+		$this->db->where('user.LoginName',$data['Email']);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->row();
+		}
+		else {
+			$this->LoginEmployer($data);
+			return FALSE;
+		}
 	}
+
+	function LoginEmployer() {
+		$this->db->select('user.*, app.ContactPerson, app.CompanyName, app.EstablismentType,app.IsActive as applicantstatus, app.CompanyEmail');
+		$this->db->from('tbl_security_users user');
+		$this->db->join('tbl_establishments app','app.Id = user.PeopleId','left outer');
+		$this->db->where('user.LoginName',$data['Email']);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->row();
+		}
+		else {
+			return FALSE;
+		}
+	}
+
 
 
 	public function LoginApplicantGoogle($data) {

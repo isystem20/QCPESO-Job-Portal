@@ -994,7 +994,6 @@ $('.applyjob').click(function(e){ //Input the form's ID or CLASS, use # for ID a
                       table.row($('#row'+data[0].Id))
                       .remove()
                       .draw();
-
                   }
 
 
@@ -1024,14 +1023,13 @@ $('.applyjob').click(function(e){ //Input the form's ID or CLASS, use # for ID a
                       ]).draw().node();
                     $( row ).attr('id','row'+data[0].Id);
 
-                  }
-// =======
+                // =======
                     // $(this).prop("disabled", true);   //Disables the submit button after click 
                     
                     btn.replaceWith("<label class='label label-warning'>Pending</label>");
                     
                 }
-// >>>>>>> 51a1100072dd8e67281e7c19c39fd338194549ed
+                  // >>>>>>> 51a1100072dd8e67281e7c19c39fd338194549ed
                   // else{
                   //   $.toast({
                   //     heading: 'Error',
@@ -1047,8 +1045,8 @@ $('.applyjob').click(function(e){ //Input the form's ID or CLASS, use # for ID a
                   // btn.text("Apply");
                   // }
                       
-              }
-          });   
+            }
+        });   
 });  
 if ($('#addemployment').length > 0) {
   $('#addemployment').on("click", function() {
