@@ -187,9 +187,9 @@
                     <label for="recipient-name" class="col-2 control-label">Parent: </label>
                     <div class="col-10">
                         <select name="status" class="form-control">
-                            <!--/<option value="<?php echo $row->Id; ?>"></option>
+                            <option value="<?php echo $get->$this->$id; ?>"></option>
                             <option value=""></option>
-                            <option value=""></option>-->
+                            <option value=""></option>
                         </select>                      
                     </div>
                 </div>
@@ -203,9 +203,9 @@
                     <label for="recipient-name" class="col-2 control-label">Category: </label>
                     <div class="col-10">
                         <select name="status" class="form-control">
-                            <option value="1">Manage</option>
-                            <option value="2">Transaction</option>
-                            <option value="3">Setting</option>
+                            <option value="">Manage</option>
+                            <option value="">Transaction</option>
+                            <option value="">Setting</option>
                         </select>
                     </div>
                 </div>
