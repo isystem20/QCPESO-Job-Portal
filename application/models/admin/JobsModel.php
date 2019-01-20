@@ -98,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		    $query = $this->db->update($this->tbl,$data);
 
-		    die($this->db->last_query());
+		    // die($this->db->last_query());
 
 			$update = $this->db->affected_rows();
 			if ($update > 0) {
