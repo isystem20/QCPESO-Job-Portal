@@ -66,6 +66,8 @@ $('#to-recover').on("click", function() {
     <!-- Chart JS -->
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/Chart.js/chartjs.init.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/Chart.js/Chart.min.js"></script>
+
+   
 <?php } ?>
 
 <?php  if (!empty($datepicker)) { ?>
