@@ -2,12 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class ModulesModel extends CI_Model {
-
-
-		//public $tbl = 'tbl_security_modules sm';
 		public $tbl = 'tbl_security_modules sm';
 		public function LoadModuleslist($id = null) {
-			$this->db->select('sm.*,secmod.Name Parentname');
+			$this->db->select('sm.*,secmod.Name Parent');
 			//$this->db->select('*');
 			
 			//$this->db->from($this->tbl);
@@ -23,6 +20,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				return $this->db->get();
 			}
 				
+		
+
+		/*public $tbl = 'tbl_security_modules';
+
+		public function LoadModuleslist($id = null) {\
+
+
+			$this->db->select('*');
+			$this->db->from($this->tbl);
+			if (!empty($id)) {
+				$this->db->where('Id',$id);
+				return $this->db->get()->result();
+			}else {
+				$this->db->where('IsActive','1');
+				$this->db->or_where('IsActive','2');
+				return $this->db->get();
+			}*/
+			
 		}
 
 
@@ -30,9 +45,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->set('Name',"'".$data['name']."'",FALSE);
 			$this->db->set('Url',"'".$data['url']."'",FALSE);
 			$this->db->set('Parent',"'".$data['parent']."'",FALSE);
+			$this->db->set('Description',"'".$data['description']."'",FALSE);
+			$this->db->set('Category',"'".$data['category']."'",FALSE);
 			$this->db->set('CreatedBy',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);	
-			$this->db->set('IsActive',"'".$data['visible']."'",FALSE);
+			$this->db->set('IsActive',"'".$data['status']."'",FALSE);
 
 			$this->db->insert($this->tbl);
 
@@ -51,9 +68,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function Delete($data) {
 			//filerecord = [Del-1234567890]filerecord
-			$this->db->set('name','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
-			$this->db->set('isActive','"0"',FALSE);
-			$this->db->where('id', $data['id']);
+			$this->db->set('Name','"[Del-'.strtotime(date('Y-m-d H:i:s')).']~'.$data['name'].'"',FALSE);
+			$this->db->set('IsActive','"0"',FALSE);
+			$this->db->where('Id', $data['id']);
 			$this->db->update($this->tbl);
 			$deleted = $this->db->affected_rows();
 			if ($deleted > 0) {
@@ -67,13 +84,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		public function Update($id, $data) {
-		    $this->db->set('modifiedById',"'".$this->session->userdata('userid')."'",FALSE);
-		    $this->db->set('modifiedAt','CURRENT_TIMESTAMP',FALSE);
+		    $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
+		    $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
 		    $this->db->set('VersionNo', 'VersionNo+1', FALSE);  
-		    $this->db->set('name', '"'.$data['name'].'"', FALSE); 
-		    $this->db->set('description', '"'.$data['description'].'"', FALSE); 
-		    $this->db->set('isActive', '"'.$data['status'].'"', FALSE);
-		    $this->db->where('id', $id);
+		    $this->db->set('Name', '"'.$data['name'].'"', FALSE);
+		    $this->db->set('Url', '"'.$data['url'].'"', FALSE);
+		    $this->db->set('Parent','"'.$data['parent'].'"', FALSE); 
+		    $this->db->set('Description', '"'.$data['description'].'"', FALSE); 
+		    $this->db->set('Category','"'.$data['category'].'"',FALSE);
+		    $this->db->set('IsActive', '"'.$data['status'].'"', FALSE);
+		    $this->db->where('Id', $id);
 		    $query = $this->db->update($this->tbl);
 			$update = $this->db->affected_rows();
 			if ($update > 0) {
