@@ -212,7 +212,7 @@
                     <div class="col-10">
                         <select name="status" class="form-control">
                             <option value="1">Manage</option>
-                            <option value="2">Maintenane</option>
+                            <option value="2">MaintenanCe</option>
                             <option value="3">Transaction</option>
                             <option value="4">Setting</option>
                         </select>
