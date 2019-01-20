@@ -616,98 +616,14 @@ $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllAppl
 
 $route['admin/myapplication/del'] = 'applicant/MyApplicationController/Delete';
 
+$route['admin/employee/add'] = 'admin/EmployeesController/Create';
+$route['manage/employee/add'] = 'admin/EmployeesController/AddNewEmployees';
+$route['admin/employee/edit'] = 'admin/EmployeesController/Update'; // POST to edit
+$route['admin/employee/del'] = 'admin/EmployeesController/Delete'; // POST to delete
+$route['admin/employee/read'] = 'admin/EmployeesController/Read'; // POST to view
+$route['manage/employee/view-employee/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1';
+$route['manage/employee/add-employee/(:any)/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1/$2';
+$route['manage/employee/update-employee/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1';
+$route['manage/employee/update-employee/(:any)/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1/$2';
+$route['manage/employees-masterlist'] = 'admin/EmployeesController/AllEmployees';
 
-
-
-
-
-
-
-        
-
-
-
-        
-        
-        
-
-        
-        
-
-        
-
-        
-        
-       
-        
-        
-        
-        
-
-
-        
-
-
-
-        
-
-        
-       
-
-        
-
-        
-
-
-
-
-
-        
-
-        
-
-        
-
-        
-
-        
- 
-        
-          
-        
-
-        
-
-         
-
-        
-
-        
-
-
-        
-
-        
-
-        
-
-         
-
-        
-
-        
-
-        
-
-        
-
-        $route['admin/employee/add'] = 'admin/EmployeesController/Create';
-        $route['manage/employee/add'] = 'admin/EmployeesController/AddNewEmployees';
-        $route['admin/employee/edit'] = 'admin/EmployeesController/Update'; // POST to edit
-        $route['admin/employee/del'] = 'admin/EmployeesController/Delete'; // POST to delete
-        $route['admin/employee/read'] = 'admin/EmployeesController/Read'; // POST to view
-        $route['manage/employee/view-employee/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1';
-        $route['manage/employee/add-employee/(:any)/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1/$2';
-        $route['manage/employee/update-employee/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1';
-        $route['manage/employee/update-employee/(:any)/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1/$2';
-        $route['manage/employees-masterlist'] = 'admin/EmployeesController/AllEmployees';
