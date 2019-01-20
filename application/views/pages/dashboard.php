@@ -275,7 +275,7 @@
                 <!-- Projects of the month -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-lg-8 col-md-12">
+                    <div class="col-lg-12 col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex no-block">
@@ -333,29 +333,15 @@
                     <!-- ============================================================== -->
                     <!-- Activity widget find scss into widget folder-->
                     <!-- ============================================================== -->
-                    <div class="col-lg-4 col-md-12">
+                    
+
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="d-flex">
-                                    <h4 class="card-title"><span class="lstick"></span>Top Jobs</h4>
-                                    <!-- <span class="badge badge-success">9</span> -->
-                                    <div class="btn-group ml-auto m-t-10">
-                                        <a href="JavaScript:void(0)" class="icon-options-vertical link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="javascript:void(0)">Separated link</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h4 class="card-title">Market with Info window</h4>
+                                <div id="markermap" class="gmaps"></div>
                             </div>
-                            <div class="activity-box">
-                                <div class="card-body">
-                                   
-                                </div>
-                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
