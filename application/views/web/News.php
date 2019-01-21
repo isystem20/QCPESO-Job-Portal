@@ -33,7 +33,7 @@
                                         if ($webpost->num_rows() > 0) {
                                             foreach ($webpost->result() as $row ) { ?>
                                              <div class="post-header">
-                                            <h2 class="post-title"><a href="#"><?php echo $row->PostTitle; ?></a></h2>
+                                            <h2 class="post-title"><a href="<?=base_url('web/NewsDescription/'.$row->Id.'/#'.$row->PostTitle); ?>"><?php echo $row->PostTitle; ?></a></h2>
                                             <ul class="post-meta">
                                             <li><?php echo date('D F d, Y H:i A',strtotime($row->CreatedAt)); ?></li>
                                             </ul>
@@ -57,21 +57,33 @@
                         </div>
                         <div class="col-lg-4 order-lg-1">
                             <div class="sidebar">
-
-                                <!-- Search widget-->
-                               
-                                <!-- Categories widget-->
                                 <aside class="widget widget-categories">
                                     <div class="widget-title">
-                                        <h6>Categories</h6>
+                                        <h6>Web Post Type</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#">Journey <span class="float-right">112</span></a></li>
-                                        <li><a href="#">Development <span class="float-right">86</span></a></li>
-                                        <li><a href="#">Sport <span class="float-right">10</span></a></li>
-                                        <li><a href="#">Photography <span class="float-right">144</span></a></li>
-                                        <li><a href="#">Symphony <span class="float-right">18</span></a></li>
+                                         <?php
+                                        if ($posttype->num_rows() > 0) {
+                                            foreach ($posttype->result() as $row) { ?>
+                                       <li><a href="#"><?=$row->Name;?><span class="float-right">1</span></a></li>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                                     </ul>
+                                </aside>
+                                <aside class="widget widget-tag-cloud">
+                                    <div class="widget-title">
+                                        <h6>Tags</h6>
+                                    </div>
+                                    <?php
+                                        if ($posttags->num_rows() > 0) {
+                                            foreach ($posttags->result() as $row) { ?>
+                                    <div class="tag-cloud"><a href="#"><?=$row->Name;?></a>
+                                        <?php
+                                            }
+                                        }
+                                        ?></div>
                                 </aside>
 
                                 <!-- Recent entries widget-->
@@ -127,28 +139,28 @@
                                 <!-- Recent entries widget-->
                                 <aside class="widget widget-recent-entries">
                                     <div class="widget-title">
-                                        <h6>Recent Posts</h6>
+                                      <!--   <h6>Recent Posts</h6>
                                     </div>
                                     <ul>
                                         <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">May 8, 2018</span></li>
                                         <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">April 7, 2018</span></li>
                                         <li><a href="#">Map where your photos were taken and discover local points.</a><span class="post-date">September 7, 2018</span></li>
-                                    </ul>
+                                    </ul> -->
                                 </aside>
                             </div>
                             <div class="col-md-3">
                                 <!-- Twitter widget-->
                                 <aside class="widget twitter-feed-widget">
-                                    <div class="widget-title">
+                                   <!--  <div class="widget-title">
                                         <h6>Twitter Feed</h6>
                                     </div>
-                                    <div class="twitter-feed" data-twitter="345170787868762112" data-number="1"></div>
+                                    <div class="twitter-feed" data-twitter="345170787868762112" data-number="1"></div> -->
                                 </aside>
                             </div>
                             <div class="col-md-3">
                                 <!-- Recent works-->
                                 <aside class="widget widget-recent-works">
-                                    <div class="widget-title">
+                                    <!-- <div class="widget-title">
                                         <h6>Portfolio</h6>
                                     </div>
                                     <ul>
@@ -158,7 +170,7 @@
                                         <li><a href="#"><img src="assets/images/widgets/7.jpg" alt=""></a></li>
                                         <li><a href="#"><img src="assets/images/widgets/8.jpg" alt=""></a></li>
                                         <li><a href="#"><img src="assets/images/widgets/6.jpg" alt=""></a></li>
-                                    </ul>
+                                    </ul> -->
                                 </aside>
                             </div>
                         </div>

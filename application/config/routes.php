@@ -628,4 +628,6 @@ $route['manage/employee/update-employee/(:any)/(:any)'] = 'admin/EmployeesContro
 $route['manage/employees-masterlist'] = 'admin/EmployeesController/AllEmployees';
 $route['manage/employerdashboard'] = 'employer/EmployerController/Employer';
 $route['manage/do/applicants/job-applications-successful-referal'] = 'admin/JobApplicationController/SuccessfulReferral';
+$route['web/news'] = 'web/NewsController/News';
+$route['web/NewsDescription/(:any)'] = 'web/NewsController/NewsDescription/$1';
 
