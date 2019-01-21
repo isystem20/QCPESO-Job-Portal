@@ -121,7 +121,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$jobtitle = $this->getJobtitle($data['id']);
 				if ($jobtitle != FALSE) {
 					$recipients = $this->getRecipients($jobtitle);
+					//Send Push notif
 					$this->push->SentJobAlert($recipients,$jobtitle,$data['id']);
+
+
+					//Add Notif for SMS and
+					// $insertdata = array(
+					// 	'UserId' => , 
+					// );
+
 				}
 				return $data;
 			}else {
@@ -130,6 +138,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		}
 
+		function addNotif() {
+
+		}
 
 
 	    function getRecipients($str) {

@@ -42,7 +42,8 @@ class Email extends CI_Model {
 
 			$mail = new PHPMailer(true);
 			$mail->IsSMTP(); 
-
+			// $mail->SMTPDebug = 2;
+			
 			$mail->From = "admin@qcpeso.com";
 			$mail->FromName = "Quezon City PESO (Do not Reply)";
 			$mail->Host = $this->config->item('smtp_host', 'email');
