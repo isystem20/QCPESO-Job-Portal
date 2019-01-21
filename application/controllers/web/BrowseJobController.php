@@ -41,7 +41,7 @@ public function BrowseJob()
 
 
 
-			// $config['base_url'] = "http://localhost/qcpesomis/web/browsejobcontroller/browsejob";
+			// $config['base_url'] = "http://localhost/qcpesomis/web/browsejob";
 			// $config['per_page'] = 3;
 			// $config['num_links'] = 3;
 			// $config['total_rows'] = $this->db->get('tbl_establishments_jobposts')->num_rows();

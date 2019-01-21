@@ -26,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->join('tbl_applicants a','a.Id = ja.ApplicantId', 'left outer');
 			$this->db->join('tbl_establishments_jobposts j','j.Id = ja.JobPostId','left outer');
 			$this->db->join('tbl_establishments e','e.Id = j.EstablishmentId','left outer');
+			$this->db->where('ja.IsActive', 2);
 			$get = $this->db->get();
 			// die($this->db->last_query());
 			return $get;

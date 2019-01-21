@@ -118,8 +118,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->from('tbl_establishments_jobposts');
 			$this->db->limit('3');
 			$this->db->where('IsActive', 1);
-			//$this->db->where('EstablishmentId', $Id);
-
 			return $this->db->get();
 
 		}
