@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->where($where);
             $this->db->group_by("description");
             $this->db->order_by('description ASC');
-            $this->db->limit(7);
+            $this->db->limit(6);
             $query = $this->db->get();
             return $query;
         }
@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->from('tbl_applicants_job_applications as t1');
             $this->db->join('tbl_applicants t2', 't2.id = t1.ApplicantId', 'left');
             $this->db->join('tbl_establishments_jobposts t3', 't3.Id = t1.JobPostId', 'left');
-            $where="t1.IsActive = '2'";
+            $where="t1.IsActive = '3'";
             $this->db->where($where);
             //$this->db->limit(5);
             $this->db->group_by('Apptbl');
@@ -100,9 +100,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $query = $this->db->query("SELECT Count(ApplicantId) as ReferredApplicants, TotalApplicants from (Select ApplicantId from tbl_applicants_job_applications  Group by ApplicantId) xDerived, (Select Count(Id) as TotalApplicants from tbl_applicants) xDerived1");
          return $query;
 }
+
        
     
        
 
         }
+        
     
