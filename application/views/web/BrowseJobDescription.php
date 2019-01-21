@@ -93,7 +93,7 @@
                 // print_r($this->session->userdata('userid'));
                 // print_r($browsejob[0]->result());
                 // print_r($this->session->userdata('userid'));
-                // print_r($browsejob[0]);
+                // print_r($browsejob[0]  );
 
                 $postdata['ApplicantId'] = $browsejob[0]['currentuser'];
                 if ($browsejob[0]['AppliedJob'] == 0) {
@@ -105,25 +105,25 @@
                         }
                         else{
                             echo "<button class='btn  btn-circle ";
-                            if ($browsejob[0]['ajaIsActive'] == 0) {
+                            if ($browsejob[0]['ajaStatus'] == 0) {
                                 echo "btn-outline-danger' disabled style='cursor: default;'>
                                     
-                                    Declined Job application
+                                     Job application <br> has been declined
                                 ";
                             }
-                            elseif ($browsejob[0]['ajaIsActive'] == 1) {
+                            elseif ($browsejob[0]['ajaStatus'] == 1) {
                                 echo "btn-outline-warning' disabled style='cursor: default;'>
                                 
                                     Job application <br> has been sent
                                     ";
                             }
-                            elseif ($browsejob[0]['ajaIsActive'] == 2) {
+                            elseif ($browsejob[0]['ajaStatus'] == 2) {
                                 echo "btn-outline-success' disabled style='cursor: default;'>
                                     
                                     Job application <br> has been processed 
                                     ";
                             }
-                            elseif($browsejob[0]['ajaIsActive'] == 3){
+                            elseif($browsejob[0]['ajaStatus'] == 3){
                                 echo "btn-outline-primary' disabled style='cursor: default;'>
                                     <div class='post-content'>
                                         Successful Job Application
