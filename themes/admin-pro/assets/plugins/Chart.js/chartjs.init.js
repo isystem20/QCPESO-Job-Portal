@@ -42,7 +42,7 @@ $(function() {
     new Chart(document.getElementById("chart3"),
         {
             "type":"pie",
-            "data":{"labels":["Red","Blue","Yellow"],
+            "data":{"labels":["Reddish","Blue","Yellow"],
             "datasets":[{
                 "label":"My First Dataset",
                 "data":[300,50,100],

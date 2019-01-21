@@ -13,7 +13,7 @@
     {
  
         $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'pagetitle'=>'Masterlist of Modules');
-        $data['masterlist'] = $this->modmod->LoadModuleslist();
+        $data['modules'] = $this->modmod->LoadModuleslist();
         $data['class'] = 'modules';
         $this->load->view('layout/admin/1_css',$layout);
         $this->load->view('layout/admin/2_preloader',$layout);
@@ -23,7 +23,7 @@
         $this->load->view('layout/admin/6_js',$layout);     
         $this->load->view('layout/admin/7_modals',$layout);
 
-        $json = json_encode($data['masterlist']); //log
+        $json = json_encode($data['modules']); //log
         //$this->logger->log('Load Jobtitles','Jobtitles',$json); //Log 
 
     }
@@ -111,12 +111,12 @@
                 //$this->logger->log('Update','Jobtitles',$json); //Log            
                 echo $json;
             }
-            else {
+            /*else {
                 $json = json_encode($postdata); // encode postdata
                 //$this->logger->log('Error Update','Jobtitles',$json); //Log  
                 echo json_encode(['error'=>'Update Unsuccessful.']);
 
-            }
+            }*/
         }
     }
  

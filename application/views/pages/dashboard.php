@@ -158,28 +158,7 @@
                                 <!-- Charts for monthly Applicants -->
                                 <div id="sales-overview2" data-values='<?=json_encode($monthly_applicants); ?>' class="p-relative" style="height:360px;"></div>
 
-                                <div class="stats-bar">
-                                    <div class="row text-center">
-                                        <div class="col-lg-4 col-md-4">
-                                            <div class="p-20">
-                                                <h6 class="m-b-0">Total Sales</h6>
-                                                <h3 class="m-b-0">$10,345</h3>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4">
-                                            <div class="p-20">
-                                                <h6 class="m-b-0">This Month</h6>
-                                                <h3 class="m-b-0">$7,589</h3>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4">
-                                            <div class="p-20">
-                                                <h6 class="m-b-0">This Week</h6>
-                                                <h3 class="m-b-0">$1,476</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -200,34 +179,13 @@
                                     </div>
                                 </div>
                                 <div id="ct-sales3-chart" data-values='<?=json_encode($all_year); ?>' class="p-relative" style="height:360px;"></div>
-                                <div class="stats-bar">
-                                    <div class="row text-center">
-                                        <div class="col-lg-4 col-md-4">
-                                            <div class="p-20">
-                                                <h6 class="m-b-0">Total Sales</h6>
-                                                <h3 class="m-b-0">$10,345</h3>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4">
-                                            <div class="p-20">
-                                                <h6 class="m-b-0">This Month</h6>
-                                                <h3 class="m-b-0">$7,589</h3>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4">
-                                            <div class="p-20">
-                                                <h6 class="m-b-0">This Week</h6>
-                                                <h3 class="m-b-0">$1,476</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-4">
                         <div class="card">
                             <!-- Visit Separation Donut Chart -->
                            <div class="card-body">
@@ -270,15 +228,15 @@
                             <!-- End -->
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-8">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title"><span class="lstick"></span>Categories</h4>
 
                                 <table class="table browser m-t-30 no-border" >
                                     <tbody>
-                                           <th>Name of Categories</th>
-                                           <th>Currently Available</th>
+                                           <th colspan="1">Name of Categories</th>
+                                           <th><center>Currently Available</center></th>
 
                                              <?php
                                         if ($query->num_rows() > 0) {
@@ -317,7 +275,7 @@
                 <!-- Projects of the month -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-lg-6 col-md-12">
+                    <div class="col-lg-8 col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex no-block">
@@ -375,7 +333,7 @@
                     <!-- ============================================================== -->
                     <!-- Activity widget find scss into widget folder-->
                     <!-- ============================================================== -->
-                    <div class="col-lg-6 col-md-12">
+                    <div class="col-lg-4 col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
@@ -395,62 +353,7 @@
                             </div>
                             <div class="activity-box">
                                 <div class="card-body">
-                                    <!-- Activity item-->
-                                    <div class="activity-item">
-                                        <div class="round m-r-20"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/2.jpg" alt="user" width="50" /></div>
-                                        <div class="m-t-10">
-                                            <h5 class="m-b-0 font-medium">Mark Freeman <span class="text-muted font-14 m-l-10">| &nbsp; 6:30 PM</span></h5>
-                                            <h6 class="text-muted">uploaded this file </h6>
-                                            <table class="table vm b-0 m-b-0">
-                                                <tr>
-                                                    <td class="m-r-10 b-0"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/icon/zip.png" alt="user" /></td>
-                                                    <td class="b-0">
-                                                        <h5 class="m-b-0 font-medium ">Homepage.zip</h5>
-                                                        <h6>54 MB</h6></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <!-- Activity item-->
-                                    <!-- Activity item-->
-                                    <div class="activity-item">
-                                        <div class="round m-r-20"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/3.jpg" alt="user" width="50" /></div>
-                                        <div class="m-t-10">
-                                            <h5 class="m-b-5 font-medium">Emma Smith <span class="text-muted font-14 m-l-10">| &nbsp; 6:30 PM</span></h5>
-                                            <h6 class="text-muted">joined projectname, and invited <a href="javascript:void(0)">@maxcage, @maxcage, @maxcage, @maxcage, @maxcage,+3</a></h6>
-                                            <span class="image-list m-t-20">
-                                                <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/1.jpg" class="img-circle" alt="user" width="50"></a>
-                                                <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/2.jpg" class="img-circle" alt="user" width="50"></a>
-                                                <a href="javascript:void(0)"><span class="round round-warning">C</span></a>
-                                            <a href="javascript:void(0)"><span class="round round-danger">D</span></a>
-                                            <a href="javascript:void(0)">+3</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <!-- Activity item-->
-                                    <!-- Activity item-->
-                                    <div class="activity-item">
-                                        <div class="round m-r-20"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/4.jpg" alt="user" width="50" /></div>
-                                        <div class="m-t-10">
-                                            <h5 class="m-b-0 font-medium">David R. Jones  <span class="text-muted font-14 m-l-10">| &nbsp; 9:30 PM, July 13th</span></h5>
-                                            <h6 class="text-muted">uploaded this file </h6>
-                                            <span>
-                                                <a href="javascript:void(0)" class="m-r-10"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/big/img1.jpg" alt="user" width="60"></a>
-                                                <a href="javascript:void(0)" class="m-r-10"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/big/img2.jpg" alt="user" width="60"></a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <!-- Activity item-->
-                                    <!-- Activity item-->
-                                    <div class="activity-item">
-                                        <div class="round m-r-20"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/6.jpg" alt="user" width="50" /></div>
-                                        <div class="m-t-10">
-                                            <h5 class="m-b-5 font-medium">David R. Jones <span class="text-muted font-14 m-l-10">| &nbsp; 6:30 PM</span></h5>
-                                            <h6 class="text-muted">Commented on<a href="javascript:void(0)">Test Project</a></h6>
-                                            <p class="m-b-0">It has survived not only five centuries, but also the leap into electrotypesetting, remaining essentially unchanged.</p>
-                                        </div>
-                                    </div>
-                                    <!-- Activity item-->
+                                   
                                 </div>
                             </div>
                         </div>
