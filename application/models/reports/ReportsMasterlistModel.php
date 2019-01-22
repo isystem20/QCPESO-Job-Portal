@@ -50,6 +50,9 @@ class ReportsMasterlistModel extends CI_Model {
                    $this->db->from($this->dependent);
                    $this->db->where('ApplicantId', $id);
                    $row->DependentTbl = $this->db->get();
+                   
+                   
+
 
                 }
              }
@@ -58,9 +61,9 @@ class ReportsMasterlistModel extends CI_Model {
           if (!empty($filter)) {
             $this->db->group_start();
              $this->db->like('concat(a.FirstName," ",a.LastName," ",a.MiddleName)',$filter['fullname']);
-            //  $this->db->like('a.ModifiedAt',date('Y-m-d',strtotime($filter['ModifiedAt'])));
+            //  $this->db->or_like('a.ModifiedAt',date('Y-m-d',strtotime($filter['ModifiedAt'])));
 
-            // $this->db->like('a.IsActive', $filter['IsActive']);
+            // $this->db->or_like('a.IsActive', $filter['IsActive']);
              $this->db->group_end();
              
             

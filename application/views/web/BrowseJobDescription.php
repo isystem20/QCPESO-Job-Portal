@@ -52,7 +52,7 @@
                             <h6>Category </h6> 
                             
                             <?php  foreach ($browsejob[0]['CategList'] as $row) {
-                                echo '<label style="text-indent: 40px"><a>'.$row->Name.'</a></p>';
+                                echo '<label style="text-indent: 40px"><a>'.$row->Name.'</a></label>';
                             } ?> 
                         </div>
                          <div class="post-content">
@@ -86,9 +86,63 @@
                     </div>
                 </article>
                 <center>
-                     <div class="form-submit col-md-12">
+                <?php
+
+                $hidden = 
+                // print_r($browsejob[0]['AppliedJob']);
+                // print_r($this->session->userdata('userid'));
+                // print_r($browsejob[0]->result());
+                // print_r($this->session->userdata('userid'));
+                // print_r($browsejob[0]);
+
+                $postdata['ApplicantId'] = $browsejob[0]['currentuser'];
+                if ($browsejob[0]['AppliedJob'] == 0) {
+                   // echo "hi";
+                ?>
+                <button class="read-item-btn btn btn-circle btn-outline-primary applyjo"  data-original-title="Apply" type="button" data-action="<?=base_url('admin/jobapplication/add'); ?>" data-id="<?php echo $browsejob[0]['Id']; ?>" <?php if($browsejob[0]['AppliedJob'] == 0){ echo '  > Apply '; } else{  echo ' disabled style="background-color: red; border: red;" > Applied ';} ?>  </button>
+                    <?php
+
+                        }
+                        else{
+                            echo "<button class='btn  btn-circle ";
+                            if ($browsejob[0]['ajaIsActive'] == 0) {
+                                echo "btn-outline-danger' disabled style='cursor: default;'>
+                                    
+                                    Declined Job application
+                                ";
+                            }
+                            elseif ($browsejob[0]['ajaIsActive'] == 1) {
+                                echo "btn-outline-warning' disabled style='cursor: default;'>
+                                
+                                    Job application <br> has been sent
+                                    ";
+                            }
+                            elseif ($browsejob[0]['ajaIsActive'] == 2) {
+                                echo "btn-outline-success' disabled style='cursor: default;'>
+                                    
+                                    Job application <br> has been processed 
+                                    ";
+                            }
+                            elseif($browsejob[0]['ajaIsActive'] == 3){
+                                echo "btn-outline-primary' disabled style='cursor: default;'>
+                                    <div class='post-content'>
+                                        Successful Job Application
+                                    </div>";
+                            }
+                            else{
+                                echo "btn-outline-danger' disabled style='cursor: default;'>Error";
+                            }
+                            echo "</button>";
+                        }
+                    ?>
+
+
+                <?php 
+
+                ?>
+                     <!-- <div class="form-submit col-md-12">
                         <button class="btn btn-dark" type="submit">Apply Job</button>
-                    </div>
+                    </div> -->
                 </center>
             </div>
            
@@ -99,12 +153,42 @@
                             <h6>Company</h6>
                         </div>
                         <ul>
-                            <li><a href="#">  <?=$browsejob[0]['CompanyName']  ?><span class="float-right">1</span></a></li>
+                            <li><?=$browsejob[0]['CompanyName']  ?><span class="float-right"></li>
                         </ul>
                     </aside>    
-
-                    <!-- Recent entries widget-->
-                  <aside class="widget widget-recent-entries-custom">
+                    <aside class="widget widget-categories">
+                        <div class="widget-title">
+                            <h6>Dress Code</h6>
+                        </div>
+                        <ul>
+                            <li><?=$browsejob[0]['dresscode']  ?></a></li>
+                        </ul>
+                    </aside>
+                    <aside class="widget widget-categories">
+                        <div class="widget-title">
+                            <h6>Employment Type</h6>
+                        </div>
+                        <ul>
+                            <li><a href="#">  <?=$browsejob[0]['apptype']  ?></a></li>
+                        </ul>
+                    </aside>
+                    <aside class="widget widget-categories">
+                        <div class="widget-title">
+                            <h6>Employment Level:</h6>
+                        </div>
+                        <ul>
+                            <li><a href="#">  <?=$browsejob[0]['applevel']  ?></a></li>
+                        </ul>
+                    </aside>
+                    <aside class="widget widget-categories">
+                        <div class="widget-title">
+                            <h6>Salary</h6>
+                        </div>  
+                        <ul>
+                            <li><?=$browsejob[0]['Salary']  ?></li>
+                        </ul>
+                    </aside>
+                    <aside class="widget widget-recent-entries-custom">
                         <div class="widget-title">
                             <h6>Recent Jobs</h6>
                         </div>
@@ -144,39 +228,7 @@
                         <ul>
                             <li><a href="#">  <?=$browsejob[0]['industryname']  ?></a></li>
                         </ul>
-                    </aside>
-                     <aside class="widget widget-categories">
-                        <div class="widget-title">
-                            <h6>Dress Code:</h6>
-                        </div>
-                        <ul>
-                            <li><a href="#">  <?=$browsejob[0]['dresscode']  ?></a></li>
-                        </ul>
-                    </aside>
-                    <aside class="widget widget-categories">
-                        <div class="widget-title">
-                            <h6>Employment Type</h6>
-                        </div>
-                        <ul>
-                            <li><a href="#">  <?=$browsejob[0]['apptype']  ?></a></li>
-                        </ul>
-                    </aside>
-                    <aside class="widget widget-categories">
-                        <div class="widget-title">
-                            <h6>Employment Level:</h6>
-                        </div>
-                        <ul>
-                            <li><a href="#">  <?=$browsejob[0]['applevel']  ?></a></li>
-                        </ul>
-                    </aside>
-                    <aside class="widget widget-categories">
-                        <div class="widget-title">
-                            <h6>Salary</h6>
-                        </div>  
-                        <ul>
-                            <li><a href="#">  <?=$browsejob[0]['Salary']  ?></a></li>
-                        </ul>
-                    </aside>
+                </aside>
 
                    <!-- <aside class="widget widget-categories">
                         <div class="widget-title">
