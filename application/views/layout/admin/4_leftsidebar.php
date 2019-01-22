@@ -11,8 +11,9 @@
                     <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/profile.png" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="<?=base_url('dev/switch/usertype/ADMIN'); ?>">Switch to Admin </a></li>
-                        <li><a href="<?=base_url('dev/switch/usertype/EMPLOYER'); ?>">Switch to Employer</a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/MANAGER'); ?>">Switch to Manager </a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/CLERK'); ?>">Switch to Clerk</a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/EMPLOYER'); ?>">Switch to Employer</a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/APPLICANT'); ?>">Switch to Applicant</a></li>
                         <li><a href="<?=base_url('dev/switch/profile/100'); ?>">Bypass Incomplete Profile</a></li>
 
@@ -75,7 +76,7 @@
 
                         </ul>
                     </li>
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-city"></i><span class="hide-menu">Establishment</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-city"></i><span class="hide-menu">Employer</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="<?php echo base_url(); ?>manage/do/establishments/add" data-i18n="nav.json-form.simple-form">Add New</a></li>
                             <li><a href="<?php echo base_url(); ?>manage/do/establishments/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
@@ -99,7 +100,7 @@
                             <li><a href="<?php echo base_url();?>manage/reports/reportscustom">Custom Report</a></li>
                         </ul>
                     </li>
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bank"></i><span class="hide-menu">Establishments</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bank"></i><span class="hide-menu">Employer</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="<?php echo base_url();?>manage/reports/reportsestablishmentsmasterlist">Masterlist</a></li>
                             <li><a href="<?php echo base_url();?>manage/reports/reportsestablishmentspostedjobs">Posted Jobs</a></li>
@@ -164,7 +165,7 @@
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/MyApplication" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">My Applications</span></a></li>
                            <!--  <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/MyAlerts" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">My Alerts</span></a></li> -->
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/Notification" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Notifications</span></a></li>
-                            <li> <a class="waves-effect waves-dark" href="<?php echo base_url('logout');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Logout</span></a></li>
+                        
             </ul>
             <?php
                                          }
@@ -174,6 +175,8 @@
                                         $usertype = $this->session->userdata('usertype');
                                         if ($usertype == 'EMPLOYER') {
                                         ?>
+                    <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/employerdashboard" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
+                    </li>
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Maintenance</span></a>
                         <ul aria-expanded="false" class="collapse">
 
@@ -197,8 +200,134 @@
                     <?php
                                          }
                                         ?>
-                        </li>
+                  <?php 
+                                        $usertype = $this->session->userdata('usertype');
+                                        if ($usertype == 'CLERK') {
+                                        ?>
+                            <li class="nav-small-cap">CLERK</li>
+                            <li> <a class="waves-effect waves-dark" href="<?php echo base_url('account/profile');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Profile</span></a></li>
+                            <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/Dashboard" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
+                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Maintenance</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-level"> Applicant Level </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-categories"> Categories </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/certificates"> Certificates </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/cities"> Cities</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/countries"> Country List</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenace/user-courses"> Course List </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/dialect"> Dialect</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/disabilities"> Disabilities </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/dresscode"> Dress Code </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/user-status"> Employment Status</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li>
+                           <!--  <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li> -->
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/industries"> Industries </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/job-titles"> Job Titles </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/languages"> Language </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/licenses"> Licenses </a> </li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/nationality"> Nationalities</a></li>
+                            <!-- <li><a href="<?php echo base_url(); ?>manage/maintenance/industries"> Industries </a></li> -->
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/preferred-locations"> Preferred Locations </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/region"> Regions</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/skills"> Skills</a></li>
                         </ul>
+                    </li>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Applicants</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="<?php echo base_url(); ?>manage/applicant/add" data-i18n="nav.json-form.simple-form">Add Walk-in</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/applicant/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.clubs-view">Browse Job</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications-masterlist" data-i18n="nav.json-form.clubs-view">Applications</a></li>
+                        </ul>
+                    </li>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-city"></i><span class="hide-menu">Employer</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="<?php echo base_url(); ?>manage/do/establishments/add" data-i18n="nav.json-form.simple-form">Add New</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/establishments/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/establishments/pending-accreditation">Pending Accreditation</a></li>
+                        </ul>
+                    </li>
+                        
+             <?php
+                                         }
+                                        ?>
+
+                <?php 
+                            $usertype = $this->session->userdata('usertype');
+                            if ($usertype == 'MANAGER') {
+                            ?>
+                    <li class="nav-devider"></li>
+
+                    <li> <a class="waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
+                    </li>
+                    <li class="nav-small-cap">MANAGE</li>
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Accounts and Access</span></a>
+                        <ul aria-expanded="false" class="collapse">                       
+                            <li><a href="<?php echo base_url(); ?>manage/user-groups/"> Groups </a> </li>
+                            <li><a href="<?php echo base_url(); ?>manage/modules"> Modules </a> </li>
+                            <li><a href="<?php echo base_url(); ?>manage/users-masterlist"> Users </a></li>
+                        </ul>
+                    </li>
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Maintenance</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-level"> Applicant Level </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-categories"> Categories </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/certificates"> Certificates </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/cities"> Cities</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/countries"> Country List</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenace/user-courses"> Course List </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/dialect"> Dialect</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/disabilities"> Disabilities </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/dresscode"> Dress Code </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/user-status"> Employment Status</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li>
+                           
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/industries"> Industries </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/job-titles"> Job Titles </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/languages"> Language </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/licenses"> Licenses </a> </li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/nationality"> Nationalities</a></li>
+                            
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/preferred-locations"> Preferred Locations </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/region"> Regions</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/skills"> Skills</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-small-cap">TRANSACTIONS</li>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Applicants</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="<?php echo base_url(); ?>manage/applicant/add" data-i18n="nav.json-form.simple-form">Add Walk-in</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/applicant/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.clubs-view">Browse Job</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications-masterlist" data-i18n="nav.json-form.clubs-view">Applications</a></li>
+
+                        </ul>
+                    </li>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-city"></i><span class="hide-menu">Employer</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="<?php echo base_url(); ?>manage/do/establishments/add" data-i18n="nav.json-form.simple-form">Add New</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/establishments/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/establishments/pending-accreditation">Pending Accreditation</a></li>
+                        </ul>
+                    </li>
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-briefcase"></i><span class="hide-menu">Jobs</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="<?php echo base_url(); ?>manage/do/jobs/add" data-i18n="nav.json-form.simple-form">Add New</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/jobs/view-list" data-i18n="nav.json-form.clubs-view">View Jobs</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/jobs/pending-job-posts">Pending Job Posting</a></li>
+                        </ul>
+                    </li>
+                     <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>manage/reports/reportsactivitylog" aria-expanded="false"><i class="mdi mdi-clipboard-text"></i><span class="hide-menu">Activity Logs</span></a></li>
+
+             <?php
+                                     }
+                                     ?>
+
+
         </nav>
         <!-- End Sidebar navigation -->
     </div>

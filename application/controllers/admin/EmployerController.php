@@ -98,13 +98,7 @@
         $this->form_validation->set_rules('PermitIssuedDate','Permit Issued Date','required');
         $this->form_validation->set_rules('IndustryType','Industry Type','required');
         $this->form_validation->set_rules('CompanyAddress','Company Address','required');
-        $this->form_validation->set_rules('LandlineNum','Landline Number','required ',
-            array(
-                'required'      => 'You have not provided %s.',
-                'is_natural'     => 'Invalid landline number.',
-                
-                )
-    );
+
         $this->form_validation->set_rules('CompanyEmail','Company Email','required|valid_email|is_unique[tbl_establishments.CompanyEmail]|is_unique[tbl_security_users.Email]|is_unique[tbl_security_users.LoginName]',
             array(
                 'required'      => 'You have not provided %s.',

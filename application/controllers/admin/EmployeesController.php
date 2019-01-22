@@ -48,7 +48,7 @@
                     $data['mode']="view";
               }
           }
-        // print_r($data['applicant']);
+        // print_r($data['employee']);
           $this->load->view('layout/admin/1_css',$layout);
           $this->load->view('layout/admin/2_preloader',$layout);
           $this->load->view('layout/admin/3_topbar',$layout);
@@ -86,14 +86,9 @@
       // $this->form_validation->set_rules('StreetName','Street Name','required');
       // $this->form_validation->set_rules('HouseNum','House Number','required');
       // $this->form_validation->set_rules('Remarks','Remarks','required');  
-      $this->form_validation->set_rules('EmailAddress','Email Address','is_unique[tbl_employees.EmailAddress]',
+      $this->form_validation->set_rules('EmailAddress','User Name','required|is_unique[tbl_employees.EmailAddress]',
          array(
-                'is_unique'     => 'This %s already exists.'
-                )
-            );
-      $this->form_validation->set_rules('MobileNum','Mobile Number','required|is_unique[tbl_employees.MobileNum]',
-       array(
-                'required'      => 'You have not provided %s.',
+          'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
                 )
             );
@@ -155,6 +150,9 @@
             unset($postdata['_wysihtml5_mode']);
             // $postdata = array_filter($postdata, 'strlen');
             $result = $this->employmod->Update($id,$postdata);
+             // print_r($result);
+             // die;
+            // die($this->db->last_query());
             if ($result != FALSE) {
                 $json = json_encode($result);             
                

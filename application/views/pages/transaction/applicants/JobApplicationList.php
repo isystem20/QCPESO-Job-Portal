@@ -1,5 +1,5 @@
 <?php
-print_r($this->session->userdata());
+// print_r($this->session->userdata());
 
 ?>
 
@@ -15,7 +15,7 @@ print_r($this->session->userdata());
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor">Applicant Job Applications</h3>
-                    <h6 class="text-muted">Masterlist of All Job Applications</h6>
+                    <h6 class="text-muted">Masterlist of Pending Job Applications</h6>
                 
                 </div>
     <!--             <div class="col-md-7 align-self-center">
@@ -64,7 +64,10 @@ print_r($this->session->userdata());
 
                                         <?php
                                         if ($list->num_rows() > 0) {
-                                            foreach ($list->result() as $row) { ?>
+                                            foreach ($list->result() as $row) { 
+                                            
+                                                ?>
+
                                             <tr Id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->FirstName.' '.$row->LastName; ?></td>
                                                 <td><?php echo $row->JobTitle; ?></td>
@@ -85,15 +88,9 @@ print_r($this->session->userdata());
                                             if ($usertype != 'EMPLOYER') {
                                             ?>
                                                 <td class="actions">
-                                                    <!-- <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>"> <i class="fas fa-info-circle"></i> </button>
-
-
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>"> <i class="far fa-edit" ></i> </button>
-
-
-
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>"> <i class="fas fa-trash-alt"></i></button> -->
-                                                     <button class="process-job-app btn btn-primary waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>"> <i class=" fas fa-angle-double-right"></i> Process</button>                                                  
+                                                    <button onclick=" window.open('<?=base_url('manage/do/jobs/edit/'); ?><?php echo $row->jId; ?>','_blank')" target="_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="View" class=" btn btn-info waves-effect waves-light btn-sm " data-action="<?=base_url('web/JobDescription/'); ?><?php echo $row->jaId; ?>"     data-id="<?php echo $row->jaId; ?>"><i class="fas fa-info-circle"></i></button>
+                                                    
+                                                    <button class="applyjobprocess btn btn-primary waves-effect waves-light btn-sm" type="button" data-action="<?=base_url('admin/jobapplication/process'); ?>" data-id="<?php echo $row->jaId; ?>"> <i class=" fas fa-angle-double-right"></i> Process</button>                                                  
                                                 </td>
                                                 <?php
                                          }
