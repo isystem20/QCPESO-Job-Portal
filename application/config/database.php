@@ -76,14 +76,14 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	// Use this if you want to use the live data
-	'hostname' => '50.62.177.77',
-	'username' => 'qcpesodeveloper',
-	'password' => '#0Zv)0*APD%}',
+	// 'hostname' => '50.62.177.77',
+	// 'username' => 'qcpesodeveloper',
+	// 'password' => '#0Zv)0*APD%}',
 
 	// Use this if you want to use the local data
-	// 'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
 
 
 	'database' => 'qcpesodb',

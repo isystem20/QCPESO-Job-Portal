@@ -49,7 +49,6 @@
                                     <select required  class="select2 form-control custom-select" name="Applicant" id="Applicant" >
                                         <option value="" >Select Applicant</option>
                                         <?php
-                                        
                                         if ($applicant->num_rows() > 0) {
                                             foreach ($applicant->result() as $row) {
                                                 $ApplicantId = "";
@@ -67,7 +66,7 @@
                                                         }
 
                                                     ?>
-                                                <option <?=$str ?> value="<?=$row->Id; ?>"><?php echo $row->FirstName.' '.$row->LastName; ?></option>
+                                                <option  <?=$str ?> value="<?=$row->Id; ?>"><?php echo $row->FirstName.' '.$row->LastName; ?></option>
                                         <?php
                                                 
                                             }
@@ -235,7 +234,8 @@
                                                         if ($row->AppliedJob == 0) {
                                                             
                                                     ?>
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm applyjob" data-toggle="tooltip" data-placement="top" title="" data-original-title="Apply" type="button" data-action="<?=base_url('admin/jobapplication/add'); ?>" data-id="<?php echo $row->Id; ?>" <?php if($row->AppliedJob == 0){ echo '  > Apply '; } else{  echo ' disabled style="background-color: red; border: red;" > Applied ';} ?>  </button>
+                                                    
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm applyjob"data-original-title="Apply" type="button" data-action="<?=base_url('admin/jobapplication/add'); ?>" data-id="<?php echo $row->Id; ?>" <?php if($row->AppliedJob == 0){ echo '  > Apply '; } else{  echo ' disabled style="background-color: red; border: red;" > Applied ';} ?>  </button>
                                                     <?php
                                                         }
                                                         else{
@@ -247,10 +247,10 @@
                                                                 echo "label-warning'>Pending";
                                                             }
                                                             elseif ($row->ajaStatus == 2) {
-                                                                echo "label-hired'>Processed";
+                                                                echo "label-success'>Processed";
                                                             }
                                                             elseif($row->ajaStatus == 3){
-                                                                echo "label-success'>Hired";
+                                                                echo "label-primary'>Hired";
                                                             }
                                                             else{
                                                                 echo "label-danger'>Error";

@@ -16,6 +16,7 @@
            $this->load->model('admin/JobtitlesModel','jobtimod');
            $this->load->model('admin/DialectModel','Diamod');
             $this->load->model('admin/RegionModel','regmod');
+            $this->load->model('admin/CategoriesModel','categmod');
 
        }
    
@@ -35,6 +36,7 @@
            $data['titles'] = $this->jobtimod->LoadMasterlist();
            $data['dialect'] = $this->Diamod->LoadMasterlist();
            $data['region'] = $this->regmod->LoadMasterlist();
+           $data['category'] = $this->categmod->LoadCategoryMasterlist();
            $data['class'] = 'applicant';
           // die('asdasd');
                
@@ -44,9 +46,10 @@
                 $id=$this->session->userdata('peopleid');
                 $profile=TRUE;
                 $this->session->set_tempdata('caption', 'Update Profile', 300);
+                // $mode = 'edit';
               }
-              $data['applicant'] = $this->applimod->LoadMasterlist($id);
 
+              $data['applicant'] = $this->applimod->LoadMasterlist($id);
 
               
 
@@ -57,6 +60,7 @@
                   elseif ($mode == 'view') {
                       $data['mode']="view";
                   }
+
                   else {
                       die('Invalid Mode');
                   }

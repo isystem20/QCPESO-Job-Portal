@@ -175,7 +175,7 @@
                                                 <td><i><center>NO DATA FOUND</td>
                                                 </tr>
                                                 <tr>
-                                                <td><center><u>Apply Now!</td>
+                                                <td><center><u><a href="<?php echo base_url(); ?>web/browsejob">Apply Now!</a></td>
                                                 </tr>
                                                 <?php
                                             }
@@ -228,7 +228,7 @@
                                                 <td colspan="4"><i><center>NO DATA FOUND</td>                                            
                                                 </tr>
                                                 <tr>
-                                                <td colspan="4"><center><u>Apply Now!</td>
+                                                <td colspan="4"><center><u><a href="<?php echo base_url(); ?>web/browsejob">Apply Now!</a></td>
                                                 </tr>
                                                 <?php
                                             }
