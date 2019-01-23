@@ -174,7 +174,7 @@ class ApplicantModel extends CI_Model {
             $UserId = $this->uuid->v4();
         
          $this->db->flush_cache();
-            $password = $data['SSS'];
+            $password = $data['BirthDate'];
             $key = $this->config->item('encryption_key');
             $salt1 = hash('sha512', $key . $password);
             $salt2 = hash('sha512', $password . $key);
@@ -425,7 +425,7 @@ class ApplicantModel extends CI_Model {
                  $UserId = $this->uuid->v4();
         
          $this->db->flush_cache();
-            $password = $data['SSS'];
+            $password = $data['BirthDate'];
             $key = $this->config->item('encryption_key');
             $salt1 = hash('sha512', $key . $password);
             $salt2 = hash('sha512', $password . $key);
@@ -446,7 +446,7 @@ class ApplicantModel extends CI_Model {
              }
            
             $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
-
+            $this->db->set('ProfileProgress',"'100'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);        
             $this->db->where('Id', $id);

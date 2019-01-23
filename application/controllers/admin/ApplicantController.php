@@ -101,12 +101,16 @@
     public function Create() {
     
       $this->form_validation->set_rules('LastName','Last Name','required');    
-      // $this->form_validation->set_rules('FirstName','First Name','required');
-      // $this->form_validation->set_rules('BirthDate','Birth date','required');
-      // $this->form_validation->set_rules('HouseNum','House Number','required');
-      // $this->form_validation->set_rules('StreetName','Street Name','required');
-      // $this->form_validation->set_rules('HouseNum','House Number','required');
-      // $this->form_validation->set_rules('Remarks','Remarks','required');  
+      $this->form_validation->set_rules('FirstName','First Name','required');
+      $this->form_validation->set_rules('BirthDate','Birth date','required');
+      $this->form_validation->set_rules('Age','Age','required');
+      $this->form_validation->set_rules('CivilStatus','Civil Status','required');
+      $this->form_validation->set_rules('BirthPlace','Birth Place','required'); 
+      $this->form_validation->set_rules('HouseNum','House Number','required');
+      $this->form_validation->set_rules('StreetName','Street Name','required');
+      $this->form_validation->set_rules('CityId','City','required');
+      $this->form_validation->set_rules('ProvinceId','Province','required');
+      $this->form_validation->set_rules('Remarks','Remarks','required');  
       $this->form_validation->set_rules('EmailAddress','Email Address','is_unique[tbl_security_users.LoginName]',
          array(
                 'is_unique'     => 'This %s already exists.'
@@ -118,12 +122,12 @@
                 'is_unique'     => 'This %s already exists.'
                 )
             );
-      $this->form_validation->set_rules('SSS','SSS','required|is_unique[tbl_applicants.SSS]',
+      $this->form_validation->set_rules('SSS','SSS','is_unique[tbl_applicants.SSS]',
        array(
-                'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'
                 )
             ); 
+
       if ($this->form_validation->run() == FALSE){
              $errors = validation_errors();
              echo json_encode(['error'=>$errors]);
@@ -176,6 +180,31 @@
     }
  
     public function Update() {
+
+$this->form_validation->set_rules('LastName','Last Name','required');    
+      $this->form_validation->set_rules('FirstName','First Name','required');
+      $this->form_validation->set_rules('BirthDate','Birth date','required');
+      $this->form_validation->set_rules('Age','Age','required');
+      $this->form_validation->set_rules('CivilStatus','Civil Status','required');
+      $this->form_validation->set_rules('BirthPlace','Birth Place','required'); 
+      $this->form_validation->set_rules('HouseNum','House Number','required');
+      $this->form_validation->set_rules('StreetName','Street Name','required');
+      $this->form_validation->set_rules('CityId','City','required');
+      $this->form_validation->set_rules('ProvinceId','Province','required');
+      $this->form_validation->set_rules('Remarks','Remarks','required');  
+      $this->form_validation->set_rules('EmailAddress','Email Address','is_unique[tbl_security_users.LoginName]',
+         array(
+                'is_unique'     => 'This %s already exists.'
+                )
+            );
+      $this->form_validation->set_rules('MobileNum','Mobile Number','required',
+       array(
+                'required'      => 'You have not provided %s.'
+              
+                )
+            );
+ 
+
          $this->form_validation->set_rules('Id', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
