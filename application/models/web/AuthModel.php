@@ -129,7 +129,6 @@ class AuthModel extends CI_Model {
 	}
 
 
-
 	public function LoginAdmin($data,$ext = FALSE) {
 		$this->db->select('user.*, app.LastName, app.FirstName,app.IsActive as applicantstatus, app.EmailAddress');
 		$this->db->from('tbl_security_users user');

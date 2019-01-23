@@ -172,7 +172,7 @@
     }
  
     public function Read() {
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE,'pagetitle'=>'Categories Masterlist');
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE,'pagetitle'=>'Job Application Masterlist');
         $data['list'] = $this->jobappmod->LoadApplicationsMasterlist();
         $data['class'] = 'jobapplications';
         $this->load->view('layout/admin/1_css',$layout);
@@ -186,7 +186,34 @@
         // $json = json_encode($data['categories']); //log
         // $this->logger->log('Load Categories','Categories',$json); //Log
     }
+
+     public function Update1() {
  
- 
- 
- }
+         $this->form_validation->set_rules('JobId', 'Item Record', 'required',
+                array(
+                'required'      => 'Cannot identify this record.',
+                ));
+
+        $postdata = $this->input->post();
+        if ($this->form_validation->run() == FALSE){
+            $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
+        }
+        else{
+            $result = $this->jobappmod->Process($postdata);
+            if ($result != FALSE) {
+
+                $json = json_encode($result);              
+                echo $json;
+            }
+            else {
+                echo json_encode(['error'=>'Update Unsuccessful.']);
+
+            }
+
+        }
+
+    }
+
+
+}

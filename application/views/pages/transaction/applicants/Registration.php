@@ -370,7 +370,7 @@ if (!empty($applicant)) {
                                             <div class="col-md-4">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Preferred Jobs</label>
-                                                    <input type="text" name="PreferredTrainingCourse" class="form-control form-control-danger" value="<?=$row->PreferredJobs;?>">
+                                                    <input type="text" name="PreferredJobs" class="form-control form-control-danger" value="<?=$row->PreferredJobs;?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -661,7 +661,7 @@ if (!empty($applicant)) {
                                                                 <div class="col-md-6">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">Languages Spoken</label>
-                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="LanguageSpoken[]" style="width: 100%" value="<?=$row->LanguageSpoken;?>">
+                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="LanguageSpoken" style="width: 100%" value="<?=$row->LanguageSpoken;?>">
                                                                 <?php $str="";
                                                     if ($language->num_rows() > 0) {
                                                               $lang = json_decode($row->LanguageSpoken,true);
@@ -707,7 +707,7 @@ if (!empty($applicant)) {
                                                                 <div class="col-md-6">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">Languages Written</label>
-                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="LanguageWritten[]" style="width: 100%" value="<?=$row->LanguageWritten;?>">
+                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="LanguageWritten" style="width: 100%" value="<?=$row->LanguageWritten;?>">
                                                                             <?php $str="";
                                                             if ($language->num_rows() > 0) {
                                                                 $lang = json_decode($row->LanguageWritten,true);
@@ -730,7 +730,7 @@ if (!empty($applicant)) {
                                                                 <div class="col-md-6">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">Dialect</label>
-                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="Dialect[]" style="width: 100%" value="<?=$row->Dialect;?>">
+                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="Dialect" style="width: 100%" value="<?=$row->Dialect;?>">
                                                                             <?php $str="";
                                                             if ($dialect->num_rows() > 0) {
                                                                 $lang = json_decode($row->Dialect,true);
@@ -903,8 +903,16 @@ if (!empty($applicant)) {
                                         ?>
                                                 <div class="form-actions">
                                                     <button type="submit" id="sub" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                             <?php         
+                                     $usertype = $this->session->userdata('usertype');
+                                        if ($usertype == 'ADMIN' ||$usertype =='OFFICE STAFF') {
+                                        ?>
                                                     <a href="<?php echo base_url();?>manage/transactions/all-applicant" class="btn btn-inverse">Cancel</a>
                                                 </div>
+                                                            <?php
+                                    }
+                                     ?>
+                                             
                                                 <?php
                                     }
                                      ?>

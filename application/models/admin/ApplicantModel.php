@@ -281,56 +281,7 @@ class ApplicantModel extends CI_Model {
     }
 
     public function Update($id, $data) {
-          $UserId = $this->uuid->v4();
-        
-         $this->db->flush_cache();
-            $password = $data['SSS'];
-            $key = $this->config->item('encryption_key');
-            $salt1 = hash('sha512', $key . $password);
-            $salt2 = hash('sha512', $password . $key);
-            $hashed_password = hash('sha512', $salt1 . $password . $salt2);
-            // echo $data['password'] = $hashed_password;
-          
-
-
-            $this->db->set('Id',"'".$id."'",FALSE);
-             if (!empty($data['EmailAddress'])) {
-                 $this->db->set('LoginName',"'".$data['EmailAddress']."'",FALSE);  
-                 $this->db->set('Email',"'".$data['EmailAddress']."'",FALSE);
-            }
-             else
-             {
-                $this->db->set('LoginName',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
-                $this->db->set('Email',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
-             }
-           
-            $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
-
-            $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
-            $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);        
-            $this->db->where('Id', $id);
-            $this->db->update('tbl_security_users');
-         if (!empty($data["LanguageSpoken"])) {
-         $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
-         unset($data["LanguageSpoken"]);  
-        }
-        if (!empty($data["LanguageRead"])) {
-             $this->db->set('LanguageRead',"'".json_encode($data["LanguageRead"])."'",FALSE);
-             unset($data["LanguageRead"]);   
-        }
-         if (!empty($data["Dialect"])) {
-             $this->db->set('Dialect',"'".json_encode($data["Dialect"])."'",FALSE);
-             unset($data["Dialect"]);   
-        }
-         if (!empty($data["LanguageWritten"])) {
-             $this->db->set('LanguageWritten',"'".json_encode($data["LanguageWritten"])."'",FALSE);
-             unset($data["LanguageWritten"]);   
-        }
-          if (!empty($data["PreferredWorkLocations"])) {
-             $this->db->set('PreferredWorkLocations',"'".json_encode($data["PreferredWorkLocations"])."'",FALSE);
-             unset($data["PreferredWorkLocations"]);   
-        }
-
+   
 
         if (!empty($data["company_name"])) {
             $ed_w = $data['Work_DataId'];
@@ -382,6 +333,27 @@ class ApplicantModel extends CI_Model {
             unset($data['Character_Company']);
             unset($data['Character_Contact']);
         }
+          if (!empty($data["LanguageSpoken"])) {
+         $this->db->set('LanguageSpoken',"'".json_encode($data["LanguageSpoken"])."'",FALSE);
+         unset($data["LanguageSpoken"]);  
+        }
+        if (!empty($data["LanguageRead"])) {
+             $this->db->set('LanguageRead',"'".json_encode($data["LanguageRead"])."'",FALSE);
+             unset($data["LanguageRead"]);   
+        }
+         if (!empty($data["Dialect"])) {
+             $this->db->set('Dialect',"'".json_encode($data["Dialect"])."'",FALSE);
+             unset($data["Dialect"]);   
+        }
+         if (!empty($data["LanguageWritten"])) {
+             $this->db->set('LanguageWritten',"'".json_encode($data["LanguageWritten"])."'",FALSE);
+             unset($data["LanguageWritten"]);   
+        }
+          if (!empty($data["PreferredWorkLocations"])) {
+             $this->db->set('PreferredWorkLocations',"'".json_encode($data["PreferredWorkLocations"])."'",FALSE);
+             unset($data["PreferredWorkLocations"]);   
+        }
+
           if($data['Gender'] == 'Male'){
               $this->db->set('PhotoPath',"'themes/admin-pro/assets/images/users/Male.png'",FALSE);
 
@@ -450,7 +422,36 @@ class ApplicantModel extends CI_Model {
                 }
             }
            
+                 $UserId = $this->uuid->v4();
+        
+         $this->db->flush_cache();
+            $password = $data['SSS'];
+            $key = $this->config->item('encryption_key');
+            $salt1 = hash('sha512', $key . $password);
+            $salt2 = hash('sha512', $password . $key);
+            $hashed_password = hash('sha512', $salt1 . $password . $salt2);
+            // echo $data['password'] = $hashed_password;
           
+
+
+            $this->db->set('Id',"'".$id."'",FALSE);
+             if (!empty($data['EmailAddress'])) {
+                 $this->db->set('LoginName',"'".$data['EmailAddress']."'",FALSE);  
+                 $this->db->set('Email',"'".$data['EmailAddress']."'",FALSE);
+            }
+             else
+             {
+                $this->db->set('LoginName',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
+                $this->db->set('Email',"'".$data['MobileNum']."@qcpeso.com'",FALSE);
+             }
+           
+            $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
+
+            $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
+            $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);        
+            $this->db->where('Id', $id);
+            $this->db->update('tbl_security_users');
+       
          
             return TRUE;
         } else {

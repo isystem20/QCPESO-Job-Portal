@@ -13,15 +13,15 @@ if (!empty($this->session->userdata('userid'))) { ?>
       appId: "6a3fac48-55eb-4236-ac2c-31085678326c",
     });
 
-  var pref_job,pref_loc = '';
+  var pref_job = '';
+  var pref_loc = '';
   <?php if (!empty($this->session->userdata('pref_job'))) { ?>
     pref_job = '<?=$this->session->userdata('pref_job'); ?>';
   <?php } ?>
   <?php if (!empty($this->session->userdata('pref_loc'))) { ?>
     pref_loc = '<?=$this->session->userdata('pref_loc'); ?>';
   <?php } ?>
-
-
+  
   OneSignal.sendTags({
     Userid: '<?=$this->session->userdata('userid'); ?>',
     Jobs: pref_job,
@@ -29,15 +29,7 @@ if (!empty($this->session->userdata('userid'))) { ?>
   }, function(tagsSent) {
 
     console.log(tagsSent);
-        // $.toast({
-        //   heading: 'Error!',
-        //   text: data.error,
-        //   position: 'top-right',
-        //   loaderBg:'#ff6849',
-        //   icon: 'danger',
-        //   hideAfter: 3500, 
-        //   stack: 6
-        // });  
+
   });
 
 
