@@ -10,11 +10,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->select('*');
 			$this->db->from($this->tbl);
 			if (!empty($id)) {
-				$this->db->where('id',$id);
+				$this->db->where('Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('isActive','1');
-				$this->db->or_where('isActive','2');
+				$this->db->where('IsActive','1');
+				$this->db->or_where('IsActive','2');
 				return $this->db->get();
 			}
 			

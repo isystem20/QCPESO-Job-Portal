@@ -65,7 +65,7 @@
                                                  <td><?php echo character_limiter($row->Description, 30); ?></td>
                                                  <td><?php echo $row->Content; ?></td>
                                                 <td><?php echo character_limiter($row->Image, 30); ?></td>
-                                                <td><?php echo $row->ModifiedById; ?></td>
+                                                <td><?php echo $row->ModFirstName.' '.$row->ModLastName ; ?></td>
                                                 <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
                                                 <td><?php echo character_limiter($row->VersionNo, 10); ?></td>
                                                 <td>
