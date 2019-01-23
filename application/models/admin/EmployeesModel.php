@@ -57,6 +57,7 @@ class EmployeesModel extends CI_Model {
             $UserId = $this->uuid->v4();
         
          $this->db->flush_cache();
+            // $position = $data['']
             $password = $data['SSS'];
             $key = $this->config->item('encryption_key');
             $salt1 = hash('sha512', $key . $password);

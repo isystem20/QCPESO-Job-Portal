@@ -1486,7 +1486,7 @@ $('#employee').submit(function(e) {
                 'FirstName' : $('input[name=FirstName]').val(),
                 'MiddleName' : $('input[name=MiddleName]').val(),
                 'Suffix' : $('select[name=Suffix]').val(),
-                'LandlineNum' : $('input[name=LandlineNum]').val(),
+                'Position' : $('select[name=Position]').val(),
                 'MobileNum' : $('input[name=MobileNum]').val(),
                 'EmailAddress' : $('input[name=UserName]').val(),
                 'TIN' : $('input[name=TIN]').val(),

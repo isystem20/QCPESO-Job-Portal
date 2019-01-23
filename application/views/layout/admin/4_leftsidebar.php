@@ -35,7 +35,7 @@
 
  <?php 
                     $usertype = $this->session->userdata('usertype');
-                    if ($usertype == 'ADMIN' || $usertype == 'EMPLOYER' || $usertype == 'OFFICE STAFF'  ) {
+                    if ($usertype == 'ADMIN' || $usertype == 'EMPLOYER' || $usertype == 'OFFICE STAFF' || $usertype == 'MANAGER'  ) {
                     ?>
                  <li class="user-profile">
              
@@ -240,7 +240,7 @@
                                         ?>
                   <?php 
                                         $usertype = $this->session->userdata('usertype');
-                                        if ($usertype == 'CLERK') {
+                                        if ($usertype == 'OFFICESTAFF') {
                                         ?>
                             <li class="nav-small-cap">CLERK</li>
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url('account/profile');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Profile</span></a></li>

@@ -102,11 +102,16 @@ if (!empty($employee)) {
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
-                                                <div class="form-group has-success">
-                                                    <label class="control-label">Telephone</label>
-                                                    <input type="text" name="LandlineNum" class="form-control form-control-danger" value="<?=$row->LandlineNum;?>">
-                                                </div>
-                                            </div>
+                                            <div class="col-sm-2">
+                                    <div class="form-group has-success">
+                                        <label class="control-label">Position</label>
+                                        <select type="text" name="Position" value="<?=$row->Position;?>" class="form-control">
+                                            <option <?php if($row->Position=="OFFICE STAFF"){ echo "Selected";}?> value="OFFICE STAFF">Office Staff</option>
+                                            <option <?php if($row->Position=="MANAGER"){ echo "Selected";}?> value="MANAGER">Manager</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -302,9 +307,14 @@ else { ?>
                                         </div>
                                         <div class="col-sm-3 ">
                                             <div class="form-group has-success">
-                                                <label class="control-label">Telephone</label>
-                                                <input type="text" name="LandlineNum" class="form-control ">
-                                            </div>
+                                        <label class="control-label">Position</label>
+                                        <select class="form-control custom-select" name="Position">
+                                            <option value="OFFICE STAFF">Office Staff</option>
+                                            <option value="MANAGER">Manager</option>
+                                           
+                                        </select>
+
+                                    </div>
                                         </div>
                                     </div>
                                 </div>
