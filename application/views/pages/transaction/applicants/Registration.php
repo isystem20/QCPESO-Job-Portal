@@ -142,6 +142,7 @@ if (!empty($applicant)) {
                                                         <option <?php if($row->CivilStatus=="Single"){ echo "Selected";}?> value="Single">Single</option>
                                                         <option <?php if($row->CivilStatus=="Married"){ echo "Selected";}?> value="Married">Married</option>
                                                         <option <?php if($row->CivilStatus=="Separated"){ echo "Selected";}?> value="Separated">Separated</option>
+                                                         <option <?php if($row->CivilStatus=="Widowed"){ echo "Selected";}?> value="Widowed">Widowed</option>
 
                                                     </select>
 
@@ -1062,6 +1063,7 @@ else { ?>
                                                     <option value="Single">Single</option>
                                                     <option value="Married">Married</option>
                                                     <option value="Separated">Separated</option>
+                                                    <option value="Widowed">Widowed</option>
                                                 </select>
 
                                             </div>
