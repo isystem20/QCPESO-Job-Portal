@@ -111,6 +111,8 @@
                             <li><a href="<?php echo base_url(); ?>manage/applicant/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
                             <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.clubs-view">Browse Job</a></li>
                             <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications-masterlist" data-i18n="nav.json-form.clubs-view">Applications</a></li>
+                             <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications-successful-referal" data-i18n="nav.json-form.clubs-view">Successful Referrals</a></li>
+
 
                         </ul>
                     </li>
