@@ -96,6 +96,19 @@
                 // print_r($browsejob[0]  );
 
                 $postdata['ApplicantId'] = $browsejob[0]['currentuser'];
+                
+                if (empty($this->session->userdata('userid'))) {
+                    
+                ?>
+                <a  href="<?=base_url('admin/login')?>" class="read-item-btn btn btn-circle btn-outline-primary"  data-original-title="Apply" type="button"> Apply </a>
+
+                    <?php
+
+                } 
+                else {
+            
+
+
                 if ($browsejob[0]['AppliedJob'] == 0) {
                    // echo "hi";
                 ?>
@@ -138,8 +151,14 @@
 
 
                 <?php 
-
+                    }
                 ?>
+
+
+                
+                
+
+              
                      <!-- <div class="form-submit col-md-12">
                         <button class="btn btn-dark" type="submit">Apply Job</button>
                     </div> -->

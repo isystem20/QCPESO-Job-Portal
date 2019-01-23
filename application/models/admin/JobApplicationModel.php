@@ -32,6 +32,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $get;
 		}
 
+		function LoadReferralMasterlist() {
+			$this->db->select('ja.*,ja.IsActive as ApplicationStatus,ja.ApplicationDate,a.*, a.Id as ApplicantId, a.IsActive as ApplicantStatus, j.*, j.Id as JobId, e.*, e.Id as EstablishmentId, ja.Id as jaId, j.Id as jId, j.JobTitle as jJobTitle');
+			$this->db->from('tbl_applicants_job_applications ja');
+			$this->db->join('tbl_applicants a','a.Id = ja.ApplicantId', 'left outer');
+			$this->db->join('tbl_establishments_jobposts j','j.Id = ja.JobPostId','left outer');
+			$this->db->join('tbl_establishments e','e.Id = j.EstablishmentId','left outer');
+			$this->db->where('ja.IsActive','2');
+			$get = $this->db->get();
+			// die($this->db->last_query());
+			return $get;
+		
+		}
+
+
 
 		public function  Add($data) {
 			// /$this->db->set('name',"'".$data['name']."'",FALSE);
