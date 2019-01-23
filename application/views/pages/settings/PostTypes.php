@@ -54,14 +54,14 @@
                                         <?php
                                         if ($masterlist->num_rows() > 0) {
                                             foreach ($masterlist->result() as $row) { ?>
-                                            <tr id="row<?=$row->id; ?>">
-                                                <td><?php echo $row->name; ?></td>
-                                                <td><?php echo character_limiter($row->description, 30); ?></td>
-                                                <td><?php echo $row->modifiedById; ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->modifiedAt)); ?></td>
+                                            <tr Id="row<?=$row->Id; ?>">
+                                                <td><?php echo $row->Name; ?></td>
+                                                <td><?php echo character_limiter($row->Description, 30); ?></td>
+                                                <td><?php echo $row->ModFirstName.' '.$row->ModLastName ;  ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
                                                 <td>
                                                     <?php 
-                                                    if ($row->isActive == '1') {
+                                                    if ($row->IsActive == '1') {
                                                         echo '<label class="label label-success">Active</label>';
                                                     }
                                                     else {
