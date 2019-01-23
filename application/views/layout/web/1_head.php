@@ -63,3 +63,11 @@
 <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/toast-master/js/jquery.toast.js"></script>
  -->
     <?php //$this->load->view('layout/admin/15_api'); ?>
+
+    <?php 
+    $webset = '';
+    if (!empty($websetting)) {
+        $webset = $websetting;
+    } 
+    ?>
+    <?php $this->load->view('layout/admin/15_api',['websetting'=>$webset]); ?>

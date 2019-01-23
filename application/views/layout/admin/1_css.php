@@ -31,7 +31,7 @@
     <!-- Vector CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <!-- Chart css -->
-    <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/Chart.js/dist/chart.min.css" rel="stylesheet">
+    <!-- <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/Chart.js/Chart.min.css" rel="stylesheet"> -->
     <!-- chartist CSS -->
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">

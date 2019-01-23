@@ -76,9 +76,9 @@ function __construct() {
 			$this->load->model('notifications/Email','email');
 			$notifdata = array('userid'=>$id,'r_fname'=>$this->session->userdata('firstname'),'r_email' => $this->session->userdata('email'), 'r_name'=>$this->session->userdata('firstname').' '.$this->session->userdata('lastname'));
 			$send = $this->email->send_email_verification_code($code,$notifdata);
-			if ($send === true) {
+			if ($send == true) {
 				$this->logger->log('Send Code Success','Verification',json_encode($notifdata)); //Log   
-				echo json_encode(['result'=>'Successful']);
+				echo json_encode(['result'=>'Successful','sentto'=>$notifdata['r_email']]);
 			}
 			else{
 				$this->logger->log('Send Code Failed','Verification',json_encode($send)); //Log  

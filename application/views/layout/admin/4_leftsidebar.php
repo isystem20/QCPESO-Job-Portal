@@ -7,8 +7,42 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
+                <?php 
+                    $usertype = $this->session->userdata('usertype');
+                    if ($usertype == 'APPLICANT') {
+                    ?>
                 <li class="user-profile">
-                    <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/profile.png" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
+             
+                    <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url($this->session->userdata('photo')); ?>" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
+                 
+                
+
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="<?=base_url('dev/switch/usertype/ADMIN'); ?>">Switch to Admin </a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/MANAGER'); ?>">Switch to Manager </a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/STAFF'); ?>">Switch to Office Staff</a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/EMPLOYER'); ?>">Switch to Employer</a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/APPLICANT'); ?>">Switch to Applicant</a></li>
+                        <li><a href="<?=base_url('dev/switch/profile/100'); ?>">Bypass Incomplete Profile</a></li>
+
+                        <li><a href="javascript:void()">Account Setting</a></li>
+                        <li><a href="<?=base_url('logout'); ?>">Logout</a></li>
+                    </ul>
+                </li>   
+<?php
+                                         }
+                                        ?>
+
+ <?php 
+                    $usertype = $this->session->userdata('usertype');
+                    if ($usertype == 'ADMIN' || $usertype == 'EMPLOYER' || $usertype == 'OFFICE STAFF'  ) {
+                    ?>
+                 <li class="user-profile">
+             
+                    <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/Female.png" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
+                 
+                
+
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="<?=base_url('dev/switch/usertype/ADMIN'); ?>">Switch to Admin </a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/MANAGER'); ?>">Switch to Manager </a></li>
@@ -20,7 +54,11 @@
                         <li><a href="javascript:void()">Account Setting</a></li>
                         <li><a href="<?=base_url('logout'); ?>">Logout</a></li>
                     </ul>
-                </li>
+                </li> 
+                
+     <?php
+                                         }
+                                        ?>
                     <?php 
                     $usertype = $this->session->userdata('usertype');
                     if ($usertype == 'ADMIN') {
@@ -202,9 +240,9 @@
                                         ?>
                   <?php 
                                         $usertype = $this->session->userdata('usertype');
-                                        if ($usertype == 'CLERK') {
+                                        if ($usertype == 'STAFF') {
                                         ?>
-                            <li class="nav-small-cap">CLERK</li>
+                            <li class="nav-small-cap">OFFICE STAFF</li>
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url('account/profile');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Profile</span></a></li>
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url();?>applicant/Dashboard" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
                             <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Maintenance</span></a>
