@@ -270,7 +270,24 @@
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a id="logoutbtn" href="<?=base_url('logout'); ?>"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <?php
+                                    $auth = $this->session->userdata('auth');
+                                    if ($auth == 'Google') { ?>
+                                    <li>
+                                        <a id="logoutbtn" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://qcpeso.com/logout" onclick="window.open('<?=base_url('logout'); ?>');"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <?php
+                                    }elseif ($auth == 'Facebook') { ?>
+                                    <li>
+                                        <a id="logoutbtn" onclick="goLogoutfb();"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <?php
+                                    }else { ?>
+                                    <li>
+                                        <a id="logoutbtn" href="<?=base_url('logout'); ?>"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <?php
+                                    }
+
+                                    ?>
+
                                 </ul>
                             </div>
                         </li>

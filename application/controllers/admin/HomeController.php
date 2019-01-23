@@ -13,6 +13,7 @@ function __construct() {
 
 	public function Dashboard()
 	{
+		$websetting = $this->LoadWebSettings();
 		$data["totaljobs"] = $this->dash->total_Jobs();
 		$data["totalemployers"] = $this->dash->total_Employers();
 		$data["totalapplicants"] = $this->dash->total_Applicants();
@@ -71,7 +72,7 @@ function __construct() {
 		$data['monthly_referrals'] = $data_array;
 
 		
-		$layout = array('charts' => TRUE, 'pagetitle'=>'Dashboard');
+		$layout = array('charts' => TRUE, 'pagetitle'=>'Dashboard','websetting'=>$websetting);
 		$this->load->view('layout/admin/1_css',$layout);
 		$this->load->view('layout/admin/2_preloader');
 		$this->load->view('layout/admin/3_topbar');
