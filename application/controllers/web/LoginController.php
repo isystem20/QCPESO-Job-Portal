@@ -59,6 +59,7 @@ class LoginController extends Public_Controller {
 
 				        		$session_data = array(
 				        			'userid' => $login->Id,
+					        			'photo' => $login->PhotoPath,
 				        			'lastname' => $login->lastName,
 				        			'firstname'=> $login->firstName,
 				        			'status' => $login->applicantstatus,
@@ -74,10 +75,12 @@ class LoginController extends Public_Controller {
 				        			'pref_job' => $login->PreferredJobs,
 				        			'pref_loc' => json_decode($login->PreferredWorkLocations),
 				        			'auth' => 'Google',
+					        			'photo' => $login->PhotoPath,
 				        		); 
 				        		
 				        		$this->session->set_userdata($session_data);
 			        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
+					        			'photo' => $login->PhotoPath,
      		
 
 			        		}
@@ -124,6 +127,7 @@ class LoginController extends Public_Controller {
 				        			'pref_job' => $login->PreferredJobs,
 				        			'pref_loc' => json_decode($login->PreferredWorkLocations),
 				        			'auth' => 'Facebook',
+				        			'photo' => $login->PhotoPath,
 				        		); 
 				        		
 				        		$this->session->set_userdata($session_data);
@@ -203,6 +207,7 @@ class LoginController extends Public_Controller {
 					        			'pref_job' => $login->PreferredJobs,
 					        			'pref_loc' => json_decode($login->PreferredWorkLocations),
 					        			'auth' => 'Manual',
+				        			'photo' => $login->PhotoPath,
 					        		); 
 					        		$this->session->set_userdata($session_data);
 				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 

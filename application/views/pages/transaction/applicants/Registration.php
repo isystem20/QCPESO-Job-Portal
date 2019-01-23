@@ -142,6 +142,7 @@ if (!empty($applicant)) {
                                                         <option <?php if($row->CivilStatus=="Single"){ echo "Selected";}?> value="Single">Single</option>
                                                         <option <?php if($row->CivilStatus=="Married"){ echo "Selected";}?> value="Married">Married</option>
                                                         <option <?php if($row->CivilStatus=="Separated"){ echo "Selected";}?> value="Separated">Separated</option>
+                                                         <option <?php if($row->CivilStatus=="Widowed"){ echo "Selected";}?> value="Widowed">Widowed</option>
 
                                                     </select>
 
@@ -249,19 +250,19 @@ if (!empty($applicant)) {
                                             <div class="col-sm-6">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Email</label>
-                                                    <input type="text" class="form-control form-control-danger" placeholder="Email" name="EmailAddress" value="<?=$row->EmailAddress;?>">
+                                                    <input type="email" class="form-control form-control-danger" placeholder="Email" name="EmailAddress" value="<?=$row->EmailAddress;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Mobile</label>
-                                                    <input type="text" name="MobileNum" class="form-control form-control-danger" value="<?=$row->MobileNum;?>">
+                                                    <input type="text" minlength="11" maxlength="11"name="MobileNum" class="form-control form-control-danger" value="<?=$row->MobileNum;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Telephone</label>
-                                                    <input type="text" name="LandlineNum" class="form-control form-control-danger" value="<?=$row->LandlineNum;?>">
+                                                    <input type="text" minlength="7" maxlength="7" name="LandlineNum" class="form-control form-control-danger" value="<?=$row->LandlineNum;?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -370,7 +371,7 @@ if (!empty($applicant)) {
                                             <div class="col-md-4">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Preferred Jobs</label>
-                                                    <input type="text" name="PreferredTrainingCourse" class="form-control form-control-danger" value="<?=$row->PreferredJobs;?>">
+                                                    <input type="text" name="PreferredJobs" class="form-control form-control-danger" value="<?=$row->PreferredJobs;?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -438,25 +439,25 @@ if (!empty($applicant)) {
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">T.I.N. </label>
-                                                    <input type="text" name="TIN" class="form-control form-control-danger" value="<?=$row->TIN;?>">
+                                                    <input type="text" minlength="9" maxlength="9" name="TIN" class="form-control form-control-danger" value="<?=$row->TIN;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">S.S.S. No.</label>
-                                                    <input type="text" name="SSS" class="form-control form-control-danger" value="<?=$row->SSS;?>">
+                                                    <input type="text" minlength="12" maxlength="12" name="SSS" class="form-control form-control-danger" value="<?=$row->SSS;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">PHILHEALTH No.</label>
-                                                    <input type="text" name="PHILHEALTH" class="form-control form-control-danger" value="<?=$row->PHILHEALTH;?>">
+                                                    <input type="text" minlength="12" maxlength="12" name="PHILHEALTH" class="form-control form-control-danger" value="<?=$row->PHILHEALTH;?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
                                                 <div class="form-group has-success">
                                                     <label class="control-label">PAG-IBIG No.</label>
-                                                    <input type="text" name="PAGIBIG" class="form-control form-control-danger" value="<?=$row->PAGIBIG;?>">
+                                                    <input type="text" minlength="12" maxlength="12" name="PAGIBIG" class="form-control form-control-danger" value="<?=$row->PAGIBIG;?>">
                                                 </div>
                                             </div>
 
@@ -661,7 +662,7 @@ if (!empty($applicant)) {
                                                                 <div class="col-md-6">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">Languages Spoken</label>
-                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="LanguageSpoken[]" style="width: 100%" value="<?=$row->LanguageSpoken;?>">
+                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="LanguageSpoken" style="width: 100%" value="<?=$row->LanguageSpoken;?>">
                                                                 <?php $str="";
                                                     if ($language->num_rows() > 0) {
                                                               $lang = json_decode($row->LanguageSpoken,true);
@@ -707,7 +708,7 @@ if (!empty($applicant)) {
                                                                 <div class="col-md-6">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">Languages Written</label>
-                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="LanguageWritten[]" style="width: 100%" value="<?=$row->LanguageWritten;?>">
+                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="LanguageWritten" style="width: 100%" value="<?=$row->LanguageWritten;?>">
                                                                             <?php $str="";
                                                             if ($language->num_rows() > 0) {
                                                                 $lang = json_decode($row->LanguageWritten,true);
@@ -730,7 +731,7 @@ if (!empty($applicant)) {
                                                                 <div class="col-md-6">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">Dialect</label>
-                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="Dialect[]" style="width: 100%" value="<?=$row->Dialect;?>">
+                                                                        <select class="select2 form-control custom-select" multiple="multiple" name="Dialect" style="width: 100%" value="<?=$row->Dialect;?>">
                                                                             <?php $str="";
                                                             if ($dialect->num_rows() > 0) {
                                                                 $lang = json_decode($row->Dialect,true);
@@ -897,13 +898,22 @@ if (!empty($applicant)) {
                                                             </div>
                                                 </div>
                                             </div>
+
                                             <?php
                                     if ($mode=="edit") {
                                         ?>
                                                 <div class="form-actions">
-                                                    <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                                    <button type="submit" id="sub" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                             <?php         
+                                     $usertype = $this->session->userdata('usertype');
+                                        if ($usertype == 'ADMIN' ||$usertype =='OFFICE STAFF') {
+                                        ?>
                                                     <a href="<?php echo base_url();?>manage/transactions/all-applicant" class="btn btn-inverse">Cancel</a>
                                                 </div>
+                                                            <?php
+                                    }
+                                     ?>
+                                             
                                                 <?php
                                     }
                                      ?>
@@ -1053,6 +1063,7 @@ else { ?>
                                                     <option value="Single">Single</option>
                                                     <option value="Married">Married</option>
                                                     <option value="Separated">Separated</option>
+                                                    <option value="Widowed">Widowed</option>
                                                 </select>
 
                                             </div>
@@ -1148,19 +1159,19 @@ else { ?>
                                         <div class="col-sm-6">
                                             <div class="form-group has-success">
                                                 <label class="control-label">Email</label>
-                                                <input type="text" class="form-control " name="EmailAddress">
+                                                <input type="email" class="form-control" name="EmailAddress">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group has-success">
                                                 <label class="control-label">Mobile</label>
-                                                <input type="text" name="MobileNum" class="form-control ">
+                                                <input type="text" minlength="11" maxlength="11" name="MobileNum" class="form-control ">
                                             </div>
                                         </div>
                                         <div class="col-sm-3 ">
                                             <div class="form-group has-success">
                                                 <label class="control-label">Telephone</label>
-                                                <input type="text" name="LandlineNum" class="form-control ">
+                                                <input type="text" minlength="7" maxlength="7" name="LandlineNum" class="form-control ">
                                             </div>
                                         </div>
                                     </div>
@@ -1319,25 +1330,25 @@ else { ?>
                                                                 <div class="col-sm-3 ">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">T.I.N. </label>
-                                                                        <input type="text" name="TIN" class="form-control">
+                                                                        <input type="text" minlength="9" maxlength="9" name="TIN" class="form-control">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-3 ">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">S.S.S. No.</label>
-                                                                        <input type="text" name="SSS" class="form-control">
+                                                                        <input type="text" minlength="12" maxlength="12" name="SSS" class="form-control">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-3 ">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">PHILHEALTH No.</label>
-                                                                        <input type="text" name="PHILHEALTH" class="form-control ">
+                                                                        <input type="text" minlength="12" maxlength="12" name="PHILHEALTH" class="form-control ">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-3 ">
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label">PAG-IBIG No.</label>
-                                                                        <input type="text" name="PAGIBIG" class="form-control">
+                                                                        <input type="text" minlength="12" maxlength="12" name="PAGIBIG" class="form-control">
                                                                     </div>
                                                                 </div>
 
@@ -1561,8 +1572,8 @@ else { ?>
                                                             </div>
 
                                                             <div class="form-actions">
-                                                                <button type="submit" id="sub-btn" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                                                <button type="button" class="btn btn-inverse">Cancel</button>
+                                                                <button type="submit" id="sub" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                                                <a href="<?php echo base_url();?>manage/transactions/all-applicant" class="btn btn-inverse">Cancel</a>
                                                             </div>
                                                             </form>
                                                         </div>
