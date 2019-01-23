@@ -30,6 +30,45 @@
                                     </div>
                                 </form>
                             </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+
+
+                                    <?php
+                                      if (!empty($websetting) && !empty($websetting['ENABLE_FACEBOOK_AUTH'])) {
+                                        if ($websetting['ENABLE_FACEBOOK_AUTH'] == 'YES') { ?>
+
+                                     <fb:login-button 
+                                      scope="public_profile,email"
+                                      onlogin="checkLoginState();">
+                                    </fb:login-button>   
+
+                                    <?php
+                                          }
+                                      }
+                                    ?>
+
+                                </div>
+                                <div class="col-sm-6">
+
+
+                                    <?php
+                                    if (!empty($websetting) && !empty($websetting['ENABLE_GOOGLE_AUTH'])) {
+                                        if ($websetting['ENABLE_GOOGLE_AUTH'] == 'YES') { ?>
+
+                                       <div class="g-signin2" data-onsuccess="onSignIn" data-width="100%"></div> 
+                                    <?php
+                                          }
+                                      }
+                                    ?>
+
+
+                                </div>
+
+                            </div>
+
+
+
                             <div class="m-b-20">
                                 <p><small>By signing up, you agree to the <a href="#">terms of service</a></small></p>
                             </div>

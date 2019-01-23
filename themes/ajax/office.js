@@ -831,7 +831,7 @@ $('#applicant').submit(function(e) {
            Dialect.push($(this).val());
       });
 
-        $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
+        $("#sub").prop("disabled", true);   //Disables the submit button after click 
         var newURL = $(this).attr('action');   
      
         var newData  = {
@@ -896,7 +896,7 @@ $('#applicant').submit(function(e) {
                 'Character_Company' : CharacterReferenceCompany,
                 'Character_Contact' : CharacterReferenceContact,
             } 
-            // 'PhotoPath' : $('input[name=file]').val(), 
+           
             // 'CreatedAt' : $('input[name=CreatedAt]').val(),
             // 'CreatedBy' : $('input[name=CreatedBy]').val(),
             // 'ModifiedById' : $('input[name=ModifiedById]').val(),
@@ -927,9 +927,10 @@ $('#applicant').submit(function(e) {
                       stack: 6
 
                     });
-                  //   window.setTimeout(function(){
-                  //   window.location.href = data.url; 
-                  // }, 1000);
+
+                    window.setTimeout(function(){
+                    window.location.href = data.url; 
+                  }, 1000);
         
               }
                   else{
@@ -943,7 +944,7 @@ $('#applicant').submit(function(e) {
                       
                     });
                   }
-                $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
+                $("#sub").prop("disabled", false);     //Reenable the submit button after the action           
               }
           });   
   });
@@ -1775,8 +1776,9 @@ $('.applyjo').click(function(e){ //Input the form's ID or CLASS, use # for ID an
     // alert('Hi Im view');
   });
 
+//VIEW BUTTON IN ITEMS
 
-  $('.applyjobprocess').click(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+  $('#myTable').delegate(".applyjobprocess", "click", function() {
     e.preventDefault();       //This prevents the action to move to other page.
         $(this).prop("disabled", true);   //Disables the submit button after click 
         $(this).text("Processing...");

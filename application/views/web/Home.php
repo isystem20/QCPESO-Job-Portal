@@ -556,6 +556,32 @@
                                     <p>What are the requirements?<br>How to apply?<br>Need assistance to find job?</p>
                                 </div>
                                 <br>
+
+            <!-- Clients-->
+            <section class="module bg-gray p-t-0 p-b-40">
+                <div class="container">
+                    <div class="space" data-MY="-60px"></div>
+                    <div class="row">
+                        <div class="col-md-6 pricing-wrapper"><a href="<?php echo base_url(); ?>web/job">
+                            <div class="pricing-header">
+                                <div class="pricing-icon"><i class="ti-slice"></i></div>
+                                <div class="pricing-title">Are you looking for</div>
+                            </div>
+                            <div class="pricing-price">Job?
+                            </div>
+                            <div class="pricing-body">
+                                <p>What are the requirements?<br>How to apply?<br>Need assistance to find job?</p>
+                            </div>
+                            <br>
+                        </a>
+                        </div>
+                        <div class="col-md-6 pricing-wrapper pricing-popular"><a href="<?php echo base_url(); ?>web/hiring">
+                            <div class="pricing-header">
+                                <div class="pricing-icon"><i class="ti-pin-alt"></i></div>
+                                <div class="pricing-title">Is your company</div>
+                            </div>
+                            <div class="pricing-price">Hiring?
+
                             </div>
                             <div class="col-md-6 pricing-wrapper pricing-popular">
                                 <div class="pricing-header">
@@ -569,6 +595,7 @@
                                 </div>
                                  <br>
                             </div>
+
            <!--                  <div class="col-md-4 pricing-wrapper pricing-popular">
                                 <div class="pricing-header">
                                     <div class="pricing-icon"><i class="ti-marker-alt"></i></div>
@@ -581,6 +608,9 @@
                                 </div>
                                 <div class="pricing-footer"><a class="btn btn-circle btn-brand" href="#">Download</a></div>
                             </div> -->
+                             <br>
+                         </a>
+
                         </div>
                         <div class="row">
                             <div class="col-md-10 m-auto">

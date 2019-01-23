@@ -12,6 +12,7 @@
 
     public function Employer(){
 
+        $websetting = $this->LoadWebSettings();
         $data['emptotaljobs'] = $this->emp->EmployerTotalJobs();
         $data['empjobsdeployed'] = $this->emp->EmployerTotalJobsDeployed();
         $data['emptotalhires'] = $this->emp->EmployerHiredApplicants();
@@ -54,7 +55,7 @@
         
 
 
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'charts' => TRUE);
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'charts' => TRUE,'websetting'=>$websetting);
         
         $this->load->view('layout/admin/1_css',$layout);
         $this->load->view('layout/admin/2_preloader',$layout);

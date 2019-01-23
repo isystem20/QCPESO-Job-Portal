@@ -609,7 +609,7 @@ $route['applicant/Notification'] = 'applicant/ApplicantNotificationsController/A
 $route['applicant/MyAlerts'] = 'applicant/MyAlertsController/MyAlerts';
 $route['applicant/MyApplication'] = 'applicant/MyApplicationController/MyApplication';
 
-$route['web/browsejob'] = 'web/browsejobcontroller/browsejob';
+$route['web/browsejob'] = 'web/Browsejobcontroller/browsejob';
 $route['web/JobDescription/(:any)'] = 'web/BrowseJobController/BrowseJobDescription/$1';
 
 $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
@@ -628,6 +628,7 @@ $route['manage/employee/update-employee/(:any)/(:any)'] = 'admin/EmployeesContro
 $route['manage/employees-masterlist'] = 'admin/EmployeesController/AllEmployees';
 $route['manage/employerdashboard'] = 'employer/EmployerController/Employer';
 //JobApplication Process 
+
         $route['admin/jobapplication/process'] = 'admin/JobApplicationController/Update1';
 
 
@@ -638,4 +639,8 @@ $route['web/news'] = 'web/NewsController/News';
 $route['web/NewsDescription/(:any)'] = 'web/NewsController/NewsDescription/$1';
 //About Us
 $route['web/AboutUs'] = 'web/AboutController/about';
+  
    
+$route['web/job'] = 'web/JobController/Job';
+$route['web/hiring'] = 'web/HiringController/Hiring';
+
