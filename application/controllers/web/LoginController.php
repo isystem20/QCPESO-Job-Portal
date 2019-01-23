@@ -80,7 +80,7 @@ class LoginController extends Public_Controller {
 				        		
 				        		$this->session->set_userdata($session_data);
 			        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
-					        			'photo' => $login->PhotoPath,
+					        
      		
 
 			        		}
