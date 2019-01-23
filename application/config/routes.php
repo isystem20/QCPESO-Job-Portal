@@ -630,3 +630,5 @@ $route['manage/employerdashboard'] = 'employer/EmployerController/Employer';
 //JobApplication Process 
         $route['admin/jobapplication/process'] = 'admin/JobApplicationController/Update1'; 
    
+   $route['web/job'] = 'web/JobController/Job';
+   $route['web/hiring'] = 'web/HiringController/Hiring';
