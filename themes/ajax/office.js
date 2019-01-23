@@ -1776,8 +1776,9 @@ $('.applyjo').click(function(e){ //Input the form's ID or CLASS, use # for ID an
     // alert('Hi Im view');
   });
 
+//VIEW BUTTON IN ITEMS
 
-  $('.applyjobprocess').click(function(e){ //Input the form's ID or CLASS, use # for ID and . for CLASS
+  $('#myTable').delegate(".applyjobprocess", "click", function() {
     e.preventDefault();       //This prevents the action to move to other page.
         $(this).prop("disabled", true);   //Disables the submit button after click 
         $(this).text("Processing...");

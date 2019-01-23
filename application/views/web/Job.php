@@ -1,45 +1,12 @@
+   
 
-<!-- 
-        <header class="header <?php if(!empty($transparentwrapper)) { echo 'header-transparent';} ?>">
-            <div class="container-fluid">
-           
-                <div class="inner-header">
-                    <a class="inner-brand" href="#">
-                        <img src="<?php echo base_url();?>themes/ltr/vertical-static/assets/images/auth/qcpeso.png" width="50">
-                        Quezon City PESO
-                    </a>
-                </div>
-       
-                <div class="inner-navigation collapse">
-                    <div class="inner-nav onepage-nav">
-                        <ul>
-                            <li><a href="#home"><span class="menu-item-span">Home</span></a></li>
-                            <li><a href="#about"><span class="menu-item-span">About</span></a></li>
-                            <li><a href="#services"><span class="menu-item-span">Services</span></a></li>
-                            <li><a href="#jobs"><span class="menu-item-span">Browse Jobs</span></a></li>
-                            <li><a href="#startnow"><span class="menu-item-span">Start Now</span></a></li>
-                            <li><a href="#team"><span class="menu-item-span">Team</span></a></li>
-                            <li><a href="#blog"><span class="menu-item-span">News</span></a></li>
-                            <li><a href="#quick-register"><span class="menu-item-span">Register</span></a></li>
-                            <li><a href="start.html"><span class="menu-item-span">Demos</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="extra-nav">
-                    <ul>
-                        <li><a class="off-canvas-open" href="#"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
-                        <li class="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </header> -->
-     
-        <header class="header <?php if(!empty($transparentwrapper)) { echo 'header-transparent';} ?>">
+
+    <header class="header header-Black">
             <div class="container-fluid">
                 <!-- Brand-->
                 <div class="inner-header">
                     <a class="inner-brand" href="#">
-                        <img src="<?php echo base_url();?>themes/ltr/vertical-static/assets/images/auth/Qcpeso.png" width="50">
+                        <img src="http://localhost/qcpesomis/themes/ltr/vertical-static/assets/images/auth/Qcpeso.png" width="50">
                         Quezon City PESO
                     </a>
                 </div>
@@ -230,36 +197,43 @@
                 <div class="inner-navigation collapse">
                     <div class="inner-nav onepage-nav">
                         <ul>
-                            <li><a href="<?php echo base_url(); ?>"><span class="menu-item-span">Home</span></a></li>
-                            <li><a href="<?php echo base_url(); ?>web/AboutController/about"><span class="menu-item-span">About</span></a></li>
-                            <li><a href="<?php echo base_url(); ?>web/ServicesController/services"><span class="menu-item-span">Services</span></a></li>
-                            <li><a href="<?php echo base_url(); ?>web/browsejob"><span class="menu-item-span">Browse Jobs</span></a></li>
-                            <li><a href="<?php echo base_url(); ?>web/news"><span class="menu-item-span">News</span></a></li>
+                            <li><a href="http://localhost/qcpesomis/" class="external"><span class="menu-item-span">Home</span></a></li>
+                            <li><a href="http://localhost/qcpesomis/web/AboutController/about" class="external"><span class="menu-item-span">About</span></a></li>
+                            <li><a href="http://localhost/qcpesomis/web/ServicesController/services" class="external"><span class="menu-item-span">Services</span></a></li>
+                            <li><a href="http://localhost/qcpesomis/web/browsejob" class="external"><span class="menu-item-span">Browse Jobs</span></a></li>
+                            <li><a href="http://localhost/qcpesomis/web/NewsController/news" class="external"><span class="menu-item-span">News</span></a></li>
 
-                            <?php 
-                            if (empty($this->session->userdata('userid'))) { ?>
-                                <li><a href="<?php echo base_url(); ?>admin/login"><span class="menu-item-span">Login</span></a></li>
-                                <li><a href="<?php echo base_url(); ?>web/RegisterController/Register"><span class="menu-item-span">Register</span></a></li>
-                            <?php
-                            }
-                            ?>                    
+                                                            <li><a href="http://localhost/qcpesomis/admin/login" class="external"><span class="menu-item-span">Login</span></a></li>
+                                <li><a href="http://localhost/qcpesomis/web/RegisterController/Register" class="external"><span class="menu-item-span">Register</span></a></li>
+                                                
 
                         </ul>
                     </div>
                 </div>
-                <?php 
-                if (!empty($this->session->userdata('userid'))) { ?>
-                <div class="extra-nav">
-                    <ul>
-                        <li><a class="top-bar-cart" href="<?=base_url('manage'); ?>"><span class="menu-item-span" style="font-size:12px;">My Account</span></a></li>
-                        <li><a class="off-canvas-open" href="#"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
-                        <li class="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
-                    </ul>
-                </div>  
-                <?php
-                }
-
-                ?>
-
+                
             </div>
         </header>
+
+     <!-- Job -->
+           <section class="module divider-bottom" id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 m-auto text-center">
+                            <h1>ARE YOU LOOKING FOR A JOB?</h1>
+                            <br>
+                            <br>
+                            <h2>What are the requirements?</h2>
+                             <p class="lead">
+                                1. PESO Account<br> 
+                                2. Completed Applicant Profile<br></p>
+                            <br>
+                            <h3>How to apply?</h3>
+                            <p class="lead">For the applicants to avail the service, walk-in applicants must present a resume and secure a PESO Skills Registry System Form (SRS). After filling out the form, it will be submitted to the Client Assistance Officer whose job is to receive, verify, and encode the data filled in the form. In job matching process, the Client Assistant Officer searches for the applicant’s preferred job and look if that job qualifications fit the applicant. Once matched, the officer will now provide a referral letter and issue a PESO ID. The employment facilitation takes up to 17 minutes to be processed.</p>
+                            <br>
+                            <h4>Need assistance to find job?</h4>
+                            <p class="lead">The PESO will help for you to find a job that was fitted to you. </p>
+                           
+                        </div>
+                    </div>
+
+

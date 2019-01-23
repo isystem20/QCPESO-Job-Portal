@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class RegisterController extends CI_Controller {
+class RegisterController extends Public_Controller {
 
     function __construct() {
         parent::__construct();
@@ -10,8 +10,12 @@ class RegisterController extends CI_Controller {
 
 	public function register()
 	{
+		if (!empty($this->session->userdata('userid'))) {
+			return redirect(base_url('manage'));
+		}
+		$websetting = $this->LoadWebSettings();
 		
-		$layout = array('transparentwrapper' => TRUE,'pagetitle'=>'Register' );
+		$layout = array('transparentwrapper' => TRUE,'pagetitle'=>'Register','websetting'=>$websetting );
 		$this->load->view('layout/web/1_head',$layout);
 		$this->load->view('layout/web/2_preloader',$layout);
 		$this->load->view('layout/web/3_header', $layout);

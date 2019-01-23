@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function load_Dashboard1(){
             //Do not Delete this comment
        
-            $query = $this->db->query("SELECT Year(CreatedAt) as Year, LEFT(MonthName(CreatedAt), 3) as Month, Month(CreatedAt) as MO, Count(CreatedAt)as Days From tbl_applicants where Day(CreatedAt) Between 0 and 32 Group By Month Order By MO ASC");
+            $query = $this->db->query("SELECT Year(CreatedAt) as Year, LEFT(MonthName(CreatedAt), 0) as Month, Month(CreatedAt) as MO, Count(CreatedAt)as Days From tbl_applicants where Day(CreatedAt) Between 0 and 32 Group By Month Order By MO ASC");
 
             return $query->result();
            
