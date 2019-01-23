@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class ApplicantController extends CI_Controller {
+ class ApplicantController extends Admin_Controller {
    
       function __construct() {
            parent::__construct();
@@ -23,8 +23,11 @@
     public function AddNewApplicant($id = null,$mode= null)
       {
 
-   
-          $layout = array('datepicker'=>TRUE, 'addons'=>TRUE, 'uploadfile'=>TRUE,'pagetitle'=>'Adding New Applicant');
+          $websetting = $this->LoadWebSettings();
+
+
+
+          $layout = array('datepicker'=>TRUE, 'addons'=>TRUE, 'uploadfile'=>TRUE,'pagetitle'=>'Adding New Applicant','websetting'=>$websetting);
            $data['city'] = $this->citymod->LoadMasterlist();
            $data['national'] = $this->nationalmod->LoadMasterlist();
            $data['jobs'] = $this->jobsmod->LoadMasterlist();

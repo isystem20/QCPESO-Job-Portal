@@ -12,9 +12,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 //Use Gmail
 
-$config['smtp_host'] = 'smtp.gmail.com';
-$config['smtp_protocol'] = 'tls';
-$config['smtp_port'] = 587;
-$config['smtp_authentication'] = true;
-$config['username'] = 'qcpesoweb@gmail.com';
+// $config['smtp_host'] = 'smtp.gmail.com';
+// $config['smtp_protocol'] = 'tls';
+// $config['smtp_port'] = 587;
+// $config['smtp_authentication'] = true;
+// $config['username'] = 'qcpesoweb@gmail.com';
+// $config['password'] = '#0Zv)0*APD%}';
+
+
+//Use Gmail
+
+$config['smtp_host'] = 'relay-hosting.secureserver.net';
+$config['smtp_protocol'] = '';
+$config['smtp_port'] = 25;
+$config['smtp_authentication'] = false;
+$config['username'] = 'admin@qcpeso.com';
 $config['password'] = '#0Zv)0*APD%}';
+

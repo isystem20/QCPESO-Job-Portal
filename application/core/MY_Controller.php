@@ -25,13 +25,13 @@ class MY_Controller extends CI_Controller {
         if (empty($userid)) {
             return redirect(base_url().'admin/login');
         }
-        // elseif ($activated != '1') {
-        //     return redirect(base_url().'manage/verify');
-        // }
-        // elseif ($profile == 0) {
-        //     $this->session->set_tempdata('caption', 'Update Profile', 300);
-        //     return redirect(base_url().'account/profile');
-        // }
+        elseif ($activated != '1') {
+            return redirect(base_url().'manage/verify');
+        }
+        elseif ($profile == 0) {
+            $this->session->set_tempdata('caption', 'Update Profile', 300);
+            return redirect(base_url().'account/profile');
+        }
     }
 
 }
@@ -156,6 +156,33 @@ class Admin_Controller extends MY_Controller {
     //     }
 
     // }
+
+    function __construct()
+    {
+        parent::__construct();
+        //Initialization code that affects Public controllers. Probably not much needed because everyone can access public.
+        $WEBSET = $this->LoadWebSettings();
+        if ($WEBSET['UNDER_CONSTRUCTION'] == 'YES') {
+            die('UNDER_CONSTRUCTION');
+        }
+    }
+
+
+    public function LoadWebSettings() {
+
+        $websettings_keys = array();
+        $websettings_val = array();
+
+        $this->db->flush_cache();
+        $get = $this->db->get('tbl_websettings');
+        $result = $get->result();
+
+        foreach ($result as $row) {
+            array_push($websettings_keys, strtoupper($row->Parameter));
+            array_push($websettings_val, strtoupper($row->Value));
+        }
+        return array_combine($websettings_keys, $websettings_val);          
+    }
 
 }
 

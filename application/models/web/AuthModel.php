@@ -113,9 +113,13 @@ class AuthModel extends CI_Model {
 		$this->db->join('tbl_applicants app','app.Id = user.PeopleId','left outer');
 		$this->db->where('user.LoginName',$data['Email']);
 		if ($ext == TRUE) {
+			$this->db->group_start();
 			$this->db->where('user.External_Id', $data['External_Id']);
+			$this->db->or_where('user.Activated', '1');
+			$this->db->group_end();
 		}
 		$query = $this->db->get();
+		// die($this->db->last_query());
 		if ($query->num_rows() > 0) {
 			return $query->row();
 		}
@@ -162,7 +166,7 @@ class AuthModel extends CI_Model {
 
 	public function LoginApplicantGoogle($data) {
 
-		if ($this->CheckExistingExt($data['External_Id'],$data['Email']) > 0) {
+		if ($this->CheckExistingExt($data['External_Id'],$data['Email']) > 0 || $this->CheckExistingExt2($data['Email']) > 0) {
 			$login =  $this->LoginApplicant($data,TRUE);
 			return $login;
 		}
@@ -178,6 +182,16 @@ class AuthModel extends CI_Model {
 	function CheckExistingExt($extid,$email) {
 
 		$this->db->where('u.External_Id', $extid);
+		$this->db->where('u.LoginName', $email);
+		$this->db->where('a.EmailAddress', $email);
+		$this->db->from('tbl_security_users u');
+		$this->db->join('tbl_applicants a','a.Id = u.PeopleId','left outer');
+		return $this->db->count_all_results();
+	}
+
+
+	function CheckExistingExt2($email) {
+		$this->db->where('u.Activated', '1');
 		$this->db->where('u.LoginName', $email);
 		$this->db->where('a.EmailAddress', $email);
 		$this->db->from('tbl_security_users u');
