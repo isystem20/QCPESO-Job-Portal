@@ -13,6 +13,13 @@ function __construct() {
 
 	public function Dashboard()
 	{
+
+		if ($this->session->userdata('usertype') == 'APPLICANT') {
+			return redirect(base_url('applicant/Dashboard'));
+		}
+		if ($this->session->userdata('usertype') == 'EMPLOYER') {
+			return redirect(base_url('manage/employerdashboard'));
+		}
 		$websetting = $this->LoadWebSettings();
 		$data["totaljobs"] = $this->dash->total_Jobs();
 		$data["totalemployers"] = $this->dash->total_Employers();
