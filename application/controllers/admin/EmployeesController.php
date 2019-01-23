@@ -86,7 +86,7 @@
       // $this->form_validation->set_rules('StreetName','Street Name','required');
       // $this->form_validation->set_rules('HouseNum','House Number','required');
       // $this->form_validation->set_rules('Remarks','Remarks','required');  
-      $this->form_validation->set_rules('EmailAddress','User Name','required|is_unique[tbl_employees.EmailAddress]',
+      $this->form_validation->set_rules('EmailAddress','User Name','required|is_unique[tbl_security_users.LoginName]',
          array(
           'required'      => 'You have not provided %s.',
                 'is_unique'     => 'This %s already exists.'

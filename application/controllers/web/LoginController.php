@@ -68,6 +68,7 @@ class LoginController extends Public_Controller {
 					        			'peopleid' => $login->PeopleId,
 					        			'username' => $login->LoginName,
 					        			'email' => $login->EmailAddress,
+					        			'photo' => $login->PhotoPath,
 					        		); 
 					        		$this->session->set_userdata($session_data);
 				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
@@ -89,6 +90,7 @@ class LoginController extends Public_Controller {
 					        			'profile' => $login->ProfileProgress,
 					        			'pref_job' => $login->PreferredJobs,
 					        			'pref_loc' => json_decode($login->PreferredWorkLocations),
+					        			'photo' => $login->PhotoPath,
 					        		); 
 					        		$this->session->set_userdata($session_data);
 				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
@@ -105,6 +107,7 @@ class LoginController extends Public_Controller {
 					        			'peopleid' => $login->PeopleId,
 					        			'username' => $login->LoginName,
 					        			'email' => $login->CompanyEmail,
+					        			'photo' => $login->PhotoPath,
 					        		); 
 					        		$this->session->set_userdata($session_data);
 				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	   
@@ -158,6 +161,7 @@ class LoginController extends Public_Controller {
 				        			'profile' => $login->ProfileProgress,
 				        			'pref_job' => $login->PreferredJobs,
 				        			'pref_loc' => json_decode($login->PreferredWorkLocations),
+				        			'photo' => $login->PhotoPath,
 				        		); 
 				        		
 				        		$this->session->set_userdata($session_data);
@@ -216,6 +220,7 @@ class LoginController extends Public_Controller {
 				        			'profile' => $login->ProfileProgress,
 				        			'pref_job' => $login->PreferredJobs,
 				        			'pref_loc' => json_decode($login->PreferredWorkLocations),
+				        			'photo' => $login->PhotoPath,
 				        		); 
 				        		
 				        		$this->session->set_userdata($session_data);

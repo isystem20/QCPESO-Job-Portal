@@ -46,7 +46,7 @@
                 $id=$this->session->userdata('peopleid');
                 $profile=TRUE;
                 $this->session->set_tempdata('caption', 'Update Profile', 300);
-                // $mode = 'edit';
+                $mode = 'edit';
               }
 
               $data['applicant'] = $this->applimod->LoadMasterlist($id);
@@ -107,7 +107,7 @@
       // $this->form_validation->set_rules('StreetName','Street Name','required');
       // $this->form_validation->set_rules('HouseNum','House Number','required');
       // $this->form_validation->set_rules('Remarks','Remarks','required');  
-      $this->form_validation->set_rules('EmailAddress','Email Address','is_unique[tbl_applicants.EmailAddress]',
+      $this->form_validation->set_rules('EmailAddress','Email Address','is_unique[tbl_security_users.LoginName]',
          array(
                 'is_unique'     => 'This %s already exists.'
                 )
@@ -159,7 +159,8 @@
 
 
             $postdata = $this->input->post();
-            $postdata['PhotoPath']=$imagepath;
+            // $postdata['PhotoPath']=$imagepath;
+
             unset($postdata['_wysihtml5_mode']);
             $inserted = $this->applimod->Add($postdata);
            
@@ -193,8 +194,12 @@
             $result = $this->applimod->Update($id,$postdata);
             if ($result != FALSE) {
                 $json = json_encode($result);             
-               
+               if($id == $this->session->userdata('userid')){
+                echo json_encode(['success'=>TRUE,'url'=>base_url().'account/profile']);
+               }
+               else{
                 echo json_encode(['success'=>TRUE,'url'=>base_url().'manage/transactions/all-applicant']);
+              }
             }
             else {
                 echo json_encode(['error'=>'Update Unsuccessful.']);

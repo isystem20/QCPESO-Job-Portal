@@ -155,7 +155,15 @@ class ApplicantModel extends CI_Model {
             unset($data['Character_position']);
             unset($data['Character_Company']);
             unset($data['Character_Contact']);
-        }
+        } 
+        if($data['Gender'] == 'Male'){
+              $this->db->set('PhotoPath',"'themes/admin-pro/assets/images/users/Male.png'",FALSE);
+
+            }
+            else{
+
+              $this->db->set('PhotoPath',"'themes/admin-pro/assets/images/users/Female.png'",FALSE);
+            }
         $this->db->set('CreatedById', "'".$this->session->userdata('userid').
             "'", FALSE);
         $this->db->set('ModifiedById', "'".$this->session->userdata('userid').
@@ -374,7 +382,14 @@ class ApplicantModel extends CI_Model {
             unset($data['Character_Company']);
             unset($data['Character_Contact']);
         }
-         
+          if($data['Gender'] == 'Male'){
+              $this->db->set('PhotoPath',"'themes/admin-pro/assets/images/users/Male.png'",FALSE);
+
+            }
+            else{
+
+              $this->db->set('PhotoPath',"'themes/admin-pro/assets/images/users/Female.png'",FALSE);
+            }
   
         $this->db->set('ModifiedById', "'".$this->session->userdata('userid').
             "'", FALSE);
