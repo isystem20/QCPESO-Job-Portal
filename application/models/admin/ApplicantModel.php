@@ -14,10 +14,11 @@ class ApplicantModel extends CI_Model {
     public $character ='tbl_applicants_characterreference';
 
     public function LoadMasterlist($id = null) {
-        $this->db->select('a.*,u.*,a.Id as Id, u.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt, a.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as CharacterTbl');
+        $this->db->select('a.*,u.*,a.Id as Id, u.Id as UId, a.Remarks as Remarks, a.ModifiedAt as ModifiedAt,e.FirstName as ModFirstName, e.ModifiedById as ModifiedById,"" as WorkTbl, "" as SkillTbl, "" as EducTbl,"" as CharacterTbl');
         $this->db->from($this->tbl.
             ' a');
         $this->db->join('tbl_security_users u', 'u.PeopleId = a.Id', 'left outer');
+        $this->db->join('tbl_employees e', 'e.Id = a.ModifiedById', 'left outer ' );
         if (!empty($id)) {
             $this->db->where('a.Id', $id);
             $query = $this->db->get();
