@@ -189,6 +189,9 @@
 
      public function Update1() {
  
+
+
+
          $this->form_validation->set_rules('JobId', 'Item Record', 'required',
                 array(
                 'required'      => 'Cannot identify this record.',
@@ -202,7 +205,10 @@
         else{
             $result = $this->jobappmod->Process($postdata);
             if ($result != FALSE) {
-
+                $referraldata = $this->jobappmod->GetReferralData($postdata['JobId']);
+                $refer = $referraldata->result();
+                print_r($refer);
+                die();
                 $json = json_encode($result);              
                 echo $json;
             }

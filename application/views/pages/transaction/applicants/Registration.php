@@ -478,7 +478,7 @@ if (!empty($applicant)) {
                                             </div>
                                             <?php 
                                         $usertype = $this->session->userdata('usertype');
-                                        if ($usertype == 'ADMIN') {
+                                        if ($usertype == 'ADMIN' || $usertype == 'OFFICE STAFF') {
                                         ?>
                                                 <div class="col-md-6 ">
 
@@ -1371,7 +1371,7 @@ else { ?>
 
                                                                 <?php 
                                         $usertype = $this->session->userdata('usertype');
-                                        if ($usertype == 'ADMIN') {
+                                        if ($usertype == 'ADMIN' || $usertype == 'OFFICE STAFF') {
                                         ?>
                                                                     <div class="col-md-4">
                                                                         <div class="form-group">
