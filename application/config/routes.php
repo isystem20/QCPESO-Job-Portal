@@ -628,5 +628,14 @@ $route['manage/employee/update-employee/(:any)/(:any)'] = 'admin/EmployeesContro
 $route['manage/employees-masterlist'] = 'admin/EmployeesController/AllEmployees';
 $route['manage/employerdashboard'] = 'employer/EmployerController/Employer';
 //JobApplication Process 
-        $route['admin/jobapplication/process'] = 'admin/JobApplicationController/Update1'; 
+        $route['admin/jobapplication/process'] = 'admin/JobApplicationController/Update1';
+
+
+//Successful Referral
+        $route['manage/do/applicants/job-applications-successful-referal'] = 'admin/JobApplicationController/SuccessfulReferral'; 
+//News       
+$route['web/news'] = 'web/NewsController/News';
+$route['web/NewsDescription/(:any)'] = 'web/NewsController/NewsDescription/$1';
+//About Us
+$route['web/AboutUs'] = 'web/AboutController/about';
    

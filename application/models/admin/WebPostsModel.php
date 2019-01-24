@@ -6,12 +6,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public $tbl = 'tbl_web_posts';
 
-		public function WebPostModelMasterlist($id = NULL) {
+		public function WebPostModelMasterlist($id = null) {
             $this->db->select('*');
             $this->db->from($this->tbl);
             if (!empty($id)) {
                 $this->db->where('Id',$id);
-                return $this->db->get()->result();
+                return $this->db->get();
             }else {
                 $this->db->where('IsActive','1');
                 $this->db->or_where('IsActive','2');

@@ -92,7 +92,7 @@
         $data['jobapplication'] = $this->jobappmod->LoadMasterlist();
         $data['applicant'] = $this->applimod->LoadMasterlist();
         $data['categories'] = $this->categmod->LoadCategoryMasterlist();
-        $data['list'] = $this->jobappmod->LoadApplicationsMasterlist();
+        $data['list'] = $this->jobappmod->LoadReferralMasterlist();
 
         if  (!empty($postdata['Applicant'])) {
 

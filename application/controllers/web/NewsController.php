@@ -40,13 +40,13 @@ public function News()
 
 		if (!empty($id)) {
 
-		$data['webpost'] = $this->webpostmod->WebPostModelMasterlist(null,$id);
+		$data['webpost'] = $this->webpostmod->WebPostModelMasterlist($id);
 		
 		$data['posttype'] = $this->posttypemod->LoadMasterlist();
 		$data['posttags'] = $this->tagsmod->LoadTagslist();
 
 
-		die(print_r($data['webpost']->result_array()));
+		 // die(print_r($data['webpost']->result_array()));
 
 
 		if ($data['webpost']->num_rows() > 0) {
