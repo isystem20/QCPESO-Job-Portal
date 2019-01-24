@@ -42,9 +42,9 @@
                                     <!-- Post-->
                                     <?php
 
-                                    // print_r($browsejob->result());
+                                    
                                         if ($browsejob->num_rows() > 0) {
-                                        foreach ($browsejob->result() as $row) { ?>     
+                                        foreach ($browsejob->result() as $row) { $this->db->last_query(); ?>     
                                             <article class="post">
                                                 
                                             <div class="post-preview">

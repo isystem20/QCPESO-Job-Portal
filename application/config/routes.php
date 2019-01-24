@@ -627,8 +627,6 @@ $route['manage/employee/update-employee/(:any)'] = 'admin/EmployeesController/Ad
 $route['manage/employee/update-employee/(:any)/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1/$2';
 $route['manage/employees-masterlist'] = 'admin/EmployeesController/AllEmployees';
 $route['manage/employerdashboard'] = 'employer/EmployerController/Employer';
-$route['manage/do/applicants/job-applications-successful-referal'] = 'admin/JobApplicationController/SuccessfulReferral';
-$route['web/news'] = 'web/NewsController/News';
-$route['web/NewsDescription/(:any)'] = 'web/NewsController/NewsDescription/$1';
-$route['web/AboutUs'] = 'web/AboutController/about';
-
+//JobApplication Process 
+        $route['admin/jobapplication/process'] = 'admin/JobApplicationController/Update1'; 
+   
