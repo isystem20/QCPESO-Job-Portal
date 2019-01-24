@@ -68,7 +68,7 @@ public function BrowseJob()
 			$this->load->view('layout/web/6_footer',$layout);
 
 	}
-public function BrowseJobDescription($id = NULL){
+public function BrowseJobDescription($id = null){
 
 
 	if (!empty($id)) {
@@ -87,7 +87,7 @@ public function BrowseJobDescription($id = NULL){
 		$data['applevel'] = $this->levelmod->LoadMasterlist();
 		$data['webpost'] = $this->webpostmod->MostRecentPost();
 
-		//die(print_r($data['browsejob']->result_array()));
+		// die(print_r($data['browsejob']->result_array()));
 
 		
 

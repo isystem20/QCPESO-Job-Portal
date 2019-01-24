@@ -15,7 +15,7 @@ print_r($this->session->userdata());
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor">Successful Referral</h3>
-                    <h6 class="text-muted">Masterlist of All Job Applications</h6>
+                    <h6 class="text-muted">Masterlist of Successful Referral</h6>
                 
                 </div>
     <!--             <div class="col-md-7 align-self-center">

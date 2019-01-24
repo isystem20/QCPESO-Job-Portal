@@ -18,12 +18,12 @@ function __construct() {
 
 public function News()
 	{
-		$data['webpost'] = $this->webpostmod->LoadMasterlist();
+		$data['webpost'] = $this->webpostmod->WebPostModelMasterlist();
 		$data['posttype'] = $this->posttypemod->LoadMasterlist();
 		$data['posttags'] = $this->tagsmod->LoadTagslist();
 		
 		//$data['browsenews'] = $this->newsmod->LoadMasterlist();
-		$layout = array('transparentwrapper' => TRUE,'addons'=>TRUE, 'pagetitle'=>'News');
+		 $layout = array('tables'=>TRUE,'pagetitle'=>'Successful Referrals', 'addons' => TRUE);
 
 		$this->load->view('layout/web/1_head',$layout);
 		$this->load->view('layout/web/2_preloader',$layout);
@@ -35,14 +35,18 @@ public function News()
 	}
 
 
-	public function NewsDescription($id = NULL){
+	public function NewsDescription($id = null){
 
 
-		if (!empty($id)) {	
+		if (!empty($id)) {
 
-		$data['webpost'] = $this->webpostmod->LoadMasterlist();
+		$data['webpost'] = $this->webpostmod->WebPostModelMasterlist(null,$id);
+		
 		$data['posttype'] = $this->posttypemod->LoadMasterlist();
 		$data['posttags'] = $this->tagsmod->LoadTagslist();
+
+
+		die(print_r($data['webpost']->result_array()));
 
 
 		if ($data['webpost']->num_rows() > 0) {
@@ -63,8 +67,9 @@ public function News()
 
 		}
 	}
+}
 		
-	}
+	
 
 
 	

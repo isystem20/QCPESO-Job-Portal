@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public $tbl = 'tbl_web_posts';
 
-		public function LoadMasterlist($id = null) {
+		public function WebPostModelMasterlist($id = NULL) {
             $this->db->select('*');
             $this->db->from($this->tbl);
             if (!empty($id)) {
@@ -17,6 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->db->or_where('IsActive','2');
                 return $this->db->get();
             }
+
 
         }
 

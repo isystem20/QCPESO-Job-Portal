@@ -630,4 +630,5 @@ $route['manage/employerdashboard'] = 'employer/EmployerController/Employer';
 $route['manage/do/applicants/job-applications-successful-referal'] = 'admin/JobApplicationController/SuccessfulReferral';
 $route['web/news'] = 'web/NewsController/News';
 $route['web/NewsDescription/(:any)'] = 'web/NewsController/NewsDescription/$1';
+$route['web/AboutUs'] = 'web/AboutController/about';
 

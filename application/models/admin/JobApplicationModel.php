@@ -17,6 +17,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->db->or_where('isActive','2');
 				return $this->db->get();
 			}
+			if (!empty($id)) {
+				$this->db->where('Id',$id);
+			}
+
+			$query = $this->db->get(); 
 			
 		}
 

@@ -88,7 +88,7 @@
 
         $data['search'] = $postdata;
 
-        $layout = array('tables'=>TRUE,'pagetitle'=>'Job Application', 'addons' => TRUE);
+        $layout = array('tables'=>TRUE,'pagetitle'=>'Successful Referrals', 'addons' => TRUE);
         $data['jobapplication'] = $this->jobappmod->LoadMasterlist();
         $data['applicant'] = $this->applimod->LoadMasterlist();
         $data['categories'] = $this->categmod->LoadCategoryMasterlist();
