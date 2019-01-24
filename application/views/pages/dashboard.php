@@ -146,10 +146,10 @@
                                     </div>
                                     <div class="ml-auto">
                                         <select class="custom-select b-0">
-                                            <option selected="">January 2017</option>
-                                            <option value="1">February 2017</option>
+                                            <option selected="">January 2019</option>
+                                           <!--  <option value="1">February 2017</option>
                                             <option value="2">March 2017</option>
-                                            <option value="3">April 2017</option>
+                                            <option value="3">April 2017</option> -->
                                         </select>
                                     </div>
                                 </div>
@@ -171,10 +171,10 @@
                                     </div>
                                     <div class="ml-auto">
                                         <select class="custom-select b-0">
-                                            <option selected="">January 2017</option>
-                                            <option value="1">February 2017</option>
+                                            <option selected="">January 2019</option>
+                                            <!-- <option value="1">February 2017</option>
                                             <option value="2">March 2017</option>
-                                            <option value="3">April 2017</option>
+                                            <option value="3">April 2017</option> -->
                                         </select>
                                     </div>
                                 </div>
