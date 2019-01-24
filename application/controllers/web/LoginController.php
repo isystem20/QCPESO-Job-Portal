@@ -183,7 +183,7 @@ class LoginController extends Public_Controller {
 					        			'usertype' => $login->UserType,
 					        			'peopleid' => $login->PeopleId,
 					        			'username' => $login->LoginName,
-					        			'email' => $login->EmailAddress,
+					        			// 'email' => $login->EmailAddress,
 					        			'auth' => 'Manual',
 					        		); 
 					        		$this->session->set_userdata($session_data);
@@ -192,8 +192,8 @@ class LoginController extends Public_Controller {
 			        			elseif ($login->UserType == 'APPLICANT') {
 					        		$session_data = array(
 					        			'userid' => $login->Id,
-					        			'lastname' => $login->lastName,
-					        			'firstname'=> $login->firstName,
+					        			'lastname' => $login->LastName,
+					        			'firstname'=> $login->FirstName,
 					        			'status' => $login->applicantstatus,
 					        			'active' => $login->Active,
 					        			'security_id' =>$login->SecurityUserLevelId,

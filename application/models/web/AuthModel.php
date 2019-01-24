@@ -108,7 +108,7 @@ class AuthModel extends CI_Model {
 	}
 
 	public function LoginApplicant($data,$ext = FALSE) {
-		$this->db->select('user.*, app.lastName, app.firstName,app.isActive as applicantstatus, app.PreferredJobs, app.PreferredWorkLocations, app.PhotoPath');
+		$this->db->select('user.*, app.LastName, app.FirstName,app.IsActive as applicantstatus, app.PreferredJobs, app.PreferredWorkLocations, app.PhotoPath');
 		$this->db->from('tbl_security_users user');
 		$this->db->join('tbl_applicants app','app.Id = user.PeopleId','left outer');
 		$this->db->where('user.LoginName',$data['Email']);
@@ -183,9 +183,9 @@ class AuthModel extends CI_Model {
 
 		$this->db->where('u.External_Id', $extid);
 		$this->db->where('u.LoginName', $email);
-		$this->db->where('a.EmailAddress', $email);
+		// $this->db->where('a.EmailAddress', $email);
 		$this->db->from('tbl_security_users u');
-		$this->db->join('tbl_applicants a','a.Id = u.PeopleId','left outer');
+		// $this->db->join('tbl_applicants a','a.Id = u.PeopleId','left outer');
 		return $this->db->count_all_results();
 	}
 
@@ -193,9 +193,9 @@ class AuthModel extends CI_Model {
 	function CheckExistingExt2($email) {
 		$this->db->where('u.Activated', '1');
 		$this->db->where('u.LoginName', $email);
-		$this->db->where('a.EmailAddress', $email);
+		// $this->db->where('a.EmailAddress', $email);
 		$this->db->from('tbl_security_users u');
-		$this->db->join('tbl_applicants a','a.Id = u.PeopleId','left outer');
+		// $this->db->join('tbl_applicants a','a.Id = u.PeopleId','left outer');
 		return $this->db->count_all_results();
 	}
 
