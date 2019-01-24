@@ -80,7 +80,7 @@ class LoginController extends Public_Controller {
 				        		
 				        		$this->session->set_userdata($session_data);
 			        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
-					        			'photo' => $login->PhotoPath,
+					        
      		
 
 			        		}
@@ -183,7 +183,8 @@ class LoginController extends Public_Controller {
 					        			'usertype' => $login->UserType,
 					        			'peopleid' => $login->PeopleId,
 					        			'username' => $login->LoginName,
-					        			'email' => $login->EmailAddress,
+					        			'activated' => $login->Activated,
+					        			// 'email' => $login->EmailAddress,
 					        			'auth' => 'Manual',
 					        		); 
 					        		$this->session->set_userdata($session_data);
@@ -192,8 +193,8 @@ class LoginController extends Public_Controller {
 			        			elseif ($login->UserType == 'APPLICANT') {
 					        		$session_data = array(
 					        			'userid' => $login->Id,
-					        			'lastname' => $login->lastName,
-					        			'firstname'=> $login->firstName,
+					        			'lastname' => $login->LastName,
+					        			'firstname'=> $login->FirstName,
 					        			'status' => $login->applicantstatus,
 					        			'active' => $login->Active,
 					        			'security_id' =>$login->SecurityUserLevelId,
@@ -223,6 +224,7 @@ class LoginController extends Public_Controller {
 					        			'usertype' => $login->UserType,
 					        			'peopleid' => $login->PeopleId,
 					        			'username' => $login->LoginName,
+					        			'activated' => $login->Activated,
 					        			'email' => $login->CompanyEmail,
 					        			'auth' => 'Manual',
 					        		); 

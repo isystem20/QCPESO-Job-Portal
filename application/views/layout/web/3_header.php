@@ -234,7 +234,7 @@
                             <li><a href="<?php echo base_url(); ?>web/AboutController/about"><span class="menu-item-span">About</span></a></li>
                             <li><a href="<?php echo base_url(); ?>web/ServicesController/services"><span class="menu-item-span">Services</span></a></li>
                             <li><a href="<?php echo base_url(); ?>web/browsejob"><span class="menu-item-span">Browse Jobs</span></a></li>
-                            <li><a href="<?php echo base_url(); ?>web/NewsController/news"><span class="menu-item-span">News</span></a></li>
+                            <li><a href="<?php echo base_url(); ?>web/news"><span class="menu-item-span">News</span></a></li>
 
                             <?php 
                             if (empty($this->session->userdata('userid'))) { ?>
