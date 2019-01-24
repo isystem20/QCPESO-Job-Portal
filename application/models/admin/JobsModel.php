@@ -6,6 +6,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     function __construct() {
         parent::__construct();
 		$this->load->model('notifications/PushNotif','push');
+		$this->load->model('notifications/Email','email');
+
     }
 				public $tbl = 'tbl_establishments_jobposts';
 
@@ -121,10 +123,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$jobtitle = $this->getJobtitle($data['id']);
 				if ($jobtitle != FALSE) {
 					$recipients = $this->getRecipients($jobtitle);
+					$smsnotif = $recipients[0]->MobileNum;
 					//Send Push notif
 					$this->push->SentJobAlert($recipients,$jobtitle,$data['id']);
-
-
+					$this->email->SentJobAlert($smsnotif,$jobtitle,$data['id']);
 					//Add Notif for SMS and
 					// $insertdata = array(
 					// 	'UserId' => , 
@@ -155,6 +157,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    	}
 	    }
 
+	    function getRecipientsMobile($id) {
+	    	$this->db->select('MobileNum');
+	    	$this->db->from('tbl_applicants');
+	    	$this->db->where('Id',$id);
+	    	$get = $this->db->get();
+	    	if ($get->num_rows() > 0) {
+	    		return $get->result();
+	    	}else {
+	    		return FALSE;
+	    	}
+	    }
 
 		function getJobtitle($id) {
 			$this->db->select('JobTitle');

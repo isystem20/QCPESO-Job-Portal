@@ -13,8 +13,8 @@ function __construct() {
 			$this->load->model('admin/ApplicantLevelModel','levelmod');
 			$this->load->model('admin/WebPostsModel','webpostmod');
      }
-public function BrowseJob()
-				{
+	public function BrowseJob()
+	{
 		$str = null;
 						
 		$postdata = $this->input->post();
