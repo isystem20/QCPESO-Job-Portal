@@ -183,6 +183,7 @@ class LoginController extends Public_Controller {
 					        			'usertype' => $login->UserType,
 					        			'peopleid' => $login->PeopleId,
 					        			'username' => $login->LoginName,
+					        			'activated' => $login->Activated,
 					        			// 'email' => $login->EmailAddress,
 					        			'auth' => 'Manual',
 					        		); 
@@ -223,6 +224,7 @@ class LoginController extends Public_Controller {
 					        			'usertype' => $login->UserType,
 					        			'peopleid' => $login->PeopleId,
 					        			'username' => $login->LoginName,
+					        			'activated' => $login->Activated,
 					        			'email' => $login->CompanyEmail,
 					        			'auth' => 'Manual',
 					        		); 

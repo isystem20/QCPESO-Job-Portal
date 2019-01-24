@@ -123,10 +123,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$jobtitle = $this->getJobtitle($data['id']);
 				if ($jobtitle != FALSE) {
 					$recipients = $this->getRecipients($jobtitle);
-					$smsnotif = $recipients[0]->MobileNum;
+
+					$smsnotif = $this->getRecipientsMobile($data['id']);
 					//Send Push notif
-					$this->push->SentJobAlert($recipients,$jobtitle,$data['id']);
-					$this->email->SentJobAlert($smsnotif,$jobtitle,$data['id']);
+					$this->push->SentJobAlert($recipients->result(),$jobtitle,$data['id']);
+					$this->email->SentJobAlert($smsnotif[0]->MobileNum,$jobtitle,$data['id']);
 					//Add Notif for SMS and
 					// $insertdata = array(
 					// 	'UserId' => , 
@@ -151,7 +152,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    	$this->db->like('lower(PreferredJobs)',$str);
 	    	$get = $this->db->get();
 	    	if ($get->num_rows() > 0) {
-	    		return $get->result();
+	    		return $get;
 	    	}else {
 	    		return FALSE;
 	    	}
