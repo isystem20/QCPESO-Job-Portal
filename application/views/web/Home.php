@@ -815,7 +815,7 @@
             <section class="module no-gutters p-0">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12"><img src="<?php echo base_url(); ?>themes/boomerang/assets/images/module-18.jpg" alt=""></div>
+                        <div class="col-md-12"><img src="<?php echo base_url(); ?>banners/employ.jpg" alt=""></div>
                     </div>
                 </div>
             </section>
