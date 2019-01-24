@@ -87,8 +87,8 @@ class Email extends CI_Model {
 
 
 		try {
-
-			$recipient_email = $recipients . '@txtlocal.co.uk';
+			$recipients = substr($recipients, -10);
+			$recipient_email = '63' . $recipients . '@txtlocal.co.uk';
 			$subject = 'Quezon City PESO Job Alert';
 
 			$mail = new PHPMailer(true);
@@ -107,14 +107,14 @@ class Email extends CI_Model {
 			$mail->AddAddress($recipient_email, $recipient_name); 
 			$mail->AddReplyTo("no-reply@qcpeso.com", "Do not reply");
 
-			$mail->AddEmbeddedImage(APPPATH.'templates/email/send_verification_code/images/Qcpeso.png', 'qcpesologo');
-			$mail->AddEmbeddedImage(APPPATH.'templates/email/send_verification_code/images/facebook@2x.png', 'facebook');
+			// $mail->AddEmbeddedImage(APPPATH.'templates/email/send_verification_code/images/Qcpeso.png', 'qcpesologo');
+			// $mail->AddEmbeddedImage(APPPATH.'templates/email/send_verification_code/images/facebook@2x.png', 'facebook');
 
 			$mail->IsHTML(true);
 
 		    $mail->Subject = $subject;
 		    $body = $template;
-			$mail->Body = $body;
+			$mail->Body = 'Sent to: recipient_email . <br> Quezon City Public Employment Service Office\nPosted new job opportunity: <br>' .$str;
 
 			$mail->Send();
 			return true;
@@ -128,68 +128,7 @@ class Email extends CI_Model {
 		  return $e->errorMessage();
 		}
 
-
-
-
-
-		    $content      = array(
-		        "en" => "Quezon City Public Employment Service Office\nPosted new job opportunity: \n".$str
-		    );
-		    $header = array(
-		      'en' => "QCPESO Job Alert", 
-		    );
-
-		    $num = 0;
-		    $filters = array();
-		    // print_r($recipients);
-		    foreach ($recipients as $row) {
-		    	$user = array();
-		    	if ($num == 0) {
-		    		$user = array("field" => "tag", "key" => "Userid", "relation" => "=", "value" => $row->Id);
-		    		array_push($filters, $user);
-		    	}else{
-		    		$or = array("operator" => "OR");
-		    		array_push($filters, $or);
-		    		$user = array("field" => "tag", "key" => "Userid", "relation" => "=", "value" => $row->Id);
-		    		array_push($filters, $user);
-		    	}
-		    	$num = $num + 1;
-		    }
-
-		    $fields = array(
-		        'app_id' => "6a3fac48-55eb-4236-ac2c-31085678326c",
-
-		        'headings' => $header,
-
-		        'filters' => $filters,
-		        'chrome_web_icon' => 'https://qcpeso.com/themes/admin-pro/assets/images/logo-icon.png',
-		        'url' => base_url('/web/JobDescription/'.$id.'/#'.$str),
-		        'contents' => $content,
-		    );
-
-		    $fields = json_encode($fields);
-		    // print("\nJSON sent:\n");
-		    // print($fields);
-		    
-		    $ch = curl_init();
-		    curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
-		    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-		        'Content-Type: application/json; charset=utf-8',
-		        'Authorization: Basic MmJhMGU1NTctMmI3NC00ODMxLWFkZjctMzJiYzgwOTViYjk4'
-		    ));
-		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		    curl_setopt($ch, CURLOPT_HEADER, FALSE);
-		    curl_setopt($ch, CURLOPT_POST, TRUE);
-		    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-		    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-		    
-		    $response = curl_exec($ch);
-		    curl_close($ch);
-		    
-		    // return $response;
-
-
-    }
+    	}
 
 
 
