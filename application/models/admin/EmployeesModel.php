@@ -45,7 +45,7 @@ class EmployeesModel extends CI_Model {
         $this->load->library('Uuid');
         $id = $this->uuid->v4();
         $this->db->set('Id', "'".$id."'", FALSE);
-      
+        $this->db->set('Position',"'".$data['Position']."'",FALSE);
         $this->db->set('CreatedById', "'".$this->session->userdata('userid').
             "'", FALSE);
          $this->db->set('CreatedAt','CURRENT_TIMESTAMP',FALSE);
@@ -57,7 +57,7 @@ class EmployeesModel extends CI_Model {
             $UserId = $this->uuid->v4();
         
          $this->db->flush_cache();
-            // $position = $data['']
+
             $password = $data['SSS'];
             $key = $this->config->item('encryption_key');
             $salt1 = hash('sha512', $key . $password);
@@ -72,14 +72,14 @@ class EmployeesModel extends CI_Model {
                 $this->db->set('LoginName',"'".$data['EmailAddress']."@qcpeso.com'",FALSE);
                 $this->db->set('Email',"'".$data['EmailAddress']."@qcpeso.com'",FALSE);
              
-           
+            $this->db->set('UserType',"'".$data['Position']."'",FALSE);
             $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
             $this->db->set('SecurityUserLevelId',"'3'",FALSE);
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
-               $this->db->set('CreatedAt','CURRENT_TIMESTAMP',FALSE);
+            $this->db->set('CreatedAt','CURRENT_TIMESTAMP',FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
-            $this->db->set('UserType',"'OFFICESTAFF'",FALSE); 
+            
             $this->db->set('PeopleId',"'".$id."'",FALSE);           
           
             $this->db->insert('tbl_security_users');

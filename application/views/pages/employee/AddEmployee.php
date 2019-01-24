@@ -106,7 +106,7 @@ if (!empty($employee)) {
                                     <div class="form-group has-success">
                                         <label class="control-label">Position</label>
                                         <select type="text" name="Position" value="<?=$row->Position;?>" class="form-control">
-                                            <option <?php if($row->Position=="OFFICE STAFF"){ echo "Selected";}?> value="OFFICE STAFF">Office Staff</option>
+                                            <option <?php if($row->Position=="OFFICESTAFF"){ echo "Selected";}?> value="OFFICESTAFF">Office Staff</option>
                                             <option <?php if($row->Position=="MANAGER"){ echo "Selected";}?> value="MANAGER">Manager</option>
                                             
                                         </select>
@@ -309,7 +309,7 @@ else { ?>
                                             <div class="form-group has-success">
                                         <label class="control-label">Position</label>
                                         <select class="form-control custom-select" name="Position">
-                                            <option value="OFFICE STAFF">Office Staff</option>
+                                            <option value="OFFICESTAFF">Office Staff</option>
                                             <option value="MANAGER">Manager</option>
                                            
                                         </select>
