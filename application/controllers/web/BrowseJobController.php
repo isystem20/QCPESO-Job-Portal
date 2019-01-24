@@ -18,8 +18,8 @@ function __construct() {
 
 
      }
-public function BrowseJob()
-				{
+	public function BrowseJob()
+	{
 		$str = null;
 						
 		$postdata = $this->input->post();

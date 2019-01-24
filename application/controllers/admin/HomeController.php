@@ -14,10 +14,10 @@ function __construct() {
 	public function Dashboard()
 	{
 
-		if ($this->session->userdata('usertype') == 'APPLICANT') {
+		if ($this->session->userdata('usertype') == 'APPLICANT' && $this->session->userdata('activated') == '1') {
 			return redirect(base_url('applicant/Dashboard'));
 		}
-		if ($this->session->userdata('usertype') == 'EMPLOYER') {
+		if ($this->session->userdata('usertype') == 'EMPLOYER' && $this->session->userdata('activated') == '1') {
 			return redirect(base_url('manage/employerdashboard'));
 		}
 		$websetting = $this->LoadWebSettings();
