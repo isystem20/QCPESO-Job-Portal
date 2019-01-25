@@ -45,7 +45,6 @@ class EmployeesModel extends CI_Model {
         $this->load->library('Uuid');
         $id = $this->uuid->v4();
         $this->db->set('Id', "'".$id."'", FALSE);
-        $this->db->set('Position',"'".$data['Position']."'",FALSE);
         $this->db->set('CreatedById', "'".$this->session->userdata('userid').
             "'", FALSE);
          $this->db->set('CreatedAt','CURRENT_TIMESTAMP',FALSE);
@@ -141,7 +140,7 @@ class EmployeesModel extends CI_Model {
              
            
             $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
-
+                $this->db->set('UserType',"'".$data['Position']."'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);        
             $this->db->where('Id', $id);

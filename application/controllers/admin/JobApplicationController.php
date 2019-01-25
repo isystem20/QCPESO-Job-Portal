@@ -260,9 +260,13 @@
             $result = $this->jobappmod->Process($postdata);
             if ($result != FALSE) {
                 $referraldata = $this->jobappmod->GetReferralData($postdata['JobId']);
-                $refer = $referraldata->result();
-                print_r($refer);
-                die();
+                $data['refer'] = $referraldata->result_array();
+                
+
+                // print_r($refer);
+                // die();
+               $refer
+
                 $json = json_encode($result);              
                 echo $json;
             }
@@ -275,5 +279,9 @@
 
     }
 
+  public function GeneratedPdf($data){
 
+                 $this->load->library("Pdf");
+                $this->load->view("pages/reports/PDF/ReferralLetter",$data);
+  }
 }

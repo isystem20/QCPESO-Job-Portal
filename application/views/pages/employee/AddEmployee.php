@@ -102,7 +102,7 @@ if (!empty($employee)) {
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
-                                            <div class="col-sm-2">
+                        
                                     <div class="form-group has-success">
                                         <label class="control-label">Position</label>
                                         <select type="text" name="Position" value="<?=$row->Position;?>" class="form-control">
