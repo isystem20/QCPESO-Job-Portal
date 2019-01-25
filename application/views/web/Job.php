@@ -231,7 +231,7 @@
                             <p class="lead">For the applicants to avail the service, walk-in applicants must present a resume and secure a PESO Skills Registry System Form (SRS). After filling out the form, it will be submitted to the Client Assistance Officer whose job is to receive, verify, and encode the data filled in the form. In job matching process, the Client Assistant Officer searches for the applicant’s preferred job and look if that job qualifications fit the applicant. Once matched, the officer will now provide a referral letter and issue a PESO ID. The employment facilitation takes up to 17 minutes to be processed.</p>
                             <br>
                             <h4>Need assistance to find job?</h4>
-                            <p class="lead">The PESO will help for you to find a job that was fitted to you. </p>
+                            <p class="lead">The PESO will help you to find a job that fits to you. </p>
                            
                         </div>
                     </div>
