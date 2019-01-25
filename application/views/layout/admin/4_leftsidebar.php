@@ -20,7 +20,7 @@
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="<?=base_url('dev/switch/usertype/ADMIN'); ?>">Switch to Admin </a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/MANAGER'); ?>">Switch to Manager </a></li>
-                        <li><a href="<?=base_url('dev/switch/usertype/STAFF'); ?>">Switch to Office Staff</a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/OFFICESTAFF'); ?>">Switch to Office Staff</a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/EMPLOYER'); ?>">Switch to Employer</a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/APPLICANT'); ?>">Switch to Applicant</a></li>
                         <li><a href="<?=base_url('dev/switch/profile/100'); ?>">Bypass Incomplete Profile</a></li>
@@ -46,7 +46,7 @@
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="<?=base_url('dev/switch/usertype/ADMIN'); ?>">Switch to Admin </a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/MANAGER'); ?>">Switch to Manager </a></li>
-                        <li><a href="<?=base_url('dev/switch/usertype/CLERK'); ?>">Switch to Clerk</a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/OFFICESTAFF'); ?>">Switch to Office Staff</a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/EMPLOYER'); ?>">Switch to Employer</a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/APPLICANT'); ?>">Switch to Applicant</a></li>
                         <li><a href="<?=base_url('dev/switch/profile/100'); ?>">Bypass Incomplete Profile</a></li>
@@ -233,6 +233,18 @@
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="<?php echo base_url(); ?>manage/do/jobs/add" data-i18n="nav.json-form.simple-form">Add New</a></li>
                             <li><a href="<?php echo base_url(); ?>manage/do/jobs/view-list" data-i18n="nav.json-form.clubs-view">View Jobs</a></li>
+
+                        </ul>
+                    </li>
+
+                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Applicants</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="<?php echo base_url(); ?>manage/applicant/add" data-i18n="nav.json-form.simple-form">Add Walk-in</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/applicant/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.clubs-view">Browse Job</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications-masterlist" data-i18n="nav.json-form.clubs-view">Applications</a></li>
+                             <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications-successful-referal" data-i18n="nav.json-form.clubs-view">Successful Referrals</a></li>
+
 
                         </ul>
                     </li>
