@@ -35,7 +35,7 @@
 
  <?php 
                     $usertype = $this->session->userdata('usertype');
-                    if ($usertype == 'ADMIN' || $usertype == 'EMPLOYER' || $usertype == 'OFFICE STAFF' || $usertype == 'MANAGER'  ) {
+                    if ($usertype == 'ADMIN' || $usertype == 'EMPLOYER' || $usertype == 'OFFICESTAFF' || $usertype == 'MANAGER'  ) {
                     ?>
                  <li class="user-profile">
              
