@@ -92,6 +92,7 @@
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li>
                            <!--  <li><a href="<?php echo base_url(); ?>manage/maintenance/employment-types"> Employment Types</a></li> -->
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/industries"> Industries </a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/maintenance/applicant-jobclassification"> Job Classification </a></li>
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/job-titles"> Job Titles </a></li>
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/languages"> Language </a></li>
                             <li><a href="<?php echo base_url(); ?>manage/maintenance/licenses"> Licenses </a> </li>
