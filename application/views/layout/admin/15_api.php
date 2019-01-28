@@ -110,7 +110,7 @@ catch(err) {
     <!-- Facebook API End -->
 
     <script type="text/javascript">
-        try {
+        // try {
 
           window.fbAsyncInit = function() {
             FB.init({
@@ -127,17 +127,17 @@ catch(err) {
                   }
 
                 }
-                console.log(response);
-                // statusChangeCallback(response);
+                // console.log(response);
+                statusChangeCallback(response);
             });
 
           };
-        }
-        catch(err) {
-          console.log(err);
-        }
+        // }
+        // catch(err) {
+        //   console.log(err);
+        // }
 
-        try {
+        // try {
           (function(d, s, id){
              var js, fjs = d.getElementsByTagName(s)[0];
              if (d.getElementById(id)) {return;}
@@ -147,25 +147,25 @@ catch(err) {
            }(document, 'script', 'facebook-jssdk'));
 
 
-        }
-        catch(err) {
-          console.log(err);
-        }
+        // }
+        // catch(err) {
+        //   console.log(err);
+        // }
       function checkLoginState() {
-        try {
+        // try {
 
             FB.getLoginStatus(function(response) {
               statusChangeCallback(response);
             });
 
-        }
-        catch(err) {
-          console.log(err);
-        }
+        // }
+        // catch(err) {
+        //   console.log(err);
+        // }
       }
 
       function goLogoutfb() {
-        try {
+        // try {
 
             FB.getLoginStatus(function(response) {
               if (response.status === 'connected') {
@@ -175,10 +175,10 @@ catch(err) {
                        
               }
             });
-        }
-        catch(err) {
-          console.log(err);
-        }
+        // }
+        // catch(err) {
+        //   console.log(err);
+        // }
       }
 
 
@@ -235,6 +235,9 @@ catch(err) {
                         }
                     });
 
+            }
+            else {
+              console.log(response);
             }
         })
         

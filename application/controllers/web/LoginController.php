@@ -60,8 +60,8 @@ class LoginController extends Public_Controller {
 				        		$session_data = array(
 				        			'userid' => $login->Id,
 					        			'photo' => $login->PhotoPath,
-				        			'lastname' => $login->lastName,
-				        			'firstname'=> $login->firstName,
+				        			'lastname' => $login->LastName,
+				        			'firstname'=> $login->FirstName,
 				        			'status' => $login->applicantstatus,
 				        			'active' => $login->Active,
 				        			'security_id' =>$login->SecurityUserLevelId,

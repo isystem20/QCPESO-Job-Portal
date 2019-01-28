@@ -111,13 +111,16 @@ class AuthModel extends CI_Model {
 		$this->db->select('user.*, app.LastName, app.FirstName,app.IsActive as applicantstatus, app.PreferredJobs, app.PreferredWorkLocations, app.PhotoPath');
 		$this->db->from('tbl_security_users user');
 		$this->db->join('tbl_applicants app','app.Id = user.Id','left outer');
-		$this->db->where('user.LoginName',$data['Email']);
-		$this->db->where('app.EmailAddress',$data['Email']);
+
 		if ($ext == TRUE) {
 			$this->db->group_start();
 			$this->db->where('user.External_Id', $data['External_Id']);
 			$this->db->or_where('user.Activated', '1');
 			$this->db->group_end();
+		}
+		else {
+			$this->db->where('user.LoginName',$data['Email']);
+			$this->db->where('app.EmailAddress',$data['Email']);			
 		}
 		$query = $this->db->get();
 		// die($this->db->last_query());
