@@ -46,9 +46,10 @@
                                           if (!empty($websetting) && !empty($websetting['ENABLE_FACEBOOK_AUTH'])) {
                                             if ($websetting['ENABLE_FACEBOOK_AUTH'] == 'YES') { ?>
 
-                                            <fb:login-button 
+                                            <fb:login-button size="xlarge"
                                               scope="public_profile,email"
-                                              onlogin="checkLoginState();">
+                                              onlogin="checkLoginState();"
+                                              width="1100" height="40%">
                                             </fb:login-button>   
 
                                             <?php
@@ -71,7 +72,7 @@
                                         <?php
                                         if (!empty($websetting) && !empty($websetting['ENABLE_GOOGLE_AUTH'])) {
                                             if ($websetting['ENABLE_GOOGLE_AUTH'] == 'YES') { ?>
-                                            <div class="g-signin2" data-onsuccess="onSignIn" data-width="100%"></div> 
+                                            <div class="g-signin2" data-onsuccess="onSignIn" data-width="125%" data-height="40%"></div> 
 
                                             <?php
                                                     
