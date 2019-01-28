@@ -644,6 +644,14 @@ $route['web/AboutUs'] = 'web/AboutController/about';
 $route['web/job'] = 'web/JobController/Job';
 $route['web/hiring'] = 'web/HiringController/Hiring';
 
-$route['admin/jobapplication/process/(:any)'] = 'admin/JobApplicationController/Update1/$1';
+// Job Classification
+$route['manage/maintenance/applicant-jobclassification'] = 'admin/JobClassificationController/JobClassification';
+//Job Classification (CREATE, UPDATE, DELETE, READ)
+        $route['admin/classification/add'] = 'admin/JobClassificationController/Create'; 
+        $route['admin/classification/edit'] = 'admin/JobClassificationController/Update'; 
+        $route['admin/classification/del'] = 'admin/JobClassificationController/Delete'; 
+        $route['admin/classification/read'] = 'admin/JobClassificationController/Read'; 
+
+        $route['admin/jobapplication/process/(:any)'] = 'admin/JobApplicationController/Update1/$1';
 
 $route['admin/pending-accreditation/process/(:any)'] = 'admin/EmployerController/Update1/$1';
