@@ -195,11 +195,11 @@ $this->form_validation->set_rules('LastName','Last Name','required');
       $this->form_validation->set_rules('CityId','City','required');
       $this->form_validation->set_rules('ProvinceId','Province','required');
       $this->form_validation->set_rules('Remarks','Remarks','required');  
-      $this->form_validation->set_rules('EmailAddress','Email Address','is_unique[tbl_security_users.LoginName]',
-         array(
-                'is_unique'     => 'This %s already exists.'
-                )
-            );
+      // $this->form_validation->set_rules('EmailAddress','Email Address','is_unique[tbl_applicants.EmailAddress]',
+      //    array(
+      //           'is_unique'     => 'This %s already exists.'
+      //           )
+      //       );
       $this->form_validation->set_rules('MobileNum','Mobile Number','required',
        array(
                 'required'      => 'You have not provided %s.'

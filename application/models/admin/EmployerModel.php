@@ -129,6 +129,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         }
 
+function GetAccreditationData($id){
+            
+            $this->db->select('e.*,e.IsActive as ApplicationStatus,e.Id as Id');
+            $this->db->from('tbl_establishments e');
+            $this->db->where('e.IsActive','2');
+            $this->db->where('e.Id', $id);
+            $get = $this->db->get();
+            // die($this->db->last_query());
+            return $get;
+}
 
+
+public function PendingRequest2($data) {
+            $this->db->select('*');
+            $this->db->from($this->tbl);
+            if (!empty($id)) {
+                $this->db->where('id',$postdata['Id']);
+                return $this->db->get()->result();
+            }else {
+                $this->db->where('IsActive','2');
+                return $this->db->get();
+            }
+            
+        }
+    
 
     }

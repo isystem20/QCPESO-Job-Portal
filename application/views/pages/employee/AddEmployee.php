@@ -73,7 +73,7 @@ if (!empty($employee)) {
                                     <div class="form-group has-success">
                                         <label class="control-label">Suffix</label>
                                         <select type="text" name="Suffix" value="<?=$row->Suffix;?>" class="form-control">
-                                            <option <?php if($row->Suffix=="N/A"){ echo "Selected";}?> value="N/A">N/A</option>
+                                            <option <?php if($row->Suffix==" "){ echo "Selected";}?> value=" ">N/A</option>
                                             <option <?php if($row->Suffix=="Jr"){ echo "Selected";}?> value="Jr">Jr.</option>
                                             <option <?php if($row->Suffix=="Sr"){ echo "Selected";}?> value="Sr">Sr.</option>
                                             <option <?php if($row->Suffix=="1"){ echo "Selected";}?> value="I">I</option>
@@ -102,11 +102,16 @@ if (!empty($employee)) {
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 ">
-                                                <div class="form-group has-success">
-                                                    <label class="control-label">Telephone</label>
-                                                    <input type="text" name="LandlineNum" class="form-control form-control-danger" value="<?=$row->LandlineNum;?>">
-                                                </div>
-                                            </div>
+                        
+                                    <div class="form-group has-success">
+                                        <label class="control-label">Position</label>
+                                        <select type="text" name="Position" value="<?=$row->Position;?>" class="form-control">
+                                            <option <?php if($row->Position=="OFFICESTAFF"){ echo "Selected";}?> value="OFFICESTAFF">Office Staff</option>
+                                            <option <?php if($row->Position=="MANAGER"){ echo "Selected";}?> value="MANAGER">Manager</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -271,7 +276,7 @@ else { ?>
                                     <div class="form-group has-success">
                                         <label class="control-label">Suffix</label>
                                         <select class="form-control custom-select" name="Suffix">
-                                            <option value="N/A">N/A</option>
+                                            <option value=" ">N/A</option>
                                             <option value="Jr">Jr.</option>
                                             <option value="Sr">Sr</option>
                                             <option value="1">I</option>
@@ -302,9 +307,14 @@ else { ?>
                                         </div>
                                         <div class="col-sm-3 ">
                                             <div class="form-group has-success">
-                                                <label class="control-label">Telephone</label>
-                                                <input type="text" name="LandlineNum" class="form-control ">
-                                            </div>
+                                        <label class="control-label">Position</label>
+                                        <select class="form-control custom-select" name="Position">
+                                            <option value="OFFICESTAFF">Office Staff</option>
+                                            <option value="MANAGER">Manager</option>
+                                           
+                                        </select>
+
+                                    </div>
                                         </div>
                                     </div>
                                 </div>
