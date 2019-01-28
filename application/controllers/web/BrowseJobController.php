@@ -12,6 +12,11 @@ function __construct() {
 			$this->load->model('admin/SkillsModel','skimod');
 			$this->load->model('admin/ApplicantLevelModel','levelmod');
 			$this->load->model('admin/WebPostsModel','webpostmod');
+			$this->load->library('pagination');
+			
+			//$this->load->view('web/BrowseJob',$data);
+
+
      }
 	public function BrowseJob()
 	{
@@ -23,15 +28,35 @@ function __construct() {
 			$str = $postdata['searchtext'];
 			$data['post'] = $str;
 		}
+
+// 			$this->load->library('pagination');
+
+// 			$config['base_url'] = 'http://example.com/index.php/test/page/';
+// 			$config['total_rows'] = 200;
+// 			$config['per_page'] = 20;
+
+// 			$this->pagination->initialize($config);
+
+// echo $this->pagination->create_links();
+
+
+
+			// $config['base_url'] = "http://localhost/qcpesomis/web/browsejob";
+			// $config['per_page'] = 3;
+			// $config['num_links'] = 3;
+			// $config['total_rows'] = $this->db->get('tbl_establishments_jobposts')->num_rows();
+			// $this->pagination->initialize($config);
+
+			// $data['query'] = $this->db->get('tbl_establishments_jobposts', $config['per_page'], $this->uri->segment(3));
 	
 		$data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($postdata);
 		$data['mostrecentjob'] = $this->browsmod->MostRecentJobs();
-		$data['estabpost'] = $this->estmod->LoadMasterlist();		
+		$data['estabpost'] = $this->estmod->MostRecentCompany();		
 		$data['categori'] = $this->categmod->LoadCategoryMasterlist();
 		$data['skills'] = $this->skimod->LoadMasterlist();
 		$data['applevel'] = $this->levelmod->LoadMasterlist();
 		$data['criteria'] = $postdata;
-		$data['webpostmodel'] = $this->webpostmod->LoadMasterlist();
+		$data['webpost'] = $this->webpostmod->MostRecentPost();
 
 
 		$layout = array('transparentwrapper' => TRUE,'addons'=>TRUE, 'pagetitle'=>'BrowseJob');
@@ -43,7 +68,7 @@ function __construct() {
 			$this->load->view('layout/web/6_footer',$layout);
 
 	}
-public function BrowseJobDescription($id = NULL){
+public function BrowseJobDescription($id = null){
 
 
 	if (!empty($id)) {
@@ -56,12 +81,13 @@ public function BrowseJobDescription($id = NULL){
 		$JobPostResult = $data['browsejob']->result_array()	;
 		$data['Recent'] = $this->browsmod->CompanyRecentJobs($JobPostResult[0]['EstablishmentId']);
 		//$data['Recent'] = $this->browsmod->CompanyRecentJobs();
-		$data['estabpost'] = $this->estmod->LoadMasterlist();		
+		$data['estabpost'] = $this->estmod->MostRecentCompany();	
 		$data['categori'] = $this->categmod->LoadCategoryMasterlist();
 		$data['skills'] = $this->skimod->LoadMasterlist();
 		$data['applevel'] = $this->levelmod->LoadMasterlist();
+		$data['webpost'] = $this->webpostmod->MostRecentPost();
 
-		//die(print_r($data['browsejob']->result_array()));
+		// die(print_r($data['browsejob']->result_array()));
 
 		
 

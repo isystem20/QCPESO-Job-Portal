@@ -628,7 +628,26 @@ $route['manage/employee/update-employee/(:any)/(:any)'] = 'admin/EmployeesContro
 $route['manage/employees-masterlist'] = 'admin/EmployeesController/AllEmployees';
 $route['manage/employerdashboard'] = 'employer/EmployerController/Employer';
 //JobApplication Process 
-$route['admin/jobapplication/process'] = 'admin/JobApplicationController/Update1'; 
+
+        $route['admin/jobapplication/process'] = 'admin/JobApplicationController/Update1';
+
+
+//Successful Referral
+        $route['manage/do/applicants/job-applications-successful-referal'] = 'admin/JobApplicationController/SuccessfulReferral'; 
+//News       
+$route['web/news'] = 'web/NewsController/News';
+$route['web/NewsDescription/(:any)'] = 'web/NewsController/NewsDescription/$1';
+//About Us
+$route['web/AboutUs'] = 'web/AboutController/about';
+  
    
 $route['web/job'] = 'web/JobController/Job';
 $route['web/hiring'] = 'web/HiringController/Hiring';
+
+// Job Classification
+$route['manage/maintenance/applicant-jobclassification'] = 'admin/JobClassificationController/JobClassification';
+//Job Classification (CREATE, UPDATE, DELETE, READ)
+        $route['admin/classification/add'] = 'admin/JobClassificationController/Create'; 
+        $route['admin/classification/edit'] = 'admin/JobClassificationController/Update'; 
+        $route['admin/classification/del'] = 'admin/JobClassificationController/Delete'; 
+        $route['admin/classification/read'] = 'admin/JobClassificationController/Read'; 

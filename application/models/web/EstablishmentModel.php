@@ -19,6 +19,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 		}
 
+		public function MostRecentCompany(){
+			$this->db->select('*');
+  			$this->db->order_by('Id', 'DESC');  
+			$this->db->from($this->tbl);
+			$this->db->limit('3');
+			$this->db->where('IsActive', 1);
+			//$this->db->where('EstablishmentId', $Id);
+
+			return $this->db->get();
+		}
+
 
 		public function LoadMasterlistInactive($id = null) {
 			$this->db->select('*');
@@ -30,6 +41,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->db->where('isActive','2');
 				return $this->db->get();
 			}
+
+		
+
+
 			
 		}
 

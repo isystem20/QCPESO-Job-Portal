@@ -27,7 +27,7 @@ function __construct() {
 
 		// }
 		// else {
-			$data['webpostmodel'] = $this->webpostmod->LoadMasterlist();
+			$data['webpost'] = $this->webpostmod->MostRecentPost();
 			$layout = array('transparentwrapper' => TRUE, 'site_title'=>'Quezon City PESO Web Portal','websetting'=>$websetting);
 			$this->load->view('layout/web/1_head',$layout);
 			$this->load->view('layout/web/2_preloader');

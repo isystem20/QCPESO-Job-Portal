@@ -1,7 +1,9 @@
-
+<?php
+print_r($this->session->userdata());
+?>
 
         <div class="page-wrapper">
-            
+
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
@@ -11,17 +13,17 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Applicant list</h3>
-                    <h6 class="text-muted">Applicant list</h6>
-                
+                    <h3 class="text-themecolor">Successful Referral</h3>
+                    <h6 class="text-muted">Masterlist of All Job Applications</h6>
+
                 </div>
-                <div class="col-md-7 align-self-center">
+    <!--             <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Maintenace</li>
-                        <li class="breadcrumb-item active">Courselist</li>
+                        <li class="breadcrumb-item">Maintenance</li>
+                        <li class="breadcrumb-item active">Categories</li>
                     </ol>
-                </div>
+                </div> -->
                 <div>
                     <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
                 </div>
@@ -29,7 +31,7 @@
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            
+
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
@@ -38,49 +40,61 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button>
+                               <!--  <button type="button" id="add-btn" class="btn waves-effect waves-light btn-success">Add</button> -->
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
-                                                <th>Description</th>
-                                                <th>Modified By</th>
-                                                <th>Last Modified</th>
+                                                <th>Job</th>
+                                                <th>Company</th>
+                                                <th>Date</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                <?php 
+                                            $usertype = $this->session->userdata('usertype');
+                                            if ($usertype != 'EMPLOYER') {
+                                            ?>
+
+                                                 <?php
+                                         }
+                                        ?>
                                             </tr>
                                         </thead>
 
                                         <?php
-                                        if ($masterlist->num_rows() > 0) {
-                                            foreach ($masterlist->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
-                                                <td><?php echo $row->Name; ?></td>
-                                                <td><?php echo character_limiter($row->Description, 30); ?></td>
-                                                <td><?php echo $row->ModFirstName; ?></td>
-                                                <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
+                                        if ($list->num_rows() > 0) {
+                                            foreach ($list->result() as $row) { ?>
+                                            <tr Id="row<?=$row->Id; ?>">
+                                                <td><?php echo $row->FirstName.' '.$row->LastName; ?></td>
+                                                <td><?php echo $row->JobTitle; ?></td>
+                                                <td><?php echo $row->CompanyName; ?></td>
+                                                <td><?php echo date('Y-m-d',strtotime($row->ApplicationDate)); ?></td>
                                                 <td>
                                                     <?php 
-                                                    if ($row->IsActive == '1') {
-                                                        echo '<label class="label label-success">Active</label>';
-                                                    }
-                                                    else {
-                                                        echo '<span class="label label-light-inverse">Inactive</span>';
+                                                    if ($row->ApplicationStatus == '2') {
+                                                        echo '<label class="label label-success">Processed </label>';
                                                     }
                                                     ?>
                                                 </td>
-                                                <td class="actions">
-                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-createdby="<?=$row->CreatedById; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
+                                                <!-- <?php 
+                                            $usertype = $this->session->userdata('usertype');
+                                            if ($usertype != 'EMPLOYER') {
+                                            ?> -->
+                                                <!-- <td class="actions">
+                                                    <?php 
+                                                    if ($row->IsActive == '1') {
+                                                        echo '<label class="label label-success">Processed </label>';
+                                                    }
+                                                    ?>
+                                                    <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>"> <i class="fas fa-info-circle"></i> </button>
+                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>"> <i class="far fa-edit" ></i> </button>
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>"> <i class="fas fa-trash-alt"></i></button>
+                                                     <!-- <button class="process-job-app btn btn-primary waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>"> <i class=" fas fa-angle-double-right"></i> Procsess</button> -->                                                  
+                                                <!-- </td> -->
+                                                <?php
+                                         }
+                                        ?>
 
-
-                                                    <button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-status="<?=$row->IsActive; ?>"> <i class="far fa-edit" ></i> </button>
-
-
-
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
-                                                </td>
-                                   
                                             </tr>
                                         <?php
                                             }
@@ -93,7 +107,14 @@
                                                 <th>Modified By</th>
                                                 <th>Last Modified</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                <?php 
+                                            $usertype = $this->session->userdata('usertype');
+                                            if ($usertype != 'EMPLOYER') {
+                                            ?>
+
+                                                 <?php
+                                         }
+                                        ?>
                                             </tr>
                                     </tfoot>
                                     </table>
