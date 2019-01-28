@@ -644,3 +644,6 @@ $route['web/AboutUs'] = 'web/AboutController/about';
 $route['web/job'] = 'web/JobController/Job';
 $route['web/hiring'] = 'web/HiringController/Hiring';
 
+$route['admin/jobapplication/process/(:any)'] = 'admin/JobApplicationController/Update1/$1';
+
+$route['admin/pending-accreditation/process/(:any)'] = 'admin/EmployerController/Update1/$1';

@@ -89,8 +89,10 @@
                                             ?>
                                                 <td class="actions">
                                                     <button onclick=" window.open('<?=base_url('manage/do/jobs/edit/'); ?><?php echo $row->jId; ?>','_blank')" target="_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="View" class=" btn btn-info waves-effect waves-light btn-sm " data-action="<?=base_url('web/JobDescription/'); ?><?php echo $row->jaId; ?>"     data-id="<?php echo $row->jaId; ?>"><i class="fas fa-info-circle"></i></button>
-                                                    
-                                                    <button class="applyjobprocess btn btn-primary waves-effect waves-light btn-sm" type="button" data-action="<?=base_url('admin/jobapplication/process'); ?>" data-id="<?php echo $row->jaId; ?>"> <i class=" fas fa-angle-double-right"></i> Process</button>                                                  
+                                                 <!--    
+                                                    <button class="applyjobprocess btn btn-primary waves-effect waves-light btn-sm" type="button" data-action="<?=base_url('admin/jobapplication/process'); ?>" data-id="<?php echo $row->jaId; ?>"> <i class=" fas fa-angle-double-right"></i> Process</button> -->
+
+                                                       <a href="<?=base_url('admin/jobapplication/process/'.$row->jaId); ?>"> <i class=" fas fa-angle-double-right"></i> Process</a>                                                    
                                                 </td>
                                                 <?php
                                          }

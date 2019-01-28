@@ -85,43 +85,75 @@ $pdf->AddPage();
 // $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
 // Set some content to print
-$html = <<<EOD
+$requestorfirst = '';
+$requestorlast = '';
+$requestormiddle='';
+$requestorsuffix='';
+$housenum ='';
+$streetname='';
+$city='';
+$jobtitle='';
+$contactperson='';
+$contactpersondesignation='';
+$companyname='';
+$companyaddress='';
+$applicationdate='';
 
-<p>November 19, 2018</p>
+
+if ($refer->num_rows() > 0) {
+    foreach($refer->result() as $row) {
+    	$requestorfirst = $row->FirstName;
+    	$requestormiddle = $row->MiddleName;
+    	$requestorlast = $row->LastName;
+  		$requestorsuffix = $row->Suffix;
+    	$housenum = $row->HouseNum;
+ 		$streetname= $row->StreetName;
+ 		$city= $row->CityId;
+ 		$jobtitle= $row->JobTitle;
+ 		$contactperson= $row->ContactPerson;
+ 		$contactpersondesignation= $row->ContactPersonDesignation;
+ 		$companyname= $row->CompanyName;
+ 		$companyaddress= $row->CompanyAddress;
+ 		$applicationdate= $row->ApplicationDate;
+    }
+
+
+        }
+    
+$html = '
+
+<p>'.$applicationdate.'</p>
 <br>
 <p>
-Winna Bragancia
+'.$contactperson.'
 <br>
-HR Officer
+'.$contactpersondesignation.'
 <br>
-ABENSON VENTURES INC.
+'.$companyname.'
 <br>
-Walter mart Bldg. 8001-A edsa
-<br>
-Brgy. Veterans Village
-<br>
-Quezon City
+'.$companyaddress.'
 </p>
-
+';
+$html.= '
 <p>Dear Sir/Madam;</p>
 <br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 The bearer Mr./Ms.
 <u>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Jeffrey T. Binza
+'.$requestorfirst.' '.$requestormiddle.' '.$requestorlast.' '.$requestorsuffix.'
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </u>
 a resident of 
 <u>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-Blk. 48 Farmers 1 cor. Upo Extn., Tumana, Marikina City 
+'.$housenum.' '.$streetname.' '.$city.'
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </u> 
 sought the assistance of this office who is interested to apply as 
 <u>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-Accounting Supervisor
+'.$jobtitle.'
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </u> 
 in your company.
@@ -143,17 +175,22 @@ PESO Manager
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 Code ID:6
 </p>
+';
+
+$html.= '
 <p>*********************************************************************************************************************************</p>
-<p><b>MISSION:</b> To facilitate equal employment opportunities to City's constituents thru Job Matching and Coaching employability enhancement and referrals for livelihood training and promotion of industrial peace thru tripartism.
+<p><b>MISSION:</b> To facilitate equal employment opportunities to City constituents thru Job Matching and Coaching employability enhancement and referrals for livelihood training and promotion of industrial peace thru tripartism.
 </p>
-<p><b>VISION:</b>Creating Quezon City as a city that provides reliable and sustainable employment facilitation services that contributes to the City's poverty alleviation, and for economic development.
+<p><b>VISION:</b>Creating Quezon City as a city that provides reliable and sustainable employment facilitation services that contributes to the City poverty alleviation, and for economic development.
 </p>
 <p>*********************************************************************************************************************************</p>
+';
+$html.= '
 <p align="center">
 <b>Return Slip</b>
 </p>
 <p>Name of Applicant: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<u><b>Jeffrey T. Binza</b></u></p>
+<u><b>'.$requestorfirst.' '.$requestormiddle.' '.$requestorlast.' '.$requestorsuffix.'</b></u></p>
 Action Taken:</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ( ) Qualified for Employment in this Office</p>
@@ -163,7 +200,7 @@ Action Taken:</p>
 ( ) Not qualified for referral to other office</p>
 <p align="right">___________________________</p>
 <p align="right">Name of the Interviewer/HR Officer </p>
-EOD;
+';
 
 // Print text using writeHTMLCell()
 $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);

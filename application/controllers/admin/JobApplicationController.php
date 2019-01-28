@@ -241,30 +241,56 @@
         // $this->logger->log('Load Categories','Categories',$json); //Log
     }
 
-     public function Update1() {
+    //  public function Update1() {
  
 
 
 
-         $this->form_validation->set_rules('JobId', 'Item Record', 'required',
-                array(
-                'required'      => 'Cannot identify this record.',
-                ));
+    //      $this->form_validation->set_rules('JobId', 'Item Record', 'required',
+    //             array(
+    //             'required'      => 'Cannot identify this record.',
+    //             ));
 
-        $postdata = $this->input->post();
-        if ($this->form_validation->run() == FALSE){
-            $errors = validation_errors();
-            echo json_encode(['error'=>$errors]);
-        }
-        else{
+    //     $postdata = $this->input->post();
+    //     if ($this->form_validation->run() == FALSE){
+    //         $errors = validation_errors();
+    //         echo json_encode(['error'=>$errors]);
+    //     }
+    //     else{
+    //         $result = $this->jobappmod->Process($postdata);
+    //         if ($result != FALSE) {
+    //             $referraldata = $this->jobappmod->GetReferralData($postdata['JobId']);
+    //             $data['refer'] = $referraldata->result_array();
+                
+
+    //             // print_r($refer);
+    //             // die();
+    //            // $refer
+
+    //             $json = json_encode($result);              
+    //             echo $json;
+    //         }
+    //         else {
+    //             echo json_encode(['error'=>'Update Unsuccessful.']);
+
+    //         }
+
+    //     }
+
+    // }
+     public function Update1($id) {
+ 
+
+            $postdata = array('JobId'=>$id);
             $result = $this->jobappmod->Process($postdata);
             if ($result != FALSE) {
                 $referraldata = $this->jobappmod->GetReferralData($postdata['JobId']);
-                $data['refer'] = $referraldata->result_array();
-                
-
-                // print_r($refer);
+                $data['refer'] = $referraldata;
+                // print_r ($data['refer']->result_array()) ;
                 // die();
+                $this->load->library("Pdf");
+                $this->load->view("pages/reports/PDF/ReferralLetter",$data);
+              
                // $refer
 
                 $json = json_encode($result);              
@@ -275,13 +301,12 @@
 
             }
 
-        }
+     
 
     }
 
   public function GeneratedPdf($data){
 
-                 $this->load->library("Pdf");
-                $this->load->view("pages/reports/PDF/ReferralLetter",$data);
+                
   }
 }

@@ -72,7 +72,7 @@ if (!empty($applicant)) {
                                     <div class="form-group has-success">
                                         <label class="control-label">Suffix</label>
                                         <select type="text" name="Suffix" value="<?=$row->Suffix;?>" class="form-control">
-                                            <option <?php if($row->Suffix=="N/A"){ echo "Selected";}?> value="N/A">N/A</option>
+                                            <option <?php if($row->Suffix==" "){ echo "Selected";}?> value=" ">N/A</option>
                                             <option <?php if($row->Suffix=="Jr"){ echo "Selected";}?> value="Jr">Jr.</option>
                                             <option <?php if($row->Suffix=="Sr"){ echo "Selected";}?> value="Sr">Sr.</option>
                                             <option <?php if($row->Suffix=="1"){ echo "Selected";}?> value="I">I</option>
@@ -997,7 +997,7 @@ else { ?>
                                     <div class="form-group has-success">
                                         <label class="control-label">Suffix</label>
                                         <select class="form-control custom-select" name="Suffix">
-                                            <option value="N/A">N/A</option>
+                                            <option value=" ">N/A</option>
                                             <option value="Jr">Jr.</option>
                                             <option value="Sr">Sr</option>
                                             <option value="1">I</option>
