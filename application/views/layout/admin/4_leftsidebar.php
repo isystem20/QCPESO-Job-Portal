@@ -13,7 +13,7 @@
                     ?>
                 <li class="user-profile">
              
-                    <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url($this->session->userdata('photo')); ?>" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
+                    <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url('themes/admin-pro/assets/images/users/Male.png'); ?>" alt="" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
                  
                 
 
@@ -39,7 +39,7 @@
                     ?>
                  <li class="user-profile">
              
-                    <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/Female.png" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
+                    <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/Male.png" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
                  
                 
 

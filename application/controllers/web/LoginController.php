@@ -186,6 +186,7 @@ class LoginController extends Public_Controller {
 					        			'activated' => $login->Activated,
 					        			// 'email' => $login->EmailAddress,
 					        			'auth' => 'Manual',
+					        			'photo' => 'themes/admin-pro/assets/images/users/Male.png'
 					        		); 
 					        		$this->session->set_userdata($session_data);
 				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
@@ -227,6 +228,7 @@ class LoginController extends Public_Controller {
 					        			'activated' => $login->Activated,
 					        			'email' => $login->CompanyEmail,
 					        			'auth' => 'Manual',
+					        			'photo' => 'themes/admin-pro/assets/images/users/Male.png'
 					        		); 
 					        		$this->session->set_userdata($session_data);
 				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	   
