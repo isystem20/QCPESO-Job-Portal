@@ -38,7 +38,7 @@
             <div class="container-fluid">
                 <!-- Brand-->
                 <div class="inner-header">
-                    <a class="inner-brand" href="#">
+                    <a class="inner-brand" href="<?php echo base_url(); ?>">
                         <img src="<?php echo base_url();?>themes/ltr/vertical-static/assets/images/auth/Qcpeso.png" width="50">
                         Quezon City PESO
                     </a>

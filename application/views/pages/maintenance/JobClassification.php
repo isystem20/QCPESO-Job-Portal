@@ -11,15 +11,15 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Applicant list</h3>
-                    <h6 class="text-muted">Applicant list</h6>
+                    <h3 class="text-themecolor">Job Classification</h3>
+                    <h6 class="text-muted">Masterlist of Jobs Classification</h6>
                 
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Maintenace</li>
-                        <li class="breadcrumb-item active">Courselist</li>
+                        <li class="breadcrumb-item">Maintenance</li>
+                        <li class="breadcrumb-item active">Job Classification</li>
                     </ol>
                 </div>
                 <div>
@@ -48,17 +48,24 @@
                                                 <th>Modified By</th>
                                                 <th>Last Modified</th>
                                                 <th>Status</th>
+                                                <?php 
+                                            $usertype = $this->session->userdata('usertype');
+                                            if ($usertype != 'EMPLOYER') {
+                                            ?>
                                                 <th>Action</th>
+                                                 <?php
+                                         }
+                                        ?>
                                             </tr>
                                         </thead>
 
                                         <?php
-                                        if ($masterlist->num_rows() > 0) {
-                                            foreach ($masterlist->result() as $row) { ?>
-                                            <tr id="row<?=$row->Id; ?>">
+                                        if ($classification->num_rows() > 0) {
+                                            foreach ($classification->result() as $row) { ?>
+                                            <tr Id="row<?=$row->Id; ?>">
                                                 <td><?php echo $row->Name; ?></td>
                                                 <td><?php echo character_limiter($row->Description, 30); ?></td>
-                                                <td><?php echo $row->ModFirstName; ?></td>
+                                                <td><?php echo $row->ModFirstName.' '.$row->ModLastName ; ?></td>
                                                 <td><?php echo date('Y-m-d',strtotime($row->ModifiedAt)); ?></td>
                                                 <td>
                                                     <?php 
@@ -70,6 +77,10 @@
                                                     }
                                                     ?>
                                                 </td>
+                                                <?php 
+                                            $usertype = $this->session->userdata('usertype');
+                                            if ($usertype != 'EMPLOYER') {
+                                            ?>
                                                 <td class="actions">
                                                     <button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>" data-desc="<?=$row->Description; ?>" data-createdby="<?=$row->CreatedById; ?>" data-createdat="<?=$row->CreatedAt; ?>" data-modifiedby="<?=$row->ModifiedById; ?>" data-modifiedat="<?=$row->ModifiedAt; ?>" data-version="<?=$row->VersionNo; ?>" data-status="<?=$row->IsActive; ?>"> <i class="fas fa-info-circle"></i> </button>
 
@@ -80,7 +91,10 @@
 
                                                      <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/'.$class.'/'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->Name; ?>"> <i class="fas fa-trash-alt"></i></button>                                                  
                                                 </td>
-                                   
+                                                <?php
+                                         }
+                                        ?>
+                             
                                             </tr>
                                         <?php
                                             }
@@ -93,7 +107,14 @@
                                                 <th>Modified By</th>
                                                 <th>Last Modified</th>
                                                 <th>Status</th>
+                                                <?php 
+                                            $usertype = $this->session->userdata('usertype');
+                                            if ($usertype != 'EMPLOYER') {
+                                            ?>
                                                 <th>Action</th>
+                                                 <?php
+                                         }
+                                        ?>
                                             </tr>
                                     </tfoot>
                                     </table>
@@ -174,3 +195,4 @@
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
+
