@@ -25,7 +25,7 @@
  */
 
 // Include the main TCPDF library (search for installation path).
-require_once('tcpdf_include.php');
+//require_once('tcpdf_include.php');
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -38,7 +38,7 @@ $pdf->SetSubject('QC PESO Certificate of Accreditation');
 $pdf->SetKeywords('QC PESO Certificate of Accreditation, PDF, example, test, guide');
 
 // set default header data
-$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH,PDF_SUB_HEADER_STRING,PDF_HEADER_TITLE);
+$pdf->SetHeaderData('', PDF_HEADER_LOGO_WIDTH,PDF_SUB_HEADER_STRING,PDF_HEADER_TITLE);
 
 // $pdf->setFooterData(array(0,64,0), array(0,64,128));
 
@@ -83,10 +83,28 @@ $pdf->AddPage();
 
 // set text shadow effect
 // $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
-$pdf->Image('images/qcpeso.png', 80, 30, 50, 50, 'PNG', '', '', true, 150, '', false, false, '', false, false, false);
-$pdf->Image('images/2000px-Quezon_City.svg.png', 180, 5, 20, 20, 'PNG', '', '', true, 150, '', false, false, '', false, false, false);
+$pdf->Image('themes/admin-pro/assets/images/qcpeso.png', 80, 30, 50, 50, 'PNG', '', '', true, 150, '', false, false, '', false, false, false);
+// $pdf->Image('themes/admin-pro/assets/images/2000px-Quezon_City.svg.png', 180, 5, 20, 20, 'PNG', '', '', true, 150, '', false, false, '', false, false, false);
 // Set some content to print
-$html = <<<EOD
+$companyname = '';
+$companyadd = '';
+$date ='';
+$yrdate ='';
+$id='';
+
+
+if ($accredit->num_rows() > 0) {
+    foreach($accredit->result() as $row) {
+    	$companyname = $row->CompanyName;
+    	$companyadd = $row->CompanyAddress;
+    	$date = $row->CreatedAt;
+    	$yrdate = date('Y',strtotime($row->CreatedAt));
+    	$id = substr($row->Id,0,8);
+    }
+
+
+        }
+$html = '
 <br>
 <br>
 <br>
@@ -99,31 +117,32 @@ $html = <<<EOD
 <br>
 
 <h1 align="Center">CERTIFICATE OF ACCREDITATION</h1>
-<h2 align="Center">NO. QC-TCFO-PESO-2018-001
+<h2 align="Center">NO. QC-TCFO-PESO-'.$yrdate.'-'.$id.'
 <br>
 <br>
 <br>
 </h2>
 <p align="center">This is to Certify that
 <br>
-<br>
 <br></p>
-<h1 align="Center">Test</h1>
-<h4 align="Center">address</h4>
+';
+$html.= '
+<h1 align="Center">'.$companyname.'</h1>
+<h4 align="Center">'.$companyadd.'</h4>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;having met the requirements set under Republic Act 8759, otherwise known as the Public Employment Act of 1999, as amended by Republic Act. No. 10691 is hereby accredited as a legitimate Job Placement Office established to provide employment facilitation services to its applcants and coordinate its activities with the LGU PESO.</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;December 13,2018, Quezon City Philippines.
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$date.', Quezon City Philippines.
 <br>
 <br>
 <br></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>APPROVED:</b></p>
+<p><b>APPROVED:</b><br><br></p>
 
 
-<p align="right"><b>CARLO MAGNO E. ABELLA</b></p>
-<p align="right">PESO Manager</p>
+<p align="left"><b>CARLO MAGNO E. ABELLA</b></p>
+<p align="left">PESO Manager</p>
 </H3>
 
 
-EOD;
+';
 
 // Print text using writeHTMLCell()
 $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
@@ -132,7 +151,7 @@ $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
 
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
-$pdf->Output('QcpesoReferralForm.pdf', 'I');
+$pdf->Output('QcpesoAccreditation.pdf', 'I');
 
 //============================================================+
 // END OF FILE

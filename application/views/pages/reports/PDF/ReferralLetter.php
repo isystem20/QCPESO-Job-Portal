@@ -108,7 +108,7 @@ if ($refer->num_rows() > 0) {
   		$requestorsuffix = $row->Suffix;
     	$housenum = $row->HouseNum;
  		$streetname= $row->StreetName;
- 		$city= $row->CityId;
+ 		$city= $row->CityName;
  		$jobtitle= $row->JobTitle;
  		$contactperson= $row->ContactPerson;
  		$contactpersondesignation= $row->ContactPersonDesignation;
@@ -210,7 +210,7 @@ $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
 // $pdf->Output($refer[0]->FirstName.'.pdf', 'D');
-$pdf->Output('test.pdf', 'I');
+$pdf->Output('QcpesoReferralForm.pdf', 'I');
 //============================================================+
 // END OF FILE
 //============================================================+

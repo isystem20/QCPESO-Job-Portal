@@ -211,7 +211,32 @@
     public function Read() {
  
     }
+  public function Update1($id) {
  
+
+            $postdata = array('Id'=>$id);
+            $result = $this->empmod->PendingRequest2($postdata);
+            if ($result != FALSE) {
+                $accreditdata = $this->empmod->GetAccreditationData($postdata['Id']);
+                $data['accredit'] = $accreditdata;
+                // print_r ($data['refer']->result_array()) ;
+                // die();
+                $this->load->library("Pdf");
+                $this->load->view("pages/reports/PDF/Accreditation",$data);
+              
+               // $refer
+
+                $json = json_encode($result);              
+                echo $json;
+            }
+            else {
+                echo json_encode(['error'=>'Update Unsuccessful.']);
+
+            }
+
+     
+
+    }
  
  
  }
