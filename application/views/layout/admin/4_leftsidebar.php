@@ -20,7 +20,7 @@
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="<?=base_url('dev/switch/usertype/ADMIN'); ?>">Switch to Admin </a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/MANAGER'); ?>">Switch to Manager </a></li>
-                        <li><a href="<?=base_url('dev/switch/usertype/STAFF'); ?>">Switch to Office Staff</a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/OFFICESTAFF'); ?>">Switch to Office Staff</a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/EMPLOYER'); ?>">Switch to Employer</a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/APPLICANT'); ?>">Switch to Applicant</a></li>
                         <li><a href="<?=base_url('dev/switch/profile/100'); ?>">Bypass Incomplete Profile</a></li>
@@ -35,18 +35,18 @@
 
  <?php 
                     $usertype = $this->session->userdata('usertype');
-                    if ($usertype == 'ADMIN' || $usertype == 'EMPLOYER' || $usertype == 'OFFICE STAFF'  ) {
+                    if ($usertype == 'ADMIN' || $usertype == 'EMPLOYER' || $usertype == 'OFFICESTAFF' || $usertype == 'MANAGER'  ) {
                     ?>
                  <li class="user-profile">
              
-                    <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/Female.png" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
+                    <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>manage/" aria-expanded="false"><img src="<?php echo base_url(); ?>themes/admin-pro/assets/images/users/Male.png" alt="user" /><span class="hide-menu"><?=$this->session->userdata('firstname'); ?> </span></a>
                  
                 
 
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="<?=base_url('dev/switch/usertype/ADMIN'); ?>">Switch to Admin </a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/MANAGER'); ?>">Switch to Manager </a></li>
-                        <li><a href="<?=base_url('dev/switch/usertype/CLERK'); ?>">Switch to Clerk</a></li>
+                        <li><a href="<?=base_url('dev/switch/usertype/OFFICESTAFF'); ?>">Switch to Office Staff</a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/EMPLOYER'); ?>">Switch to Employer</a></li>
                         <li><a href="<?=base_url('dev/switch/usertype/APPLICANT'); ?>">Switch to Applicant</a></li>
                         <li><a href="<?=base_url('dev/switch/profile/100'); ?>">Bypass Incomplete Profile</a></li>
@@ -237,12 +237,24 @@
                         </ul>
                     </li>
 
+                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Applicants</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="<?php echo base_url(); ?>manage/applicant/add" data-i18n="nav.json-form.simple-form">Add Walk-in</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/applicant/view-list" data-i18n="nav.json-form.clubs-view">View List</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications" data-i18n="nav.json-form.clubs-view">Browse Job</a></li>
+                            <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications-masterlist" data-i18n="nav.json-form.clubs-view">Applications</a></li>
+                             <li><a href="<?php echo base_url(); ?>manage/do/applicants/job-applications-successful-referal" data-i18n="nav.json-form.clubs-view">Successful Referrals</a></li>
+
+
+                        </ul>
+                    </li>
+
                     <?php
                                          }
                                         ?>
                   <?php 
                                         $usertype = $this->session->userdata('usertype');
-                                        if ($usertype == 'STAFF') {
+                                        if ($usertype == 'OFFICESTAFF') {
                                         ?>
                             <li class="nav-small-cap">OFFICE STAFF</li>
                             <li> <a class="waves-effect waves-dark" href="<?php echo base_url('account/profile');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Profile</span></a></li>

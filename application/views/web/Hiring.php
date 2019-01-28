@@ -232,7 +232,7 @@
                                 4. Letter of intent addressed to the PESO Head.</p>
                             <br>
                             <h4>How to post jobs?</h4>
-                            <p class="lead">By posting a job  use a clear title, provide the important information and make an explanation about the job you recruiting.</p>
+                            <p class="lead">By posting a job  use a clear title, provide the important information and make an explanation about the job vacancies.</p>
                         </div>
                     </div>
 
