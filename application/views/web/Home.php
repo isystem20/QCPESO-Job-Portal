@@ -713,7 +713,7 @@
                         </div>  
                         <div class="row">
                             <div class="col-md-8 m-auto">
-                                <form id="contact-form" method="post" novalidate>
+                                 <form method="post" action="<?php echo base_url(); ?>web/register/applicant" id="applicant-register-form">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">

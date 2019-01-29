@@ -240,7 +240,7 @@
             </section>
             <!-- Blog end-->
 
-             <div class="col-md-12">
+            <!--  <div class="col-md-12">
                                     <nav>
                                         <ul class="pagination justify-content-center">
                                             <li class="page-item"><a class="page-link" href="#"><span class="fas fa-angle-left"></span></a></li>
@@ -249,7 +249,7 @@
                                             <li class="page-item"><a class="page-link" href="#"><span class="fas fa-angle-right"></span></a></li>
                                         </ul>
                                     </nav>
-                                </div> 
+                                </div>  -->
             <!-- Footer-->
             <footer class="footer">
                 <div class="footer-widgets">
