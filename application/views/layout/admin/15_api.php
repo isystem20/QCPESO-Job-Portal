@@ -125,19 +125,14 @@ catch(err) {
                   if ($('#logoutbtn').length > 0) {
                       document.getElementById('logoutbtn').href = 'javascript:goLogoutfb();';            
                   }
-
+                  statusChangeCallback(response);
                 }
                 // console.log(response);
-                statusChangeCallback(response);
+                
             });
 
           };
-        // }
-        // catch(err) {
-        //   console.log(err);
-        // }
 
-        // try {
           (function(d, s, id){
              var js, fjs = d.getElementsByTagName(s)[0];
              if (d.getElementById(id)) {return;}
@@ -147,26 +142,7 @@ catch(err) {
            }(document, 'script', 'facebook-jssdk'));
 
 
-        // }
-        // catch(err) {
-        //   console.log(err);
-        // }
-      function checkLoginState() {
-        // try {
-
-            FB.getLoginStatus(function(response) {
-              statusChangeCallback(response);
-            });
-
-        // }
-        // catch(err) {
-        //   console.log(err);
-        // }
-      }
-
       function goLogoutfb() {
-        // try {
-
             FB.getLoginStatus(function(response) {
               if (response.status === 'connected') {
                 FB.logout(function(response) {
@@ -175,12 +151,7 @@ catch(err) {
                        
               }
             });
-        // }
-        // catch(err) {
-        //   console.log(err);
-        // }
       }
-
 
       function statusChangeCallback(response) {
         //if (response.status === 'connected') {}
@@ -242,6 +213,27 @@ catch(err) {
         })
         
       }
+
+
+
+
+      function checkLoginState() {
+        // try {
+
+            FB.getLoginStatus(function(response) {
+              statusChangeCallback(response);
+            });
+
+        // }
+        // catch(err) {
+        //   console.log(err);
+        // }
+      }
+
+
+
+
+
 
     </script>
 
