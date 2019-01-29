@@ -540,6 +540,23 @@
                 </section> -->
                 <!-- Testimonials end-->
 
+                <!-- Clients-->
+                <section class="module bg-gray p-t-0 p-b-40">
+                    <div class="container">
+                        <div class="space" data-MY="-60px"></div>
+                        <div class="row">
+                            <div class="col-md-6 pricing-wrapper">
+                                <div class="pricing-header">
+                                    <div class="pricing-icon"><i class="ti-slice"></i></div>
+                                    <div class="pricing-title">Are you looking for</div>
+                                </div>
+                                <div class="pricing-price">Job?
+                                </div>
+                                <div class="pricing-body">
+                                    <p>What are the requirements?<br>How to apply?<br>Need assistance to find job?</p>
+                                </div>
+                                <br>
+
             <!-- Clients-->
             <section class="module bg-gray p-t-0 p-b-40">
                 <div class="container">
@@ -558,7 +575,15 @@
                             <br>
                         </a>
                         </div>
-                            <div class="col-md-6 pricing-wrapper pricing-popular"><a href="<?php echo base_url(); ?>web/hiring">
+                        <div class="col-md-6 pricing-wrapper pricing-popular"><a href="<?php echo base_url(); ?>web/hiring">
+                            <div class="pricing-header">
+                                <div class="pricing-icon"><i class="ti-pin-alt"></i></div>
+                                <div class="pricing-title">Is your company</div>
+                            </div>
+                            <div class="pricing-price">Hiring?
+
+                            </div>
+                            <div class="col-md-6 pricing-wrapper pricing-popular">
                                 <div class="pricing-header">
                                     <div class="pricing-icon"><i class="ti-pin-alt"></i></div>
                                     <div class="pricing-title">Is your company</div>
@@ -569,7 +594,6 @@
                                     <p>How to register?<br>What are the requirements?<br>How to post jobs?</p>
                                 </div>
                                  <br>
-                             </a>
                             </div>
 
            <!--                  <div class="col-md-4 pricing-wrapper pricing-popular">
@@ -689,7 +713,8 @@
                         </div>  
                         <div class="row">
                             <div class="col-md-8 m-auto">
-                                 <form method="post" action="<?php echo base_url(); ?>web/register/applicant" id="applicant-register-form">
+                    <div class="container">
+                                <form id="contact-form" method="post" novalidate>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -715,51 +740,37 @@
                         </div>                    
                         <div class="row">
                             <div class="col-md-8 m-auto">
-                                <form id="contact-form" method="post" novalidate>
+                               <form method="post" action="<?php echo base_url(); ?>web/register/applicant" id="applicant-register-form">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
-                                                <input class="form-control" type="text" name="name" placeholder="First Name" required="">
-                                                <p class="help-block text-danger"></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input class="form-control" type="email" name="email" placeholder="Last Name" required="">
-                                                <p class="help-block text-danger"></p>
+                                                <input class="form-control" type="text" placeholder="First name" name="firstname">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input class="form-control" type="text" name="subject" placeholder="Email Address" required="">
-                                                <p class="help-block text-danger"></p>
+                                                <input class="form-control" type="text" placeholder="Last name" name="lastname">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input class="form-control" type="text" name="subject" placeholder="Complete Address" required="">
-                                                <p class="help-block text-danger"></p>
+                                                <input class="form-control" type="email" placeholder="E-mail" name="email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input class="form-control" type="password" placeholder="Password" name="password">
                                             </div>
                                         </div>
                                            <div class="col-md-12">
                                                <div class="form-group">
-                                                   <select class="form-control" style="font-color:#000000;">
-                                                       <option>Select Category</option>
-                                                       <option>Local</option>
-                                                       <option>Abroad</option>
-                                                       <option>Student</option>
-                                                       <option>Out-of-School Youth</option>
-                                                       <option>Kasambahay</option>
-                                                       <option>PWD</option>
-                                                   </select>
+                                                  <input class="form-control" type="password" placeholder="Confirm password" name="password2">
                                                </div>
                                            </div>
 
                                         <div class="col-md-12">
-                                            <p>
-                                                <input class="btn btn-block btn-brand" type="submit" value="Sign Up">
-                                            </p>
-                                        </div>
+                                            <div class="form-group">
+                                        <button class="btn btn-block btn-round btn-brand" type="submit" id="applicant-register-btn">Sign Up</button>
                                     </div>
                                 </form>
                                 <!-- Ajax response-->
@@ -767,6 +778,8 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-12">
+                                <center><p><small>By signing up, you agree to the <a href="#">terms of service</a></small></p></center>
                 </section>
                 <!-- Form end-->
 
