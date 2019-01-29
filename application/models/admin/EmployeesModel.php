@@ -125,11 +125,11 @@ class EmployeesModel extends CI_Model {
          $UserId = $this->uuid->v4();
         
          $this->db->flush_cache();
-            $password = $data['SSS'];
-            $key = $this->config->item('encryption_key');
-            $salt1 = hash('sha512', $key . $password);
-            $salt2 = hash('sha512', $password . $key);
-            $hashed_password = hash('sha512', $salt1 . $password . $salt2);
+            // $password = $data['SSS'];
+            // $key = $this->config->item('encryption_key');
+            // $salt1 = hash('sha512', $key . $password);
+            // $salt2 = hash('sha512', $password . $key);
+            // $hashed_password = hash('sha512', $salt1 . $password . $salt2);
             // echo $data['password'] = $hashed_password;
           
 
@@ -139,7 +139,7 @@ class EmployeesModel extends CI_Model {
                 $this->db->set('Email',"'".$data['EmailAddress']."@qcpeso.com'",FALSE);
              
            
-            $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
+            // $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
                 $this->db->set('UserType',"'".$data['Position']."'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);        

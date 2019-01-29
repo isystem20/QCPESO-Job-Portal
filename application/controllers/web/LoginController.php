@@ -172,7 +172,7 @@ class LoginController extends Public_Controller {
 			        		else {
  
 
-			        			if ($login->UserType == 'ADMIN' || $login->UserType == 'STAFF') {
+			        			if ($login->UserType == 'ADMIN' || $login->UserType == 'OFFICESTAFF' || $login->UserType == 'MANAGER' ) {
 					        		$session_data = array(
 					        			'userid' => $login->Id,
 					        			'lastname' => $login->LastName,
