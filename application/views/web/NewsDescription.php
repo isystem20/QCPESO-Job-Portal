@@ -1,7 +1,7 @@
 <div class="wrapper">
             <!-- Hero-->
 
-            <section class="module-cover parallax text-center fullscreen" data-background="<?php echo base_url(); ?>banners/BROWSEJOB1.png" data-overlay="0.6">
+            <section class="module-cover parallax text-center fullscreen" data-background="<?php echo base_url(); ?>banners/NEWS.png" data-overlay="0.6">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 ">
@@ -48,7 +48,7 @@
                     </center>
                         </div>
                          <div class="post-content">
-                            <h6>Job Description</h6>
+                            <h6>News Description</h6>
                             <p style="text-indent: 40px"><?=$webpost[0]['PostDescription']  ?></p>
                         </div>
                        
@@ -73,12 +73,19 @@
                 <div class="sidebar">
                     <aside class="widget widget-categories">
                         <div class="widget-title">
-                            <h6>Company</h6>
+                            <h6>Post Type</h6>
                         </div>
                         <ul>
                             <li><?=$webpost[0]['PostTypeId']  ?><span class="float-right"></li>
                         </ul>
-                    </aside>    
+                    </aside> 
+                     <aside class="widget widget-tag-cloud">
+                                    <div class="widget-title">
+                                        <h6>Tags</h6>
+                                    </div>
+                                    <div class="tag-cloud"><a href="#"><?=$webpost[0]['Tags']  ?></a>
+                                </aside>
+   
                    
            
 
