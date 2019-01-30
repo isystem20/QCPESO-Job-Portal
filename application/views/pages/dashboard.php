@@ -146,10 +146,10 @@
                                     </div>
                                     <div class="ml-auto">
                                         <select class="custom-select b-0">
-                                            <option selected="">January 2019</option>
-                                           <!--  <option value="1">February 2017</option>
+                                            <option selected="">January 2017</option>
+                                            <option value="1">February 2017</option>
                                             <option value="2">March 2017</option>
-                                            <option value="3">April 2017</option> -->
+                                            <option value="3">April 2017</option>
                                         </select>
                                     </div>
                                 </div>
@@ -171,10 +171,10 @@
                                     </div>
                                     <div class="ml-auto">
                                         <select class="custom-select b-0">
-                                            <option selected="">January 2019</option>
-                                            <!-- <option value="1">February 2017</option>
+                                            <option selected="">January 2017</option>
+                                            <option value="1">February 2017</option>
                                             <option value="2">March 2017</option>
-                                            <option value="3">April 2017</option> -->
+                                            <option value="3">April 2017</option>
                                         </select>
                                     </div>
                                 </div>
@@ -284,7 +284,7 @@
                                   
                                 </div>
                                 <div class="table-responsive m-t-20">
-                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
+                                    <table class="table vm no-th-brd pro-of-month">
                                         <thead>
                                             <tr>
                                                 <th><b>Job Title</th>
@@ -335,7 +335,7 @@
                     <!-- ============================================================== -->
                     
 
-                 <!--    <div class="col-lg-12">
+                    <!-- <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Applicants via Google Maps</h4>
