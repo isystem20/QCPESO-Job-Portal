@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class EmployerController extends CI_Controller {
+ class EmployerController extends Employer_Controller {
 
         function __construct() {
          parent::__construct();
