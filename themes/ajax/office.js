@@ -831,7 +831,7 @@ $('#applicant').submit(function(e) {
            Dialect.push($(this).val());
       });
 
-        $("#sub-btn").prop("disabled", true);   //Disables the submit button after click 
+        $("#sub").prop("disabled", true);   //Disables the submit button after click 
         var newURL = $(this).attr('action');   
      
         var newData  = {
@@ -866,8 +866,7 @@ $('#applicant').submit(function(e) {
                 'LastSchoolLevel' : $('input[name=LastSchoolLevel]').val(),
                 'NonStudentReason' : $('input[name=NonStudentReason]').val(),
                 'PreferredTrainingCourse' : $('input[name=PreferredTrainingCourse]').val(),
-                'IsOFW' : $('select[name=IsOFW]').val(),
-                'IsKasambahay' : $('select[name=IsKasambahay]').val(),
+                'Category' : $('select[name=Category]').val(),
                 'VersionNum' : $('input[name=VersionNum]').val(),
                 'TIN' : $('input[name=TIN]').val(),
                 'SSS' : $('input[name=SSS]').val(),
@@ -897,7 +896,7 @@ $('#applicant').submit(function(e) {
                 'Character_Company' : CharacterReferenceCompany,
                 'Character_Contact' : CharacterReferenceContact,
             } 
-            // 'PhotoPath' : $('input[name=file]').val(), 
+           
             // 'CreatedAt' : $('input[name=CreatedAt]').val(),
             // 'CreatedBy' : $('input[name=CreatedBy]').val(),
             // 'ModifiedById' : $('input[name=ModifiedById]').val(),
@@ -928,6 +927,7 @@ $('#applicant').submit(function(e) {
                       stack: 6
 
                     });
+
                     window.setTimeout(function(){
                     window.location.href = data.url; 
                   }, 1000);
@@ -944,7 +944,7 @@ $('#applicant').submit(function(e) {
                       
                     });
                   }
-                $("#sub-btn").prop("disabled", false);     //Reenable the submit button after the action           
+                $("#sub").prop("disabled", false);     //Reenable the submit button after the action           
               }
           });   
   });
@@ -987,70 +987,32 @@ $('.applyjob').click(function(e){ //Input the form's ID or CLASS, use # for ID a
                       hideAfter: 3500, 
                       stack: 6
                     });
-
-
-// <<<<<<< HEAD
-                  if ($('input[name=itemid]').val() != '') {
-
-                      var Id = data[0].Id;
-                      var table = $('#myTable').DataTable();
-                      table.row($('#row'+data[0].Id))
-                      .remove()
-                      .draw();
-                  }
-
-
-
-                    var id = data[0].Id;
-                    var name = data[0].Name;
-                    var url = data[0].Url;
-                    var parent = data[0].Parent;
-                    var description = data[0].Description.substr(0,30);
-                    var modby = data[0].ModifiedById;
-                    var modat = $.datepicker.formatDate('yy-dd-mm', new Date(data[0].modifiedAt));
-                    var modat = data[0].ModifiedAt;
-
-                    if (data[0].IsActive == '1') {
-                      var status = '<label class="label label-success">Active</label>';
-                    }else {
-                      var status = '<span class="label label-light-inverse">Inactive</span>';
-                    }
-
-                    var actions = '<button class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'" data-desc="'+data[0].Description+'" data-createdby="'+data[0].CreatedById+'" data-createdat="'+data[0].CreatedAt+'" data-modifiedby="'+data[0].ModifiedById+'" data-modifiedat="'+data[0].ModifiedAt+'" data-version="'+data[0].VersionNo+'" data-status="'+data[0].IsActive+'"> <i class="fas fa-info-circle"></i> </button>'+
-                                  '<button class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'" data-desc="'+desc+'" data-status="'+data[0].IsActive+'"> <i class="far fa-edit" ></i> </button>'+
-                                  '<button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="'+$('#myTable').data('action')+'" data-id="'+id+'" data-name="'+name+'"> <i class="fas fa-trash-alt"></i></button>';
-
-                    var table = $('#myTable').DataTable();
-                    var row = table.row.add( [
-                      name,url,parent,desc,modby,modat,status,actions,
-                      ]).draw().node();
-                    $( row ).attr('id','row'+data[0].Id);
-
-                // =======
-                    // $(this).prop("disabled", true);   //Disables the submit button after click 
                     
                     btn.replaceWith("<label class='label label-warning'>Pending</label>");
                     
                 }
                   // >>>>>>> 51a1100072dd8e67281e7c19c39fd338194549ed
-                  // else{
-                  //   $.toast({
-                  //     heading: 'Error',
-                  //     text: data.error,
-                  //     position: 'top-right',
-                  //     loaderBg:'#ff6849',
-                  //     icon: 'error',
-                  //     hideAfter: 3500
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
                       
-                  //   });
+                    });
 
-                  //  btn.prop("disabled", false);   //Disables the submit button after click 
-                  // btn.text("Apply");
-                  // }
+                   btn.prop("disabled", false);   //Disables the submit button after click 
+                  btn.text("Apply");
+                  }
                       
             }
         });   
-});  
+}); 
+
+
+
 if ($('#addemployment').length > 0) {
   $('#addemployment').on("click", function() {
     // alert ("test");
@@ -1524,7 +1486,7 @@ $('#employee').submit(function(e) {
                 'FirstName' : $('input[name=FirstName]').val(),
                 'MiddleName' : $('input[name=MiddleName]').val(),
                 'Suffix' : $('select[name=Suffix]').val(),
-                'LandlineNum' : $('input[name=LandlineNum]').val(),
+                'Position' : $('select[name=Position]').val(),
                 'MobileNum' : $('input[name=MobileNum]').val(),
                 'EmailAddress' : $('input[name=UserName]').val(),
                 'TIN' : $('input[name=TIN]').val(),
@@ -1813,3 +1775,64 @@ $('.applyjo').click(function(e){ //Input the form's ID or CLASS, use # for ID an
     $('#modules-modal').modal();
     // alert('Hi Im view');
   });
+
+//VIEW BUTTON IN ITEMS
+
+  $('#myTable').delegate(".applyjobprocess", "click", function(e) {
+    e.preventDefault();       //This prevents the action to move to other page.
+        $(this).prop("disabled", true);   //Disables the submit button after click 
+        $(this).text("Processing...");
+        
+        var btn = $(this);
+        var newURL = $(this).data('action');   
+        
+        var newData  = {
+                'ApplicantId' : $('#Applicant').val(), //List of data you want to post
+                'JobId' : $(this).data('id'),
+            }
+            console.log(newData);
+          $.ajax({
+              url: newURL,
+              type:'POST',
+              dataType: "json",       //Datatype shows what kind of data you are posting, in this case, purely text and no file.
+              data: newData,
+              // contentType: false,
+              // cache: false,  
+              // processData:false,  
+              success: function(data) {
+                console.log(data);            //This is for testing only, it will show the result in browser console. Please remove it when deploying
+                if($.isEmptyObject(data.error)){      //Checking if the data.error has value
+                    
+
+                     $.toast({
+                      heading: 'Success!',
+                      text: 'Record Updated',
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'success',
+                      hideAfter: 3500, 
+                      stack: 6
+                    });
+                    
+                    btn.replaceWith("<label class='label label-success'>Processed</label>");
+                    
+                }
+                  // >>>>>>> 51a1100072dd8e67281e7c19c39fd338194549ed
+                  else{
+                    $.toast({
+                      heading: 'Error',
+                      text: data.error,
+                      position: 'top-right',
+                      loaderBg:'#ff6849',
+                      icon: 'error',
+                      hideAfter: 3500
+                      
+                    });
+
+                   btn.prop("disabled", false);   //Disables the submit button after click 
+                  btn.text("Apply");
+                  }
+                      
+            }
+        });   
+});

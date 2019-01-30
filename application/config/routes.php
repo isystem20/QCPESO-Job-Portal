@@ -609,7 +609,7 @@ $route['applicant/Notification'] = 'applicant/ApplicantNotificationsController/A
 $route['applicant/MyAlerts'] = 'applicant/MyAlertsController/MyAlerts';
 $route['applicant/MyApplication'] = 'applicant/MyApplicationController/MyApplication';
 
-$route['web/browsejob'] = 'web/browsejobcontroller/browsejob';
+$route['web/browsejob'] = 'web/BrowseJobController/browsejob';
 $route['web/JobDescription/(:any)'] = 'web/BrowseJobController/BrowseJobDescription/$1';
 
 $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
@@ -627,3 +627,31 @@ $route['manage/employee/update-employee/(:any)'] = 'admin/EmployeesController/Ad
 $route['manage/employee/update-employee/(:any)/(:any)'] = 'admin/EmployeesController/AddNewEmployees/$1/$2';
 $route['manage/employees-masterlist'] = 'admin/EmployeesController/AllEmployees';
 $route['manage/employerdashboard'] = 'employer/EmployerController/Employer';
+//JobApplication Process 
+
+        $route['admin/jobapplication/process'] = 'admin/JobApplicationController/Update1';
+
+
+//Successful Referral
+        $route['manage/do/applicants/job-applications-successful-referal'] = 'admin/JobApplicationController/SuccessfulReferral'; 
+//News       
+$route['web/news'] = 'web/NewsController/News';
+$route['web/NewsDescription/(:any)'] = 'web/NewsController/NewsDescription/$1';
+//About Us
+$route['web/AboutUs'] = 'web/AboutController/about';
+  
+   
+$route['web/job'] = 'web/JobController/Job';
+$route['web/hiring'] = 'web/HiringController/Hiring';
+
+// Job Classification
+$route['manage/maintenance/applicant-jobclassification'] = 'admin/JobClassificationController/JobClassification';
+//Job Classification (CREATE, UPDATE, DELETE, READ)
+        $route['admin/classification/add'] = 'admin/JobClassificationController/Create'; 
+        $route['admin/classification/edit'] = 'admin/JobClassificationController/Update'; 
+        $route['admin/classification/del'] = 'admin/JobClassificationController/Delete'; 
+        $route['admin/classification/read'] = 'admin/JobClassificationController/Read'; 
+
+        $route['admin/jobapplication/process/(:any)'] = 'admin/JobApplicationController/Update1/$1';
+
+$route['admin/pending-accreditation/process/(:any)'] = 'admin/EmployerController/Update1/$1';

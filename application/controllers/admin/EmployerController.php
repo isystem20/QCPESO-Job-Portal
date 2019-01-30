@@ -98,13 +98,7 @@
         $this->form_validation->set_rules('PermitIssuedDate','Permit Issued Date','required');
         $this->form_validation->set_rules('IndustryType','Industry Type','required');
         $this->form_validation->set_rules('CompanyAddress','Company Address','required');
-        $this->form_validation->set_rules('LandlineNum','Landline Number','required ',
-            array(
-                'required'      => 'You have not provided %s.',
-                'is_natural'     => 'Invalid landline number.',
-                
-                )
-    );
+
         $this->form_validation->set_rules('CompanyEmail','Company Email','required|valid_email|is_unique[tbl_establishments.CompanyEmail]|is_unique[tbl_security_users.Email]|is_unique[tbl_security_users.LoginName]',
             array(
                 'required'      => 'You have not provided %s.',
@@ -217,7 +211,32 @@
     public function Read() {
  
     }
+  public function Update1($id) {
  
+
+            $postdata = array('Id'=>$id);
+            $result = $this->empmod->PendingRequest2($postdata);
+            if ($result != FALSE) {
+                $accreditdata = $this->empmod->GetAccreditationData($postdata['Id']);
+                $data['accredit'] = $accreditdata;
+                // print_r ($data['refer']->result_array()) ;
+                // die();
+                $this->load->library("Pdf");
+                $this->load->view("pages/reports/PDF/Accreditation",$data);
+              
+               // $refer
+
+                $json = json_encode($result);              
+                echo $json;
+            }
+            else {
+                echo json_encode(['error'=>'Update Unsuccessful.']);
+
+            }
+
+     
+
+    }
  
  
  }

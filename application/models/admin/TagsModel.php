@@ -4,14 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	class TagsModel extends CI_Model {
 
 		public function LoadTagslist($id = null) {
-			$this->db->select('*');
-			$this->db->from('tbl_web_post_tags');
+			$this->db->select('c.*,u.FirstName as ModFirstName,u.LastName as ModLastName');
+			$this->db->from('tbl_web_post_tags c');
+			$this->db->join('tbl_employees u', 'u.Id = c.ModifiedById', 'left outer ' );
 			if (!empty($id)) {
-				$this->db->where('Id',$id);
+				$this->db->where('c.Id',$id);
 				return $this->db->get()->result();
 			}else {
-				$this->db->where('IsActive','1');
-				$this->db->or_where('IsActive','2');
+				$this->db->where('c.IsActive','1');
+				$this->db->or_where('c.IsActive','2');
 				return $this->db->get();
 			}
 			

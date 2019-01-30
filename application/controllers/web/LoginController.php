@@ -56,63 +56,31 @@ class LoginController extends Public_Controller {
 			        			echo json_encode(['error'=>'Account Disabled.']);
 			        		}
 			        		else {
-			        			if ($login->UserType == 'ADMIN' || $login->UserType == 'STAFF') {
-					        		$session_data = array(
-					        			'userid' => $login->Id,
-					        			'lastname' => $login->LastName,
-					        			'firstname'=> $login->FirstName,
-					        			'status' => $login->applicantstatus,
-					        			'active' => $login->Active,
-					        			'security_id' =>$login->SecurityUserLevelId,
-					        			'usertype' => $login->UserType,
-					        			'peopleid' => $login->PeopleId,
-					        			'username' => $login->LoginName,
-					        			'email' => $login->EmailAddress,
-					        		); 
-					        		$this->session->set_userdata($session_data);
-				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
-			        			}
-			        			elseif ($login->UserType == 'APPLICANT') {
-					        		$session_data = array(
-					        			'userid' => $login->Id,
-					        			'lastname' => $login->lastName,
-					        			'firstname'=> $login->firstName,
-					        			'status' => $login->applicantstatus,
-					        			'active' => $login->Active,
-					        			'security_id' =>$login->SecurityUserLevelId,
-					        			'usertype' => $login->UserType,
-					        			'peopleid' => $login->PeopleId,
-					        			'activated' => $login->Activated,
-					        			'sent' => $login->EmailSent,
-					        			'username' => $login->LoginName,
-					        			'email' => $login->Email,
-					        			'profile' => $login->ProfileProgress,
-					        			'pref_job' => $login->PreferredJobs,
-					        			'pref_loc' => json_decode($login->PreferredWorkLocations),
-					        		); 
-					        		$this->session->set_userdata($session_data);
-				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
-			        			}
-			        			elseif ($login->UserType == 'EMPLOYER') {
-					        		$session_data = array(
-					        			'userid' => $login->Id,
-					        			'CompanyName' => $login->CompanyName,
-					        			'firstname'=> $login->ContactPerson,
-					        			'status' => $login->applicantstatus,
-					        			'active' => $login->Active,
-					        			'security_id' =>$login->SecurityUserLevelId,
-					        			'usertype' => $login->UserType,
-					        			'peopleid' => $login->PeopleId,
-					        			'username' => $login->LoginName,
-					        			'email' => $login->CompanyEmail,
-					        		); 
-					        		$this->session->set_userdata($session_data);
-				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	   
-			        			}
-			        			else{
 
-			        				echo json_encode(['error'=>'Unknown User Type']);
-			        			}
+				        		$session_data = array(
+				        			'userid' => $login->Id,
+					        			'photo' => $login->PhotoPath,
+				        			'lastname' => $login->LastName,
+				        			'firstname'=> $login->FirstName,
+				        			'status' => $login->applicantstatus,
+				        			'active' => $login->Active,
+				        			'security_id' =>$login->SecurityUserLevelId,
+				        			'usertype' => $login->UserType,
+				        			'peopleid' => $login->PeopleId,
+				        			'activated' => $login->Activated,
+				        			'sent' => $login->EmailSent,
+				        			'username' => $login->LoginName,
+				        			'email' => $login->Email,
+				        			'profile' => $login->ProfileProgress,
+				        			'pref_job' => $login->PreferredJobs,
+				        			'pref_loc' => json_decode($login->PreferredWorkLocations),
+				        			'auth' => 'Google',
+					        			'photo' => $login->PhotoPath,
+				        		); 
+				        		
+				        		$this->session->set_userdata($session_data);
+			        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
+					        
      		
 
 			        		}
@@ -158,6 +126,8 @@ class LoginController extends Public_Controller {
 				        			'profile' => $login->ProfileProgress,
 				        			'pref_job' => $login->PreferredJobs,
 				        			'pref_loc' => json_decode($login->PreferredWorkLocations),
+				        			'auth' => 'Facebook',
+				        			'photo' => $login->PhotoPath,
 				        		); 
 				        		
 				        		$this->session->set_userdata($session_data);
@@ -200,26 +170,74 @@ class LoginController extends Public_Controller {
 			        			echo json_encode(['error'=>'Incorrect Password']);
 			        		}
 			        		else {
-				        		$session_data = array(
-				        			'userid' => $login->Id,
-				        			'lastname' => $login->lastName,
-				        			'firstname'=> $login->firstName,
-				        			'status' => $login->applicantstatus,
-				        			'active' => $login->Active,
-				        			'security_id' =>$login->SecurityUserLevelId,
-				        			'usertype' => $login->UserType,
-				        			'peopleid' => $login->PeopleId,
-				        			'activated' => $login->Activated,
-				        			'sent' => $login->EmailSent,
-				        			'username' => $login->LoginName,
-				        			'email' => $login->Email,
-				        			'profile' => $login->ProfileProgress,
-				        			'pref_job' => $login->PreferredJobs,
-				        			'pref_loc' => json_decode($login->PreferredWorkLocations),
-				        		); 
-				        		
-				        		$this->session->set_userdata($session_data);
-			        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	        		
+ 
+
+			        			if ($login->UserType == 'ADMIN' || $login->UserType == 'OFFICESTAFF' || $login->UserType == 'MANAGER' ) {
+					        		$session_data = array(
+					        			'userid' => $login->Id,
+					        			'lastname' => $login->LastName,
+					        			'firstname'=> $login->FirstName,
+					        			'status' => $login->applicantstatus,
+					        			'active' => $login->Active,
+					        			'security_id' =>$login->SecurityUserLevelId,
+					        			'usertype' => $login->UserType,
+					        			'peopleid' => $login->PeopleId,
+					        			'username' => $login->LoginName,
+					        			'activated' => $login->Activated,
+					        			// 'email' => $login->EmailAddress,
+					        			'auth' => 'Manual',
+					        			'photo' => 'themes/admin-pro/assets/images/users/Male.png'
+					        		); 
+					        		$this->session->set_userdata($session_data);
+				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
+			        			}
+			        			elseif ($login->UserType == 'APPLICANT') {
+					        		$session_data = array(
+					        			'userid' => $login->Id,
+					        			'lastname' => $login->LastName,
+					        			'firstname'=> $login->FirstName,
+					        			'status' => $login->applicantstatus,
+					        			'active' => $login->Active,
+					        			'security_id' =>$login->SecurityUserLevelId,
+					        			'usertype' => $login->UserType,
+					        			'peopleid' => $login->PeopleId,
+					        			'activated' => $login->Activated,
+					        			'sent' => $login->EmailSent,
+					        			'username' => $login->LoginName,
+					        			'email' => $login->Email,
+					        			'profile' => $login->ProfileProgress,
+					        			'pref_job' => $login->PreferredJobs,
+					        			'pref_loc' => json_decode($login->PreferredWorkLocations),
+					        			'auth' => 'Manual',
+				        			'photo' => $login->PhotoPath,
+					        		); 
+					        		$this->session->set_userdata($session_data);
+				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
+			        			}
+			        			elseif ($login->UserType == 'EMPLOYER') {
+					        		$session_data = array(
+					        			'userid' => $login->Id,
+					        			'CompanyName' => $login->CompanyName,
+					        			'firstname'=> $login->ContactPerson,
+					        			'status' => $login->applicantstatus,
+					        			'active' => $login->Active,
+					        			'security_id' =>$login->SecurityUserLevelId,
+					        			'usertype' => $login->UserType,
+					        			'peopleid' => $login->PeopleId,
+					        			'username' => $login->LoginName,
+					        			'activated' => $login->Activated,
+					        			'email' => $login->CompanyEmail,
+					        			'auth' => 'Manual',
+					        			'photo' => 'themes/admin-pro/assets/images/users/Male.png'
+					        		); 
+					        		$this->session->set_userdata($session_data);
+				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	   
+			        			}
+			        			else{
+
+			        				echo json_encode(['error'=>'Unknown User Type']);
+			        			}
+
 
 			        		}
 

@@ -41,18 +41,18 @@
                                     <div class="col-sm-6">
 
 
-                                            <?php
-                                            if (!empty($this->session->websettings)) {
-                                                $found = false;
-                                                foreach ($this->session->websettings as $row) {
-                                                    if ($row->Parameter == 'ENABLE_FACEBOOK_AUTH' && $row->Value == 'YES') { ?>
+
+                                        <?php
+                                          if (!empty($websetting) && !empty($websetting['ENABLE_FACEBOOK_AUTH'])) {
+                                            if ($websetting['ENABLE_FACEBOOK_AUTH'] == 'YES') { ?>
+
                                             <fb:login-button 
                                               scope="public_profile,email"
                                               onlogin="checkLoginState();">
                                             </fb:login-button>   
 
                                             <?php
-                                                    }
+                                                    
                                                 }
                                             }
 
@@ -68,15 +68,13 @@
                                         <!-- <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fab fa-google-plus-g"></i> </a>  -->
 
 
-                                            <?php
-                                            if (!empty($this->session->websettings)) {
-                                                $found = false;
-                                                foreach ($this->session->websettings as $row) {
-                                                    if ($row->Parameter == 'ENABLE_GOOGLE_AUTH' && $row->Value == 'YES') { ?>
+                                        <?php
+                                        if (!empty($websetting) && !empty($websetting['ENABLE_GOOGLE_AUTH'])) {
+                                            if ($websetting['ENABLE_GOOGLE_AUTH'] == 'YES') { ?>
                                             <div class="g-signin2" data-onsuccess="onSignIn" data-width="100%"></div> 
 
                                             <?php
-                                                    }
+                                                    
                                                 }
                                             }
 
@@ -94,8 +92,9 @@
                     </div>
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            Don't have an account? <a href="pages-register2.html" class="text-primary m-l-5"><b>Sign Up</b></a>
+                            Don't have an account? <a href="<?php echo base_url(); ?>web/register" class="text-primary m-l-5"><b>Sign Up</b></a>
                         </div>
+                        
                     </div>
 
                 <form class="form-horizontal" id="recoverform" action="https://wrappixel.com/demos/admin-templates/admin-pro/minimal/index.html">

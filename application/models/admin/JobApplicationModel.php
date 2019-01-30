@@ -21,15 +21,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		function LoadApplicationsMasterlist() {
-			$this->db->select('ja.*,ja.IsActive as ApplicationStatus,ja.ApplicationDate,a.*, a.Id as ApplicantId, a.IsActive as ApplicantStatus, j.*, j.Id as JobId, e.*, e.Id as EstablishmentId');
+			$this->db->select('ja.*,ja.IsActive as ApplicationStatus,ja.ApplicationDate,a.*, a.Id as ApplicantId, a.IsActive as ApplicantStatus, j.*, j.Id as JobId, e.*, e.Id as EstablishmentId, ja.Id as jaId, j.Id as jId, j.JobTitle as jJobTitle');
 			$this->db->from('tbl_applicants_job_applications ja');
 			$this->db->join('tbl_applicants a','a.Id = ja.ApplicantId', 'left outer');
 			$this->db->join('tbl_establishments_jobposts j','j.Id = ja.JobPostId','left outer');
 			$this->db->join('tbl_establishments e','e.Id = j.EstablishmentId','left outer');
+			$this->db->where('ja.IsActive','1');
 			$get = $this->db->get();
 			// die($this->db->last_query());
 			return $get;
 		}
+
+		function LoadReferralMasterlist() {
+			$this->db->select('ja.*,ja.IsActive as ApplicationStatus,ja.ApplicationDate,a.*, a.Id as ApplicantId, a.IsActive as ApplicantStatus, j.*, j.Id as JobId, e.*, e.Id as EstablishmentId, ja.Id as jaId, j.Id as jId, j.JobTitle as jJobTitle');
+			$this->db->from('tbl_applicants_job_applications ja');
+			$this->db->join('tbl_applicants a','a.Id = ja.ApplicantId', 'left outer');
+			$this->db->join('tbl_establishments_jobposts j','j.Id = ja.JobPostId','left outer');
+			$this->db->join('tbl_establishments e','e.Id = j.EstablishmentId','left outer');
+			$this->db->where('ja.IsActive','2');
+			$get = $this->db->get();
+			// die($this->db->last_query());
+			return $get;
+		
+		}
+
 
 
 		public function  Add($data) {
@@ -74,22 +89,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-		public function Update($id, $data) {
-		   
-		    $this->db->set('ApplicantId', '"'.$data['name'].'"', FALSE); 
-		   
-		    $this->db->set('isActive', '"'.$data['status'].'"', FALSE);
-		    $this->db->where('id', $id);
-		    $query = $this->db->update($this->tbl);
-			$update = $this->db->affected_rows();
-			if ($update > 0) {
-				$result = $this->LoadMasterlist($id);
-				return $result;
+		public function Process($postdata) {
+			//filerecord = [Del-1234567890]filerecord
+			$this->db->set('IsActive','"2"',FALSE);
+			$this->db->where('Id', $postdata['JobId']);
+			$this->db->update($this->tbl);
+			$deleted = $this->db->affected_rows();
+			if ($deleted > 0) {
+				return $postdata;
+			}else {
+				FALSE;
 			}
-			else {
-				return FALSE;
-			}
+
 		}
+function GetReferralData($id){
+
+			$this->db->select('ja.*,ja.IsActive as ApplicationStatus,ja.ApplicationDate,a.*, a.Id as ApplicantId, a.IsActive as ApplicantStatus, j.*, j.Id as JobId, e.*, e.Id as EstablishmentId, ja.Id as jaId, j.Id as jId, j.JobTitle as jJobTitle,c.Name as CityName');
+			$this->db->from('tbl_applicants_job_applications ja');
+			$this->db->join('tbl_applicants a','a.Id = ja.ApplicantId', 'left outer');
+			$this->db->join('tbl_establishments_jobposts j','j.Id = ja.JobPostId','left outer');
+			$this->db->join('tbl_establishments e','e.Id = j.EstablishmentId','left outer');
+			$this->db->join('tbl_applicants_cities c','c.Id = a.CityId','left outer');
+			$this->db->where('ja.IsActive','2');
+			$this->db->where('ja.Id', $id);
+			$get = $this->db->get();
+			// die($this->db->last_query());
+			return $get;
+}
 
 
 

@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class MyAlertsController extends CI_Controller {
+ class MyAlertsController extends Applicant_Controller {
  
     
  

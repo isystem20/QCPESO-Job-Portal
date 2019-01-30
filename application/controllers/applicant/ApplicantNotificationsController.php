@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class ApplicantNotificationsController extends CI_Controller {
+ class ApplicantNotificationsController extends Applicant_Controller {
  
     
  

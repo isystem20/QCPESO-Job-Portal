@@ -72,6 +72,60 @@
         // $this->logger->log('Load Categories','Categories',$json); //Log
 
     }
+     public function SuccessfulReferral()
+    {
+
+        $str = null;
+                        
+        $postdata = $this->input->post();
+
+        if  (!empty($postdata['searchtext'])) {
+
+            $str = $postdata['searchtext'];
+        }
+
+        // print_r($postdata);
+
+        $data['search'] = $postdata;
+
+        $layout = array('tables'=>TRUE,'pagetitle'=>'Successful Referrals', 'addons' => TRUE);
+        $data['jobapplication'] = $this->jobappmod->LoadMasterlist();
+        $data['applicant'] = $this->applimod->LoadMasterlist();
+        $data['categories'] = $this->categmod->LoadCategoryMasterlist();
+        $data['list'] = $this->jobappmod->LoadReferralMasterlist();
+
+        if  (!empty($postdata['Applicant'])) {
+
+        $data['jobposts'] =$this->browsmod->BrowseJobModelMasterlist($postdata, null, $postdata['Applicant']);
+        }
+
+        else{
+            
+            // print_r($data['jobposts']->result());
+        }
+
+        
+        $data['skills'] = $this->skimod->LoadMasterlist();
+        $data['emptypes'] = $this->emptypemod->LoadMasterlist();
+        $data['estabs'] = $this->establishmentmod->LoadMasterlist();
+
+        
+
+        $data['class'] = 'jobapplication';
+        $this->load->view('layout/admin/1_css',$layout);
+        $this->load->view('layout/admin/2_preloader',$layout);
+        $this->load->view('layout/admin/3_topbar',$layout);
+        $this->load->view('layout/admin/4_leftsidebar',$layout);
+        $this->load->view('pages/transaction/applicants/SuccessfulReferral',$data);
+        $this->load->view('layout/admin/6_js',$layout);     
+        $this->load->view('layout/admin/7_modals',$layout);
+
+        // print_r($postdata);
+
+        // $json = json_encode($data['JobApplication']); //log
+        // $this->logger->log('Load Categories','Categories',$json); //Log
+
+    }
     public function Create() {
 
         $data['browsejob'] = $this->browsmod->BrowseJobModelMasterlist($this->session->userdata('userid'));
@@ -172,7 +226,7 @@
     }
  
     public function Read() {
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE,'pagetitle'=>'Categories Masterlist');
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE,'pagetitle'=>'Job Application Masterlist');
         $data['list'] = $this->jobappmod->LoadApplicationsMasterlist();
         $data['class'] = 'jobapplications';
         $this->load->view('layout/admin/1_css',$layout);
@@ -186,7 +240,73 @@
         // $json = json_encode($data['categories']); //log
         // $this->logger->log('Load Categories','Categories',$json); //Log
     }
+
+    //  public function Update1() {
  
+
+
+
+    //      $this->form_validation->set_rules('JobId', 'Item Record', 'required',
+    //             array(
+    //             'required'      => 'Cannot identify this record.',
+    //             ));
+
+    //     $postdata = $this->input->post();
+    //     if ($this->form_validation->run() == FALSE){
+    //         $errors = validation_errors();
+    //         echo json_encode(['error'=>$errors]);
+    //     }
+    //     else{
+    //         $result = $this->jobappmod->Process($postdata);
+    //         if ($result != FALSE) {
+    //             $referraldata = $this->jobappmod->GetReferralData($postdata['JobId']);
+    //             $data['refer'] = $referraldata->result_array();
+                
+
+    //             // print_r($refer);
+    //             // die();
+    //            // $refer
+
+    //             $json = json_encode($result);              
+    //             echo $json;
+    //         }
+    //         else {
+    //             echo json_encode(['error'=>'Update Unsuccessful.']);
+
+    //         }
+
+    //     }
+
+    // }
+     public function Update1($id) {
  
- 
- }
+
+            $postdata = array('JobId'=>$id);
+            $result = $this->jobappmod->Process($postdata);
+            if ($result != FALSE) {
+                $referraldata = $this->jobappmod->GetReferralData($postdata['JobId']);
+                $data['refer'] = $referraldata;
+                // print_r ($data['refer']->result_array()) ;
+                // die();
+                $this->load->library("Pdf");
+                $this->load->view("pages/reports/PDF/ReferralLetter",$data);
+              
+               // $refer
+
+                $json = json_encode($result);              
+                echo $json;
+            }
+            else {
+                echo json_encode(['error'=>'Update Unsuccessful.']);
+
+            }
+
+     
+
+    }
+
+  public function GeneratedPdf($data){
+
+                
+  }
+}

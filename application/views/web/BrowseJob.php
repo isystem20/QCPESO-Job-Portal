@@ -33,7 +33,7 @@
 
 
            
-<section class="module">
+                <section class="module">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 order-lg-2">
@@ -42,9 +42,9 @@
                                     <!-- Post-->
                                     <?php
 
-                                    // print_r($browsejob->result());
+                                    
                                         if ($browsejob->num_rows() > 0) {
-                                        foreach ($browsejob->result() as $row) { ?>     
+                                        foreach ($browsejob->result() as $row) { $this->db->last_query(); ?>     
                                             <article class="post">
                                                 
                                             <div class="post-preview">
@@ -63,14 +63,16 @@
                                         </ul>
                                                 </div>
                                             <div class="card-body">
-                                                <p><?php echo $row->JobDescription; ?></p>
+                                                <p><?=character_limiter($row->JobDescription, 300);?></p>
                                                 <p>
             <a href="<?=base_url('web/JobDescription/'.$row->Id.'/#'.$row->JobTitle); ?>"/>Read more</a></p>
                                                 </div>
                                             </div>
                                         </article>
                                         <?php
+                                        
                                             }
+                                           
                                         }
                                         ?>
                                 </div>
@@ -211,7 +213,6 @@
                                         <h6>Recent Jobs</h6>
                                     </div>
                                     <ul>
-
                                         <?php
                                         if ($mostrecentjob->num_rows() > 0) {
                                             foreach ($mostrecentjob->result() as $row ) { ?>
@@ -231,25 +232,6 @@
                                             }
                                         }
                                         ?>                                          
-
-                                       <!--  <li class="clearfix">
-                                    </ul>
-                                </aside>
-
-                                <!-- Twitter widget-->
-                                <!-- <aside class="widget twitter-feed-widget">
-                                    <div class="widget-title">
-                                        <h6>Employee</h6>
-                                    </div>
-                                    <div class="twitter-feed" data-twitter="345170787868762112" data-number="2"></div>
-                                </aside>
-
-                                 Tags widget
-                                <aside class="widget widget-tag-cloud">
-                                    <div class="widget-title">
-                                        <h6>Tags</h6>
-                                    </div>
-                                    <div class="tag-cloud"><a href="#">e-commerce</a><a href="#">portfolio</a><a href="#">responsive</a><a href="#">boo --><!-- tstrap</a><a href="#">business</a><a href="#">corporate</a></div> -->
                                 </aside>
                             </div>
                         </div>
@@ -258,7 +240,7 @@
             </section>
             <!-- Blog end-->
 
-            <div class="col-md-12">
+            <!--  <div class="col-md-12">
                                     <nav>
                                         <ul class="pagination justify-content-center">
                                             <li class="page-item"><a class="page-link" href="#"><span class="fas fa-angle-left"></span></a></li>
@@ -267,7 +249,7 @@
                                             <li class="page-item"><a class="page-link" href="#"><span class="fas fa-angle-right"></span></a></li>
                                         </ul>
                                     </nav>
-                                </div>
+                                </div>  -->
             <!-- Footer-->
             <footer class="footer">
                 <div class="footer-widgets">
@@ -300,18 +282,18 @@
                                 <!-- Recent entries widget-->
                                 <aside class="widget widget-recent-entries">
                                     <div class="widget-title">
-                                        <h6>Recent Posts</h6>
+                                        <h6>Recent News</h6>
                                     </div>
                                     <ul>
-                                         <?php
-                                        if ($webpostmodel->num_rows() > 0) {
-                                            foreach ($webpostmodel->result() as $row ) { ?>
+                                    <?php
+                                        if ($webpost->num_rows() > 0) {
+                                            foreach ($webpost->result() as $row ) { ?>
                                        <div class="wb"><a href="<?=base_url('web/JobDescription/'.$row->Id); ?>"><?=character_limiter($row->PostDescription, 100);?><br>
                                                 <span class="post-date"><?=date('D F d, Y H:i A',strtotime($row->CreatedAt));?></span></div>
                                           <?php
                                             }
                                         }
-                                        ?>    
+                                        ?>     
                                     </ul>
                                 </aside>
                             </div>
