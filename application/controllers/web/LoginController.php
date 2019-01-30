@@ -160,7 +160,7 @@ class LoginController extends Public_Controller {
 				        $salt1 = hash('sha512', $key . $password);
 				        $salt2 = hash('sha512', $password . $key);
 				        $hashed_password = hash('sha512', $salt1 . $password . $salt2);
-				        print_r($login);
+				        // print_r($login);
 				        // die();
 			        	if ($login != FALSE) {
 
