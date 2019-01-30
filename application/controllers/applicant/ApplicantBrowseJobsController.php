@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class ApplicantBrowseJobsController extends CI_Controller {
+ class ApplicantBrowseJobsController extends Applicant_Controller {
  
     
  
