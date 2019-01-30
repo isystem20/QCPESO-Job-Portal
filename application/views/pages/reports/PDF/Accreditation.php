@@ -119,8 +119,7 @@ $html = '
 <h1 align="Center">CERTIFICATE OF ACCREDITATION</h1>
 <h2 align="Center">NO. QC-TCFO-PESO-'.$yrdate.'-'.$id.'
 <br>
-<br>
-<br>
+
 </h2>
 <p align="center">This is to Certify that
 <br>

@@ -7,6 +7,7 @@ function __construct() {
 	parent::__construct();
 			$this->load->model('admin/WebPostsModel','webpostmod');
 			$this->load->model('LoggerModel','logger'); //Include LoggerModel
+			$this->load->model('web/AuthModel','auth');
 		}
 
 	public function index() {
@@ -39,6 +40,35 @@ function __construct() {
 
 
 	}
+	public function CreateApplicant() {
+		$this->form_validation->set_message('is_unique', 'The %s is already taken');
+        $this->form_validation->set_rules('FirstName', 'First Name', 'required');
+        $this->form_validation->set_rules('LastName', 'Last Name', 'required'); 
+        $this->form_validation->set_rules('EmailAddress', 'Email', 'required|valid_email|is_unique[tbl_security_users.LoginName]'); 
+        $this->form_validation->set_rules('Password', 'Password', 'required|min_length[6]'); 
+        $this->form_validation->set_rules('Password2', 'Confirm Password', 'required|matches[Password]'); 
+
+        if ($this->form_validation->run() == FALSE){
+            $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
+        }
+        else{
+
+        	$postdata = $this->input->post(); 
+        	$inserted = $this->auth->RegisterApplicant($postdata);
+        	if ($inserted == TRUE) {
+         		echo json_encode(['success'=>TRUE]);       		
+        	}
+        	else {
+        		echo json_encode(['error'=>'Registration Failed']);
+        	}
+
+        }
+
+	}
+
+
+	
 
 
 
