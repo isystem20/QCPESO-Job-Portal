@@ -202,6 +202,7 @@ catch(err) {
                                   stack: 6
                                 });
                                  console.log('Not Logged in');
+                                 goLogoutfb();
                             }
                         }
                     });
@@ -326,6 +327,7 @@ if (!empty($websetting) && !empty($websetting['ENABLE_GOOGLE_AUTH'])) {
                                       stack: 6
                                     });
 
+                                    signOut_2();
 
                                 }
                  
@@ -342,6 +344,12 @@ if (!empty($websetting) && !empty($websetting['ENABLE_GOOGLE_AUTH'])) {
 
         };
 
+      function signOut_2() {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function () {
+            // document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://qcpeso.com/logout";
+          });
+      }
 
 
       function signOut() {
