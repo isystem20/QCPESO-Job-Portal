@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $hashed_password = hash('sha512', $salt1 . $password . $salt2);
             // echo $data['password'] = $hashed_password;
 
-            $this->db->set('Id',"'".$UserId."'",FALSE);
+            $this->db->set('Id',"'".$EstablishmentId."'",FALSE);
             $this->db->set('LoginName',"'".$data['CompanyEmail']."'",FALSE);
             $this->db->set('PasswordHash',"'".$hashed_password."'",FALSE);
             $this->db->set('SecurityUserLevelId',"'2'",FALSE);

@@ -78,7 +78,7 @@ class EmployeesModel extends CI_Model {
             $this->db->set('CreatedAt','CURRENT_TIMESTAMP',FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
-            
+             $this->db->set('Activated',"'1'",FALSE);
             $this->db->set('PeopleId',"'".$id."'",FALSE);           
           
             $this->db->insert('tbl_security_users');
