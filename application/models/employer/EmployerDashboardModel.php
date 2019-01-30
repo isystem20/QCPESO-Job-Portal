@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         $this->db->select('xDerived0.JobTitle, xDerived0.IsActive, xDerived0.CreatedAt, xDerived1.id1, xDerived2.id2, xDerived3.id3');
 
-        $this->db->from('(Select JobTitle, IsActive,CreatedAt from tbl_establishments_jobposts )xDerived0');
+        $this->db->from('(Select JobTitle, IsActive,CreatedAt from tbl_establishments_jobposts where EstablishmentId = "'.$this->session->userdata('userid').'" )xDerived0');
 
         $this->db->from('(Select Count(t1.Id) as id1 from tbl_applicants_job_applications t1 Left join tbl_establishments_jobposts t2 on t2.Id = t1.JobPostId where t2.EstablishmentId = "'.$this->session->userdata('userid').'") xDerived1');
 
