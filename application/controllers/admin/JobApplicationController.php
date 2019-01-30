@@ -288,13 +288,14 @@
                 $data['refer'] = $referraldata;
                 // print_r ($data['refer']->result_array()) ;
                 // die();
-                $this->load->library("Pdf");
-                $this->load->view("pages/reports/PDF/ReferralLetter",$data);
+                // $this->load->library('Dompdf6');
+                $this->load->library('pdf_lib');
+                $this->load->view("pages/reports/PDF/Test",$data);
               
                // $refer
 
-                $json = json_encode($result);              
-                echo $json;
+                // $json = json_encode($result);              
+                // echo $json;
             }
             else {
                 echo json_encode(['error'=>'Update Unsuccessful.']);

@@ -144,6 +144,7 @@ class AuthModel extends CI_Model {
 					}
 				}
 			}
+			// die($this->db->last_query());
 			return FALSE;
 		}
 
@@ -155,7 +156,9 @@ class AuthModel extends CI_Model {
 		$this->db->from('tbl_security_users user');
 		$this->db->join('tbl_employees app','app.Id = user.Id','left outer');
 		$this->db->where('user.LoginName',$data['Email']);
+		$this->db->where('app.EmailAddress',$data['Email']);
 		$query = $this->db->get();
+		// die($this->db->last_query());
 		if ($query->num_rows() > 0) {
 			return $query->row();
 		}
@@ -171,7 +174,9 @@ class AuthModel extends CI_Model {
 		$this->db->from('tbl_security_users user');
 		$this->db->join('tbl_establishments app','app.Id = user.Id','left outer');
 		$this->db->where('user.LoginName',$data['Email']);
+		$this->db->where('app.CompanyEmail',$data['Email']);
 		$query = $this->db->get();
+		// die($this->db->last_query());
 		if ($query->num_rows() > 0) {
 			return $query->row();
 		}
