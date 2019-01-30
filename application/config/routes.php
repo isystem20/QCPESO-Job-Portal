@@ -609,7 +609,7 @@ $route['applicant/Notification'] = 'applicant/ApplicantNotificationsController/A
 $route['applicant/MyAlerts'] = 'applicant/MyAlertsController/MyAlerts';
 $route['applicant/MyApplication'] = 'applicant/MyApplicationController/MyApplication';
 
-$route['web/browsejob'] = 'web/Browsejobcontroller/browsejob';
+$route['web/browsejob'] = 'web/BrowseJobController/browsejob';
 $route['web/JobDescription/(:any)'] = 'web/BrowseJobController/BrowseJobDescription/$1';
 
 $route['manage/transactions/all-applicant'] = 'admin/ApplicantController/AllApplicants';
