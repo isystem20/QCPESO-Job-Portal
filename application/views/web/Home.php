@@ -1,5 +1,5 @@
 
-
+<div class="wrapper" id="maincontent" data-adminpage="<?=base_url('manage'); ?>">
             <!-- Wrapper-->
             <div class="wrapper">
                 <!-- Hero-->
