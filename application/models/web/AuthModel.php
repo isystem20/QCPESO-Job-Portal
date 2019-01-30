@@ -110,13 +110,17 @@ class AuthModel extends CI_Model {
 	public function LoginApplicant($data,$ext = FALSE) {
 		$this->db->select('user.*, app.LastName, app.FirstName,app.IsActive as applicantstatus, app.PreferredJobs, app.PreferredWorkLocations, app.PhotoPath');
 		$this->db->from('tbl_security_users user');
-		$this->db->join('tbl_applicants app','app.Id = user.PeopleId','left outer');
-		$this->db->where('user.LoginName',$data['Email']);
+		$this->db->join('tbl_applicants app','app.Id = user.Id','left outer');
+
 		if ($ext == TRUE) {
 			$this->db->group_start();
 			$this->db->where('user.External_Id', $data['External_Id']);
 			$this->db->or_where('user.Activated', '1');
 			$this->db->group_end();
+		}
+		else {
+			$this->db->where('user.LoginName',$data['Email']);
+			$this->db->where('app.EmailAddress',$data['Email']);			
 		}
 		$query = $this->db->get();
 		// die($this->db->last_query());
@@ -125,7 +129,20 @@ class AuthModel extends CI_Model {
 		}
 		else {
 			if ($ext == FALSE) {
-				$this->LoginAdmin($data);
+				// echo 'logged';
+				$checkadmin = $this->LoginAdmin($data);
+				if ($checkadmin != FALSE) {
+					return $checkadmin;
+				}
+				else{
+					$checkemp = $this->LoginEmployer($data);
+					if ($checkemp != FALSE) {
+						return $checkemp;
+					}
+					else {
+						return FALSE;
+					}
+				}
 			}
 			return FALSE;
 		}
@@ -136,14 +153,15 @@ class AuthModel extends CI_Model {
 	public function LoginAdmin($data,$ext = FALSE) {
 		$this->db->select('user.*, app.LastName, app.FirstName,app.IsActive as applicantstatus, app.EmailAddress');
 		$this->db->from('tbl_security_users user');
-		$this->db->join('tbl_employees app','app.Id = user.PeopleId','left outer');
+		$this->db->join('tbl_employees app','app.Id = user.Id','left outer');
 		$this->db->where('user.LoginName',$data['Email']);
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
 			return $query->row();
 		}
 		else {
-			$this->LoginEmployer($data);
+			// echo 'admin';
+			// $this->LoginEmployer($data);
 			return FALSE;
 		}
 	}
@@ -151,7 +169,7 @@ class AuthModel extends CI_Model {
 	function LoginEmployer() {
 		$this->db->select('user.*, app.ContactPerson, app.CompanyName, app.EstablismentType,app.IsActive as applicantstatus, app.CompanyEmail');
 		$this->db->from('tbl_security_users user');
-		$this->db->join('tbl_establishments app','app.Id = user.PeopleId','left outer');
+		$this->db->join('tbl_establishments app','app.Id = user.Id','left outer');
 		$this->db->where('user.LoginName',$data['Email']);
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
@@ -166,7 +184,7 @@ class AuthModel extends CI_Model {
 
 	public function LoginApplicantGoogle($data) {
 
-		if ($this->CheckExistingExt($data['External_Id'],$data['Email']) > 0 || $this->CheckExistingExt2($data['Email']) > 0) {
+		if ($this->CheckExistingExt($data['External_Id'],$data['Email']) > 0 || $this->CheckExistingExt2($data['Email']) > 0 || $this->CheckExistingExt3($data['External_Id']) > 0 ) {
 			$login =  $this->LoginApplicant($data,TRUE);
 			return $login;
 		}
@@ -198,5 +216,17 @@ class AuthModel extends CI_Model {
 		// $this->db->join('tbl_applicants a','a.Id = u.PeopleId','left outer');
 		return $this->db->count_all_results();
 	}
+
+
+	function CheckExistingExt3($extid) {
+
+		$this->db->where('u.External_Id', $extid);
+		// $this->db->where('u.LoginName', $email);
+		// $this->db->where('a.EmailAddress', $email);
+		$this->db->from('tbl_security_users u');
+		// $this->db->join('tbl_applicants a','a.Id = u.PeopleId','left outer');
+		return $this->db->count_all_results();
+	}
+
 
 }

@@ -87,8 +87,10 @@ class Email extends CI_Model {
 
 
 		try {
-			$recipients = substr($recipients, -10);
-			$recipient_email = '63' . $recipients . '@txtlocal.co.uk';
+
+		$recipients = substr($recipients, -10);
+		$recipient_email = '63' . $recipients . '@txtlocal.co.uk';
+		$recipient_name = '';
 			$subject = 'Quezon City PESO Job Alert';
 
 			$mail = new PHPMailer(true);
@@ -113,8 +115,8 @@ class Email extends CI_Model {
 			$mail->IsHTML(true);
 
 		    $mail->Subject = $subject;
-		    $body = $template;
-			$mail->Body = 'Sent to: recipient_email . <br> Quezon City Public Employment Service Office\nPosted new job opportunity: <br>' .$str;
+		    // $body = $template;
+			$mail->Body = 'Quezon City Public Employment Service Office\nPosted new job opportunity: <br>' .$str;
 
 			$mail->Send();
 			return true;

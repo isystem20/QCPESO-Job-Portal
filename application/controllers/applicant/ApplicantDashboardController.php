@@ -12,12 +12,13 @@
  
     public function ApplicantDashboard()
     {
+        $websetting = $this->LoadWebSettings();
         $data["totaljobs"] = $this->app->myTotalJobApplication();
         $data["totalapproved"] = $this->app->myTotalApprovedJob();
         $data["recentjobs"] = $this->app->myRecentJobs();
         $data["pendingjobs"] = $this->app->myPendingJobs();
         $data["rejectedjobs"] = $this->app->myTotalRejectJob();
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'charts' => TRUE);
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'charts' => TRUE,'websetting'=>$websetting);
         $this->load->view('layout/admin/1_css',$layout);
         $this->load->view('layout/admin/2_preloader',$layout);
         $this->load->view('layout/admin/3_topbar',$layout);

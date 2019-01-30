@@ -1486,7 +1486,7 @@ $('#employee').submit(function(e) {
                 'FirstName' : $('input[name=FirstName]').val(),
                 'MiddleName' : $('input[name=MiddleName]').val(),
                 'Suffix' : $('select[name=Suffix]').val(),
-                'LandlineNum' : $('input[name=LandlineNum]').val(),
+                'Position' : $('select[name=Position]').val(),
                 'MobileNum' : $('input[name=MobileNum]').val(),
                 'EmailAddress' : $('input[name=UserName]').val(),
                 'TIN' : $('input[name=TIN]').val(),
@@ -1778,11 +1778,11 @@ $('.applyjo').click(function(e){ //Input the form's ID or CLASS, use # for ID an
 
 //VIEW BUTTON IN ITEMS
 
-  $('#myTable').delegate(".applyjobprocess", "click", function() {
+  $('#myTable').delegate(".applyjobprocess", "click", function(e) {
     e.preventDefault();       //This prevents the action to move to other page.
         $(this).prop("disabled", true);   //Disables the submit button after click 
         $(this).text("Processing...");
-
+        
         var btn = $(this);
         var newURL = $(this).data('action');   
         
