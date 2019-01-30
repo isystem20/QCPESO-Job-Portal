@@ -335,14 +335,14 @@
                     <!-- ============================================================== -->
                     
 
-                    <div class="col-lg-12">
+                 <!--    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Applicants via Google Maps</h4>
                                 <div id="markermap" class="gmaps"></div>
                             </div>
                         </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- ============================================================== -->
