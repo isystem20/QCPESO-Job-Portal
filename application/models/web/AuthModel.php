@@ -166,7 +166,7 @@ class AuthModel extends CI_Model {
 		}
 	}
 
-	function LoginEmployer() {
+	function LoginEmployer($data) {
 		$this->db->select('user.*, app.ContactPerson, app.CompanyName, app.EstablismentType,app.IsActive as applicantstatus, app.CompanyEmail');
 		$this->db->from('tbl_security_users user');
 		$this->db->join('tbl_establishments app','app.Id = user.Id','left outer');

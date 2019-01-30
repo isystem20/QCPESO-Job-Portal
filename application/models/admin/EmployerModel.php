@@ -77,6 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->set('UserType',"'EMPLOYER'",FALSE); 
             $this->db->set('PeopleId',"'".$EstablishmentId."'",FALSE);           
             $this->db->set('Email',"'".$data['CompanyEmail']."'",FALSE);
+            $this->db->set('Activated',"'1'",FALSE);
             $this->db->insert('tbl_security_users');
 
             $this->db->trans_complete();

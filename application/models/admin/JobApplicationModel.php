@@ -27,6 +27,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->join('tbl_establishments_jobposts j','j.Id = ja.JobPostId','left outer');
 			$this->db->join('tbl_establishments e','e.Id = j.EstablishmentId','left outer');
 			$this->db->where('ja.IsActive','1');
+			$usertype = $this->session->userdata('usertype');
+                            if ($usertype == 'EMPLOYER') {
+                            	$this->db->where('e.Id',$this->session->userdata('userid'));
+                            }
 			$get = $this->db->get();
 			// die($this->db->last_query());
 			return $get;
