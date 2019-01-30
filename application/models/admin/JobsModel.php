@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['Category'] = json_encode($data['Category']);			
 			
 
-			
+			$this->db->set('EstablishmentId',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
 			$this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
 
