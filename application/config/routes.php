@@ -655,3 +655,5 @@ $route['manage/maintenance/applicant-jobclassification'] = 'admin/JobClassificat
         $route['admin/jobapplication/process/(:any)'] = 'admin/JobApplicationController/Update1/$1';
 
 $route['admin/pending-accreditation/process/(:any)'] = 'admin/EmployerController/Update1/$1';
+
+$route['web/changepassword'] = 'web/ChangePasswordController/changepassword';
