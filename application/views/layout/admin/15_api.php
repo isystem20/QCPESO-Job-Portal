@@ -110,7 +110,7 @@ catch(err) {
     <!-- Facebook API End -->
 
     <script type="text/javascript">
-        try {
+        // try {
 
           window.fbAsyncInit = function() {
             FB.init({
@@ -125,19 +125,14 @@ catch(err) {
                   if ($('#logoutbtn').length > 0) {
                       document.getElementById('logoutbtn').href = 'javascript:goLogoutfb();';            
                   }
-
+                  statusChangeCallback(response);
                 }
-                console.log(response);
-                // statusChangeCallback(response);
+                // console.log(response);
+                
             });
 
           };
-        }
-        catch(err) {
-          console.log(err);
-        }
 
-        try {
           (function(d, s, id){
              var js, fjs = d.getElementsByTagName(s)[0];
              if (d.getElementById(id)) {return;}
@@ -147,26 +142,7 @@ catch(err) {
            }(document, 'script', 'facebook-jssdk'));
 
 
-        }
-        catch(err) {
-          console.log(err);
-        }
-      function checkLoginState() {
-        try {
-
-            FB.getLoginStatus(function(response) {
-              statusChangeCallback(response);
-            });
-
-        }
-        catch(err) {
-          console.log(err);
-        }
-      }
-
       function goLogoutfb() {
-        try {
-
             FB.getLoginStatus(function(response) {
               if (response.status === 'connected') {
                 FB.logout(function(response) {
@@ -175,12 +151,7 @@ catch(err) {
                        
               }
             });
-        }
-        catch(err) {
-          console.log(err);
-        }
       }
-
 
       function statusChangeCallback(response) {
         //if (response.status === 'connected') {}
@@ -231,14 +202,39 @@ catch(err) {
                                   stack: 6
                                 });
                                  console.log('Not Logged in');
+                                 goLogoutfb();
                             }
                         }
                     });
 
             }
+            else {
+              console.log(response);
+            }
         })
         
       }
+
+
+
+
+      function checkLoginState() {
+        // try {
+
+            FB.getLoginStatus(function(response) {
+              statusChangeCallback(response);
+            });
+
+        // }
+        // catch(err) {
+        //   console.log(err);
+        // }
+      }
+
+
+
+
+
 
     </script>
 
@@ -331,6 +327,7 @@ if (!empty($websetting) && !empty($websetting['ENABLE_GOOGLE_AUTH'])) {
                                       stack: 6
                                     });
 
+                                    signOut_2();
 
                                 }
                  
@@ -347,6 +344,12 @@ if (!empty($websetting) && !empty($websetting['ENABLE_GOOGLE_AUTH'])) {
 
         };
 
+      function signOut_2() {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function () {
+            // document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://qcpeso.com/logout";
+          });
+      }
 
 
       function signOut() {

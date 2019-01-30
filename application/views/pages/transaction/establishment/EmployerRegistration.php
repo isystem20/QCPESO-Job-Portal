@@ -333,6 +333,7 @@ if (!empty($emppost)) {
                                 name="IsActive">
                                     <option <?php if($row->IsActive=="1"){ echo "Selected";}?> value="1">Active</option>
                                     <option <?php if($row->IsActive=="0"){ echo "Selected";}?> value="0">Inactive</option>
+                                    <option <?php if($row->IsActive=="2"){ echo "Selected";}?> value="2">Pending</option>
 
                                 </select>
                         </div>
@@ -640,7 +641,8 @@ else { ?>
                            
                                     <select class="form-control" id="stat" name="IsActive">
                                     <option value="1">Active</option>
-                                    <option value="0">Inactive</option>    
+                                    <option value="0">Inactive</option>
+                                    <option value="2">Pending</option>   
                                     </select>
                                 </div>
                             </div>

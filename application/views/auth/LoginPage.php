@@ -93,8 +93,9 @@
                     </div>
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            Don't have an account? <a href="pages-register2.html" class="text-primary m-l-5"><b>Sign Up</b></a>
+                            Don't have an account? <a href="<?php echo base_url(); ?>web/register" class="text-primary m-l-5"><b>Sign Up</b></a>
                         </div>
+                        
                     </div>
 
                 <form class="form-horizontal" id="recoverform" action="https://wrappixel.com/demos/admin-templates/admin-pro/minimal/index.html">

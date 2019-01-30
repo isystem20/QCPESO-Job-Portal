@@ -60,8 +60,8 @@ class LoginController extends Public_Controller {
 				        		$session_data = array(
 				        			'userid' => $login->Id,
 					        			'photo' => $login->PhotoPath,
-				        			'lastname' => $login->lastName,
-				        			'firstname'=> $login->firstName,
+				        			'lastname' => $login->LastName,
+				        			'firstname'=> $login->FirstName,
 				        			'status' => $login->applicantstatus,
 				        			'active' => $login->Active,
 				        			'security_id' =>$login->SecurityUserLevelId,
@@ -160,7 +160,8 @@ class LoginController extends Public_Controller {
 				        $salt1 = hash('sha512', $key . $password);
 				        $salt2 = hash('sha512', $password . $key);
 				        $hashed_password = hash('sha512', $salt1 . $password . $salt2);
-
+				        // print_r($login);
+				        // die();
 			        	if ($login != FALSE) {
 
 			        		if ($login->Active == '0' || $login->applicantstatus == '0') {
@@ -172,7 +173,7 @@ class LoginController extends Public_Controller {
 			        		else {
  
 
-			        			if ($login->UserType == 'ADMIN' || $login->UserType == 'STAFF') {
+			        			if ($login->UserType == 'ADMIN' || $login->UserType == 'OFFICESTAFF' || $login->UserType == 'MANAGER' ) {
 					        		$session_data = array(
 					        			'userid' => $login->Id,
 					        			'lastname' => $login->LastName,
@@ -186,6 +187,7 @@ class LoginController extends Public_Controller {
 					        			'activated' => $login->Activated,
 					        			// 'email' => $login->EmailAddress,
 					        			'auth' => 'Manual',
+					        			'photo' => 'themes/admin-pro/assets/images/users/Male.png'
 					        		); 
 					        		$this->session->set_userdata($session_data);
 				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	 
@@ -227,6 +229,7 @@ class LoginController extends Public_Controller {
 					        			'activated' => $login->Activated,
 					        			'email' => $login->CompanyEmail,
 					        			'auth' => 'Manual',
+					        			'photo' => 'themes/admin-pro/assets/images/users/Male.png'
 					        		); 
 					        		$this->session->set_userdata($session_data);
 				        			echo json_encode(['success'=>TRUE,'url'=>base_url('manage')]);	   

@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class MyApplicationController extends CI_Controller {
+ class MyApplicationController extends Applicant_Controller {
   function __construct() {
            parent::__construct();
            $this->load->model('applicant/MyApplicationModel','MyAppMod');

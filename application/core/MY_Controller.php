@@ -85,22 +85,32 @@ class Public_Controller extends CI_Controller {
 
 class Applicant_Controller extends MY_Controller {
 
-    // function __construct()
-    // {
-    //     parent::__construct();
-
-    //     $userid = $this->session->userdata('userid');
-    //     $usertype = $this->session->userdata('usertype');
-    //     // if (!empty($userid) && $usertype == 'APPLICANT') {
-    //     //     return redirect(base_url().'403');
-    //     // }
-    //     if (empty($userid)) {
-    //         return redirect(base_url().'web/login/applicant');
-    //     }
-        
-    // }
+    function __construct()
+    {
+        parent::__construct();
+        //Initialization code that affects Public controllers. Probably not much needed because everyone can access public.
+        $WEBSET = $this->LoadWebSettings();
+        if ($WEBSET['UNDER_CONSTRUCTION'] == 'YES') {
+            die('UNDER_CONSTRUCTION');
+        }
+    }
 
 
+    public function LoadWebSettings() {
+
+        $websettings_keys = array();
+        $websettings_val = array();
+
+        $this->db->flush_cache();
+        $get = $this->db->get('tbl_websettings');
+        $result = $get->result();
+
+        foreach ($result as $row) {
+            array_push($websettings_keys, strtoupper($row->Parameter));
+            array_push($websettings_val, strtoupper($row->Value));
+        }
+        return array_combine($websettings_keys, $websettings_val);          
+    }
 
 
 
@@ -108,11 +118,31 @@ class Applicant_Controller extends MY_Controller {
 
 class Employer_Controller extends MY_Controller {
 
-    function __construct()
+   function __construct()
     {
         parent::__construct();
+        //Initialization code that affects Public controllers. Probably not much needed because everyone can access public.
+        $WEBSET = $this->LoadWebSettings();
+        if ($WEBSET['UNDER_CONSTRUCTION'] == 'YES') {
+            die('UNDER_CONSTRUCTION');
+        }
+    }
 
-        //Initialization code that affects Member controllers. I.E. redirect and die if not logged in
+
+    public function LoadWebSettings() {
+
+        $websettings_keys = array();
+        $websettings_val = array();
+
+        $this->db->flush_cache();
+        $get = $this->db->get('tbl_websettings');
+        $result = $get->result();
+
+        foreach ($result as $row) {
+            array_push($websettings_keys, strtoupper($row->Parameter));
+            array_push($websettings_val, strtoupper($row->Value));
+        }
+        return array_combine($websettings_keys, $websettings_val);          
     }
 
 }

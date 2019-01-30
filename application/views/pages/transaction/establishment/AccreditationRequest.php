@@ -63,14 +63,15 @@
         
                                                 
                                                 <td class="actions">
-                                                    <a href="<?=base_url('admin/emppost/read/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
+                                                    <a href="<?=base_url('admin/emppost/read/'.$row->Id);?>" class="btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
 
 
                                                   <!--   <a href="<?=base_url('manage/settings/update-web-post/'.$row->Id.'/edit');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
-
+                                                    
 
 
                                                      <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/emppost/del'); ?>" data-id="<?php echo $row->Id; ?>" data-name="<?=$row->CompanyName; ?>"> <i class="fas fa-trash-alt"></i></button>   -->
+                                                    <a href="<?=base_url('admin/emppost/edit/'.$row->Id.'/edit');?>" class=" btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
 
                                                       <a href="<?=base_url('admin/pending-accreditation/process/'.$row->Id); ?>"> <i class=" fas fa-angle-double-right"></i> Process</a>                                                
                                                 </td>

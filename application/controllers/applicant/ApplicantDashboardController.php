@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class ApplicantDashboardController extends CI_Controller {
+ class ApplicantDashboardController extends Applicant_Controller {
  
     function __construct() {
          parent::__construct();
@@ -12,12 +12,13 @@
  
     public function ApplicantDashboard()
     {
+        $websetting = $this->LoadWebSettings();
         $data["totaljobs"] = $this->app->myTotalJobApplication();
         $data["totalapproved"] = $this->app->myTotalApprovedJob();
         $data["recentjobs"] = $this->app->myRecentJobs();
         $data["pendingjobs"] = $this->app->myPendingJobs();
         $data["rejectedjobs"] = $this->app->myTotalRejectJob();
-        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'charts' => TRUE);
+        $layout = array('tables'=>TRUE, 'datepicker'=>TRUE, 'charts' => TRUE,'websetting'=>$websetting);
         $this->load->view('layout/admin/1_css',$layout);
         $this->load->view('layout/admin/2_preloader',$layout);
         $this->load->view('layout/admin/3_topbar',$layout);
