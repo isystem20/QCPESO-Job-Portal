@@ -284,7 +284,7 @@
                                   
                                 </div>
                                 <div class="table-responsive m-t-20">
-                                    <table class="table vm no-th-brd pro-of-month">
+                                    <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
                                             <tr>
                                                 <th><b>Job Title</th>
@@ -338,7 +338,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Market with Info window</h4>
+                                <h4 class="card-title">Applicants via Google Maps</h4>
                                 <div id="markermap" class="gmaps"></div>
                             </div>
                         </div>
