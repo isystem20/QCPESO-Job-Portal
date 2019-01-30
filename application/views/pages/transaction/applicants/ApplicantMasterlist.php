@@ -38,8 +38,14 @@
 
                         <div class="card">
                             <div class="card-body">
-                               
+                                  <?php 
+                                        $usertype = $this->session->userdata('usertype');
+                                        if ($usertype != 'EMPLOYER') {
+                                        ?>
                                <a href="<?=base_url('manage/applicant/add');?>" class="btn waves-effect waves-light btn-success">Add</a>
+                                <?php
+                                         }
+                                        ?>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped" data-action="<?=base_url('admin/'.$class.'/')?>">
                                         <thead>
@@ -75,14 +81,19 @@
                                                     ?>
                                                 </td>
                                                  <td class="actions">
-                                                    <a href="<?=base_url('manage/transactions/view-applicant/'.$row->Id);?>" class="read-item-btn btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
+                                                    <a href="<?=base_url('manage/transactions/view-applicant/'.$row->Id);?>" class=" btn btn-info waves-effect waves-light btn-sm " data-toggle="tooltip" data-placement="top" title="" data-original-title="View" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="fas fa-info-circle"></i> </a>
+            <?php 
+                                        $usertype = $this->session->userdata('usertype');
+                                        if ($usertype != 'EMPLOYER') {
+                                        ?>
+
+                                                    <a href="<?=base_url('manage/transactions/update-applicant/'.$row->Id.'/edit');?>" class="btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
 
 
-                                                    <a href="<?=base_url('manage/transactions/update-applicant/'.$row->Id.'/edit');?>" class="edit-item-btn btn btn-success waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" data-action="<?=base_url('admin/'.$class.'/'); ?>" > <i class="far fa-edit" ></i> </a>
 
-
-
-                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/applicant/del'); ?>" data-id="<?php echo $row->Id; ?>" > <i class="fas fa-trash-alt"></i></button>                                                  
+                                                     <button class="del-item-btn btn btn-danger waves-effect waves-light btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" type="button" data-action="<?=base_url('admin/applicant/del'); ?>" data-id="<?php echo $row->Id; ?>" > <i class="fas fa-trash-alt"></i></button>                                                    <?php
+                                         }
+                                        ?>
                                                 </td>
                                             </tr>
                                         

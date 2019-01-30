@@ -40,14 +40,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $EstablishmentId = $this->uuid->v4();
             $code = rand(100000, 999999);
 
-            $data['DressCode'] = json_encode($data['DressCode']);
-            $data['SpokenLanguage'] = json_encode($data['SpokenLanguage']);
+             if (!empty($data["DressCode"])) {
+         $this->db->set('DressCode',"'".json_encode($data["DressCode"])."'",FALSE);
+         unset($data["DressCode"]);  
+        }
+        if (!empty($data["SpokenLanguage"])) {
+             $this->db->set('SpokenLanguage',"'".json_encode($data["SpokenLanguage"])."'",FALSE);
+             unset($data["SpokenLanguage"]);   
+        }
 
 
             $this->db->set('Id',"'".$EstablishmentId."'",FALSE);
             $this->db->set('CreatedById',"'".$this->session->userdata('userid')."'",FALSE);
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);    
-            
+            $this->db->set('ModifiedAt','CURRENT_TIMESTAMP',FALSE);
+            $this->db->set('CreatedAt','CURRENT_TIMESTAMP',FALSE);
             $UserId = $this->uuid->v4();
                
             $this->db->insert($this->tbl,$data);
@@ -110,8 +117,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function Update($id, $data) {
 
-            $data['SpokenLanguage'] = json_encode($data['SpokenLanguage']);
-            $data['DressCode'] = json_encode($data['DressCode']);
+              if (!empty($data["DressCode"])) {
+         $this->db->set('DressCode',"'".json_encode($data["DressCode"])."'",FALSE);
+         unset($data["DressCode"]);  
+        }
+        if (!empty($data["SpokenLanguage"])) {
+             $this->db->set('SpokenLanguage',"'".json_encode($data["SpokenLanguage"])."'",FALSE);
+             unset($data["SpokenLanguage"]);   
+        }
 
 
             $this->db->set('ModifiedById',"'".$this->session->userdata('userid')."'",FALSE);
