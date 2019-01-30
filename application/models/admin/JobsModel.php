@@ -136,7 +136,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						$aid = $rec_mobile[0]['Id'];
 						// die($aid);
 						$smsnotif = $this->getRecipientsMobile($aid);	
-						// $data2 = $this->email->SentJobAlert($smsnotif[0]['MobileNum'],$jobtitle,$data['id']);					
+						$data2 = $this->email->SentJobAlert($smsnotif[0]['MobileNum'],$jobtitle,$data['id']);					
 					}
 	
 					

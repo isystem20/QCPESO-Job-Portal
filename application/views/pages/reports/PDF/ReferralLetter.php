@@ -84,6 +84,10 @@ $pdf->AddPage();
 // set text shadow effect
 // $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
+
+ob_start();
+
+
 // Set some content to print
 $requestorfirst = '';
 $requestorlast = '';
@@ -118,7 +122,7 @@ if ($refer->num_rows() > 0) {
     }
 
 
-        }
+}
     
 $html = '
 
@@ -134,7 +138,10 @@ $html = '
 '.$companyaddress.'
 </p>
 ';
-$html.= '
+
+$pdf->writeHTML($html, true, false, true, false, '');
+
+$html = '
 <p>Dear Sir/Madam;</p>
 <br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -177,7 +184,9 @@ Code ID:6
 </p>
 ';
 
-$html.= '
+$pdf->writeHTML($html, true, false, true, false, '');
+
+$html = '
 <p>*********************************************************************************************************************************</p>
 <p><b>MISSION:</b> To facilitate equal employment opportunities to City constituents thru Job Matching and Coaching employability enhancement and referrals for livelihood training and promotion of industrial peace thru tripartism.
 </p>
@@ -185,7 +194,13 @@ $html.= '
 </p>
 <p>*********************************************************************************************************************************</p>
 ';
-$html.= '
+
+
+$pdf->writeHTML($html, true, false, true, false, '');
+
+
+
+$html = '
 <p align="center">
 <b>Return Slip</b>
 </p>
@@ -202,8 +217,16 @@ Action Taken:</p>
 <p align="right">Name of the Interviewer/HR Officer </p>
 ';
 
-// Print text using writeHTMLCell()
-$pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
+
+$pdf->writeHTML($html, true, false, true, false, '');
+
+
+
+
+$pdf->lastPage();
+
+// ---------------------------------------------------------
+ob_end_flush();
 
 // ---------------------------------------------------------
 
