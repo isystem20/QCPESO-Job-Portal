@@ -57,6 +57,9 @@
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/wizard/steps.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
 
+      <!-- Google map css -->
+    <link href="<?php echo base_url(); ?>themes/admin-pro/minimal/css/pages/google-vector-map.css" rel="stylesheet">
+
     
     <?php
     if (!empty($datepicker)) { ?>

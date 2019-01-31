@@ -34,7 +34,7 @@
                 <!-- ============================================================== -->
 
 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="card bg-info">
                             <div class="card-body">
                                 <div class="d-flex no-block">
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="card bg-success">
                             <div class="card-body">
                                 <div class="d-flex no-block">
@@ -105,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="card bg-primary">
                             <div class="card-body">
                                 <div class="d-flex no-block">
@@ -149,11 +149,11 @@
                 <div class="row">
                     
                       
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-5 col-md-6">
                         <div class="card">
                             
                             <div class="card-body">
-                                <h3 class="font-normal"><span class="lstick"></span>Jobs Pending</h3>
+                                <h4 class="font-normal"><span class="lstick"></span>Jobs Pending</h4>
                                 <table class="table vm font-14 m-b-0">
                                     <tr>
                                         <td class="m-b-0 m-t-20">
@@ -190,7 +190,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-12">
+                    <div class="col-lg-7 col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex no-block">

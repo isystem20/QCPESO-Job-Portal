@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6 m-auto ">
 
-                       <br><br>   <br><br>
+                       <br><br><br><br>
 
                             <div class="m-b-20">
                                 <h6>Sign into your account</h6> 
@@ -28,7 +28,7 @@
                             </div>
                             
                             <div class="m-b-20">
-                              <div class="g-signin2" data-onsuccess="onSignIn" data-width=""></div>
+                              <div class="g-signin2" data-onsuccess="onSignIn" data-width="100%" data-height=""></div>
                   <a href="#" class="grey-text text-darken-1" onclick="signOut();"> Logout</a>
 
                             </div>

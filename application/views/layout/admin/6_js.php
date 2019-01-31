@@ -67,7 +67,10 @@ $('#to-recover').on("click", function() {
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/Chart.js/chartjs.init.js"></script>
     <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/Chart.js/Chart.min.js"></script>
 
-   
+   <!-- google maps api -->
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyBUb3jDWJQ28vDJhuQZxkC0NXr_zycm8D0&amp;sensor=true"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/gmaps/gmaps.min.js"></script>
+    <script src="<?php echo base_url(); ?>themes/admin-pro/assets/plugins/gmaps/jquery.gmaps.js"></script>
 <?php } ?>
 
 <?php  if (!empty($datepicker)) { ?>
