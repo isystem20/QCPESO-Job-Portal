@@ -16,7 +16,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->select(' estab.*, ej.*, ej.IsActive as ejStatus');
 			$this->db->from('tbl_establishments_jobposts ej');
 			$this->db->join('tbl_establishments estab', 'estab.Id = ej.EstablishmentId', 'left outer');
-
+			if ($this->session->userdata('usertype')=='EMPLOYER') {
+				$this->db->where('ej.EstablishmentId',$this->session->userdata('userid'));
+			}
 			if (!empty($id)) {
 				$this->db->where('ej.Id',$id);
 				return $this->db->get()->result();
