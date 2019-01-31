@@ -289,8 +289,8 @@
                 // print_r ($data['refer']->result_array()) ;
                 // die();
                 // $this->load->library('Dompdf6');
-                $this->load->library('pdf_lib');
-                $this->load->view("pages/reports/PDF/Test",$data);
+                $this->load->library('Pdf');
+                $this->load->view("pages/reports/PDF/ReferralLetter",$data);
               
                // $refer
 
